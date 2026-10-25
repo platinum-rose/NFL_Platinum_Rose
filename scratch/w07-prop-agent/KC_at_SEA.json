@@ -1,0 +1,1113 @@
+{
+ "game": "KC@SEA",
+ "kickoff": "Sun 10/25 17:20 PT (SNF, Lumen Field outdoors)",
+ "best_leg": {
+  "player": "Sam Darnold",
+  "team": "SEA",
+  "market": "pass_int",
+  "line": "0.5",
+  "side": "Over",
+  "best_price": -130,
+  "book": "BEO",
+  "p_hit": 0.65,
+  "fair_odds": "-186",
+  "edge": 0.15,
+  "confidence": "A-",
+  "evidence": [
+   {
+    "text": "INT in 4/4 starts (2,1,2,2): 7 INT, INT% 4.7%, INTW 4.7%",
+    "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+   },
+   {
+    "text": "KC def 5 INT in 5 g, 9 takeaways, INTW% 3.2%, blitz 26.5%; Darnold -0.795 EPA/DB under pressure",
+    "source": "data/generated/team-dossiers/2026-w07/KC.md"
+   },
+   {
+    "text": "narrative price was -115; BEO now -130",
+    "source": "reports/intel/master-intel-narratives-2026-w07.md"
+   }
+  ],
+  "counter": "KC pass rush only 1.0-1.4 sacks/g (SK% 3.4%); Darnold had 10 days to prep",
+  "tags": {
+   "script": "SEA chasing / Darnold under pressure",
+   "correlates_with": [
+    "KC +3",
+    "KC defender INT",
+    "Darnold pass TD Under"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true,
+  "note": "BKR SGP rejects INT legs; BEO only (max 2 props/game)"
+ },
+ "best_non_td_leg": {
+  "player": "Jaxon Smith-Njigba",
+  "team": "SEA",
+  "market": "rec_yds",
+  "line": "82.5",
+  "side": "Over",
+  "best_price": -192,
+  "book": "BKR",
+  "p_hit": 0.75,
+  "fair_odds": "-300",
+  "edge": 0.141,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "83+ in 5/6 (122,155,128,76,102,134); 6-16 targets, 27% share",
+    "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+   },
+   {
+    "text": "KC def OPEN% 67.6%; Sneed Q",
+    "source": "data/generated/team-dossiers/2026-w07/KC.md"
+   }
+  ],
+  "counter": "KC #4 defense; Darnold turnovers end drives",
+  "tags": {
+   "script": "SEA whole pass offense",
+   "correlates_with": [
+    "Darnold yds"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "best_contrarian_leg": {
+  "player": "Patrick Mahomes",
+  "team": "KC",
+  "market": "pass_td",
+  "line": "1.5",
+  "side": "Over",
+  "best_price": 152,
+  "book": "BKR",
+  "p_hit": 0.45,
+  "fair_odds": "+122",
+  "edge": 0.134,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "2+ pass TD in 4/5 per dossier (pack has 3/4: 3,2,2,0)",
+    "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+   },
+   {
+    "text": "Rice OUT funnels to Kelce/Worthy; SEA allowed 8 pass TD in 6",
+    "source": "data/generated/team-dossiers/2026-w07/SEA.md"
+   },
+   {
+    "text": "BEO +150, BKR +152",
+    "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+   }
+  ],
+  "counter": "SEA #2 defense (EPA/DB -0.100, DVOA -15.1%); both KC LTs out; Walker vultures RZ",
+  "tags": {
+   "script": "KC scores through the air in a 20-17 game",
+   "correlates_with": [
+    "Kelce yds",
+    "Worthy"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Patrick Mahomes",
+    "team": "KC",
+    "market": "pass_td",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": 152,
+    "book": "BKR",
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": 0.134,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "2+ pass TD in 4/5 per dossier (pack has 3/4: 3,2,2,0)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     },
+     {
+      "text": "Rice OUT funnels to Kelce/Worthy; SEA allowed 8 pass TD in 6",
+      "source": "data/generated/team-dossiers/2026-w07/SEA.md"
+     },
+     {
+      "text": "BEO +150, BKR +152",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "SEA #2 defense (EPA/DB -0.100, DVOA -15.1%); both KC LTs out; Walker vultures RZ",
+    "tags": {
+     "script": "KC scores through the air in a 20-17 game",
+     "correlates_with": [
+      "Kelce yds",
+      "Worthy"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Sam Darnold",
+    "team": "SEA",
+    "market": "pass_td",
+    "line": "1.5",
+    "side": "Under",
+    "best_price": -148,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.039,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Darnold TD 4/2/1/0 in starts, 1 or fewer in 2 of last 3",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "KC allows 0.8 pass TD/g (4 in 5)",
+      "source": "data/generated/team-dossiers/2026-w07/KC.md"
+     }
+    ],
+    "counter": "JSN can score multiple; SEA RZ 57%",
+    "tags": {
+     "script": "low total, SEA run/FG",
+     "correlates_with": [
+      "Darnold INT",
+      "Over 3.5 FGs"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Sam Darnold",
+    "team": "SEA",
+    "market": "pass_cmp",
+    "line": "17.5",
+    "side": "Over",
+    "best_price": -301,
+    "book": "BKR",
+    "p_hit": 0.72,
+    "fair_odds": "-257",
+    "edge": -0.041,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "18+ completions in 3/4 starts (31,13,18,27)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Price 75%",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Sam Darnold",
+    "team": "SEA",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": -130,
+    "book": "BEO",
+    "p_hit": 0.65,
+    "fair_odds": "-186",
+    "edge": 0.15,
+    "confidence": "A-",
+    "evidence": [
+     {
+      "text": "INT in 4/4 starts (2,1,2,2): 7 INT, INT% 4.7%, INTW 4.7%",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "KC def 5 INT in 5 g, 9 takeaways, INTW% 3.2%, blitz 26.5%; Darnold -0.795 EPA/DB under pressure",
+      "source": "data/generated/team-dossiers/2026-w07/KC.md"
+     },
+     {
+      "text": "narrative price was -115; BEO now -130",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "KC pass rush only 1.0-1.4 sacks/g (SK% 3.4%); Darnold had 10 days to prep",
+    "tags": {
+     "script": "SEA chasing / Darnold under pressure",
+     "correlates_with": [
+      "KC +3",
+      "KC defender INT",
+      "Darnold pass TD Under"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true,
+    "note": "BKR SGP rejects INT legs; BEO only (max 2 props/game)"
+   },
+   {
+    "player": "Patrick Mahomes",
+    "team": "KC",
+    "market": "sacks_taken",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Both KC LTs out (Simmons IR, Moore OUT concussion)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-sides.md"
+     },
+     {
+      "text": "SEA def 2.67 sacks/g, SK% 7.5%, PRESS% 36%; Mahomes sacked 2,0,2,0",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Mahomes TTT 2.41 and scramble ability; KC sack rate allowed 3.7%",
+    "tags": {
+     "script": "SEA rush vs backup LT",
+     "correlates_with": [
+      "SEA edge sacks",
+      "Mahomes rush"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no sacks market; price at Bovada"
+   },
+   {
+    "player": "Sam Darnold",
+    "team": "SEA",
+    "market": "sacks_taken",
+    "line": "2.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacked 3,5,5 in last three starts; SEA SK% allowed 7.2%, 8.3% Darnold",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "KC def only 3.4% SK% (1.0 sacks/g in pack)",
+    "tags": {
+     "script": "KC blitz",
+     "correlates_with": [
+      "Darnold INT",
+      "Karlaftis sack"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no market"
+   },
+   {
+    "player": "Patrick Mahomes",
+    "team": "KC",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": -125,
+    "book": "BEO",
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": -0.19,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/4; SEA INTW 4.4%, 7 INT in 6",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Mahomes INT% 1.9%",
+    "tags": {
+     "script": "pressure from backup LT side",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "rb": [
+   {
+    "player": "Kenneth Walker III",
+    "team": "KC",
+    "market": "carries",
+    "line": "17.5",
+    "side": "Over",
+    "best_price": -171,
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.109,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "18+ carries in 5/5 (23,24,18,22,19 per props; pack 24,18,22,19)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     },
+     {
+      "text": "KC neutral pass rate 0.531 (run-lean); Rice OUT; backup LT favors run",
+      "source": "data/generated/team-dossiers/2026-w07/KC.md"
+     }
+    ],
+    "counter": "SEA run D DVOA -28.6% could force KC to pass; trailing script",
+    "tags": {
+     "script": "KC ball control",
+     "correlates_with": [
+      "Walker ATD",
+      "Under"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Emanuel Wilson",
+    "team": "SEA",
+    "market": "rush_yds",
+    "line": "41.5",
+    "side": "Over",
+    "best_price": -223,
+    "book": "BKR",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": -0.044,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "42+ in 4/4 starts (92,81,61,52); Charbonnet OUT",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "KC run D 89 yds/g allowed, 3 rush TD",
+    "tags": {
+     "script": "SEA lead",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kenneth Walker III",
+    "team": "KC",
+    "market": "rush_yds",
+    "line": "67.5",
+    "side": "Over",
+    "best_price": -204,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": -0.106,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "68+ in 4/4 in pack (117,70,177,128)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "SEA allows 96 rush yds/g, #2 defense",
+      "source": "data/generated/team-dossiers/2026-w07/SEA.md"
+     }
+    ],
+    "counter": "Elite run D",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Walker carries"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "Jaxon Smith-Njigba",
+    "team": "SEA",
+    "market": "rec_yds",
+    "line": "82.5",
+    "side": "Over",
+    "best_price": -192,
+    "book": "BKR",
+    "p_hit": 0.75,
+    "fair_odds": "-300",
+    "edge": 0.141,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "83+ in 5/6 (122,155,128,76,102,134); 6-16 targets, 27% share",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "KC def OPEN% 67.6%; Sneed Q",
+      "source": "data/generated/team-dossiers/2026-w07/KC.md"
+     }
+    ],
+    "counter": "KC #4 defense; Darnold turnovers end drives",
+    "tags": {
+     "script": "SEA whole pass offense",
+     "correlates_with": [
+      "Darnold yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jaxon Smith-Njigba",
+    "team": "SEA",
+    "market": "rec",
+    "line": "7.5",
+    "side": "Over",
+    "best_price": 126,
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": 0.13,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "8+ rec in 4/6 (8,9,10,5,5,12); SEA is expected winner (-3)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Two straight 5-catch games before DEN",
+    "tags": {
+     "script": "SEA expected winner",
+     "correlates_with": [
+      "JSN yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Xavier Worthy",
+    "team": "KC",
+    "market": "rec_yds",
+    "line": "38.5",
+    "side": "Over",
+    "best_price": -229,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.21,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "39+ in 2/4 (25,20,70,73), 7 targets last two",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Rice OUT raises volume but SEA OPEN% 54%",
+    "tags": {
+     "script": "Rice out",
+     "correlates_with": [
+      "Mahomes TD"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "te": [
+   {
+    "player": "Travis Kelce",
+    "team": "KC",
+    "market": "rec_yds",
+    "line": "34.5",
+    "side": "Over",
+    "best_price": -246,
+    "book": "BKR",
+    "p_hit": 0.74,
+    "fair_odds": "-285",
+    "edge": 0.041,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "35+ in 4/5 (71,101,59,15,53 per props)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     },
+     {
+      "text": "Rice OUT; Emmanwori Q (slot/seam)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-sides.md"
+     }
+    ],
+    "counter": "Price 71%; ankle (no designation Fri)",
+    "tags": {
+     "script": "Rice out",
+     "correlates_with": [
+      "Mahomes TD"
+     ],
+     "availability_risk": "ankle, no designation",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Travis Kelce",
+    "team": "KC",
+    "market": "rec_yds",
+    "line": "54.5",
+    "side": "Over",
+    "best_price": 129,
+    "book": "BKR",
+    "p_hit": 0.42,
+    "fair_odds": "+138",
+    "edge": -0.038,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "55+ in 3/5",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Mahomes TD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "AJ Barner",
+    "team": "SEA",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 233,
+    "book": "BKR",
+    "p_hit": 0.24,
+    "fair_odds": "+317",
+    "edge": -0.201,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Arroyo OUT -> short-yardage role; 1 rush TD",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "DKP 25%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "0 receiving TD",
+    "tags": {
+     "script": "SEA goal line",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "KC/SEA",
+    "team": "both",
+    "market": "game_fg_total",
+    "line": "3.5",
+    "side": "Over",
+    "best_price": -102,
+    "book": "BKR",
+    "p_hit": 0.53,
+    "fair_odds": "-113",
+    "edge": 0.05,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "KC 2.25 + SEA 2.0 FG/g; two top-4 defenses, total 42",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "RZ TD only 56.5% (KC) / 57.1% (SEA); Myers 5 FG vs SF; outdoors, light wind forecast",
+      "source": "data/generated/team-dossiers/2026-w07/SEA.md"
+     }
+    ],
+    "counter": "Turnovers (Darnold) shorten drives; BEO -130 (shop BKR)",
+    "tags": {
+     "script": "red-zone stalls in a 20-17 game",
+     "correlates_with": [
+      "Darnold TD Under",
+      "Under 42"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kansas City Chiefs (Harrison Butker)",
+    "team": "KC",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": -130,
+    "book": "BEO",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.027,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "KC 2+ FG in 2/4 in pack (4,1,1,3); SEA allows 18.3 PPG but RZ stingy",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "KC stalls vs SEA D",
+     "correlates_with": [
+      "Game FG Over 3.5"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Seattle Seahawks (Jason Myers)",
+    "team": "SEA",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": -140,
+    "book": "BEO",
+    "p_hit": 0.53,
+    "fair_odds": "-113",
+    "edge": -0.091,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "SEA 2+ FG in 3/6 (2,1,1,1,5,2)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "none"
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Ernest Jones IV",
+    "team": "SEA",
+    "market": "tackles_ast",
+    "line": "8.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "9+ in 4/6 (13,8,8,12,9,9)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "Drake Thomas OUT -> more LB tackles; Walker 18-24 carries",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-sides.md"
+     }
+    ],
+    "counter": "KC pass-heavy if trailing",
+    "tags": {
+     "script": "Walker volume",
+     "correlates_with": [
+      "Walker carries"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Nick Bolton",
+    "team": "KC",
+    "market": "tackles_ast",
+    "line": "8.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.65,
+    "fair_odds": "-186",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "9+ in 4/5 (4,13,11,9,11 per props; pack 13,11,9,11)",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     },
+     {
+      "text": "Wilson ~20 carries",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "SEA run",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Drue Tranquill",
+    "team": "KC",
+    "market": "tackles_ast",
+    "line": "6.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "7+ in 4/4 (8,7,7,7)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "George Karlaftis",
+    "team": "KC",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": null,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "9 QB hits in last 2 (6,3); sack vs LAC",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "Darnold sack rate 8.3%, sacked 3,5,5 last three; SEA SK% allowed 7.2%",
+      "source": "data/generated/team-dossiers/2026-w07/SEA.md"
+     }
+    ],
+    "counter": "KC team SK% 3.4%",
+    "tags": {
+     "script": "Darnold holds the ball (TTT 2.82)",
+     "correlates_with": [
+      "Darnold INT",
+      "Darnold sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Leonard Williams",
+    "team": "SEA",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "sack in 3/6 (1,1,1,0,0,0)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "KC without both LTs",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "Interior, not facing LT; Mahomes elusive",
+    "tags": {
+     "script": "SEA rush",
+     "correlates_with": [
+      "Mahomes sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Derick Hall",
+    "team": "SEA",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.34,
+    "fair_odds": "+194",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "sack in 2/6, 7 QB hits",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "vs backup LT",
+     "correlates_with": [
+      "Mahomes sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Kristian Fulton",
+    "team": "KC",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.12,
+    "fair_odds": "+733",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT vs IND; Darnold 7 INT in 4 starts",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "Darnold giveaway",
+     "correlates_with": [
+      "Darnold INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line ~+600"
+   },
+   {
+    "player": "Julian Love",
+    "team": "SEA",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.1,
+    "fair_odds": "+900",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/5",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     }
+    ],
+    "counter": "Mahomes INT% 1.9%",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected"
+   }
+  ],
+  "atd": [
+   {
+    "player": "Jaxon Smith-Njigba",
+    "team": "SEA",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 115,
+    "book": "BKR",
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": -0.032,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "TD in 4/6 (7 TD)",
+      "source": "scratch/w07-prop-packs/KC_at_SEA.json"
+     },
+     {
+      "text": "DKP 43%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "KC pass D allows 4 TD in 5",
+    "tags": {
+     "script": "SEA pass offense",
+     "correlates_with": [
+      "JSN yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kenneth Walker III",
+    "team": "KC",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": -135,
+    "book": "BEO",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.043,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 4/5 (props); DKP 54%",
+      "source": "reports/intel/games/2026-w07-game-KC_at_SEA-props.md"
+     }
+    ],
+    "counter": "SEA allows 4 rush TD in 6, rush DVOA -28.6%",
+    "tags": {
+     "script": "KC RZ",
+     "correlates_with": [
+      "Walker carries"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Travis Kelce",
+    "team": "KC",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 185,
+    "book": "BKR",
+    "p_hit": 0.3,
+    "fair_odds": "+233",
+    "edge": -0.145,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 2/5; DKP 30%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "Rice out",
+     "correlates_with": [
+      "Mahomes TD"
+     ],
+     "availability_risk": "ankle"
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Jaxon Smith-Njigba",
+    "team": "SEA",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 580,
+    "book": "BKR",
+    "p_hit": 0.13,
+    "fair_odds": "+669",
+    "edge": -0.116,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 13%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kenneth Walker III",
+    "team": "KC",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 421,
+    "book": "BKR",
+    "p_hit": 0.16,
+    "fair_odds": "+525",
+    "edge": -0.166,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 16%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Market SEA -3 / 42 (BKR), BEO 42.5.",
+  "Darnold INT O0.5 moved -115 -> -130 at BEO since the narrative; still +EV at p 0.65. BKR SGP rejects INT legs.",
+  "DATA: pack has only 4 KC games of box scores (dossier has 5; one Walker/Mahomes/Kelce game missing). Hit rates cite props.md where pack is short.",
+  "KC without Simmons (IR) and Jaylon Moore (OUT) at LT and Rashee Rice (OUT); SEA without Charbonnet, Drake Thomas, Arroyo. Shaheed Q.",
+  "All ATD/first-TD candidates price at or below DKP fair \u2014 no TD edge in this game.",
+  "Defenders/kickers verified via espn-full-rosters-latest.json."
+ ]
+}

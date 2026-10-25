@@ -66,7 +66,7 @@ art = use('article_review', 'data/research-intel/review/article-intel-review-lat
 ppi = use('props_intel', 'data/research-intel/review/player-props-intel-latest.json') or {}
 rv = use('roster_vet', f'data/generated/master-intel/w{WW}-roster-vet.json') or {}
 ftn = use('ftn_context', 'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json') or {}
-gl_path = latest(f'data/generated/props/bookmaker-gamelines-{D}-week{W}.raw.txt')
+gl_path = latest(f'data/generated/props/bookmaker-gamelines-{D}-week{W}.raw.txt') or latest(f'data/generated/props/bookmaker-gamelines-*-week{W}.raw.txt')
 src['bkr_gamelines'] = {'path': gl_path, 'mtime_utc': mtime(gl_path)} if gl_path else {'missing': True}
 qb_text = ''
 if a.qb_notes and os.path.exists(a.qb_notes):
@@ -188,8 +188,8 @@ for g in slate.get('games', []):
     # props boards (paths only; agent reads them)
     pa, ph = (nick.get(A) or A).lower(), (nick.get(H) or H).lower()
     def board(prefix):
-        f = latest(f'data/generated/props/{prefix}-{D}-{pa}-at-{ph}.json')
-        if not f: return {'path': None}
+        f = latest(f'data/generated/props/{prefix}-{D}-{pa}-at-{ph}.json') or latest(f'data/generated/props/{prefix}-*-{pa}-at-{ph}.json')
+        if not f: return {'path': None, 'row_count': 0}
         d = load(f) or {}
         return {'path': f, 'capturedAt': d.get('capturedAt'), 'row_count': len(d.get('rows') or []), 'summary': d.get('summary')}
     p['prop_boards'] = {'bookmaker': board('bookmaker-live'), 'draftkings_predictions_reference_only': board('draftkings-predictions-live'), 'betonline': board('betonline-live')}

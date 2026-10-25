@@ -1,0 +1,1126 @@
+{
+ "game": "LAR@LV",
+ "kickoff": "Sun 10/25 13:25 PT (Allegiant dome)",
+ "best_leg": {
+  "player": "Kirk Cousins",
+  "team": "LV",
+  "market": "pass_td",
+  "line": "1.5",
+  "side": "Over",
+  "best_price": 101,
+  "book": "BKR",
+  "p_hit": 0.56,
+  "fair_odds": "-127",
+  "edge": 0.126,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "2+ pass TD in 5/6 (3,3,3,2,1,2)",
+    "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+   },
+   {
+    "text": "Rams front gutted: Turner/Ford/Garrett IR, Landman OUT, McDuffie Q",
+    "source": "reports/intel/master-intel-narratives-2026-w07.md"
+   },
+   {
+    "text": "LV run game EPA/rush -0.248 forces pass; LV RZ TD 52%",
+    "source": "reports/intel/games/2026-w07-game-LAR_at_LV-sides.md"
+   }
+  ],
+  "counter": "LAR pass D has allowed only 8 pass TD in 6 (EPA/DB 0.020); LV RZ TD rate 52%",
+  "tags": {
+   "script": "LV trailing pass volume vs depleted Rams D",
+   "correlates_with": [
+    "Bowers yds/ATD",
+    "Tucker yds"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Ashton Jeanty",
+  "team": "LV",
+  "market": "rec_yds",
+  "line": "26.5",
+  "side": "Over",
+  "best_price": -116,
+  "book": "BKR",
+  "p_hit": 0.64,
+  "fair_odds": "-178",
+  "edge": 0.192,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "27+ rec yds in 5/6 (45,15,37,68,50,36); 3-6 rec every game",
+    "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+   },
+   {
+    "text": "Rams LB Nate Landman OUT; LV trailing script; LAR RB-pass coverage depends on LBs",
+    "source": "reports/intel/games/2026-w07-game-LAR_at_LV-sides.md"
+   }
+  ],
+  "counter": "No Under row posted so 26.5 may be the de-facto median; Mike Washington/Laube can steal passing downs",
+  "tags": {
+   "script": "LV trailing check-downs",
+   "correlates_with": [
+    "Cousins yds"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "best_contrarian_leg": {
+  "player": "Brock Bowers",
+  "team": "LV",
+  "market": "rec_yds",
+  "line": "80.5",
+  "side": "Over",
+  "best_price": 120,
+  "book": "BKR",
+  "p_hit": 0.52,
+  "fair_odds": "-108",
+  "edge": 0.144,
+  "confidence": "B-",
+  "evidence": [
+   {
+    "text": "81+ in 3/4 (116,86,110,70)",
+    "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+   }
+  ],
+  "counter": "Small sample",
+  "tags": {
+   "script": "LV trailing",
+   "correlates_with": [
+    "Cousins TD"
+   ],
+   "availability_risk": "Q"
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Kirk Cousins",
+    "team": "LV",
+    "market": "pass_td",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": 101,
+    "book": "BKR",
+    "p_hit": 0.56,
+    "fair_odds": "-127",
+    "edge": 0.126,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "2+ pass TD in 5/6 (3,3,3,2,1,2)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Rams front gutted: Turner/Ford/Garrett IR, Landman OUT, McDuffie Q",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     },
+     {
+      "text": "LV run game EPA/rush -0.248 forces pass; LV RZ TD 52%",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-sides.md"
+     }
+    ],
+    "counter": "LAR pass D has allowed only 8 pass TD in 6 (EPA/DB 0.020); LV RZ TD rate 52%",
+    "tags": {
+     "script": "LV trailing pass volume vs depleted Rams D",
+     "correlates_with": [
+      "Bowers yds/ATD",
+      "Tucker yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kirk Cousins",
+    "team": "LV",
+    "market": "pass_yds",
+    "line": "216.5",
+    "side": "Over",
+    "best_price": -200,
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.05,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "217+ in 5/6 (160,253,248,365,243,313)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LV trailing; Rams CB McDuffie Q",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "LAR allows ~174 pass yds/g; LAR 30 min TOP limits LV plays",
+    "tags": {
+     "script": "LV trailing",
+     "correlates_with": [
+      "Cousins TD"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kirk Cousins",
+    "team": "LV",
+    "market": "pass_cmp",
+    "line": "19.5",
+    "side": "Over",
+    "best_price": -253,
+    "book": "BKR",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": -0.079,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "20+ completions in 4/6 (21,19,22,31,19,23)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Two exact-19 misses; price 72%",
+    "tags": {
+     "script": "trailing",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Kirk Cousins",
+    "team": "LV",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 4/6 games (2,1,0,1,0,1); INT% 2.3%",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LAR def INTW% 6.0% (high), 0.83 def INT/g",
+      "source": "data/generated/team-dossiers/2026-w07/LAR.md"
+     }
+    ],
+    "counter": "Rams front gutted lowers pressure-induced INTs",
+    "tags": {
+     "script": "LV trailing forced throws",
+     "correlates_with": [
+      "Quentin Lake INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no INT market captured (BEO has no player rows for this game); price at Bovada"
+   },
+   {
+    "player": "Matthew Stafford",
+    "team": "LAR",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 4/6 (1,1,2,2,0,0); INTW 4.8%",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LV def INTW% 2.1%, Hezekiah Masses 3 INT; Nacua Q/Adams IR thins targets",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "Last two games 0 INT; LV takes few",
+    "tags": {
+     "script": "no-Nacua forced throws",
+     "correlates_with": [
+      "Masses INT"
+     ],
+     "availability_risk": "all Rams passing rows pulled"
+    },
+    "executable": false,
+    "note": "BKR pulled Rams passing rows"
+   },
+   {
+    "player": "Matthew Stafford",
+    "team": "LAR",
+    "market": "sacks_taken",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2+ sacks in 2/6 (0,1,4,1,1,3); LAR sack rate allowed 3.4%",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LV PRESS% 40.3%, SK% 6.8%, 2.5 def sacks/g; Kolton Miller (LV OT) irrelevant; LV DE Crosby 15 QB hits",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "Stafford TTT 2.55 and elite pocket feel",
+    "tags": {
+     "script": "LV pass rush",
+     "correlates_with": [
+      "Crosby sack"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no market"
+   }
+  ],
+  "rb": [
+   {
+    "player": "Ashton Jeanty",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "26.5",
+    "side": "Over",
+    "best_price": -116,
+    "book": "BKR",
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": 0.192,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "27+ rec yds in 5/6 (45,15,37,68,50,36); 3-6 rec every game",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Rams LB Nate Landman OUT; LV trailing script; LAR RB-pass coverage depends on LBs",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-sides.md"
+     }
+    ],
+    "counter": "No Under row posted so 26.5 may be the de-facto median; Mike Washington/Laube can steal passing downs",
+    "tags": {
+     "script": "LV trailing check-downs",
+     "correlates_with": [
+      "Cousins yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Ashton Jeanty",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "16.5",
+    "side": "Over",
+    "best_price": -267,
+    "book": "BKR",
+    "p_hit": 0.82,
+    "fair_odds": "-456",
+    "edge": 0.127,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "17+ in 5/6",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Price 73%; one 15-yd game",
+    "tags": {
+     "script": "LV trailing",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kyren Williams",
+    "team": "LAR",
+    "market": "rec",
+    "line": "3.5",
+    "side": "Over",
+    "best_price": -130,
+    "book": "BKR",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": -0.08,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "4+ rec in 3/6 (3,2,6,10,6,3); 7/13/8/6 targets in DEN-ARI",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Nacua OUT would raise RB targets; LV worst EPA vs RB passes (Sharp)",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "Only if Nacua OUT; 3/6",
+    "tags": {
+     "script": "Rams expected winner, no Nacua",
+     "correlates_with": [
+      "Higbee"
+     ],
+     "availability_risk": "Nacua-conditional"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kyren Williams",
+    "team": "LAR",
+    "market": "rush_yds",
+    "line": "58.5",
+    "side": "Over",
+    "best_price": -223,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": -0.102,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "59+ in 3/6 (41,85,88,80,49,50)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LV allows 134 rush yds/g",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "50% hit rate at 69% price",
+    "tags": {
+     "script": "Rams lead",
+     "correlates_with": [
+      "Kyren ATD"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "Tre Tucker",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "30.5",
+    "side": "Over",
+    "best_price": -234,
+    "book": "BKR",
+    "p_hit": 0.76,
+    "fair_odds": "-317",
+    "edge": 0.085,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "31+ in 5/6 (27,119,43,44,41,97)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "McDuffie (outside CB1) Q",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "Price 70%; boundary target share volatile",
+    "tags": {
+     "script": "LV trailing",
+     "correlates_with": [
+      "Cousins yds"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Tre Tucker",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "50.5",
+    "side": "Over",
+    "best_price": 121,
+    "book": "BKR",
+    "p_hit": 0.36,
+    "fair_odds": "+178",
+    "edge": -0.204,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "51+ in 2/6",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Low hit rate",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [
+      "Cousins TD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "te": [
+   {
+    "player": "Brock Bowers",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "60.5",
+    "side": "Over",
+    "best_price": -200,
+    "book": "BKR",
+    "p_hit": 0.76,
+    "fair_odds": "-317",
+    "edge": 0.14,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "61+ in 4/4 games played (116,86,110,70); 9-13 targets",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Landman OUT opens middle; alpha share 23-43%",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "Listed Q in dossier (full practice Thu); Mayer shares TE targets",
+    "tags": {
+     "script": "LV pass through TEs",
+     "correlates_with": [
+      "Cousins TD",
+      "Bowers ATD"
+     ],
+     "availability_risk": "Q - confirm at inactives",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Brock Bowers",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "80.5",
+    "side": "Over",
+    "best_price": 120,
+    "book": "BKR",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": 0.144,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "81+ in 3/4 (116,86,110,70)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Small sample",
+    "tags": {
+     "script": "LV trailing",
+     "correlates_with": [
+      "Cousins TD"
+     ],
+     "availability_risk": "Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Michael Mayer",
+    "team": "LV",
+    "market": "rec_yds",
+    "line": "20.5",
+    "side": "Over",
+    "best_price": -253,
+    "book": "BKR",
+    "p_hit": 0.72,
+    "fair_odds": "-257",
+    "edge": 0.005,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "21+ in 5/6 (32,23,32,82,2,95)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Bowers back cuts share; price 72%",
+    "tags": {
+     "script": "12 personnel",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "Las Vegas Raiders (Matt Gay)",
+    "team": "LV",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": -130,
+    "book": "BEO",
+    "p_hit": 0.63,
+    "fair_odds": "-170",
+    "edge": 0.115,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "LV 2+ FG in 4/6 (2,1,3,4,1,3); 2.33 FG/g; Gay 14/15, long 59",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "LV RZ TD 52%; LAR D allows 22 PPG, 4 rush TD; dome",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "Shootout script could turn FGs into TDs; LV trailing goes for 4th downs",
+    "tags": {
+     "script": "LV red-zone stalls",
+     "correlates_with": [
+      "Game FG total"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "LAR/LV",
+    "team": "both",
+    "market": "game_fg_total",
+    "line": "3.5",
+    "side": "Under",
+    "best_price": -126,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.04,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "LV 2.33 + LAR 1.0 FG/g ~3.3; LAR kicker carousel (Mevis 5/10, Grupe IR, McManus newly signed)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Correlates negatively with LV O1.5 FG; LV alone made 4 twice",
+    "tags": {
+     "script": "TD shootout",
+     "correlates_with": [],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Los Angeles Rams (Brandon McManus)",
+    "team": "LAR",
+    "market": "first_fg",
+    "line": "",
+    "side": "Rams",
+    "best_price": -121,
+    "book": "BKR",
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": -0.178,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "LAR 1.0 FG/g vs LV 2.33; new kicker",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Rams are 1Q favorite",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "new kicker"
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Quentin Lake",
+    "team": "LAR",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.76,
+    "fair_odds": "-317",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "6+ in 6/6 (10,7,6,6,6,7)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Landman (10-13 tackles last 3) OUT: tackles shift to Lake/Speights/Curl; LV 64.8 plays",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "Three hits were exactly 6",
+    "tags": {
+     "script": "LV short passing",
+     "correlates_with": [
+      "Jeanty rec yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market; projected line"
+   },
+   {
+    "player": "Nakobe Dean",
+    "team": "LV",
+    "market": "tackles_ast",
+    "line": "8.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "9+ in 4/6 (6,9,12,5,12,12)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Rams 68.5 plays/g, Kyren 10-16 carries; Quay Walker Q",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "Rams pass-first (65% dropback)",
+    "tags": {
+     "script": "Rams lead clock",
+     "correlates_with": [
+      "Kyren rush"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Omar Speights",
+    "team": "LAR",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "4-6 tackles most games (2,5,6,5,4,4); becomes LB1 with Landman OUT",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Role projection, not logs",
+    "tags": {
+     "script": "Landman out",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Jeremy Chinn",
+    "team": "LV",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "6+ in 3/6 (5,4,8,5,7,10)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "Maxx Crosby",
+    "team": "LV",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.33,
+    "fair_odds": "+203",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "15 QB hits in 6 g but full sack 1/6",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Stafford sack rate 3.4%",
+      "source": "data/generated/team-dossiers/2026-w07/LAR.md"
+     }
+    ],
+    "counter": "Low conversion of hits to sacks",
+    "tags": {
+     "script": "LV pressure",
+     "correlates_with": [
+      "Stafford sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Malcolm Koonce",
+    "team": "LV",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.3,
+    "fair_odds": "+233",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1+ sack in 2/5 (0,1.5,1,0.5,0)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Byron Young",
+    "team": "LAR",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.28,
+    "fair_odds": "+257",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "sack in 2/6 (1, 2.5); 8 QB hits",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "Cousins sacked 0 in 3/6; LAR DL gutted -> doubles on Young",
+      "source": "data/generated/team-dossiers/2026-w07/LV.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Quentin Lake",
+    "team": "LAR",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.13,
+    "fair_odds": "+669",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/6; Cousins INT in 4/6; LAR INTW 6%",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "LV trailing",
+     "correlates_with": [
+      "Cousins INT O0.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Hezekiah Masses",
+    "team": "LV",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.13,
+    "fair_odds": "+669",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "3 INT in 2 games (LAC 2, NO 1)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     }
+    ],
+    "counter": "Stafford 0 INT last 2",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Stafford INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "atd": [
+   {
+    "player": "Brock Bowers",
+    "team": "LV",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 122,
+    "book": "DKP",
+    "p_hit": 0.48,
+    "fair_odds": "+108",
+    "edge": 0.066,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "TD in 3/4 games played",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "DKP 45% (pre-fee); BKR +100 (Sat 1:26 PM, since pulled)",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "Q tag; Mayer RZ share",
+    "tags": {
+     "script": "LV pass TDs",
+     "correlates_with": [
+      "Cousins TD"
+     ],
+     "availability_risk": "Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Kyren Williams",
+    "team": "LAR",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": -138,
+    "book": "DKP",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.035,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "5 TD in 6 g, scored in 4/6; LV allowed 7 rush TD",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "DKP 58%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "BKR TD board pulled; Corum vulture",
+    "tags": {
+     "script": "Rams RZ",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Tre Tucker",
+    "team": "LV",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 355,
+    "book": "DKP",
+    "p_hit": 0.23,
+    "fair_odds": "+335",
+    "edge": 0.046,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 2/6 (3 TD)",
+      "source": "scratch/w07-prop-packs/LAR_at_LV.json"
+     },
+     {
+      "text": "DKP 22%; BKR +293 earlier (pulled)",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Colby Parkinson",
+    "team": "LAR",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 270,
+    "book": "DKP",
+    "p_hit": 0.25,
+    "fair_odds": "+300",
+    "edge": -0.075,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 TD in 5; Ferguson IR more 13 personnel",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "Nacua-conditional",
+    "tags": {
+     "script": "Nacua OUT",
+     "correlates_with": [],
+     "availability_risk": "Nacua"
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Kyren Williams",
+    "team": "LAR",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 488,
+    "book": "DKP",
+    "p_hit": 0.17,
+    "fair_odds": "+488",
+    "edge": -0.0,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 17%; Rams 1Q favorite",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "Rams score first",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Brock Bowers",
+    "team": "LV",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 900,
+    "book": "DKP",
+    "p_hit": 0.11,
+    "fair_odds": "+809",
+    "edge": 0.1,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 10%; BKR +629 earlier (pulled)",
+      "source": "reports/intel/games/2026-w07-game-LAR_at_LV-props.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Q"
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Market LAR -3 / 48 (BKR). Puka Nacua decision Sunday; BKR pulled all Rams passing/receiving/TD rows; BEO has no player props for this game.",
+  "Pack BKR board (6:46 PM) has NO anytime/first-TD rows for this game at all (props.md's Bowers +100 / Tucker +293 were 1:26 PM rows, since pulled). TD legs priced from DKP contract prices (pre-fee) \u2014 DKP american prices are converted from contract probability.",
+  "best_leg Cousins O1.5 TD is BKR only (same-game); for cross-game use price at Bovada/BEO when posted. best_non_td Jeanty O26.5 rec yds: no Under row was captured, so treat as possibly the median line.",
+  "LAR kicker: Grupe IR, Brandon McManus signed (ESPN roster LAR-PK). Harrison Mevis not on current roster.",
+  "Mike Washington Jr. Q (foot) \u2014 avoided. Landman OUT, McDuffie Q.",
+  "Defenders verified via espn-full-rosters-latest.json (roster-map-latest is offense-only)."
+ ]
+}

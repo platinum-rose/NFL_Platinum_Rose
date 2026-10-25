@@ -1,0 +1,1114 @@
+{
+  "game": "MIA@NYJ",
+  "generated": "2026-10-24 Stage-1 prop analyst",
+  "game_context": {
+    "spread": "NYJ -4 (BKR -108)",
+    "total": "39 (Under B)",
+    "projection": "NYJ 22-16",
+    "news": "Hall Q (Allen props only if Hall OUT); NYJ 0 RZ TDs 3 straight; Willis full go; MIA K Zane Gonzalez replaces Patterson"
+  },
+  "best_leg": {
+    "player": "NYJ team",
+    "team": "NYJ",
+    "market": "team_touchdowns",
+    "line": 2.5,
+    "side": "Under",
+    "best_price": "-150",
+    "book": "BEO",
+    "p_hit": 0.71,
+    "fair_odds": "-245",
+    "edge": 0.183,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "NYJ RZ TD% 0/0/0 in W4-W6 (zero RZ TDs three straight); season 0.375",
+        "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+      },
+      {
+        "text": "NYJ scores 23/17/24/12/17/19 -> 2 or fewer TDs in 5/6",
+        "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+      },
+      {
+        "text": "Narrative: drives end in field goals; U39 B",
+        "source": "reports/intel/master-intel-narratives-2026-w07.md"
+      }
+    ],
+    "counter": "MIA D is 29th in EPA and allows 26.4 PPG; Willis turnovers create short fields that become TDs.",
+    "tags": {
+      "script": "NYJ red-zone stalls",
+      "correlates_with": [
+        "Under 39",
+        "NYJ FG Over 1.5",
+        "Allen ATD fade"
+      ]
+    },
+    "executable": true,
+    "route": "BEO multi-game OK (team prop)"
+  },
+  "best_non_td_leg": {
+    "player": "Malik Washington",
+    "team": "MIA",
+    "market": "rec_yds",
+    "line": 29.5,
+    "side": "Over",
+    "best_price": "-246",
+    "book": "BKR",
+    "p_hit": 0.82,
+    "fair_odds": "-456",
+    "edge": 0.153,
+    "confidence": "A",
+    "evidence": [
+      {
+        "text": "Washington yds 53/43/56/67/43 -> 5/5 over 29.5; tgts 8/5/10/5/8",
+        "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+      },
+      {
+        "text": "MIA trailing script (has not led all season) -> pass volume",
+        "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+      }
+    ],
+    "counter": "Caleb Douglas returns and Dulcich/Bell take slot targets; Willis completes only 55.7%.",
+    "tags": {
+      "script": "MIA trailing pass volume",
+      "correlates_with": [
+        "Willis pass yds"
+      ]
+    },
+    "executable": true,
+    "barrier": "FLAG: shorter than -200"
+  },
+  "best_contrarian_leg": {
+    "player": "Kenyon Sadiq",
+    "team": "NYJ",
+    "market": "rec_yds",
+    "line": 18.5,
+    "side": "Under",
+    "best_price": "+102",
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.252,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Sadiq yds 21/17/105/0/3/12 -> 4/6 under 18.5",
+        "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+      },
+      {
+        "text": "Mason Taylor splitting TE work (24, 33 last 2)",
+        "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+      }
+    ],
+    "counter": "MIA allows slot/TE-middle boosts (secondary file).",
+    "tags": {},
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "Malik Willis",
+        "team": "MIA",
+        "market": "pass_td",
+        "line": 0.5,
+        "side": "Under",
+        "best_price": "+149",
+        "book": "BKR",
+        "p_hit": 0.48,
+        "fair_odds": "+108",
+        "edge": 0.195,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Willis 0 pass TD in 3/5 (2 TD/131 att, 1.5%)",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "MIA offense TDs: 2 pass, 5 rush; NYJ D EPA #5",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-props.md"
+          }
+        ],
+        "counter": "Garbage time; 16.4% explosive-pass rate, aDOT 10.2.",
+        "tags": {
+          "script": "MIA trailing, scramble TDs",
+          "correlates_with": [
+            "Under 39",
+            "NYJ TD Under"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Malik Willis",
+        "team": "MIA",
+        "market": "pass_cmp",
+        "line": 16.5,
+        "side": "Under",
+        "best_price": "-121",
+        "book": "BKR",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": 0.132,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Willis cmp 15/14/20/9/15 -> 4/5 under 16.5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ D CPOE allowed -4.97%",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          }
+        ],
+        "counter": "Trailing script -> 32+ attempts.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Geno Smith",
+        "team": "NYJ",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Under",
+        "best_price": "-129",
+        "book": "BKR",
+        "p_hit": 0.6,
+        "fair_odds": "-150",
+        "edge": 0.065,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Geno 2+ pass TD in 1/6 (0/1/3/1/1/1)",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "0 RZ TDs in 3 straight",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          }
+        ],
+        "counter": "MIA allowed 11 pass TD in 5 (34.8% pass DVOA).",
+        "tags": {
+          "correlates_with": [
+            "NYJ TD Under"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Geno Smith",
+        "team": "NYJ",
+        "market": "pass_cmp",
+        "line": 18.5,
+        "side": "Over",
+        "best_price": "-234",
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": -0.029,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Geno cmp 19/27/31/8/17/20 -> 4/6 over 18.5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "MIA allows 89.7% on <10-yd throws",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "Jets lead -> run; W4 8/15.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "Malik Willis",
+        "team": "MIA",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.74,
+        "fair_odds": "-285",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Willis sacks 5/4/0/2/3 -> 2+ in 4/5; sack rate 8.6%, QBSK% 28.6%",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ sack rate generated 8.1%, 2.83 def sacks/g (8 vs CLE)",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          }
+        ],
+        "counter": "NYJ DE Ossai OUT; Willis scrambles convert pressure into runs.",
+        "tags": {
+          "script": "MIA trailing dropbacks",
+          "correlates_with": [
+            "Bailey sack"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Geno Smith",
+        "team": "NYJ",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Under",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.75,
+        "fair_odds": "-300",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Geno INT in 1/6 games; INT% 0.6%, INTW 1.7%",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          },
+          {
+            "text": "MIA def INT 0.6/g, def INTW 1.4%",
+            "source": "data/generated/team-dossiers/2026-w07/MIA.md"
+          }
+        ],
+        "counter": "One tipped ball.",
+        "tags": {},
+        "executable": false
+      },
+      {
+        "player": "Geno Smith",
+        "team": "NYJ",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Geno sacks 0/4/5/3/4/3 -> 2+ in 5/6; NYJ sack rate allowed 9.2%; OT Max Mitchell OUT",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "MIA generates only 0.8 sacks/g (2.7%), DE Beal doubtful",
+            "source": "data/generated/team-dossiers/2026-w07/MIA.md"
+          }
+        ],
+        "counter": "MIA pass rush is the league's weakest.",
+        "tags": {},
+        "executable": false
+      },
+      {
+        "player": "Malik Willis",
+        "team": "MIA",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.42,
+        "fair_odds": "+138",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Willis INT in 3/5 (1/0/1/0/2), INTW 3.8%",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ def has 1 INT in 6 games",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "NYJ D does not take the ball away (0.17/g).",
+        "tags": {},
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Ollie Gordon II",
+        "team": "MIA",
+        "market": "rush_yds",
+        "line": 55.5,
+        "side": "Under",
+        "best_price": "-101",
+        "book": "BKR",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": 0.095,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Gordon yds 41/100/88 as lead back (Achane IR)",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ D EPA #5; MIA trailing reduces carries",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "Only rushing outlet; 100 vs MIN.",
+        "tags": {
+          "script": "MIA trailing"
+        },
+        "executable": true
+      },
+      {
+        "player": "Ollie Gordon II",
+        "team": "MIA",
+        "market": "carries",
+        "line": 14.5,
+        "side": "Under",
+        "best_price": "-114",
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": -0.061,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Carries 17/9/18 in lead role",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Coin flip.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "wr": [
+      {
+        "player": "Malik Washington",
+        "team": "MIA",
+        "market": "rec_yds",
+        "line": 29.5,
+        "side": "Over",
+        "best_price": "-246",
+        "book": "BKR",
+        "p_hit": 0.82,
+        "fair_odds": "-456",
+        "edge": 0.153,
+        "confidence": "A",
+        "evidence": [
+          {
+            "text": "Washington yds 53/43/56/67/43 -> 5/5 over 29.5; tgts 8/5/10/5/8",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "MIA trailing script (has not led all season) -> pass volume",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "Caleb Douglas returns and Dulcich/Bell take slot targets; Willis completes only 55.7%.",
+        "tags": {
+          "script": "MIA trailing pass volume",
+          "correlates_with": [
+            "Willis pass yds"
+          ]
+        },
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Malik Washington",
+        "team": "MIA",
+        "market": "rec_yds",
+        "line": 49.5,
+        "side": "Over",
+        "best_price": "+132",
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": 0.16,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "50+ in 3/5 (53/56/67); alt above 39.5 median",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Douglas return dilutes targets.",
+        "tags": {
+          "correlates_with": [
+            "Washington O29.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "market": "receptions",
+        "line": 4.5,
+        "side": "Over",
+        "best_price": "-301",
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": -0.041,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson rec 6/5/10/3/7/4 -> 4/6 over 4.5; expected winner",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "A. Mitchell/Cooper return; run-heavy lead.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "market": "rec_yds",
+        "line": 52.5,
+        "side": "Over",
+        "best_price": "-223",
+        "book": "BKR",
+        "p_hit": 0.66,
+        "fair_odds": "-194",
+        "edge": -0.044,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson yds 79/57/107/27/104/44 -> 4/6",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Same.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "te": [
+      {
+        "player": "Kenyon Sadiq",
+        "team": "NYJ",
+        "market": "rec_yds",
+        "line": 18.5,
+        "side": "Under",
+        "best_price": "+102",
+        "book": "BKR",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": 0.252,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Sadiq yds 21/17/105/0/3/12 -> 4/6 under 18.5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "Mason Taylor splitting TE work (24, 33 last 2)",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "MIA allows slot/TE-middle boosts (secondary file).",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Greg Dulcich",
+        "team": "MIA",
+        "market": "rec_yds",
+        "line": 11.5,
+        "side": "Over",
+        "best_price": "-310",
+        "book": "BKR",
+        "p_hit": 0.82,
+        "fair_odds": "-456",
+        "edge": 0.085,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Dulcich yds 18/17/55/37 -> 4/4 over 11.5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Heavy price; low volume TE.",
+        "tags": {
+          "script": "MIA trailing"
+        },
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "k": [
+      {
+        "player": "NYJ team",
+        "team": "NYJ",
+        "market": "team_touchdowns",
+        "line": 2.5,
+        "side": "Under",
+        "best_price": "-150",
+        "book": "BEO",
+        "p_hit": 0.71,
+        "fair_odds": "-245",
+        "edge": 0.183,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "NYJ RZ TD% 0/0/0 in W4-W6 (zero RZ TDs three straight); season 0.375",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          },
+          {
+            "text": "NYJ scores 23/17/24/12/17/19 -> 2 or fewer TDs in 5/6",
+            "source": "data/generated/team-dossiers/2026-w07/NYJ.md"
+          },
+          {
+            "text": "Narrative: drives end in field goals; U39 B",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md"
+          }
+        ],
+        "counter": "MIA D is 29th in EPA and allows 26.4 PPG; Willis turnovers create short fields that become TDs.",
+        "tags": {
+          "script": "NYJ red-zone stalls",
+          "correlates_with": [
+            "Under 39",
+            "NYJ FG Over 1.5",
+            "Allen ATD fade"
+          ]
+        },
+        "executable": true,
+        "route": "BEO multi-game OK (team prop)"
+      },
+      {
+        "player": "NYJ team",
+        "team": "NYJ",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-150",
+        "book": "BEO",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": 0.033,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Sanders FG 3/1/1/2/1/4 -> 2+ in 3/6; W4-W6 2/1/4 with 0 RZ TD",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ projected ~22 vs MIA D allowing 26.4 PPG; RZ TD 0.375",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          },
+          {
+            "text": "Sanders long 52/54 - range is not the issue; outdoors 64F, wind 5.5 km/h",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "W5 CLE: 0 RZ TD but only 1 FG (TDs came from outside RZ); NYJ 2.0 FG/g overall.",
+        "tags": {
+          "script": "NYJ red-zone stalls",
+          "correlates_with": [
+            "NYJ TD Under 2.5",
+            "Under 39"
+          ]
+        },
+        "executable": true,
+        "route": "BEO multi-game OK"
+      },
+      {
+        "player": "NYJ team",
+        "team": "NYJ",
+        "market": "FG in 2Q",
+        "line": null,
+        "side": "Yes",
+        "best_price": "-105",
+        "book": "BKR",
+        "p_hit": 0.49,
+        "fair_odds": "+104",
+        "edge": -0.043,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "NYJ \u03bb\u22482.1 FG, ~1/3 in 2Q; Jets 5-18 under Glenn at end of halves",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "Coin flip.",
+        "tags": {
+          "correlates_with": [
+            "NYJ FG Over"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "MIA/NYJ",
+        "team": "both",
+        "market": "total_field_goals",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": "+100",
+        "book": "BEO",
+        "p_hit": 0.48,
+        "fair_odds": "+108",
+        "edge": -0.04,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "MIA 1.4 FG/g (Patterson cut, Zane Gonzalez re-signed) + NYJ 2.0 -> \u03bb\u22483.6, P(4+)\u22480.48",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "BKR -102 same market",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "MIA rarely reaches FG range (1.48 pts/drive); new kicker.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "MIA team",
+        "team": "MIA",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Under",
+        "best_price": "-145",
+        "book": "BEO",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": -0.071,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "MIA FG 2/2/1/1/1 -> 1 or fewer in 3/5; MIA 14 PPG",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Under -145 overpriced vs 0.55.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Jacob Rodriguez",
+        "team": "MIA",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Rodriguez TOT 14/8/6/18/11 -> 4/5 over 7.5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "NYJ leads and runs (Allen 17-24 carries in lead role)",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-sides.md"
+          }
+        ],
+        "counter": "Hall return splits but still run volume.",
+        "tags": {
+          "script": "NYJ run-out"
+        },
+        "executable": false,
+        "projected_line": 7.5
+      },
+      {
+        "player": "Jordyn Brooks",
+        "team": "MIA",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Brooks TOT 9/3/10/13/8 -> 4/5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Q-listed earlier in week (feed).",
+        "tags": {},
+        "executable": false,
+        "projected_line": 7.5
+      },
+      {
+        "player": "Dane Belton",
+        "team": "NYJ",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.58,
+        "fair_odds": "-138",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Belton TOT 3/6/7/14/8/9 -> 4/6",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Safety volume swings.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 6.5
+      },
+      {
+        "player": "Jamien Sherwood",
+        "team": "NYJ",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Sherwood TOT 4/6/8/13/4/11 -> 3/6; 11 in W6",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "Props.md: first look if a tackles market posts",
+            "source": "reports/intel/games/2026-w07-game-MIA_at_NYJ-props.md"
+          }
+        ],
+        "counter": "MIA trailing -> passes, fewer LB tackles.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 6.5
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "David Bailey",
+        "team": "NYJ",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.47,
+        "fair_odds": "+113",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Bailey sacks 1/1/0/0/3/0 -> 3/6; QB hits 1/1/1/0/4/1",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "Willis sack rate 8.6%",
+            "source": "data/generated/team-dossiers/2026-w07/MIA.md"
+          }
+        ],
+        "counter": "Willis escapes; sacks spread across front.",
+        "tags": {
+          "correlates_with": [
+            "Willis sacks Over"
+          ]
+        },
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "Kingsley Enagbare",
+        "team": "NYJ",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.33,
+        "fair_odds": "+203",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Enagbare sacks 1/1/0/0/0 -> 2/5",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Rotational.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "Zach Sieler",
+        "team": "MIA",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.25,
+        "fair_odds": "+300",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Sieler 2 sacks in 1/5 games; MIA 0.8 sacks/g; NYJ OT Max Mitchell OUT",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Weak MIA rush.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Minkah Fitzpatrick",
+        "team": "NYJ",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.1,
+        "fair_odds": "+900",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "NYJ only INT this year is Fitzpatrick (CHI); Willis INT 0.8/g",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "NYJ 0.17 INT/g.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "Jacob Rodriguez",
+        "team": "MIA",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.06,
+        "fair_odds": "+1567",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "1 INT (KC); Geno INT% 0.6%",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "Very low base rate.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "atd": [
+      {
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+178",
+        "book": "DKP",
+        "p_hit": 0.36,
+        "fair_odds": "+178",
+        "edge": 0.001,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson TD in 3/6 games",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "DKP 36% +178 vs BKR +150",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "NYJ 0 RZ TDs in 3 straight.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Ollie Gordon II",
+        "team": "MIA",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+213",
+        "book": "DKP",
+        "p_hit": 0.33,
+        "fair_odds": "+203",
+        "edge": 0.033,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Gordon TD in 3/4 games; 5 of MIA's 7 TDs rushing",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "DKP 32% +213; BKR +188",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "NYJ D #5 EPA; MIA 14 PPG.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Malik Willis",
+        "team": "MIA",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+400",
+        "book": "DKP",
+        "p_hit": 0.22,
+        "fair_odds": "+355",
+        "edge": 0.1,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Willis rush TD 2/5 games; keeper/scramble",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "DKP 20% +400; BKR +337",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Thumb; Gordon gets GL carries.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Braelon Allen",
+        "team": "NYJ",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+113",
+        "book": "DKP",
+        "p_hit": 0.4,
+        "fair_odds": "+150",
+        "edge": -0.148,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "ONLY if Breece Hall inactive. Allen TD 2/6; NYJ 0 RZ TDs W4-W6 while Allen led the backfield",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          },
+          {
+            "text": "DKP 47% +113, BKR -126",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Allen 24-116 vs CLE; workhorse near goal line.",
+        "tags": {
+          "availability_risk": "Hall Q - void if Hall active"
+        },
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Ollie Gordon II",
+        "team": "MIA",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+900",
+        "book": "DKP",
+        "p_hit": 0.1,
+        "fair_odds": "+900",
+        "edge": 0.0,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "BKR +806 / DKP 10% +900",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "MIA has not led a game.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+809",
+        "book": "BKR",
+        "p_hit": 0.1,
+        "fair_odds": "+900",
+        "edge": -0.091,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "BKR +802 vs DKP +809",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Jets TDs scarce.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Braelon Allen",
+        "team": "NYJ",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+418",
+        "book": "BKR",
+        "p_hit": 0.14,
+        "fair_odds": "+614",
+        "edge": -0.275,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Only if Hall inactive; BKR +418",
+            "source": "scratch/w07-prop-packs/MIA_at_NYJ.json"
+          }
+        ],
+        "counter": "NYJ RZ stalls.",
+        "tags": {
+          "availability_risk": "Hall Q"
+        },
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "Kicking angle: the cleaner expression of NYJ red-zone stalls is NYJ team TDs Under 2.5 -150 BEO (p 0.71) rather than FG overs; NYJ FG Over 1.5 -150 BEO is only +3% edge because NYJ averaged 2.0 FG/g and W5 had 1 FG despite 0 RZ TDs. Total FGs O3.5 ~fair (MIA rarely in range, new kicker).",
+    "BKR now carries an ATD board for this game (29 rows) - props.md said none; DKP still has longer prices for Wilson/Gordon/Willis.",
+    "Braelon Allen legs are conditional on Hall inactive; data argue against Allen ATD even then (NYJ 0 RZ TDs while he led).",
+    "No QB INT/sack or IDP markets captured: executable:false.",
+    "MIA receptions overs excluded (expected loser); Washington yardage overs are allowed and fit the trailing script."
+  ]
+}

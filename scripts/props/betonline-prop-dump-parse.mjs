@@ -31,7 +31,7 @@ export const MARKET_PATTERNS = [
   ['pass_yds', /\bpassing yards$/i],
   ['pass_cmp', /\bcompletions$/i],
   ['pass_td', /\bpassing touchdowns$/i],
-  ['pass_int', /\binterceptions? thrown$/i],
+  ['pass_int', /\b(?:interceptions?|iterceptions?|intercepions?) thrown$/i], // BetOnline typo 'Iterceptions' seen 2026-10-24
   ['pass_att', /\bpassing attempts$/i],
   ['longest_completion', /\blongest completion$/i],
   ['rush_yds', /\brushing yards$/i],

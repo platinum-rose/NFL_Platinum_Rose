@@ -1,0 +1,1348 @@
+{
+  "game": "DEN@ARI",
+  "generated_at": "2026-10-24",
+  "agent": "stage1-per-game-analyst (PROP_STACK_AGENT v1)",
+  "best_leg": {
+    "player": "Jacoby Brissett",
+    "team": "ARI",
+    "market": "pass_cmp",
+    "line": 20.5,
+    "side": "Over",
+    "best_price": -229,
+    "book": "BKR",
+    "p_hit": 0.78,
+    "fair_odds": -355,
+    "edge": 0.121,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Brissett cmp 27,17,38,21,29,24: 5/6 over 20.5",
+        "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+      },
+      {
+        "text": "ARI dog, RB Love OUT; DEN opponents average 41.5 dropbacks/g",
+        "source": "reports/intel/games/2026-w07-game-DEN_at_ARI-props.md"
+      }
+    ],
+    "counter": "DEN pressure 34%/blitz 35.7% and 10 takeaways stall drives; close game means more ARI runs.",
+    "tags": {
+      "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+      "correlates_with": [
+        "McBride receptions",
+        "Brissett INT"
+      ],
+      "availability_risk": "low",
+      "flags": [
+        "FLAG_shorter_than_-200"
+      ]
+    },
+    "executable": true
+  },
+  "best_non_td_leg": {
+    "player": "Jacoby Brissett",
+    "team": "ARI",
+    "market": "pass_cmp",
+    "line": 20.5,
+    "side": "Over",
+    "best_price": -229,
+    "book": "BKR",
+    "p_hit": 0.78,
+    "fair_odds": -355,
+    "edge": 0.121,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Brissett cmp 27,17,38,21,29,24: 5/6 over 20.5",
+        "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+      },
+      {
+        "text": "ARI dog, RB Love OUT; DEN opponents average 41.5 dropbacks/g",
+        "source": "reports/intel/games/2026-w07-game-DEN_at_ARI-props.md"
+      }
+    ],
+    "counter": "DEN pressure 34%/blitz 35.7% and 10 takeaways stall drives; close game means more ARI runs.",
+    "tags": {
+      "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+      "correlates_with": [
+        "McBride receptions",
+        "Brissett INT"
+      ],
+      "availability_risk": "low",
+      "flags": [
+        "FLAG_shorter_than_-200"
+      ]
+    },
+    "executable": true
+  },
+  "best_contrarian_leg": {
+    "player": "Will Lutz",
+    "team": "DEN",
+    "market": "kicker_fantasy_pts",
+    "line": 8.5,
+    "side": "Under",
+    "best_price": 110,
+    "book": "BEO",
+    "p_hit": 0.58,
+    "fair_odds": -138,
+    "edge": 0.218,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Lutz kicking pts (FG x3 + XP) 8,2,6,11,5: 1/5 over 8.5; distance-scored est. 2/5",
+        "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+      },
+      {
+        "text": "DEN 1.6 FG/g, offense 27th EPA, 3&O 31%",
+        "source": "data/generated/team-dossiers/2026-w07/DEN.md"
+      }
+    ],
+    "counter": "Long FGs (50+) score 5 under ESPN scoring; DEN TT 23-24.",
+    "tags": {
+      "script": "DEN offense stalls short of FG range",
+      "correlates_with": [
+        "Under 43"
+      ],
+      "availability_risk": "low",
+      "flags": []
+    },
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "market": "pass_cmp",
+        "line": 20.5,
+        "side": "Over",
+        "best_price": -229,
+        "book": "BKR",
+        "p_hit": 0.78,
+        "fair_odds": -355,
+        "edge": 0.121,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Brissett cmp 27,17,38,21,29,24: 5/6 over 20.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "ARI dog, RB Love OUT; DEN opponents average 41.5 dropbacks/g",
+            "source": "reports/intel/games/2026-w07-game-DEN_at_ARI-props.md"
+          }
+        ],
+        "counter": "DEN pressure 34%/blitz 35.7% and 10 takeaways stall drives; close game means more ARI runs.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "McBride receptions",
+            "Brissett INT"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "market": "pass_cmp",
+        "line": 22.5,
+        "side": "Over",
+        "best_price": -117,
+        "book": "BKR",
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": 0.15,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "4/6 over 22.5; card B pick",
+            "source": "reports/intel/games/2026-w07-game-DEN_at_ARI-props.md"
+          }
+        ],
+        "counter": "Same as above; median line (Andy usually avoids).",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett cmp 20.5"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "median_line"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "market": "pass_yds",
+        "line": 205.5,
+        "side": "Over",
+        "best_price": -196,
+        "book": "BKR",
+        "p_hit": 0.64,
+        "fair_odds": -178,
+        "edge": -0.033,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Brissett yds 277,95,280,166,292,218: 4/6",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Short aDOT 6.8; DEN CBALL% 64.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett cmp"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Bo Nix",
+        "team": "DEN",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": 106,
+        "book": "BKR",
+        "p_hit": 0.42,
+        "fair_odds": 138,
+        "edge": -0.135,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Nix 1,2,1,1,0: 1/5 with 2+",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "ARI allowed 16 pass TD in 6 (worst pass D, DVOA +32.6%)",
+            "source": "data/generated/team-dossiers/2026-w07/ARI.md"
+          }
+        ],
+        "counter": "Nix aDOT 4.9; DEN scores on the ground in the red zone.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Waddle ATD"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Brissett INT in 4/6 games (6 INT); ARI 1.0 INT/g",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DEN def 1.2 INT/g (10 takeaways), INTW% 4.6 generated",
+            "source": "data/generated/team-dossiers/2026-w07/DEN.md"
+          }
+        ],
+        "counter": "Short, accurate game (CPOE +4.8); Hufanga (2 INT) OUT for DEN.",
+        "tags": {
+          "script": "ARI trailing dropbacks",
+          "correlates_with": [
+            "DEN DB INT",
+            "Brissett completions"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture / Bovada"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.64,
+        "fair_odds": -178,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Brissett sacked 1,2,2,2,5,0: 4/6 over 1.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DEN def 3.2 sacks/g, SK% 7.2, press 34%; ARI RG Gaines OUT, OT Wills Q",
+            "source": "data/generated/team-dossiers/2026-w07/DEN.md"
+          }
+        ],
+        "counter": "TTT 2.29 quick release.",
+        "tags": {
+          "script": "ARI trailing dropbacks",
+          "correlates_with": [
+            "Bonitto sack",
+            "Allen sack"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Bo Nix",
+        "team": "DEN",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.33,
+        "fair_odds": 203,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Nix INT in 2/5; ARI def 0.5 INT/g",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Checkdown-heavy offense.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Bo Nix",
+        "team": "DEN",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.3,
+        "fair_odds": 233,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Nix sacked 0,1,0,1,2 (0.8/g); ARI 2.17 def sacks/g",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Fade: SK% 3.4 allowed.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Bam Knight",
+        "team": "ARI",
+        "market": "carries",
+        "line": 9.5,
+        "side": "Over",
+        "best_price": -174,
+        "book": "BKR",
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": -0.055,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Knight 15 carries in LAR game; BKR ladder implies lead role with Love OUT",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Allgeier split; trailing script cuts runs.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "J.K. Dobbins",
+        "team": "DEN",
+        "market": "rush_yds",
+        "line": 36.5,
+        "side": "Over",
+        "best_price": -234,
+        "book": "BKR",
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": -0.115,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Dobbins 36,49,40,68,41: 4/5 over 36.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "Jonah Coleman activated from IR (10 car in W1)",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md"
+          }
+        ],
+        "counter": "Coleman steals carries in first game back.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Dobbins ATD"
+          ],
+          "availability_risk": "high",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "RJ Harvey",
+        "team": "DEN",
+        "market": "receptions",
+        "line": 2.5,
+        "side": "Over",
+        "best_price": -321,
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": -233,
+        "edge": -0.082,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Harvey rec 6,10,0,3: 3/4; Badie OUT; DEN expected winner",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Coleman activation thins RB snaps.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "high",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "wr": [
+      {
+        "player": "Kendrick Bourne",
+        "team": "ARI",
+        "market": "rec_yds",
+        "line": 24.5,
+        "side": "Over",
+        "best_price": -209,
+        "book": "BKR",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": -0.142,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Bourne 75,11,22,70,47: 3/5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Third option behind McBride/Wilson.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Michael Wilson",
+        "team": "ARI",
+        "market": "rec_yds",
+        "line": 38.5,
+        "side": "Over",
+        "best_price": -196,
+        "book": "BKR",
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": -0.154,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson 56,18,89,95,30,32: 3/6",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Volatile; DEN corners (Surtain Q).",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Jaylen Waddle",
+        "team": "DEN",
+        "market": "rec_yds",
+        "line": 40.5,
+        "side": "Over",
+        "best_price": -240,
+        "book": "BKR",
+        "p_hit": 0.4,
+        "fair_odds": 150,
+        "edge": -0.433,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Waddle 138,10,35,19,24: 1/5 over 40.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Nix aDOT 4.9 does not attack the worst pass D.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Waddle ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "te": [
+      {
+        "player": "Trey McBride",
+        "team": "ARI",
+        "market": "rec_yds",
+        "line": 51.5,
+        "side": "Over",
+        "best_price": -209,
+        "book": "BKR",
+        "p_hit": 0.65,
+        "fair_odds": -186,
+        "edge": -0.039,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "McBride yds 95,41,75,31,66,53: 4/6 over 51.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DEN S Hufanga OUT opens the middle",
+            "source": "reports/intel/games/2026-w07-game-DEN_at_ARI-props.md"
+          }
+        ],
+        "counter": "DEN can bracket a one-man passing game.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett completions",
+            "McBride ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Trey McBride",
+        "team": "ARI",
+        "market": "receptions",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": -147,
+        "book": "BKR",
+        "p_hit": 0.74,
+        "fair_odds": -285,
+        "edge": 0.243,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "McBride rec 9,8,9,7,9,7: 6/6 over 6.5; 28.5% target share",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Barrier: ARI is not the expected winner (receptions-over rule); listed for reference only.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett completions"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "BARRIER_receptions_over_not_expected_winner"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Trey McBride",
+        "team": "ARI",
+        "market": "receptions",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": 121,
+        "book": "BKR",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": 0.282,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "4/6 over 7.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Same rule barrier.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett completions"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "BARRIER_receptions_over_not_expected_winner"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "k": [
+      {
+        "player": "Will Lutz",
+        "team": "DEN",
+        "market": "kicker_fantasy_pts",
+        "line": 8.5,
+        "side": "Under",
+        "best_price": 110,
+        "book": "BEO",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": 0.218,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Lutz kicking pts (FG x3 + XP) 8,2,6,11,5: 1/5 over 8.5; distance-scored est. 2/5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DEN 1.6 FG/g, offense 27th EPA, 3&O 31%",
+            "source": "data/generated/team-dossiers/2026-w07/DEN.md"
+          }
+        ],
+        "counter": "Long FGs (50+) score 5 under ESPN scoring; DEN TT 23-24.",
+        "tags": {
+          "script": "DEN offense stalls short of FG range",
+          "correlates_with": [
+            "Under 43"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Chad Ryland",
+        "team": "ARI",
+        "market": "kicker_fantasy_pts",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": -115,
+        "book": "BEO",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": 0.084,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Ryland est. ESPN pts ~16,1,13,8,2,19: 4/6 over 7.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "ARI RZ TD 47.8% (lowest of the three games); DEN D 20.8 PA/g forces FGs",
+            "source": "data/generated/team-dossiers/2026-w07/ARI.md"
+          }
+        ],
+        "counter": "ARI 0-FG games vs SEA and DET.",
+        "tags": {
+          "script": "ARI red-zone stalls",
+          "correlates_with": [
+            "ARI FG Over 1.5"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "ARI (Chad Ryland)",
+        "team": "ARI",
+        "market": "team_fg_made",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": -125,
+        "book": "BEO",
+        "p_hit": 0.52,
+        "fair_odds": -108,
+        "edge": -0.064,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "ARI 2+ FG in 3/6 (4,0,3,1,0,6)",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Boom/bust distribution.",
+        "tags": {
+          "script": "ARI red-zone stalls",
+          "correlates_with": [
+            "Ryland pts"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "DEN/ARI kickers",
+        "team": "DEN/ARI",
+        "market": "total_fg_made",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": -105,
+        "book": "BEO",
+        "p_hit": 0.48,
+        "fair_odds": 108,
+        "edge": -0.063,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DEN 1.6 + ARI 2.33 = 3.9 FG/g; Poisson P(4+)~0.49",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Total 43; Under lean.",
+        "tags": {
+          "script": "Red-zone stalls",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Jack Gibbens",
+        "team": "ARI",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.66,
+        "fair_odds": -194,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Gibbens TOT 7,9,8,8,3,7: 5/6 over 6.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DEN rush% 41.3 with Dobbins/Coleman",
+            "source": "data/generated/team-dossiers/2026-w07/DEN.md"
+          }
+        ],
+        "counter": "DEN only 57.7 plays/g (lowest).",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Alex Singleton",
+        "team": "DEN",
+        "market": "tackles_assists",
+        "line": 8.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Singleton TOT 9,8,14,8,13: 3/5 over 8.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "ARI 67.3 plays/g, short middle game; Hufanga OUT",
+            "source": "data/generated/team-dossiers/2026-w07/ARI.md"
+          }
+        ],
+        "counter": "Strnad rotation; ARI three-and-outs.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Brissett completions"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Mack Wilson Sr.",
+        "team": "ARI",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson TOT 6,9,6,7,7,9: 4/6 over 6.5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Low DEN play count.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Brandon Jones",
+        "team": "DEN",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Jones TOT 5,12,9,4,8: 3/5; Hufanga OUT adds snaps",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Volatile.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "Nik Bonitto",
+        "team": "DEN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.38,
+        "fair_odds": 163,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Bonitto 1+ sack in 2/5 (+0.5 at SEA); 8 QB hits",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "Brissett sacked 2.0/g; ARI RG Gaines OUT",
+            "source": "data/generated/team-dossiers/2026-w07/ARI.md"
+          }
+        ],
+        "counter": "Brissett TTT 2.29.",
+        "tags": {
+          "script": "ARI trailing dropbacks",
+          "correlates_with": [
+            "Brissett sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Zach Allen",
+        "team": "DEN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.38,
+        "fair_odds": 163,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Allen 1+ sack in 2/5 (+0.5); 13 QB hits",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Interior; quick release.",
+        "tags": {
+          "script": "ARI trailing dropbacks",
+          "correlates_with": [
+            "Brissett sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Josh Sweat",
+        "team": "ARI",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.2,
+        "fair_odds": 400,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Sweat 1 sack in 2/5; Nix sacked 0.8/g",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "DEN SK% 3.4 allowed.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Brandon Jones",
+        "team": "DEN",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.17,
+        "fair_odds": 488,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Jones 1 INT; DEN 1.2 INT/g vs Brissett (6 INT)",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "INTs spread across 6 DEN DBs.",
+        "tags": {
+          "script": "Brissett INT",
+          "correlates_with": [
+            "Brissett INT"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Ja'Quan McMillian",
+        "team": "DEN",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.14,
+        "fair_odds": 614,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "McMillian 1 INT (SEA); slot vs short game",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {
+          "script": "Brissett INT",
+          "correlates_with": [
+            "Brissett INT"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Budda Baker",
+        "team": "ARI",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.08,
+        "fair_odds": 1150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Baker 1 INT; Nix 2 INT in 5",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Baker questionable.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "atd": [
+      {
+        "player": "Trey McBride",
+        "team": "ARI",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 150,
+        "book": "DKP",
+        "p_hit": 0.42,
+        "fair_odds": 138,
+        "edge": 0.05,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "McBride TD in 3/6 games",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DKP 40% (+150); BEO +140; BKR +123",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "ARI 12 offensive TD in 6.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "McBride rec yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Tyler Allgeier",
+        "team": "ARI",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 223,
+        "book": "DKP",
+        "p_hit": 0.3,
+        "fair_odds": 233,
+        "edge": -0.031,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Love OUT; Allgeier 1 TD; goal-line candidate",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DKP 31% (+223); BEO +200",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Knight split; ARI 3 rush TD.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "J.K. Dobbins",
+        "team": "DEN",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 144,
+        "book": "DKP",
+        "p_hit": 0.37,
+        "fair_odds": 170,
+        "edge": -0.097,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Dobbins TD in 2/5; DEN 5 rush TD",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          },
+          {
+            "text": "DKP 41% (+144); BEO +135",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Coleman activation (W1 TD).",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [
+            "Dobbins rush yds"
+          ],
+          "availability_risk": "high",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Jaylen Waddle",
+        "team": "DEN",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 213,
+        "book": "DKP",
+        "p_hit": 0.27,
+        "fair_odds": 270,
+        "edge": -0.155,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Waddle 1 TD in 5 vs worst pass D",
+            "source": "scratch/w07-prop-packs/DEN_at_ARI.json"
+          }
+        ],
+        "counter": "Low aDOT offense.",
+        "tags": {
+          "script": "Low-event DEN 22-19; ARI dog throws short (Love OUT), DEN D forces turnovers",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Trey McBride",
+        "team": "ARI",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 1011,
+        "book": "DKP",
+        "p_hit": 0.1,
+        "fair_odds": 900,
+        "edge": 0.111,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 9% (+1011); BKR +706",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "DEN likelier first scorer (1Q TT 5.5 vs 3.5).",
+        "tags": {
+          "script": "",
+          "correlates_with": [
+            "McBride ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "J.K. Dobbins",
+        "team": "DEN",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 669,
+        "book": "DKP",
+        "p_hit": 0.12,
+        "fair_odds": 733,
+        "edge": -0.077,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 13% (+669); BKR +521",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Coleman split.",
+        "tags": {
+          "script": "DEN scores first",
+          "correlates_with": [
+            "Dobbins ATD"
+          ],
+          "availability_risk": "high",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Tyler Allgeier",
+        "team": "ARI",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 1150,
+        "book": "DKP",
+        "p_hit": 0.07,
+        "fair_odds": 1329,
+        "edge": -0.125,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 8%; BKR +707",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Committee.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "Talanoa Hufanga is a DEN safety (espn-full-rosters), not ARI; he is OUT for DEN, which opens the middle for McBride. ARI OUT: Love, RG Gaines, FS Wingard, DT Nolen; Baker/Melton Q.",
+    "Jonah Coleman (DEN RB) activated from IR: high availability_risk on Dobbins/Harvey legs.",
+    "BEO posts ATD/targets/fantasy points and team FG totals; no BEO yardage/receptions. Kicker fantasy-point estimates use FG x3 + XP from ESPN logs, scoring rules not verified.",
+    "McBride receptions (6/6 over 6.5) carries the strongest log edge but breaks the receptions-over-only-for-expected-winner barrier; excluded from picks.",
+    "No INT/sack/IDP markets captured: Brissett INT Over 0.5 (p 0.62) is the top pressure angle but executable:false (price at slip/Bovada).",
+    "best_non_td_leg = best_leg (Brissett 21+ completions). Median O22.5 -117 is the card alternative."
+  ]
+}

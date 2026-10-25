@@ -621,6 +621,9 @@ def main(src):
                     for x in st.find_all(id=True):
                         x['id'] = 'pl-' + x['id']
                     new.append(st)
+                keep = [k for k in kill if getattr(k, 'get', None) and k.get('id') in ('props-by-position', 'td-menu')]   # card §7f / §7g (2026-10-24)
+                for k in keep:
+                    kill.remove(k); new.append(k.extract())
                 new.append(soup_of(SX.props_lab(XC)).div)
                 kill[0].insert_before(new)
                 for k in kill:

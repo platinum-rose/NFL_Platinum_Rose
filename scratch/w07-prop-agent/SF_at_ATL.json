@@ -1,0 +1,1141 @@
+{
+ "game": "SF@ATL",
+ "kickoff": "2026-10-25T17:00Z",
+ "as_of": "2026-10-24 PT (Stage-1 analyst)",
+ "best_leg": {
+  "player": "Game total field goals",
+  "team": "SF/ATL",
+  "market": "game_fg_total",
+  "line": 3.5,
+  "side": "Under",
+  "best_price": -135,
+  "book": "BEO",
+  "p_hit": 0.66,
+  "fair_odds": "-194",
+  "edge": 0.149,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "SF 1.0 + ATL 1.5 FGM/g = 2.5; SF RZ TD 85%, ATL 75%",
+    "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/SF.md"
+   },
+   {
+    "text": "Dome; BKR posts only Over 3.5 -105",
+    "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+   }
+  ],
+  "counter": "50.5 total and SF stall-outs on a short week could add kicks.",
+  "tags": {
+   "script": "RZ TD efficiency",
+   "correlates_with": [
+    "SF team FG U1.5"
+   ],
+   "availability_risk": null
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Brock Purdy",
+  "team": "SF",
+  "market": "pass_td",
+  "line": 1.5,
+  "side": "Over",
+  "best_price": -133,
+  "book": "BKR",
+  "p_hit": 0.66,
+  "fair_odds": "-194",
+  "edge": 0.156,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Pass TD 3,2,4,2,2,1 = 5/6 at 2+ (14 TD, 2.33/g)",
+    "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+   },
+   {
+    "text": "ATL allowed 10 pass TD; 28th pts/drive last 3 wks",
+    "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+   }
+  ],
+  "counter": "CMC takes RZ work (7 rush TD); SF may run with a lead.",
+  "tags": {
+   "script": "SF long drives, 85% RZ TD",
+   "correlates_with": [
+    "Kittle ATD",
+    "CMC rec"
+   ],
+   "availability_risk": null
+  },
+  "executable": true,
+  "flags": [
+   "median line; card B"
+  ]
+ },
+ "best_contrarian_leg": {
+  "player": "SF team field goals",
+  "team": "SF",
+  "market": "team_fg_total",
+  "line": 1.5,
+  "side": "Under",
+  "best_price": 130,
+  "book": "BEO",
+  "p_hit": 0.6,
+  "fair_odds": "-150",
+  "edge": 0.38,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Pineiro FGM 2,0,1,1,1,1 = 5/6 under 1.5 (FGA 3,0,1,2,2,1)",
+    "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+   },
+   {
+    "text": "SF RZ TD 0.85, 5.8 plays/drive",
+    "source": "data/generated/team-dossiers/2026-w07/SF.md / reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+   }
+  ],
+  "counter": "No Evans/Deebo + travel could stall drives in FG range.",
+  "tags": {
+   "script": "SF finishes drives",
+   "correlates_with": [
+    "Game FG U3.5"
+   ],
+   "availability_risk": null
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Brock Purdy",
+    "team": "SF",
+    "market": "pass_td",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": -133,
+    "book": "BKR",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": 0.156,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Pass TD 3,2,4,2,2,1 = 5/6 at 2+ (14 TD, 2.33/g)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "ATL allowed 10 pass TD; 28th pts/drive last 3 wks",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "CMC takes RZ work (7 rush TD); SF may run with a lead.",
+    "tags": {
+     "script": "SF long drives, 85% RZ TD",
+     "correlates_with": [
+      "Kittle ATD",
+      "CMC rec"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line; card B"
+    ]
+   },
+   {
+    "player": "Brock Purdy",
+    "team": "SF",
+    "market": "pass_cmp",
+    "line": 18.5,
+    "side": "Over",
+    "best_price": -234,
+    "book": "BKR",
+    "p_hit": 0.78,
+    "fair_odds": "-355",
+    "edge": 0.113,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Completions 25,20,15,19,19,21 = 5/6 over 18.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Run-heavy lead script (W3 15/27).",
+    "tags": {
+     "script": "SF control",
+     "correlates_with": [
+      "Purdy pass TD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   },
+   {
+    "player": "Michael Penix Jr.",
+    "team": "ATL",
+    "market": "pass_td",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": -140,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.029,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Pass TD 1,1,1,3 = 3/4 under",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "ATL run-first 49.4%; Bijan RZ carries",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "Trailing ATL throws late; Bosa out softens SF rush.",
+    "tags": {
+     "script": "ATL run-first",
+     "correlates_with": [
+      "Game FG U3.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Michael Penix Jr.",
+    "team": "ATL",
+    "market": "sacks_taken",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,1,3,5 in his 4 starts; ATL SK% 8.0%, EPA/DB under pressure -1.12",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/ATL.md"
+     },
+     {
+      "text": "OT Jerrell OUT, OT C. Williams Q",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-sides.md"
+     }
+    ],
+    "counter": "Bosa OUT; SF gen sack rate 6.6%.",
+    "tags": {
+     "script": "ATL trailing dropbacks",
+     "correlates_with": [
+      "Keion White sack"
+     ],
+     "availability_risk": "Bosa OUT (SF)"
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Brock Purdy",
+    "team": "SF",
+    "market": "sacks_taken",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.65,
+    "fair_odds": "-186",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,0,0,0,3,2 = 4/6 under 1.5; SF SK% 2.6%",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/SF.md"
+     }
+    ],
+    "counter": "Last two games 3 and 2 sacks with Evans gone.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Michael Penix Jr.",
+    "team": "ATL",
+    "market": "pass_int",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT 1,0,0,0 in 4 starts; Penix INTW 2.7% (team 5.8% includes Rush)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/ATL.md"
+     },
+     {
+      "text": "SF D INT 0.5/g; Renardo Green 3 INT",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Low INT rate since taking over.",
+    "tags": {
+     "script": "ATL trailing",
+     "correlates_with": [
+      "Renardo Green INT"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "rb": [
+   {
+    "player": "Kaelon Black",
+    "team": "SF",
+    "market": "rush_yds",
+    "line": 28.5,
+    "side": "Under",
+    "best_price": 102,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.212,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Rush yds 65,25,17,13,16,34 = 4/6 under 28.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "CMC 45.8% of carries; Kirk back irrelevant",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "SF lead = late garbage carries (W1 14-65).",
+    "tags": {
+     "script": "CMC workload",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Bijan Robinson",
+    "team": "ATL",
+    "market": "rush_yds",
+    "line": 88.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.117,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rush yds 83,72,194,145,86,61 = 4/6 under 88.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "SF rush D DVOA -23.2%, EPA/att -0.162",
+      "source": "data/generated/team-dossiers/2026-w07/SF.md"
+     }
+    ],
+    "counter": "Two 140+ games; one explosive (longs 55,59) beats it.",
+    "tags": {
+     "script": "ATL trailing reduces carries",
+     "correlates_with": [
+      "SF side"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Christian McCaffrey",
+    "team": "SF",
+    "market": "rush_yds",
+    "line": 46.5,
+    "side": "Over",
+    "best_price": -213,
+    "book": "BKR",
+    "p_hit": 0.75,
+    "fair_odds": "-300",
+    "edge": 0.102,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Rush yds 68,23,75,52,68,64 = 5/6 at 47+",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "ATL run D stuff 23.7%; short-week touch management.",
+    "tags": {
+     "script": "SF control",
+     "correlates_with": [
+      "CMC ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   }
+  ],
+  "wr": [
+   {
+    "player": "Brandin Cooks",
+    "team": "SF",
+    "market": "rec",
+    "line": 2.5,
+    "side": "Under",
+    "best_price": -167,
+    "book": "BKR",
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": 0.087,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 0,1,1 in 3 SF games (5 targets total)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "Kirk activated Sat, trims Cooks/Watkins volume",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "Evans+Samuel OUT opens 20%+ of targets.",
+    "tags": {
+     "script": "condensed SF tree (CMC/Kittle)",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Zachariah Branch",
+    "team": "ATL",
+    "market": "rec",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": 110,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.302,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 2,1,2,2,2 = 4/5 over 1.5 (2 targets every game)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "ATL is the expected loser: Andy's receptions rule bars this.",
+    "tags": {
+     "script": "ATL trailing",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "RULE: receptions over on expected loser - not stack-eligible"
+    ]
+   },
+   {
+    "player": "Drake London",
+    "team": "ATL",
+    "market": "rec_yds",
+    "line": 83.5,
+    "side": "Under",
+    "best_price": -102,
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": -0.01,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 29,51,194,96,118,62 = 3/6 under; A.J. Terrell activated irrelevant (ATL CB)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "28.8% target share alpha; SF CPOE allowed +12.75%.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "te": [
+   {
+    "player": "George Kittle",
+    "team": "SF",
+    "market": "rec_yds",
+    "line": 60.5,
+    "side": "Over",
+    "best_price": -200,
+    "book": "BKR",
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": -0.04,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 12,80,82,70,24,69 = 4/6 over 60.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "Evans/Deebo OUT; Bowman (slot CB) OUT -> te_middle boost",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "Kirk return restores a slot outlet; ATL rolls coverage.",
+    "tags": {
+     "script": "condensed SF tree",
+     "correlates_with": [
+      "Kittle ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   },
+   {
+    "player": "Kyle Pitts Sr.",
+    "team": "ATL",
+    "market": "rec_yds",
+    "line": 24.5,
+    "side": "Over",
+    "best_price": -209,
+    "book": "BKR",
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": 0.005,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 0,15,5,47,42,60 = 3/6 but 3/3 last three",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "SF S Sigle OUT -> TE middle",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "Early-season zeros.",
+    "tags": {
+     "script": "ATL trailing",
+     "correlates_with": [
+      "Pitts ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   },
+   {
+    "player": "George Kittle",
+    "team": "SF",
+    "market": "rec",
+    "line": 5.5,
+    "side": "Over",
+    "best_price": -120,
+    "book": "BKR",
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": -0.267,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 2,4,6,4,5,5 = 1/6 over 5.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Logs do not support the card's C.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line; logs 1/6 - avoid"
+    ]
+   }
+  ],
+  "k": [
+   {
+    "player": "Game total field goals",
+    "team": "SF/ATL",
+    "market": "game_fg_total",
+    "line": 3.5,
+    "side": "Under",
+    "best_price": -135,
+    "book": "BEO",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": 0.149,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "SF 1.0 + ATL 1.5 FGM/g = 2.5; SF RZ TD 85%, ATL 75%",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/SF.md"
+     },
+     {
+      "text": "Dome; BKR posts only Over 3.5 -105",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "50.5 total and SF stall-outs on a short week could add kicks.",
+    "tags": {
+     "script": "RZ TD efficiency",
+     "correlates_with": [
+      "SF team FG U1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "SF team field goals",
+    "team": "SF",
+    "market": "team_fg_total",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": 130,
+    "book": "BEO",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.38,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Pineiro FGM 2,0,1,1,1,1 = 5/6 under 1.5 (FGA 3,0,1,2,2,1)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "SF RZ TD 0.85, 5.8 plays/drive",
+      "source": "data/generated/team-dossiers/2026-w07/SF.md / reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "No Evans/Deebo + travel could stall drives in FG range.",
+    "tags": {
+     "script": "SF finishes drives",
+     "correlates_with": [
+      "Game FG U3.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "ATL team field goals",
+    "team": "ATL",
+    "market": "team_fg_total",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": 0.04,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Folk FGM 2,1,2,1,3,0 = 3/6 under 1.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "SF D (#8 EPA) forces kicks.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Game FG U3.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Fred Warner",
+    "team": "SF",
+    "market": "tackles_assists",
+    "line": 8.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TOT 11,5,17,7,10,8 = 4/6 over 8.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "ATL runs 49%; LBs Wallow, Gifford OUT; Greenlaw missed W6",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-sides.md / scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "SF long drives cut ATL snaps.",
+    "tags": {
+     "script": "ATL run game",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Xavier Watts",
+    "team": "ATL",
+    "market": "tackles_assists",
+    "line": 5.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TOT 4,7,5,8,10,3 = 4/6 over 5.5; Deablo OUT",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / reports/intel/games/2026-w07-game-SF_at_ATL-sides.md"
+     }
+    ],
+    "counter": "SF YAC through the middle could go to LBs.",
+    "tags": {
+     "script": "SF long drives",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Jessie Bates III",
+    "team": "ATL",
+    "market": "tackles_assists",
+    "line": 5.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TOT 6,7,4,1,6,7 = 4/6 over 5.5",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Deep-safety role.",
+    "tags": {
+     "script": "SF long drives",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "Keion White",
+    "team": "SF",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.42,
+    "fair_odds": "+138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 1,1,0,1,0.5 (5 GP) = 4/5 games; Bosa OUT makes him lead rusher",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / reports/intel/games/2026-w07-game-SF_at_ATL-sides.md"
+     },
+     {
+      "text": "Penix SK% 8.0%, OT Jerrell OUT",
+      "source": "data/generated/team-dossiers/2026-w07/ATL.md"
+     }
+    ],
+    "counter": "Bosa absence lets ATL slide to him.",
+    "tags": {
+     "script": "ATL trailing dropbacks",
+     "correlates_with": [
+      "Penix sacks O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Osa Odighizuwa",
+    "team": "SF",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.27,
+    "fair_odds": "+270",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 1,1 last two; 9 QB hits",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Interior.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Penix sacks O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Za'Darius Smith",
+    "team": "ATL",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.22,
+    "fair_odds": "+355",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 2,0.5,0,1 (4 GP)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "Purdy 0.83 sacks/g",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Q; Purdy rarely sacked.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Q"
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Renardo Green",
+    "team": "SF",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.14,
+    "fair_odds": "+614",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "3 INT in 5 GP (SF leader)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Penix 1 INT in 4 starts.",
+    "tags": {
+     "script": "ATL trailing",
+     "correlates_with": [
+      "Penix INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Xavier Watts",
+    "team": "ATL",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.06,
+    "fair_odds": "+1567",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 INT; ATL D 1 INT all year; Purdy INTW 2.3%",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json / data/generated/team-dossiers/2026-w07/SF.md"
+     }
+    ],
+    "counter": "Very low base rate.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "atd": [
+   {
+    "player": "George Kittle",
+    "team": "SF",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 122,
+    "book": "DKP",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": 0.11,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "5 TD, scored in 4/6",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "Evans/Deebo OUT; DKP +122 vs BKR -105 (steamed from +130)",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json / reports/intel/games/2026-w07-game-SF_at_ATL-props.md"
+     }
+    ],
+    "counter": "CMC vultures; Terrell return frees ATL to roll to the middle.",
+    "tags": {
+     "script": "SF RZ TE alpha",
+     "correlates_with": [
+      "Purdy pass TD O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "DKP pre-fee; BKR -105 executable"
+    ]
+   },
+   {
+    "player": "Kyle Pitts Sr.",
+    "team": "ATL",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 285,
+    "book": "DKP",
+    "p_hit": 0.28,
+    "fair_odds": "+257",
+    "edge": 0.078,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "3 TD in 2/6 (BAL, CHI x2), trending",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "SF S Sigle OUT",
+      "source": "reports/intel/games/2026-w07-game-SF_at_ATL-sides.md"
+     }
+    ],
+    "counter": "Bijan takes RZ work.",
+    "tags": {
+     "script": "ATL trailing",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Christian McCaffrey",
+    "team": "SF",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": -203,
+    "book": "DKP",
+    "p_hit": 0.72,
+    "fair_odds": "-257",
+    "edge": 0.075,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TD in 5/6 (7 rush TD)",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "DKP -203 vs BKR -344",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json / scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Short-week touch share; Kittle RZ.",
+    "tags": {
+     "script": "SF RZ",
+     "correlates_with": [
+      "CMC rush O46.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   }
+  ],
+  "first_td": [
+   {
+    "player": "George Kittle",
+    "team": "SF",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 900,
+    "book": "DKP",
+    "p_hit": 0.12,
+    "fair_odds": "+733",
+    "edge": 0.2,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "ATD .50 x ~0.24 first-TD share; SF scripted openers",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "DKP +900 vs BKR +777",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "CMC and Bijan are the favorites.",
+    "tags": {
+     "script": "SF first drive",
+     "correlates_with": [
+      "Kittle ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Kyle Pitts Sr.",
+    "team": "ATL",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 1900,
+    "book": "DKP",
+    "p_hit": 0.06,
+    "fair_odds": "+1567",
+    "edge": 0.2,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "ATD .28 x ~0.22",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     }
+    ],
+    "counter": "Low share.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Christian McCaffrey",
+    "team": "SF",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 400,
+    "book": "DKP",
+    "p_hit": 0.19,
+    "fair_odds": "+426",
+    "edge": -0.05,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 5/6",
+      "source": "scratch/w07-prop-packs/SF_at_ATL.json"
+     },
+     {
+      "text": "DKP +400 vs BKR +340",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Market already prices him as favorite.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Dome (retractable). BEO has no player props for this game: only game/team FG and TD specials are cross-game executable; player legs are BKR SGP only.",
+  "Logs undercut two card B props: CMC rec O5.5 hit 1/6 (5,4,4,3,3,9) and Kittle rec O5.5 hit 1/6; both excluded from top picks.",
+  "Bijan ATD -312 BKR is inside the barrier but 3/6 TD vs strong SF run D (DKP -213): avoid.",
+  "Kirk (activated, no 2026 logs) and Cooks (2 rec in 3 games) have thin samples.",
+  "IDP: no markets; projected lines only. Roster-map lacks K/IDP; verified via espn-full-rosters-latest.json (Greenlaw status 'news')."
+ ]
+}

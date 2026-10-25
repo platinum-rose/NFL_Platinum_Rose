@@ -1,0 +1,1208 @@
+{
+ "game": "PIT@NO",
+ "kickoff": "2026-10-25T13:30Z",
+ "as_of": "2026-10-24 PT (Stage-1 analyst)",
+ "best_leg": {
+  "player": "DK Metcalf",
+  "team": "PIT",
+  "market": "longest_rec",
+  "line": 21.5,
+  "side": "Under",
+  "best_price": -115,
+  "book": "BEO",
+  "p_hit": 0.66,
+  "fair_odds": "-194",
+  "edge": 0.234,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Longest rec 14,16,14,43,9,17 = 5/6 under 21.5 on 52 targets",
+    "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+   },
+   {
+    "text": "Paris open-air, gusts 53-57 km/h (Sat Open-Meteo) trims deep shots; Rodgers 0 20+ completions in W6",
+    "source": "reports/intel/master-intel-narratives-2026-w07.md / reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+   }
+  ],
+  "counter": "Thin WR room funnels 10-15 targets to him; one catch-and-run breaks it.",
+  "tags": {
+   "script": "wind kills deep game",
+   "correlates_with": [
+    "Metcalf rec yds U58.5"
+   ],
+   "availability_risk": null
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Kendre Miller",
+  "team": "NO",
+  "market": "rush_yds",
+  "line": 36.5,
+  "side": "Under",
+  "best_price": -108,
+  "book": "BKR",
+  "p_hit": 0.62,
+  "fair_odds": "-163",
+  "edge": 0.194,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Rush yds 30,14,9,30,70 = 4/5 under 36.5",
+    "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+   },
+   {
+    "text": "PIT rush D DVOA -20.0%, stuff 23.8%; NO trails; BEO U35.5 -115 also",
+    "source": "data/generated/team-dossiers/2026-w07/PIT.md / scratch/w07-prop-packs/PIT_at_NO.json"
+   }
+  ],
+  "counter": "W6 20-70 as lead back; if Kamara sits, Miller's volume spikes.",
+  "tags": {
+   "script": "NO trailing, PIT run D",
+   "correlates_with": [
+    "PIT side",
+    "Shough INT"
+   ],
+   "availability_risk": "Etienne DTD / Kamara back (LP)"
+  },
+  "executable": true
+ },
+ "best_contrarian_leg": {
+  "player": "Aaron Rodgers",
+  "team": "PIT",
+  "market": "pass_int",
+  "line": 0.5,
+  "side": "Over",
+  "best_price": 100,
+  "book": "BEO",
+  "p_hit": 0.52,
+  "fair_odds": "-108",
+  "edge": 0.04,
+  "confidence": "C",
+  "evidence": [
+   {
+    "text": "INT in 4/6 (0,1,1,2,0,1); 5 INT on ~233 att",
+    "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+   },
+   {
+    "text": "NO D INTW% 3.9%; 55 km/h gusts on ~38 att",
+    "source": "data/generated/team-dossiers/2026-w07/NO.md / reports/intel/master-intel-narratives-2026-w07.md"
+   }
+  ],
+  "counter": "NO D has picks in only 2/6 games (0.67/g); Rodgers' short game in wind is low-risk.",
+  "tags": {
+   "script": "wind turnovers",
+   "correlates_with": [
+    "Shough INT O0.5 (same-wind)"
+   ],
+   "availability_risk": null
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Aaron Rodgers",
+    "team": "PIT",
+    "market": "pass_td",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.54,
+    "fair_odds": "-117",
+    "edge": 0.08,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "2+ pass TD in 4/6 (1,0,3,3,3,2); NO allowed 10 pass TD; PIT 12 pass TD vs 1 team rush TD",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+     },
+     {
+      "text": "BEO +100 vs BKR -106 main",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Wind plus a PIT lead could hold him to ~30 att and one TD (W1/W2 pattern).",
+    "tags": {
+     "script": "PIT RZ goes through the air",
+     "correlates_with": [
+      "Freiermuth ATD",
+      "Rodgers cmp O21.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line (only line at BEO); card B"
+    ]
+   },
+   {
+    "player": "Aaron Rodgers",
+    "team": "PIT",
+    "market": "pass_cmp",
+    "line": 21.5,
+    "side": "Over",
+    "best_price": -125,
+    "book": "BEO",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.116,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Completions 24,23,19,22,22,33 = 5/6 over 21.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "short aDOT 7.6 suits wind; BEO -125, BKR -128",
+      "source": "data/generated/team-dossiers/2026-w07/PIT.md / scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Lead + wind drops attempts (W5 22/31).",
+    "tags": {
+     "script": "short passing volume in wind",
+     "correlates_with": [
+      "Rodgers pass TD O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line; alt is O19.5 -267 BKR"
+    ]
+   },
+   {
+    "player": "Aaron Rodgers",
+    "team": "PIT",
+    "market": "pass_cmp",
+    "line": 19.5,
+    "side": "Over",
+    "best_price": -267,
+    "book": "BKR",
+    "p_hit": 0.8,
+    "fair_odds": "-400",
+    "edge": 0.1,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "5/6 at 20+ (miss: 19 vs CIN)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Same as above; heavy SGP leg.",
+    "tags": {
+     "script": "short passing volume",
+     "correlates_with": [
+      "Rodgers pass TD O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Aaron Rodgers",
+    "team": "PIT",
+    "market": "pass_int",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": 0.04,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 4/6 (0,1,1,2,0,1); 5 INT on ~233 att",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "NO D INTW% 3.9%; 55 km/h gusts on ~38 att",
+      "source": "data/generated/team-dossiers/2026-w07/NO.md / reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "NO D has picks in only 2/6 games (0.67/g); Rodgers' short game in wind is low-risk.",
+    "tags": {
+     "script": "wind turnovers",
+     "correlates_with": [
+      "Shough INT O0.5 (same-wind)"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Tyler Shough",
+    "team": "NO",
+    "market": "pass_int",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": -145,
+    "book": "BEO",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": -0.02,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 3/6 (2,0,1,0,2,0)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "PIT D INT in 4/6 games (1.0/g), PIT D INTW% 4.0%; NO trailing into wind",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / data/generated/team-dossiers/2026-w07/PIT.md"
+     }
+    ],
+    "counter": "Clean in W6; 0.58 vs 59% implied = ~fair.",
+    "tags": {
+     "script": "NO trailing pass volume",
+     "correlates_with": [
+      "Rodgers INT O0.5",
+      "PIT ML/side"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "BKR SGPs refuse INT legs: BEO only"
+    ]
+   },
+   {
+    "player": "Tyler Shough",
+    "team": "NO",
+    "market": "sacks_taken",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks taken 5,3,2,2,1,0 = 4/6 over 1.5 (2.17/g)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "PIT D 2.67 sacks/g, sack rate gen 7.4%; G Ruiz Q",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / reports/intel/games/2026-w07-game-PIT_at_NO-sides.md"
+     }
+    ],
+    "counter": "Trend is down (1,0 last two); Shough's TTT 2.46 quick.",
+    "tags": {
+     "script": "NO trailing dropbacks",
+     "correlates_with": [
+      "Watt/Young sack props"
+     ],
+     "availability_risk": "Ruiz Q"
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Aaron Rodgers",
+    "team": "PIT",
+    "market": "sacks_taken",
+    "line": 2.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 2,4,2,5,1,5 = 3/6 over 2.5 (3.17/g); PIT SK% 7.3%",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / data/generated/team-dossiers/2026-w07/PIT.md"
+     },
+     {
+      "text": "NO blitz 33-36%, def sacks 2.5/g",
+      "source": "data/generated/team-dossiers/2026-w07/NO.md"
+     }
+    ],
+    "counter": "Rodgers TTT 2.54 quick game in wind.",
+    "tags": {
+     "script": "pass-heavy PIT (neutral PROE 0.661)",
+     "correlates_with": [
+      "Chase Young sack"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "rb": [
+   {
+    "player": "Kendre Miller",
+    "team": "NO",
+    "market": "rush_yds",
+    "line": 36.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.194,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Rush yds 30,14,9,30,70 = 4/5 under 36.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "PIT rush D DVOA -20.0%, stuff 23.8%; NO trails; BEO U35.5 -115 also",
+      "source": "data/generated/team-dossiers/2026-w07/PIT.md / scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "W6 20-70 as lead back; if Kamara sits, Miller's volume spikes.",
+    "tags": {
+     "script": "NO trailing, PIT run D",
+     "correlates_with": [
+      "PIT side",
+      "Shough INT"
+     ],
+     "availability_risk": "Etienne DTD / Kamara back (LP)"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jaylen Warren",
+    "team": "PIT",
+    "market": "longest_rush",
+    "line": 14.5,
+    "side": "Over",
+    "best_price": -130,
+    "book": "BEO",
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": 0.203,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Longest rush 17,10,35,24,50,16 = 5/6 at 15+",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "NO rush D 45.9% success allowed; AN O13.5",
+      "source": "reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+     }
+    ],
+    "counter": "Dowdle active keeps Warren ~12 carries (Sal Bets U69.5 yds).",
+    "tags": {
+     "script": "PIT ball control",
+     "correlates_with": [
+      "PIT side"
+     ],
+     "availability_risk": "Dowdle Q (BKR pulled Warren rush markets)"
+    },
+    "executable": true,
+    "flags": [
+     "median line (only BEO line) - Andy rule"
+    ]
+   },
+   {
+    "player": "Alvin Kamara",
+    "team": "NO",
+    "market": "longest_rush",
+    "line": 7.5,
+    "side": "Under",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": 0.028,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Longest rush 6,11,5,6,15 = 3/5 under 7.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Back (LP); 2-carry floors make it noisy.",
+    "tags": {
+     "script": "NO trailing",
+     "correlates_with": [],
+     "availability_risk": "back LP, no designation"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "DK Metcalf",
+    "team": "PIT",
+    "market": "longest_rec",
+    "line": 21.5,
+    "side": "Under",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": 0.234,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Longest rec 14,16,14,43,9,17 = 5/6 under 21.5 on 52 targets",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "Paris open-air, gusts 53-57 km/h (Sat Open-Meteo) trims deep shots; Rodgers 0 20+ completions in W6",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md / reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+     }
+    ],
+    "counter": "Thin WR room funnels 10-15 targets to him; one catch-and-run breaks it.",
+    "tags": {
+     "script": "wind kills deep game",
+     "correlates_with": [
+      "Metcalf rec yds U58.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "DK Metcalf",
+    "team": "PIT",
+    "market": "rec_yds",
+    "line": 58.5,
+    "side": "Under",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.56,
+    "fair_odds": "-127",
+    "edge": 0.047,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 40,27,31,115,12,93 = 4/6 under",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "W6 11/15-93 volume role with Wilson/Pittman on IR.",
+    "tags": {
+     "script": "wind",
+     "correlates_with": [
+      "Metcalf longest U21.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Germie Bernard",
+    "team": "PIT",
+    "market": "rec",
+    "line": 4.5,
+    "side": "Over",
+    "best_price": -144,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.068,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 4,1,2,6,11; 6 and 11 since Wilson/Pittman IR (targets 9,12)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "2-game role sample; MVS may take snaps.",
+    "tags": {
+     "script": "PIT expected winner",
+     "correlates_with": [
+      "Rodgers cmp"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line"
+    ]
+   }
+  ],
+  "te": [
+   {
+    "player": "Pat Freiermuth",
+    "team": "PIT",
+    "market": "rec",
+    "line": 3.5,
+    "side": "Over",
+    "best_price": 121,
+    "book": "BKR",
+    "p_hit": 0.48,
+    "fair_odds": "+108",
+    "edge": 0.061,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 5,4,2,3,5,2 = 3/6 over 3.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Washington and Bernard share short targets; W6 2-11.",
+    "tags": {
+     "script": "PIT expected winner, short passing",
+     "correlates_with": [
+      "Freiermuth ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "median line (plus money)"
+    ]
+   },
+   {
+    "player": "Pat Freiermuth",
+    "team": "PIT",
+    "market": "rec_yds",
+    "line": 30.5,
+    "side": "Over",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": -0.065,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 46,32,30,17,44,11 = 3/6 over 30.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Longest 7-22; low aDOT.",
+    "tags": {
+     "script": "short passing",
+     "correlates_with": [
+      "Freiermuth ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "NO team field goals",
+    "team": "NO",
+    "market": "team_fg_total",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.24,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Carlson FGM 1,3,0,1,0,2 = 4/6 under 1.5 (1.17/g, FGA 2,3,0,2,0,3)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "NO RZ TD 84%; Paris open-air, gusts 53-57 km/h (Sat Open-Meteo) makes 45+ tries unlikely",
+      "source": "data/generated/team-dossiers/2026-w07/NO.md / reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "PIT D (#6 EPA) could stall NO in FG range more than usual.",
+    "tags": {
+     "script": "wind kicks + NO RZ TD habit",
+     "correlates_with": [
+      "Game FG U3.5",
+      "Longest FG U49.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Game total field goals",
+    "team": "PIT/NO",
+    "market": "game_fg_total",
+    "line": 3.5,
+    "side": "Under",
+    "best_price": -110,
+    "book": "BEO",
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": 0.222,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "PIT 2.17 + NO 1.17 = 3.3 FGM/g; Poisson ~3.0 in wind gives P(<=3) ~0.65",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "BKR same market U3.5 -125",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Under 44 grind could become a 4-FG game if red zones stall (PIT RZ TD 53%).",
+    "tags": {
+     "script": "wind kicks",
+     "correlates_with": [
+      "NO team FG U1.5",
+      "Longest FG U49.5",
+      "Under 44"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Longest field goal of game",
+    "team": "PIT/NO",
+    "market": "game_special_longest_fg",
+    "line": 49.5,
+    "side": "Under",
+    "best_price": -110,
+    "book": "BEO",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.145,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Boswell longs 43,56,44,31,54,58; Carlson 28,51,0,27,0,58",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "crosswind gusts 53-57 km/h all game",
+      "source": "reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+     }
+    ],
+    "counter": "A tailwind half could invite a 50+ try; grading with no FG made depends on BEO rules.",
+    "tags": {
+     "script": "wind kicks",
+     "correlates_with": [
+      "Game FG U3.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Daniel Carlson",
+    "team": "NO",
+    "market": "fantasy_points",
+    "line": 7.5,
+    "side": "Under",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.084,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Kicker points 6,10,3,6,1,10 = 4/6 under 7.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "NO TD-heavy scoring adds XPs.",
+    "tags": {
+     "script": "wind kicks",
+     "correlates_with": [
+      "NO team FG U1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Jaquan Brisker",
+    "team": "PIT",
+    "market": "tackles_assists",
+    "line": 5.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.74,
+    "fair_odds": "-285",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TOT 6,6,8,7,7,7 = 6/6 over 5.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "NO trailing pass volume vs PIT; Echols out shifts DB tackles",
+      "source": "reports/intel/games/2026-w07-game-PIT_at_NO-sides.md"
+     }
+    ],
+    "counter": "Dime packages could cut his snaps.",
+    "tags": {
+     "script": "NO trailing pass volume",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Payton Wilson",
+    "team": "PIT",
+    "market": "tackles_assists",
+    "line": 7.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TOT 13,6,6,9,10,11 = 4/6 over 7.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "NO pass-heavy script lowers LB run-fits.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Pete Werner",
+    "team": "NO",
+    "market": "tackles_assists",
+    "line": 6.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TOT 7,11,3,4,10,11 = 4/6 over 6.5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "PIT ball control/Warren vs NO run D",
+      "source": "reports/intel/games/2026-w07-game-PIT_at_NO-sides.md"
+     }
+    ],
+    "counter": "Elliss back (cleared) splits stops.",
+    "tags": {
+     "script": "PIT ball control",
+     "correlates_with": [
+      "Kendre Miller U"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "T.J. Watt",
+    "team": "PIT",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 2,1.5,0,1,0 (5 GP) = 3/5; QB hits 2,2,1,2,0",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "Shough 2.17 sacks/g; G Ruiz Q",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / reports/intel/games/2026-w07-game-PIT_at_NO-sides.md"
+     }
+    ],
+    "counter": "Shough sacked 1,0 the last two games.",
+    "tags": {
+     "script": "NO trailing dropbacks",
+     "correlates_with": [
+      "Shough sacks O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Chase Young",
+    "team": "NO",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,1.5,2,0,0.5,1.5 = 4/6 games; PIT allows 3.17 sacks/g (SK% 7.3%)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / data/generated/team-dossiers/2026-w07/PIT.md"
+     }
+    ],
+    "counter": "Rodgers quick release in wind.",
+    "tags": {
+     "script": "PIT pass-heavy",
+     "correlates_with": [
+      "Rodgers sacks O2.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Carl Granderson",
+    "team": "NO",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 1,0,0,1.5,1.5 (5 GP) = 3/5",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Shares rush with Young.",
+    "tags": {
+     "script": "PIT pass-heavy",
+     "correlates_with": [
+      "Rodgers sacks O2.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Julian Blackmon",
+    "team": "NO",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.15,
+    "fair_odds": "+567",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2 INT, NO team leader; Rodgers INT in 4/6",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "NO D INT in 2/6 games.",
+    "tags": {
+     "script": "wind turnovers",
+     "correlates_with": [
+      "Rodgers INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Martin Emerson Jr.",
+    "team": "NO",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.13,
+    "fair_odds": "+669",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2 INT in 4 GP",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Part-time snaps.",
+    "tags": {
+     "script": "wind turnovers",
+     "correlates_with": [
+      "Rodgers INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Jaquan Brisker",
+    "team": "PIT",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.12,
+    "fair_odds": "+733",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 INT; PIT INTs spread over 6 DBs/LBs; Shough INT p 0.58",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Diffuse INT share.",
+    "tags": {
+     "script": "NO trailing",
+     "correlates_with": [
+      "Shough INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "atd": [
+   {
+    "player": "Pat Freiermuth",
+    "team": "PIT",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 270,
+    "book": "DKP",
+    "p_hit": 0.32,
+    "fair_odds": "+212",
+    "edge": 0.184,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "4 TD, scored in 3/6; PIT 12 pass TD vs 1 rush TD",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / reports/intel/games/2026-w07-game-PIT_at_NO-props.md"
+     },
+     {
+      "text": "DKP +270 (pre-fee) vs BKR +219",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json / scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Washington/Bernard soak RZ looks.",
+    "tags": {
+     "script": "PIT RZ via air",
+     "correlates_with": [
+      "Rodgers pass TD O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "DKP contract price before fees; BKR +219 executable alt"
+    ]
+   },
+   {
+    "player": "Tyler Shough",
+    "team": "NO",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 456,
+    "book": "DKP",
+    "p_hit": 0.2,
+    "fair_odds": "+400",
+    "edge": 0.112,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rush TD in 2/6 (BAL, NYG)",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "DKP +456 vs BKR +379",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "PIT 7% sack-rate front caps scrambles.",
+    "tags": {
+     "script": "NO QB run",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Darnell Washington",
+    "team": "PIT",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 300,
+    "book": "DKP",
+    "p_hit": 0.25,
+    "fair_odds": "+300",
+    "edge": 0.0,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 2/6 (CLE, TB); 6 rec targets in W6",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "BKR pulled his rec markets: verify active.",
+    "tags": {
+     "script": "PIT RZ via air",
+     "correlates_with": [
+      "Rodgers pass TD O1.5"
+     ],
+     "availability_risk": "BKR markets pulled (unexplained)"
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Pat Freiermuth",
+    "team": "PIT",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 1329,
+    "book": "DKP",
+    "p_hit": 0.095,
+    "fair_odds": "+953",
+    "edge": 0.358,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "ATD p .32 x ~0.3 first-TD share",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     },
+     {
+      "text": "DKP +1329 vs BKR +845",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json / scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Same as ATD.",
+    "tags": {
+     "script": "PIT scripted opener",
+     "correlates_with": [
+      "Freiermuth ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Juwan Johnson",
+    "team": "NO",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 1900,
+    "book": "DKP",
+    "p_hit": 0.065,
+    "fair_odds": "+1438",
+    "edge": 0.3,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "3 TD in 2/6 (DET, LV x2); NO RZ TD 84%",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json / data/generated/team-dossiers/2026-w07/NO.md"
+     }
+    ],
+    "counter": "0 catches W6.",
+    "tags": {
+     "script": "NO RZ",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Tyler Shough",
+    "team": "NO",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 2400,
+    "book": "DKP",
+    "p_hit": 0.055,
+    "fair_odds": "+1718",
+    "edge": 0.375,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2 rush TD in 6",
+      "source": "scratch/w07-prop-packs/PIT_at_NO.json"
+     }
+    ],
+    "counter": "Low carry volume.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Wind is the script: Paris open-air, gusts 53-57 km/h (Sat Open-Meteo); K, longest-rec and INT legs all lean on it (correlated: NO FG U1.5, game FG U3.5, longest FG U49.5, Metcalf longest U21.5). If Sunday gusts < 30 km/h, downgrade all wind legs one tier.",
+  "IDP: no tackle/sack/INT markets posted on BKR/BEO; projected lines only, price at recapture.",
+  "BEO max two props from this game in multi-game slips; best pair = Metcalf longest rec U21.5 + NO team FG U1.5 (or Rodgers pass TD O1.5).",
+  "Avoid Warren ATD -145 (1 TD in 6; PIT 1 team rush TD).",
+  "Pack availability rows have status null; statuses taken from sides/props reports (Dowdle Q, Elliott Q, Echols OUT, Ruiz Q). Roster-map has no K/IDP players; those were verified in data/nfl-rosters/espn-full-rosters-latest.json."
+ ]
+}

@@ -1,0 +1,1398 @@
+{
+  "game": "CIN@BAL",
+  "generated_at": "2026-10-24",
+  "agent": "stage1-per-game-analyst (PROP_STACK_AGENT v1)",
+  "best_leg": {
+    "player": "Chase Brown",
+    "team": "CIN",
+    "market": "carries",
+    "line": 9.5,
+    "side": "Over",
+    "best_price": -213,
+    "book": "BKR",
+    "p_hit": 0.75,
+    "fair_odds": -300,
+    "edge": 0.102,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Brown carries 16,20,13,9,13: 4/5 over 9.5 (only miss in JAX loss)",
+        "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+      },
+      {
+        "text": "CIN is the expected winner (23-20, BEO ML -155)",
+        "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+      }
+    ],
+    "counter": "CIN 65% dropback team; Perine took 14 carries vs MIA.",
+    "tags": {
+      "script": "CIN leads, runs clock",
+      "correlates_with": [
+        "Brown rush yds"
+      ],
+      "availability_risk": "low",
+      "flags": [
+        "FLAG_shorter_than_-200"
+      ]
+    },
+    "executable": true
+  },
+  "best_non_td_leg": {
+    "player": "Chase Brown",
+    "team": "CIN",
+    "market": "carries",
+    "line": 9.5,
+    "side": "Over",
+    "best_price": -213,
+    "book": "BKR",
+    "p_hit": 0.75,
+    "fair_odds": -300,
+    "edge": 0.102,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Brown carries 16,20,13,9,13: 4/5 over 9.5 (only miss in JAX loss)",
+        "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+      },
+      {
+        "text": "CIN is the expected winner (23-20, BEO ML -155)",
+        "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+      }
+    ],
+    "counter": "CIN 65% dropback team; Perine took 14 carries vs MIA.",
+    "tags": {
+      "script": "CIN leads, runs clock",
+      "correlates_with": [
+        "Brown rush yds"
+      ],
+      "availability_risk": "low",
+      "flags": [
+        "FLAG_shorter_than_-200"
+      ]
+    },
+    "executable": true
+  },
+  "best_contrarian_leg": {
+    "player": "Mike Gesicki",
+    "team": "CIN",
+    "market": "atd",
+    "line": 0.5,
+    "side": "Yes",
+    "best_price": 376,
+    "book": "DKP",
+    "p_hit": 0.26,
+    "fair_odds": 285,
+    "edge": 0.238,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Gesicki TD in 4/4 games played (4 TD on 17 tgt)",
+        "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+      },
+      {
+        "text": "DKP 21% (+376); BKR +251",
+        "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+      }
+    ],
+    "counter": "TD rate unsustainable; Hudson/All share TE snaps.",
+    "tags": {
+      "script": "CIN quick game middle",
+      "correlates_with": [
+        "Gesicki rec yds"
+      ],
+      "availability_risk": "low",
+      "flags": [
+        "DKP_contract_price_before_fees"
+      ]
+    },
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "market": "pass_cmp",
+        "line": 15.5,
+        "side": "Over",
+        "best_price": -224,
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": -257,
+        "edge": 0.041,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Huntley starts: 24 and 19 completions (2/2 over 15.5); 8/9 in TEN relief",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "BAL trailing script vs CIN 23-20 projection adds dropbacks",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md"
+          }
+        ],
+        "counter": "Run-first plan with Henry ~22 carries can cap attempts near 25; a lead flips BAL to pure clock-kill.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Huntley pass yds alt"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Under",
+        "best_price": -202,
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": -213,
+        "edge": 0.017,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Huntley starts: 2 and 1 pass TD; BAL red-zone work leans on Henry (7 rush TD)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "Props file: Huntley scenario routes BAL TDs through Henry",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "CIN pass D allowed EXP% 16.2%; a short field or garbage time can produce 2 TDs.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Joe Burrow",
+        "team": "CIN",
+        "market": "pass_cmp",
+        "line": 23.5,
+        "side": "Over",
+        "best_price": -174,
+        "book": "BKR",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": -0.087,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Burrow completions 25,20,28,39,23: 3/5 over 23.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN 65.4% dropback, TTT 2.36 quick game",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Lead-protecting CIN runs late; Under-47.5 script lowers volume.",
+        "tags": {
+          "script": "CIN quick game vs Hawkins-less secondary",
+          "correlates_with": [
+            "Burrow pass yds"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Joe Burrow",
+        "team": "CIN",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": -165,
+        "book": "BKR",
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": -0.101,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Burrow pass TD 1,2,3,1,4: 3/5 with 2+",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "BAL D allowed only 5 pass TD in 6 g (7 rush TD)",
+            "source": "data/generated/team-dossiers/2026-w07/BAL.md"
+          }
+        ],
+        "counter": "Stingy BAL pass D; CIN may score on the ground late.",
+        "tags": {
+          "script": "CIN scores through the air",
+          "correlates_with": [
+            "Chase ATD",
+            "Gesicki ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "median_line"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.76,
+        "fair_odds": -317,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Huntley sacked 3 and 3 in his two starts",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN def 3.4 sacks/g (4,4,2,4,3), SK% 8.5; BAL sacks taken 2.33/g; C Jurgens Q",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Huntley mobility; run-heavy plan limits dropbacks to ~28.",
+        "tags": {
+          "script": "BAL long-yardage passing",
+          "correlates_with": [
+            "Mafe sack",
+            "Allen sack"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "market": "sacks_taken",
+        "line": 2.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.52,
+        "fair_odds": -108,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "2/2 starts with 3 sacks; CIN generated 3+ sacks in 4/5 games",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Coin-flip at 2.5; only two-start sample.",
+        "tags": {
+          "script": "BAL long-yardage passing",
+          "correlates_with": [
+            "Huntley sacks 1.5"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Joe Burrow",
+        "team": "CIN",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.4,
+        "fair_odds": 150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Burrow INT in 2/5 games (3 INT); CIN INTW% 1.6",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "BAL def INT 0.5/g, INTW% 2.0",
+            "source": "data/generated/team-dossiers/2026-w07/BAL.md"
+          }
+        ],
+        "counter": "Burrow low INTW%; quick game.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.38,
+        "fair_odds": 163,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Huntley 0 INT on 72 att in 2026",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN def INT 0.6/g, INTW% 2.4; props file passed Huntley INT (no fit)",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "Conservative run-first plan, few deep shots.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Chase Brown",
+        "team": "CIN",
+        "market": "carries",
+        "line": 9.5,
+        "side": "Over",
+        "best_price": -213,
+        "book": "BKR",
+        "p_hit": 0.75,
+        "fair_odds": -300,
+        "edge": 0.102,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Brown carries 16,20,13,9,13: 4/5 over 9.5 (only miss in JAX loss)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN is the expected winner (23-20, BEO ML -155)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "CIN 65% dropback team; Perine took 14 carries vs MIA.",
+        "tags": {
+          "script": "CIN leads, runs clock",
+          "correlates_with": [
+            "Brown rush yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "carries",
+        "line": 17.5,
+        "side": "Over",
+        "best_price": -200,
+        "book": "BKR",
+        "p_hit": 0.66,
+        "fair_odds": -194,
+        "edge": -0.01,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Henry carries 24,16,26,23,24,17: 4/6 over 17.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "Saturday news: Huntley start, run-first, Henry ~22 carries",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md"
+          }
+        ],
+        "counter": "BAL is the dog: carries were 16 and 17 in its two losses.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry ATD",
+            "Huntley pass TD Under"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "carries",
+        "line": 16.5,
+        "side": "Over",
+        "best_price": -310,
+        "book": "BKR",
+        "p_hit": 0.8,
+        "fair_odds": -400,
+        "edge": 0.058,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "5/6 over 16.5; misses only 16 vs NO",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Blowout CIN lead; game-script abandonment.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry carries 17.5"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "rush_yds",
+        "line": 63.5,
+        "side": "Over",
+        "best_price": -310,
+        "book": "BKR",
+        "p_hit": 0.75,
+        "fair_odds": -300,
+        "edge": -0.008,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Henry rush yds 144,68,89,73,102,58: 5/6 over 63.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN run D STF% 30 (props file)",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "CIN stuffs runs; Huntley CLE start produced 17-58.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry carries"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "wr": [
+      {
+        "player": "Tee Higgins",
+        "team": "CIN",
+        "market": "rec_yds",
+        "line": 55.5,
+        "side": "Over",
+        "best_price": -200,
+        "book": "BKR",
+        "p_hit": 0.65,
+        "fair_odds": -186,
+        "edge": -0.025,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Higgins yds 59,95,90,157,22: 4/5 over 55.5; team-high 43 targets",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "BAL CB T.J. Tampa IR, S Hawkins OUT",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "Chase/Gesicki can take the middle and red-zone looks; Under script.",
+        "tags": {
+          "script": "CIN pass volume",
+          "correlates_with": [
+            "Burrow completions"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Ja'Marr Chase",
+        "team": "CIN",
+        "market": "rec_yds",
+        "line": 70.5,
+        "side": "Over",
+        "best_price": -223,
+        "book": "BKR",
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": -0.189,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Chase yds 12,75,98,27,77: 3/5 over 70.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Two duds in five; BAL can bracket.",
+        "tags": {
+          "script": "CIN pass volume",
+          "correlates_with": [
+            "Chase ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Zay Flowers",
+        "team": "BAL",
+        "market": "rec_yds",
+        "line": 53.5,
+        "side": "Over",
+        "best_price": -204,
+        "book": "BKR",
+        "p_hit": 0.52,
+        "fair_odds": -108,
+        "edge": -0.225,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Flowers 150,84,118,53,66 (4/5) but only 1/2 with Huntley (53, 66)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Huntley downgrade caps aDOT.",
+        "tags": {
+          "script": "BAL trailing",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "te": [
+      {
+        "player": "Mike Gesicki",
+        "team": "CIN",
+        "market": "rec_yds",
+        "line": 32.5,
+        "side": "Over",
+        "best_price": 125,
+        "book": "BKR",
+        "p_hit": 0.48,
+        "fair_odds": 108,
+        "edge": 0.08,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Gesicki yds 78,37,40,4: 3/4 over 32.5 (missed HOU game)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "S Hawkins OUT opens te_middle",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "Small sample; MIA 1-4 dud; Higgins/Chase volume.",
+        "tags": {
+          "script": "CIN quick game middle",
+          "correlates_with": [
+            "Gesicki ATD"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Mike Gesicki",
+        "team": "CIN",
+        "market": "rec_yds",
+        "line": 12.5,
+        "side": "Over",
+        "best_price": -310,
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": -257,
+        "edge": -0.048,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "3/4 over 12.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Price too short for the hit rate.",
+        "tags": {
+          "script": "CIN quick game middle",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Mark Andrews",
+        "team": "BAL",
+        "market": "rec_yds",
+        "line": 19.5,
+        "side": "Over",
+        "best_price": -240,
+        "book": "BKR",
+        "p_hit": 0.66,
+        "fair_odds": -194,
+        "edge": -0.065,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Andrews 49,49,24,27,28,4: 5/6; Huntley games 28 and 4 (1/2)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Huntley start and Andrews availability (listed on report).",
+        "tags": {
+          "script": "BAL short passing",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "k": [
+      {
+        "player": "CIN/BAL kickers",
+        "team": "CIN/BAL",
+        "market": "total_fg_made",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": -107,
+        "book": "BKR",
+        "p_hit": 0.48,
+        "fair_odds": 108,
+        "edge": -0.071,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "CIN 2.0 FG/g (4,2,2,1,1), BAL 1.67 (2,1,2,1,3,1): combined 3.67/g; Poisson P(4+)~0.49",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN RZ TD 52.9% (stalls), BAL 71.4%; 63F, wind 3 mph",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "BAL RZ TD rate 71% with Henry; total 46 limits drives.",
+        "tags": {
+          "script": "Red-zone stalls / Under 47",
+          "correlates_with": [
+            "Under 47.5"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Tyler Loop (BAL)",
+        "team": "BAL",
+        "market": "team_fg_2Q",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": -108,
+        "book": "BKR",
+        "p_hit": 0.44,
+        "fair_odds": 127,
+        "edge": -0.153,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "BAL 1.67 FG/g; ~30% of FGs come in 2Q",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Single-quarter market; low base rate.",
+        "tags": {
+          "script": "Huntley drives stall",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Evan McPherson",
+        "team": "CIN",
+        "market": "fg_made",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.55,
+        "fair_odds": -122,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "McPherson 4/4,2/2,2/2,1/1,1/1: 3/5 with 2+; 10/10 on season",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN RZ TD 52.9%",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Burrow red-zone TDs (11 pass TD).",
+        "tags": {
+          "script": "CIN red-zone stalls",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Roquan Smith",
+        "team": "BAL",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Smith TOT 11,8,9,6,8,5: 4/6 over 7.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "CIN quick game (aDOT 7.2) feeds LB range; S Hawkins OUT",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "CIN pass-heavy short game could finish on DBs; blowout.",
+        "tags": {
+          "script": "CIN short passing",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Demetrius Knight Jr.",
+        "team": "CIN",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Knight TOT 7,12,9,6,8: 3/5 over 7.5 (8.4/g team lead)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "BAL rush% 45.8, Huntley run-first",
+            "source": "data/generated/team-dossiers/2026-w07/BAL.md"
+          }
+        ],
+        "counter": "CIN lead makes BAL pass; short BAL drives cut snaps.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry carries"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Barrett Carter",
+        "team": "CIN",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Carter TOT 8,5,6,11,11: 3/5 over 6.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Volatile 5-6 floor.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry carries"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Kyle Hamilton",
+        "team": "BAL",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.6,
+        "fair_odds": -150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hamilton TOT 5,13,8,7,6,7: 4/6 over 6.5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Box safety role varies.",
+        "tags": {
+          "script": "CIN short passing",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "Boye Mafe",
+        "team": "CIN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.45,
+        "fair_odds": 122,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Mafe 1+ sack in 3/5 (TB, JAX, MIA)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "Huntley sacked 3/start; CIN SK% 8.5",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Huntley escapes; low dropbacks.",
+        "tags": {
+          "script": "BAL long-yardage passing",
+          "correlates_with": [
+            "Huntley sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Jonathan Allen",
+        "team": "CIN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.42,
+        "fair_odds": 138,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Allen 1 sack in 3/5 games",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Interior rusher; run-heavy opponent.",
+        "tags": {
+          "script": "BAL long-yardage passing",
+          "correlates_with": [
+            "Huntley sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Trey Hendrickson",
+        "team": "BAL",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.3,
+        "fair_odds": 233,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hendrickson 1 sack in 2/4 games",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "Burrow sacked 1.8/g, TTT 2.36; T. Robinson OUT",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Quick release neutralizes edge rush.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Jordan Battle",
+        "team": "CIN",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.14,
+        "fair_odds": 614,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Battle 3 INT (PIT 1, MIA 2) in 5 g",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Huntley 0 INT in 72 att.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Kyle Hamilton",
+        "team": "BAL",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.13,
+        "fair_odds": 669,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "1 INT in 6 g; Burrow 3 INT in 5",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Trenton Simpson",
+        "team": "BAL",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.1,
+        "fair_odds": 900,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "1 INT in 6 g",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "atd": [
+      {
+        "player": "Ja'Marr Chase",
+        "team": "CIN",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 117,
+        "book": "DKP",
+        "p_hit": 0.47,
+        "fair_odds": 113,
+        "edge": 0.02,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Chase TD in 3/5 games (4 TD)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "DKP 46% (+117); BKR -110",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          },
+          {
+            "text": "S Hawkins OUT; Chase main target",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md"
+          }
+        ],
+        "counter": "BAL pass D 5 TD allowed in 6; Higgins/Gesicki share.",
+        "tags": {
+          "script": "CIN scores through the air",
+          "correlates_with": [
+            "Burrow pass TD Over"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": -178,
+        "book": "DKP",
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": -0.032,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Henry TD in 5/6 games (7 rush + 1 rec TD); 1/2 with Huntley",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "DKP 64% (-178); BKR -202",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Huntley CLE start: BAL scored 10, Henry 17-58.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry carries"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Mike Gesicki",
+        "team": "CIN",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 376,
+        "book": "DKP",
+        "p_hit": 0.26,
+        "fair_odds": 285,
+        "edge": 0.238,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Gesicki TD in 4/4 games played (4 TD on 17 tgt)",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "DKP 21% (+376); BKR +251",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "TD rate unsustainable; Hudson/All share TE snaps.",
+        "tags": {
+          "script": "CIN quick game middle",
+          "correlates_with": [
+            "Gesicki rec yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Chase Brown",
+        "team": "CIN",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 117,
+        "book": "DKP",
+        "p_hit": 0.36,
+        "fair_odds": 178,
+        "edge": -0.219,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Brown 1 TD in 5; CIN only 2 rush TD",
+            "source": "scratch/w07-prop-packs/CIN_at_BAL.json"
+          },
+          {
+            "text": "Props file passed it as too short",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "CIN rarely scores on the ground.",
+        "tags": {
+          "script": "CIN leads",
+          "correlates_with": [
+            "Brown carries"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Ja'Marr Chase",
+        "team": "CIN",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 809,
+        "book": "DKP",
+        "p_hit": 0.12,
+        "fair_odds": 733,
+        "edge": 0.091,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 11% (+809); BKR +674",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          },
+          {
+            "text": "CIN favored and pass-led (65% dropback)",
+            "source": "data/generated/team-dossiers/2026-w07/CIN.md"
+          }
+        ],
+        "counter": "Many CIN scorers.",
+        "tags": {
+          "script": "CIN scores first",
+          "correlates_with": [
+            "Chase ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 426,
+        "book": "DKP",
+        "p_hit": 0.18,
+        "fair_odds": 456,
+        "edge": -0.053,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 19% (+426); BKR +345",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          },
+          {
+            "text": "Henry ~all BAL red-zone work under Huntley",
+            "source": "reports/intel/games/2026-w07-game-CIN_at_BAL-props.md"
+          }
+        ],
+        "counter": "CIN likelier first scorer.",
+        "tags": {
+          "script": "BAL run-first under Huntley (Henry ~22 car); CIN 23-20 controls possession",
+          "correlates_with": [
+            "Henry ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Mike Gesicki",
+        "team": "CIN",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 1900,
+        "book": "DKP",
+        "p_hit": 0.06,
+        "fair_odds": 1567,
+        "edge": 0.2,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 5% (+1900); BKR +1127",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Longshot.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "Lamar Jackson OUT; Tyler Huntley starts (Saturday recheck). Analysis uses the Huntley run-first script.",
+    "BEO has no player rows for CIN@BAL; BKR has 541 player rows (SGP only). DKP prices are pre-fee contract references.",
+    "No INT/sack-taken or IDP markets captured on any book: those legs are projected lines, executable:false, price at recapture.",
+    "roster-map-latest.json covers offense only; kickers/IDP verified against data/nfl-rosters/espn-full-rosters-latest.json (all on listed team).",
+    "Pack availability rows have null status; OUT/Q taken from props file and Saturday recheck (BAL OUT: Jackson, S Hawkins, LB T. Robinson; T.J. Tampa IR).",
+    "best_non_td_leg = best_leg (Chase Brown carries is non-TD). Henry carries 17.5+ (-200) is the BAL-side alternative."
+  ]
+}

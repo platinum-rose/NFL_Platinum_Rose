@@ -598,33 +598,8 @@ def main():
     pull = J(f'data/generated/master-intel/w{WW}-pull.json')
     if not pull: sys.exit(f'missing data/generated/master-intel/w{WW}-pull.json — run scripts/master-intel/pull.mjs --week {W}')
     roster = (J('data/nfl-rosters/roster-map-latest.json', {}) or {}).get('players', {})
-    beo = J(f'data/generated/props/beo-w{WW}.json') or []
-    beo_live_files = sorted(glob.glob(str(ROOT / f'data/generated/props/betonline-live-*-week{W}.json')) + glob.glob(str(ROOT / f'data/generated/props/betonline-live-*-w{WW}.json')))
-    if beo_live_files:
-        try:
-            b_data = json.load(open(beo_live_files[-1], encoding='utf-8'))
-            existing_k = set((r['game'], r['market'], r.get('player'), r.get('line')) for r in beo)
-            for r in b_data.get('rows', []):
-                ev = r.get('event') or r.get('game')
-                if not ev or ' @ ' not in ev: continue
-                parts = ev.split(' @ ')
-                aw, hm = FULL.get(parts[0].strip()), FULL.get(parts[1].strip())
-                if not aw or not hm: continue
-                g_code = f'{aw}_{hm}'
-                m = r.get('market')
-                if m == 'atd_1_plus': m = 'atd'
-                k = (g_code, m, r.get('player'), r.get('line'))
-                if k not in existing_k:
-                    existing_k.add(k)
-                    beo.append({
-                        'game': g_code,
-                        'market': m,
-                        'player': r.get('player') or '',
-                        'team': r.get('team') or '',
-                        'line': r.get('line'),
-                        'odds': r.get('odds')
-                    })
-        except Exception: pass
+    import market_captures
+    beo_source, beo = market_captures.beo_rows(W, D)
     if not beo: gaps.append(f'No parsed BEO boards (data/generated/props/beo-w{WW}.json).')
     yt = J(f'data/podcasts/youtube-extracted-picks-2026-w{WW}.json', {}) or {}
     if not yt: gaps.append('No cleaned YouTube pick digest this week.')
@@ -644,8 +619,14 @@ def main():
         _p.setdefault('verify', None); _p.setdefault('show', _p.get('show') or 'YouTube'); _p.setdefault('speaker', _p.get('speaker') or 'YouTube')
     avail = (J('data/player-availability/latest.json', {}) or {}).get('events', [])
     sec = (J('data/secondary-matchups/latest.json', {}) or {}).get('matchups', [])
-    dkfiles = sorted(glob.glob(str(ROOT / f'data/generated/props/dk-predictions-{D}-*.json')))
-    dk = [d_ for d_ in (json.load(open(f, encoding='utf-8')) for f in dkfiles) if isinstance(d_, dict) and 'away' in d_ and 'home' in d_ and 'rows' in d_]  # skip the week inventory/summary files
+    dk_source, dk = market_captures.dkp_events(W, D)
+    if dk_source is None:
+        dkfiles = sorted(glob.glob(str(ROOT / f'data/generated/props/dk-predictions-{D}-*.json')))
+        dk = [d_ for d_ in (json.load(open(f, encoding='utf-8')) for f in dkfiles) if isinstance(d_, dict) and 'away' in d_ and 'home' in d_ and 'rows' in d_]
+    capture_sources = dict(BKR=dict(path=f'data/generated/props/bookmaker-live-{D}-week{W}.json', captured_at=bkr.get('capturedAt'), rows=len(bkr['rows'])),
+                           BEO=dict(path=str(Path(beo_source).relative_to(ROOT)) if beo_source else None, captured_at=next((r.get('capturedAt') for r in beo if r.get('capturedAt')), None), rows=len(beo)),
+                           DKP=dict(path=str(Path(dk_source).relative_to(ROOT)) if dk_source else None, captured_at=next((e.get('capturedAt') for e in dk if e.get('capturedAt')), None), rows=sum(len(e['rows']) for e in dk)))
+    for book, meta in capture_sources.items(): print(f'CAPTURE {book}: {meta}')
     digest_p = next((p for p in [f'scratch/w{WW}-synthesis-digest-sat.md', f'scratch/w{WW}-synthesis-digest.md'] if (ROOT / p).exists()), None)
     card_p = f'reports/bets/{a.season}-w{WW}-card.md'
     card = (ROOT / card_p).read_text(encoding='utf-8') if (ROOT / card_p).exists() else ''
@@ -669,7 +650,8 @@ def main():
         sp = {FULL.get(r['side']): (r['line'], r['odds']) for r in gl if r.get('bet') == 'spread'}
         ml = {FULL.get(r['side']): r['odds'] for r in gl if r.get('bet') == 'moneyline'}
         tot = {r['side']: (r['line'], r['odds']) for r in gl if r.get('bet') == 'total'}
-        G[f'{aw}@{hm}'] = dict(away=aw, home=hm, sp=sp, ml=ml, tot=tot, rows=rows)
+        G[f'{aw}@{hm}'] = dict(away=aw, home=hm, sp=sp, ml=ml, tot=tot, rows=rows,
+                              line_source='Bookmaker rendered capture', line_capture_time=next((r.get('capturedAt') for r in gl if r.get('capturedAt')), bkr.get('capturedAt')))
     for _board_game in bkr_user_board.get('games', []):
         _gid = _board_game.get('game')
         if _gid not in G: continue
@@ -816,19 +798,19 @@ def main():
     SEC = {(m.get('offense_team'), m.get('defense_team')): m for m in sec}
 
     # ---------- digest leans ----------
-    LEANS = []
+    LEANS = []; SOFT = []   # SOFT = digest section L: leans that did not clear the elevation bar (game cards / write-ups only)
     if digest_p:
         _dsec = ''
         for ln in (ROOT / digest_p).read_text(encoding='utf-8').splitlines():
             _m = re.match(r'^#{2,3}\s+([A-Z])\.', ln)
             if _m: _dsec = _m.group(1)
             _tbl = ln.lstrip().startswith('|')
-            if _tbl and _dsec != 'C': continue   # table rows count as leans only in digest section C (sides and totals)
+            if _tbl and _dsec not in ('C', 'L'): continue   # table rows: C = Platinum Rose recommendations, L = leans only
             if _tbl and re.match(r'^\|[\s:|-]+\|?\s*$', ln.strip()): continue
             c = [x.strip() for x in re.sub(r'^\s*[-*]\s+', '', ln.strip().strip('|') if _tbl else ln).split('|')]
             if c and c[0]: c[0] = re.sub(r'\s*@\s*', '@', c[0].strip('`*'))
             if len(c) >= 5 and c[0] and re.match(r'^[A-Z]{2,4}@[A-Z]{2,4}$', c[0]) and c[-1]:
-                LEANS.append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4], note=(c[5] if len(c) > 5 else '')))
+                (SOFT if (_tbl and _dsec == 'L') else LEANS).append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4], note=(c[5] if len(c) > 5 else '')))
     else: gaps.append(f'No synthesis digest (scratch/w{WW}-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
     # ---------- card tickets ----------
     if exp_dropped: gaps.append('Dropped mis-tagged expert side picks (selection names neither team): ' + '; '.join(exp_dropped))
@@ -997,7 +979,7 @@ def main():
         if 'rec' in s_ or 'receiving' in s_ or 'recept' in s_: return 'Receiving'
         if 'pass' in s_ or 'completion' in s_ or 'attempt' in s_ or 'interception' in s_: return 'Passing'
         return 'Other'
-    def ticket_is_props(t): return t['legs'] and sum(is_prop_text(l['market']) for l in t['legs']) * 2 > len(t['legs'])
+    def ticket_is_props(t): return bool(t['legs']) and (bool(re.search(r'Perfect Lottery|Core 7-Leg|Field-Goal Ticket|Pressure Ticket|IDP Tackles|^7[a-e] ', t['name'])) or sum(is_prop_text(l['market']) for l in t['legs']) * 2 > len(t['legs']))   # Prop Stack Agent tickets by name (2026-10-24)
 
     # ---- leans: game, type, confidence ----
     def lean_gid(x):
@@ -1047,10 +1029,44 @@ def main():
     for r_ in RANKED:
         r_['lean_disp'] = r_['lean']
         if r_['type'] in ('Side', 'Total'):
-            m_ = re.match(r'^(.+?)\s*\((-?\d+)\)\.?\s*(?:Risk:.*)?$', (r_.get('note') or '').strip())
+            m_ = re.match(r'^(.+?)\s*\(([+-]?\d+)\)\.?\s*(?:Risk:.*)?$', (r_.get('note') or '').strip())
             if m_:
                 r_['market'] = m_.group(1).strip(); r_['price'] = m_.group(2)
                 r_['lean_disp'] = f"{m_.group(1).strip()} ({m_.group(2)})"
+
+    # ---- The Pitch / The Pushback for every Platinum Rose straight bet (Andy 2026-10-24: nothing is elevated without them) ----
+    pitch_p = f'reports/intel/master-pitches-{a.season}-w{WW}.json'
+    PITCH = (J(pitch_p, {}) or {}).get('picks', {})
+    miss_pitch = [f"{r_['gid']} {r_['type']}" for r_ in RANKED if r_['type'] in ('Side', 'Total') and f"{r_['gid']}|{r_['type']}" not in PITCH]
+    if miss_pitch: gaps.append(f'Platinum Rose recommendations without The Pitch / The Pushback in {pitch_p}: ' + ', '.join(miss_pitch))
+    def pitch_block(gid_, typ_):
+        th = PITCH.get(f'{gid_}|{typ_}')
+        if not th: return []
+        pre = f"pr-{slug(gid_)}-{typ_.lower()}"
+        def cite(it):
+            refs = it.get('ref', []); refs = refs if isinstance(refs, list) else [refs]
+            return esc(it['text']) + ' ' + ' '.join(f'<sup><a href="#{pre}-src-{r}">[{r}]</a></sup>' for r in refs)
+        out = []
+        for key, title in (('pitch', '✅ The Pitch'), ('pushback', '⚠️ The Pushback')):
+            out += roll('rec-thesis', f'{pre}-{key}', f"{title} — {esc(th.get('pick') or typ_)}")
+            out += [f'- {cite(it)}' for it in th.get(key, [])] + ['', '</div>', '</details>', '']
+        out += ['<div class="rec-thesis-sources" style="font-size:.85em;color:var(--muted)">'] + [f'<p id="{pre}-src-{k}"><b>[{k}]</b> {esc(v)}</p>' for k, v in (th.get('sources') or {}).items()] + ['</div>', '']
+        return out
+
+    # ---- Leans that did not clear the Platinum Rose bar (digest §L): listed on Picks / Ranked, clearly labelled (Andy 2026-10-24 9:06 PM) ----
+    def soft_block(rid, cls):
+        if not SOFT: return []
+        rows_ = []
+        for x_ in SOFT:
+            gid_ = lean_gid(x_); typ_ = lean_type(x_)
+            m_ = re.search(r'conf\s+(\d+(?:\.\d+)?)%', x_.get('source', ''))
+            n_ = re.match(r'^(.*?)\s*\(([+-]?\d+)\)\.?\s*(?:Risk:\s*(.*))?$', (x_.get('note') or '').strip())
+            pick_ = n_.group(1) if n_ else x_['lean']; px_ = n_.group(2) if n_ else ''; risk_ = (n_.group(3) or '') if n_ else ''
+            rows_.append((kick.get(gid_) or datetime.datetime.max.replace(tzinfo=PT), f"| {glink(gid_) if gid_ in ids else esc(x_['game'])} | {typ_} | **{esc(pick_)}** | {esc(px_)} | {(m_.group(1) + '%') if m_ else '—'} | {esc(x_['tier'])} | {esc(risk_)} |"))
+        rows_.sort(key=lambda t: t[0])
+        return roll(cls, rid, f'🟡 Leans: not elevated to Platinum Rose recommendations ({len(SOFT)})') + [
+            'These sides and totals have a model lean but did **not** clear the Platinum Rose evidence bar (model edge, an independent expert or sharp signal on the same side, and no serious contrary evidence). They are shown for reference and for building your own tickets; they carry no Pitch and are not our recommendations. Confidence is the simulator\'s cover/total probability from the per-game syntheses.', '',
+            '| Game | Type | Lean | Price | Confidence | Tier | Risk |', '|---|---|---|---|---|---|---|'] + [r_ for _, r_ in rows_] + RE
 
     # ---- expert registry anchors (used by §4 and §7 citations) ----
     def yt_kind(p):
@@ -1234,7 +1250,8 @@ def main():
           f"| Bookmaker (BKR) props | {len(G)} games, {len(bkr['rows'])} rows from {asof_txt} | [Jump to Market Board](#board-defs) · [Game Dossier](#game-dossier) |",
           (f"| BKR game lines | {len(bkr_user_board.get('games', []))} games from Andy-supplied board; capture time not stated | Overlaid for market comparisons; raw DOM capture retained |" if bkr_user_board.get('games') else ''),
           f"| BetOnline (BEO) prop boards | {len({r['game'] for r in beo})} games, {len(beo)} lines | [Jump to Props Pool](#prop-pool) |",
-          f"| DraftKings Predictions saves | {len(dk)} games | [Jump to Quantitative Systems](#systems) |",
+          f"| DraftKings Predictions saves | {len(dk)} games, {capture_sources['DKP']['rows']} rows; contract prices before fees | [Jump to Quantitative Systems](#systems) |",
+          *[f"| {book} capture provenance | {meta['captured_at'] or 'time not recorded'}; {meta['rows']} rows | {meta['path'] or 'legacy saved files'} |" for book, meta in capture_sources.items()],
           f"| Research signals / articles / expert picks | {len(pull['signals'])} / {len(pull['notes'])} / {len(pull['expert'])} | [View Sourced Articles ({len(pull['notes'])})](#sourced-articles) |",
           f"| Podcast transcripts & YouTube picks | {len(yt.get('picks', []))} picks, {len(yt.get('analysis_notes', []))} notes | [View Sourced Shows](#sourced-podcasts) · [Expert Registry](#expert-registry) |",
           f"| Betting splits (Action Network) | {len(SPL)} games | [Jump to Market Board](#board-defs) |",
@@ -1348,7 +1365,7 @@ def main():
     for r_ in RANKED:
         gid_ = r_.get('gid')
         if not gid_ or gid_ not in ids: continue
-        typ_ = lean_type(r_)
+        typ_ = r_.get('type') or lean_type(r_)  # market text is rewritten to 'Under 44' above, so re-deriving misreads totals as sides
         if typ_ == 'Side':
             A_, H_ = gid_.split('@')
             side_text = str(r_.get('lean_disp') or r_.get('lean') or '').strip()
@@ -1441,10 +1458,14 @@ def main():
         L += [f'<details class="rollup-box section-rec filter-group sort-group" id="rec-{slug(gid)}" data-conf="{best:.2f}" data-kick="{k_.isoformat() if k_ else ""}" data-game="{gid}">', f'<summary>🏈 {head}</summary>', '<div class="rollup-content">', '',
               '| Type | Pick | Lean | Confidence | Why |', '|---|---|---|---|---|'] + [
               f"| {r['type']} | **{esc(r['market'])}** | {esc(r['lean_disp'])} | {stars(r['conf'])} | {('<strong>' + esc(r['note']) + '</strong>') if r.get('note') else ''}{link_sources(r['source'], gid)} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in rs]
+        for r in rs:
+            _pt = {'Spread': 'Side', 'Side': 'Side', 'ML': 'Side', 'Total': 'Total'}.get(r['type'])
+            if _pt: L += [''] + pitch_block(gid, _pt)
         if proj_txt(gid): L += ['', f"🎯 **Our projected score:** {proj_txt(gid)}"]
         if gwhy(gid): L += ['', f"🧠 **Why:** {esc(gwhy(gid))}"]
         L += ['', f"[Full game write-up →](#{gsid(gid)}) · [all expert picks →](#experts-{slug(gid)})"] + RE
     L += ['</div>'] + RE
+    L += soft_block('rec-leans', 'section-rec')
     singles = [t for t in TK if not ticket_is_props(t) and t['name'].lower().startswith('single')]
     parl = [t for t in TK if not ticket_is_props(t) and t not in singles]; stacks = [t for t in TK if ticket_is_props(t)]
     if singles:
@@ -1537,6 +1558,7 @@ def main():
     for i, r in enumerate(RANKED):
         mkt_clean = re.sub(r'\bATD\b', 'Anytime TD', r['market'])
         L.append(f"| {i+1} | {r['type']} | {glink(r['gid']) if r['gid'] else esc(r['game'])} | {esc(mkt_clean)} | {esc(r['lean_disp'])} | {stars(r['conf'])} | {esc(r['tier'])} | {link_sources(r['source'], r['gid'])} |")
+    L += [''] + soft_block('ranked-leans', 'section-1')
     L += ['', '<a id="card-tickets"></a>', '### 🎟️ Card tickets', '', 'All tickets, with what each one is, why it is on the card and every leg, are in the [Parlays &amp; round robins](#rec-parlays) and [Player prop stacks](#rec-props) boxes at the top of the report.', '']
     kinds = ['Tackles+Assists', 'Defense', 'Kicking', 'Rushing', 'Receiving', 'Passing', 'Anytime TD', 'First TD', '2+ TDs']
     def prop_category(p):
@@ -1549,7 +1571,30 @@ def main():
 
     cat_order = ['TDs', 'Passing', 'Rushing', 'Receiving', 'DEF', 'Kicking', 'Other']
     pool_games = [g for g in live if POOL.get(g['id'])]
-    L += ['', '<a id="prop-pool"></a>', '### 🧰 Build your own: actionable props pool', '',
+    # ---- card §7f (props by position, every game) and §7g (ATD per team / first TD per game), Andy 2026-10-24 ----
+    def _card_tables(head_re):
+        m_ = re.search(r'^## ' + head_re + r'.*?$(.*?)(?=^## |\Z)', card_cur, re.M | re.S)
+        if not m_: return None, []
+        txt_ = m_.group(1); intro_ = next((l for l in txt_.split('\n') if l.strip() and not l.startswith('|') and not l.startswith('#')), '')
+        return intro_, txt_
+    PBP = []
+    _intro, _txt = _card_tables(r'7f\.')
+    if _txt:
+        _rows = [[c.strip() for c in l.strip().strip('|').split('|')] for l in _txt.split('\n') if l.startswith('|') and not re.match(r'^\|[\s:|-]+\|$', l.strip())]
+        _hdr, _rows = _rows[0], _rows[1:]
+        _byg = collections.OrderedDict()
+        for r_ in _rows: _byg.setdefault(r_[0], []).append(r_)
+        PBP += roll('section-2', 'props-by-position', f'🧩 Props by position — every game ({len(_rows)} props: QB / RB / WR / TE / K / IDP)', True) + [esc(_intro).replace('**', '**'), '']
+        for gid_, rs_ in _byg.items():
+            cnt_ = collections.Counter(r_[1] for r_ in rs_)
+            PBP += roll('section-2 pbp-game', f'pbp-{slug(gid_)}', f"{matchup(gid_) if gid_ in ids else esc(gid_)} — " + ' · '.join(f"{k} {cnt_[k]}" for k in ('QB','RB','WR','TE','K','IDP') if cnt_.get(k)))
+            PBP += ['| Pos | Player | Prop | Price | Book | Tier | Source | Why / flag |', '|---|---|---|---|---|---|---|---|'] + [f"| {r_[1]} | **{r_[2]}** | {r_[3]} | {r_[4]} | {r_[5]} | {r_[6]} | {r_[7]} | {r_[8]} |" for r_ in rs_] + ['', f"[Full game write-up →](#{gsid(gid_)})" if gid_ in ids else '', '</div>', '</details>', '']
+        PBP += ['</div>', '</details>', '']
+    _intro, _txt = _card_tables(r'7g\.')
+    if _txt:
+        _td = re.sub(r'^### (.+)$', r'**\\1**', _txt.replace(_intro, '', 1), flags=re.M)
+        PBP += roll('section-2', 'td-menu', '🏈 Touchdown menu — one anytime TD per team, one first TD per game', True) + [_intro, '', _td, '', '</div>', '</details>', '']
+    L += ['', '<a id="prop-pool"></a>'] + PBP + ['### 🧰 Build your own: actionable props pool', '',
           'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed, grouped by prop category and then by matchup so you can build your own stacks. **"Card"** rows passed our build rules; **"expert"** rows are calls we have not checked ourselves.', '',
           '**Jump to a category:** ' + ' · '.join(f"[{lab} ({sum(1 for g in pool_games for p in POOL[g['id']] if prop_category(p)[0] == ck)})](#props-cat-{ck.lower()})" for ck, lab in (('TDs','Touchdowns'),('Passing','Passing'),('Rushing','Rushing'),('Receiving','Receiving'),('DEF','Defense'),('Kicking','Kicking'),('Other','Other')) if any(prop_category(p)[0] == ck for g in pool_games for p in POOL[g['id']])), '']
     _kc = collections.Counter(p['kind'] for g in pool_games for p in POOL[g['id']])
@@ -1836,7 +1881,9 @@ def main():
         for r in EXP.get(g['id'], [])[:4]:
             L.append(f"  * _{esc(r.get('expert'))}_: {esc(r.get('pick_type'))} **{esc(r.get('selection'))}** {esc(r.get('line') or '')} — {esc(r.get('rationale'))[:120]}")
         for x in RANKED:
-            if x['gid'] == g['id']: L.append(f"* **Card lean:** {esc(x['lean_disp'] if x['type'] != 'Prop' else x['market'] + ' → ' + x['lean'])} (confidence {stars(x['conf'])})")
+            if x['gid'] == g['id']: L.append(f"* **Platinum Rose recommendation:** {esc(x['lean_disp'] if x['type'] != 'Prop' else x['market'] + ' → ' + x['lean'])} (confidence {stars(x['conf'])})")
+        for x in SOFT:
+            if lean_gid(x) == g['id']: L.append(f"* **Lean only (not a Platinum Rose recommendation):** {esc((x.get('note') or x['lean']).split('. Risk:')[0])}")
         L.append(f"* **Full breakdown:** [game dossier](#{gsid(g['id'])}) · [all expert picks](#experts-{slug(g['id'])})")
         L += ROLL_END
     if cur_bd is not None: L += RE
@@ -2144,11 +2191,13 @@ def main():
           'Each game opens with a written game script, our projected final score and the reasoning behind the card lean, with links to the experts cited and the actionable props for that game. Below that: the betting lines, key context, and every pick grouped by **sides**, **totals** and **player props**.', ''] + controls('section-7', 'Section 7')
     # ---- game grid (cards) at the top of the Games tab: one card per game, links to the game box ----
     def _lean_card(gid_, typ_):
-        r_ = next((x_ for x_ in RANKED if x_.get('gid') == gid_ and x_['type'] == typ_), None)
+        r_ = next((x_ for x_ in RANKED if x_.get('gid') == gid_ and x_['type'] == typ_), None); soft_ = False
+        if not r_:
+            r_ = next((x_ for x_ in SOFT if lean_gid(x_) == gid_ and lean_type(x_) == typ_), None); soft_ = True
         if not r_: return None
         m_ = re.search(r'conf\s+(\d+(?:\.\d+)?)%', r_.get('source', ''))
-        n_ = re.match(r'^(.*?)\s*\((-?\d+)\)\.?\s*(?:Risk:\s*(.*))?$', (r_.get('note') or '').strip())
-        return dict(pick=(n_.group(1) if n_ else r_['lean']), price=(n_.group(2) if n_ else ''), conf=(float(m_.group(1)) if m_ else None), risk=((n_.group(3) or '') if n_ else ''))
+        n_ = re.match(r'^(.*?)\s*\(([+-]?\d+)\)\.?\s*(?:Risk:\s*(.*))?$', (r_.get('note') or '').strip())
+        return dict(pick=(n_.group(1) if n_ else r_['lean']), price=(n_.group(2) if n_ else ''), conf=(float(m_.group(1)) if m_ else None), risk=((n_.group(3) or '') if n_ else ''), soft=soft_)
     _cards = []
     for g in sched:
         gid = g['id']; A, H = g['visitor'], g['home']
@@ -2161,12 +2210,13 @@ def main():
         fsc = FS.get(gid)
         done_ = bool(g['done'])
         sd_ = None if done_ else _lean_card(gid, 'Side'); tt_ = None if done_ else _lean_card(gid, 'Total')
-        best_ = max([x_['conf'] for x_ in (sd_, tt_) if x_ and x_.get('conf') is not None] or [-1])
+        best_ = max([x_['conf'] for x_ in (sd_, tt_) if x_ and x_.get('conf') is not None and not x_.get('soft')] or [-1])
         def _pk(lbl, d_):
             if not d_: return ''
-            return (f'<div class="gg-pick"><span class="gg-lbl">{lbl}</span><b>{esc(d_["pick"])}</b>' + (f'<span class="gg-px">{esc(d_["price"])}</span>' if d_['price'] else '')
+            if d_.get('soft'): lbl = f'{lbl} · Lean'
+            return (f'<div class="gg-pick"' + (' style="opacity:.6" title="Lean only: did not clear the Platinum Rose evidence bar"' if d_.get('soft') else '') + f'><span class="gg-lbl">{lbl}</span><b>{esc(d_["pick"])}</b>' + (f'<span class="gg-px">{esc(d_["price"])}</span>' if d_['price'] else '')
                     + (f'<span class="gg-conf">{d_["conf"]:.1f}%<small>conf</small></span>' if d_['conf'] is not None else '') + '</div>')
-        risk_ = next((d_['risk'] for d_ in (sd_, tt_) if d_ and d_['risk']), '')
+        risk_ = next((d_['risk'] for d_ in (sd_, tt_) if d_ and d_['risk'] and not d_.get('soft')), '') or next((d_['risk'] for d_ in (sd_, tt_) if d_ and d_['risk']), '')
         badge_ = ''
         if done_: badge_ = '<span class="gg-badge gg-badge-final">FINAL' + (f" {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else '') + '</span>'
         _cards.append(f'<a class="gg-card{" gg-final" if done_ else ""}" href="#{gsid(gid)}-box" data-gid="{gid}" data-day="{k_:%a}" data-kick="{int(g["k"].timestamp())}" data-conf="{best_:.1f}">'
@@ -2607,7 +2657,7 @@ def main():
         games=games_out,
         survivor=[dict(rank=i + 1, team=t_, game=gid_, win_chance=round(p_, 4), **{k: v for k, v in (spt.get(t_) or {}).items()}) for i, (p_, t_, gid_) in enumerate(cands[:12])],
         trends=[dict(game=z['gid'], type=z['kind'], trend=z['txt'], points_to=z['pick'], source=z['src']) for z in TR],
-        known_gaps=gaps)
+        known_gaps=gaps, market_captures=capture_sources)
     json.dump(export, open(md.with_suffix('.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False, default=_j)
     print(f'wrote {md} ({len(L)} lines)')
     sys.path.insert(0, str(Path(__file__).parent))
@@ -2640,6 +2690,8 @@ def main():
     FSall = FS
     card_sc = [(t_, float(l_.replace('−', '-').replace(' ', ''))) for t_, l_ in (picks if sc_line else [])]
     card_alt = [(t_, float(l_.replace('−', '-').replace(' ', ''))) for t_, l_ in alt_picks]
+    sc_pitch_path = f'reports/intel/supercontest-pitches-{a.season}-w{WW}.json'
+    SC_PITCH = (J(sc_pitch_path, {}) or {}).get('picks', {})
     our5 = {t_ for t_, _ in card_sc}; alts = {t_ for t_, _ in card_alt}
     KEYS = (3, 7, 10, 14)
     SCX = set()
@@ -2775,7 +2827,51 @@ def main():
     S += ['', '<a id="sc-our-five"></a>', '## ⭐ Dashboard AI Proposal for Andy & Amanda', '',
           '<div class="pk-quick"><div class="pk-qrow"><span class="pk-qlabel">⭐ Dashboard AI proposal</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_sc) + ("<span class='pk-chip' style='border-style:dashed;opacity:.75;cursor:default'><b>#5</b> No AI pick</span>" if len(card_sc) < 5 else '') + '</div>'
           + ('<div class="pk-qrow"><span class="pk-qlabel">🔁 AI alternates</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_alt) + '</div>' if card_alt else '') + '</div>', '',
-        f'The Dashboard AI proposal contains {len(card_sc)} sides, with a short reason for each. These selections are tracked as Dashboard AI picks, not as Andy and Amanda’s official card. ' + ('Slot 5 has no Dashboard AI pick; Andy and Amanda will decide and declare the official five separately. ' if len(card_sc) < 5 else 'Andy and Amanda will decide and declare the official five separately. ') + 'Alternates are proposal swap-ins if a recommended side falls through. Tap a side above to jump to its breakdown; every card and group collapses. Every other side is on the Ranked & Market tab.', '']
+        f'The Dashboard AI proposal contains {len(card_sc)} sides, each with The Pitch and The Pushback. These selections are tracked as Dashboard AI picks, not as Andy and Amanda’s official card. ' + ('Slot 5 has no Dashboard AI pick; Andy and Amanda will decide and declare the official five separately. ' if len(card_sc) < 5 else 'Andy and Amanda will decide and declare the official five separately. ') + 'Alternates are proposal swap-ins if a recommended side falls through. Tap a side above to jump to its breakdown; every card and group collapses. Every other side is on the Ranked & Market tab.', '']
+    def sc_pitch_sections(z):
+        team = z['side']; gid = z['gid']; prefix = f"sc5-{slug(team)}"
+        thesis = SC_PITCH.get(team, {})
+        if thesis.get('game') != gid:
+            thesis = {}
+        out = []
+        def cited(item):
+            refs = item.get('ref', [])
+            if not isinstance(refs, list): refs = [refs]
+            return esc(item['text']) + ' ' + ' '.join(f'[{ref}](#{prefix}-source-{ref})' for ref in refs)
+        def expert_names(side):
+            return ', '.join(f'[{esc(name)}](#scx-{slug(name)})' for name in sorted(SC_CONS[gid].get(side, set()))) or 'none recorded'
+        for key, title in (('pitch', 'The Pitch'), ('pushback', 'The Pushback')):
+            out += roll('sc-more sc-thesis', f'{prefix}-{key}', title, True)
+            paragraphs = thesis.get(key, [])
+            if paragraphs:
+                for item in paragraphs: out += [cited(item), '']
+            else:
+                out += [f'No sourced {title.lower()} has been saved for this side yet.', '']
+            if key == 'pitch':
+                out += [f"**Spread support in the report:** {expert_names(team)}. **{z['nf']} for / {z['na']} against** in the saved registry. [Expert picks and cited lines →](#sc-experts)", '']
+                if z['lm'] is not None:
+                    price_note = (f"{z['val']:+g} points of contest advantage" if z['val'] > 0 else f"{abs(z['val']):g} points worse in the contest" if z['val'] < 0 else 'the same spread')
+                    board = G.get(gid) or {}
+                    out += [f"**Number check:** contest {team} {z['lc']:+g}; supplied BKR {team} {z['lm']:+g} — {price_note}. Source: {esc(board.get('line_source') or 'saved Bookmaker capture')}; capture time: {esc(str(board.get('line_capture_time') or 'not stated'))}. [Market comparison →](#sc-market)", '']
+                sp = SPL.get(gid) or {}
+                hb, hm = sp.get('spread_home_bettors'), sp.get('spread_home_money')
+                if hb is not None and hm is not None and (hb or hm):
+                    bets, money = (float(hb), float(hm)) if team == z['g']['home'] else (100 - float(hb), 100 - float(hm))
+                    gap = money - bets
+                    read = 'Money share exceeds ticket share' if gap > 0 else 'Money share trails ticket share' if gap < 0 else 'Money and ticket shares are equal'
+                    out += [f"**Saved spread splits:** {team} {bets:g}% of tickets / {money:g}% of money; {z['opp']} {100-bets:g}% / {100-money:g}%. {read} ({gap:+g} percentage points). This describes the sampled action, not bettor identity or a cover probability. Action Network capture: {esc(str(sp.get('captured_at') or 'time unavailable'))}. [Split evidence →](#sc-splits-anchor)", '']
+                else:
+                    out += ['**Spread splits:** no usable saved split for this game; no money-based support is inferred.', '']
+            else:
+                out += [f"**Opposing spread voices in the report:** {expert_names(z['opp'])}. Earlier picks can be at different lines; shared shows and repeated analyst appearances are not independent evidence. Tied source votes are omitted from the directional count. [Inspect expert evidence →](#sc-experts)", '']
+            out += RE
+        if thesis:
+            source_path = f"reports/intel/games/{a.season}-w{WW}-game-{gid.replace('@', '_at_')}-sides.md"
+            out += [f'<div class="sc-thesis-sources" style="font-size:.85em;color:var(--muted)">',
+                    f'<p id="{prefix}-source-1"><b>[1] Saved Friday matchup synthesis, {esc(gid)}.</b> Game script, quantitative analysis, expert agreement, market history and counter-case. Includes dossier/FTN/nflverse figures, attributed expert recommendations and saved simulation results. Source: <code>{esc(source_path)}</code>. Figures describe that snapshot; no simulation was rerun for this update.</p>',
+                    f'<p id="{prefix}-source-2"><b>[2] Saturday Week {W} review, {esc(gid)}.</b> Game section, Saturday market/news recheck and contest notes in <code>{esc(nar_p)}</code>; latest supplied BKR spread is displayed above. These notes update Friday information where explicitly stated. The analyst score projection is qualitative.</p>',
+                    '</div>', '']
+        return out
     def _card(t_, l_, is_five):
         z = _zfor(t_, l_)
         if not z: return []
@@ -2785,21 +2881,7 @@ def main():
         out += roll('sc-five', f"sc5-{slug(t_)}", head, True)
         _nf, _na = sc_expert_counts(z)
         out += [f"**Contest {z['side']} {z['lc']:+g}** · market now {_mk(z['lm'])}{(' (%+d)' % z['lm_price']) if z['lm'] is not None else ''} · line value {('%+.1f' % z['val']) if z['val'] is not None else '—'}{(' · ' + z['key']) if z['key'] else ''} · projected margin {_mk(z['marg'])} (room {('%+.1f' % z['cush']) if z['cush'] is not None else '—'}) · spread experts {_nf} – {_na}" + (f" · projection {proj_txt(z['gid'])}" if proj_txt(z['gid']) else ''), '']
-        note = SCNOTE.get(t_, '')
-        if note: out += [f"🏆 **Why:** {esc(note)}", '']
-        out += roll('sc-more', f"sc5-{slug(t_)}-more", '🧠 Spread case and risk')
-        if note:
-            out += [f"🧠 **Spread case:** {esc(note)}", '']
-        elif z['marg'] is not None and z['cush'] is not None:
-            _forecast = f"projected to win by {abs(z['marg']):g}" if z['marg'] > 0 else f"projected to lose by {abs(z['marg']):g}" if z['marg'] < 0 else 'projected to finish even'
-            out += [f"🧠 **Spread case:** The saved projection has {FULL_NAME(t_)} {_forecast}; against the contest line {z['lc']:+g}, that leaves {z['cush']:+g} points of room.", '']
-        else:
-            out += [f"🧠 **Spread case:** Contest {z['side']} {z['lc']:+g} against the current BKR spread {_mk(z['lm'])}.", '']
-        if z['key'].startswith('loses'):
-            out += [f"🔑 **Key-number warning:** the market has this at {z['lm']:+g}, so the contest's {z['lc']:+g} costs us the half point around {z['key'].split()[-1]}. A {z['key'].split()[-1]}-point result is a win at the market number and a loss here.", '']
-        else:
-            out += [f"⚠️ **Spread risk:** the opponent covering the other side of the {z['lc']:+g} contest spread makes this pick a loss.", '']
-        out += RE
+        out += sc_pitch_sections(z)
         out += [f"[SuperContest game breakdown →](#sc-game-{slug(z['gid'])})"] + RE
         return out
     S += roll('sc-group', 'sc-grp-five', f'⭐ Dashboard AI proposal ({len(card_sc)} sides)', True)
@@ -3009,6 +3091,9 @@ def main():
         S += [f"[Game-by-game spread analysis →](#sc-game-{slug(gid)})"] + RE
     # 5. review + rules
     standings_path = ROOT / f'data/supercontest/standings-week-{WW}-{D}.md'
+    if not standings_path.exists():
+        snapshots = sorted(p for p in (ROOT / 'data/supercontest').glob(f'standings-week-{WW}-{a.season}-*.md') if p.stem[-10:] <= D)
+        if snapshots: standings_path = snapshots[-1]
     standings_lines = standings_path.read_text(encoding='utf-8').strip().splitlines() if standings_path.exists() else []
     ai_review_path = ROOT / 'data/supercontest/dashboard-ai-review-2026.json'
     ai_review = json.loads(ai_review_path.read_text(encoding='utf-8')) if ai_review_path.exists() else {}
@@ -3153,7 +3238,7 @@ def main():
     smd = out_dir / f'nfl_week{W}_supercontest_intelligence_summary.md'
     smd.write_text(stxt + '\n', encoding='utf-8')
     json.dump(dict(schema='supercontest_report_v1', season=a.season, week=W, built_at=datetime.datetime.now(PT).isoformat(), contest_lines_source=scl.get('source'),
-                   our_five=[dict(team=t_, line=l_, note=SCNOTE.get(t_, '')) for t_, l_ in card_sc], alternates=[dict(team=t_, line=l_) for t_, l_ in card_alt],
+                   our_five=[dict(team=t_, line=l_, note=SCNOTE.get(t_, ''), reasoning=SC_PITCH.get(t_, {})) for t_, l_ in card_sc], alternates=[dict(team=t_, line=l_, reasoning=SC_PITCH.get(t_, {})) for t_, l_ in card_alt],
                    season_record=dict(wins=wins, losses=losses, pushes=pushes, points=season_pts, weeks=[dict(week=wk, picks=rs) for wk, rs in HIST]),
                    sides=[{k: z[k] for k in ('gid', 'side', 'opp', 'lc', 'lm', 'marg', 'cush', 'val', 'key', 'nf', 'na', 'bm', 'score', 'result', 'fav')} | dict(rank=z.get('rank'), stars=(z['lean']['conf'] if z['lean'] else None)) for z in SIDES]),
               open(smd.with_suffix('.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False, default=_j)

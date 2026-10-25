@@ -17,6 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 import sc_review
+import market_captures
 
 ROOT = Path(__file__).resolve().parents[2]
 E = lambda s: html.escape(str(s if s is not None else ''), quote=True)
@@ -62,6 +63,9 @@ def load(week, date):
     narr = ROOT / f'reports/intel/master-intel-narratives-{date[:4]}-w{W}.md'
     narr = narr.read_text(encoding='utf-8') if narr.exists() else ''
     standings_path = ROOT / f'data/supercontest/standings-week-{W}-{date}.md'
+    if not standings_path.exists():
+        snapshots = sorted(p for p in (ROOT / 'data/supercontest').glob(f'standings-week-{W}-{date[:4]}-*.md') if p.stem[-10:] <= date)
+        if snapshots: standings_path = snapshots[-1]
     standings = standings_path.read_text(encoding='utf-8') if standings_path.exists() else ''
     digest = ROOT / f'scratch/w{W}-synthesis-digest-sat.md'
     digest = digest.read_text(encoding='utf-8') if digest.exists() else ''
@@ -220,7 +224,7 @@ def dashboard_review_html():
             out.append(f'<h4>Dashboard AI — not comparable</h4><p class="muted-note">No complete frozen five-pick recommendation set was preserved, so this week is excluded from the side-by-side five-pick score.</p><p class="sc-review-why"><b>Broader AI review:</b> {E(row.get("dashboard_why") or row.get("note", ""))}</p>')
         out.append('</div></details>')
     out += [
-        '<p class="muted-note">This is a sides-only contest benchmark, separate from placed wagers, totals and player props. Results and margins are recomputed from the saved contest lines and ESPN box scores; explanatory notes distinguish game outcomes from any flaws in the original reasoning.</p>',
+        '<p class="muted-note">This is a spread-only contest benchmark. Results and margins are recomputed from the saved contest lines and ESPN box scores; explanatory notes distinguish game outcomes from any flaws in the original reasoning.</p>',
         '</div></details>'
     ]
     return ''.join(out)
@@ -313,6 +317,7 @@ def sc_rows(ctx):
 
 def sc_page(ctx):
     five, alts, note = sc_rows(ctx)
+    theses = (J(ROOT / f'reports/intel/supercontest-pitches-{ctx["date"][:4]}-w{ctx["W"]}.json', {}) or {}).get('picks', {})
     r5 = block(ctx['narr'], 'SUPERCONTEST'); ralt = block(ctx['narr'], 'SUPERCONTEST ALTERNATES')
     rank = block(ctx['narr'], 'SUPERCONTEST RANKING')
     stars = {}
@@ -357,7 +362,8 @@ def sc_page(ctx):
         g = ctx['games'].get(gid) or {}
         away = g.get('away', ''); home = g.get('home', '')
         ko = g.get('kickoff_pt', '')
-        chips = [('Contest line', r.get('contest line')), ('Book now (BKR)', r.get('book now (bkr)')),
+        current_spread = ((g.get('lines') or {}).get('spread') or {}).get(team, {}).get('line')
+        chips = [('Contest line', r.get('contest line')), ('Book now (BKR)', f'{current_spread:+g}' if current_spread is not None else 'not captured'),
                  ('Our projection', r.get('projection')), ('Room vs contest line', r.get('margin vs contest line'))]
         st, tr = stars.get(team, (None, None))
         if st is not None: chips.append(('Card confidence', f'{st:g}★ · tier {tr}'))
@@ -366,6 +372,28 @@ def sc_page(ctx):
         how = rank.get(team)
         pick_str = f"{team} {r.get('contest line', '')}".strip()
         mu_str = f'{tl(away)} {away} @ {tl(home)} {home}' if away and home else f'{team} matchup'
+        thesis = theses.get(team, {})
+        text = []
+        if thesis.get('game') == gid:
+            for key, title in [('pitch', 'The Pitch'), ('pushback', 'The Pushback')]:
+                text.append(f'<details class="rollup-box sc-thesis" open><summary>{title}</summary><div class="rollup-content">')
+                for paragraph in thesis.get(key, []):
+                    refs = paragraph.get('ref', []); refs = refs if isinstance(refs, list) else [refs]
+                    cites = ' '.join(f'<a href="#{aid(team, alt)}-source-{ref}">[{ref}]</a>' for ref in refs)
+                    text.append(f'<p>{E(paragraph["text"])} {cites}</p>')
+                side = team if key == 'pitch' else (home if team == away else away)
+                voices = sorted({who_of(row) for row in ctx['vrows'] if row.get('game') == gid and row.get('market') in ('spread', 'contest') and row.get('side') == side})
+                text.append(f'<p><b>{"Supporting" if key == "pitch" else "Opposing"} spread voices:</b> {E(", ".join(voices) or "none recorded")} · <a href="#sc-exp-{slug(gid)}">source picks and citations</a>. Shared shows and differing cited lines limit independence.</p>')
+                if key == 'pitch':
+                    sp = g.get('splits') or {}; hb, hm = sp.get('spread_home_bets'), sp.get('spread_home_money')
+                    if hb is not None and hm is not None and (hb or hm):
+                        bt, mn = (float(hb), float(hm)) if team == home else (100-float(hb), 100-float(hm))
+                        text.append(f'<p><b>Saved spread splits:</b> {E(team)} {bt:g}% tickets / {mn:g}% money; {E(home if team == away else away)} {100-bt:g}% / {100-mn:g}%. Action Network, {E(sp.get("captured_at"))}. Sampled action is not a cover probability.</p>')
+                text.append('</div></details>')
+            text += [f'<p id="{aid(team, alt)}-source-1" class="muted-note">[1] Saved Friday matchup synthesis: reports/intel/games/{ctx["date"][:4]}-w{ctx["W"]}-game-{E(gid.replace("@", "_at_"))}-sides.md. Game script, quantitative, market, expert and counter-case sections; simulations were not rerun.</p>',
+                     f'<p id="{aid(team, alt)}-source-2" class="muted-note">[2] Saturday review: reports/intel/master-intel-narratives-{ctx["date"][:4]}-w{ctx["W"]}.md, {E(gid)} and market/news recheck sections. Current BKR spread appears above; qualitative projections are distinct from model probabilities.</p>']
+        else:
+            text.append(f'<p class="sc-why"><b>Why:</b> {E(reason or "Sourced pitch pending")}</p>')
         return (f'<article class="sc-pick bm-item{" sc-alt" if alt else ""}" id="{aid(team, alt)}">'
                 f'<div class="sc-rank">{"ALT " if alt else ""}{i}</div><div class="sc-body">'
                 f'<h3 class="sc-title"><span class="sc-title-pick">{tl(team)} <b>{E(team)} {E(r.get("contest line", ""))}</b></span>'
@@ -373,12 +401,12 @@ def sc_page(ctx):
                 f' <span class="sc-game">{mu_str} · {E(ko)} PT · <a href="{gpage(gid)}">matchup →</a></span></h3>'
                 f'<div class="sc-chips">{ch}</div>'
                 + (f'<p class="sc-how"><b>How it got to {E(pos)}:</b> {E(how)}</p>' if how else '')
-                + f'<p class="sc-why"><b>Why:</b> {E(reason or "")}</p>'
-                f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))} · <a href="#sc-exp-{slug(gid)}">experts on this game ↓</a> · <a href="#sc-strip">back to the top ↑</a></p></div></article>')
+                + ''.join(text)
+                + f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))} · <a href="#sc-exp-{slug(gid)}">experts on this game ↓</a> · <a href="#sc-strip">back to the top ↑</a></p></div></article>')
     h = ['<div class="sc-shell" id="sc-page">',
          '<h2 class="page-h">🏆 Super Contest — Dashboard AI proposal</h2>',
          '<p class="dashboard-intro">This is the Dashboard AI’s proposed five-slot card against the contest\'s fixed spread lines: '
-         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. The proposal ranks sides by how much room '
+         '<b>spread sides only</b>. The proposal ranks sides by how much room '
          'our projection leaves against the contest line, then by the evidence. These picks are tracked as the Dashboard AI record, not as Andy and Amanda\'s official card; they will declare their official five separately. Tap a pick for its breakdown; tap + Card to build your weekend card.</p>',
          '<div class="sc-strip" id="sc-strip">',
          '  <div class="sc-strip-group sc-primary-group">',
@@ -390,7 +418,7 @@ def sc_page(ctx):
     h += ['    </div>',
           '  </div>',
           '  <div class="sc-strip-group sc-alt-group">',
-          '    <div class="sc-strip-label">🔁 Dashboard AI alternates — Next five in line</div>',
+          f'    <div class="sc-strip-label">🔁 Dashboard AI alternates — {len(alts)} alternatives</div>',
           '    <div class="sc-tiles">']
     h += [tile(i + 1, r, True) for i, r in enumerate(alts)]
     h += ['    </div>',
@@ -457,6 +485,8 @@ def sc_page(ctx):
             line = r.get('line')
             lns = ln(float(line)) if isinstance(line, (int, float)) else ''
             q = re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')
+            if re.search(r'\b(?:ML|moneylines?|over|under)\b', q, re.I):
+                q = 'Spread selection recorded; see the original source for its full reasoning.'
             h.append(f'<tr><td><b>{E(r["side"])}</b>{" 🏆" if r.get("market") == "contest" else ""}</td>'
                      f'<td>{E(who_of(r))}</td><td>{E(lns)}</td><td>{E(q[:260])}</td><td>{source_html(r, ctx)}</td></tr>')
         h += ['</tbody></table></div>', f'<p><a href="{gpage(gid)}">Full matchup →</a></p></div></details>']
@@ -555,34 +585,41 @@ def price_books(ctx):
         l_, f_ = nkey(r['player'])
         idx[(gid, l_, mk, side)]['BKR'].append((r.get('line') if mk not in YES else None, int(r['odds']), f_))
     # BEO ladders: line N = N+ (over N-0.5); atd line 2 = 2+ TDs
-    for r in J(ROOT / f'data/generated/props/beo-w{ctx["W"]}.json', []) or []:
+    _, beo_current = market_captures.beo_rows(ctx['week'], ctx['date'])
+    for r in beo_current:
         a, hh = [BEO_CODE.get(x, x) for x in str(r.get('game', '')).split('_')[:2]] + [None] * (2 - len(str(r.get('game', '')).split('_')[:2]))
         gid = gid_from_names(a, hh)
-        if not gid or r.get('odds') is None: continue
+        if not gid or not r.get('player') or r.get('odds') is None or r.get('available') is False: continue
         m = r.get('market'); lv = r.get('line')
         if m == 'atd': mk = 'atd' if (lv or 1) == 1 else 'td2' if lv == 2 else None
         elif m == 'first_td': mk = 'first_td'
         else: mk = m if m in MNAME else None
         if not mk: continue
         l_, f_ = nkey(r.get('player'))
-        line = None if mk in YES else float(lv) - 0.5
-        idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['BEO'].append((line, int(r['odds']), f_))
+        if mk not in YES and lv is None: continue
+        live_row = r.get('line_kind') == 'ou'
+        line = None if mk in YES else float(lv) if live_row else float(lv) - 0.5
+        side = 'yes' if mk in YES else str(r.get('side') or 'Over').lower() if live_row else 'over'
+        idx[(gid, l_, mk, side)]['BEO'].append((line, int(r['odds']), f_))
     # DK Predictions (contract prices, gross of fees)
     DMAP = {'atd_1_plus': 'atd', 'first_td': 'first_td', 'td_2_plus': 'td2', 'two_plus_td': 'td2', 'rec_yds': 'rec_yds', 'rush_yds': 'rush_yds', 'pass_yds': 'pass_yds'}
-    for f in sorted(glob.glob(str(ROOT / 'data/generated/props/*predictions-*-*-at-*.json'))):
-        mm = re.search(r'predictions-.*-(\d{4}-\d{2}-\d{2})-([a-z0-9]+)-at-([a-z0-9]+)\.json$', f)
-        if not mm or mm.group(1) < ctx['date'][:8] + '01': continue
-        gid = gid_from_names(NICK.get(mm.group(2)), NICK.get(mm.group(3)))
-        if not gid: continue
-        d = J(f, {}) or {}
+    dk_source, dk_events = market_captures.dkp_events(ctx['week'], ctx['date'])
+    if dk_source is None:
+        for f in sorted(glob.glob(str(ROOT / f'data/generated/props/dk-predictions-{ctx["date"]}-*-at-*.json'))):
+            d = J(f, {}) or {}
+            a, hh = market_captures.team(d.get('away')), market_captures.team(d.get('home'))
+            if a and hh: dk_events.append(dict(d, gid=f'{a}@{hh}'))
+    for d in dk_events:
+        gid = d.get('gid')
+        if gid not in ctx['games']: continue
         for r in d.get('rows', []):
             mk = DMAP.get(r.get('market'))
             odd_val = r.get('american_gross') if r.get('american_gross') is not None else r.get('odds')
-            if not mk or odd_val is None: continue
+            if not mk or odd_val is None or r.get('available') is False: continue
             pl = r.get('player') or r.get('side') or ''
             pl = re.sub(r'\s+\d+\+$', '', pl)
             l_, f_ = nkey(pl)
-            line = None if mk in YES else (float(r['line']) - 0.5 if r.get('line') is not None else None)
+            line = None if mk in YES else (float(r['line']) if dk_source else float(r['line']) - 0.5) if r.get('line') is not None else None
             idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['DK'].append((line, int(odd_val), f_))
     return idx
 
@@ -702,7 +739,8 @@ def props_lab(ctx):
         add(r['game'], leg, dict(kind=r.get('kind'), who=who_of(r), row=r, price=r.get('price'), why=re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')))
     # player -> team (BetOnline boards carry the team), for the game-context line on every leg
     teamof = {}
-    for r in J(ROOT / f'data/generated/props/beo-w{ctx["W"]}.json', []) or []:
+    _, beo_current = market_captures.beo_rows(ctx['week'], ctx['date'])
+    for r in beo_current:
         a_, h_ = [BEO_CODE.get(x, x) for x in (str(r.get('game', '')).split('_') + ['', ''])[:2]]
         gid_ = next((g for g, x in ctx['games'].items() if x['away'] == a_ and x['home'] == h_), None)
         tm = NICK.get(str(r.get('team', '')).split()[-1].lower()) if r.get('team') else None
@@ -810,6 +848,7 @@ def props_lab(ctx):
                 got = idx.get((gid, l_, mk, 'yes')) or {}
                 best = None
                 for b, opts in got.items():
+                    if b == 'DK': continue  # prediction contracts are reference prices, not sportsbook rungs
                     for line, odds, fi in opts:
                         if f_ and fi and fi != f_: continue
                         if best is None or dec(odds) > dec(best['odds']):
@@ -823,6 +862,7 @@ def props_lab(ctx):
             got = idx.get((gid, l_, mkey, sd)) or {}
             by_line = {}
             for b, opts in got.items():
+                if b == 'DK': continue
                 for line, odds, fi in opts:
                     if f_ and fi and fi != f_: continue
                     if line is None: continue
@@ -839,7 +879,7 @@ def props_lab(ctx):
 
         if not rungs:
             pr = c.get('prices') or {}
-            exact = {b: v for b, v in pr.items() if v.get('exact')}
+            exact = {b: v for b, v in pr.items() if v.get('exact') and b != 'DK'}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
             if best:
                 lbl = f"{c['line']:g}+" if c.get('line') is not None and c.get('side') == 'over' else (f"u{c['line']:g}" if c.get('line') is not None else MNAME.get(c.get('mkey'), c.get('mkey')))
@@ -958,7 +998,7 @@ def props_lab(ctx):
                 base_desc = f"{sd_txt} {line_val:g} {MNAME.get(mkey, mkey)}".strip() if line_val is not None else (c.get('raw') or MNAME.get(mkey, mkey))
 
             pr = c.get('prices') or {}
-            exact = {b: v for b, v in pr.items() if v.get('exact')}
+            exact = {b: v for b, v in pr.items() if v.get('exact') and b != 'DK'}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
             price_span = f'<b>{am(best[1]["odds"])}</b> <span class="lg-book">{best[0]}</span>' if best else ''
 
@@ -1003,6 +1043,8 @@ def props_lab(ctx):
             def cell(b):
                 v = pr.get(b)
                 if not v: return f'<div class="lp-cell"><span class="lp-b">{b}</span><span class="px-none">—</span></div>'
+                if b == 'DK':
+                    return f'<div class="lp-cell"><span class="lp-b">DKP contract</span><span>{100 / dec(v["odds"]):.0f}% before fees · reference</span></div>'
                 cls = 'px-best' if best and best[0] == b else ('px-alt' if not v.get('exact') else '')
                 lab = am(v['odds']) if v.get('exact') else f'{("o" if side == "over" else "")}{v["line"]:g} {am(v["odds"])} (alt line)'
                 return f'<div class="lp-cell"><span class="lp-b">{b}</span><span class="{cls}">{E(lab)}</span></div>'
@@ -1072,6 +1114,7 @@ def props_lab(ctx):
         if _last_gid is not None: h.append('</div></details>')
         h.append('</div><p class="cat-none muted-note" hidden>No props match the active filters in this category.</p></div></details>')
 
+    h.append(market_captures.reference_boards(ctx['week'], ctx['date']))
     h.append('</div>')
     return ''.join(h)
 

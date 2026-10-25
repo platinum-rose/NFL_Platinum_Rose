@@ -1,0 +1,1061 @@
+{
+ "game": "DAL@PHI",
+ "kickoff": "Mon 10/26 17:15 PT (MNF, Lincoln Financial Field outdoors)",
+ "best_leg": {
+  "player": "DAL/PHI",
+  "team": "both",
+  "market": "game_fg_total",
+  "line": "3.5",
+  "side": "Under",
+  "best_price": -115,
+  "book": "BEO",
+  "p_hit": 0.67,
+  "fair_odds": "-203",
+  "edge": 0.253,
+  "confidence": "A-",
+  "evidence": [
+   {
+    "text": "DAL 1.8 + PHI 0.83 FG/g = 2.6; PHI <=1 FG in 5/6, DAL <=2 in 3/5",
+    "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+   },
+   {
+    "text": "PHI offense #30 (SCD% 28%, 3&O 37.5%); DAL RZ TD 77%",
+    "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+   },
+   {
+    "text": "total 44, Under is the card lean (B)",
+    "source": "reports/intel/master-intel-narratives-2026-w07.md"
+   }
+  ],
+  "counter": "Rain/wind Monday or McKee red-zone stalls turn drives into FGs; Aubrey 3 FG in 2 games",
+  "tags": {
+   "script": "PHI cannot reach range; DAL scores TDs",
+   "correlates_with": [
+    "PHI U1.5 FG",
+    "Under 44"
+   ],
+   "availability_risk": "none"
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Dak Prescott",
+  "team": "DAL",
+  "market": "pass_cmp",
+  "line": "21.5",
+  "side": "Over",
+  "best_price": -234,
+  "book": "BKR",
+  "p_hit": 0.78,
+  "fair_odds": "-355",
+  "edge": 0.113,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "22+ completions in 6/6 (22,26,25,32,24,34 nflverse; pack 5/5)",
+    "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+   },
+   {
+    "text": "DAL neutral pass rate 0.675, CBALL 75%; PHI pass D DVOA 9.9%, OPEN% 60%",
+    "source": "data/generated/team-dossiers/2026-w07/DAL.md"
+   }
+  ],
+  "counter": "DAL leading script trims attempts; Monday rain risk",
+  "tags": {
+   "script": "DAL pass-first even leading",
+   "correlates_with": [
+    "Lamb rec",
+    "Pickens yds"
+   ],
+   "availability_risk": "low",
+   "flag": "shorter than -200"
+  },
+  "executable": true
+ },
+ "best_contrarian_leg": {
+  "player": "Darius Cooper",
+  "team": "PHI",
+  "market": "atd",
+  "line": "0.5",
+  "side": "Yes",
+  "best_price": 355,
+  "book": "DKP",
+  "p_hit": 0.28,
+  "fair_odds": "+257",
+  "edge": 0.274,
+  "confidence": "B-",
+  "evidence": [
+   {
+    "text": "TD in 3/4 games (4 TD) as a part-timer; now a starter with DeVonta Smith and Wicks OUT",
+    "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+   },
+   {
+    "text": "DKP 22% (pre-fee)",
+    "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+   }
+  ],
+  "counter": "McKee offense scored 1 pass TD on 45 att; PHI team TD U2.5 -200",
+  "tags": {
+   "script": "PHI garbage-time / RZ target",
+   "correlates_with": [],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Dak Prescott",
+    "team": "DAL",
+    "market": "pass_cmp",
+    "line": "21.5",
+    "side": "Over",
+    "best_price": -234,
+    "book": "BKR",
+    "p_hit": 0.78,
+    "fair_odds": "-355",
+    "edge": 0.113,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "22+ completions in 6/6 (22,26,25,32,24,34 nflverse; pack 5/5)",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     },
+     {
+      "text": "DAL neutral pass rate 0.675, CBALL 75%; PHI pass D DVOA 9.9%, OPEN% 60%",
+      "source": "data/generated/team-dossiers/2026-w07/DAL.md"
+     }
+    ],
+    "counter": "DAL leading script trims attempts; Monday rain risk",
+    "tags": {
+     "script": "DAL pass-first even leading",
+     "correlates_with": [
+      "Lamb rec",
+      "Pickens yds"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Dak Prescott",
+    "team": "DAL",
+    "market": "pass_td",
+    "line": "1.5",
+    "side": "Under",
+    "best_price": 109,
+    "book": "BKR",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": 0.087,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Exactly 1 pass TD in four straight (1,1,1,1)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "Javonte owns goal line (7 rush TD); DAL RZ TD 77% via run",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "PHI allowed 8 pass TD in 6; DAL #8 offense",
+    "tags": {
+     "script": "DAL scores on the ground",
+     "correlates_with": [
+      "Javonte ATD",
+      "Under 44"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Dak Prescott",
+    "team": "DAL",
+    "market": "pass_yds",
+    "line": "246.5",
+    "side": "Over",
+    "best_price": -196,
+    "book": "BKR",
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": 0.027,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "247+ in 5/5 in pack (279,276,335,316,258)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "DAL leading; PHI pass D middling",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Dak cmp"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Tanner McKee",
+    "team": "PHI",
+    "market": "sacks_taken",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Sacked 3 times in his first start (45 att)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "PHI OL cluster: Lane Johnson OUT, Dickerson IR; PHI sack rate allowed 7.0%, 2.67 taken/g",
+      "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+     }
+    ],
+    "counter": "DAL pass rush weak: SK% 3.9%, 1.2-1.3 sacks/g",
+    "tags": {
+     "script": "PHI trailing dropbacks",
+     "correlates_with": [
+      "Quinnen Williams sack",
+      "PHI U1.5 FG"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no sacks/INT markets (BEO has no player props); price at Bovada"
+   },
+   {
+    "player": "Dak Prescott",
+    "team": "DAL",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.42,
+    "fair_odds": "+138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/5 (2 each in last two)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "PHI def 3 INT in 6, INTW 2.3%",
+      "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+     }
+    ],
+    "counter": "Dak INT% 2.0%",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no market"
+   },
+   {
+    "player": "Tanner McKee",
+    "team": "PHI",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "0 INT on 45 att in start; DAL def 1 INT in 6 (INTW 2.2%)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "DAL creates almost no INTs",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no market; lean Under"
+   }
+  ],
+  "rb": [
+   {
+    "player": "Javonte Williams",
+    "team": "DAL",
+    "market": "rush_yds",
+    "line": "63.5",
+    "side": "Under",
+    "best_price": -110,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.145,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Under 63.5 in 5/6 (41,30,98,62,45,41), 3.6 YPC",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     },
+     {
+      "text": "PHI rush D DVOA -8.2%",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "PHI allows 119 rush yds/g; DAL leading = late carries",
+    "tags": {
+     "script": "DAL passes to lead",
+     "correlates_with": [
+      "Dak cmp"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Javonte Williams",
+    "team": "DAL",
+    "market": "carries",
+    "line": "14.5",
+    "side": "Over",
+    "best_price": -275,
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": -0.318,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "15+ carries in 2/5 (12,19,19,12,11)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "Price 73% vs 50% logs - avoid",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "CeeDee Lamb",
+    "team": "DAL",
+    "market": "rec",
+    "line": "6.5",
+    "side": "Over",
+    "best_price": -132,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.09,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "7+ rec in 4/5 pack (8,7,17,2,9); 4/6 nflverse; 28% target share",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "DAL expected winner (-4); PHI match-zone slot/underneath boost",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "TB dud (2/5); Pickens/Flournoy share",
+    "tags": {
+     "script": "DAL pass volume",
+     "correlates_with": [
+      "Dak cmp"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "George Pickens",
+    "team": "DAL",
+    "market": "rec_yds",
+    "line": "54.5",
+    "side": "Over",
+    "best_price": -204,
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.043,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "55+ in 4/5 (40,82,75,130,73)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "Shoulder (full Fri)",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Dak yds"
+     ],
+     "availability_risk": "shoulder",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Ryan Flournoy",
+    "team": "DAL",
+    "market": "rec",
+    "line": "3.5",
+    "side": "Over",
+    "best_price": 102,
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": 0.01,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "4+ rec in 3/5 (5,2,4,3,7), 9 targets W6",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "slot boost",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Makai Lemon",
+    "team": "PHI",
+    "market": "rec",
+    "line": "3.5",
+    "side": "Over",
+    "best_price": -291,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.261,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "4+ rec in 1/6 (3,1,3,3,5,3) but Smith/Wicks OUT vacate ~13 targets/g",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "Line already prices the role bump; McKee 4.8 YPA",
+    "tags": {
+     "script": "PHI trailing",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true,
+    "note": "negative edge; listed for completeness"
+   }
+  ],
+  "te": [
+   {
+    "player": "Jake Ferguson",
+    "team": "DAL",
+    "market": "rec_yds",
+    "line": "19.5",
+    "side": "Under",
+    "best_price": -111,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.103,
+    "confidence": "C+",
+    "evidence": [
+     {
+      "text": "Under 19.5 in 4/6 (6,43,23,11,19,13)",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     },
+     {
+      "text": "Spann-Ford taking 12-personnel and RZ snaps",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "One catch-and-run clears it",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Dak TD Under"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jake Ferguson",
+    "team": "DAL",
+    "market": "rec_yds",
+    "line": "9.5",
+    "side": "Over",
+    "best_price": -310,
+    "book": "BKR",
+    "p_hit": 0.8,
+    "fair_odds": "-400",
+    "edge": 0.058,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "10+ in 5/6",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "Price 76%; flagged",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "DAL/PHI",
+    "team": "both",
+    "market": "game_fg_total",
+    "line": "3.5",
+    "side": "Under",
+    "best_price": -115,
+    "book": "BEO",
+    "p_hit": 0.67,
+    "fair_odds": "-203",
+    "edge": 0.253,
+    "confidence": "A-",
+    "evidence": [
+     {
+      "text": "DAL 1.8 + PHI 0.83 FG/g = 2.6; PHI <=1 FG in 5/6, DAL <=2 in 3/5",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "PHI offense #30 (SCD% 28%, 3&O 37.5%); DAL RZ TD 77%",
+      "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+     },
+     {
+      "text": "total 44, Under is the card lean (B)",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "Rain/wind Monday or McKee red-zone stalls turn drives into FGs; Aubrey 3 FG in 2 games",
+    "tags": {
+     "script": "PHI cannot reach range; DAL scores TDs",
+     "correlates_with": [
+      "PHI U1.5 FG",
+      "Under 44"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Philadelphia Eagles (Jake Elliott)",
+    "team": "PHI",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Under",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.65,
+    "fair_odds": "-186",
+    "edge": 0.3,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "PHI made <=1 FG in 5/6 (1,1,0,2,1,0); 0.83 FG/g",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "McKee start: PHI 3&O 37.5%, YD/DRV 25.6",
+      "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+     }
+    ],
+    "counter": "Elliott has range (58, 56); stalled McKee drives near midfield become long FG tries",
+    "tags": {
+     "script": "PHI drives die early",
+     "correlates_with": [
+      "Game FG Under 3.5"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Dallas Cowboys (Brandon Aubrey)",
+    "team": "DAL",
+    "market": "first_fg",
+    "line": "",
+    "side": "Dallas",
+    "best_price": -131,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.023,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DAL 1.8 FG/g vs PHI 0.83",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "none"
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Cooper DeJean",
+    "team": "PHI",
+    "market": "tackles_ast",
+    "line": "4.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.76,
+    "fair_odds": "-317",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "5+ in 6/6 (8,5,5,5,10,5)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "DAL dropback-heavy (neutral pass 0.675); Lamb slot",
+      "source": "data/generated/team-dossiers/2026-w07/DAL.md"
+     }
+    ],
+    "counter": "Four hits exactly 5",
+    "tags": {
+     "script": "DAL pass volume",
+     "correlates_with": [
+      "Lamb rec"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Jihaad Campbell",
+    "team": "PHI",
+    "market": "tackles_ast",
+    "line": "7.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": null,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "8+ in 4/6 (9,10,9,9,5,5)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "Last two only 5",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Caleb Downs",
+    "team": "DAL",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": null,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "6+ in 3/5 (9,3,7,4,12); 12 in W6",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "Dee Winters doubtful; PHI run-first with McKee",
+      "source": "data/generated/team-dossiers/2026-w07/DAL.md"
+     }
+    ],
+    "counter": "PHI 58 plays/g",
+    "tags": {
+     "script": "PHI run plan",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Zack Baun",
+    "team": "PHI",
+    "market": "tackles_ast",
+    "line": "7.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "8+ in 3/5 (12,4,9,11,6)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "Quinnen Williams",
+    "team": "DAL",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "sack in 2/5 incl. W6",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "PHI OL: Lane Johnson OUT, Dickerson IR; McKee sacked 3",
+      "source": "data/generated/team-dossiers/2026-w07/PHI.md"
+     }
+    ],
+    "counter": "Interior; DAL team SK% 3.9%",
+    "tags": {
+     "script": "PHI OL cluster",
+     "correlates_with": [
+      "McKee sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Rashan Gary",
+    "team": "DAL",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.32,
+    "fair_odds": "+212",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 sack + 5 QB hits in last 3",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "Low volume",
+    "tags": {
+     "script": "vs backup RT",
+     "correlates_with": [
+      "McKee sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "Jalen Carter",
+    "team": "PHI",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.24,
+    "fair_odds": "+317",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "sack in 2/6 (1,2)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "Dak sack rate 2.6%",
+      "source": "data/generated/team-dossiers/2026-w07/DAL.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Cooper DeJean",
+    "team": "PHI",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.1,
+    "fair_odds": "+900",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT vs LAR; Dak 4 INT in last 2",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Dak INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected ~+800"
+   },
+   {
+    "player": "Andrew Mukuba",
+    "team": "PHI",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.09,
+    "fair_odds": "+1011",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT vs LAR",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Dak INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected"
+   }
+  ],
+  "atd": [
+   {
+    "player": "Darius Cooper",
+    "team": "PHI",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 355,
+    "book": "DKP",
+    "p_hit": 0.28,
+    "fair_odds": "+257",
+    "edge": 0.274,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "TD in 3/4 games (4 TD) as a part-timer; now a starter with DeVonta Smith and Wicks OUT",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     },
+     {
+      "text": "DKP 22% (pre-fee)",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "McKee offense scored 1 pass TD on 45 att; PHI team TD U2.5 -200",
+    "tags": {
+     "script": "PHI garbage-time / RZ target",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Javonte Williams",
+    "team": "DAL",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": -150,
+    "book": "DKP",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.033,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "7 TD; scored in 4/5 in pack (props says 6/6 nflverse)",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     },
+     {
+      "text": "DKP 60%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "PHI allowed 8 rush TD but DAL could pass in",
+    "tags": {
+     "script": "DAL goal line",
+     "correlates_with": [
+      "Dak TD Under"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "CeeDee Lamb",
+    "team": "DAL",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 127,
+    "book": "DKP",
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": -0.092,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 2/5 (3 TD)",
+      "source": "scratch/w07-prop-packs/DAL_at_PHI.json"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Javonte Williams",
+    "team": "DAL",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 376,
+    "book": "DKP",
+    "p_hit": 0.22,
+    "fair_odds": "+355",
+    "edge": 0.047,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 21%; props fair ~+330; DAL ~60% to score first",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "DAL opening drive",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Darius Cooper",
+    "team": "PHI",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 1900,
+    "book": "DKP",
+    "p_hit": 0.055,
+    "fair_odds": "+1718",
+    "edge": 0.1,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 5%; props fair ~+1900",
+      "source": "reports/intel/games/2026-w07-game-DAL_at_PHI-props.md"
+     }
+    ],
+    "counter": "",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Market DAL -4 / 44 (BKR); BEO DAL -4.5 / 44. Under 44 is card B.",
+  "No BKR or BEO TD board for this game; ATD/first-TD priced from DKP contracts (pre-fee). BEO has no player props; only game/team FG/TD totals.",
+  "Board change: the 6:46 PM BKR capture now HAS some PHI player rows (Darius Cooper, Makai Lemon, Saquon Barkley receptions/yds) despite the narrative saying none; still no McKee/Goedert rows.",
+  "DATA: pack has only 5 DAL games (dossier/nflverse 6); props.md hit rates use 6. Pack shows Javonte with no TD vs WSH, conflicting with props.md 'scored in every game'.",
+  "PHI starts Tanner McKee; DeVonta Smith, Wicks, Nolan Smith, Michael Carter OUT; Barkley Q; Goedert status unclear. Dee Winters (DAL LB) doubtful.",
+  "Monday game: recapture Sunday/Monday before stage-2 use."
+ ]
+}

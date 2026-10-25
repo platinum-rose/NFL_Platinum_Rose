@@ -1,0 +1,1161 @@
+{
+  "game": "IND@MIN",
+  "generated": "2026-10-24 Stage-1 prop analyst",
+  "game_context": {
+    "spread": "MIN -6.5 (BKR -108)",
+    "total": "41.5 (Under B)",
+    "projection": "MIN 23-16",
+    "news": "Mason INACTIVE; IND out: Gardner, Gould, Warren; IND Q: Boettcher, CJ Allen, Walley, Sanchez(P)"
+  },
+  "best_leg": {
+    "player": "Aaron Jones Sr.",
+    "team": "MIN",
+    "market": "carries",
+    "line": 12.5,
+    "side": "Over",
+    "best_price": "+161",
+    "book": "BKR",
+    "p_hit": 0.8,
+    "fair_odds": "-400",
+    "edge": 1.088,
+    "confidence": "A",
+    "evidence": [
+      {
+        "text": "Mason inactive (Sat recheck). AJ carries without Mason W2-W5: 23/17/20/25 -> 4/4 over 12.5; only <13 was W1 (12) when Mason played",
+        "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+      },
+      {
+        "text": "BKR carry ladder (O9.5 -114, O12.5 +161) was set while Mason was expected active; props.md said Over 9.5 becomes tier C if Mason sits",
+        "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+      },
+      {
+        "text": "MIN fav -6.5, lead/run-out script; IND D DVOA +9.5%",
+        "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+      }
+    ],
+    "counter": "Stale-line risk: BKR will likely re-price after inactives; DeeJay Dallas/Claiborne could split if MIN leads big early; aged back.",
+    "tags": {
+      "script": "MIN lead, run out clock",
+      "correlates_with": [
+        "AJ rush yds",
+        "Under 41.5"
+      ],
+      "availability_risk": "low (Mason OUT confirmed Sat)"
+    },
+    "executable": true,
+    "note": "Price stale vs Mason news; grab at BKR SGP or reprice at Bovada."
+  },
+  "best_non_td_leg": {
+    "player": "Aaron Jones Sr.",
+    "team": "MIN",
+    "market": "carries",
+    "line": 12.5,
+    "side": "Over",
+    "best_price": "+161",
+    "book": "BKR",
+    "p_hit": 0.8,
+    "fair_odds": "-400",
+    "edge": 1.088,
+    "confidence": "A",
+    "evidence": [
+      {
+        "text": "Mason inactive (Sat recheck). AJ carries without Mason W2-W5: 23/17/20/25 -> 4/4 over 12.5; only <13 was W1 (12) when Mason played",
+        "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+      },
+      {
+        "text": "BKR carry ladder (O9.5 -114, O12.5 +161) was set while Mason was expected active; props.md said Over 9.5 becomes tier C if Mason sits",
+        "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+      },
+      {
+        "text": "MIN fav -6.5, lead/run-out script; IND D DVOA +9.5%",
+        "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+      }
+    ],
+    "counter": "Stale-line risk: BKR will likely re-price after inactives; DeeJay Dallas/Claiborne could split if MIN leads big early; aged back.",
+    "tags": {
+      "script": "MIN lead, run out clock",
+      "correlates_with": [
+        "AJ rush yds",
+        "Under 41.5"
+      ],
+      "availability_risk": "low (Mason OUT confirmed Sat)"
+    },
+    "executable": true,
+    "note": "Price stale vs Mason news; grab at BKR SGP or reprice at Bovada."
+  },
+  "best_contrarian_leg": {
+    "player": "Daniel Jones",
+    "team": "IND",
+    "market": "pass_td",
+    "line": 0.5,
+    "side": "Under",
+    "best_price": "+167",
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": 0.335,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Jones 0 pass TD in 2/6, 4 TD/218 att (1.8%); MIN allowed 3 pass TD in 5 games",
+        "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+      },
+      {
+        "text": "No Warren (2 TDs), Gould, Pierce; IND scores via run (9 rush TD vs 4 pass)",
+        "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+      },
+      {
+        "text": "MIN D EPA/play -0.210 #1, CPOE allowed -9.16%",
+        "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+      }
+    ],
+    "counter": "Trailing by 10+ = 40+ attempts and garbage-time TDs vs soft shell.",
+    "tags": {
+      "script": "MIN D suppresses IND pass",
+      "correlates_with": [
+        "Jones INT Over",
+        "Under 41.5",
+        "MIN FG Over"
+      ]
+    },
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "Daniel Jones",
+        "team": "IND",
+        "market": "pass_td",
+        "line": 0.5,
+        "side": "Under",
+        "best_price": "+167",
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": 0.335,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Jones 0 pass TD in 2/6, 4 TD/218 att (1.8%); MIN allowed 3 pass TD in 5 games",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "No Warren (2 TDs), Gould, Pierce; IND scores via run (9 rush TD vs 4 pass)",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          },
+          {
+            "text": "MIN D EPA/play -0.210 #1, CPOE allowed -9.16%",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          }
+        ],
+        "counter": "Trailing by 10+ = 40+ attempts and garbage-time TDs vs soft shell.",
+        "tags": {
+          "script": "MIN D suppresses IND pass",
+          "correlates_with": [
+            "Jones INT Over",
+            "Under 41.5",
+            "MIN FG Over"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Kyler Murray",
+        "team": "MIN",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Under",
+        "best_price": "-129",
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": 0.207,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Murray 0/1/0/1 pass TD in 4 games -> 4/4 under 1.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "MIN run-first, 5 pass TD in 5 games; total 41.5",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          }
+        ],
+        "counter": "IND pass D DVOA +15% and Gardner out; Jefferson/Hockenson healthy off bye.",
+        "tags": {
+          "correlates_with": [
+            "AJ carries",
+            "Under 41.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Daniel Jones",
+        "team": "IND",
+        "market": "pass_cmp",
+        "line": 17.5,
+        "side": "Over",
+        "best_price": "-236",
+        "book": "BKR",
+        "p_hit": 0.82,
+        "fair_odds": "-456",
+        "edge": 0.167,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Jones completions 19/22/24/19/24/22 -> 6/6 over 17.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Trailing volume (44 and 42 att last 2)",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          }
+        ],
+        "counter": "MIN CPOE allowed -9.16%, 70% blitz; Warren out removes his safety valve.",
+        "tags": {
+          "script": "IND trailing pass volume"
+        },
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Kyler Murray",
+        "team": "MIN",
+        "market": "pass_cmp",
+        "line": 20.5,
+        "side": "Under",
+        "best_price": "-103",
+        "book": "BKR",
+        "p_hit": 0.52,
+        "fair_odds": "-108",
+        "edge": 0.025,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Murray cmp 15/27/24 in 3 full starts (1/3 under)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Props.md lead/run script ~18.4 proj",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          }
+        ],
+        "counter": "Gardner out opens easy completions.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "Daniel Jones",
+        "team": "IND",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.63,
+        "fair_odds": "-170",
+        "edge": null,
+        "confidence": "A",
+        "evidence": [
+          {
+            "text": "Jones INT in 5/6 games (1,1,1,1,0,2)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "FTN INTW% 6.0%, EPA/DB -0.967 under pressure",
+            "source": "data/generated/team-dossiers/2026-w07/IND.md"
+          },
+          {
+            "text": "MIN blitz 70%, pressure 38.3%, def INT 1.2/g, def INTW% 5.1%",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          }
+        ],
+        "counter": "MIN offense is slow; if IND stays close Jones throws <30 times.",
+        "tags": {
+          "script": "Flores pressure vs Jones",
+          "correlates_with": [
+            "Jones pass TD Under",
+            "MIN DST"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Daniel Jones",
+        "team": "IND",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Jones sacks 2/0/4/2/1/6 -> 2+ in 4/6",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "MIN def sacks 3.4/g, sack rate generated 9.8%",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          },
+          {
+            "text": "IND sack rate allowed 6.4%",
+            "source": "data/generated/team-dossiers/2026-w07/IND.md"
+          }
+        ],
+        "counter": "Jones gets ball out (TTT 2.60); IND run game limits dropbacks.",
+        "tags": {
+          "correlates_with": [
+            "Turner/Van Ginkel sack"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Kyler Murray",
+        "team": "MIN",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Under",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Murray FTN INTW% 1.0%; 2 INT in 4 starts (one on 5 att vs GB)",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          },
+          {
+            "text": "IND def INT 0.33/g, pressure only 21.1%",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Murray has thrown INT in 2 of 4 appearances.",
+        "tags": {},
+        "executable": false
+      },
+      {
+        "player": "Daniel Jones",
+        "team": "IND",
+        "market": "sacks_taken",
+        "line": 2.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "3+ sacks in 2/6; MIN 3.4 sacks/g",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Median-ish line.",
+        "tags": {},
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Aaron Jones Sr.",
+        "team": "MIN",
+        "market": "carries",
+        "line": 12.5,
+        "side": "Over",
+        "best_price": "+161",
+        "book": "BKR",
+        "p_hit": 0.8,
+        "fair_odds": "-400",
+        "edge": 1.088,
+        "confidence": "A",
+        "evidence": [
+          {
+            "text": "Mason inactive (Sat recheck). AJ carries without Mason W2-W5: 23/17/20/25 -> 4/4 over 12.5; only <13 was W1 (12) when Mason played",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "BKR carry ladder (O9.5 -114, O12.5 +161) was set while Mason was expected active; props.md said Over 9.5 becomes tier C if Mason sits",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          },
+          {
+            "text": "MIN fav -6.5, lead/run-out script; IND D DVOA +9.5%",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "Stale-line risk: BKR will likely re-price after inactives; DeeJay Dallas/Claiborne could split if MIN leads big early; aged back.",
+        "tags": {
+          "script": "MIN lead, run out clock",
+          "correlates_with": [
+            "AJ rush yds",
+            "Under 41.5"
+          ],
+          "availability_risk": "low (Mason OUT confirmed Sat)"
+        },
+        "executable": true,
+        "note": "Price stale vs Mason news; grab at BKR SGP or reprice at Bovada."
+      },
+      {
+        "player": "Aaron Jones Sr.",
+        "team": "MIN",
+        "market": "carries",
+        "line": 14.5,
+        "side": "Over",
+        "best_price": "+238",
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": 1.366,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "15+ carries in 4/4 games without Mason (17-25)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Mason inactive",
+            "source": "reports/intel/master-intel-narratives-2026-w07.md (Saturday recheck)"
+          }
+        ],
+        "counter": "Same stale-line risk; a blowout or early deficit cuts carries.",
+        "tags": {
+          "script": "MIN lead",
+          "correlates_with": [
+            "AJ carries O12.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Aaron Jones Sr.",
+        "team": "MIN",
+        "market": "rush_yds",
+        "line": 48.5,
+        "side": "Over",
+        "best_price": "+133",
+        "book": "BKR",
+        "p_hit": 0.66,
+        "fair_odds": "-194",
+        "edge": 0.538,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Rush yds without Mason: 105/58/94/113 -> 4/4 over 48.5 (alt; median is 38.5 pre-news)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "IND D allows 5.80 YPP, D EPA #25",
+            "source": "data/generated/team-dossiers/2026-w07/IND.md"
+          }
+        ],
+        "counter": "IND rush D held some backs; MIN offense EPA #26 and RZ TD rate 0.50.",
+        "tags": {
+          "correlates_with": [
+            "AJ carries"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Jonathan Taylor",
+        "team": "IND",
+        "market": "carries",
+        "line": 17.5,
+        "side": "Under",
+        "best_price": "-140",
+        "book": "BKR",
+        "p_hit": 0.52,
+        "fair_odds": "-108",
+        "edge": -0.109,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Taylor carries 19/24/23/20/15/21 -> 4/6 over 17.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Trailing script vs #1 EPA D",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "Taylor is IND's only functional unit (rush DVOA +5.8%); IND stays close and feeds him 20+.",
+        "tags": {
+          "script": "IND trailing"
+        },
+        "executable": true
+      }
+    ],
+    "wr": [
+      {
+        "player": "Justin Jefferson",
+        "team": "MIN",
+        "market": "rec_yds",
+        "line": 72.5,
+        "side": "Under",
+        "best_price": "-103",
+        "book": "BKR",
+        "p_hit": 0.53,
+        "fair_odds": "-113",
+        "edge": 0.045,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "JJ yds 92/55/32/79; with Murray 32 and 79",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "MIN run-first, low volume",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "Gardner OUT (secondary severity 4.95 medium) and fresh off bye.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Justin Jefferson",
+        "team": "MIN",
+        "market": "rec_yds",
+        "line": 82.5,
+        "side": "Over",
+        "best_price": "+116",
+        "book": "BKR",
+        "p_hit": 0.4,
+        "fair_odds": "+150",
+        "edge": -0.136,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "82.5+ in 1/4 (92)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Low volume.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Josh Downs",
+        "team": "IND",
+        "market": "rec_yds",
+        "line": 49.5,
+        "side": "Over",
+        "best_price": "-118",
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": -0.076,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Downs yds 37/72/77/16/47/40 -> 2/6 over 49.5; median line (Andy avoids)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Median line.",
+        "tags": {},
+        "executable": true,
+        "excluded": "median-line over"
+      }
+    ],
+    "te": [
+      {
+        "player": "T.J. Hockenson",
+        "team": "MIN",
+        "market": "receptions",
+        "line": 4.5,
+        "side": "Under",
+        "best_price": "-143",
+        "book": "BKR",
+        "p_hit": 0.65,
+        "fair_odds": "-186",
+        "edge": 0.105,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hock rec 4/3/2/13/1 -> 4/5 under 4.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "MIN low pass volume, run script",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          }
+        ],
+        "counter": "IND LBs thin; 13-catch MIA game shows ceiling.",
+        "tags": {
+          "correlates_with": [
+            "Murray cmp Under"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Will Mallory",
+        "team": "IND",
+        "market": "rec_yds",
+        "line": 28.5,
+        "side": "Over",
+        "best_price": "+136",
+        "book": "BKR",
+        "p_hit": 0.38,
+        "fair_odds": "+163",
+        "edge": -0.103,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Warren OUT -> Mallory/Alie-Cox expanded TE role; only 1 logged game (2-20 on 6 tgt)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Thin sample; loser receptions rule bars rec overs, yards allowed.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "k": [
+      {
+        "player": "MIN team",
+        "team": "MIN",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-170",
+        "book": "BEO",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": 0.112,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Reichard FG 1/3/3/5/3 -> 2+ in 4/5; MIN FG 3.0/g",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "MIN RZ TD rate 0.50; dome",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          },
+          {
+            "text": "Team TD O2.5 -110 BEO implies stalls; total 41.5 Under lean",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "IND D allows RZ TDs (27.3 PPG allowed) - short fields from INTs can become TDs instead of FGs.",
+        "tags": {
+          "script": "MIN red-zone stalls",
+          "correlates_with": [
+            "Under 41.5",
+            "AJ carries"
+          ]
+        },
+        "executable": true,
+        "route": "BEO multi-game OK"
+      },
+      {
+        "player": "IND/MIN",
+        "team": "both",
+        "market": "total_field_goals",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": "-116",
+        "book": "BKR",
+        "p_hit": 0.56,
+        "fair_odds": "-127",
+        "edge": 0.043,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Both teams 3.0 FG/g; projected \u03bb\u22484.0 in dome -> P(4+)\u22480.57",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "BEO also Over 3.5 -120",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Turnover-driven short fields convert to TDs; low total limits drives.",
+        "tags": {
+          "correlates_with": [
+            "MIN FG Over 1.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "IND team",
+        "team": "IND",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-130",
+        "book": "BEO",
+        "p_hit": 0.58,
+        "fair_odds": "-138",
+        "edge": 0.026,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Shrader FG 1/3/4/3/5/2 -> 2+ in 5/6; IND FG 3.0/g",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "vs #1 EPA D drives stall; but IND RZ TD 0.632 and projected only 16 pts",
+            "source": "data/generated/team-dossiers/2026-w07/IND.md"
+          }
+        ],
+        "counter": "IND may not reach FG range often vs MIN pressure; Sanchez (P) Q.",
+        "tags": {
+          "script": "IND stalls"
+        },
+        "executable": true
+      },
+      {
+        "player": "MIN team",
+        "team": "MIN",
+        "market": "FG in 2Q",
+        "line": null,
+        "side": "Yes",
+        "best_price": "-121",
+        "book": "BKR",
+        "p_hit": 0.52,
+        "fair_odds": "-108",
+        "edge": -0.05,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "MIN \u03bb\u22482.2 FG, ~1/3 in 2Q -> ~0.52",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Coin flip; no edge.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Akeem Davis-Gaither",
+        "team": "IND",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.78,
+        "fair_odds": "-355",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "ADG TOT 8/14/7/8/7/9 -> 6/6 over 6.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Boettcher and CJ Allen (IND LBs) Q/DNP -> more snaps; AJ 20+ carries with Mason out",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "If Boettcher/Allen play, share drops; MIN plays slow (61.6 plays/g).",
+        "tags": {
+          "script": "MIN run-out"
+        },
+        "executable": false,
+        "projected_line": 6.5
+      },
+      {
+        "player": "Blake Cashman",
+        "team": "MIN",
+        "market": "tackles_assists",
+        "line": 6.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.78,
+        "fair_odds": "-355",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Cashman TOT 7/10/8/8/9 -> 5/5 over 6.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "IND runs Taylor 20+/g; IND 60% pass when trailing still feeds LB tackles",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md"
+          }
+        ],
+        "counter": "Low MIN snap counts if MIN dominates TOP; no market posted.",
+        "tags": {
+          "script": "IND run volume"
+        },
+        "executable": false,
+        "projected_line": 6.5
+      },
+      {
+        "player": "Eric Wilson",
+        "team": "MIN",
+        "market": "tackles_assists",
+        "line": 4.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.45,
+        "fair_odds": "+122",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Wilson TOT 3/7/10/4/2 -> 2/5 over 4.5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Rotational.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 4.5
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "Dallas Turner",
+        "team": "MIN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Turner sacks 1/2/0.5/2/0 -> 4/5 with a sack; QB hits 7/4/1/2/0",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Jones sacked 2.5/g, 6 vs TEN; EPA/DB -0.967 under pressure",
+            "source": "data/generated/team-dossiers/2026-w07/IND.md"
+          }
+        ],
+        "counter": "Half-sacks count only if book grades 0.5 as Over; sack props usually 0.5 at plus money.",
+        "tags": {
+          "correlates_with": [
+            "Jones sacks Over"
+          ]
+        },
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "Andrew Van Ginkel",
+        "team": "MIN",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "AVG sacks 1.5/1/0.5/0/1 -> 4/5",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Shares rush with Turner/Van Noy.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "DeForest Buckner",
+        "team": "IND",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.45,
+        "fair_odds": "+122",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Buckner sacks 0.5/1/1.5/0/1/0 -> 4/6",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Murray sack rate allowed 9.7%, MIN 3.0 sacks taken/g",
+            "source": "data/generated/team-dossiers/2026-w07/MIN.md"
+          }
+        ],
+        "counter": "IND team pressure only 21.1%.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Byron Murphy Jr.",
+        "team": "MIN",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.15,
+        "fair_odds": "+567",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Murphy 3 INT in 5 games (CHI 1, NO 2); MIN def INT 1.2/g",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "Jones INT 5/6 games",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "INTs are spread across 5 MIN defenders.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "Isaiah Rodgers",
+        "team": "MIN",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.12,
+        "fair_odds": "+733",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Rodgers 1 INT (TB); boundary CB vs a 6.0% INTW passer",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "atd": [
+      {
+        "player": "Jonathan Taylor",
+        "team": "IND",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+100",
+        "book": "DKP",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": 0.0,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Taylor TD in 4/6 games (7 TD)",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "DKP 50% (+100) vs BKR -155",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          },
+          {
+            "text": "MIN allows 1.0 TD/g",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          }
+        ],
+        "counter": "#1 EPA defense; IND projected 16 pts.",
+        "tags": {
+          "correlates_with": [
+            "IND FG Over"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Justin Jefferson",
+        "team": "MIN",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+178",
+        "book": "DKP",
+        "p_hit": 0.37,
+        "fair_odds": "+170",
+        "edge": 0.029,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Jefferson TD in 2/4 games (3 TD); Gardner OUT",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "DKP 36% +178 vs BKR +140",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "MIN RZ TD 0.50; run-first.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Aaron Jones Sr.",
+        "team": "MIN",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+156",
+        "book": "DKP",
+        "p_hit": 0.4,
+        "fair_odds": "+150",
+        "edge": 0.024,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "AJ 2 TD in 5; Mason inactive shifts GL work",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          },
+          {
+            "text": "DKP 39% +156; BKR +115",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "MIN only 0.50 RZ TD.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "T.J. Hockenson",
+        "team": "MIN",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+257",
+        "book": "DKP",
+        "p_hit": 0.27,
+        "fair_odds": "+270",
+        "edge": -0.036,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hock 1 TD in 5; IND LBs Boettcher/Allen Q",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          },
+          {
+            "text": "DKP 28% +257 > BKR +219",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Low target share since concussion.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Jonathan Taylor",
+        "team": "IND",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+567",
+        "book": "DKP",
+        "p_hit": 0.15,
+        "fair_odds": "+567",
+        "edge": 0.0,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "IND's main TD source; DKP 15%",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          },
+          {
+            "text": "BKR +400",
+            "source": "scratch/w07-prop-packs/IND_at_MIN.json"
+          }
+        ],
+        "counter": "MIN likely scores first.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Aaron Jones Sr.",
+        "team": "MIN",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+669",
+        "book": "DKP",
+        "p_hit": 0.12,
+        "fair_odds": "+733",
+        "edge": -0.077,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Mason out; BKR +551, DKP 13% +669",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Low RZ efficiency.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Justin Jefferson",
+        "team": "MIN",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+900",
+        "book": "DKP",
+        "p_hit": 0.1,
+        "fair_odds": "+900",
+        "edge": 0.0,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Favorite's alpha vs Gardner-less CBs",
+            "source": "reports/intel/games/2026-w07-game-IND_at_MIN-props.md"
+          },
+          {
+            "text": "DKP 10% +900; BKR +607",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "AJ/Hock compete.",
+        "tags": {},
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "Aaron Jones carry/yard ladders on BKR (captured 20:26Z Sat) predate the Mason-inactive news; expect re-price. If gone, AJ rush yds O48.5 +133 is the fallback.",
+    "No QB INT/sack or IDP markets on BKR/BEO for this game: those legs are executable:false (price at Bovada / recapture). BKR SGPs do not take INT legs.",
+    "Best BEO-executable (multi-game) leg: MIN team FG Over 1.5 -170 (p 0.70).",
+    "DKP TD prices are pre-fee contract prices; all ATD edges are near zero - no TD leg recommended as best_leg.",
+    "Receptions overs on IND (expected loser) excluded by rule; Downs/Mallory volume case noted only.",
+    "Roster map is offense-only (no K/IDP); kickers and defenders verified via pack availability feed + 2026 box-score logs."
+  ]
+}

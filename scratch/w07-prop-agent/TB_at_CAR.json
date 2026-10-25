@@ -1,0 +1,1162 @@
+{
+  "game": "TB@CAR",
+  "generated": "2026-10-24 Stage-1 prop analyst",
+  "game_context": {
+    "spread": "CAR -3 (BKR +103)",
+    "total": "44.5 (Over B only if Mayfield active)",
+    "projection": "CAR 25-21",
+    "news": "Mayfield Q (TB passing/Over legs only if active); TB OUT Egbuka, Goedeke, Winfield; CAR OUT Phillips, Incoom"
+  },
+  "best_leg": {
+    "player": "Bryce Young",
+    "team": "CAR",
+    "market": "pass_yds",
+    "line": 243.5,
+    "side": "Over",
+    "best_price": "-139",
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.204,
+    "confidence": "A",
+    "evidence": [
+      {
+        "text": "Young yds 361/287/291/329/281 -> 5/5 over 243.5 (281+ every game, 309.8/g)",
+        "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+      },
+      {
+        "text": "TB pass funnel (opp PROE +5.3%), Winfield OUT",
+        "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+      },
+      {
+        "text": "CAR 2nd PROE, 68.8 plays/g",
+        "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+      }
+    ],
+    "counter": "TB D #3 EPA; Bowles 4-1 vs Young historically; a CAR lead could turn run-heavy (Hubbard 28 carries W6).",
+    "tags": {
+      "script": "CAR pass volume",
+      "correlates_with": [
+        "McMillan rec",
+        "Over 44.5",
+        "Young pass TD"
+      ]
+    },
+    "executable": true
+  },
+  "best_non_td_leg": {
+    "player": "Bryce Young",
+    "team": "CAR",
+    "market": "pass_yds",
+    "line": 243.5,
+    "side": "Over",
+    "best_price": "-139",
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.204,
+    "confidence": "A",
+    "evidence": [
+      {
+        "text": "Young yds 361/287/291/329/281 -> 5/5 over 243.5 (281+ every game, 309.8/g)",
+        "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+      },
+      {
+        "text": "TB pass funnel (opp PROE +5.3%), Winfield OUT",
+        "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+      },
+      {
+        "text": "CAR 2nd PROE, 68.8 plays/g",
+        "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+      }
+    ],
+    "counter": "TB D #3 EPA; Bowles 4-1 vs Young historically; a CAR lead could turn run-heavy (Hubbard 28 carries W6).",
+    "tags": {
+      "script": "CAR pass volume",
+      "correlates_with": [
+        "McMillan rec",
+        "Over 44.5",
+        "Young pass TD"
+      ]
+    },
+    "executable": true
+  },
+  "best_contrarian_leg": {
+    "player": "Bucky Irving",
+    "team": "TB",
+    "market": "carries",
+    "line": 14.5,
+    "side": "Over",
+    "best_price": "-155",
+    "book": "BKR",
+    "p_hit": 0.72,
+    "fair_odds": "-257",
+    "edge": 0.185,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Irving carries 8/17/15/16/21/19 -> 5/6 over 14.5",
+        "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+      },
+      {
+        "text": "Every TB game within 8 pts -> run game stays on script; CAR allowed 8 rush TD in 5",
+        "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+      }
+    ],
+    "counter": "Illness week (now no designation); Gainwell/Tucker share; if TB trails big, pass.",
+    "tags": {
+      "script": "close game, TB run volume",
+      "availability_risk": "low (Irving plays with either QB)"
+    },
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "pass_yds",
+        "line": 243.5,
+        "side": "Over",
+        "best_price": "-139",
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": 0.204,
+        "confidence": "A",
+        "evidence": [
+          {
+            "text": "Young yds 361/287/291/329/281 -> 5/5 over 243.5 (281+ every game, 309.8/g)",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "TB pass funnel (opp PROE +5.3%), Winfield OUT",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+          },
+          {
+            "text": "CAR 2nd PROE, 68.8 plays/g",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+          }
+        ],
+        "counter": "TB D #3 EPA; Bowles 4-1 vs Young historically; a CAR lead could turn run-heavy (Hubbard 28 carries W6).",
+        "tags": {
+          "script": "CAR pass volume",
+          "correlates_with": [
+            "McMillan rec",
+            "Over 44.5",
+            "Young pass TD"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "pass_yds",
+        "line": 233.5,
+        "side": "Over",
+        "best_price": "-171",
+        "book": "BKR",
+        "p_hit": 0.75,
+        "fair_odds": "-300",
+        "edge": 0.189,
+        "confidence": "A",
+        "evidence": [
+          {
+            "text": "5/5 over 233.5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "props.md B",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-props.md"
+          }
+        ],
+        "counter": "Same.",
+        "tags": {
+          "correlates_with": [
+            "Young O243.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "pass_yds",
+        "line": 263.5,
+        "side": "Over",
+        "best_price": "+102",
+        "book": "BKR",
+        "p_hit": 0.58,
+        "fair_odds": "-138",
+        "edge": 0.172,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "5/5 over 263.5 (low 281)",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "TB pass D DVOA -4.5%, 9.8% explosive allowed.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-129",
+        "book": "BKR",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": 0.101,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Young 3/3/1/2/2 -> 4/5 over 1.5; 11 TD in 5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "TD% 5.4% due regression",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-props.md"
+          }
+        ],
+        "counter": "TB allowed only 2 rush TD; RZ via air but TB D #3.",
+        "tags": {
+          "correlates_with": [
+            "McMillan ATD",
+            "Over 44.5"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Baker Mayfield",
+        "team": "TB",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Under",
+        "best_price": "-176",
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": 0.066,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Mayfield 0/1/1 pass TD in 3 starts; Egbuka OUT",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "CAR CBs Horn/Jackson IR (secondary severity 6.08 high).",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": true
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "Baker Mayfield",
+        "team": "TB",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Mayfield sacks 4/3/6 in 3 starts; sack rate 11.0%; TB 3.67 sacks taken/g",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "RT Goedeke OUT; TB pass-pro DVOA -119% under pressure, QBSK% 31.8%",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "CAR edge rushers Phillips and Incoom both OUT; CAR 2.0 sacks/g, 5.5% generated.",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)",
+          "correlates_with": [
+            "Umanmielen sack"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "sacks_taken",
+        "line": 2.5,
+        "side": "Under",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Young sacks 2/2/3/3/2 -> under 2.5 in 3/5; sack rate 5.4%",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "TB def sacks 1.83/g, sack rate 4.9%",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "Bowles blitz.",
+        "tags": {},
+        "executable": false
+      },
+      {
+        "player": "Bryce Young",
+        "team": "CAR",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Under",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.58,
+        "fair_odds": "-138",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Young INT 1/0/1/0/0 -> no INT in 3/5; INTW 1.0%",
+            "source": "data/generated/team-dossiers/2026-w07/CAR.md"
+          },
+          {
+            "text": "TB def INT 1.0/g, 42% blitz, Winfield OUT",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "High volume (40 att) raises exposure.",
+        "tags": {},
+        "executable": false
+      },
+      {
+        "player": "Baker Mayfield",
+        "team": "TB",
+        "market": "interceptions_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.48,
+        "fair_odds": "+108",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Mayfield INT 0/1/1; glove on dislocated thumb; TB 1.17 INT thrown/g",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "Mayfield INTW 2.1%; CAR def INT 0.6/g",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "Low INTW rate.",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Bucky Irving",
+        "team": "TB",
+        "market": "carries",
+        "line": 14.5,
+        "side": "Over",
+        "best_price": "-155",
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": 0.185,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Irving carries 8/17/15/16/21/19 -> 5/6 over 14.5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "Every TB game within 8 pts -> run game stays on script; CAR allowed 8 rush TD in 5",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+          }
+        ],
+        "counter": "Illness week (now no designation); Gainwell/Tucker share; if TB trails big, pass.",
+        "tags": {
+          "script": "close game, TB run volume",
+          "availability_risk": "low (Irving plays with either QB)"
+        },
+        "executable": true
+      },
+      {
+        "player": "Bucky Irving",
+        "team": "TB",
+        "market": "carries",
+        "line": 13.5,
+        "side": "Over",
+        "best_price": "-240",
+        "book": "BKR",
+        "p_hit": 0.78,
+        "fair_odds": "-355",
+        "edge": 0.105,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "5/6 over 13.5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Same.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Chuba Hubbard",
+        "team": "CAR",
+        "market": "rush_yds",
+        "line": 64.5,
+        "side": "Under",
+        "best_price": "-131",
+        "book": "BKR",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": -0.03,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "TB run D DVOA -22.0%, EPA/att -0.177",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          },
+          {
+            "text": "Hubbard 49/53/82/122/120 -> 3/5 over",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Hubbard 28 carries W6, trending up.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Chuba Hubbard",
+        "team": "CAR",
+        "market": "carries",
+        "line": 15.5,
+        "side": "Over",
+        "best_price": "-229",
+        "book": "BKR",
+        "p_hit": 0.65,
+        "fair_odds": "-186",
+        "edge": -0.066,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Carries 10/12/19/20/28 -> 3/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Pass-first script.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "wr": [
+      {
+        "player": "Tetairoa McMillan",
+        "team": "CAR",
+        "market": "receptions",
+        "line": 4.5,
+        "side": "Over",
+        "best_price": "-181",
+        "book": "BKR",
+        "p_hit": 0.74,
+        "fair_odds": "-285",
+        "edge": 0.149,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "McMillan rec 5/5/2/14/6 -> 4/5 over 4.5; tgts 8/10/5/16/9",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "CAR expected winner; Winfield OUT",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-props.md"
+          }
+        ],
+        "counter": "Coker 13 tgts W6; target split volatile.",
+        "tags": {
+          "correlates_with": [
+            "Young pass yds"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Tetairoa McMillan",
+        "team": "CAR",
+        "market": "rec_yds",
+        "line": 60.5,
+        "side": "Over",
+        "best_price": "-200",
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": 0.08,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Yds 75/101/17/192/86 -> 4/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Same.",
+        "tags": {
+          "correlates_with": [
+            "Young pass yds"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Jalen Coker",
+        "team": "CAR",
+        "market": "receptions",
+        "line": 4.5,
+        "side": "Over",
+        "best_price": "-260",
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": -0.031,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Coker rec 8/8/2/6 -> 3/4",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Returned from quad W6.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Chris Godwin Jr.",
+        "team": "TB",
+        "market": "rec_yds",
+        "line": 34.5,
+        "side": "Over",
+        "best_price": "-253",
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": "-213",
+        "edge": -0.051,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Godwin yds 40/46/25/31/37/37 -> 4/6; Egbuka OUT boosts targets",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Mayfield-dependent.",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "te": [
+      {
+        "player": "Tommy Tremble",
+        "team": "CAR",
+        "market": "receptions",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-181",
+        "book": "BKR",
+        "p_hit": 0.74,
+        "fair_odds": "-285",
+        "edge": 0.149,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Tremble rec 3/1/3/4/4 -> 4/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "2 TD in W6",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-props.md"
+          }
+        ],
+        "counter": "Waller/Evans share TE targets.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Darren Waller",
+        "team": "CAR",
+        "market": "receptions",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-223",
+        "book": "BKR",
+        "p_hit": 0.72,
+        "fair_odds": "-257",
+        "edge": 0.043,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Waller rec 2/3/5/3/0 -> 4/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "0 catches W6.",
+        "tags": {},
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      },
+      {
+        "player": "Cade Otton",
+        "team": "TB",
+        "market": "rec_yds",
+        "line": 30.5,
+        "side": "Over",
+        "best_price": "-234",
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": "-100",
+        "edge": -0.286,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Otton yds 26/38/56/37/25/4 -> 3/6",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Weak.",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": true,
+        "barrier": "FLAG: shorter than -200"
+      }
+    ],
+    "k": [
+      {
+        "player": "CAR team",
+        "team": "CAR",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-150",
+        "book": "BEO",
+        "p_hit": 0.64,
+        "fair_odds": "-178",
+        "edge": 0.067,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Fitzgerald FG 1/2/4/2/2 -> 2+ in 4/5; CAR 2.2 FG/g",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "vs TB D #3 EPA, 2 rush TD allowed all year -> CAR drives stall more than usual (season RZ TD 0.667)",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "CAR RZ TD rate 0.667 - they score TDs when inside the 20.",
+        "tags": {
+          "script": "TB red-zone D",
+          "correlates_with": [
+            "Over 44.5"
+          ]
+        },
+        "executable": true,
+        "route": "BEO multi-game OK"
+      },
+      {
+        "player": "TB team",
+        "team": "TB",
+        "market": "team_field_goals",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": "-130",
+        "book": "BEO",
+        "p_hit": 0.6,
+        "fair_odds": "-150",
+        "edge": 0.062,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "McLaughlin FG 2/4/3/0/1/4 -> 2+ in 4/6; TB RZ TD 0.474 (stalls)",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "McLaughlin long 59/54/53",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Rusty Mayfield may not reach range; TB 1.82 pts/drive.",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": true,
+        "route": "BEO multi-game OK"
+      },
+      {
+        "player": "TB/CAR",
+        "team": "both",
+        "market": "total_field_goals",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": "-120",
+        "book": "BEO",
+        "p_hit": 0.55,
+        "fair_odds": "-122",
+        "edge": 0.008,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "\u03bb\u22483.9 (CAR 2.0 + TB 1.9) -> P(4+)\u22480.55",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "BKR prices the opposite side (Under 3.5 -134) - books disagree",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "TD-heavy Over script reduces FGs.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "CAR team",
+        "team": "CAR",
+        "market": "FG in 2Q",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+101",
+        "book": "BKR",
+        "p_hit": 0.48,
+        "fair_odds": "+108",
+        "edge": -0.035,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "CAR \u03bb\u22482.0 FG, ~1/3 in 2Q",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "No edge.",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Josiah Trotter",
+        "team": "TB",
+        "market": "tackles_assists",
+        "line": 8.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Trotter TOT 11/13/9/7/12 -> 4/5 over 8.5; Rozeboom IR",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "CAR 68.8 plays/g fast pace",
+            "source": "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md"
+          }
+        ],
+        "counter": "CAR passes -> DBs get tackles.",
+        "tags": {
+          "script": "CAR volume"
+        },
+        "executable": false,
+        "projected_line": 8.5
+      },
+      {
+        "player": "Bobby Okereke",
+        "team": "CAR",
+        "market": "tackles_assists",
+        "line": 5.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.7,
+        "fair_odds": "-233",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Okereke TOT 6/9/4/7/8 -> 4/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "Irving 15+ carries 5/6",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Lloyd shares.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 5.5
+      },
+      {
+        "player": "Devin Lloyd",
+        "team": "CAR",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.62,
+        "fair_odds": "-163",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Lloyd TOT 13/9/9/4 -> 3/4",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Missed a game; 4 in W6.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 7.5
+      },
+      {
+        "player": "Tykee Smith",
+        "team": "TB",
+        "market": "tackles_assists",
+        "line": 5.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.52,
+        "fair_odds": "-108",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Smith TOT 4/5/5/6/4/10 -> 2/6; Winfield OUT -> more snaps",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": false,
+        "projected_line": 5.5
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "Princely Umanmielen",
+        "team": "CAR",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.48,
+        "fair_odds": "+108",
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Umanmielen sacks 1/0/1/1/0 -> 3/5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "Phillips & Incoom OUT -> every-down role; Mayfield 11% sack rate, Goedeke OUT",
+            "source": "data/generated/team-dossiers/2026-w07/TB.md"
+          }
+        ],
+        "counter": "CAR team pressure modest (2.0 sacks/g).",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)",
+          "correlates_with": [
+            "Mayfield sacks Over"
+          ]
+        },
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "David Walker",
+        "team": "TB",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.35,
+        "fair_odds": "+186",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Walker sacks 0/1/1/0/0/2 -> 3/6",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "Young sack rate 5.4%",
+            "source": "data/generated/team-dossiers/2026-w07/CAR.md"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Devin Lloyd",
+        "team": "CAR",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.1,
+        "fair_odds": "+900",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Lloyd 2 INT (ATL); Mayfield thumb/glove",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "",
+        "tags": {
+          "availability_risk": "Mayfield Q - TB passing legs only if active (8:30 PT)"
+        },
+        "executable": false,
+        "projected_line": 0.5
+      },
+      {
+        "player": "A'Shawn Robinson",
+        "team": "TB",
+        "market": "def_interceptions",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": "no market captured on BKR/BEO; price at recapture / Bovada slip",
+        "p_hit": 0.06,
+        "fair_odds": "+1567",
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "2 INTs (MIN, PIT) as DT - tipped balls",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          }
+        ],
+        "counter": "Young INTW 1.0%.",
+        "tags": {},
+        "executable": false,
+        "projected_line": 0.5
+      }
+    ],
+    "atd": [
+      {
+        "player": "Chuba Hubbard",
+        "team": "CAR",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "-108",
+        "book": "DKP",
+        "p_hit": 0.52,
+        "fair_odds": "-108",
+        "edge": 0.001,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hubbard TD in 4/5 games (rush+rec)",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "DKP 52% -108 vs BKR -145",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "TB allowed 2 rush TD in 6.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Bucky Irving",
+        "team": "TB",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+127",
+        "book": "DKP",
+        "p_hit": 0.4,
+        "fair_odds": "+150",
+        "edge": -0.092,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Irving TD in 2/6; CAR allowed 8 rush TD in 5",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "DKP 44% +127; BKR +106",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Tetairoa McMillan",
+        "team": "CAR",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+156",
+        "book": "DKP",
+        "p_hit": 0.33,
+        "fair_odds": "+203",
+        "edge": -0.155,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "TD in 1/5 games (2 vs DET)",
+            "source": "scratch/w07-prop-packs/TB_at_CAR.json"
+          },
+          {
+            "text": "DKP 39% +156; BKR +120",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Coker/Tremble compete.",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Tommy Tremble",
+        "team": "CAR",
+        "market": "anytime_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+400",
+        "book": "DKP",
+        "p_hit": 0.2,
+        "fair_odds": "+400",
+        "edge": 0.0,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "2 TD W6; DKP 20% +400, BKR +274",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Chuba Hubbard",
+        "team": "CAR",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+567",
+        "book": "DKP",
+        "p_hit": 0.16,
+        "fair_odds": "+525",
+        "edge": 0.067,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 15% +567; BKR +451",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Bucky Irving",
+        "team": "TB",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+733",
+        "book": "DKP",
+        "p_hit": 0.11,
+        "fair_odds": "+809",
+        "edge": -0.084,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "BKR +604 / DKP +733",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": true
+      },
+      {
+        "player": "Tetairoa McMillan",
+        "team": "CAR",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": "+900",
+        "book": "DKP",
+        "p_hit": 0.09,
+        "fair_odds": "+1011",
+        "edge": -0.1,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "BKR +729 / DKP +900",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "",
+        "tags": {},
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "BKR board in the pack has re-posted Mayfield/Godwin/Otton/Irving main markets that props.md said were pulled -> book treating Mayfield as active; still gate TB passing legs on 8:30 PT inactives.",
+    "Young legs are QB-independent of TB's status (Daniels branch strengthens CAR script).",
+    "FG markets: BKR shades Total FGs Under 3.5 (-134), BEO shades Over 3.5 (-120); model ~0.55 Over -> no strong K edge; CAR FG O1.5 -150 BEO is the best K leg (+6.7%).",
+    "ATD edges all near zero vs DKP; Hubbard is the fair one.",
+    "No QB INT/sack or IDP markets captured: executable:false."
+  ]
+}

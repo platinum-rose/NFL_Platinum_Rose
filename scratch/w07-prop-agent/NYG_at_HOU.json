@@ -1,0 +1,1395 @@
+{
+  "game": "NYG@HOU",
+  "generated_at": "2026-10-24",
+  "agent": "stage1-per-game-analyst (PROP_STACK_AGENT v1)",
+  "best_leg": {
+    "player": "Dalton Schultz",
+    "team": "HOU",
+    "market": "receptions",
+    "line": 2.5,
+    "side": "Over",
+    "best_price": -145,
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": -233,
+    "edge": 0.183,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Schultz rec 4,12,3,2,3,4: 5/6 over 2.5 (3/4 last four)",
+        "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+      },
+      {
+        "text": "HOU expected winner; NYG LB Edmunds OUT (middle coverage)",
+        "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+      }
+    ],
+    "counter": "PFF cut-candidate note; Dell/Harrison Jr. returns may steal targets (2-4 tgt in recent games).",
+    "tags": {
+      "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+      "correlates_with": [
+        "Stroud pass yds"
+      ],
+      "availability_risk": "low",
+      "flags": []
+    },
+    "executable": true
+  },
+  "best_non_td_leg": {
+    "player": "Dalton Schultz",
+    "team": "HOU",
+    "market": "receptions",
+    "line": 2.5,
+    "side": "Over",
+    "best_price": -145,
+    "book": "BKR",
+    "p_hit": 0.7,
+    "fair_odds": -233,
+    "edge": 0.183,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Schultz rec 4,12,3,2,3,4: 5/6 over 2.5 (3/4 last four)",
+        "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+      },
+      {
+        "text": "HOU expected winner; NYG LB Edmunds OUT (middle coverage)",
+        "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+      }
+    ],
+    "counter": "PFF cut-candidate note; Dell/Harrison Jr. returns may steal targets (2-4 tgt in recent games).",
+    "tags": {
+      "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+      "correlates_with": [
+        "Stroud pass yds"
+      ],
+      "availability_risk": "low",
+      "flags": []
+    },
+    "executable": true
+  },
+  "best_contrarian_leg": {
+    "player": "Isaiah Likely",
+    "team": "NYG",
+    "market": "atd",
+    "line": 0.5,
+    "side": "Yes",
+    "best_price": 285,
+    "book": "DKP",
+    "p_hit": 0.3,
+    "fair_odds": 233,
+    "edge": 0.155,
+    "confidence": "B",
+    "evidence": [
+      {
+        "text": "Likely 3 TD in 5 g (WSH 2, NO 1)",
+        "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+      },
+      {
+        "text": "DKP 26% (+285); BKR +210; Theo Johnson OUT, HOU safeties OUT",
+        "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+      }
+    ],
+    "counter": "Trailing offense with first-start QB; NYG 17 projected.",
+    "tags": {
+      "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+      "correlates_with": [
+        "McCarthy pass TD",
+        "Likely yds"
+      ],
+      "availability_risk": "medium",
+      "flags": [
+        "DKP_contract_price_before_fees"
+      ]
+    },
+    "executable": true
+  },
+  "categories": {
+    "qb_pass": [
+      {
+        "player": "C.J. Stroud",
+        "team": "HOU",
+        "market": "pass_yds",
+        "line": 245.5,
+        "side": "Over",
+        "best_price": -155,
+        "book": "BKR",
+        "p_hit": 0.68,
+        "fair_odds": -213,
+        "edge": 0.119,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Stroud yds 274,353,167,347,261,312: 5/6 over 245.5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "NYG pass DVOA 17%; Edmunds, Newsome, Holland OUT",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "Early lead and clock-kill; HOU may lean on Marks.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Schultz receptions",
+            "Collins ATD"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "C.J. Stroud",
+        "team": "HOU",
+        "market": "pass_yds",
+        "line": 235.5,
+        "side": "Over",
+        "best_price": -209,
+        "book": "BKR",
+        "p_hit": 0.74,
+        "fair_odds": -285,
+        "edge": 0.094,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "5/6 over 235.5 (miss 167 vs IND)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Blowout clock-kill.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Stroud yds 245.5"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "J.J. McCarthy",
+        "team": "NYG",
+        "market": "pass_cmp",
+        "line": 16.5,
+        "side": "Over",
+        "best_price": -275,
+        "book": "BKR",
+        "p_hit": 0.76,
+        "fair_odds": -317,
+        "edge": 0.036,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "NYG 67 plays/g, 60% dropback; trailing by ~10 projected",
+            "source": "data/generated/team-dossiers/2026-w07/NYG.md"
+          },
+          {
+            "text": "McCarthy 11/21 in NO relief",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Sacks/benching risk; first start behind questionable OTs.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Nabers yds",
+            "Likely yds"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "J.J. McCarthy",
+        "team": "NYG",
+        "market": "pass_td",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": -198,
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": -233,
+        "edge": 0.054,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "NYG 11 pass TD in 6 g; McCarthy 1 TD in 21 att relief",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU missing both starting safeties (Pitre, Blankenship)",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "Stalled drives end in FGs (NYG kicks 2.6 FG/g); benching.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Likely ATD",
+            "Nabers ATD"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "median_line"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "C.J. Stroud",
+        "team": "HOU",
+        "market": "pass_td",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": -162,
+        "book": "BKR",
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": -0.062,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Stroud pass TD 2,0,1,2,1,3: 3/6 with 2+",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Goal-line work to Marks/Moreau.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Collins ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "median_line"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "qb_pressure": [
+      {
+        "player": "J.J. McCarthy",
+        "team": "NYG",
+        "market": "sacks_taken",
+        "line": 2.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "NYG sacked 3.2/g (2,3,4,2,5); QBSK% 33",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU def 3.0 sacks/g, SK% 7.4; W. Anderson 7.5 sk; NYG OTs Eluemunor and Mbow Q; first start",
+            "source": "data/generated/team-dossiers/2026-w07/HOU.md"
+          }
+        ],
+        "counter": "Quick-game plan; McCarthy scramble ability.",
+        "tags": {
+          "script": "McCarthy under pressure",
+          "correlates_with": [
+            "Anderson sack",
+            "McCarthy INT"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "J.J. McCarthy",
+        "team": "NYG",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.55,
+        "fair_odds": -122,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "NYG INT thrown 1.2/g (INT in 3/5 games), INTW% 4.6",
+            "source": "data/generated/team-dossiers/2026-w07/NYG.md"
+          },
+          {
+            "text": "McCarthy 1 INT in 21 att; trailing ~35 att",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "HOU def INTW 3.2%, 0.5 INT/g and both starting safeties OUT.",
+        "tags": {
+          "script": "Trailing pass volume",
+          "correlates_with": [
+            "McCarthy sacks"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "BKR SGP excludes INT legs"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "C.J. Stroud",
+        "team": "HOU",
+        "market": "sacks_taken",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.55,
+        "fair_odds": -122,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Stroud sacked 3,4,3,2,2,0: 5/6 over 1.5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "NYG lowest sack rate (SK% 3.7%), Edmunds OUT; OT Fisher OUT cuts the other way.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "C.J. Stroud",
+        "team": "HOU",
+        "market": "int_thrown",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.25,
+        "fair_odds": 300,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Stroud 1 INT in 6 g, INTW% 0.9",
+            "source": "data/generated/team-dossiers/2026-w07/HOU.md"
+          }
+        ],
+        "counter": "Elite ball security; fade.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "rb": [
+      {
+        "player": "Woody Marks",
+        "team": "HOU",
+        "market": "rush_yds",
+        "line": 55.5,
+        "side": "Over",
+        "best_price": -215,
+        "book": "BKR",
+        "p_hit": 0.64,
+        "fair_odds": -178,
+        "edge": -0.062,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Marks lead-role games: 62 and 56 (2/2); full log 2/6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "Montgomery OUT; NYG allows 135 rush yds/g; Sharp o60.5",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "HOU run EPA -0.17; jet sweeps steal carries.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Marks ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Woody Marks",
+        "team": "HOU",
+        "market": "rush_yds",
+        "line": 75.5,
+        "side": "Over",
+        "best_price": 130,
+        "book": "BKR",
+        "p_hit": 0.36,
+        "fair_odds": 178,
+        "edge": -0.172,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Never over 62 in 2026",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Weak run game efficiency.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Marks ATD"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Tyrone Tracy Jr.",
+        "team": "NYG",
+        "market": "rec_yds",
+        "line": 18.5,
+        "side": "Over",
+        "best_price": 133,
+        "book": "BKR",
+        "p_hit": 0.4,
+        "fair_odds": 150,
+        "edge": -0.068,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Tracy 25 and 27 rec yds in last two games",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "Theo Johnson OUT; trailing passing-down role",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "Two-game sample; Skattebo/Singletary share.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "wr": [
+      {
+        "player": "Malik Nabers",
+        "team": "NYG",
+        "market": "rec_yds",
+        "line": 58.5,
+        "side": "Over",
+        "best_price": -181,
+        "book": "BKR",
+        "p_hit": 0.64,
+        "fair_odds": -178,
+        "edge": -0.006,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Nabers 1,26,112,121,165: 3/5; last three all 112+",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU missing both starting safeties",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "Bracket coverage; McCarthy first start.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "McCarthy pass TD"
+          ],
+          "availability_risk": "medium",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Malik Nabers",
+        "team": "NYG",
+        "market": "rec_yds",
+        "line": 78.5,
+        "side": "Over",
+        "best_price": 108,
+        "book": "BKR",
+        "p_hit": 0.5,
+        "fair_odds": -100,
+        "edge": 0.04,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "3/5 over 78.5 (112,121,165)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "If NYG keeps it close, volume drops.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Nabers ATD"
+          ],
+          "availability_risk": "medium",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "te": [
+      {
+        "player": "Dalton Schultz",
+        "team": "HOU",
+        "market": "receptions",
+        "line": 2.5,
+        "side": "Over",
+        "best_price": -145,
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": -233,
+        "edge": 0.183,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Schultz rec 4,12,3,2,3,4: 5/6 over 2.5 (3/4 last four)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU expected winner; NYG LB Edmunds OUT (middle coverage)",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "PFF cut-candidate note; Dell/Harrison Jr. returns may steal targets (2-4 tgt in recent games).",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Stroud pass yds"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "Dalton Schultz",
+        "team": "HOU",
+        "market": "rec_yds",
+        "line": 21.5,
+        "side": "Over",
+        "best_price": -218,
+        "book": "BKR",
+        "p_hit": 0.74,
+        "fair_odds": -285,
+        "edge": 0.079,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Schultz yds 35,140,30,9,30,33: 5/6 over 21.5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Target share erosion.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Schultz receptions"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "rec_yds",
+        "line": 40.5,
+        "side": "Over",
+        "best_price": -229,
+        "book": "BKR",
+        "p_hit": 0.7,
+        "fair_odds": -233,
+        "edge": 0.006,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Likely 33,13,66,94,99: last three over; Theo Johnson OUT concentrates TE targets",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Two early duds; HOU LBs.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Likely ATD"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "FLAG_shorter_than_-200"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "rec_yds",
+        "line": 60.5,
+        "side": "Over",
+        "best_price": 122,
+        "book": "BKR",
+        "p_hit": 0.47,
+        "fair_odds": 113,
+        "edge": 0.043,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "3/5 over 60.5 (66,94,99)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Variance with a first-start QB.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Likely ATD"
+          ],
+          "availability_risk": "medium",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "k": [
+      {
+        "player": "NYG (Dominic Zvada)",
+        "team": "NYG",
+        "market": "team_fg_made",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": 105,
+        "book": "BEO",
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": 0.148,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "NYG made 2+ FG in 5/5 logged games (2,4,3,2,2); 2.6 FG/g",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU expected to hold NYG to 17; NYG RZ TD 61%",
+            "source": "data/generated/team-dossiers/2026-w07/NYG.md"
+          }
+        ],
+        "counter": "Trailing teams go for it on 4th; a blowout reduces NYG drives.",
+        "tags": {
+          "script": "NYG red-zone stalls",
+          "correlates_with": [
+            "Total FGs Over"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "NYG/HOU kickers",
+        "team": "NYG/HOU",
+        "market": "total_fg_made",
+        "line": 3.5,
+        "side": "Over",
+        "best_price": -120,
+        "book": "BEO",
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": 0.027,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "NYG 2.6 + HOU 2.17 FG/g = 4.8 combined",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "HOU RZ TD 56.5%",
+            "source": "data/generated/team-dossiers/2026-w07/HOU.md"
+          }
+        ],
+        "counter": "Total 42.5-43 limits drives.",
+        "tags": {
+          "script": "Red-zone stalls",
+          "correlates_with": [
+            "NYG FG Over"
+          ],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "HOU (Ka'imi Fairbairn)",
+        "team": "HOU",
+        "market": "team_fg_made",
+        "line": 1.5,
+        "side": "Over",
+        "best_price": -190,
+        "book": "BEO",
+        "p_hit": 0.64,
+        "fair_odds": -178,
+        "edge": -0.023,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "HOU 2+ FG in 4/6 (1,2,1,3,4,2); Fairbairn 13/14",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Stroud TD drives vs depleted NYG secondary.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      },
+      {
+        "player": "HOU",
+        "team": "HOU",
+        "market": "first_fg",
+        "line": null,
+        "side": "Houston",
+        "best_price": -134,
+        "book": "BKR",
+        "p_hit": 0.55,
+        "fair_odds": -122,
+        "edge": -0.04,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "HOU 2.17 FG/g vs NYG 2.6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "NYG kicks more often.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": []
+        },
+        "executable": true
+      }
+    ],
+    "idp_tackles": [
+      {
+        "player": "Arvell Reese",
+        "team": "NYG",
+        "market": "tackles_assists",
+        "line": 7.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.62,
+        "fair_odds": -163,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Reese TOT 7,13,9,9,6: 3/5 over 7.5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "Edmunds OUT shifts green-dot volume to Reese; HOU runs late with lead",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "HOU pass-first (64% dropback) can finish plays on DBs.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Marks rush yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Azeez Al-Shaair",
+        "team": "HOU",
+        "market": "tackles_assists",
+        "line": 8.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.56,
+        "fair_odds": -127,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Al-Shaair TOT 8,12,11,11,7: 3/5 over 8.5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "NYG 67 plays/g; HOU starting safeties OUT",
+            "source": "data/generated/team-dossiers/2026-w07/NYG.md"
+          }
+        ],
+        "counter": "Dossier listed him Q (props file: no designation).",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Calen Bullock",
+        "team": "HOU",
+        "market": "tackles_assists",
+        "line": 5.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.58,
+        "fair_odds": -138,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Bullock TOT 6,7,8,0,5: 3/5; lone healthy starting-caliber S",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Rotation with replacements.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Kamari Lassiter",
+        "team": "HOU",
+        "market": "tackles_assists",
+        "line": 5.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.52,
+        "fair_odds": -108,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Lassiter TOT 3,5,9,8,4,8: 3/6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Coverage-dependent.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Nabers yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_sacks": [
+      {
+        "player": "Will Anderson Jr.",
+        "team": "HOU",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.55,
+        "fair_odds": -122,
+        "edge": null,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Anderson 7.5 sacks in 6 g; 1+ full sack in 3/6 (CIN 1, IND 2.5, TEN 3), 15 QB hits",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "NYG OTs Eluemunor/Mbow Q; first-start QB; NYG sacked 3.2/g",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "Half-sacks do not cash Over 0.5; chip help.",
+        "tags": {
+          "script": "McCarthy under pressure",
+          "correlates_with": [
+            "McCarthy sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Danielle Hunter",
+        "team": "HOU",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.35,
+        "fair_odds": 186,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hunter 1+ sack in 2/6 (+2 half-sacks)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Secondary rusher.",
+        "tags": {
+          "script": "McCarthy under pressure",
+          "correlates_with": [
+            "McCarthy sacks"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Abdul Carter",
+        "team": "NYG",
+        "market": "sacks",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.3,
+        "fair_odds": 233,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Carter 1 sack in 2/4; HOU allowed 2.33/g, OT Fisher OUT",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "NYG SK% 3.7, lowest pressure-to-sack.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "idp_int": [
+      {
+        "player": "Calen Bullock",
+        "team": "HOU",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.15,
+        "fair_odds": 567,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Bullock 1 INT in 5; McCarthy/NYG INTW% 4.6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {
+          "script": "McCarthy under pressure",
+          "correlates_with": [
+            "McCarthy INT"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Jake Hansen",
+        "team": "HOU",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.08,
+        "fair_odds": 1150,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Hansen 1 INT in 6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Low base rate.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      },
+      {
+        "player": "Arvell Reese",
+        "team": "NYG",
+        "market": "def_int",
+        "line": 0.5,
+        "side": "Over",
+        "best_price": null,
+        "book": null,
+        "p_hit": 0.05,
+        "fair_odds": 1900,
+        "edge": null,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Reese 1 INT; Stroud INTW% 0.9",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          }
+        ],
+        "counter": "Stroud rarely throws picks.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "low",
+          "flags": [
+            "projected_line",
+            "price at recapture"
+          ]
+        },
+        "executable": false
+      }
+    ],
+    "atd": [
+      {
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 285,
+        "book": "DKP",
+        "p_hit": 0.3,
+        "fair_odds": 233,
+        "edge": 0.155,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Likely 3 TD in 5 g (WSH 2, NO 1)",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "DKP 26% (+285); BKR +210; Theo Johnson OUT, HOU safeties OUT",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Trailing offense with first-start QB; NYG 17 projected.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "McCarthy pass TD",
+            "Likely yds"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Nico Collins",
+        "team": "HOU",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 144,
+        "book": "DKP",
+        "p_hit": 0.42,
+        "fair_odds": 138,
+        "edge": 0.025,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "Collins 3 TD, scored in 2/4 games",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "DKP 41% (+144); BKR +125; Krebs featured",
+            "source": "reports/intel/games/2026-w07-game-NYG_at_HOU-props.md"
+          }
+        ],
+        "counter": "TD share spread over five HOU targets.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Stroud pass yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Woody Marks",
+        "team": "HOU",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": -104,
+        "book": "DKP",
+        "p_hit": 0.52,
+        "fair_odds": -108,
+        "edge": 0.02,
+        "confidence": "B",
+        "evidence": [
+          {
+            "text": "RB1 with Montgomery OUT; HOU TT 26.5; 2 TD in 6",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "DKP 51% (-104); BKR -147",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Moreau/Stroud steal goal-line work.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Marks rush yds"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Malik Nabers",
+        "team": "NYG",
+        "market": "atd",
+        "line": 0.5,
+        "side": "Yes",
+        "best_price": 270,
+        "book": "DKP",
+        "p_hit": 0.28,
+        "fair_odds": 257,
+        "edge": 0.036,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "Nabers 2 TD in 5",
+            "source": "scratch/w07-prop-packs/NYG_at_HOU.json"
+          },
+          {
+            "text": "DKP 27% (+270); BKR +200",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Bracket coverage.",
+        "tags": {
+          "script": "HOU leads by 9-10 (26-17); McCarthy first NYG start, trailing volume",
+          "correlates_with": [
+            "Nabers yds"
+          ],
+          "availability_risk": "medium",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ],
+    "first_td": [
+      {
+        "player": "Nico Collins",
+        "team": "HOU",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 733,
+        "book": "DKP",
+        "p_hit": 0.13,
+        "fair_odds": 669,
+        "edge": 0.083,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 12% (+733); BKR +533",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Spread target tree.",
+        "tags": {
+          "script": "HOU scores first",
+          "correlates_with": [
+            "Collins ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Woody Marks",
+        "team": "HOU",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 488,
+        "book": "DKP",
+        "p_hit": 0.17,
+        "fair_odds": 488,
+        "edge": -0.0,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 17% (+488); BKR +408",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "Pass-led red zone.",
+        "tags": {
+          "script": "HOU scores first",
+          "correlates_with": [
+            "Marks ATD"
+          ],
+          "availability_risk": "low",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      },
+      {
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "first_td",
+        "line": null,
+        "side": "Yes",
+        "best_price": 1567,
+        "book": "DKP",
+        "p_hit": 0.065,
+        "fair_odds": 1438,
+        "edge": 0.084,
+        "confidence": "C",
+        "evidence": [
+          {
+            "text": "DKP 6% (+1567); BKR +1353",
+            "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+          }
+        ],
+        "counter": "NYG unlikely first scorer.",
+        "tags": {
+          "script": "",
+          "correlates_with": [],
+          "availability_risk": "medium",
+          "flags": [
+            "DKP_contract_price_before_fees"
+          ]
+        },
+        "executable": true
+      }
+    ]
+  },
+  "notes": [
+    "McCarthy first NYG start (Winston backup; benching = tail risk on NYG legs). Theo Johnson, Jevon Holland, Edmunds, Newsome OUT for NYG; HOU OUT Montgomery, S Pitre, S Blankenship, OT Fisher.",
+    "BEO has no player props here (game-level FG/TD totals only); BKR player props are SGP-only. DKP prices pre-fee reference.",
+    "No sack/INT/IDP markets captured; BKR SGP excludes INT legs. Those candidates are executable:false (price at recapture / Bovada).",
+    "Nabers receptions (5+ -301) excluded: receptions overs only for the expected winner. Marks 2+ rec (-344) skipped as low hit rate (3/6).",
+    "Harrison Jr. confirmed HOU on espn-full-rosters / roster-map; Skattebo has no 2026 NO-game log and no BKR yardage row (status unclear).",
+    "best_non_td_leg = best_leg (Schultz receptions). Alternative: Stroud 246+ pass yds -155."
+  ]
+}

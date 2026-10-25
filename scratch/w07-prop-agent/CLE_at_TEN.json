@@ -1,0 +1,1186 @@
+{
+ "game": "CLE@TEN",
+ "kickoff": "2026-10-25T17:00Z",
+ "as_of": "2026-10-24 PT (Stage-1 analyst)",
+ "best_leg": {
+  "player": "CLE team field goals",
+  "team": "CLE",
+  "market": "team_fg_total",
+  "line": 1.5,
+  "side": "Over",
+  "best_price": -145,
+  "book": "BEO",
+  "p_hit": 0.7,
+  "fair_odds": "-233",
+  "edge": 0.183,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Szmyt FGM 1,3,2,2,2,2 = 5/6 at 2+ (12/13 FG)",
+    "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+   },
+   {
+    "text": "CLE RZ TD 46.2%, 1.47 pts/drive; perfect weather; total 37 FG game",
+    "source": "data/generated/team-dossiers/2026-w07/CLE.md / reports/intel/master-intel-narratives-2026-w07.md"
+   }
+  ],
+  "counter": "A CLE TD-heavy day or Watson injury caps kicks.",
+  "tags": {
+   "script": "CLE red-zone stalls",
+   "correlates_with": [
+    "Game FG O3.5",
+    "CLE ML"
+   ],
+   "availability_risk": "Watson injury"
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Deshaun Watson",
+  "team": "CLE",
+  "market": "rush_yds",
+  "line": 19.5,
+  "side": "Over",
+  "best_price": -253,
+  "book": "BKR",
+  "p_hit": 0.8,
+  "fair_odds": "-400",
+  "edge": 0.116,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Rush yds 38,22,45,22,40,29 = 6/6 at 22+ (7.5 carries/g)",
+    "source": "scratch/w07-prop-packs/CLE_at_TEN.json / reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+   }
+  ],
+  "counter": "Kneel-downs with a lead; designed runs drop with Judkins/Sampson back.",
+  "tags": {
+   "script": "QB scramble vs zone",
+   "correlates_with": [],
+   "availability_risk": "Watson injury voids all CLE legs (Gabriel OUT)"
+  },
+  "executable": true,
+  "flags": [
+   "FLAG: shorter than -200",
+   "QB rushing leg filed under qb_pass"
+  ]
+ },
+ "best_contrarian_leg": {
+  "player": "Deshaun Watson",
+  "team": "CLE",
+  "market": "pass_cmp",
+  "line": 18.5,
+  "side": "Under",
+  "best_price": 101,
+  "book": "BKR",
+  "p_hit": 0.6,
+  "fair_odds": "-150",
+  "edge": 0.206,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "Completions 16,24,16,24,15,16 = 4/6 under 18.5",
+    "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+   },
+   {
+    "text": "Judkins + Sampson back -> run-first; CLE 59 plays/g; total 37",
+    "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-props.md / reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+   }
+  ],
+  "counter": "TEN allows 69%+ completions; if CLE trails he throws 33 (W4/W5).",
+  "tags": {
+   "script": "run-first CLE lead",
+   "correlates_with": [
+    "Watson pass yds U208.5",
+    "Under 37"
+   ],
+   "availability_risk": null
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Deshaun Watson",
+    "team": "CLE",
+    "market": "pass_cmp",
+    "line": 18.5,
+    "side": "Under",
+    "best_price": 101,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.206,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Completions 16,24,16,24,15,16 = 4/6 under 18.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "Judkins + Sampson back -> run-first; CLE 59 plays/g; total 37",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-props.md / reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "TEN allows 69%+ completions; if CLE trails he throws 33 (W4/W5).",
+    "tags": {
+     "script": "run-first CLE lead",
+     "correlates_with": [
+      "Watson pass yds U208.5",
+      "Under 37"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Deshaun Watson",
+    "team": "CLE",
+    "market": "pass_yds",
+    "line": 208.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.156,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Pass yds 205,238,144,268,155,164 = 4/6 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "TEN pass D DVOA +30.5% (31st).",
+    "tags": {
+     "script": "run-first CLE lead",
+     "correlates_with": [
+      "Watson cmp U18.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Deshaun Watson",
+    "team": "CLE",
+    "market": "rush_yds",
+    "line": 19.5,
+    "side": "Over",
+    "best_price": -253,
+    "book": "BKR",
+    "p_hit": 0.8,
+    "fair_odds": "-400",
+    "edge": 0.116,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Rush yds 38,22,45,22,40,29 = 6/6 at 22+ (7.5 carries/g)",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json / reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     }
+    ],
+    "counter": "Kneel-downs with a lead; designed runs drop with Judkins/Sampson back.",
+    "tags": {
+     "script": "QB scramble vs zone",
+     "correlates_with": [],
+     "availability_risk": "Watson injury voids all CLE legs (Gabriel OUT)"
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200",
+     "QB rushing leg filed under qb_pass"
+    ]
+   },
+   {
+    "player": "Cam Ward",
+    "team": "TEN",
+    "market": "pass_td",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": -229,
+    "book": "BKR",
+    "p_hit": 0.63,
+    "fair_odds": "-170",
+    "edge": -0.095,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Pass TD 1,0,1,1,0,1 = 4/6",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE D allowed 11 pass TD",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     }
+    ],
+    "counter": "CLE 34% pressure, Ridley Q; TEN 4 pass TD total.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Ridley Q"
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200",
+     "price moved -178 -> -199 -> -229"
+    ]
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Cam Ward",
+    "team": "TEN",
+    "market": "pass_int",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT 0,0,1,1,1,1 = 4/6 (last four straight)",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE D INT 0.67/g, INTW% 2.9%; CLE pressure 34.2% vs Ward pressured EPA/DB -0.711",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json / data/generated/team-dossiers/2026-w07/TEN.md"
+     }
+    ],
+    "counter": "Ward INTW% 2.2%; low-volume TEN (53 plays).",
+    "tags": {
+     "script": "CLE pass rush",
+     "correlates_with": [
+      "Simmons/CLE sack legs",
+      "CLE side"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Deshaun Watson",
+    "team": "CLE",
+    "market": "sacks_taken",
+    "line": 2.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 5,2,2,2,8,5 = 3/6 over 2.5 (4.0/g); CLE SK% 10.8%",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json / data/generated/team-dossiers/2026-w07/CLE.md"
+     },
+     {
+      "text": "G Teven Jenkins IR; TEN D 2.67 sacks/g",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md / scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "TEN pressure only ~21.5%.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Simmons sack"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "alt Over 1.5 projected p 0.82 (6/6)",
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Cam Ward",
+    "team": "TEN",
+    "market": "sacks_taken",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 3,2,0,1,4,0 = 3/6 over 1.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE D 3.17 sacks/g, 8.4% sack rate generated; DT Mike Hall Jr. OUT",
+      "source": "data/generated/team-dossiers/2026-w07/CLE.md / reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "Ward TTT 2.69 and two 0-sack games.",
+    "tags": {
+     "script": "CLE pass rush",
+     "correlates_with": [
+      "Ward INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "rb": [
+   {
+    "player": "Tony Pollard",
+    "team": "TEN",
+    "market": "rush_yds",
+    "line": 66.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.156,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rush yds 35,64,74,48,52,76 = 4/6 under 66.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE rush D DVOA -15.4%; TEN trailing, 53 plays/g",
+      "source": "data/generated/team-dossiers/2026-w07/CLE.md / reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "Spears Q/out gives Pollard 19+ carries (W6 19-76).",
+    "tags": {
+     "script": "TEN trailing, CLE run D",
+     "correlates_with": [
+      "Under 37"
+     ],
+     "availability_risk": "Spears Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Quinshon Judkins",
+    "team": "CLE",
+    "market": "rush_yds",
+    "line": 46.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.117,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rush yds 33,21,70,53,44 = 3/5 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "Sampson activated from IR -> committee",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     }
+    ],
+    "counter": "Lead script = more carries.",
+    "tags": {
+     "script": "CLE committee",
+     "correlates_with": [],
+     "availability_risk": "Sampson return split unknown"
+    },
+    "executable": true
+   },
+   {
+    "player": "Tony Pollard",
+    "team": "TEN",
+    "market": "rec",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.117,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 1,1,4,2,0,0 = 4/6 under 1.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Spears out moves passing-down work to Pollard.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Spears Q"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "KC Concepcion",
+    "team": "CLE",
+    "market": "rec_yds",
+    "line": 40.5,
+    "side": "Under",
+    "best_price": -108,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.117,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 43,28,9,64,5,37 = 4/6 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "20-30% target share most weeks.",
+    "tags": {
+     "script": "run-first CLE",
+     "correlates_with": [
+      "Watson cmp U18.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Wan'Dale Robinson",
+    "team": "TEN",
+    "market": "rec_yds",
+    "line": 38.5,
+    "side": "Under",
+    "best_price": -105,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": 0.074,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 38,9,57,19,53,22 = 4/6 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Ridley out pushes more targets his way (11 tgt W3).",
+    "tags": {
+     "script": "low-volume TEN",
+     "correlates_with": [],
+     "availability_risk": "Ridley Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Denzel Boston",
+    "team": "CLE",
+    "market": "rec_yds",
+    "line": 41.5,
+    "side": "Over",
+    "best_price": -223,
+    "book": "BKR",
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": -0.044,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 59,95,41,89,46,15 = 4/6 over 41.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "TEN pass D 31st, boundary boost",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     }
+    ],
+    "counter": "W6 15 yds; Ward (CLE CB) irrelevant; TEN shadow CB.",
+    "tags": {
+     "script": "CLE WR1",
+     "correlates_with": [
+      "Boston ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "FLAG: shorter than -200"
+    ]
+   }
+  ],
+  "te": [
+   {
+    "player": "Harold Fannin Jr.",
+    "team": "CLE",
+    "market": "rec",
+    "line": 3.5,
+    "side": "Under",
+    "best_price": -126,
+    "book": "BKR",
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": 0.148,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec 2,5,7,3,1,1 = 4/6 under 3.5 (1 catch each of last two)",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Inside-seam boost vs thin TEN safeties.",
+    "tags": {
+     "script": "run-first CLE",
+     "correlates_with": [
+      "Fannin rec yds U28.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Harold Fannin Jr.",
+    "team": "CLE",
+    "market": "rec_yds",
+    "line": 28.5,
+    "side": "Under",
+    "best_price": -106,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.127,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 21,54,51,27,4,9 = 4/6 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Same.",
+    "tags": {
+     "script": "run-first CLE",
+     "correlates_with": [
+      "Fannin rec U3.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Gunnar Helm",
+    "team": "TEN",
+    "market": "rec_yds",
+    "line": 13.5,
+    "side": "Under",
+    "best_price": -106,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": 0.069,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Rec yds 28,13,14,5,0 = 3/5 under",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Ridley out -> more short targets.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "CLE team field goals",
+    "team": "CLE",
+    "market": "team_fg_total",
+    "line": 1.5,
+    "side": "Over",
+    "best_price": -145,
+    "book": "BEO",
+    "p_hit": 0.7,
+    "fair_odds": "-233",
+    "edge": 0.183,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "Szmyt FGM 1,3,2,2,2,2 = 5/6 at 2+ (12/13 FG)",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE RZ TD 46.2%, 1.47 pts/drive; perfect weather; total 37 FG game",
+      "source": "data/generated/team-dossiers/2026-w07/CLE.md / reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "A CLE TD-heavy day or Watson injury caps kicks.",
+    "tags": {
+     "script": "CLE red-zone stalls",
+     "correlates_with": [
+      "Game FG O3.5",
+      "CLE ML"
+     ],
+     "availability_risk": "Watson injury"
+    },
+    "executable": true
+   },
+   {
+    "player": "TEN team field goals",
+    "team": "TEN",
+    "market": "team_fg_total",
+    "line": 1.5,
+    "side": "Under",
+    "best_price": -105,
+    "book": "BEO",
+    "p_hit": 0.56,
+    "fair_odds": "-127",
+    "edge": 0.093,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Slye FGM 1,2,0,1,1,4 = 4/6 under 1.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "TEN 14 PPG, stalls before FG range",
+      "source": "data/generated/team-dossiers/2026-w07/TEN.md"
+     }
+    ],
+    "counter": "TEN RZ TD 46.7% means stalls inside 30 become FGs.",
+    "tags": {
+     "script": "CLE pass rush",
+     "correlates_with": [
+      "Ward sacks"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Game total field goals",
+    "team": "CLE/TEN",
+    "market": "game_fg_total",
+    "line": 3.5,
+    "side": "Over",
+    "best_price": 104,
+    "book": "BKR",
+    "p_hit": 0.5,
+    "fair_odds": "-100",
+    "edge": 0.02,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "CLE 2.0 + TEN 1.5 = 3.5 FGM/g; both RZ TD <47%; Poisson ~3.7 -> P(4+) ~0.50",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "BKR FG market +104; BEO O3.5 -110",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Low total also means fewer drives in range.",
+    "tags": {
+     "script": "red-zone stalls",
+     "correlates_with": [
+      "CLE team FG O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Anthony Hill Jr.",
+    "team": "TEN",
+    "market": "tackles_assists",
+    "line": 7.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TOT 16,10,8,8,5,9 = 5/6 over 7.5 (9.3/g)",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "CLE run-first, 59 plays/g",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "CLE long drives could also tire TEN LB rotation.",
+    "tags": {
+     "script": "CLE run game",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Carson Schwesinger",
+    "team": "CLE",
+    "market": "tackles_assists",
+    "line": 7.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TOT 10,10,6,9,8,13 = 5/6 over 7.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Ankle (limited Thu); TEN only 53 plays/g.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "ankle limited Thu"
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Amani Hooker",
+    "team": "TEN",
+    "market": "tackles_assists",
+    "line": 5.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TOT 10,6,6,6,13 = 5/5 over 5.5",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "TEN safety room thin (Winston/Adams Q)",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "Missed one game.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "Jeffery Simmons",
+    "team": "TEN",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,1,1,0,0,2 = 3/6; 9 QB hits",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "Watson 4.0 sacks/g, SK% 10.8%; G Jenkins IR",
+      "source": "data/generated/team-dossiers/2026-w07/CLE.md"
+     }
+    ],
+    "counter": "Double-teams.",
+    "tags": {
+     "script": "Watson holds ball",
+     "correlates_with": [
+      "Watson sacks O2.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Jacob Martin",
+    "team": "TEN",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.42,
+    "fair_odds": "+138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,1,0.5,1,1 (5 GP) = 4/5 games",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Rotational snaps.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Watson sacks O2.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Maliek Collins",
+    "team": "CLE",
+    "market": "sacks",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.35,
+    "fair_odds": "+186",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Sacks 0,0,0,1,1.5,1 = sack in last three",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "Mike Hall Jr. OUT -> more DT snaps",
+      "source": "reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md"
+     }
+    ],
+    "counter": "Ward sacked only 1.67/g.",
+    "tags": {
+     "script": "CLE pass rush",
+     "correlates_with": [
+      "Ward sacks O1.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Ronnie Hickman",
+    "team": "CLE",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.12,
+    "fair_odds": "+733",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 INT; Ward INT in 4 straight; CLE INTs spread over 4 DBs",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Diffuse share.",
+    "tags": {
+     "script": "CLE pass rush",
+     "correlates_with": [
+      "Ward INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Grant Delpit",
+    "team": "CLE",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.12,
+    "fair_odds": "+733",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 INT; cleared concussion protocol",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json / reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     }
+    ],
+    "counter": "Diffuse share.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Ward INT O0.5"
+     ],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   },
+   {
+    "player": "Amani Hooker",
+    "team": "TEN",
+    "market": "interceptions",
+    "line": 0.5,
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.11,
+    "fair_odds": "+809",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2 INT (TEN leader); Watson INT 2/6",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Watson INTW 2.9%.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": false,
+    "flags": [
+     "no market captured; projected line, price at recapture"
+    ]
+   }
+  ],
+  "atd": [
+   {
+    "player": "Denzel Boston",
+    "team": "CLE",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 257,
+    "book": "DKP",
+    "p_hit": 0.3,
+    "fair_odds": "+233",
+    "edge": 0.071,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "3 TD in 3/6; WR1 on expected winner",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "DKP +257 vs BKR +182",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json / scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Low-total game (3.8 TDs); W6 15 yds.",
+    "tags": {
+     "script": "CLE pass vs 31st pass D",
+     "correlates_with": [
+      "Boston rec yds"
+     ],
+     "availability_risk": null
+    },
+    "executable": true,
+    "flags": [
+     "DKP pre-fee"
+    ]
+   },
+   {
+    "player": "Wan'Dale Robinson",
+    "team": "TEN",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 426,
+    "book": "DKP",
+    "p_hit": 0.2,
+    "fair_odds": "+400",
+    "edge": 0.052,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "2 TD in 2/6; slot/hot-read boost vs CLE man",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json / reports/intel/games/2026-w07-game-CLE_at_TEN-props.md"
+     },
+     {
+      "text": "DKP +426 vs BKR +275",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Ridley active cuts share.",
+    "tags": {
+     "script": "TEN slot",
+     "correlates_with": [],
+     "availability_risk": "Ridley Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Harold Fannin Jr.",
+    "team": "CLE",
+    "market": "atd",
+    "line": null,
+    "side": "Yes",
+    "best_price": 257,
+    "book": "DKP",
+    "p_hit": 0.25,
+    "fair_odds": "+300",
+    "edge": -0.108,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "3 TD in 2/6; RZ TE",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "1 catch in each of last two.",
+    "tags": {
+     "script": "CLE RZ",
+     "correlates_with": [],
+     "availability_risk": null
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Wan'Dale Robinson",
+    "team": "TEN",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 1900,
+    "book": "DKP",
+    "p_hit": 0.06,
+    "fair_odds": "+1567",
+    "edge": 0.2,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "ATD .20 x ~0.3",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "DKP +1900 vs BKR +1289",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Low share.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Ridley Q"
+    },
+    "executable": true
+   },
+   {
+    "player": "Denzel Boston",
+    "team": "CLE",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 1011,
+    "book": "DKP",
+    "p_hit": 0.09,
+    "fair_odds": "+1011",
+    "edge": -0.0,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "ATD .30 x ~0.3",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     },
+     {
+      "text": "DKP +1011 vs BKR +862",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Fair-ish.",
+    "tags": {
+     "script": "",
+     "correlates_with": [
+      "Boston ATD"
+     ],
+     "availability_risk": null
+    },
+    "executable": true
+   },
+   {
+    "player": "Quinshon Judkins",
+    "team": "CLE",
+    "market": "first_td",
+    "line": null,
+    "side": "Yes",
+    "best_price": 809,
+    "book": "DKP",
+    "p_hit": 0.1,
+    "fair_odds": "+900",
+    "edge": -0.091,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 TD in 5; goal-line role unclear with Sampson",
+      "source": "scratch/w07-prop-packs/CLE_at_TEN.json"
+     }
+    ],
+    "counter": "Committee.",
+    "tags": {
+     "script": "",
+     "correlates_with": [],
+     "availability_risk": "Sampson split"
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Field-goal game: total 37, both RZ TD rates ~46%, perfect weather. CLE team FG O1.5 (BEO) is the Field-goal-ticket anchor.",
+  "BEO has no player props here; cross-game executable legs are team/game FG and TD specials (BEO) or kicker fantasy points (Szmyt O8.5 / Slye O7.5, -115).",
+  "No INT or sack markets captured: QB-pressure legs projected only. Watson pass TD O0.5 -386 is past the -350 barrier.",
+  "Ridley and Spears Q (TEN elevated Osborn/Mullings): no Ridley/Spears props. Any Watson injury voids all CLE legs (Gabriel OUT).",
+  "IDP projected lines only. Roster-map lacks K/IDP; verified via espn-full-rosters-latest.json (Jared Verse listed CLE, Myles Garrett LAR)."
+ ]
+}

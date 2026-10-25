@@ -1,6 +1,6 @@
 # Master Intel narratives, 2026 Week 7
 
-Saturday 10/24 refresh from the Week 7 sides and props packets, Bookmaker board captured about 1:25 PM PT, BetOnline board about 2:15 PM PT, and Saturday injury news. Bookmaker and BetOnline disagree on CLE@TEN; both numbers are kept distinct. Prices and props that require Sunday inactives or a fresh capture remain conditional. NE@CHI (TNF) is final.
+Saturday 10/24 refresh from the Week 7 sides and props packets and Saturday injury news. Latest market refresh: BKR captured 6:46–6:48 PM PT (6,381 rows), BEO 6:50 PM PT (994 rows), DKP 6:50 PM PT (955 rows). BKR/BEO filenames use the UTC date 2026-10-25; DKP uses the local date 2026-10-24. The generated market boards and prop price comparisons use those captures. Earlier prices quoted in the analysis below are historical recommendation prices, not newly executable offers; changed or missing offers require review. DKP is prediction-contract reference pricing before fees. NE@CHI (TNF) is final.
 
 ## PIT@NO
 projection: PIT 23, NO 20
@@ -20,7 +20,7 @@ projection: CAR 25, TB 21
 Bryce Young leads the league at 309.8 passing yards a game and faces a Tampa Bay pass-funnel defense now missing Antoine Winfield Jr., the safety who disguises Todd Bowles' blitzes. Expect Carolina to throw early and often. Baker Mayfield returns from his dislocated thumb in a glove, without Emeka Egbuka and right tackle Luke Goedeke, but Carolina's pass rush is missing both Jaelan Phillips and Thomas Incoom. Every Tampa Bay game has been decided by eight points or fewer, so this stays close: Carolina wins by four in the high 20s, just past the 3.
 
 ### Why the card leans this way
-Saturday BKR has CAR -3 +102 and total 44.5. CAR -3 is C; no TB player props were posted. Bryce Young O1.5 pass TD (-129), O233.5 pass yards (-174), McMillan O4.5 catches (-181) and McMillan ATD (+130) are B props. Mayfield remains questionable, so the game Over and all TB exposure wait for Sunday inactives.
+Saturday BKR has CAR -3 +102 and total 44.5. CAR -3 remains the saved C-tier view; the evening BKR capture now includes player markets for both teams. Bryce Young O1.5 pass TD (-129), O233.5 pass yards (-174), McMillan O4.5 catches (-181) and McMillan ATD (+130) are B props. Mayfield remains questionable, so the game Over and all TB exposure wait for Sunday inactives.
 ### What breaks it
 Mayfield is inactive at 8:30 AM PT and Jalon Daniels starts again: the Over drops to a pass and CAR becomes the stronger side. Or Tampa Bay's #3 EPA defense keeps Young in check, as five of its six games stayed at 45 or under.
 
@@ -31,7 +31,7 @@ projection: NYJ 22, MIA 16
 Geno Smith's short, accurate game (aDOT 7.0, 0.6% interception rate) meets a Miami defense that allows a league-high 89.7% completion rate on throws under 10 yards. The Jets move the ball, but they have zero red-zone touchdowns in three straight games, so many drives end with field goals. Malik Willis (thumb, full participant) runs an offense that has not led a game all season, scores 14 points a game and gets sacked 8.6% of the time. Breece Hall is questionable; Braelon Allen leads the backfield if he sits. A 22–16 Jets win covers 4.5 by a point and a half.
 
 ### Why the card leans this way
-Saturday BKR is NYJ -4 (-108) and total 39; the spread is a pass at the updated number. U39 (-109) remains B. Willis U0.5 pass TD (+148) is a B single. BKR did capture first-TD markets Wilson +719 and Allen +469, with Allen only if Hall is inactive; no anytime-TD market was captured.
+Saturday BKR is NYJ -4 (-108) and total 39; the spread is a pass at the updated number. U39 (-109) remains B. Willis U0.5 pass TD (+148) is a B single. Earlier first-TD prices were Wilson +719 and Allen +469, with Allen conditional on Hall being inactive. The evening capture now includes 29 anytime-TD rows; use the current menus for prices.
 ### What breaks it
 A Willis turnover or a special-teams score hands the Jets short fields and turns field goals into touchdowns, which breaks the Under. Or the Jets' red-zone drought continues and a 3-point win gives Miami the cover.
 
@@ -86,7 +86,7 @@ projection: CIN 23, BAL 20
 Lamar Jackson was ruled out Saturday; Tyler Huntley makes his third straight start. Baltimore is more likely to lean on Derrick Henry and a lower-scoring, run-first script. A rested Cincinnati, off its bye, is projected to win about 23–20. Joe Burrow's quick game attacks a Ravens secondary missing Jaylinn Hawkins and T.J. Tampa, with Ja'Marr Chase the main target. The updated script supports Under 47.5, while Cincinnati's sportsbook spread and moneyline are passes at the current numbers.
 
 ### Why the card leans this way
-Jackson was ruled out Saturday. The BKR board is CIN -2 (-125), BEO CIN -2.5 (-115), and CIN ML -160. The spread and ML no longer offer value: remove the CIN ML single and Hybrid leg. Under 47.5 (-108) upgrades to B. Locked CIN +2.5 is A-. Neither BKR nor BEO has player props; Sunday-morning recapture is required.
+Jackson was ruled out Saturday. The latest BKR board is CIN -2.5 (-118); locked CIN +2.5 remains the contest thesis. The earlier standalone spread/ML recommendations remain passes. BKR now has 541 priced player-prop rows for this game, including Burrow pass TD Over 1.5 (-165) and Huntley pass TD Under 1.5 (-202); these are newly captured references, not newly synthesized recommendations. BEO has no player rows for this game. DKP has a refreshed reference board. The generated menus show the current prices separately from earlier analysis.
 ### What breaks it
 Huntley handles pressure cleanly, Baltimore creates short fields, or Chase gets loose against the Hawkins-less secondary; any of those outcomes can push the game above the Under's playable range.
 
@@ -157,12 +157,12 @@ This table supersedes stale prices and status assumptions in the Friday first-pa
 | NYG@HOU | BKR NYG +10 (-103) / HOU -10 (-112): **UPGRADE to B**; HOU ML remains already-ticketed. | Total 43; NYG +9.5 contest is not a candidate. | Stroud 2+ pass TD -188, McCarthy 1+ pass TD -234, Marks 55+ rush -213 and Marks ATD -147 remain B reads; Theo Johnson and Jevon Holland now OUT. |
 | SF@ATL | BKR SF -2 (-113) / ATL +2 (-103): **RE-PRICE / PASS**; ML pass. | Total 50.5; ATL +3.5 remains an AI proposal C. | Purdy O1.5 pass TD -129, Kittle ATD -105, CMC O5.5 rec -112 BKR remain B. Kirk activated; Terrell activated from IR. |
 | IND@MIN | BKR IND +6.5 (-108) / MIN -6.5 (-108): **KEEP PASS**; ML -266 remains pass. | U41.5 (-109): **KEEP B**; no contest edge. | Jones U0.5 pass TD +167 B; Hockenson ATD +219 C. Mason inactive; Jones carries prop is the updated role note. |
-| CIN@BAL | Jackson OUT; BKR CIN -2.5 (-118) / BAL +2.5 (+101), BEO CIN -2.5 (-115): **DROP ML single and Hybrid leg; sportsbook spread pass**. | BKR U47 (-112): **RE-PRICE**, still B; locked contest CIN +2.5: **UPGRADE to A-** on the large news-driven line gap. | No executable player props posted; hold all DKP references and recapture Sunday morning. |
+| CIN@BAL | Jackson OUT; BKR CIN -2.5 (-118) / BAL +2.5 (+101): **sportsbook spread pass**. | Earlier U47 recommendation needs current-price review; locked contest CIN +2.5 remains the A- thesis. | Evening refresh: 541 priced BKR player rows now available; BEO still lacks player rows. Updated DKP contracts remain reference-only. New markets are not automatically promoted to picks. |
 | DEN@ARI | BKR DEN -4.5 (-108) / ARI +4.5 (-108): **RE-PRICE to C**; ML pass. | U43 (-107): **KEEP C**; ARI +4.5 contest remains C. | Brissett O22.5 completions -117 BKR and McBride ATD +140 BEO remain B. Jonah Coleman activated from IR; reduce Dobbins/Harvey volume assumptions. |
 | GB@DET | BKR GB +3.5 (-103) / DET -3.5 (-112), BEO GB +3.5 (-107): **UPGRADE GB to B**; ML pass. | O/U 54.5 (-108/-108): **RE-PRICE** from 53.5 C; overlaps existing O51.5 tickets. | Love O1.5 pass TD -177, St. Brown O6.5 rec -202, Watson O67.5 yds -213 B; Jacobs season debut and Branch snap status remain availability risks. |
 | LAR@LV | BKR LAR -3 (-119) / LV +3 (+102): spread **KEEP PASS** pending Nacua. LV +4 contest remains C. | O/U 48 (-110/-106): **RE-PRICE** from 48.5, conditional on Nacua. | BKR pulled Rams passing/TD props; no Rams stack until Nacua decision and recapture. |
 | KC@SEA | BKR KC +3 (-115) / SEA -3 (-101): **UPGRADE to B**; no ML duplicate. | Total 42 (-108/-108): keep Under lean; contest remains KC +2.5. | JSN O92.5 yds -109, Mahomes O1.5 pass TD +150 BEO and Darnold O0.5 INT -115 BEO single remain B. Andy selected KC +3 as a standalone proposal; stake remains TBD and the existing KC tickets create correlated exposure. |
-| DAL@PHI | BKR DAL -4 (-112) / PHI +4 (-104): PHI +4 **DROP**; ML pass. | U44 (-108): **UPGRADE to B**; PHI +4.5 was C at most and has been removed from Andy’s SuperContest five. | Williams U63.5 rush, Lamb O6.5 rec and Dak O23.5 cmp BKR B; no PHI props / TD board. Smith, Wicks, Nolan Smith and Carter OUT; Barkley Q. |
+| DAL@PHI | BKR DAL -4 (-112) / PHI +4 (-104): PHI +4 **DROP**; ML pass. | U44 (-108): **UPGRADE to B**; PHI +4.5 was C at most and has been removed from Andy’s SuperContest five. | Williams U63.5 rush, Lamb O6.5 rec and Dak O23.5 cmp BKR B; BKR still has no anytime-TD rows for this game; the current menus show the limited available player markets. Smith, Wicks, Nolan Smith and Carter OUT; Barkley Q. |
 
 ## TICKETS
 - 740512242 (BKR 6-team Flex SGP, $15 to win $353.39): four of six legs already won. It needs KC +3.5 and MIN ML.

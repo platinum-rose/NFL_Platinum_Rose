@@ -1,0 +1,1229 @@
+{
+ "game": "GB@DET",
+ "kickoff": "Sun 10/25 13:25 PT (Ford Field dome)",
+ "best_leg": {
+  "player": "Jordan Love",
+  "team": "GB",
+  "market": "pass_td",
+  "line": "1.5",
+  "side": "Over",
+  "best_price": -175,
+  "book": "BEO",
+  "p_hit": 0.68,
+  "fair_odds": "-213",
+  "edge": 0.069,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "2+ pass TD in 5/6 games (2,2,2,2,2,1)",
+    "source": "scratch/w07-prop-packs/GB_at_DET.json"
+   },
+   {
+    "text": "DET allowed 14 pass TD in 5 g, pass DVOA 18.7%, OPEN% 62%; Kerby Joseph OUT, Branch limited",
+    "source": "data/generated/team-dossiers/2026-w07/DET.md"
+   },
+   {
+    "text": "BKR -177 same",
+    "source": "reports/intel/games/2026-w07-game-GB_at_DET-props.md"
+   }
+  ],
+  "counter": "GB RZ TD 50%, topped 23 pts once; Jacobs ball-control + DET 8.1% sack rate can cap him at 1 TD",
+  "tags": {
+   "script": "GB trailing pass volume",
+   "correlates_with": [
+    "Love pass yds",
+    "Watson/Golden yds",
+    "Kraft ATD"
+   ],
+   "availability_risk": "low"
+  },
+  "executable": true
+ },
+ "best_non_td_leg": {
+  "player": "Sam LaPorta",
+  "team": "DET",
+  "market": "rec_yds",
+  "line": "40.5",
+  "side": "Over",
+  "best_price": -223,
+  "book": "BKR",
+  "p_hit": 0.76,
+  "fair_odds": "-317",
+  "edge": 0.101,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "41+ in 5/5 (48,52,44,84,88), 5-8 rec",
+    "source": "scratch/w07-prop-packs/GB_at_DET.json"
+   },
+   {
+    "text": "GB LBs: Franklin OUT, Cooper day-to-day; DET expected winner; implied DET ~29",
+    "source": "reports/intel/master-intel-narratives-2026-w07.md"
+   }
+  ],
+  "counter": "GB pass D good (EPA/DB -0.075); St. Brown/Gibbs absorb volume",
+  "tags": {
+   "script": "DET middle-of-field vs depleted GB LBs",
+   "correlates_with": [
+    "Goff completions",
+    "LaPorta ATD"
+   ],
+   "availability_risk": "low",
+   "flag": "shorter than -200"
+  },
+  "executable": true
+ },
+ "best_contrarian_leg": {
+  "player": "Detroit Lions (Jake Bates)",
+  "team": "DET",
+  "market": "team_fg_total",
+  "line": "1.5",
+  "side": "Under",
+  "best_price": 100,
+  "book": "BEO",
+  "p_hit": 0.58,
+  "fair_odds": "-138",
+  "edge": 0.16,
+  "confidence": "B",
+  "evidence": [
+   {
+    "text": "DET made <=1 FG in 4/5 (1,1,1,4,1); 1.6 FG/g",
+    "source": "scratch/w07-prop-packs/GB_at_DET.json"
+   },
+   {
+    "text": "DET RZ TD 77.3%, #3 offense, dome, off bye; implied ~29 pts via TDs",
+    "source": "data/generated/team-dossiers/2026-w07/DET.md"
+   }
+  ],
+  "counter": "GB defense good in pass (DVOA -18.3%) could force DET red-zone stalls; CAR game had 4",
+  "tags": {
+   "script": "DET finishes drives with TDs",
+   "correlates_with": [
+    "DET TD props"
+   ],
+   "availability_risk": "none"
+  },
+  "executable": true
+ },
+ "categories": {
+  "qb_pass": [
+   {
+    "player": "Jordan Love",
+    "team": "GB",
+    "market": "pass_td",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": -175,
+    "book": "BEO",
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": 0.069,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "2+ pass TD in 5/6 games (2,2,2,2,2,1)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET allowed 14 pass TD in 5 g, pass DVOA 18.7%, OPEN% 62%; Kerby Joseph OUT, Branch limited",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     },
+     {
+      "text": "BKR -177 same",
+      "source": "reports/intel/games/2026-w07-game-GB_at_DET-props.md"
+     }
+    ],
+    "counter": "GB RZ TD 50%, topped 23 pts once; Jacobs ball-control + DET 8.1% sack rate can cap him at 1 TD",
+    "tags": {
+     "script": "GB trailing pass volume",
+     "correlates_with": [
+      "Love pass yds",
+      "Watson/Golden yds",
+      "Kraft ATD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jordan Love",
+    "team": "GB",
+    "market": "pass_yds",
+    "line": "271.5",
+    "side": "Over",
+    "best_price": -150,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": 0.033,
+    "confidence": "B-",
+    "evidence": [
+     {
+      "text": "Over 271.5 in 4/6 (387,145,312,197,367,276)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET allows ~321 pass yds/g, EPA/DB 0.235",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "GB 60.8 plays/g, Love CPOE -6.1%; Jacobs return may lower attempts",
+    "tags": {
+     "script": "trailing pass volume",
+     "correlates_with": [
+      "Love pass TD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jared Goff",
+    "team": "DET",
+    "market": "pass_cmp",
+    "line": "23.5",
+    "side": "Over",
+    "best_price": -240,
+    "book": "BKR",
+    "p_hit": 0.72,
+    "fair_odds": "-257",
+    "edge": 0.02,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "24+ completions in 4/5 (26,26,25,32,19)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "Goff ACOMP 72%, DET neutral pass rate 0.608",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "GB pass D DVOA -18.3%; a Gibbs-heavy lead script cuts attempts",
+    "tags": {
+     "script": "DET lead but pass-first",
+     "correlates_with": [
+      "St. Brown/LaPorta yds"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "qb_pressure": [
+   {
+    "player": "Jordan Love",
+    "team": "GB",
+    "market": "sacks_taken",
+    "line": "2.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.53,
+    "fair_odds": "-113",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Love sacked 3+ in 3/6 (4,3,1,0,2,3); GB 2.17 sacks taken/g",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET def 4.0 sacks/g, SK% 8.1%, PRESS% 32.8%; GB sack rate allowed 5.4%; GB G Aaron Banks Q",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "GB TTT 2.27 (quick game); DET pass rush z -0.58 preseason",
+    "tags": {
+     "script": "DET pass rush vs GB trailing dropbacks",
+     "correlates_with": [
+      "Hutchinson/Wonnum sacks"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no market posted; price at recapture (Bovada)"
+   },
+   {
+    "player": "Jordan Love",
+    "team": "GB",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": -145,
+    "book": "BEO",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": -0.121,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 4/6 games; Love INT% 1.8%, INTW 3.1%",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET def INTW% only 0.9%, 3 INT in 5 g (0.6/g)",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "DET defense rarely creates INTs; price implies 59%",
+    "tags": {
+     "script": "trailing forced throws",
+     "correlates_with": [
+      "DET ML"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jared Goff",
+    "team": "DET",
+    "market": "pass_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": 120,
+    "book": "BEO",
+    "p_hit": 0.36,
+    "fair_odds": "+178",
+    "edge": -0.208,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Goff 0 INT in 5 g (171 att), INTW 1.0%",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB def 9 INT in 6 g, INTW% 5.1%, 1.5 def INT/g",
+      "source": "data/generated/team-dossiers/2026-w07/GB.md"
+     }
+    ],
+    "counter": "Goff zero-INT season and DET leading script",
+    "tags": {
+     "script": "contrarian GB takeaway",
+     "correlates_with": [
+      "GB +3.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "rb": [
+   {
+    "player": "Jahmyr Gibbs",
+    "team": "DET",
+    "market": "rec_yds",
+    "line": "29.5",
+    "side": "Over",
+    "best_price": -260,
+    "book": "BKR",
+    "p_hit": 0.78,
+    "fair_odds": "-355",
+    "edge": 0.08,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "30+ rec yds in 5/5 (30,61,65,31,56); 4-7 rec every game",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB LB Zaire Franklin OUT, Edgerrin Cooper day-to-day (missed last 2) \u2014 middle coverage thinned",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "Two of five were 30-31 (thin margin); lead script = more carries, fewer routes",
+    "tags": {
+     "script": "DET expected winner, check-down volume",
+     "correlates_with": [
+      "Goff completions"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Josh Jacobs",
+    "team": "GB",
+    "market": "carries",
+    "line": "13.5",
+    "side": "Under",
+    "best_price": -118,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": 0.016,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "Season debut after no football since May; Lloyd/Strong/Kaleb Johnson split carries",
+      "source": "reports/intel/games/2026-w07-game-GB_at_DET-props.md"
+     },
+     {
+      "text": "GB run EPA/att -0.277, likely trailing",
+      "source": "data/generated/team-dossiers/2026-w07/GB.md"
+     }
+    ],
+    "counter": "BKR prices a lead role; if GB commits he clears early. Inactive = loss",
+    "tags": {
+     "script": "GB trailing / workload cap",
+     "correlates_with": [
+      "Love pass yds"
+     ],
+     "availability_risk": "HIGH - inactive grades as loss"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jahmyr Gibbs",
+    "team": "DET",
+    "market": "rush_yds",
+    "line": "84.5",
+    "side": "Over",
+    "best_price": -168,
+    "book": "BKR",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": -0.075,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "85+ in 3/5 (156,52,99,46,151)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB def allows ~114 rush yds/g, front missing Parsons/Hargrave/Ford/Franklin",
+      "source": "reports/intel/games/2026-w07-game-GB_at_DET-sides.md"
+     }
+    ],
+    "counter": "GB rush D held CAR/BUF types; volatile",
+    "tags": {
+     "script": "DET lead clock-kill",
+     "correlates_with": [
+      "Gibbs ATD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "wr": [
+   {
+    "player": "Matthew Golden",
+    "team": "GB",
+    "market": "rec_yds",
+    "line": "63.5",
+    "side": "Over",
+    "best_price": -196,
+    "book": "BKR",
+    "p_hit": 0.64,
+    "fair_odds": "-178",
+    "edge": -0.033,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "64+ in 4/6 (95,58,100,21,123,104); 12,6,12,7,7,13 targets",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET OPEN% 62%, Branch limited in slot",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "Watson/Kraft share; one dud vs TB",
+    "tags": {
+     "script": "trailing pass volume",
+     "correlates_with": [
+      "Love yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Christian Watson",
+    "team": "GB",
+    "market": "rec_yds",
+    "line": "67.5",
+    "side": "Over",
+    "best_price": -218,
+    "book": "BKR",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": -0.125,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "68+ in only 3/6 (147,41,96,47,143,64) - boom/bust",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "deep-safety hole with Joseph OUT",
+      "source": "reports/intel/games/2026-w07-game-GB_at_DET-sides.md"
+     }
+    ],
+    "counter": "Ankle tag this week; half his games under",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [
+      "Love pass TD",
+      "Watson ATD"
+     ],
+     "availability_risk": "ankle tag",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Amon-Ra St. Brown",
+    "team": "DET",
+    "market": "rec",
+    "line": "6.5",
+    "side": "Over",
+    "best_price": -202,
+    "book": "BKR",
+    "p_hit": 0.62,
+    "fair_odds": "-163",
+    "edge": -0.073,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "7+ rec in 3/5 (10,9,4,8,6); 11+ targets in 4/5",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "GB pass D DVOA -18.3%",
+    "tags": {
+     "script": "DET expected winner",
+     "correlates_with": [
+      "Goff completions"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jameson Williams",
+    "team": "DET",
+    "market": "rec_yds",
+    "line": "44.5",
+    "side": "Over",
+    "best_price": -213,
+    "book": "BKR",
+    "p_hit": 0.65,
+    "fair_odds": "-186",
+    "edge": -0.045,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "45+ in 4/5 (45,33,49,102,47)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Margins of 0-4 yds in three hits",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "te": [
+   {
+    "player": "Sam LaPorta",
+    "team": "DET",
+    "market": "rec_yds",
+    "line": "40.5",
+    "side": "Over",
+    "best_price": -223,
+    "book": "BKR",
+    "p_hit": 0.76,
+    "fair_odds": "-317",
+    "edge": 0.101,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "41+ in 5/5 (48,52,44,84,88), 5-8 rec",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB LBs: Franklin OUT, Cooper day-to-day; DET expected winner; implied DET ~29",
+      "source": "reports/intel/master-intel-narratives-2026-w07.md"
+     }
+    ],
+    "counter": "GB pass D good (EPA/DB -0.075); St. Brown/Gibbs absorb volume",
+    "tags": {
+     "script": "DET middle-of-field vs depleted GB LBs",
+     "correlates_with": [
+      "Goff completions",
+      "LaPorta ATD"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Tucker Kraft",
+    "team": "GB",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 170,
+    "book": "BEO",
+    "p_hit": 0.32,
+    "fair_odds": "+212",
+    "edge": -0.136,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1 TD in 6 g; 5-8 targets lately",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET allowed 9 TE TDs (single analyst, unverified); DKP 36%",
+      "source": "reports/intel/games/2026-w07-game-GB_at_DET-props.md"
+     }
+    ],
+    "counter": "Only 1 TD all season; Watson/Golden take RZ looks",
+    "tags": {
+     "script": "Branch limited, TE middle",
+     "correlates_with": [
+      "Love pass TD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Tucker Kraft",
+    "team": "GB",
+    "market": "rec_yds",
+    "line": "39.5",
+    "side": "Over",
+    "best_price": -234,
+    "book": "BKR",
+    "p_hit": 0.55,
+    "fair_odds": "-122",
+    "edge": -0.215,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "40+ in 3/6 (65,15,26,42,64,37)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Coin flip at -234",
+    "tags": {
+     "script": "trailing volume",
+     "correlates_with": [
+      "Love yds"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   }
+  ],
+  "k": [
+   {
+    "player": "Detroit Lions (Jake Bates)",
+    "team": "DET",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Under",
+    "best_price": 100,
+    "book": "BEO",
+    "p_hit": 0.58,
+    "fair_odds": "-138",
+    "edge": 0.16,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "DET made <=1 FG in 4/5 (1,1,1,4,1); 1.6 FG/g",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET RZ TD 77.3%, #3 offense, dome, off bye; implied ~29 pts via TDs",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "GB defense good in pass (DVOA -18.3%) could force DET red-zone stalls; CAR game had 4",
+    "tags": {
+     "script": "DET finishes drives with TDs",
+     "correlates_with": [
+      "DET TD props"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "GB/DET",
+    "team": "both",
+    "market": "game_fg_total",
+    "line": "3.5",
+    "side": "Under",
+    "best_price": -140,
+    "book": "BEO",
+    "p_hit": 0.6,
+    "fair_odds": "-150",
+    "edge": 0.029,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "GB 1.67 + DET 1.6 FG/g = ~3.3; combined proj ~3.2 given DET RZ TD 77%",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "BKR -144 same",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "GB RZ TD only 50% \u2014 GB settles often (3 FG in 2 of 6); shootout adds drives",
+    "tags": {
+     "script": "TD-heavy shootout",
+     "correlates_with": [
+      "DET U1.5 FG"
+     ],
+     "availability_risk": "none"
+    },
+    "executable": true
+   },
+   {
+    "player": "Green Bay Packers (Trey Smack)",
+    "team": "GB",
+    "market": "team_fg_total",
+    "line": "1.5",
+    "side": "Over",
+    "best_price": -110,
+    "book": "BEO",
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": -0.007,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "GB 2+ FG in 3/6 (3,2,0,1,1,3); Smack long 59/58",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB RZ TD 50%, vs DET #31 defense more drives reach range",
+      "source": "data/generated/team-dossiers/2026-w07/GB.md"
+     }
+    ],
+    "counter": "Smack 1/3 vs CHI; trailing GB goes for it on 4th",
+    "tags": {
+     "script": "GB red-zone stalls",
+     "correlates_with": [],
+     "availability_risk": "none"
+    },
+    "executable": true
+   }
+  ],
+  "idp_tackles": [
+   {
+    "player": "Evan Williams",
+    "team": "GB",
+    "market": "tackles_ast",
+    "line": "6.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "7+ tackles in 5/6 (7,10,10,7,12,6), avg 8.7",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET 66.4 plays/g; Gibbs volume; GB LB depth thin (Franklin OUT, Cooper DTD) pushes tackles to safeties",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "DET explosive plays end in end zone, not tackles",
+    "tags": {
+     "script": "DET long drives",
+     "correlates_with": [
+      "Gibbs rush yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "no IDP market posted; projected line, price at recapture"
+   },
+   {
+    "player": "D.J. Reed",
+    "team": "DET",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.68,
+    "fair_odds": "-213",
+    "edge": null,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "6+ in 5/5 (10,6,8,6,7)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "GB passes 65.7% neutral; Watson/Golden boundary targets",
+      "source": "data/generated/team-dossiers/2026-w07/GB.md"
+     }
+    ],
+    "counter": "GB slow pace (60.8 plays)",
+    "tags": {
+     "script": "GB pass volume",
+     "correlates_with": [
+      "Love pass yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Jack Campbell",
+    "team": "DET",
+    "market": "tackles_ast",
+    "line": "7.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.52,
+    "fair_odds": "-108",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "8+ in 2/5 (7,6,6,13,11), avg 8.6",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "GB run game weak and may abandon it",
+    "tags": {
+     "script": "Jacobs return",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Javon Bullard",
+    "team": "GB",
+    "market": "tackles_ast",
+    "line": "5.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.66,
+    "fair_odds": "-194",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "6+ in 5/6 (1,7,7,7,7,6)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Slot role exposed if Branch/LaPorta draw safeties",
+    "tags": {
+     "script": "DET long drives",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "idp_sacks": [
+   {
+    "player": "DJ Wonnum",
+    "team": "DET",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.42,
+    "fair_odds": "+138",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1+ sack in 3/5 (0,0,2,1,2), 8 QB hits in last 3",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "Love sacked 3+ in 3/6; GB G Banks Q",
+      "source": "data/generated/team-dossiers/2026-w07/GB.md"
+     }
+    ],
+    "counter": "GB quick game TTT 2.27",
+    "tags": {
+     "script": "GB trailing dropbacks",
+     "correlates_with": [
+      "Love sacks O2.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Aidan Hutchinson",
+    "team": "DET",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "full sack in 2/5 (2,1,0.5,0,0.5), 11 QB hits",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Half-sacks do not cash",
+    "tags": {
+     "script": "GB trailing dropbacks",
+     "correlates_with": [
+      "Love sacks O2.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   },
+   {
+    "player": "Lukas Van Ness",
+    "team": "GB",
+    "market": "sacks",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.3,
+    "fair_odds": "+233",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "1+ sack in 3/6 (1,1.5,0,0,0,1)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DET sack rate allowed 5.3%, 2.2/g",
+      "source": "data/generated/team-dossiers/2026-w07/DET.md"
+     }
+    ],
+    "counter": "Goff gets ball out; GB without Parsons draws doubles",
+    "tags": {
+     "script": "contrarian",
+     "correlates_with": [
+      "Goff INT"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "idp_int": [
+   {
+    "player": "Xavier McKinney",
+    "team": "GB",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.13,
+    "fair_odds": "+669",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/6 games (3 INT total); GB 1.5 def INT/g",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Goff 0 INT in 171 att",
+    "tags": {
+     "script": "GB takeaway",
+     "correlates_with": [
+      "Goff INT O0.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line ~+550"
+   },
+   {
+    "player": "Evan Williams",
+    "team": "GB",
+    "market": "def_int",
+    "line": "0.5",
+    "side": "Over",
+    "best_price": null,
+    "book": null,
+    "p_hit": 0.11,
+    "fair_odds": "+809",
+    "edge": null,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "INT in 2/6 games",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     }
+    ],
+    "counter": "Goff INTW 1.0%",
+    "tags": {
+     "script": "GB takeaway",
+     "correlates_with": [
+      "Goff INT O0.5"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": false,
+    "note": "projected line"
+   }
+  ],
+  "atd": [
+   {
+    "player": "Christian Watson",
+    "team": "GB",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 135,
+    "book": "BEO",
+    "p_hit": 0.45,
+    "fair_odds": "+122",
+    "edge": 0.058,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TD in 4/6 games (6 TD)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DKP 43%; deep hole with Joseph OUT",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Ankle tag; GB RZ TD 50%",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [
+      "Love pass TD"
+     ],
+     "availability_risk": "ankle tag"
+    },
+    "executable": true
+   },
+   {
+    "player": "Sam LaPorta",
+    "team": "DET",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 160,
+    "book": "BEO",
+    "p_hit": 0.4,
+    "fair_odds": "+150",
+    "edge": 0.04,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 3/5",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DKP 36%; GB LBs thin",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Gibbs/St. Brown absorb RZ",
+    "tags": {
+     "script": "DET RZ 77%",
+     "correlates_with": [
+      "LaPorta yds"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jahmyr Gibbs",
+    "team": "DET",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": -325,
+    "book": "BEO",
+    "p_hit": 0.78,
+    "fair_odds": "-355",
+    "edge": 0.02,
+    "confidence": "B",
+    "evidence": [
+     {
+      "text": "TD in 5/5 (9 total)",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DKP 75%; BKR -415 breaks barrier",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "GB allowed 9 rush TD in 6; binary",
+    "tags": {
+     "script": "DET RZ 77%",
+     "correlates_with": [
+      "DET U1.5 FG"
+     ],
+     "availability_risk": "low",
+     "flag": "shorter than -200"
+    },
+    "executable": true
+   },
+   {
+    "player": "Matthew Golden",
+    "team": "GB",
+    "market": "atd",
+    "line": "0.5",
+    "side": "Yes",
+    "best_price": 160,
+    "book": "BEO",
+    "p_hit": 0.38,
+    "fair_odds": "+163",
+    "edge": -0.012,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "TD in 3/6",
+      "source": "scratch/w07-prop-packs/GB_at_DET.json"
+     },
+     {
+      "text": "DKP 38%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "Fair at best",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [
+      "Love pass TD"
+     ],
+     "availability_risk": "low"
+    },
+    "executable": true
+   }
+  ],
+  "first_td": [
+   {
+    "player": "Sam LaPorta",
+    "team": "DET",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 957,
+    "book": "BKR",
+    "p_hit": 0.09,
+    "fair_odds": "+1011",
+    "edge": -0.049,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 9% vs BKR +957 (~9.5%)",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "longshot",
+    "tags": {
+     "script": "DET opening drive (receives off bye)",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Jahmyr Gibbs",
+    "team": "DET",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 303,
+    "book": "BKR",
+    "p_hit": 0.23,
+    "fair_odds": "+335",
+    "edge": -0.073,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 23%; 9 TD in 5 g",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "BKR roughly fair-to-short",
+    "tags": {
+     "script": "DET RZ",
+     "correlates_with": [],
+     "availability_risk": "low"
+    },
+    "executable": true
+   },
+   {
+    "player": "Christian Watson",
+    "team": "GB",
+    "market": "first_td",
+    "line": "",
+    "side": "Yes",
+    "best_price": 972,
+    "book": "BKR",
+    "p_hit": 0.085,
+    "fair_odds": "+1076",
+    "edge": -0.089,
+    "confidence": "C",
+    "evidence": [
+     {
+      "text": "DKP 8%",
+      "source": "data/generated/props/draftkings-predictions-live-2026-10-24-week7.json"
+     }
+    ],
+    "counter": "longshot",
+    "tags": {
+     "script": "shootout",
+     "correlates_with": [],
+     "availability_risk": "ankle"
+    },
+    "executable": true
+   }
+  ]
+ },
+ "notes": [
+  "Market: DET -3.5 / 54.5 (BKR); sim DET win 62.8%, Over 53%.",
+  "Saturday news applied: Josh Jacobs debut (workload unknown), Kerby Joseph OUT, Brian Branch limited, Zaire Franklin OUT; Edgerrin Cooper day-to-day on ESPN roster and missed last 2 games - not used.",
+  "best_leg Love O1.5 pass TD is on BEO (multi-game OK); best_non_td LaPorta alt yds is BKR only (same-game) \u2014 for cross-game use, price at Bovada.",
+  "Rejected: Goff O1.5 pass TD -357 and Gibbs ATD BKR -415 (barrier); median-line overs (Gibbs/LaPorta 4.5 rec, Watson 77.5); GB receptions overs (not expected winner).",
+  "No IDP or sacks-taken markets on any board \u2014 IDP legs are projected lines, executable:false.",
+  "roster-map-latest.json has offense only; defenders/kickers verified against data/nfl-rosters/espn-full-rosters-latest.json.",
+  "Pack availability rows have status null for every player."
+ ]
+}
