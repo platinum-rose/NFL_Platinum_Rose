@@ -25539,10 +25539,12 @@
         "line": 46.5,
         "price": "-140",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740636102_10_pit_no_u465",
         "direction": "under",
-        "note": "Stade de France, Saint-Denis, France"
+        "note": "Stade de France, Saint-Denis, France",
+        "actual_stat": 26,
+        "grading_note": "Total 26 (PIT 16, NO 10) under 46.5. ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       }
     ]
   },
@@ -25984,12 +25986,14 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008729493_6_metcalf_longest_reception",
         "target_stat": "longest_reception",
         "source": "BetOnline",
         "grading": "manual: DK Metcalf longest reception from the box score",
-        "note": "Opposite side of the Prop Stack Agent lean (Under 21.5, Paris wind)."
+        "note": "Opposite side of the Prop Stack Agent lean (Under 21.5, Paris wind).",
+        "actual_stat": 51,
+        "grading_note": "Metcalf 2 rec, 56 yds, long 51. ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       }
     ],
     "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)"
@@ -26097,10 +26101,12 @@
         "line": null,
         "price": "+145",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008725429_5_no_ml",
         "target_stat": "moneyline",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": "PIT 16 - NO 10",
+        "grading_note": "ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       }
     ],
     "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)",
@@ -26316,8 +26322,8 @@
         "key": "leg_beo1008680961_5_rodgers_passing_touchdowns",
         "target_stat": "passing_touchdowns",
         "source": "BetOnline",
-        "actual_stat": null,
-        "grading_note": "Andy 2026-10-25 09:39 PT: Rodgers finished with fewer than 2 passing TDs (final). Exact count to fill from the box score."
+        "actual_stat": 1,
+        "grading_note": "Rodgers 19/30, 212 yds, 1 TD, 0 INT. ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       },
       {
         "leg_num": 6,
