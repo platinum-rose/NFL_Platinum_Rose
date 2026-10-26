@@ -1,8 +1,9 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-26, Codex Hedge Watch engineering)
+## PICK UP HERE (2026-10-26, Codex ESPN lookup alignment)
 
-- **PICK UP HERE:** `handoffs/2026-10-26-codex-hedge-watch-engineering.md`. Implementation checkpoint `35525d4` on `claude/w5-prop-cards-2026-10-11`; hedge-alert tests 7/7, replay PASS. Week 5–7 grader parity remains incomplete because ESPN was unreachable; the report is `reports/verification/2026-10-26-mobile-grader-parity-weeks-5-7.md`.
+- **PICK UP HERE:** `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. This checkpoint aligns mobile tracker ESPN requests with the Monday settlement lookup through a shared helper. Live ESPN DNS still fails in this shell; tracker refresh and Week 5–7 parity remain incomplete.
+- Prior engineering checkpoint: `handoffs/2026-10-26-codex-hedge-watch-engineering.md` (`35525d4`), including hedge-alert tests and replay results.
 - Context and binding guardrails: `handoffs/2026-10-26-0745-claude-h2c2-codex-briefing-w7-mobile-tracker-hedge-watch.md`. Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mobile-tracker-hedge-watch/`.
 - Reconcile live Git before acting. Preserve the dirty shared checkout and do not touch ledgers, Supabase, betting accounts, or artifact publication without the specific authorization recorded in the H2C2 briefing.
 

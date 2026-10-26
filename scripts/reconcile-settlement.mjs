@@ -15,13 +15,13 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getNFLWeekInfo } from '../src/lib/constants.js';
+import { ESPN_API_BASE, fetchEspnJson } from './lib/espn-http.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
 const WAGERS_FILE = path.join(ROOT, 'data', 'official-picks', 'user-placed-wagers-2026.json');
 const REPORT_MD_FILE = path.join(ROOT, 'docs', 'tracked-wagers', 'reconciliation-latest.md');
 const REPORT_JSON_FILE = path.join(ROOT, 'docs', 'tracked-wagers', 'reconciliation-latest.json');
-const ESPN_SCOREBOARD = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
 
 const TEAM_ALIASES = new Map([
   ['LA', 'LAR'], ['LAR', 'LAR'], ['SF', 'SF'], ['JAC', 'JAX'], ['JAX', 'JAX'],
@@ -39,14 +39,8 @@ function gameKeyFromLeg(leg) {
   return null;
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, { headers: { 'User-Agent': 'NFL-Dashboard-Reconciler/2.0' } });
-  if (!response.ok) throw new Error(`ESPN request failed (${response.status}): ${url}`);
-  return response.json();
-}
-
 async function fetchWeekScoreboard({ season, week }) {
-  const data = await fetchJson(`${ESPN_SCOREBOARD}?dates=${season}&seasontype=2&week=${week}`);
+  const data = await fetchEspnJson(`${ESPN_API_BASE}/scoreboard?dates=${season}&seasontype=2&week=${week}`);
   return (data.events || []).map((event) => {
     const comp = event.competitions?.[0];
     const home = comp?.competitors?.find((item) => item.homeAway === 'home');
@@ -65,7 +59,7 @@ async function fetchWeekScoreboard({ season, week }) {
 }
 
 async function fetchBoxscore(eventId) {
-  const data = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`);
+  const data = await fetchEspnJson(`${ESPN_API_BASE}/summary?event=${eventId}`);
   const comp = data.header?.competitions?.[0];
   const home = comp?.competitors?.find((item) => item.homeAway === 'home');
   const away = comp?.competitors?.find((item) => item.homeAway === 'away');

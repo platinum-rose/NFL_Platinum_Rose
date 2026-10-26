@@ -24,6 +24,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildHedgeAlerts, alertMessage, hedgeDirectionsConflict } from './lib/hedge-alerts.mjs';
+import { ESPN_API_BASE, fetchEspnJson } from './lib/espn-http.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -59,18 +60,12 @@ function parseGame(g) {
 const nameKey = (s) => String(s || '').toLowerCase().replace(/[.'’]/g, '').replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '').replace(/[^a-z ]/g, ' ').replace(/\s+/g, ' ').trim();
 
 // ---------- ESPN ----------
-const ESPN = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl';
-async function getJson(url) {
-  const res = await fetch(url, { headers: { 'cache-control': 'no-cache' } });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  return res.json();
-}
 async function loadEvents(weeks) {
   const events = [];
   for (const w of weeks) {
     try {
-      const seasonQuery = SEASON ? `&dates=${encodeURIComponent(SEASON)}` : '';
-      const sb = await getJson(`${ESPN}/scoreboard?seasontype=2&week=${w}${seasonQuery}`);
+      const seasonQuery = SEASON ? `dates=${encodeURIComponent(SEASON)}&` : '';
+      const sb = await fetchEspnJson(`${ESPN_API_BASE}/scoreboard?${seasonQuery}seasontype=2&week=${w}`);
       if (sb.events != null && !Array.isArray(sb.events)) throw new Error('scoreboard events field is not an array');
       if (!sb.events?.length) console.warn(`scoreboard week ${w}: no events returned`);
       for (const e of sb.events || []) {
@@ -100,7 +95,7 @@ async function loadBox(ev) {
   let players = null;
   if (ev.state !== 'pre') {
     try {
-      const sum = await getJson(`${ESPN}/summary?event=${ev.id}`);
+      const sum = await fetchEspnJson(`${ESPN_API_BASE}/summary?event=${ev.id}`);
       players = new Map();
       for (const t of sum.boxscore?.players || []) {
         const team = normAbbr(t.team?.abbreviation);
@@ -132,7 +127,7 @@ async function loadOdds(ev) {
   if (oddsCache.has(ev.id)) return oddsCache.get(ev.id);
   let odds = null;
   try {
-    const sum = await getJson(`${ESPN}/summary?event=${ev.id}`);
+    const sum = await fetchEspnJson(`${ESPN_API_BASE}/summary?event=${ev.id}`);
     const p = (sum.pickcenter || []).find((x) => /draft/i.test(x.provider?.name || '')) || (sum.pickcenter || [])[0];
     if (p && p.spread != null) {
       odds = {
@@ -685,7 +680,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 // ---------- main ----------
 const wagers = JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/user-placed-wagers-2026.json'), 'utf8'));
 if (WEEK === 'auto' || !SEASON) {
-  const current = await getJson(`${ESPN}/scoreboard`);
+  const current = await fetchEspnJson(`${ESPN_API_BASE}/scoreboard`);
   if (!SEASON) SEASON = Number(current.season?.year);
   if (!Number.isFinite(Number(SEASON))) throw new Error('could not read the current season from ESPN; pass --season YYYY');
   if (WEEK === 'auto') {
