@@ -1,8 +1,9 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-26, Codex ESPN lookup alignment)
+## PICK UP HERE (2026-10-26, Week 7 post-mortem data)
 
-- **PICK UP HERE:** `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. This checkpoint aligns mobile tracker ESPN requests with the Monday settlement lookup through a shared helper. Live ESPN DNS still fails in this shell; tracker refresh and Week 5–7 parity remain incomplete.
+- **PICK UP HERE:** `handoffs/2026-10-26-codex-week7-postmortem-data.md`. Provisional Week 7 official-ticket accounting and 13 completed game scores are compiled; DAL @ PHI and deeper analysis remain open.
+- Prior network checkpoint: `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. The mobile tracker now shares the Monday settlement request helper; live DNS still failed in this shell.
 - Prior engineering checkpoint: `handoffs/2026-10-26-codex-hedge-watch-engineering.md` (`35525d4`), including hedge-alert tests and replay results.
 - Context and binding guardrails: `handoffs/2026-10-26-0745-claude-h2c2-codex-briefing-w7-mobile-tracker-hedge-watch.md`. Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mobile-tracker-hedge-watch/`.
 - Reconcile live Git before acting. Preserve the dirty shared checkout and do not touch ledgers, Supabase, betting accounts, or artifact publication without the specific authorization recorded in the H2C2 briefing.
