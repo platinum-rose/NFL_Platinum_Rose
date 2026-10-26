@@ -1,8 +1,8 @@
 # Mobile Live Tracker (Platinum Rose Road Tracker)
 
 Phone edition of the Live Tracker. Andy opens it from his Android home screen
-while away from the desk. It shows **open real tickets only** (no paper card,
-no SuperContest, no settled tickets), styled like the desktop tracker.
+while away from the desk. It shows **open real tickets** plus a separate **📝 Imaginary** section for the
+Platinum AI paper card (SuperContest stays on desktop), styled like the desktop tracker.
 
 - **Private link (claude.ai artifact):** https://claude.ai/artifact/Q7NBq3G5MLgzVzraUPsuiy
   Keep republishing to this same URL every week so the home-screen shortcut keeps working.
@@ -49,8 +49,12 @@ INTs, tackles+assists, sacks, FGs made, kicking points, anytime TD and 2+ TD);
 round robins (per-combo, using `round_robin.combinations[].teams`). Over
 props lock as hits the moment the number is cleared.
 
-Anything else shows as **CHECK** (first TD, longest reception, team TDs,
-sacks taken, "total FGs both teams"). Grade those by hand in the wagers JSON;
+Paper (imaginary) AI-card tickets from `paper-wagers-2026.json` appear in their
+own 📝 section, graded the same way and never counted in cash totals. Also
+graded: first TD, total FGs both teams, team TDs, sacks taken, longest
+reception, kicker points.
+
+Any other market shows as **CHECK**. Grade those by hand in the wagers JSON;
 the settler skips any ticket with a CHECK leg, any cashed parlay with a
 push/void leg (reduced payout needs per-leg prices), and any round robin with
 combos still in play.

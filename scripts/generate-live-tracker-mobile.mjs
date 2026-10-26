@@ -104,6 +104,9 @@ async function loadBox(ev) {
           }
         }
       }
+      // First touchdown of the game (scorer is the text before the first yardage number).
+      const firstTd = (sum.scoringPlays || []).find((p) => /touchdown/i.test(p.type?.text || '') || /\bTD\b/.test(p.type?.abbreviation || ''));
+      players.firstTd = firstTd ? { text: firstTd.text || '', scorer: nameKey(String(firstTd.text || '').split(/\s\d+\s*(yd|yard)/i)[0]) } : null;
     } catch (err) { console.warn('summary', ev.id, 'failed:', err.message); }
   }
   boxCache.set(ev.id, players);
@@ -138,6 +141,8 @@ const STAT = {
   sacks: (g) => num(g.defensive?.sacks),
   field_goals_made: (g) => frac(g.kicking?.['fieldGoalsMade/fieldGoalAttempts'], 0),
   kicking_points: (g) => num(g.kicking?.totalKickingPoints),
+  sacks_taken: (g) => num(g.passing?.['sacks-sackYardsLost']),
+  longest_reception: (g) => num(g.receiving?.longReception),
   touchdowns: (g) => num(g.rushing?.rushingTouchdowns) + num(g.receiving?.receivingTouchdowns)
     + num(g.kickReturns?.kickReturnTouchdowns) + num(g.puntReturns?.puntReturnTouchdowns)
     + num(g.interceptions?.interceptionTouchdowns) + num(g.defensive?.defensiveTouchdowns),
@@ -145,12 +150,26 @@ const STAT = {
 const MARKET_STAT = {
   anytime_touchdown: 'touchdowns', touchdowns_2plus: 'touchdowns', touchdowns: 'touchdowns',
   tackles_assists: 'tackles_assists', pass_interceptions: 'pass_interceptions', interceptions_thrown: 'pass_interceptions',
+  tackles_combined: 'tackles_assists', kicker_points: 'kicking_points',
 };
 const STAT_LABEL = {
   receptions: 'rec', receiving_yards: 'rec yds', rushing_yards: 'rush yds', carries: 'carries', passing_yards: 'pass yds',
   pass_completions: 'cmp', pass_attempts: 'att', passing_touchdowns: 'pass TD', pass_interceptions: 'INT',
   tackles_assists: 'tkl+ast', sacks: 'sacks', field_goals_made: 'FG', kicking_points: 'kick pts', touchdowns: 'TD',
+  sacks_taken: 'sacks taken', longest_reception: 'long rec',
 };
+
+// Over/under outcome for any counting number (props, team counts, game counts).
+function overUnder(out, v, line, dir, final, label) {
+  if (dir === 'over') {
+    if (v > line) return { ...out, status: 'WON', now: `${v} ${label}`, locked: true, value: v };
+    if (final) return { ...out, status: v === line ? 'PUSH' : 'LOST', now: `${v} ${label}`, locked: true, value: v };
+    return { ...out, status: 'LIVE', lean: 'behind', now: `${v} ${label} · needs ${Math.floor(line) + 1 - v} more`, locked: false, value: v };
+  }
+  if (v > line) return { ...out, status: 'LOST', now: `${v} ${label}`, locked: true, value: v };
+  if (final) return { ...out, status: v === line ? 'PUSH' : 'WON', now: `${v} ${label}`, locked: true, value: v };
+  return { ...out, status: 'LIVE', lean: 'ahead', now: `${v} ${label} · ${Math.ceil(line) - 1 - v} to spare`, locked: false, value: v };
+}
 
 // ---------- grading ----------
 function findEvent(events, leg) {
@@ -200,6 +219,31 @@ async function gradeLeg(leg, events) {
     return { ...out, status: 'LIVE', lean: 'ahead', value: total, now: `total ${total} · ${Math.ceil(line) - 1 - total} pts of room`, locked: false };
   }
 
+  // game- and team-level counts from the box score
+  if (market === 'game_field_goals' || market === 'team_touchdowns' || market === 'first_touchdown') {
+    const players = await loadBox(ev);
+    if (!players) return { ...out, status: 'CHECK', now: 'box score unavailable', locked: false };
+    const line = Number(leg.line ?? 0.5);
+    const dir = leg.direction || 'over';
+    if (market === 'game_field_goals') {
+      let fg = 0;
+      for (const p of players.values()) fg += STAT.field_goals_made(p.groups);
+      return overUnder(out, fg, line, dir, final, 'FG (both teams)');
+    }
+    if (market === 'team_touchdowns') {
+      const team = normAbbr(leg.team) || teamFromText(sel);
+      let td = 0;
+      for (const p of players.values()) if (p.team === team) td += STAT.touchdowns(p.groups);
+      return overUnder(out, td, line, dir, final, `${team} TD`);
+    }
+    // first_touchdown
+    const ft = players.firstTd;
+    if (!ft) return final ? { ...out, status: 'LOST', now: 'no touchdowns scored', locked: true } : { ...out, status: 'LIVE', lean: 'behind', now: 'no TD scored yet', locked: false };
+    const me = nameKey(leg.player || sel.replace(/\sfirst\s+td.*$/i, ''));
+    const hit = ft.scorer === me || (me && ft.scorer.endsWith(me.split(' ').slice(1).join(' ')) && ft.scorer[0] === me[0]);
+    return { ...out, status: hit ? 'WON' : 'LOST', now: `first TD: ${String(ft.text).slice(0, 60)}`, locked: true };
+  }
+
   // player props
   const statKey = MARKET_STAT[leg.market] || leg.target_stat || leg.market;
   const getter = STAT[MARKET_STAT[statKey] || statKey];
@@ -211,18 +255,7 @@ async function gradeLeg(leg, events) {
     if (final) return { ...out, status: 'CHECK', now: 'not in final box score (inactive?)', locked: false };
     return { ...out, status: 'LIVE', lean: 'behind', now: `0 ${label} · not in box score yet`, locked: false, value: 0 };
   }
-  const v = getter(p.groups);
-  const line = Number(leg.line ?? 0.5);
-  const dir = leg.direction || 'over';
-  if (dir === 'over') {
-    if (v > line) return { ...out, status: 'WON', now: `${v} ${label}`, locked: true, value: v };
-    if (final) return { ...out, status: v === line ? 'PUSH' : 'LOST', now: `${v} ${label}`, locked: true, value: v };
-    const need = Math.floor(line) + 1 - v;
-    return { ...out, status: 'LIVE', lean: 'behind', now: `${v} ${label} · needs ${need} more`, locked: false, value: v };
-  }
-  if (v > line) return { ...out, status: 'LOST', now: `${v} ${label}`, locked: true, value: v };
-  if (final) return { ...out, status: v === line ? 'PUSH' : 'WON', now: `${v} ${label}`, locked: true, value: v };
-  return { ...out, status: 'LIVE', lean: 'ahead', now: `${v} ${label} · ${Math.ceil(line) - 1 - v} to spare`, locked: false, value: v };
+  return overUnder(out, getter(p.groups), Number(leg.line ?? 0.5), leg.direction || 'over', final, label);
 }
 
 const legTeams = (leg) => {
@@ -236,10 +269,11 @@ function summarizeTicket(t, graded) {
   legs.forEach((g) => { counts[g.status] = (counts[g.status] || 0) + 1; });
   if (t.round_robin?.combinations?.length) {
     const byTeam = new Map();
-    t.legs.forEach((l, i) => legTeams(l).forEach((tm) => byTeam.set(tm, legs[i])));
+    const byNum = new Map();
+    t.legs.forEach((l, i) => { legTeams(l).forEach((tm) => byTeam.set(tm, legs[i])); byNum.set(Number(l.leg_num ?? i + 1), legs[i]); });
     let alive = 0; let cashed = 0; let wonUsd = 0; let maxUsd = 0;
     for (const c of t.round_robin.combinations) {
-      const gs = c.teams.map((tm) => byTeam.get(normAbbr(tm)));
+      const gs = c.leg_nums?.length ? c.leg_nums.map((n) => byNum.get(Number(n))) : c.teams.map((tm) => byTeam.get(normAbbr(tm)));
       if (gs.some((g) => !g)) { alive++; maxUsd += c.to_win_usd; continue; }
       if (gs.some((g) => g.status === 'LOST')) continue;
       if (gs.every((g) => ['WON', 'PUSH', 'VOID'].includes(g.status))) { cashed++; wonUsd += c.to_win_usd + c.stake_usd; maxUsd += c.to_win_usd; continue; }
@@ -321,16 +355,20 @@ function ticketCard(t, graded, sum, evById) {
     ? `${sum.alive} of ${sum.total} combos alive${sum.cashed ? ` · ${sum.cashed} cashed (${usd(sum.returnedUsd)} back)` : ''}`
     : `${done} of ${t.legs.length} hit · ${left} to go${c.LIVE ? ` · ${c.LIVE} live` : ''}`;
   const toWin = sum.kind === 'rr' ? sum.maxProfitUsd : t.potential_profit_usd;
-  let title = String(t.game_title || '');
+  let title = String(t.game_title || '').replace(/^Platinum Rose AI paper:\s*/, '');
   if (title.length > 90 && title.includes(':')) title = title.slice(0, title.indexOf(':'));
   const legsLabel = sum.kind === 'rr' ? `Round robin (${t.legs.length} picks)` : `${t.category || 'Parlay'} (${t.legs.length} legs)`;
   const funding = String(t.funding_type || 'cash').toUpperCase();
   const pct = sum.kind === 'rr' ? (sum.cashed / sum.total) * 100 : (done / t.legs.length) * 100;
-  return `<details class="bet-card" id="t-${esc(t.ticket_number)}">
+  const tid = t.ticket_number || t.id;
+  const badges = t.is_paper
+    ? `<span class="badge badge-paper">📝 Imaginary</span>${t.card_section ? `<span class="badge badge-id">Card §${esc(t.card_section)}</span>` : ''}`
+    : `<span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">#${esc(tid)}</span>`;
+  return `<details class="bet-card${t.is_paper ? ' paper' : ''}" id="t-${esc(tid)}">
   <summary>
     <div class="card-header"><div class="card-title">${esc(title)}</div><span class="chev" aria-hidden="true">▾</span></div>
     <div class="card-subtitle">${esc(t.book)} • ${esc(legsLabel)}</div>
-    <div class="badges"><span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">#${esc(t.ticket_number)}</span>${c.CHECK ? '<span class="badge badge-check">check leg</span>' : ''}</div>
+    <div class="badges">${badges}${c.CHECK ? '<span class="badge badge-check">check leg</span>' : ''}</div>
     <div class="money-row">
       <div><small>Stake:</small><b>${usd(t.stake_usd)}</b></div>
       <div><small>Odds:</small><b class="odds">${esc(t.odds_american || (sum.kind === 'rr' ? 'RR' : '—'))}</b></div>
@@ -355,7 +393,24 @@ function gameCard(e) {
   </a>`;
 }
 
-function page({ open, settledCounts, games, builtAt, totals, evById }) {
+function paperRow(o) {
+  const r = o.sum.state === 'cashed' ? 'hit' : 'burnt';
+  const title = String(o.t.game_title || '').replace(/^Platinum Rose AI paper:\s*/, '');
+  return `<div class="paper-row"><span class="pr-title">${esc(title)}</span><span class="pr-pl ${r}">${o.pl >= 0 ? '+' : '−'}${usd(Math.abs(o.pl))}</span></div>`;
+}
+
+function paperSection(paper, evById) {
+  if (!paper.all.length) return '';
+  const pl = paper.settled.reduce((a, o) => a + o.pl, 0);
+  return `<details class="paper-wrap" id="paper-section" open>
+  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (${paper.open.length} Live)</span><span class="chev" aria-hidden="true">▾</span></summary>
+  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: ${paper.settled.filter((o) => o.sum.state === 'cashed').length} cashed, ${paper.settled.filter((o) => o.sum.state === 'burnt').length} burnt, <b class="${pl >= 0 ? 'hit' : 'burnt'}">${pl >= 0 ? '+' : '−'}${usd(Math.abs(pl))}</b> paper P&amp;L. Open paper risk ${usd(paper.risk)} to win ${usd(paper.toWin)}.</p>
+  <div class="list">${paper.open.map((o) => ticketCard(o.t, o.graded, o.sum, evById)).join('\n') || '<div class="empty">Every paper ticket has settled.</div>'}</div>
+  ${paper.settled.length ? `<details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (${paper.settled.length})</summary><div class="paper-rows">${paper.settled.map(paperRow).join('')}</div></details>` : ''}
+</details>`;
+}
+
+function page({ open, settledCounts, games, builtAt, totals, evById, paper }) {
   const builtIso = builtAt.toISOString();
   const builtLabel = 'Graded ' + builtAt.toLocaleString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
   return `<title>Platinum Rose Road Tracker</title>
@@ -448,6 +503,22 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .pbar i.green { background: var(--green); } .pbar i.red { background: var(--red); } .pbar i.amber { background: var(--gold); }
 .empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--bg-card); border: 1px dashed var(--border); border-radius: 12px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display: grid; gap: 6px; }
+.badge-paper { background: rgba(129,140,248,.16); color: var(--purple); border: 1px solid rgba(129,140,248,.45); text-transform: none; }
+.bet-card.paper { border-color: rgba(129,140,248,.35); border-style: dashed; }
+.dot.purple { background: var(--purple); box-shadow: 0 0 0 3px rgba(129,140,248,.2); }
+.paper-wrap > summary { list-style: none; cursor: pointer; }
+.paper-wrap > summary::-webkit-details-marker, .paper-settled > summary::-webkit-details-marker { display: none; }
+.paper-h { color: var(--purple); justify-content: flex-start; }
+.paper-h .chev { margin-left: auto; }
+.paper-wrap[open] > summary .chev { transform: rotate(180deg); }
+.paper-note { margin: 0 0 10px; font-size: 12px; color: var(--muted); }
+.paper-note b.hit, .pr-pl.hit { color: var(--green); } .paper-note b.burnt, .pr-pl.burnt { color: var(--red); }
+.paper-settled { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; }
+.paper-settled > summary { list-style: none; cursor: pointer; padding: 12px 14px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.paper-rows { display: grid; padding: 0 14px 10px; }
+.paper-row { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--border); font-size: 13px; }
+.pr-title { min-width: 0; overflow-wrap: anywhere; }
+.pr-pl { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
 </style>
 
@@ -468,8 +539,9 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
   <div class="list">
     ${open.length ? open.map((o) => ticketCard(o.t, o.graded, o.sum, evById)).join('\n') : '<div class="empty">No open tickets right now. Everything for this week has settled.</div>'}
   </div>
+  ${paperSection(paper, evById)}
   <footer>
-    <span>Real tickets only, closest to cashing first. Week ${WEEK} so far: ${settledCounts.cashed} cashed, ${settledCounts.burnt} burnt (hidden). The paper card and SuperContest are on the desktop tracker.</span>
+    <span>Real tickets are listed closest to cashing first. Week ${WEEK} so far: ${settledCounts.cashed} real tickets cashed, ${settledCounts.burnt} burnt (hidden). SuperContest is on the desktop tracker.</span>
     <span>Scores are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
   </footer>
 </main>
@@ -488,7 +560,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
   var KEY = 'pr-mobile-open';
   var openSet = {};
   try { openSet = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { openSet = {}; }
-  document.querySelectorAll('details.bet-card').forEach(function (d) {
+  document.querySelectorAll('details.bet-card, details.paper-settled').forEach(function (d) {
     if (openSet[d.id]) d.open = true;
     d.addEventListener('toggle', function () {
       if (d.open) openSet[d.id] = 1; else delete openSet[d.id];
@@ -517,6 +589,30 @@ const open = graded.filter((o) => o.sum.state === 'open')
     const la = a.graded.filter((g) => !g.locked).length; const lb = b.graded.filter((g) => !g.locked).length;
     return la - lb || (b.sum.kind === 'rr' ? b.sum.maxProfitUsd : b.t.potential_profit_usd) - (a.sum.kind === 'rr' ? a.sum.maxProfitUsd : a.t.potential_profit_usd);
   });
+// Paper (imaginary) AI card tickets: graded the same way, never in cash totals.
+const paperAll = JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/paper-wagers-2026.json'), 'utf8'))
+  .filter((w) => Number(w.week) === WEEK && (w.legs || []).length && String(w.status).toUpperCase() === 'PENDING');
+const paperGraded = [];
+for (const t of paperAll) {
+  const g = [];
+  for (const leg of t.legs) g.push(await gradeLeg(leg, events));
+  const sum = summarizeTicket(t, g);
+  const stake = Number(t.stake_usd || 0);
+  const pl = sum.kind === 'rr' ? sum.returnedUsd - stake : sum.state === 'cashed' ? Number(t.potential_profit_usd || 0) : -stake;
+  paperGraded.push({ t, graded: g, sum, pl: +pl.toFixed(2) });
+}
+const byCloseness = (a, b) => {
+  const la = a.graded.filter((g) => !g.locked).length; const lb = b.graded.filter((g) => !g.locked).length;
+  return la - lb || (b.sum.kind === 'rr' ? b.sum.maxProfitUsd : b.t.potential_profit_usd || 0) - (a.sum.kind === 'rr' ? a.sum.maxProfitUsd : a.t.potential_profit_usd || 0);
+};
+const paperOpen = paperGraded.filter((o) => o.sum.state === 'open').sort(byCloseness);
+const paper = {
+  all: paperGraded, open: paperOpen,
+  settled: paperGraded.filter((o) => o.sum.state !== 'open').sort((a, b) => b.pl - a.pl),
+  risk: paperOpen.reduce((s, o) => s + Number(o.t.stake_usd || 0), 0),
+  toWin: paperOpen.reduce((s, o) => s + Number(o.sum.kind === 'rr' ? o.sum.maxProfitUsd : o.t.potential_profit_usd || 0), 0),
+};
+
 const settledToday = weekTickets.filter((w) => String(w.status).toUpperCase() !== 'PENDING');
 const settledCounts = {
   cashed: graded.filter((o) => o.sum.state === 'cashed').length + settledToday.filter((w) => /won|win|cash/i.test(String(w.result))).length,
@@ -528,17 +624,17 @@ const totals = {
   toWin: open.reduce((s, o) => s + Number(o.sum.kind === 'rr' ? o.sum.maxProfitUsd : o.t.potential_profit_usd || 0), 0),
 };
 const gameIds = new Set();
-open.forEach((o) => o.graded.forEach((g) => { if (!g.locked && g.eventId) gameIds.add(g.eventId); }));
+[...open, ...paperOpen].forEach((o) => o.graded.forEach((g) => { if (!g.locked && g.eventId) gameIds.add(g.eventId); }));
 const stateRank = { in: 0, pre: 1, post: 2 };
 const games = events.filter((e) => gameIds.has(e.id)).sort((a, b) => stateRank[a.state] - stateRank[b.state] || Date.parse(a.date) - Date.parse(b.date));
 
 const builtAt = new Date();
 const evById = new Map(events.map((e) => [e.id, e]));
-await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, evById }), 'utf8');
+await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, evById, paper }), 'utf8');
 await writeFile(OUT_STATE, JSON.stringify({
   built_at: builtAt.toISOString(), week: WEEK,
-  tickets: graded.map((o) => ({
-    ticket_number: o.t.ticket_number, book: o.t.book, title: o.t.game_title, state: o.sum.state, summary: o.sum,
+  tickets: [...graded, ...paperGraded].map((o) => ({
+    paper: !!o.t.is_paper, ticket_number: o.t.ticket_number || o.t.id, book: o.t.book, title: o.t.game_title, state: o.sum.state, summary: o.sum,
     legs: o.t.legs.map((l, i) => ({ leg_num: l.leg_num, selection: l.selection, game: l.game, ...o.graded[i] })),
   })),
 }, null, 2), 'utf8');
@@ -547,5 +643,10 @@ console.log(`W${WEEK}: ${pending.length} pending tickets → ${open.length} open
 for (const o of graded) {
   const flags = o.graded.filter((g) => g.status === 'CHECK').length;
   console.log(`  ${o.sum.state.padEnd(6)} ${o.t.ticket_number.padEnd(11)} ${JSON.stringify(o.sum.counts)}${flags ? '  CHECK×' + flags : ''}`);
+}
+console.log(`paper: ${paperAll.length} pending → ${paperOpen.length} open, ${paper.settled.length} decided (paper P&L ${paper.settled.reduce((a, o) => a + o.pl, 0).toFixed(2)})`);
+for (const o of paperGraded) {
+  const flags = o.graded.filter((g) => g.status === 'CHECK').map((g, i) => g.now);
+  console.log(`  ${o.sum.state.padEnd(6)} ${String(o.t.id).slice(9, 60).padEnd(52)} ${JSON.stringify(o.sum.counts)}${flags.length ? '  CHECK: ' + flags.join(' | ') : ''}`);
 }
 console.log('wrote', path.relative(ROOT, OUT_HTML));

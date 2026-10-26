@@ -88,12 +88,28 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .pbar i.green { background: var(--green); } .pbar i.red { background: var(--red); } .pbar i.amber { background: var(--gold); }
 .empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--bg-card); border: 1px dashed var(--border); border-radius: 12px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display: grid; gap: 6px; }
+.badge-paper { background: rgba(129,140,248,.16); color: var(--purple); border: 1px solid rgba(129,140,248,.45); text-transform: none; }
+.bet-card.paper { border-color: rgba(129,140,248,.35); border-style: dashed; }
+.dot.purple { background: var(--purple); box-shadow: 0 0 0 3px rgba(129,140,248,.2); }
+.paper-wrap > summary { list-style: none; cursor: pointer; }
+.paper-wrap > summary::-webkit-details-marker, .paper-settled > summary::-webkit-details-marker { display: none; }
+.paper-h { color: var(--purple); justify-content: flex-start; }
+.paper-h .chev { margin-left: auto; }
+.paper-wrap[open] > summary .chev { transform: rotate(180deg); }
+.paper-note { margin: 0 0 10px; font-size: 12px; color: var(--muted); }
+.paper-note b.hit, .pr-pl.hit { color: var(--green); } .paper-note b.burnt, .pr-pl.burnt { color: var(--red); }
+.paper-settled { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; }
+.paper-settled > summary { list-style: none; cursor: pointer; padding: 12px 14px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.paper-rows { display: grid; padding: 0 14px 10px; }
+.paper-row { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--border); font-size: 13px; }
+.pr-title { min-width: 0; overflow-wrap: anywhere; }
+.pr-pl { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
 </style>
 
 <div class="top"><div class="wrap"><div class="panel">
   <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week 7</h1></div>
-  <div class="fresh" id="fresh" data-built="2026-10-26T01:11:46.375Z">Graded 6:11 PM</div>
+  <div class="fresh" id="fresh" data-built="2026-10-26T01:18:53.365Z">Graded 6:18 PM</div>
   <div class="kpis">
     <div class="kpi"><small>Cash risk</small><b>$110.06</b></div>
     <div class="kpi"><small>Potential win</small><b class="blue">$1,537.90</b></div>
@@ -102,12 +118,17 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 </div></div></div>
 
 <main class="wrap">
-  <div class="board-h"><span>📅 Game Board</span><span>1 games · tap for ESPN</span></div>
+  <div class="board-h"><span>📅 Game Board</span><span>2 games · tap for ESPN</span></div>
   <nav class="games" aria-label="Games your open tickets depend on"><a class="game-card in" href="https://www.espn.com/nfl/game/_/gameId/401873022" target="_blank" rel="noopener">
-    <div class="gc-top"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span></div>
+    <div class="gc-top"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span></div>
     <div class="gc-team"><span class="tchip" style="background:#E31837;color:#fff">KC</span><span>Chiefs</span><b>0</b></div>
     <div class="gc-team lead"><span class="tchip" style="background:#69BE28;color:#0B1120">SEA</span><span>Seahawks</span><b>3</b></div>
     
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873009" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">5:15 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#2D5BD1;color:#fff">DAL</span><span>Cowboys</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#004C54;color:#fff">PHI</span><span>Eagles</span><b></b></div>
+    <div class="gc-odds">DAL -4.5 • O/U 43.5</div>
   </a></nav>
   <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (9 Live)</span></div>
   <div class="list">
@@ -128,7 +149,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Kansas City Chiefs +3.5</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Score</span><b class="live">KC 0-3 · covering by 0.5</b></div>
     </div></div><div class="leg-item hit">
     <span class="chk" aria-hidden="true">✓</span>
@@ -181,7 +202,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Sam Darnold</b> • 1+ Interceptions Thrown</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item hit">
@@ -231,7 +252,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Patrick Mahomes</b> • 2+ Passing Touchdowns</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 1.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item hit">
@@ -274,7 +295,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Kansas City Chiefs +8 (teased from +2)</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Score</span><b class="live">KC 0-3 · covering by 5</b></div>
     </div></div><div class="leg-item hit">
     <span class="chk" aria-hidden="true">✓</span>
@@ -307,7 +328,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Kansas City Chiefs ML</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Score</span><b class="live">KC 0-3</b></div>
     </div></div><div class="leg-item burnt">
     <span class="chk" aria-hidden="true">✕</span>
@@ -352,13 +373,13 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Seattle Seahawks ML (SGP with Over 41)</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Score</span><b class="live">SEA 3-0</b></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Over 41 (SGP with SEA ML)</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>3 / 41</b></div>
       <div class="pbar"><i class="blue" style="width:7%"></i></div>
     </div></div><div class="leg-item hit">
@@ -399,28 +420,28 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Kenneth Walker III</b> • Anytime TD Scorer</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Emanuel Wilson</b> • Anytime TD Scorer</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Travis Kelce</b> • Anytime TD Scorer</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>A.J. Barner Anytime TD Scorer</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div></div>
@@ -442,37 +463,37 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Travis Kelce</b> • Player To Score 1+ Touchdown</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>George Holani</b> • Total Receptions Over 1.5</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 1.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Emanuel Wilson</b> • Total Carries Over 14.5</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>6 / 14.5</b></div>
-      <div class="pbar"><i class="blue" style="width:40%"></i></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>9 / 14.5</b></div>
+      <div class="pbar"><i class="blue" style="width:60%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Patrick Mahomes</b> • 212+ Passing Yards</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>63 / 211.5</b></div>
       <div class="pbar"><i class="blue" style="width:30%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Sam Darnold</b> • 219+ Passing Yards</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>77 / 218.5</b></div>
-      <div class="pbar"><i class="blue" style="width:35%"></i></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>92 / 218.5</b></div>
+      <div class="pbar"><i class="blue" style="width:42%"></i></div>
     </div></div></div>
 </details>
 <details class="bet-card" id="t-46464866">
@@ -492,63 +513,474 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>A.J. Barner Anytime TD Scorer</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Sam Darnold</b> • 1+ Interceptions Thrown</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Sam Darnold</b> • 2+ Passing Touchdowns</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 1.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Emanuel Wilson</b> • 13+ Rushing Attempts</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>6 / 12.5</b></div>
-      <div class="pbar"><i class="blue" style="width:46%"></i></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>9 / 12.5</b></div>
+      <div class="pbar"><i class="blue" style="width:69%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Jason Myers</b> • 2+ Field Goals Made</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>1 / 1.5</b></div>
       <div class="pbar"><i class="blue" style="width:50%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>A.J. Barner 20+ Receiving Yards</b></div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>13 / 19.5</b></div>
       <div class="pbar"><i class="blue" style="width:65%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Travis Kelce</b> • 4+ Receptions</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 3.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div><div class="leg-item live">
     <span class="chk" aria-hidden="true"></span>
     <div class="leg-body">
       <div class="leg-name"><b>Kenneth Walker III</b> • Anytime TD Scorer</div>
-      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>6:00 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
       <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
       <div class="pbar"><i class="blue" style="width:0%"></i></div>
     </div></div></div>
 </details>
   </div>
+  <details class="paper-wrap" id="paper-section" open>
+  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (10 Live)</span><span class="chev" aria-hidden="true">▾</span></summary>
+  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: 3 cashed, 22 burnt, <b class="burnt">−$223.71</b> paper P&amp;L. Open paper risk $180.00 to win $1,382.15.</p>
+  <div class="list"><details class="bet-card paper" id="t-paper_w7_card_hybrid_b_beo_no_paris_game">
+  <summary>
+    <div class="card-header"><div class="card-title">Hybrid B (BEO, no Paris game)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BEO card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §5</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$10.00</b></div>
+      <div><small>Odds:</small><b class="odds">+1899</b></div>
+      <div><small>To Win:</small><b class="towin">$189.94</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:75%"></div></div>
+    <div class="card-line">3 of 4 hit · 1 to go · 1 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Patrick Mahomes</b> • pass TD Over 1.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 1.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Over 44.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">TB @ CAR</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>56 / 44.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Jordan Love</b> • pass TD Over 1.5</div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>2 / 1.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Tucker Kraft</b> • anytime TD</div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>1 / 0.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_afternoon_parlay_snf_cap">
+  <summary>
+    <div class="card-header"><div class="card-title">Afternoon Parlay (SNF cap)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §5</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$10.00</b></div>
+      <div><small>Odds:</small><b class="odds">+844</b></div>
+      <div><small>To Win:</small><b class="towin">$84.41</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:75%"></div></div>
+    <div class="card-line">3 of 4 hit · 1 to go · 1 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Seattle ML (SNF cap)</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">SEA 3-0</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Pittsburgh ML</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">PIT @ NO</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">PIT 16-10</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Cleveland ML</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">CLE @ TEN</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">CLE 27-24</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Green Bay +3.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">GB 17-20 · covering by 0.5</b></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_7b_afternoon_4_leg_night_leg_last">
+  <summary>
+    <div class="card-header"><div class="card-title">7b Afternoon 4-Leg (night leg last)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BEO card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7h</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$10.00</b></div>
+      <div><small>Odds:</small><b class="odds">+703</b></div>
+      <div><small>To Win:</small><b class="towin">$70.29</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:75%"></div></div>
+    <div class="card-line">3 of 4 hit · 1 to go · 1 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Sam Darnold</b> • interceptions thrown Over 0.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Jacoby Brissett</b> • completions Over 20.5</div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DEN @ ARI</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>27 / 20.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Jordan Love</b> • pass TD Over 1.5</div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>2 / 1.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Kirk Cousins</b> • pass TD Over 1.5</div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">LAR @ LV</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>2 / 1.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_single_kc_sea_kc_ml_kansas_city">
+  <summary>
+    <div class="card-header"><div class="card-title">Single · KC@SEA KC ML (Kansas City)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (1 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §3</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$20.00</b></div>
+      <div><small>Odds:</small><b class="odds">+129</b></div>
+      <div><small>To Win:</small><b class="towin">$25.80</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">0 of 1 hit · 1 to go · 1 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>KC ML (Kansas City)</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">KC 0-3</b></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_single_kc_sea_kansas_city_3">
+  <summary>
+    <div class="card-header"><div class="card-title">Single · KC@SEA Kansas City +3</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (1 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §3</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$20.00</b></div>
+      <div><small>Odds:</small><b class="odds">-115</b></div>
+      <div><small>To Win:</small><b class="towin">$17.39</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">0 of 1 hit · 1 to go · 1 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Kansas City +3</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">KC 0-3 · on the number</b></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_dog_ml_round_robin_by_2s">
+  <summary>
+    <div class="card-header"><div class="card-title">Dog ML Round Robin (by 2s)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • Round robin (5 picks)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §4</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$20.00</b></div>
+      <div><small>Odds:</small><b class="odds">RR</b></div>
+      <div><small>To Win:</small><b class="towin">$8.21</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">1 of 10 combos alive</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>KC ML (Kansas City)</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">KC 0-3</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>NO ML (New Orleans)</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">PIT @ NO</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">NO 10-16</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>ARI ML (Arizona)</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DEN @ ARI</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">ARI 16-30</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>LV ML (Las Vegas; only if Nacua is inactive)</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">LAR @ LV</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">LV 21-35</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>ATL ML (Atlanta)</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">SF @ ATL</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">ATL 29-20</b></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_master_round_robin_8_legs_by_4s">
+  <summary>
+    <div class="card-header"><div class="card-title">Master Round Robin (8 legs by 4s)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • Round robin (8 picks)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §4</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$70.00</b></div>
+      <div><small>Odds:</small><b class="odds">RR</b></div>
+      <div><small>To Win:</small><b class="towin">$75.39</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">5 of 70 combos alive</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>KC ML (Kansas City)</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">KC 0-3</b></div>
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 44</b></div>
+      <div class="leg-meta"><span class="chip time">5:15 PM PT</span><span class="leg-game">DAL @ PHI</span></div>
+      
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>New York Jets -4</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">MIA @ NYJ</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">NYJ 25-28 · short by 7</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Arizona +4.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DEN @ ARI</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">ARI 16-30 · short by 9.5</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 47</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">CIN @ BAL</span></div>
+      <div class="prog-row"><span>Stat Progress (under)</span><b>48 / 47 ❌</b></div>
+      <div class="pbar"><i class="red" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Green Bay +3.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">GB 17-20 · covering by 0.5</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 41.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">IND @ MIN</span></div>
+      <div class="prog-row"><span>Stat Progress (under)</span><b>26 / 41.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:63%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Over 44.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">TB @ CAR</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>56 / 44.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_snf_island_tier_3_moonshot_fresh">
+  <summary>
+    <div class="card-header"><div class="card-title">SNF Island Tier 3 moonshot (fresh)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7j</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$5.00</b></div>
+      <div><small>Odds:</small><b class="odds">+14336</b></div>
+      <div><small>To Win:</small><b class="towin">$716.82</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">0 of 4 hit · 4 to go · 4 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Emanuel Wilson</b> • first TD</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="live">no TD scored yet</b></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Travis Kelce</b> • anytime TD</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Xavier Worthy</b> • anytime TD</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Patrick Mahomes</b> • rushing yds Over 27.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 27.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_snf_island_tier_2_fresh_diversified">
+  <summary>
+    <div class="card-header"><div class="card-title">SNF Island Tier 2 (fresh, diversified)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7j</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$5.00</b></div>
+      <div><small>Odds:</small><b class="odds">+2408</b></div>
+      <div><small>To Win:</small><b class="towin">$120.41</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">0 of 4 hit · 4 to go · 4 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Emmett Johnson</b> • rushing yds Over 18.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 18.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Total field goals, both teams Over 3.5</b></div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>1 / 3.5</b></div>
+      <div class="pbar"><i class="blue" style="width:25%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>AJ Barner</b> • anytime TD</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 0.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Cooper Kupp</b> • receiving yds Over 14.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>11 / 14.5</b></div>
+      <div class="pbar"><i class="blue" style="width:73%"></i></div>
+    </div></div></div>
+</details>
+<details class="bet-card paper" id="t-paper_w7_card_snf_island_tier_1_fresh">
+  <summary>
+    <div class="card-header"><div class="card-title">SNF Island Tier 1 (fresh)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • AI Recommendation (4 legs)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7j</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$10.00</b></div>
+      <div><small>Odds:</small><b class="odds">+735</b></div>
+      <div><small>To Win:</small><b class="towin">$73.49</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">0 of 4 hit · 4 to go · 4 live</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Patrick Mahomes</b> • passing yds Over 208.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>63 / 208.5</b></div>
+      <div class="pbar"><i class="blue" style="width:30%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Sam Darnold</b> • passing yds Over 215.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>92 / 215.5</b></div>
+      <div class="pbar"><i class="blue" style="width:43%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Emanuel Wilson</b> • carries Over 13.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>9 / 13.5</b></div>
+      <div class="pbar"><i class="blue" style="width:64%"></i></div>
+    </div></div><div class="leg-item live">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>George Holani</b> • receptions Over 1.5</div>
+      <div class="leg-meta"><span class="chip live"><i class="pulse"></i>2:23 - 2nd</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>0 / 1.5</b></div>
+      <div class="pbar"><i class="blue" style="width:0%"></i></div>
+    </div></div></div>
+</details></div>
+  <details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (25)</summary><div class="paper-rows"><div class="paper-row"><span class="pr-title">Single · GB@DET Green Bay +3.5</span><span class="pr-pl hit">+$19.42</span></div><div class="paper-row"><span class="pr-title">Single · TB@CAR Over 44.5</span><span class="pr-pl hit">+$18.52</span></div><div class="paper-row"><span class="pr-title">Single · IND@MIN Under 41.5</span><span class="pr-pl hit">+$18.35</span></div><div class="paper-row"><span class="pr-title">Morning Parlay (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Hybrid A (BEO, no Paris game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Perfect Lottery 13-Leg (best leg from every game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Core 7-Leg (highest hit rates, no leg shorter than -200)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Field-Goal Ticket 7-Leg (red-zone stalls vs wind and TD-heavy scripts)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">QB Pressure Ticket 8-Leg (INTs and sacks taken)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">IDP Tackles Ticket 7-Leg (tackles + assists)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7a Morning 6-Leg (early window)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">A Receiving-Yards Core 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">B Plus-Money Ladder 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">C TD Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">D Kicker / Field-Goal Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">E No-DEN/ARI 5-Leg (two per game + SNF cap; Sun 1:10 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">F Diversified No-DEN/ARI 5-Leg (five prop types + SNF cap; Sun 1:12 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7e Anytime TD 7-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">8a First TD 3-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Under 39</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · CIN@BAL Under 47</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ New York Jets -4</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · DEN@ARI Arizona +4.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Malik Willis pass TD Under 0.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · PIT@NO Aaron Rodgers pass TD Over 1.5</span><span class="pr-pl burnt">−$20.00</span></div></div></details>
+</details>
   <footer>
-    <span>Real tickets only, closest to cashing first. Week 7 so far: 0 cashed, 22 burnt (hidden). The paper card and SuperContest are on the desktop tracker.</span>
+    <span>Real tickets are listed closest to cashing first. Week 7 so far: 0 real tickets cashed, 22 burnt (hidden). SuperContest is on the desktop tracker.</span>
     <span>Scores are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
   </footer>
 </main>
@@ -567,7 +999,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
   var KEY = 'pr-mobile-open';
   var openSet = {};
   try { openSet = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { openSet = {}; }
-  document.querySelectorAll('details.bet-card').forEach(function (d) {
+  document.querySelectorAll('details.bet-card, details.paper-settled').forEach(function (d) {
     if (openSet[d.id]) d.open = true;
     d.addEventListener('toggle', function () {
       if (d.open) openSet[d.id] = 1; else delete openSet[d.id];
