@@ -82,9 +82,13 @@ the banner as the only delivery channel (no email/push) on 2026-10-25.
 - **Replay check:** `node scripts/hedge-alerts-replay.mjs` rebuilds the W7 SNF spot
   and must PASS: flex hedge SEA -3, dead zone SEA 8+/Under, and a cover that wins at
   the 20-3 final. `--alerts-demo <file>` renders saved alerts into the page for previews.
-- **Schedule:** before each kickoff window (Sun ~9:15/9:45, 12:15/12:45, 4:15/4:45
-  PT; Mon/Thu 4:15/4:45 PT) and at halftime of island games (~6:45 PT). Scheduled runs
-  use `--week auto` (the default).
+- **Schedule (scheduled tasks, PT, bound to Andy's Windows desktop):** Sunday early
+  9:25 / 12:25 / 4:25 and late 9:50 / 12:50; night-game late 5:02 Sun/Mon/Thu; Mon/Thu
+  early 4:25; island-game halftime 6:45 Sun/Mon/Thu. Each run regenerates with
+  `--week auto` (the default), republishes the artifact and reports; none settle,
+  commit or notify (banner only). Tasks can't fire closer than an hour apart, which
+  is why early and late are separate tasks. Saturday and international morning games
+  aren't covered yet.
 
 ## Gotchas
 
