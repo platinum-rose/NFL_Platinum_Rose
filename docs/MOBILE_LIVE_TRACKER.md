@@ -32,6 +32,13 @@ node scripts/generate-live-tracker-mobile.mjs --week N # re-run after settling
 node scripts/generate-live-tracker.mjs --week N        # keep the desktop tracker in sync
 ```
 
+The generator defaults to `--week auto` and reads the current season from ESPN;
+`--season YYYY` pins a season explicitly. Pass `--no-paper` to omit the paper
+ticket section. ESPN scoreboard, box-score, or odds-summary failures now stop the
+build before any tracker output is written. A successful empty scoreboard is
+reported as an empty week; if tickets are pending but ESPN has no events for
+that week, the build stops instead of publishing a CHECK-only page.
+
 Then stage `public/live-tracker-mobile.html` into the session, copy it to the
 scratchpad, and publish it with the Artifact tool **to the same file path or the
 URL above** (from a new conversation, pass `url`). Commit named files only:

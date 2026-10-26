@@ -26,8 +26,14 @@ export const HEDGE_DEFAULTS = {
   gapMinPayout: 150,    // game_gap: at least $150 riding on the game ...
   gapMinProb: 0.15,     // ... and >= 15% chance of a "dead" result
   deadShare: 0.15,      // a result is "dead" if it returns < 15% of the best case
-  marginSd: 13.5,
-  totalSd: 10,
+  // Initial empirical fit from games.csv (93 completed 2026 regular-season games,
+  // Weeks 1-7; 2026-10-26). Replace after a multi-season closing-line sample exists.
+  marginMean: -1.5323,
+  marginSd: 11.8038,
+  totalMean: 1.1344,
+  totalSd: 13.0374,
+  marginTotalCorrelation: -0.0337,
+  keyNumberWeights: { 3: 2.761, 7: 2.140 },
   vig: 0.045,           // used to estimate prices for alt lines the feed doesn't quote
 };
 
@@ -42,6 +48,17 @@ export const decToAm = (d) => {
   return d >= 2 ? `+${Math.round((d - 1) * 100)}` : `${Math.round(-100 / (d - 1))}`;
 };
 const round2 = (n) => Math.round(n * 100) / 100;
+
+/** Whether two side-market hedges oppose each other. Totals do not conflict here. */
+export function hedgeDirectionsConflict(ticketMarket, gameMarket) {
+  const side = (market) => {
+    const label = String(market || '');
+    return /^(Over|Under)\b/.test(label) ? null : label.split(/\s+/)[0] || null;
+  };
+  const ticketSide = side(ticketMarket);
+  const gameSide = side(gameMarket);
+  return !!ticketSide && !!gameSide && ticketSide !== gameSide;
+}
 
 function pmf(mu, sd, lo, hi, dropZero) {
   const cdf = (x) => 0.5 * (1 + erf((x - mu) / (sd * Math.SQRT2)));
@@ -65,19 +82,24 @@ function erf(x) {
 
 /** Grid of [margin(home-away), total, prob] for one game. */
 export function scenarioGrid(odds, cfg = HEDGE_DEFAULTS) {
-  const muM = -Number(odds.spreadHome || 0);
-  const muT = Number(odds.ou || 44);
-  // NFL key numbers: games land on 3 and 7 far more than a smooth curve says.
-  const KEY = { 3: 2.2, 7: 1.6, 10: 1.3, 6: 1.2, 4: 1.15, 14: 1.2, 1: 1.1 };
-  let M = pmf(muM, cfg.marginSd, -45, 45, true).map(([x, p]) => [x, p * (KEY[Math.abs(x)] || 1)]);
+  const muM = -Number(odds.spreadHome || 0) + Number(cfg.marginMean || 0);
+  const muT = Number(odds.ou || 44) + Number(cfg.totalMean || 0);
+  // Key-number multipliers are empirical observed/expected rates, not hand-set weights.
+  let M = pmf(muM, cfg.marginSd, -45, 45, true).map(([x, p]) => [x, p * (cfg.keyNumberWeights?.[Math.abs(x)] || 1)]);
   const mz = M.reduce((a, [, p]) => a + p, 0);
   M = M.map(([x, p]) => [x, p / mz]);
   const T = pmf(muT, cfg.totalSd, Math.max(0, Math.round(muT - 40)), Math.round(muT + 40), false);
   const grid = [];
+  const rho = Math.max(-0.95, Math.min(0.95, Number(cfg.marginTotalCorrelation || 0)));
   for (const [m, pm] of M) for (const [t, pt] of T) {
     // Margin and total must be compatible: |m| <= t and same parity.
     if (Math.abs(m) > t || (t - Math.abs(m)) % 2 !== 0) continue;
-    grid.push([m, t, pm * pt]);
+    const zm = (m - muM) / cfg.marginSd;
+    const zt = (t - muT) / cfg.totalSd;
+    // Bivariate-normal copula factor applies the empirical margin/total correlation
+    // while preserving the calibrated discrete marginal distributions.
+    const joint = Math.exp((2 * rho * zm * zt - rho * rho * (zm * zm + zt * zt)) / (2 * (1 - rho * rho))) / Math.sqrt(1 - rho * rho);
+    grid.push([m, t, pm * pt * joint]);
   }
   const s = grid.reduce((a, g) => a + g[2], 0);
   return grid.map((g) => [g[0], g[1], g[2] / s]);

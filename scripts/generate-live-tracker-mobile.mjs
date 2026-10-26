@@ -9,6 +9,7 @@
  * from re-running this script and republishing to the same link.
  *
  *   node scripts/generate-live-tracker-mobile.mjs --week 7
+ *   node scripts/generate-live-tracker-mobile.mjs --week 7 --season 2026 --no-paper
  *
  * Writes:
  *   public/live-tracker-mobile.html        page (artifact fragment: no <html>/<head>)
@@ -22,14 +23,15 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildHedgeAlerts, alertMessage } from './lib/hedge-alerts.mjs';
+import { buildHedgeAlerts, alertMessage, hedgeDirectionsConflict } from './lib/hedge-alerts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const argVal = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
 // --week N, or --week auto to use ESPN's current regular-season week (for scheduled runs).
 let WEEK = argVal('--week', 'auto');
-const SEASON = Number(argVal('--season', '2026'));
+let SEASON = argVal('--season', null);
+const NO_PAPER = args.includes('--no-paper');
 const OUT_HTML = path.join(ROOT, argVal('--out', 'public/live-tracker-mobile.html'));
 const OUT_STATE = path.join(ROOT, 'public/live-tracker-mobile-state.json');
 const OUT_ALERTS = path.join(ROOT, 'public/hedge-alerts.json');
@@ -67,7 +69,10 @@ async function loadEvents(weeks) {
   const events = [];
   for (const w of weeks) {
     try {
-      const sb = await getJson(`${ESPN}/scoreboard?seasontype=2&week=${w}&dates=${SEASON}`);
+      const seasonQuery = SEASON ? `&dates=${encodeURIComponent(SEASON)}` : '';
+      const sb = await getJson(`${ESPN}/scoreboard?seasontype=2&week=${w}${seasonQuery}`);
+      if (sb.events != null && !Array.isArray(sb.events)) throw new Error('scoreboard events field is not an array');
+      if (!sb.events?.length) console.warn(`scoreboard week ${w}: no events returned`);
       for (const e of sb.events || []) {
         const c = e.competitions[0];
         const side = (ha) => c.competitors.find((x) => x.homeAway === ha);
@@ -83,7 +88,9 @@ async function loadEvents(weeks) {
           oddsLine: c.odds?.[0]?.details || '', overUnder: c.odds?.[0]?.overUnder ?? null,
         });
       }
-    } catch (err) { console.warn('scoreboard week', w, 'failed:', err.message); }
+    } catch (err) {
+      throw new Error(`scoreboard week ${w} failed; refusing to write tracker output: ${err.message}`, { cause: err });
+    }
   }
   return events;
 }
@@ -112,7 +119,9 @@ async function loadBox(ev) {
       // First touchdown of the game (scorer is the text before the first yardage number).
       const firstTd = (sum.scoringPlays || []).find((p) => /touchdown/i.test(p.type?.text || '') || /\bTD\b/.test(p.type?.abbreviation || ''));
       players.firstTd = firstTd ? { text: firstTd.text || '', scorer: nameKey(String(firstTd.text || '').split(/\s\d+\s*(yd|yard)/i)[0]) } : null;
-    } catch (err) { console.warn('summary', ev.id, 'failed:', err.message); }
+    } catch (err) {
+      throw new Error(`ESPN box score ${ev.id} failed; refusing to write tracker output: ${err.message}`, { cause: err });
+    }
   }
   boxCache.set(ev.id, players);
   return players;
@@ -133,7 +142,9 @@ async function loadOdds(ev) {
         ou: Number(p.overUnder), overOdds: p.overOdds ?? null, underOdds: p.underOdds ?? null,
       };
     }
-  } catch (err) { console.warn('odds', ev.id, 'failed:', err.message); }
+  } catch (err) {
+    throw new Error(`ESPN odds summary ${ev.id} failed; refusing to write tracker output: ${err.message}`, { cause: err });
+  }
   oddsCache.set(ev.id, odds);
   return odds;
 }
@@ -439,8 +450,6 @@ function paperSection(paper, evById) {
 
 const money = (n) => `$${Math.round(Number(n) || 0).toLocaleString('en-US')}`;
 const pct = (p) => `${Math.round((p || 0) * 100)}%`;
-const hedgeSide = (mk) => (mk || '').split(' ')[0];
-
 function alertsSection(alerts, evById) {
   if (!alerts.length) return '';
   const byGame = new Map();
@@ -465,8 +474,7 @@ function alertsSection(alerts, evById) {
       ${gap.propsRiding.length ? `<p class="ac-note">Also riding on this game (props, not modelled): ${gap.propsRiding.map((t) => esc(t.title)).join('; ')}.</p>` : ''}`;
     }
     html += singles.map((a) => {
-      const conflict = gap && a.hedge?.market && hedgeSide(a.hedge.market) !== hedgeSide(gap.hedge.market)
-        && !/^(Over|Under)/.test(a.hedge.market) && !/^(Over|Under)/.test(gap.hedge.market);
+      const conflict = gap && hedgeDirectionsConflict(a.hedge?.market, gap.hedge.market);
       const h = a.hedge || {};
       return `<div class="ac-ticket">
         <div class="ac-t1"><b>${esc(a.book)} ${money(a.pay)}</b> needs ${esc(a.needs.join(' + '))}${a.pHit != null ? ` · ${pct(a.pHit)} to hit` : ''}</div>
@@ -676,16 +684,27 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 
 // ---------- main ----------
 const wagers = JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/user-placed-wagers-2026.json'), 'utf8'));
-if (WEEK === 'auto') {
-  const sb = await getJson(`${ESPN}/scoreboard`);
-  WEEK = Number(sb.week?.number);
-  if (!Number.isFinite(WEEK)) throw new Error('could not read the current week from ESPN; pass --week N');
-  console.log(`week auto → ${WEEK}`);
+if (WEEK === 'auto' || !SEASON) {
+  const current = await getJson(`${ESPN}/scoreboard`);
+  if (!SEASON) SEASON = Number(current.season?.year);
+  if (!Number.isFinite(Number(SEASON))) throw new Error('could not read the current season from ESPN; pass --season YYYY');
+  if (WEEK === 'auto') {
+    WEEK = Number(current.week?.number);
+    if (!Number.isFinite(WEEK)) throw new Error('could not read the current week from ESPN; pass --week N');
+    console.log(`week auto → ${WEEK}`);
+  }
 }
+SEASON = Number(SEASON);
+if (!Number.isInteger(SEASON)) throw new Error('invalid --season; pass a season year such as 2026');
 WEEK = Number(WEEK);
 const weekTickets = wagers.filter((w) => Number(w.week) === WEEK && !w.is_paper && (w.legs || []).length);
 const pending = weekTickets.filter((w) => String(w.status).toUpperCase() === 'PENDING');
+const paperWagers = NO_PAPER ? [] : JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/paper-wagers-2026.json'), 'utf8'));
+const paperAll = paperWagers.filter((w) => Number(w.week) === WEEK && (w.legs || []).length && String(w.status).toUpperCase() === 'PENDING');
 const events = await loadEvents([WEEK - 1, WEEK]);
+if (!events.some((event) => event.week === WEEK) && (pending.length || paperAll.length)) {
+  throw new Error(`ESPN returned no events for Week ${WEEK} while tickets are pending; refusing to write a CHECK-only tracker`);
+}
 
 const graded = [];
 for (const t of pending) {
@@ -699,8 +718,6 @@ const open = graded.filter((o) => o.sum.state === 'open')
     return la - lb || (b.sum.kind === 'rr' ? b.sum.maxProfitUsd : b.t.potential_profit_usd) - (a.sum.kind === 'rr' ? a.sum.maxProfitUsd : a.t.potential_profit_usd);
   });
 // Paper (imaginary) AI card tickets: graded the same way, never in cash totals.
-const paperAll = JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/paper-wagers-2026.json'), 'utf8'))
-  .filter((w) => Number(w.week) === WEEK && (w.legs || []).length && String(w.status).toUpperCase() === 'PENDING');
 const paperGraded = [];
 for (const t of paperAll) {
   const g = [];
