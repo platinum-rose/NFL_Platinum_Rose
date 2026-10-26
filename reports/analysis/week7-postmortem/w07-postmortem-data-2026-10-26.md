@@ -7,6 +7,7 @@
 - Official real-wager tickets only. Paper tickets and proposed picks are excluded from the financial totals below.
 - Ticket results, stakes, payouts, and recorded leg states come from `data/official-picks/user-placed-wagers-2026.json`. The Monday cadence settlement preview supplied by Andy reports 31 Week 7 tickets settled, with one win and DAL @ PHI pending. No ledger changes were made for this report.
 - Game results were cross-checked against the local ESPN boxscore snapshots for event IDs `401873010`–`401873022`. They cover the 13 completed games; the missing Monday result remains pending.
+- Team and player production and scoring plays are compiled separately in [the football results and statistics report](w07-football-stats-2026-10-26.md), with full team, player, scoring-play, and game-result CSV exports. Final scores were cross-checked against the [official NFL Week 7 schedule](https://www.nfl.com/schedules/2026/by-week/week-7).
 - A row-level ticket export is [official-ticket-summary-2026-10-26.csv](official-ticket-summary-2026-10-26.csv). It includes each ticket's result, money fields, and recorded leg-status counts.
 - The working ledger has a pre-existing uncommitted diff that changes numeric formatting only (for example, `-15.0` to `-15`). The calculations use the current file's numeric values; no ledger write or staging occurred.
 
@@ -63,4 +64,4 @@ One $15 Bookmaker flex SGP is recorded under Week 7 but mixes W6 (WSH @ SF) and 
 
 The ledger contains 189 leg rows: 61 `WON`, 77 `LOST`, 2 `PUSH`, 47 `PENDING`, and 2 `OPEN`. Therefore, the ticket-level settlement preview is more complete than the recorded per-leg detail. Do not treat market hit rates or a new independent re-grade as verified from these statuses. The mobile-versus-ledger grader parity work remains open; see [the Week 5–7 parity report](../../verification/2026-10-26-mobile-grader-parity-weeks-5-7.md).
 
-This first pass does not yet compare the Week 7 proposal card, pool/contest selections, or projected prices against actual outcomes. Keep the final post-mortem open until DAL @ PHI is graded through the scheduled Claude check-in and those analysis inputs are reconciled.
+The actual-game statistical recap is in the companion report. Betting-side proposal-card, pool/contest, and projected-price comparisons remain open. Keep the final post-mortem open until DAL @ PHI is graded through the scheduled Claude check-in and those analysis inputs are reconciled.

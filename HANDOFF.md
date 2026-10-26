@@ -1,8 +1,9 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-26, Week 7 post-mortem data)
+## PICK UP HERE (2026-10-26, Week 7 football data and analytics)
 
-- **PICK UP HERE:** `handoffs/2026-10-26-codex-week7-postmortem-data.md`. Provisional Week 7 official-ticket accounting and 13 completed game scores are compiled; DAL @ PHI and deeper analysis remain open.
+- **PICK UP HERE:** `handoffs/2026-10-26-codex-week7-football-stats.md`. The provisional post-mortem now includes 13 completed games, team/player stats, scoring plays, and ticket accounting; DAL @ PHI and proposal-vs-results analysis remain open.
+- Prior ticket checkpoint: `handoffs/2026-10-26-codex-week7-postmortem-data.md`.
 - Prior network checkpoint: `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. The mobile tracker now shares the Monday settlement request helper; live DNS still failed in this shell.
 - Prior engineering checkpoint: `handoffs/2026-10-26-codex-hedge-watch-engineering.md` (`35525d4`), including hedge-alert tests and replay results.
 - Context and binding guardrails: `handoffs/2026-10-26-0745-claude-h2c2-codex-briefing-w7-mobile-tracker-hedge-watch.md`. Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mobile-tracker-hedge-watch/`.
