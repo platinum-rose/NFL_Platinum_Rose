@@ -13,6 +13,8 @@
  * Writes:
  *   public/live-tracker-mobile.html        page (artifact fragment: no <html>/<head>)
  *   public/live-tracker-mobile-state.json  per-leg grading, for settling tickets
+ *   public/hedge-alerts.json               hedge spots (see scripts/lib/hedge-alerts.mjs);
+ *                                          new ones print as "ALERT: ..." lines
  *
  * Shows only tickets that are still alive. Settled/burnt tickets, the paper
  * AI card and SuperContest stay on the desktop tracker.
@@ -20,14 +22,17 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildHedgeAlerts, alertMessage } from './lib/hedge-alerts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const argVal = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const WEEK = Number(argVal('--week', '7'));
+// --week N, or --week auto to use ESPN's current regular-season week (for scheduled runs).
+let WEEK = argVal('--week', 'auto');
 const SEASON = Number(argVal('--season', '2026'));
 const OUT_HTML = path.join(ROOT, argVal('--out', 'public/live-tracker-mobile.html'));
 const OUT_STATE = path.join(ROOT, 'public/live-tracker-mobile-state.json');
+const OUT_ALERTS = path.join(ROOT, 'public/hedge-alerts.json');
 const TZ = 'America/Los_Angeles';
 
 // ---------- team helpers ----------
@@ -112,6 +117,27 @@ async function loadBox(ev) {
   boxCache.set(ev.id, players);
   return players;
 }
+// Pregame line from ESPN's pickcenter (DraftKings first). After kickoff this is the closing line.
+const oddsCache = new Map();
+async function loadOdds(ev) {
+  if (oddsCache.has(ev.id)) return oddsCache.get(ev.id);
+  let odds = null;
+  try {
+    const sum = await getJson(`${ESPN}/summary?event=${ev.id}`);
+    const p = (sum.pickcenter || []).find((x) => /draft/i.test(x.provider?.name || '')) || (sum.pickcenter || [])[0];
+    if (p && p.spread != null) {
+      odds = {
+        provider: p.provider?.name || 'Book', home: ev.home, away: ev.away,
+        spreadHome: Number(p.spread), spreadOddsHome: p.homeTeamOdds?.spreadOdds ?? null, spreadOddsAway: p.awayTeamOdds?.spreadOdds ?? null,
+        homeML: p.homeTeamOdds?.moneyLine ?? null, awayML: p.awayTeamOdds?.moneyLine ?? null,
+        ou: Number(p.overUnder), overOdds: p.overOdds ?? null, underOdds: p.underOdds ?? null,
+      };
+    }
+  } catch (err) { console.warn('odds', ev.id, 'failed:', err.message); }
+  oddsCache.set(ev.id, odds);
+  return odds;
+}
+
 const num = (v) => { const n = parseFloat(String(v ?? '').split(/[/-]/)[0]); return Number.isFinite(n) ? n : 0; };
 const frac = (v, i) => { const p = String(v ?? '').split('/'); return Number.isFinite(parseFloat(p[i])) ? parseFloat(p[i]) : 0; };
 
@@ -290,6 +316,7 @@ function summarizeTicket(t, graded) {
 // ---------- page (styled to match the desktop Live Tracker: navy cards, blue/green accents) ----------
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const usd = (n) => `$${Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const BOOK_SHORT_NAME = { Bookmaker: 'BKR', BetOnline: 'BEO', 'DraftKings Predictions': 'DKP', DraftKings: 'DK', FanDuel: 'FD', Bovada: 'BOV' };
 const STATUS_ORDER = { LIVE: 0, CHECK: 1, PENDING: 2, LOST: 3, WON: 4, PUSH: 5, VOID: 6 };
 const TEAM_NAME = {};
 for (const [nick, ab] of Object.entries(NICK)) if (!TEAM_NAME[ab] && nick !== 'niners' && nick !== 'washington') TEAM_NAME[ab] = nick === '49ers' ? '49ers' : nick[0].toUpperCase() + nick.slice(1);
@@ -410,7 +437,55 @@ function paperSection(paper, evById) {
 </details>`;
 }
 
-function page({ open, settledCounts, games, builtAt, totals, evById, paper }) {
+const money = (n) => `$${Math.round(Number(n) || 0).toLocaleString('en-US')}`;
+const pct = (p) => `${Math.round((p || 0) * 100)}%`;
+const hedgeSide = (mk) => (mk || '').split(' ')[0];
+
+function alertsSection(alerts, evById) {
+  if (!alerts.length) return '';
+  const byGame = new Map();
+  for (const a of alerts) { if (!byGame.has(a.eventId)) byGame.set(a.eventId, []); byGame.get(a.eventId).push(a); }
+  const cards = [...byGame.entries()].map(([evId, list]) => {
+    const ev = evById.get(evId);
+    const gap = list.find((a) => a.type === 'game_gap');
+    const singles = list.filter((a) => a.type === 'last_game');
+    const line = (gap || singles[0]).line || '';
+    let html = `<div class="alert-card">
+      <div class="ac-top">${clockChip(ev)}<b>${esc((gap || singles[0]).game)}</b>${line ? `<span class="ac-line">${esc(line)}</span>` : ''}</div>`;
+    if (gap) {
+      const rows = [...new Set(gap.table.map((c) => c.margin))];
+      const cell = (c) => `<td class="${c.dead ? 'dead' : ''}"><b>${money(c.avgReturn)}</b><small>${pct(c.prob)}</small></td>`;
+      html += `<p class="ac-lead"><b>${pct(gap.pDead)}</b> chance this game pays back under ${money(gap.deadLine)} of a possible ${money(gap.maxReturn)} (expected ${money(gap.expectedReturn)}).</p>
+      <div class="ac-table"><table><thead><tr><th>Result</th><th>${esc(gap.table[0].total)}</th><th>${esc(gap.table[1].total)}</th></tr></thead><tbody>
+      ${rows.map((r) => { const cs = gap.table.filter((c) => c.margin === r); return `<tr><th>${esc(r)}</th>${cell(cs[0])}${cell(cs[1])}</tr>`; }).join('')}
+      </tbody></table></div>
+      <div class="ac-hedge"><span class="ac-k">Best cover</span><b>${esc(gap.hedge.market)} (${esc(gap.hedge.price)}${gap.hedge.priceSource === 'est' ? ', est.' : ''})</b>
+        <span>Half ${money(gap.hedge.half.stake)} → +${money(gap.hedge.half.ifHedge)} if it hits · Full ${money(gap.hedge.full.stake)} → +${money(gap.hedge.full.ifHedge)}</span>
+        <span class="ac-cost">Covers ${pct(gap.hedge.covers)} of the dead results. Full size costs about ${money(gap.hedge.evCost)} on average.</span></div>
+      ${gap.propsRiding.length ? `<p class="ac-note">Also riding on this game (props, not modelled): ${gap.propsRiding.map((t) => esc(t.title)).join('; ')}.</p>` : ''}`;
+    }
+    html += singles.map((a) => {
+      const conflict = gap && a.hedge?.market && hedgeSide(a.hedge.market) !== hedgeSide(gap.hedge.market)
+        && !/^(Over|Under)/.test(a.hedge.market) && !/^(Over|Under)/.test(gap.hedge.market);
+      const h = a.hedge || {};
+      return `<div class="ac-ticket">
+        <div class="ac-t1"><b>${esc(a.book)} ${money(a.pay)}</b> needs ${esc(a.needs.join(' + '))}${a.pHit != null ? ` · ${pct(a.pHit)} to hit` : ''}</div>
+        <div class="ac-t2">${esc(a.ticket)}</div>
+        ${h.market ? `<div class="ac-t3">Hedge <b>${esc(h.market)} (${esc(h.price)}${h.priceSource === 'est' ? ', est.' : h.priceSource === 'assumed' ? ', assumed' : ''})</b>: ${money(h.full.stake)} locks ${money(h.full.ifHedge)} either way · half ${money(h.half.stake)} → ${money(h.half.ifTicket)} / ${money(h.half.ifHedge)}</div>` : ''}
+        ${h.note ? `<div class="ac-note">${esc(h.note)}</div>` : ''}
+        ${conflict ? '<div class="ac-warn">This points the opposite way from the game cover above. Pick one direction; stacking both cancels out.</div>' : ''}
+      </div>`;
+    }).join('');
+    return html + '</div>';
+  }).join('');
+  return `<section class="alerts" aria-label="Hedge alerts">
+    <div class="alerts-h"><span>⚠️ Hedge Watch (${alerts.length})</span></div>
+    ${cards}
+    <p class="ac-foot">Lines are ESPN's DraftKings pregame/closing numbers; "est." is a model price for an alt line, so check your book. In live games, use the live line. Hedges trade a little expected value for a smaller worst case.</p>
+  </section>`;
+}
+
+function page({ open, settledCounts, games, builtAt, totals, evById, paper, alerts = [] }) {
   const builtIso = builtAt.toISOString();
   const builtLabel = 'Graded ' + builtAt.toLocaleString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
   return `<title>Platinum Rose Road Tracker</title>
@@ -519,6 +594,32 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 .paper-row { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--border); font-size: 13px; }
 .pr-title { min-width: 0; overflow-wrap: anywhere; }
 .pr-pl { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.alerts { margin-top: 14px; display: grid; gap: 10px; }
+.alerts-h { font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); }
+.alert-card { background: linear-gradient(180deg, rgba(245,158,11,.08), var(--bg-card) 60%); border: 1px solid rgba(245,158,11,.55); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; }
+.ac-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 14px; }
+.ac-line { font-size: 12px; color: var(--muted); }
+.ac-lead { margin: 0; font-size: 13.5px; }
+.ac-lead b { color: var(--gold); }
+.ac-table { overflow-x: auto; }
+.ac-table table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.ac-table th, .ac-table td { padding: 5px 6px; border-bottom: 1px solid var(--border); text-align: left; }
+.ac-table thead th { color: var(--muted); font-weight: 600; }
+.ac-table tbody th { font-weight: 600; white-space: nowrap; }
+.ac-table td b { display: block; font-size: 13px; }
+.ac-table td small { color: var(--muted); }
+.ac-table td.dead { background: rgba(239,68,68,.14); }
+.ac-table td.dead b { color: var(--red); }
+.ac-hedge { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-hedge b { color: var(--green); font-size: 14px; }
+.ac-k, .ac-cost { font-size: 11.5px; color: var(--muted); }
+.ac-k { text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+.ac-ticket { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-t2 { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.ac-t3 b { color: var(--green); }
+.ac-note { margin: 0; font-size: 12px; color: var(--muted); }
+.ac-warn { font-size: 12px; color: var(--gold); }
+.ac-foot { margin: 0; font-size: 11.5px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
 </style>
 
@@ -533,6 +634,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 </div></div></div>
 
 <main class="wrap">
+  ${alertsSection(alerts, evById)}
   ${games.length ? `<div class="board-h"><span>📅 Game Board</span><span>${games.length} games · tap for ESPN</span></div>
   <nav class="games" aria-label="Games your open tickets depend on">${games.map(gameCard).join('')}</nav>` : ''}
   <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (${open.length} Live)</span></div>
@@ -574,6 +676,13 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 
 // ---------- main ----------
 const wagers = JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/user-placed-wagers-2026.json'), 'utf8'));
+if (WEEK === 'auto') {
+  const sb = await getJson(`${ESPN}/scoreboard`);
+  WEEK = Number(sb.week?.number);
+  if (!Number.isFinite(WEEK)) throw new Error('could not read the current week from ESPN; pass --week N');
+  console.log(`week auto → ${WEEK}`);
+}
+WEEK = Number(WEEK);
 const weekTickets = wagers.filter((w) => Number(w.week) === WEEK && !w.is_paper && (w.legs || []).length);
 const pending = weekTickets.filter((w) => String(w.status).toUpperCase() === 'PENDING');
 const events = await loadEvents([WEEK - 1, WEEK]);
@@ -628,9 +737,61 @@ const gameIds = new Set();
 const stateRank = { in: 0, pre: 1, post: 2 };
 const games = events.filter((e) => gameIds.has(e.id)).sort((a, b) => stateRank[a.state] - stateRank[b.state] || Date.parse(a.date) - Date.parse(b.date));
 
+// ---------- hedge alerts (real tickets only) ----------
+const classifyLeg = (leg, ev) => {
+  const market = String(leg.market || '').replace(/^sgp_/, '').replace(/^alternate_/, '');
+  if (market === 'spread' || market === 'moneyline') {
+    const team = normAbbr(leg.team) || teamFromText(leg.selection);
+    if (ev && (team === ev.home || team === ev.away)) return { kind: 'side', team, line: market === 'spread' ? Number(leg.line || 0) : 0 };
+  }
+  if ((market === 'total' || market === 'total_points') && leg.line != null) {
+    return { kind: 'total', dir: leg.direction || (/\bu(nder)?\s?\d/i.test(String(leg.selection)) ? 'under' : 'over'), line: Number(leg.line) };
+  }
+  return { kind: 'prop', dir: leg.direction || 'over' };
+};
+const evMap = new Map(events.map((e) => [e.id, { ...e, label: `${e.away} @ ${e.home}` }]));
+const hedgeTickets = [];
+for (const o of open) {
+  const openIdx = o.graded.map((g, i) => (g.locked ? -1 : i)).filter((i) => i >= 0);
+  const legModel = (i) => ({ ...classifyLeg(o.t.legs[i], evMap.get(o.graded[i].eventId)), eventId: o.graded[i].eventId, selection: o.t.legs[i].selection });
+  const tk = {
+    id: o.t.ticket_number || o.t.id, book: BOOK_SHORT_NAME[o.t.book] || o.t.book, title: o.t.game_title, stake: Number(o.t.stake_usd || 0),
+    pay: Number(o.t.stake_usd || 0) + Number(o.t.potential_profit_usd || 0), open: openIdx.map(legModel),
+  };
+  if (o.t.round_robin?.combinations?.length) {
+    const numToIdx = new Map(o.t.legs.map((l, i) => [Number(l.leg_num ?? i + 1), i]));
+    const teamToIdx = new Map(); o.t.legs.forEach((l, i) => { const tm = normAbbr(l.team) || teamFromText(l.selection); if (tm) teamToIdx.set(tm, i); });
+    let banked = 0;
+    const combos = [];
+    for (const c of o.t.round_robin.combinations) {
+      const idx = c.leg_nums?.length ? c.leg_nums.map((n) => numToIdx.get(Number(n))) : c.teams.map((tm) => teamToIdx.get(normAbbr(tm)));
+      const ret = Number(c.stake_usd || 0) + Number(c.to_win_usd || 0);
+      if (idx.some((i) => i == null)) continue;
+      if (idx.some((i) => o.graded[i].status === 'LOST')) continue;
+      const ol = idx.filter((i) => !o.graded[i].locked);
+      if (!ol.length) { banked += ret; continue; }
+      combos.push({ ret, openLegs: ol.map(legModel) });
+    }
+    tk.rr = { banked, combos };
+    tk.pay = banked + combos.reduce((a, c) => a + c.ret, 0);
+  }
+  if (tk.open.length) hedgeTickets.push(tk);
+}
+const oddsById = new Map();
+for (const id of new Set(hedgeTickets.flatMap((tk) => tk.open.map((l) => l.eventId)).filter(Boolean))) {
+  const ev = evMap.get(id);
+  if (ev && ev.state !== 'post') { const od = await loadOdds(ev); if (od) oddsById.set(id, od); }
+}
+// --alerts-demo <file.json> renders saved alerts (e.g. a replay) without touching the alerts file.
+const DEMO = argVal('--alerts-demo', null);
+const alerts = DEMO ? JSON.parse(await readFile(path.resolve(DEMO), 'utf8')) : buildHedgeAlerts(hedgeTickets, evMap, oddsById);
+let seenIds = [];
+try { seenIds = JSON.parse(await readFile(OUT_ALERTS, 'utf8')).seen || []; } catch { /* first run */ }
+const fresh = alerts.filter((a) => !seenIds.includes(a.id));
+
 const builtAt = new Date();
 const evById = new Map(events.map((e) => [e.id, e]));
-await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, evById, paper }), 'utf8');
+await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, evById, paper, alerts }), 'utf8');
 await writeFile(OUT_STATE, JSON.stringify({
   built_at: builtAt.toISOString(), week: WEEK,
   tickets: [...graded, ...paperGraded].map((o) => ({
@@ -649,4 +810,10 @@ for (const o of paperGraded) {
   const flags = o.graded.filter((g) => g.status === 'CHECK').map((g, i) => g.now);
   console.log(`  ${o.sum.state.padEnd(6)} ${String(o.t.id).slice(9, 60).padEnd(52)} ${JSON.stringify(o.sum.counts)}${flags.length ? '  CHECK: ' + flags.join(' | ') : ''}`);
 }
+if (!DEMO) await writeFile(OUT_ALERTS, JSON.stringify({
+  built_at: builtAt.toISOString(), week: WEEK, alerts,
+  seen: [...new Set([...seenIds, ...alerts.map((a) => a.id)])].slice(-500),
+}, null, 2), 'utf8');
+console.log(`hedge alerts: ${alerts.length} active, ${fresh.length} new`);
+for (const a of fresh) console.log('ALERT: ' + alertMessage(a));
 console.log('wrote', path.relative(ROOT, OUT_HTML));

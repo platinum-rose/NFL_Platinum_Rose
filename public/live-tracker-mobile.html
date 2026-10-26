@@ -104,12 +104,38 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 .paper-row { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--border); font-size: 13px; }
 .pr-title { min-width: 0; overflow-wrap: anywhere; }
 .pr-pl { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.alerts { margin-top: 14px; display: grid; gap: 10px; }
+.alerts-h { font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); }
+.alert-card { background: linear-gradient(180deg, rgba(245,158,11,.08), var(--bg-card) 60%); border: 1px solid rgba(245,158,11,.55); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; }
+.ac-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 14px; }
+.ac-line { font-size: 12px; color: var(--muted); }
+.ac-lead { margin: 0; font-size: 13.5px; }
+.ac-lead b { color: var(--gold); }
+.ac-table { overflow-x: auto; }
+.ac-table table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.ac-table th, .ac-table td { padding: 5px 6px; border-bottom: 1px solid var(--border); text-align: left; }
+.ac-table thead th { color: var(--muted); font-weight: 600; }
+.ac-table tbody th { font-weight: 600; white-space: nowrap; }
+.ac-table td b { display: block; font-size: 13px; }
+.ac-table td small { color: var(--muted); }
+.ac-table td.dead { background: rgba(239,68,68,.14); }
+.ac-table td.dead b { color: var(--red); }
+.ac-hedge { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-hedge b { color: var(--green); font-size: 14px; }
+.ac-k, .ac-cost { font-size: 11.5px; color: var(--muted); }
+.ac-k { text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+.ac-ticket { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-t2 { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.ac-t3 b { color: var(--green); }
+.ac-note { margin: 0; font-size: 12px; color: var(--muted); }
+.ac-warn { font-size: 12px; color: var(--gold); }
+.ac-foot { margin: 0; font-size: 11.5px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
 </style>
 
 <div class="top"><div class="wrap"><div class="panel">
   <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week 7</h1></div>
-  <div class="fresh" id="fresh" data-built="2026-10-26T03:51:04.023Z">Graded 8:51 PM</div>
+  <div class="fresh" id="fresh" data-built="2026-10-26T06:24:46.422Z">Graded 11:24 PM</div>
   <div class="kpis">
     <div class="kpi"><small>Cash risk</small><b>$0.00</b></div>
     <div class="kpi"><small>Potential win</small><b class="blue">$0.00</b></div>
@@ -118,6 +144,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 </div></div></div>
 
 <main class="wrap">
+  
   <div class="board-h"><span>📅 Game Board</span><span>1 games · tap for ESPN</span></div>
   <nav class="games" aria-label="Games your open tickets depend on"><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873009" target="_blank" rel="noopener">
     <div class="gc-top"><span class="chip time">5:15 PM PT</span></div>

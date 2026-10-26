@@ -59,10 +59,39 @@ the settler skips any ticket with a CHECK leg, any cashed parlay with a
 push/void leg (reduced payout needs per-leg prices), and any round robin with
 combos still in play.
 
+## Hedge Watch (alerts)
+
+`scripts/lib/hedge-alerts.mjs` runs inside the generator on **real** open tickets
+and puts a gold **⚠️ Hedge Watch** card at the top of the phone tracker. Andy chose
+the banner as the only delivery channel (no email/push) on 2026-10-25.
+
+- **Hedge spot (last_game):** a ticket whose remaining legs are all in one game,
+  paying at least 10x the stake and at least $100. Shows the chance it hits, the best
+  opposite market, a full (equalizing) hedge and a half hedge.
+- **Exposure gap (game_gap):** all side/total exposure riding on one game, scored
+  over final-margin x total scenarios. Flags a gap when there's a 15%+ chance the game
+  returns under 15% of its best case, shows the scenario grid (dead cells in red) and
+  the market that covers the most of the shortfall. Per-ticket hedges that point the
+  other way get a warning.
+- **Prices:** ESPN's DraftKings pickcenter (pregame/closing). "est." means a model
+  price for an alt line the feed doesn't quote (normal margin, sd 13.5, extra weight
+  on 3 and 7; total sd 10; 4.5% vig). Props aren't modelled; single-prop spots assume
+  -110 and say so.
+- **State:** `public/hedge-alerts.json` (gitignored) keeps active alerts plus the ids
+  already seen, so new ones print as `ALERT: ...` lines.
+- **Replay check:** `node scripts/hedge-alerts-replay.mjs` rebuilds the W7 SNF spot
+  and must PASS: flex hedge SEA -3, dead zone SEA 8+/Under, and a cover that wins at
+  the 20-3 final. `--alerts-demo <file>` renders saved alerts into the page for previews.
+- **Schedule:** before each kickoff window (Sun ~9:15/9:45, 12:15/12:45, 4:15/4:45
+  PT; Mon/Thu 4:15/4:45 PT) and at halftime of island games (~6:45 PT). Scheduled runs
+  use `--week auto` (the default).
+
 ## Gotchas
 
-- `device_commit_files` overwrites of existing repo files can lag or not land.
-  Verify with `md5sum`, or write the file through device bash.
+- `device_commit_files` caches by the *source* filename: re-sending the same
+  container path delivers the old content. Copy to a new, unique source name each
+  time (or commit to `.nfl/incoming/<name>.<hash>` and `cp` into place), then verify
+  with `md5sum`.
 - Player matching is by normalized display name (suffixes stripped). A prop
   that shows "not in box score" after the final usually means the player was
   inactive. Treat it as CHECK and confirm the book's void rule.
