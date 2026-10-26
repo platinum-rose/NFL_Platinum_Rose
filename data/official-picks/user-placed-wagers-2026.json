@@ -23694,8 +23694,8 @@
     "category": "Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 15,
@@ -23709,7 +23709,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-19 17:05 PT, Bookmaker ticket 740512242: Risk $15.00, Win $353.39. Cross-week ticket: leg 1/2 resolve tonight (WSH @ SF MNF), legs 3-6 are Week 7 games (NE @ CHI 10/22, KC @ SEA 10/25, IND @ MIN 10/25). Two SGP pairs (WAS +7.5/Under 52; Bears/Over 50.5). WAS +7.5 loses only if SF wins by 8+, so it is a partial hedge to SuperContest 740416960 (SF -7) and teaser 740279274; Under 52 runs against the MNF prop stacks. Remains PENDING into Week 7 after tonight's legs grade. | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 WON (WAS margin -6, line +7.5, cushion +1.5); L2 WON (total 40 vs under 52). Legs 3-6 are Week 7; ticket stays PENDING. | Andy confirmed 2026-10-19: leg 3 is Chicago Bears ML (moneyline), not a spread.",
+    "progress_notes": "Andy 2026-10-19 17:05 PT, Bookmaker ticket 740512242: Risk $15.00, Win $353.39. Cross-week ticket: leg 1/2 resolve tonight (WSH @ SF MNF), legs 3-6 are Week 7 games (NE @ CHI 10/22, KC @ SEA 10/25, IND @ MIN 10/25). Two SGP pairs (WAS +7.5/Under 52; Bears/Over 50.5). WAS +7.5 loses only if SF wins by 8+, so it is a partial hedge to SuperContest 740416960 (SF -7) and teaser 740279274; Under 52 runs against the MNF prop stacks. Remains PENDING into Week 7 after tonight's legs grade. | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 WON (WAS margin -6, line +7.5, cushion +1.5); L2 WON (total 40 vs under 52). Legs 3-6 are Week 7; ticket stays PENDING. | Andy confirmed 2026-10-19: leg 3 is Chicago Bears ML (moneyline), not a spread. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kansas City Chiefs +3.5",
     "legs": [
       {
         "leg_num": 1,
@@ -23721,10 +23721,11 @@
         "line": 7.5,
         "price": "SGP pair price not shown",
         "game_start": "10/19/2026 @ 05:18 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740512242_1",
         "sgp_pair": "sgp_was_sf",
-        "actual_stat": "WSH 17 @ SF 23 (WAS +7.5 cushion +1.5)"
+        "actual_stat": "WSH 17 @ SF 23 (WAS +7.5 cushion +1.5)",
+        "grading_note": "WSH 17-23 · covering by 1.5. ESPN 401873008, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -23736,11 +23737,12 @@
         "line": 52,
         "price": "SGP pair price not shown",
         "game_start": "10/19/2026 @ 05:18 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740512242_2",
         "direction": "under",
         "sgp_pair": "sgp_was_sf",
-        "actual_stat": "Total 40 (under 52)"
+        "actual_stat": 40,
+        "grading_note": "total 40. ESPN 401873008, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -23752,10 +23754,11 @@
         "line": null,
         "price": "SGP pair price not shown",
         "game_start": "10/22/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740512242_3",
         "sgp_pair": "sgp_ne_chi",
-        "actual_stat": null
+        "actual_stat": null,
+        "grading_note": "CHI 30-24. ESPN 401873010, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -23767,11 +23770,12 @@
         "line": 50.5,
         "price": "SGP pair price not shown",
         "game_start": "10/22/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740512242_4",
         "direction": "over",
         "sgp_pair": "sgp_ne_chi",
-        "actual_stat": null
+        "actual_stat": 54,
+        "grading_note": "total 54. ESPN 401873010, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -23783,9 +23787,11 @@
         "line": 3.5,
         "price": "-158",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740512242_5",
-        "note": "bought from KC +2 -115 on the 10/19 board"
+        "note": "bought from KC +2 -115 on the 10/19 board",
+        "actual_stat": "KC 3-20 · short by 13.5",
+        "grading_note": "KC 3-20 · short by 13.5. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 6,
@@ -23797,10 +23803,15 @@
         "line": null,
         "price": "-248",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740512242_6"
+        "status": "WON",
+        "key": "leg_740512242_6",
+        "actual_stat": "MIN 16-10",
+        "grading_note": "MIN 16-10. ESPN 401873014, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -15.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261019_beo_1007037537_sgp6_primetime_insured",
@@ -25189,15 +25200,15 @@
     "odds_decimal": 2.5,
     "potential_profit_usd": 45,
     "potential_payout_usd": 75,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://be.bookmaker.eu/#ticket_740506458",
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 pasted from Bookmaker open tickets: ticket 740506458, Risk $30.00, Win $45.00 (+150), placed 10/19/2026 3:45 PM. Leg 1 (SF -1, WSH @ SF MNF 10/19) graded WON from ESPN final SF 23, WSH 17. Legs 2-3 are Sunday 10/25. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 pasted from Bookmaker open tickets: ticket 740506458, Risk $30.00, Win $45.00 (+150), placed 10/19/2026 3:45 PM. Leg 1 (SF -1, WSH @ SF MNF 10/19) graded WON from ESPN final SF 23, WSH 17. Legs 2-3 are Sunday 10/25. Funding assumed cash. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kansas City Chiefs +8 (teased from +2)",
     "legs": [
       {
         "leg_num": 1,
@@ -25209,10 +25220,11 @@
         "line": -1,
         "price": "-105",
         "game_start": "10/19/2026 @ 05:18 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740506458_1_sf_m1",
         "note": "teased +6",
-        "actual_stat": "SF 23-17 (final, margin +6; teased line -1 covered)"
+        "actual_stat": "SF 23-17 (final, margin +6; teased line -1 covered)",
+        "grading_note": "SF 23-17 · covering by 5. ESPN 401873008, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -25224,9 +25236,11 @@
         "line": -0.5,
         "price": "-107",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740506458_2_min_m05",
-        "note": "teased +6"
+        "note": "teased +6",
+        "actual_stat": "MIN 16-10 · covering by 5.5",
+        "grading_note": "MIN 16-10 · covering by 5.5. ESPN 401873014, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -25238,11 +25252,16 @@
         "line": 8,
         "price": "-115",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740506458_3_kc_p8",
-        "note": "teased +6"
+        "note": "teased +6",
+        "actual_stat": "KC 3-20 · short by 9",
+        "grading_note": "KC 3-20 · short by 9. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -30.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261022_beo_1007918593_sgp5_propshop_ne_chi",
@@ -26062,8 +26081,8 @@
     "odds_decimal": null,
     "potential_profit_usd": 103.64,
     "potential_payout_usd": 123.64,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -26071,7 +26090,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~00:30 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO dog ML round robin, ticket 1008725429 (BEO shows the same ticket number on all 10 parlays), 10 two-team parlays x $2.00 = $20.00 risk. Per-parlay to-win from the slip: KC+ARI $11.16; LV+ARI $12.48; ATL+ARI $11.16; KC+LV $9.64; ATL+KC $8.58; ATL+LV $9.64; NO+ARI $12.02; NO+ATL $9.28; NO+KC $9.28; NO+LV $10.40. All five winning returns $123.64. Matches the Platinum Rose dog RR proposal; LV is included regardless of Nacua.",
+    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO dog ML round robin, ticket 1008725429 (BEO shows the same ticket number on all 10 parlays), 10 two-team parlays x $2.00 = $20.00 risk. Per-parlay to-win from the slip: KC+ARI $11.16; LV+ARI $12.48; ATL+ARI $11.16; KC+LV $9.64; ATL+KC $8.58; ATL+LV $9.64; NO+ARI $12.02; NO+ATL $9.28; NO+KC $9.28; NO+LV $10.40. All five winning returns $123.64. Matches the Platinum Rose dog RR proposal; LV is included regardless of Nacua. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kansas City Chiefs ML; Arizona Cardinals ML; Las Vegas Raiders ML; New Orleans Saints ML",
     "legs": [
       {
         "leg_num": 1,
@@ -26083,10 +26102,12 @@
         "line": null,
         "price": "+130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008725429_1_kc_ml",
         "target_stat": "moneyline",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": "KC 3-20",
+        "grading_note": "KC 3-20. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -26098,10 +26119,12 @@
         "line": null,
         "price": "+186",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008725429_2_ari_ml",
         "target_stat": "moneyline",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": "ARI 16-30",
+        "grading_note": "ARI 16-30. ESPN 401873019, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -26113,10 +26136,12 @@
         "line": null,
         "price": "+153",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008725429_3_lv_ml",
         "target_stat": "moneyline",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": "LV 21-35",
+        "grading_note": "LV 21-35. ESPN 401873021, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -26128,10 +26153,12 @@
         "line": null,
         "price": "+130",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008725429_4_atl_ml",
         "target_stat": "moneyline",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": "ATL 29-20",
+        "grading_note": "ATL 29-20. ESPN 401873017, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -26240,7 +26267,10 @@
         }
       ],
       "settlement_method": "sum of winning 2-team parlays"
-    }
+    },
+    "profit_usd": -20.0,
+    "settled_payout_usd": 0.0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261025_beo_1008680961_week_7_beo_8leg_crossgame_parlay",
@@ -26639,8 +26669,8 @@
     "odds_decimal": 15.59,
     "potential_profit_usd": 72.06,
     "potential_payout_usd": 77.0,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/45488862",
@@ -26649,7 +26679,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45488862, 5 Pick Combo 6%, Bought $4.94, Pays out $77.00. QB-pressure / kicking angles from the Prop Stack Agent (D. Jones and Darnold INT, Szmyt 2+ FG).",
+    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45488862, 5 Pick Combo 6%, Bought $4.94, Pays out $77.00. QB-pressure / kicking angles from the Prop Stack Agent (D. Jones and Darnold INT, Szmyt 2+ FG). SETTLED WIN 2026-10-25 20:50 PT (mobile tracker ESPN grading)",
     "legs": [
       {
         "leg_num": 1,
@@ -26664,10 +26694,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45488862_1_jones_pass_interceptions",
         "target_stat": "interceptions_thrown",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 INT. ESPN 401873014, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -26682,10 +26714,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45488862_2_darnold_pass_interceptions",
         "target_stat": "interceptions_thrown",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 INT. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -26700,10 +26734,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45488862_3_irving_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 TD. ESPN 401873018, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -26718,10 +26754,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45488862_4_love_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 pass TD. ESPN 401873020, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -26736,12 +26774,17 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45488862_5_szmyt_field_goals_made",
         "target_stat": "field_goals_made",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 FG. ESPN 401873013, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": 72.06,
+    "settled_payout_usd": 77.0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261025_dkp_45474408_4pick_kraft_love_mahomes_tbcar_over",
@@ -26765,8 +26808,8 @@
     "odds_decimal": 13.48,
     "potential_profit_usd": 63.88,
     "potential_payout_usd": 69.0,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/45474408",
@@ -26775,7 +26818,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45474408, 4 Pick Combo 7%, Bought $5.12, Pays out $69.00. Kraft ATD and Love 2+ pass TD are the same game (positively correlated).",
+    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45474408, 4 Pick Combo 7%, Bought $5.12, Pays out $69.00. Kraft ATD and Love 2+ pass TD are the same game (positively correlated). SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Patrick Mahomes 2+ Passing Touchdowns",
     "legs": [
       {
         "leg_num": 1,
@@ -26790,10 +26833,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45474408_1_kraft_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 TD. ESPN 401873020, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -26808,10 +26853,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45474408_2_love_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 pass TD. ESPN 401873020, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -26826,10 +26873,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp45474408_3_mahomes_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 pass TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -26842,12 +26891,17 @@
         "price": null,
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45474408_4_tbcar_over",
         "target_stat": "total_points",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 56,
+        "grading_note": "total 56. ESPN 401873018, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -5.12,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261025_dkp_45451260_8pick_7e_atd_lottery",
@@ -27382,8 +27436,8 @@
     "category": "Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "needs_confirmation": [
@@ -27403,7 +27457,7 @@
     "potential_profit_usd": 325.34,
     "potential_payout_usd": 345.34,
     "external_url": "https://be.bookmaker.eu/#ticket_740822735",
-    "progress_notes": "Andy 2026-10-25 13:59 PT: Bookmaker 5 TEAMS PARLAY ticket 740822735, placed 1:14 PM PT. Risk $20.00, Win $325.34 (+1627). Same-game pairs on GB@DET (Under 57 + GB +4.5) and KC@SEA (SEA ML + Over 41); BKR showed no per-leg prices except LAR ML -182. SEA ML opposes the KC +3/+3.5 positions (middle: SEA by 1-3).",
+    "progress_notes": "Andy 2026-10-25 13:59 PT: Bookmaker 5 TEAMS PARLAY ticket 740822735, placed 1:14 PM PT. Risk $20.00, Win $325.34 (+1627). Same-game pairs on GB@DET (Under 57 + GB +4.5) and KC@SEA (SEA ML + Over 41); BKR showed no per-leg prices except LAR ML -182. SEA ML opposes the KC +3/+3.5 positions (middle: SEA by 1-3). SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Over 41 (SGP with SEA ML)",
     "legs": [
       {
         "leg_num": 1,
@@ -27415,11 +27469,13 @@
         "line": 57,
         "price": "SGP pair price not shown",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740822735_1",
         "source": "Bookmaker",
         "direction": "under",
-        "sgp_pair": "sgp_gb_det"
+        "sgp_pair": "sgp_gb_det",
+        "actual_stat": 37,
+        "grading_note": "total 37. ESPN 401873020, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -27431,10 +27487,12 @@
         "line": 4.5,
         "price": "SGP pair price not shown",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740822735_2",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_gb_det"
+        "sgp_pair": "sgp_gb_det",
+        "actual_stat": "GB 17-20 · covering by 1.5",
+        "grading_note": "GB 17-20 · covering by 1.5. ESPN 401873020, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -27446,10 +27504,12 @@
         "line": null,
         "price": "SGP pair price not shown",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740822735_3",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea"
+        "sgp_pair": "sgp_kc_sea",
+        "actual_stat": "SEA 20-3",
+        "grading_note": "SEA 20-3. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -27461,11 +27521,13 @@
         "line": 41,
         "price": "SGP pair price not shown",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740822735_4",
         "source": "Bookmaker",
         "direction": "over",
-        "sgp_pair": "sgp_kc_sea"
+        "sgp_pair": "sgp_kc_sea",
+        "actual_stat": 23,
+        "grading_note": "total 23. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -27477,11 +27539,16 @@
         "line": null,
         "price": "-182",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740822735_5",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "LAR 35-21",
+        "grading_note": "LAR 35-21. ESPN 401873021, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -20.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "date": "2026-10-25",
@@ -28054,15 +28121,15 @@
     "odds_decimal": 22.93,
     "potential_profit_usd": 109.65,
     "potential_payout_usd": 114.65,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://be.bookmaker.eu/#ticket_740837231",
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 17:09 PT: Bookmaker 5 TEAMS PARLAY ticket 740837231 (SNF same-game), placed 4:53 PM PT. Risk $5.00, Win $109.65 (+2193). Built from the 7j fresh island Tier 1 (Mahomes/Darnold pass yds, Wilson carries, Holani rec, at slightly higher BKR lines: Mahomes 212+ vs 209+, Darnold 219+ vs 216+, Wilson O14.5 vs O13.5) plus Kelce anytime TD. Kelce TD adds to the KC TD exposure (Walker TD on BEO 1008920800).",
+    "progress_notes": "Andy 2026-10-25 17:09 PT: Bookmaker 5 TEAMS PARLAY ticket 740837231 (SNF same-game), placed 4:53 PM PT. Risk $5.00, Win $109.65 (+2193). Built from the 7j fresh island Tier 1 (Mahomes/Darnold pass yds, Wilson carries, Holani rec, at slightly higher BKR lines: Mahomes 212+ vs 209+, Darnold 219+ vs 216+, Wilson O14.5 vs O13.5) plus Kelce anytime TD. Kelce TD adds to the KC TD exposure (Walker TD on BEO 1008920800). SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Travis Kelce Player To Score 1+ Touchdown; George Holani Total Receptions Over 1.5; Patrick Mahomes 212+ Passing Yards",
     "platinum_rose_source": "Week 7 card §7j SNF island ladder (Tier 1, Andy-modified)",
     "legs": [
       {
@@ -28078,11 +28145,13 @@
         "price_source": "BKR SGP slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740837231_1_kelce_anytime_touchdown",
         "target_stat": "touchdowns",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea_island"
+        "sgp_pair": "sgp_kc_sea_island",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -28097,11 +28166,13 @@
         "price_source": "BKR SGP slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740837231_2_holani_receptions",
         "target_stat": "receptions",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea_island"
+        "sgp_pair": "sgp_kc_sea_island",
+        "actual_stat": 1,
+        "grading_note": "1 rec. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -28116,11 +28187,13 @@
         "price_source": "BKR SGP slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740837231_3_wilson_carries",
         "target_stat": "carries",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea_island"
+        "sgp_pair": "sgp_kc_sea_island",
+        "actual_stat": 24,
+        "grading_note": "24 carries. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -28135,11 +28208,13 @@
         "price_source": "BKR SGP slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740837231_4_mahomes_passing_yards",
         "target_stat": "passing_yards",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea_island"
+        "sgp_pair": "sgp_kc_sea_island",
+        "actual_stat": 165,
+        "grading_note": "165 pass yds. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -28154,13 +28229,18 @@
         "price_source": "BKR SGP slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740837231_5_darnold_passing_yards",
         "target_stat": "passing_yards",
         "source": "Bookmaker",
-        "sgp_pair": "sgp_kc_sea_island"
+        "sgp_pair": "sgp_kc_sea_island",
+        "actual_stat": 257,
+        "grading_note": "257 pass yds. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261025_dkp_46464866_8pick_snf_kc_sea",
@@ -28184,8 +28264,8 @@
     "odds_decimal": 58.6,
     "potential_profit_usd": 288.0,
     "potential_payout_usd": 293.0,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/46464866",
@@ -28194,7 +28274,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 18:10 PT: DK Predictions position 46464866, 8 Pick Combo 1.6%, Bought $5.00, Pays out $293.00. All 8 legs are SNF KC @ SEA. Rosters checked against espn-full-rosters-latest: Barner, Darnold, E. Wilson, Myers = SEA; Kelce, K. Walker III = KC. Darnold 1+ INT and 2+ pass TD are both on this slip.",
+    "progress_notes": "Andy 2026-10-25 18:10 PT: DK Predictions position 46464866, 8 Pick Combo 1.6%, Bought $5.00, Pays out $293.00. All 8 legs are SNF KC @ SEA. Rosters checked against espn-full-rosters-latest: Barner, Darnold, E. Wilson, Myers = SEA; Kelce, K. Walker III = KC. Darnold 1+ INT and 2+ pass TD are both on this slip. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) A.J. Barner Anytime TD Scorer; Sam Darnold 2+ Passing Touchdowns; Kenneth Walker III Anytime TD Scorer",
     "legs": [
       {
         "leg_num": 1,
@@ -28209,10 +28289,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46464866_1_barner_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -28227,10 +28309,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46464866_2_darnold_pass_interceptions",
         "target_stat": "interceptions_thrown",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 INT. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -28245,10 +28329,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46464866_3_darnold_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 pass TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -28263,10 +28349,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46464866_4_wilson_carries",
         "target_stat": "carries",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 24,
+        "grading_note": "24 carries. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 5,
@@ -28281,10 +28369,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46464866_5_myers_field_goals_made",
         "target_stat": "field_goals_made",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 FG. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 6,
@@ -28299,10 +28389,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46464866_6_barner_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 42,
+        "grading_note": "42 rec yds. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 7,
@@ -28317,10 +28409,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46464866_7_kelce_receptions",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 4,
+        "grading_note": "4 rec. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 8,
@@ -28335,12 +28429,17 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46464866_8_walker_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   },
   {
     "id": "bet_20261025_dkp_46447402_4pick_snf_atd_kc_sea",
@@ -28364,8 +28463,8 @@
     "odds_decimal": 55.4,
     "potential_profit_usd": 272.0,
     "potential_payout_usd": 277.0,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/46447402",
@@ -28374,7 +28473,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 18:11 PT: DK Predictions position 46447402, 4 Pick Combo 1.7%, Bought $5.00, Pays out $277.00. Four SNF anytime TDs (Walker III and Kelce KC; E. Wilson and Barner SEA, per espn-full-rosters-latest). Walker ATD and Barner ATD overlap with 8-pick 46464866.",
+    "progress_notes": "Andy 2026-10-25 18:11 PT: DK Predictions position 46447402, 4 Pick Combo 1.7%, Bought $5.00, Pays out $277.00. Four SNF anytime TDs (Walker III and Kelce KC; E. Wilson and Barner SEA, per espn-full-rosters-latest). Walker ATD and Barner ATD overlap with 8-pick 46464866. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kenneth Walker III Anytime TD Scorer; Travis Kelce Anytime TD Scorer; A.J. Barner Anytime TD Scorer",
     "legs": [
       {
         "leg_num": 1,
@@ -28389,10 +28488,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46447402_1_walker_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 2,
@@ -28407,10 +28508,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp46447402_2_wilson_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 3,
@@ -28425,10 +28528,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46447402_3_kelce_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       },
       {
         "leg_num": 4,
@@ -28443,11 +28548,16 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp46447402_4_barner_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-26T03:50:48Z"
   }
 ]
