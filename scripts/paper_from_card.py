@@ -13,7 +13,7 @@ import argparse, itertools, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SECTIONS = ('3', '4', '5', '7h', '7i', '7j', '7e')  # heading prefixes
+SECTIONS = ('3', '4', '5', '7h', '7i', '7j', '7k', '7e')  # heading prefixes
 TEAM = {'Arizona': 'ARI', 'Atlanta': 'ATL', 'Baltimore': 'BAL', 'Buffalo': 'BUF', 'Carolina': 'CAR', 'Chicago': 'CHI', 'Cincinnati': 'CIN',
         'Cleveland': 'CLE', 'Dallas': 'DAL', 'Denver': 'DEN', 'Detroit': 'DET', 'Green Bay': 'GB', 'Houston': 'HOU', 'Indianapolis': 'IND',
         'Jacksonville': 'JAX', 'Kansas City': 'KC', 'Las Vegas': 'LV', 'Los Angeles Rams': 'LAR', 'Los Angeles Chargers': 'LAC', 'Miami': 'MIA',
@@ -27,6 +27,7 @@ NICK = {'Browns': 'CLE', 'Jets': 'NYJ', 'Giants': 'NYG', 'Rams': 'LAR', 'Charger
 # (regex on the market text, market, target_stat)
 PROPS = [
     (r'kicker points|kicking points', 'kicker_points', 'kicking_points'),
+    (r'fantasy points', 'fantasy_points', 'fantasy_points_ppr'),
     (r'longest reception', 'longest_reception', 'longest_reception'),
     (r'pass(?:ing)? TDs?\b|pass TD', 'passing_touchdowns', 'passing_touchdowns'),
     (r'passing yds|passing yards', 'passing_yards', 'passing_yards'),
@@ -115,6 +116,10 @@ def leg_from(row, n, tid, starts):
         L.update(team=f'{away}/{home}', opponent='', market='game_field_goals', line=line, direction=direction, target_stat='field_goals_made',
                  team_market=True, grading='manual: total field goals made by both teams from the box score')
         return L
+    if re.match(r'Total sacks, both teams', mkt):
+        L.update(team=f'{away}/{home}', opponent='', market='game_sacks', line=line, direction=direction, target_stat='sacks',
+                 team_market=True, grading='manual: total sacks by both defenses from the box score')
+        return L
     m = re.match(r'(.+?) team (field goals|touchdowns)', mkt)
     if m:
         nm = m.group(1).strip()
@@ -138,14 +143,14 @@ def leg_from(row, n, tid, starts):
             L.update(player=player or None, market=market, line=line, direction=direction, target_stat=stat)
             t = player_team(player, away, home)
             if t: L.update(team=t, opponent=home if t == away else away)
-            if market in ('longest_reception', 'sacks_taken', 'first_touchdown'):
+            if market in ('longest_reception', 'sacks_taken', 'first_touchdown', 'fantasy_points'):
                 L['grading'] = f'manual: {player} {stat.replace("_", " ")} from the box score / play-by-play'
             return L
     L.update(market='other', grading='manual')
     return L
 
 
-def parse(card, season, week, date, starts):
+def parse(card, season, week, date, starts, section_dates=None):
     lines = card.split('\n')
     out, sec, i = [], None, 0
     while i < len(lines):
@@ -171,7 +176,7 @@ def parse(card, season, week, date, starts):
             tid = 'paper_w%d_card_%s' % (week, re.sub(r'[^a-z0-9]+', '_', name.lower()).strip('_')[:48])
             legs = [leg_from(r, n, tid, starts) for n, r in enumerate(rows, 1)]
             is_rr = sec == '4'
-            w = dict(id=tid, ticket_number=None, is_paper=True, date=date, season=season, week=week,
+            w = dict(id=tid, ticket_number=None, is_paper=True, date=(section_dates or {}).get(sec, date), season=season, week=week,
                      game=f'Week {week} multi-game' if len(legs) > 1 else legs[0]['game'],
                      game_title=f'Platinum Rose AI paper: {name}', book=f'Paper ({book} card price)',
                      ticket_type=('Round Robin' if is_rr else 'Single' if len(legs) == 1 else f'{len(legs)}-Leg Parlay'),
@@ -220,6 +225,8 @@ def main():
     ap.add_argument('--season', type=int, default=2026)
     ap.add_argument('--date')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--section-date', action='append', default=[], metavar='SEC=YYYY-MM-DD',
+                    help='per-section date override, e.g. 7k=2026-10-26 (keeps earlier sections on --date)')
     a = ap.parse_args()
     card = (ROOT / f'reports/bets/{a.season}-w{a.week:02d}-card.md').read_text(encoding='utf-8')
     placed = json.loads((ROOT / f'data/official-picks/user-placed-wagers-{a.season}.json').read_text(encoding='utf-8'))
@@ -229,7 +236,7 @@ def main():
             if x.get('week') == a.week and L.get('game_start') and ' @ ' in (L.get('game') or ''): starts.setdefault(L['game'], L['game_start'])
     pp = ROOT / f'data/official-picks/paper-wagers-{a.season}.json'
     paper = json.loads(pp.read_text(encoding='utf-8')) if pp.exists() else []
-    new = parse(card, a.season, a.week, a.date or '', starts)
+    new = parse(card, a.season, a.week, a.date or '', starts, dict(x.split('=', 1) for x in a.section_date))
     prefix = f'paper_w{a.week}_card_'
     keep = [p for p in paper if not str(p.get('id', '')).startswith(prefix)]
     for w in new:
