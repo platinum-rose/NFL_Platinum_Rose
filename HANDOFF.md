@@ -1,6 +1,15 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE: Week 7 SuperContest report correction
+## PICK UP HERE (2026-10-26, Claude → Codex H2C2)
+
+- **PICK UP HERE:** `handoffs/2026-10-26-0745-claude-h2c2-codex-briefing-w7-mobile-tracker-hedge-watch.md`. Week 7 real tickets are all settled (31 tickets, net −$233.60); mobile Live Tracker (`scripts/generate-live-tracker-mobile.mjs`, private artifact https://claude.ai/artifact/Q7NBq3G5MLgzVzraUPsuiy); Hedge Watch alerts (`scripts/lib/hedge-alerts.mjs`) with 5 scheduled pre-window runs. The resume prompt for Codex is in §9. Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mobile-tracker-hedge-watch/`.
+- Newer session handoffs the index was missing: `handoffs/2026-10-25-1415-claude-w7-sunday-tracking-mobile-tracker-next.md`.
+- Last verified HEAD: `b98a243` on `claude/w5-prop-cards-2026-10-11` (before the H2C2 commit).
+
+## Superseded, kept for history: Week 7 SuperContest report correction
+
+> Superseded: the SC report was finalized 2026-10-25 (`34b0781`); see the 10/25 handoff.
+
 
 Repository: `E:\dev\projects\NFL_Dashboard`
 Branch: `claude/w5-prop-cards-2026-10-11`

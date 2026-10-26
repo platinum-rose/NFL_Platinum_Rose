@@ -1,0 +1,258 @@
+<title>Platinum Rose Road Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: desktop Live Tracker palette on one phone column: header panel, game board strip, slip cards with leg boxes. Single dark look, same as desktop. */
+:root {
+  --bg-main: #0B1120; --bg-card: #151F32; --bg-leg: #111A2B; --bg-chip: #1E293B; --border: #273752;
+  --blue: #3B82F6; --green: #10B981; --gold: #F59E0B; --cyan: #38BDF8; --purple: #818CF8; --red: #EF4444;
+  --text: #F8FAFC; --muted: #94A3B8;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg-main); color: var(--text); font: 14px/1.5 var(--font); -webkit-tap-highlight-color: transparent; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg-main); }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 640px; margin: 0 auto; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg-main); padding-block: 10px 6px; }
+.panel { background: linear-gradient(180deg, #16213A, var(--bg-card)); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.title-row h1 { margin: 0; font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,.2); flex: 0 0 auto; }
+.fresh { font-size: 12px; color: var(--muted); }
+.fresh.stale { color: var(--gold); }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.kpi small { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kpi b { font-size: 19px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.kpi b.blue { color: var(--blue); } .kpi b.green { color: var(--green); }
+.board-h, .slips-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 14px 0 8px; font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.board-h span:last-child { color: var(--muted); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 12px; }
+.slips-h { justify-content: flex-start; }
+.games { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.games::-webkit-scrollbar { display: none; }
+.game-card { flex: 0 0 auto; width: 168px; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); text-decoration: none; }
+.game-card.in { border-color: rgba(245,158,11,.55); }
+.gc-team { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.gc-team.lead { color: var(--text); }
+.gc-team b { font-size: 15px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+.gc-odds { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 6px; }
+.tchip { font-size: 10.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; min-width: 32px; text-align: center; letter-spacing: .02em; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
+.chip.time { background: rgba(59,130,246,.15); color: #93C5FD; border: 1px solid rgba(59,130,246,.4); }
+.chip.live { background: rgba(245,158,11,.14); color: var(--gold); border: 1px solid rgba(245,158,11,.45); }
+.chip.final { background: var(--bg-chip); color: var(--muted); border: 1px solid var(--border); }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+.slips-h .dot { animation: pulse 1.8s ease-in-out infinite; }
+.list { display: grid; gap: 12px; padding-bottom: 20px; }
+.bet-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.bet-card > summary { list-style: none; cursor: pointer; padding: 14px; display: grid; gap: 6px; }
+.bet-card > summary::-webkit-details-marker { display: none; }
+.bet-card > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 12px; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.card-title { font-size: 15px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.chev { color: var(--muted); transition: transform .2s; padding-top: 2px; }
+.bet-card[open] .chev { transform: rotate(180deg); }
+.card-subtitle { font-size: 12px; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { font-size: 10.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
+.badge-cash { background: var(--bg-chip); color: #E2E8F0; }
+.badge-id { background: transparent; color: var(--muted); border: 1px solid var(--border); text-transform: none; font-variant-numeric: tabular-nums; }
+.badge-check { background: rgba(245,158,11,.15); color: var(--gold); }
+.money-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 4px; }
+.money-row small { display: block; font-size: 12px; color: var(--text); opacity: .85; }
+.money-row b { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.money-row b.odds { color: var(--cyan); } .money-row b.towin { color: var(--green); }
+.progress-bar-wrap { background: var(--bg-chip); border-radius: 999px; height: 6px; overflow: hidden; margin-top: 4px; }
+.progress-fill { background: var(--blue); height: 100%; }
+.card-line { font-size: 12px; color: var(--muted); }
+.card-legs { display: grid; gap: 8px; padding: 0 12px 12px; }
+.leg-item { display: grid; grid-template-columns: 20px 1fr; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); }
+.leg-item.hit { border-color: rgba(16,185,129,.45); }
+.leg-item.burnt { border-color: rgba(239,68,68,.45); opacity: .8; }
+.leg-item.live { border-color: rgba(245,158,11,.45); }
+.chk { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #CBD5E1; background: #E2E8F0; margin-top: 2px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; line-height: 1; }
+.leg-item.hit .chk, .leg-item.push .chk { background: var(--green); border-color: var(--green); }
+.leg-item.burnt .chk { background: var(--red); border-color: var(--red); }
+.leg-item.live .chk { background: transparent; border-color: var(--gold); }
+.leg-item.check .chk { background: var(--gold); border-color: var(--gold); color: #0B1120; }
+.leg-body { min-width: 0; display: grid; gap: 6px; }
+.leg-name { font-size: 13.5px; line-height: 1.35; overflow-wrap: anywhere; }
+.leg-name b { font-weight: 700; }
+.leg-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.leg-game { font-size: 11.5px; color: var(--muted); }
+.prog-row { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--muted); }
+.prog-row b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; overflow-wrap: anywhere; }
+.prog-row b.hit { color: var(--green); } .prog-row b.burnt { color: var(--red); } .prog-row b.live { color: var(--gold); }
+.pbar { background: var(--bg-chip); border-radius: 999px; height: 5px; overflow: hidden; margin-top: -2px; }
+.pbar i { display: block; height: 100%; background: var(--blue); }
+.pbar i.green { background: var(--green); } .pbar i.red { background: var(--red); } .pbar i.amber { background: var(--gold); }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--bg-card); border: 1px dashed var(--border); border-radius: 12px; }
+footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display: grid; gap: 6px; }
+.badge-paper { background: rgba(129,140,248,.16); color: var(--purple); border: 1px solid rgba(129,140,248,.45); text-transform: none; }
+.bet-card.paper { border-color: rgba(129,140,248,.35); border-style: dashed; }
+.dot.purple { background: var(--purple); box-shadow: 0 0 0 3px rgba(129,140,248,.2); }
+.paper-wrap > summary { list-style: none; cursor: pointer; }
+.paper-wrap > summary::-webkit-details-marker, .paper-settled > summary::-webkit-details-marker { display: none; }
+.paper-h { color: var(--purple); justify-content: flex-start; }
+.paper-h .chev { margin-left: auto; }
+.paper-wrap[open] > summary .chev { transform: rotate(180deg); }
+.paper-note { margin: 0 0 10px; font-size: 12px; color: var(--muted); }
+.paper-note b.hit, .pr-pl.hit { color: var(--green); } .paper-note b.burnt, .pr-pl.burnt { color: var(--red); }
+.paper-settled { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; }
+.paper-settled > summary { list-style: none; cursor: pointer; padding: 12px 14px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.paper-rows { display: grid; padding: 0 14px 10px; }
+.paper-row { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-top: 1px solid var(--border); font-size: 13px; }
+.pr-title { min-width: 0; overflow-wrap: anywhere; }
+.pr-pl { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.alerts { margin-top: 14px; display: grid; gap: 10px; }
+.alerts-h { font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); }
+.alert-card { background: linear-gradient(180deg, rgba(245,158,11,.08), var(--bg-card) 60%); border: 1px solid rgba(245,158,11,.55); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; }
+.ac-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 14px; }
+.ac-line { font-size: 12px; color: var(--muted); }
+.ac-lead { margin: 0; font-size: 13.5px; }
+.ac-lead b { color: var(--gold); }
+.ac-table { overflow-x: auto; }
+.ac-table table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.ac-table th, .ac-table td { padding: 5px 6px; border-bottom: 1px solid var(--border); text-align: left; }
+.ac-table thead th { color: var(--muted); font-weight: 600; }
+.ac-table tbody th { font-weight: 600; white-space: nowrap; }
+.ac-table td b { display: block; font-size: 13px; }
+.ac-table td small { color: var(--muted); }
+.ac-table td.dead { background: rgba(239,68,68,.14); }
+.ac-table td.dead b { color: var(--red); }
+.ac-hedge { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-hedge b { color: var(--green); font-size: 14px; }
+.ac-k, .ac-cost { font-size: 11.5px; color: var(--muted); }
+.ac-k { text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+.ac-ticket { display: grid; gap: 3px; padding: 10px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); font-size: 13px; }
+.ac-t2 { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.ac-t3 b { color: var(--green); }
+.ac-note { margin: 0; font-size: 12px; color: var(--muted); }
+.ac-warn { font-size: 12px; color: var(--gold); }
+.ac-foot { margin: 0; font-size: 11.5px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
+</style>
+
+<div class="top"><div class="wrap"><div class="panel">
+  <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week 7</h1></div>
+  <div class="fresh" id="fresh" data-built="2026-10-26T14:37:03.195Z">Graded 7:37 AM</div>
+  <div class="kpis">
+    <div class="kpi"><small>Cash risk</small><b>$0.00</b></div>
+    <div class="kpi"><small>Potential win</small><b class="blue">$0.00</b></div>
+    <div class="kpi"><small>Total cashed</small><b class="green">$77.00</b></div>
+  </div>
+</div></div></div>
+
+<main class="wrap">
+  
+  <div class="board-h"><span>📅 Game Board</span><span>1 games · tap for ESPN</span></div>
+  <nav class="games" aria-label="Games your open tickets depend on"><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873009" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">5:15 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#2D5BD1;color:#fff">DAL</span><span>Cowboys</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#004C54;color:#fff">PHI</span><span>Eagles</span><b></b></div>
+    <div class="gc-odds">DAL -4.5 • O/U 43.5</div>
+  </a></nav>
+  <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (0 Live)</span></div>
+  <div class="list">
+    <div class="empty">No open tickets right now. Everything for this week has settled.</div>
+  </div>
+  <details class="paper-wrap" id="paper-section" open>
+  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (1 Live)</span><span class="chev" aria-hidden="true">▾</span></summary>
+  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: 5 cashed, 29 burnt, <b class="burnt">−$159.01</b> paper P&amp;L. Open paper risk $70.00 to win $13.02.</p>
+  <div class="list"><details class="bet-card paper" id="t-paper_w7_card_master_round_robin_8_legs_by_4s">
+  <summary>
+    <div class="card-header"><div class="card-title">Master Round Robin (8 legs by 4s)</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Paper (BKR card price) • Round robin (8 picks)</div>
+    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §4</span></div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>$70.00</b></div>
+      <div><small>Odds:</small><b class="odds">RR</b></div>
+      <div><small>To Win:</small><b class="towin">$13.02</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="card-line">1 of 70 combos alive</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 44</b></div>
+      <div class="leg-meta"><span class="chip time">5:15 PM PT</span><span class="leg-game">DAL @ PHI</span></div>
+      
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>New York Jets -4</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">MIA @ NYJ</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">NYJ 25-28 · short by 7</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Arizona +4.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DEN @ ARI</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">ARI 16-30 · short by 9.5</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>KC ML (Kansas City)</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">KC @ SEA</span></div>
+      <div class="prog-row"><span>Score</span><b class="burnt">KC 3-20</b></div>
+    </div></div><div class="leg-item burnt">
+    <span class="chk" aria-hidden="true">✕</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 47</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">CIN @ BAL</span></div>
+      <div class="prog-row"><span>Stat Progress (under)</span><b>48 / 47 ❌</b></div>
+      <div class="pbar"><i class="red" style="width:100%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Green Bay +3.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">GB @ DET</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">GB 17-20 · covering by 0.5</b></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Under 41.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">IND @ MIN</span></div>
+      <div class="prog-row"><span>Stat Progress (under)</span><b>26 / 41.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:63%"></i></div>
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Over 44.5</b></div>
+      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">TB @ CAR</span></div>
+      <div class="prog-row"><span>Stat Progress</span><b>56 / 44.5 ✅</b></div>
+      <div class="pbar"><i class="green" style="width:100%"></i></div>
+    </div></div></div>
+</details></div>
+  <details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (34)</summary><div class="paper-rows"><div class="paper-row"><span class="pr-title">Afternoon Parlay (SNF cap)</span><span class="pr-pl hit">+$84.41</span></div><div class="paper-row"><span class="pr-title">7b Afternoon 4-Leg (night leg last)</span><span class="pr-pl hit">+$70.29</span></div><div class="paper-row"><span class="pr-title">Single · GB@DET Green Bay +3.5</span><span class="pr-pl hit">+$19.42</span></div><div class="paper-row"><span class="pr-title">Single · TB@CAR Over 44.5</span><span class="pr-pl hit">+$18.52</span></div><div class="paper-row"><span class="pr-title">Single · IND@MIN Under 41.5</span><span class="pr-pl hit">+$18.35</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 2 (fresh, diversified)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 3 moonshot (fresh)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">Morning Parlay (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Hybrid A (BEO, no Paris game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Hybrid B (BEO, no Paris game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Perfect Lottery 13-Leg (best leg from every game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Core 7-Leg (highest hit rates, no leg shorter than -200)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Field-Goal Ticket 7-Leg (red-zone stalls vs wind and TD-heavy scripts)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">QB Pressure Ticket 8-Leg (INTs and sacks taken)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">IDP Tackles Ticket 7-Leg (tackles + assists)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7a Morning 6-Leg (early window)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">A Receiving-Yards Core 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">B Plus-Money Ladder 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">C TD Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">D Kicker / Field-Goal Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">E No-DEN/ARI 5-Leg (two per game + SNF cap; Sun 1:10 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">F Diversified No-DEN/ARI 5-Leg (five prop types + SNF cap; Sun 1:12 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 1 (fresh)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7e Anytime TD 7-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">8a First TD 3-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Under 39</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · CIN@BAL Under 47</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · KC@SEA Kansas City +3</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ New York Jets -4</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · DEN@ARI Arizona +4.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · KC@SEA KC ML (Kansas City)</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Malik Willis pass TD Under 0.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · PIT@NO Aaron Rodgers pass TD Over 1.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Dog ML Round Robin (by 2s)</span><span class="pr-pl burnt">−$20.00</span></div></div></details>
+</details>
+  <footer>
+    <span>Real tickets are listed closest to cashing first. Week 7 so far: 1 real tickets cashed, 30 burnt (hidden). SuperContest is on the desktop tracker.</span>
+    <span>Scores are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var el = document.getElementById('fresh');
+  var built = Date.parse(el.dataset.built);
+  var label = el.textContent;
+  function tick() {
+    var m = Math.round((Date.now() - built) / 60000);
+    el.textContent = label + (m < 1 ? ' · just now' : ' · ' + (m < 60 ? m + ' min ago' : Math.floor(m / 60) + ' h ' + (m % 60) + ' min ago'));
+    el.classList.toggle('stale', m >= 45);
+  }
+  tick(); setInterval(tick, 30000);
+  var KEY = 'pr-mobile-open';
+  var openSet = {};
+  try { openSet = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { openSet = {}; }
+  document.querySelectorAll('details.bet-card, details.paper-settled').forEach(function (d) {
+    if (openSet[d.id]) d.open = true;
+    d.addEventListener('toggle', function () {
+      if (d.open) openSet[d.id] = 1; else delete openSet[d.id];
+      try { localStorage.setItem(KEY, JSON.stringify(openSet)); } catch (e) {}
+    });
+  });
+})();
+</script>
