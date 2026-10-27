@@ -13,7 +13,7 @@ import argparse, itertools, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SECTIONS = ('3', '4', '5', '7h', '7i', '7j', '7k', '7e')  # heading prefixes
+SECTIONS = ('3', '4', '5', '7h', '7i', '7j', '7k', '7l', '7e')  # heading prefixes
 TEAM = {'Arizona': 'ARI', 'Atlanta': 'ATL', 'Baltimore': 'BAL', 'Buffalo': 'BUF', 'Carolina': 'CAR', 'Chicago': 'CHI', 'Cincinnati': 'CIN',
         'Cleveland': 'CLE', 'Dallas': 'DAL', 'Denver': 'DEN', 'Detroit': 'DET', 'Green Bay': 'GB', 'Houston': 'HOU', 'Indianapolis': 'IND',
         'Jacksonville': 'JAX', 'Kansas City': 'KC', 'Las Vegas': 'LV', 'Los Angeles Rams': 'LAR', 'Los Angeles Chargers': 'LAC', 'Miami': 'MIA',
