@@ -1,0 +1,92 @@
+# Anti-Patterns — NFL Platinum Rose
+
+> **Purpose:** Categorized anti-patterns discovered through AI corrections and production bugs.
+> **Rule:** After ANY user correction, immediately add a new entry here under the appropriate category.
+> **Format:** `**Bold title**: What went wrong, why, and the rule to avoid it.`
+
+---
+
+## Date & Time
+
+- **UTC commence_time +1 day offset**: API timestamps are UTC ISO strings. 7pm ET games store as `"2026-02-19T00:00:00Z"` (midnight UTC = next day). Using `.split('T')[0]` produces a date one day ahead. Fix: convert to local timezone before extracting date string.
+
+- **Date-only string display UTC trap**: `new Date("2026-02-25").toLocaleDateString()` renders as 2/24 in ET because JS parses `YYYY-MM-DD` as midnight UTC. Always append `T12:00:00` or use timezone-aware formatting when displaying date strings.
+
+---
+
+## React / Component Architecture
+
+- **Hook TDZ ordering**: Never call a hook that receives a `const fn = () =>` callback BEFORE that `const` declaration in the same component body. `const` is NOT hoisted. Move the hook call BELOW the function definition. Symptom: `ReferenceError: Cannot access 'X' before initialization`.
+
+- **React.memo comparator must match actual prop names**: If comparator checks `g1.overUnder` but the game object uses `g1.total`, field changes are invisible to the memo. Always verify field names match the actual data object.
+
+- **React.lazy tabs must stay lazy**: The non-landing tabs are lazy-loaded via `React.lazy()` with a `<Suspense>` wrapper in App.jsx. As of F-8 the lazy set is: `standings`, `devlab`, `bankroll`, `analytics`, `odds`, `picks`, `futures`, `agent`, `props`, `dfs` (10 tabs). This originally dropped index.js from ~700KB to 466KB. Do NOT revert to static imports — it bloats the initial bundle. Dashboard stays eager (landing page). Any new tab must also be `lazy()`-imported.
+
+---
+
+## Storage & Data
+
+- **Spread-only filtering must preserve the argument:** Removing other markets from SuperContest must not replace substantive pick reasoning with generic cover definitions. Every AI proposal and alternate needs a cited Pitch and Pushback, including conflicting evidence and source dates.
+- **Current prop menus must not inherit archived prices:** Select BEO and DKP captures by timestamp and week; preserve each row's side and threshold semantics. A missing current offer stays missing. Prediction contracts are labeled before fees and excluded from sportsbook best-price ladders.
+
+- **Artifact row count is not evidence coverage**: A dated artifact can still be incomplete when its query is capped, article bodies are missing, or stored text ends at an ingest ceiling. Never label article records as "reviewed" from row count alone. Report corpus completeness and body-evidence status separately, keep pick-oriented rows unresolved until their usable bodies are examined, and block frontier synthesis when those gates are unknown or failed.
+
+- **Public file fetches — Vite base path**: NEVER use hardcoded `/filename.json`. Vite base is `/platinum-rose-app/` so `public/` files must be fetched as `./filename.json` or `` `${import.meta.env.BASE_URL}filename.json` ``. Hardcoded `/` prefix 404s in production.
+
+- **localStorage direct access**: Never call `localStorage.getItem()` or `localStorage.setItem()` directly outside `src/lib/storage.js`. All reads/writes must go through `loadFromStorage`/`saveToStorage`/`clearStorage`. This ensures try/catch safety and the `PR_STORAGE_KEYS` catalog stays as the single source of truth.
+
+- **Don't change storage keys without data migration**: Old key: `ncaa_picks_database` → New key: `pr_picks_v1`. Always check both keys when debugging "missing data". NEVER rename a key without a migration helper.
+
+- **Auto-save guard anti-pattern**: `if (state.length > 0) { saveToStorage(key, state) }` seems safe but prevents cleared state from persisting. After `clearBets()`, state becomes `[]`, the guard skips the save, and data resurrects after refresh. Solution: remove all guards and call `clearStorage(key, emptyDefault)` explicitly in clear handlers.
+
+- **Boot clobber — never unconditionally set state from a network fetch**: `setSplits(splitsData || {})` in the boot effect overwrites the user's Action Network splits on every hard refresh (and wipes them entirely on network failure). Always check localStorage first: only use the remote value if the local key is empty. Rule: boot effects initialize; they don't overwrite.
+
+- **Bankroll bet ID type mismatch**: Bet IDs are created as `Date.now()` (number) but filtering may use string comparison. Always normalize: `const sids = new Set([...ids].map(String))` and filter with `!sids.has(String(b.id))`.
+
+- **Placed-wager tickets logged outside the master ledger**: `data/official-picks/user-placed-wagers-2026.json` is the SINGLE SOURCE OF TRUTH for every placed real-money/promo wager. On 2026-09-13, 3 Week 1 tickets (1 DraftKings Predictions combo + 2 Bookmaker.eu parlays) were logged into `data/futures-imports/andy-portfolio-ledger-2026.json` (a raw sportsbook-import staging file) instead, and never made it into the master ledger, `public/user-placed-wagers-2026.json`, or Supabase — they sat invisible to grading and the live tracker for days. Rule: a placed wager gets written ONLY to the master ledger, by hand or script. Never write ticket data directly to `public/user-placed-wagers-2026.json` (it's a generated hydration copy), to Supabase `user_bankroll_bets` (it's a sync target), to `data/futures-imports/*` (that's for raw sportsbook account/futures exports, not weekly wager tickets), or to any dashboard HTML. After adding/editing a ticket in the master file, always run `node scripts/sync-placed-wagers-to-bankroll.mjs` (propagates to `public/` + Supabase) and `node scripts/generate-live-tracker.mjs` (rebuilds both tracker HTML copies) — never hand-edit those downstream files.
+
+---
+
+## API & Network
+
+- **API auto-refresh burning quota**: Never use `setInterval(loadOdds, N)` for rate-limited APIs. The LiveOddsDashboard was firing every 2 minutes, burning 30 calls/hour. Auto-refresh is now disabled; only manual fetch. Always cache API responses in localStorage with a TTL check.
+
+- **Startup API fetch on every refresh**: `fetchLiveOdds()` in the boot `useEffect` called the API on every page load. Now replaced with `Promise.resolve([])`. Only fetch on explicit user action.
+
+- **Don't assume GitHub raw URLs exist**: Verify the file exists in the repo before adding a fetch. 404s degrade silently.
+
+- **ESPN `groups=50` parameter**: Always include `&groups=50` in ESPN scoreboard API calls or only a subset of games return. This is not documented in their public API — discovered through trial and error.
+
+---
+
+## AI / GPT Quirks
+
+- **GPT total selection casing**: GPT-4o returns `"OVER"`/`"UNDER"` in all-caps, not `"Over"`/`"Under"`. Always use `.toLowerCase()` when checking for total picks.
+
+- **ReviewPicksModal Context field**: `handleAIAnalyze` creates picks with `rationale: p.summary || p.rationale || p.analysis` — GPT never returns `analysis` directly, so `pick.analysis` is always undefined. The "Context" field must read `pick.rationale`.
+
+---
+
+## Infrastructure
+
+- **AssemblyAI `speech_models` is required and is an array**: The API does not default to any model. Must pass `speech_models: ['universal-2']` (or `['universal-3-pro']` for higher quality). `speech_model` (singular, string) is deprecated and will also error.
+
+- **GHA runs check out the commit at trigger time**: If you push a fix and immediately re-trigger a workflow, the run may still use the pre-fix commit if the trigger races the push. Wait for the push to complete before triggering, or verify the commit SHA in the run's "Checkout" step output.
+
+---
+
+## Performance
+
+- **O(n²) lookups in loops**: Never call a `.find()` inside `.map()` — pre-build a `Map` keyed by the lookup field for O(1) access.
+
+- **Don't use `.map()` on potentially undefined arrays**: Always default: `(arr || []).map(...)`.
+
+## Betting Rules & Card Building
+
+- **Treating a playbook proposal as a standing rule** (2026-10-04, Andy correction): the Week 4 card and a Claude session excluded full-game unders from parlays as a "house rule". The source was the *Week 4 proposal* section of `docs/claude-project-dev/week4-playbook-2026.md` ("Andy's call"), not a rule Andy adopted. Rule: the only betting rules are Andy's standing rules (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` §7.2, HANDOFF "Active rules") and the data-derived build rules (§5 table). Playbook "Cut"/"Rules" bullets are proposals until Andy confirms them; cite them as "playbook proposal", never "house rule", and never drop a leg on one alone.
+
+---
+
+## Live Tracker
+
+- **Market-name substring matching must cover the ledger's real slugs**: `scripts/generate-live-tracker.mjs` graded prop legs with `market.includes('yard')` and `includes('complet')`, but the ledger stores `rec_yds`, `rush_yds`, `pass_yds` and `pass_cmp`, so every yardage and completions leg read 0 live (Week 5: Collins at 3 rec / 45 yds showed 0). Fixed 2026-10-11 to `/yard|yds/` and `/complet|cmp/` in all three grading blocks. Rule: when adding a ledger market slug, grep the tracker's three grading blocks (leg pacing, sub-gauge, cheat sheet) and confirm the slug matches before the games start; verify with a live ESPN box score, not only a clean build.

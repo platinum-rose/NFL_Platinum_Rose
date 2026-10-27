@@ -1,8 +1,14 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-26, Week 7 football data and analytics)
+## PICK UP HERE (2026-10-26 22:15 PT, H2C2 to Claude Team 2: Week 7 closed, Week 8 next)
 
-- **PICK UP HERE:** `handoffs/2026-10-26-codex-week7-football-stats.md`. The provisional post-mortem now includes 13 completed games, team/player stats, scoring plays, and ticket accounting; DAL @ PHI and proposal-vs-results analysis remain open.
+- **PICK UP HERE:** `handoffs/2026-10-26-2215-claude-h2c2-claude2-briefing-w7-mnf-close.md`. Week 7 is fully settled: 39 real tickets, $387.51 risked, net −$234.99. MNF DAL 38–21: 8 tickets, −$1.39, DKP 46908050 won $62.00. The briefing covers the MNF island ladders (card §7k/§7l, paper), the Gary sack-line fix, the weekly prop-scraper cadence (live), the Yahoo API briefing for Codex, the needs-Andy list and the Week 8 start (TNF CAR @ GB, Thu 10/29). Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mnf-close-claude2/`.
+- Newer than the list below and not previously indexed: commits `d8e26bf`, `1d504d7`, `8bc29a6`, `003e861`, `5d0824d`, `08256bc`, `7ab6fb0`, `21864cf`, `0493dfd`. None of them had their own handoff file; the briefing §2 records them.
+- Last verified HEAD: `0493dfd` plus the H2C2 commit, on branch `claude/w5-prop-cards-2026-10-11`. `origin/main` = `61da10a`, which is not the working branch. Reconcile live git first.
+
+## Superseded, kept for history: 2026-10-26 Codex day checkpoints (Week 7 football data and analytics)
+
+- Was the pick-up: `handoffs/2026-10-26-codex-week7-football-stats.md`. The provisional post-mortem now includes 13 completed games, team/player stats, scoring plays, and ticket accounting; DAL @ PHI and proposal-vs-results analysis remain open.
 - Prior ticket checkpoint: `handoffs/2026-10-26-codex-week7-postmortem-data.md`.
 - Prior network checkpoint: `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. The mobile tracker now shares the Monday settlement request helper; live DNS still failed in this shell.
 - Prior engineering checkpoint: `handoffs/2026-10-26-codex-hedge-watch-engineering.md` (`35525d4`), including hedge-alert tests and replay results.
