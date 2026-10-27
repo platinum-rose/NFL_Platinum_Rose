@@ -1,0 +1,68 @@
+{
+ "schema": "weekly_archive_manifest_v1",
+ "season": 2026,
+ "week": 7,
+ "started_at": "2026-10-27T14:58:01.170Z",
+ "host": "linux",
+ "steps": {
+  "espn": {
+   "ok": true,
+   "ms": 1313,
+   "games": 14,
+   "cached": 14,
+   "not_final": []
+  },
+  "betting": {
+   "ok": true,
+   "ms": 11614,
+   "team_postmortem": "wrote week-07-teams.json/.csv: 28 team rows, pending []",
+   "espn_week": "week 7: 14 final games written; pending: none",
+   "grade_apply": "0 change(s); 0 unresolved leg(s).",
+   "left_open": [],
+   "weekly_review": "Week 7: net -234.99 on $387.51 · season net -765.29 on $3506.16 · open 0 · unique legs 1051 (from box 0)",
+   "player_games": "error: reports/analysis/season/claude/scripts/build_player_games.py exit 1: de\r\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\r\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\decoder.py\", line 361, in raw_decode\r\n    obj, end = self.scan_once(s, idx)\r\n               ~~~~~~~~~~~~~~^^^^^^^^\r\njson.decoder.JSONDecodeError: Unterminated string starting at: line 6055 column 17 (char 200674)\r\n",
+   "validation": "ERRORS FOUND (see out/data-validation.md): reports/analysis/season/claude/scripts/validate_postmortem_data.py exit 1: de\r\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\r\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\"
+  },
+  "yahoo": {
+   "ok": true,
+   "ms": 29894,
+   "summary": "parsed: 5 leagues, 56 rosters, other games: yahoops,nflp"
+  },
+  "pools": {
+   "ok": true,
+   "ms": 4,
+   "files": [
+    "yahoo-472-g-4087-2026-w07.json"
+   ]
+  },
+  "rollups": {
+   "ok": true,
+   "ms": 404,
+   "team_weeks": 214,
+   "fantasy_player_weeks": 6511,
+   "fantasy_matchups": 196
+  },
+  "drafts": {
+   "ok": true,
+   "ms": 1112,
+   "fetched": false,
+   "summary": "25 leagues"
+  },
+  "notes": {
+   "ok": true,
+   "ms": 1099,
+   "notes": 50,
+   "staged": "data/archive/2026/week-07/vault"
+  },
+  "vault": {
+   "ok": true,
+   "ms": 62,
+   "written": 7,
+   "unchanged": 43
+  }
+ },
+ "last_full_run": "2026-10-27T13:00:01.670Z",
+ "mode": "vault-only rebuild",
+ "status": "ok",
+ "finished_at": "2026-10-27T14:58:03.213Z"
+}

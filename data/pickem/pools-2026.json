@@ -1,130 +1,132 @@
 {
- "schema": "pickem_pools_v1",
- "season": 2026,
- "updated_at": "2026-10-16T23:10:00Z",
- "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
- "pools": [
-  {
-   "id": "simplysportsware",
-   "name": "the duma 2 (SimplySportsware confidence pool)",
-   "platform": "SimplySportsware",
-   "format": "confidence",
-   "scoring": "confidence 1..N (N = games that week)",
-   "entrants": 93,
-   "entrants_note": "93 on the 10/05 standings",
-   "lock": "per_game_kickoff",
-   "prizes": [
-    "weekly",
-    "quarterly",
-    "four_game_segment",
-    "season"
-   ],
-   "strategy": "market",
-   "strategy_note": "Three of four prizes are cumulative -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
-   "standings": {
-    "as_of": "2026-10-16 Week 5 final (read in Chrome)",
-    "rank_row": 48,
-    "site_rank": 47,
-    "pts": 429.5,
-    "leader": "AVL GAL 506",
-    "gap_to_leader": 76.5,
-    "by_week": {
-     "1": 95,
-     "2": 85,
-     "3": 75,
-     "4": 91,
-     "5": 83.5
+  "schema": "pickem_pools_v1",
+  "season": 2026,
+  "updated_at": "2026-10-27T15:05:00Z",
+  "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
+  "pools": [
+    {
+      "id": "simplysportsware",
+      "name": "the duma 2 (SimplySportsware confidence pool)",
+      "platform": "SimplySportsware",
+      "format": "confidence",
+      "scoring": "confidence 1..N (N = games that week)",
+      "entrants": 93,
+      "entrants_note": "93 on the 10/05 standings",
+      "lock": "per_game_kickoff",
+      "prizes": [
+        "weekly",
+        "quarterly",
+        "four_game_segment",
+        "season"
+      ],
+      "strategy": "market",
+      "strategy_note": "Three of four prizes are cumulative -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
+      "standings": {
+        "as_of": "2026-10-16 Week 5 final (read in Chrome)",
+        "rank_row": 48,
+        "site_rank": 47,
+        "pts": 429.5,
+        "leader": "AVL GAL 506",
+        "gap_to_leader": 76.5,
+        "by_week": {
+          "1": 95,
+          "2": 85,
+          "3": 75,
+          "4": 91,
+          "5": 83.5
+        },
+        "week4_rank_row": 55,
+        "source": "data/pickem/simplysportsware-duma2-2026-w06-partial.json"
+      },
+      "url": "https://www.simplysportsware.com/pool-home",
+      "entry_name": "Fat Lazy American"
     },
-    "week4_rank_row": 55,
-    "source": "data/pickem/simplysportsware-duma2-2026-w06-partial.json"
-   },
-   "url": "https://www.simplysportsware.com/pool-home",
-   "entry_name": "Fat Lazy American"
-  },
-  {
-   "id": "yahoo",
-   "name": "Ken's Pickem League (Yahoo Pro Football Pick'em confidence pool)",
-   "platform": "Yahoo",
-   "format": "confidence",
-   "scoring": "confidence 1..N (N = games that week)",
-   "entrants": 54,
-   "entrants_note": "54 on the Week 4 final standings",
-   "lock": "per_game_kickoff",
-   "prizes": [
-    "weekly",
-    "season"
-   ],
-   "strategy": "weekly_leverage",
-   "strategy_note": "Weekly prize in a ~95 field -> cheap differentiation: at most one heavy-favorite fade (fav >= 65%) at a low slot plus contrarian sides on near coin flips, all backed by tier 1-2 card evidence, within an expected-points budget.",
-   "leverage": {
-    "max_heavy_fades": 1,
-    "heavy_fav_min_prob": 0.65,
-    "heavy_fade_slot": 3,
-    "max_coinflip_flips": 2,
-    "coinflip_max_prob": 0.57,
-    "max_tier": 2,
-    "max_ev_cost": 2.5
-   },
-   "standings": {
-    "as_of": "2026-10-13 Week 5 final (API; per-game picks not captured)",
-    "rank": 34,
-    "pts": 346,
-    "leader": "Freddy Flintstone 384",
-    "gap_to_leader": 38,
-    "by_week": {
-     "1": 90,
-     "2": 85,
-     "3": 75,
-     "4": 96,
-     "5": 75
+    {
+      "id": "yahoo",
+      "name": "Ken's Pickem League (Yahoo Pro Football Pick'em confidence pool)",
+      "platform": "Yahoo",
+      "format": "confidence",
+      "scoring": "confidence 1..N (N = games that week)",
+      "entrants": 54,
+      "entrants_note": "54 on the Week 4 final standings",
+      "lock": "per_game_kickoff",
+      "prizes": [
+        "weekly",
+        "season"
+      ],
+      "strategy": "weekly_leverage",
+      "strategy_note": "Weekly prize in a ~95 field -> cheap differentiation: at most one heavy-favorite fade (fav >= 65%) at a low slot plus contrarian sides on near coin flips, all backed by tier 1-2 card evidence, within an expected-points budget.",
+      "leverage": {
+        "max_heavy_fades": 1,
+        "heavy_fav_min_prob": 0.65,
+        "heavy_fade_slot": 3,
+        "max_coinflip_flips": 2,
+        "coinflip_max_prob": 0.57,
+        "max_tier": 2,
+        "max_ev_cost": 2.5
+      },
+      "standings": {
+        "as_of": "2026-10-27 Week 7 final (API; per-game picks not captured: Yahoo browser session signed out)",
+        "rank": 22,
+        "pts": 487,
+        "leader": "Freddy Flintstone 530",
+        "gap_to_leader": 43,
+        "by_week": {
+          "1": 90,
+          "2": 85,
+          "3": 75,
+          "4": 96,
+          "5": 75,
+          "6": 66,
+          "7": 61
+        },
+        "dropped_pts": 61,
+        "dropped_note": "Yahoo drops one lowest week; Week 7 (61) is flagged week_dropped in the API file. by_week sum 548 - 61 = 487 season total.",
+        "source": "data/pickem/yahoo-472-g-4087-2026-w07.json",
+        "week7_rank": 16,
+        "week7_pts": 61,
+        "week7_record": "8-6"
+      },
+      "entry_name": "Fat Lazy American",
+      "url": "https://football.fantasysports.yahoo.com/pickem/4087/12"
     },
-    "week5_rank": 33,
-    "week5_pts": 75,
-    "week5_record": "7-7",
-    "dropped_pts": 75,
-    "dropped_note": "Yahoo drops one lowest week; Week 5 (75) flagged week_dropped in the API file, so the season total stays 346.",
-    "source": "data/pickem/yahoo-472-g-4087-2026-w05.json"
-   },
-   "entry_name": "Fat Lazy American",
-   "url": "https://football.fantasysports.yahoo.com/pickem/4087/12"
-  },
-  {
-   "id": "cbs",
-   "name": "BUKBUK NFL POOL (CBS straight-up pick'em)",
-   "platform": "CBS Sports",
-   "format": "straight_up",
-   "scoring": "1 point per correct pick",
-   "entrants": 73,
-   "entrants_note": "73 on the 10/05 standings",
-   "lock": "per_game_kickoff",
-   "prizes": [
-    "weekly",
-    "season"
-   ],
-   "strategy": "su_flips",
-   "strategy_note": "Market favorites; differentiate only on near coin flips (fav <= 57%) where tier 1-2 evidence backs the dog.",
-   "flips": {
-    "max": 2,
-    "coinflip_max_prob": 0.57,
-    "max_tier": 2
-   },
-   "standings": {
-    "as_of": "2026-10-16 Week 5 final (Overall tab, Chrome)",
-    "rank": 27,
-    "tied": 6,
-    "ytd": 48,
-    "leader": "greg barrows 54",
-    "by_week": {
-     "1": 12,
-     "2": 10,
-     "3": 8,
-     "4": 10,
-     "5": 7
-    },
-    "week4_rank": 27,
-    "source": "data/pickem/cbs-bukbuk-2026-w06-partial.json"
-   },
-   "url": "https://picks.cbssports.com/football/pickem/pools/kbxw63b2ge3dknzyheytg==="
-  }
- ]
+    {
+      "id": "cbs",
+      "name": "BUKBUK NFL POOL (CBS straight-up pick'em)",
+      "platform": "CBS Sports",
+      "format": "straight_up",
+      "scoring": "1 point per correct pick",
+      "entrants": 73,
+      "entrants_note": "73 on the 10/05 standings",
+      "lock": "per_game_kickoff",
+      "prizes": [
+        "weekly",
+        "season"
+      ],
+      "strategy": "su_flips",
+      "strategy_note": "Market favorites; differentiate only on near coin flips (fav <= 57%) where tier 1-2 evidence backs the dog.",
+      "flips": {
+        "max": 2,
+        "coinflip_max_prob": 0.57,
+        "max_tier": 2
+      },
+      "standings": {
+        "as_of": "2026-10-16 Week 5 final (Overall tab, Chrome)",
+        "rank": 27,
+        "tied": 6,
+        "ytd": 48,
+        "leader": "greg barrows 54",
+        "by_week": {
+          "1": 12,
+          "2": 10,
+          "3": 8,
+          "4": 10,
+          "5": 7
+        },
+        "week4_rank": 27,
+        "source": "data/pickem/cbs-bukbuk-2026-w06-partial.json"
+      },
+      "url": "https://picks.cbssports.com/football/pickem/pools/kbxw63b2ge3dknzyheytg==="
+    }
+  ]
 }

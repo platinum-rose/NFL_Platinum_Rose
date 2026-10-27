@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "2022 - The League draft 2022"
-created: "2026-10-22T14:43:27.479Z"
-modified: "2026-10-22T14:43:27.479Z"
+created: "2026-10-27T13:00:45.977Z"
+modified: "2026-10-27T13:00:45.977Z"
 season: 2022
 type: "fantasy-draft"
 league: "2022 - The League"

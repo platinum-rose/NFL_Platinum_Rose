@@ -1,0 +1,366 @@
+{
+  "game": "DEN@ARI",
+  "generated_at": "2026-10-24T21:45:00Z",
+  "packet_built_at": "2026-10-24T21:33:58Z",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Jacoby Brissett over 22.5 pass completions",
+      "line": 22.5,
+      "price": -117,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "22.5 -125; pass at 23.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7b / 7d / single",
+      "reasons": [
+        "26.0 cmp/g (156/234, 6 GP) FTN",
+        "ARI dog, RB Love OUT -> pass volume",
+        "DEN opponents 41.5 dropbacks/g"
+      ],
+      "counter_case": "DEN pressure 34%/blitz 35.7% and 10 takeaways stall drives; close game -> more ARI runs"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jacoby Brissett 21+ pass completions (anchor)",
+      "line": 20.5,
+      "price": -229,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-300",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7d",
+      "reasons": [
+        "same as O22.5"
+      ],
+      "counter_case": "same",
+      "flags": [
+        "shorter_than_-200"
+      ]
+    },
+    {
+      "market": "atd",
+      "selection": "Trey McBride anytime TD",
+      "line": null,
+      "price": 140,
+      "book": "BEO",
+      "captured_at": "2026-10-24T21:15:40.219Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "+120",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e / BEO 2-leg",
+      "reasons": [
+        "3 TD on 65 tgt, 28.5% tgt share",
+        "Hufanga OUT -> te_middle_boost",
+        "BKR +130, DK ref +150"
+      ],
+      "counter_case": "DEN can bracket a one-man passing game; ARI only 12 offensive TDs in 6 games"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Trey McBride over 6.5 receptions",
+      "line": 6.5,
+      "price": -147,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-175",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7b / 7d",
+      "reasons": [
+        "8.2 rec/g, 90.5% snaps, 28.5% tgt share",
+        "trailing-dog script adds volume"
+      ],
+      "counter_case": "ARI not expected winner; DEN coverage could funnel to Wilson",
+      "flags": [
+        "rule_exception_receptions_not_on_expected_winner"
+      ]
+    },
+    {
+      "market": "player_prop",
+      "selection": "Bo Nix over 1.5 passing TDs",
+      "line": 1.5,
+      "price": 112,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": -103,
+      "edge_pts": null,
+      "playable_to": "+100",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7b / single",
+      "reasons": [
+        "ARI allowed 16 pass TD in 6 (2.67/g), pass-D DVOA +32.6% (last)",
+        "Poisson blend lambda~1.7 -> fair ~-103"
+      ],
+      "counter_case": "Nix 6 TD in 6, 0 TD at SEA; DEN scores red-zone TDs on the ground; sides lean Under 43"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jacoby Brissett under 1.5 passing TDs",
+      "line": 1.5,
+      "price": -167,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": -168,
+      "edge_pts": null,
+      "playable_to": "-175",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7d",
+      "reasons": [
+        "9 TD in 6 vs DEN 7 pass TD allowed, 10 takeaways, 7.2% sack rate",
+        "fair ~-168 -> category lean only"
+      ],
+      "counter_case": "ARI games average 50.7 pts; trailing script = more attempts"
+    },
+    {
+      "market": "player_prop",
+      "selection": "RJ Harvey over 3.5 receptions",
+      "line": 3.5,
+      "price": -116,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-130",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7b",
+      "reasons": [
+        "23 rec/26 tgt in 5 GP (4.6/g), 32% TPRR",
+        "Badie OUT",
+        "expected-winner RB"
+      ],
+      "counter_case": "Jonah Coleman activated from IR Sat may take passing-down snaps"
+    },
+    {
+      "market": "atd",
+      "selection": "J.K. Dobbins anytime TD",
+      "line": null,
+      "price": 135,
+      "book": "BEO",
+      "captured_at": "2026-10-24T21:15:40.219Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "+115",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e / BEO 2-leg",
+      "reasons": [
+        "54.7% rush att share, goal-line role",
+        "BKR first-TD favorite +521"
+      ],
+      "counter_case": "Coleman return; only 2 rush TD in 6; ARI rush D DVOA -11.6%"
+    },
+    {
+      "market": "atd",
+      "selection": "Jaylen Waddle anytime TD",
+      "line": null,
+      "price": 195,
+      "book": "BEO",
+      "captured_at": "2026-10-24T21:15:40.219Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "+170",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e",
+      "reasons": [
+        "22.5% tgt share, 36.7% air yards vs worst pass D"
+      ],
+      "counter_case": "1 TD in 6; Nix aDOT 4.9"
+    },
+    {
+      "market": "first_td",
+      "selection": "J.K. Dobbins first TD",
+      "line": null,
+      "price": 521,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8a",
+      "reasons": [
+        "DEN likelier first scorer (1Q TT 5.5 vs 3.5)",
+        "DK ref +567"
+      ],
+      "counter_case": "Coleman/Harvey vulture risk"
+    },
+    {
+      "market": "first_td",
+      "selection": "Trey McBride first TD",
+      "line": null,
+      "price": 706,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8a",
+      "reasons": [
+        "ARI primary red-zone target",
+        "DK ref +733"
+      ],
+      "counter_case": "ARI 1Q team total under 3.5 -160"
+    },
+    {
+      "market": "first_td",
+      "selection": "Jaylen Waddle first TD",
+      "line": null,
+      "price": 823,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8a",
+      "reasons": [
+        "DEN WR1 by targets",
+        "DK ref +900"
+      ],
+      "counter_case": "low DEN pass TD rate"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Dobbins 2+ TD / McBride 2+ TD",
+      "line": null,
+      "price": "+597 / +722",
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:32.478Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DEN",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8b",
+      "reasons": [
+        "top TD equity on each side"
+      ],
+      "counter_case": "low-total game (43)"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": null,
+    "total_adj": null,
+    "reasons": [
+      "props pass: no simulator adjustments; game script inherited from sides pass (ARI +4 C, U43 C, SU DEN)"
+    ]
+  },
+  "sim_runs": [],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-props.json (built 2026-10-24T21:33:58Z)",
+    "data/generated/props/bookmaker-live-2026-10-24-broncos-at-cardinals.json (2026-10-24T20:26:32Z)",
+    "data/generated/props/betonline-live-2026-10-24-broncos-at-cardinals.json (2026-10-24T21:15:40Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-23-broncos-at-cardinals.json (reference only)",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "data/generated/team-dossiers/2026-w07/{DEN,ARI}.md",
+    "reports/intel/games/2026-w07-game-DEN_at_ARI-sides.md",
+    "https://www.rotowire.com/betting/nfl/game.php?id=2978863 (final designations, fetched 2026-10-24)"
+  ],
+  "ambiguities": [
+    "BEO player board thin (ATD/targets/fantasy only)",
+    "no tackles+assists market on BKR or BEO",
+    "Surtain Q vs no designation conflict",
+    "Jonah Coleman activated from IR Sat - role unknown",
+    "packet ARI availability block null",
+    "BKR has no ATD rows for ARI RBs Knight/Allgeier"
+  ],
+  "delta_checklist": [
+    "Brissett not active -> drop Brissett legs",
+    "Baker+Melton both out -> Nix O1.5 to B",
+    "Coleman active with defined role -> Dobbins ATD watch-only, Harvey rec PASS",
+    "Brissett cmp line 23.5 -> PASS; McBride 7+ worse than -175 -> PASS",
+    "DEN -6 or more -> upgrade McBride rec, downgrade Brissett U1.5"
+  ],
+  "gate_notes": [
+    "roster_vet PASS 13.3h (9 UNVERIFIED, none in picks)",
+    "missing_inputs: BEO prop board thin -> BEO-dependent markets capped C",
+    "McBride receptions is a flagged exception to the expected-winner receptions rule",
+    "1 leg shorter than -200 (Brissett 21+)",
+    "Final injury designations verified via Rotowire"
+  ],
+  "pass": "props"
+}

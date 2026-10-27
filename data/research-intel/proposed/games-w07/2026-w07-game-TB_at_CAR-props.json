@@ -1,0 +1,383 @@
+{
+ "game": "TB@CAR",
+ "pass": "props",
+ "generated_at": "2026-10-24T21:40:03Z",
+ "packet_built_at": "2026-10-24T21:33:58.139581+00:00",
+ "recommendations": [
+  {
+   "market": "player_prop",
+   "selection": "Bryce Young Over 1.5 passing TDs",
+   "line": 1.5,
+   "price": -129,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "-150",
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / single",
+   "leg_flag": null,
+   "reasons": [
+    "11 TD in 5 games; multi-TD in 4 of 5 [CAR.md FTN QB1]",
+    "Winfield OUT; CAR 2nd PROE vs TB pass funnel [Sharp Worksheet 10/21]",
+    "Andy's passing-TD category is +14% this season"
+   ],
+   "counter_case": "Bowles 5-1 vs Young; a run-heavy CAR lead script like W6"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Bryce Young Over 233.5 passing yards (alt)",
+   "line": 233.5,
+   "price": -174,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "O243.5 -141 alt as a price step",
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / 7d",
+   "leg_flag": null,
+   "reasons": [
+    "281+ yards in every 2026 game, 309.8/g [Worksheet]",
+    "Main line 253.5 is a median line at -109/-116, so use the alt"
+   ],
+   "counter_case": "Pressure EPA/DB -0.208 vs a 42% Bowles blitz"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Tetairoa McMillan Over 4.5 receptions (alt)",
+   "line": 4.5,
+   "price": -181,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "-200",
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a",
+   "leg_flag": null,
+   "reasons": [
+    "Co-WR1: 32 targets vs Coker's 35 over 4 shared games [DraftSharks 10/18]",
+    "CAR is the expected winner; heavy passing script"
+   ],
+   "counter_case": "Coker out-targeted him 13-9 in W6"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Jalen Coker Over 4.5 receptions (alt)",
+   "line": 4.5,
+   "price": -267,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7d (anchor only)",
+   "leg_flag": "shorter than -200",
+   "reasons": [
+    "13 targets, 6-97 in W6; team target leader"
+   ],
+   "counter_case": "Quad injury earlier this season; volatile target split"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Bryce Young Over 20.5 completions (alt)",
+   "line": 20.5,
+   "price": -260,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7d (anchor only)",
+   "leg_flag": "shorter than -200",
+   "reasons": [
+    "24.2 completions/g; Warren Sharp O21.5"
+   ],
+   "counter_case": "Blitz-heavy TB; a lead script could hold attempts down"
+  },
+  {
+   "market": "atd",
+   "selection": "Tetairoa McMillan anytime TD",
+   "line": null,
+   "price": 130,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e",
+   "leg_flag": null,
+   "reasons": [
+    "Primary red-zone WR; 2 TDs vs DET W4",
+    "CAR passing TD volume vs TB, Winfield OUT"
+   ],
+   "counter_case": "Tremble (+293) and Hubbard compete for red-zone touches"
+  },
+  {
+   "market": "atd",
+   "selection": "Chuba Hubbard anytime TD",
+   "line": null,
+   "price": -160,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "-180",
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e (alt)",
+   "leg_flag": null,
+   "reasons": [
+    "Goal-line back, 28 carries in W6",
+    "Upgrade to B if Mayfield is out"
+   ],
+   "counter_case": "TB has allowed only 2 rush TDs in 6 games; rush DVOA -22%"
+  },
+  {
+   "market": "atd",
+   "selection": "Bucky Irving anytime TD",
+   "line": null,
+   "price": 100,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e (TB leg)",
+   "leg_flag": null,
+   "reasons": [
+    "CAR has allowed 8 rush TDs in 5 games",
+    "No injury designation (illness, FP Friday)"
+   ],
+   "counter_case": "Rusty Mayfield; TB red-zone TD rate 47%; drop if Mayfield is out"
+  },
+  {
+   "market": "first_td",
+   "selection": "Tetairoa McMillan first TD",
+   "line": null,
+   "price": 747,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a",
+   "leg_flag": null,
+   "reasons": [
+    "CAR more likely to score first (home favorite, faster pace)"
+   ],
+   "counter_case": "Long-shot market"
+  },
+  {
+   "market": "first_td",
+   "selection": "Chuba Hubbard first TD",
+   "line": null,
+   "price": 451,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a (alt)",
+   "leg_flag": null,
+   "reasons": [
+    "Shortest first-TD price on the board"
+   ],
+   "counter_case": "TB goal-line rush defense"
+  },
+  {
+   "market": "first_td",
+   "selection": "Bucky Irving first TD",
+   "line": null,
+   "price": 629,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a (TB alt)",
+   "leg_flag": null,
+   "reasons": [
+    "TB-side leg for diversification"
+   ],
+   "counter_case": "Mayfield-dependent"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Chuba Hubbard 2+ TDs",
+   "line": null,
+   "price": 363,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8b",
+   "leg_flag": null,
+   "reasons": [
+    "Shortest 2+ TD price on the board"
+   ],
+   "counter_case": "TB has allowed 2 rush TDs in 6 games"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Tetairoa McMillan 2+ TDs",
+   "line": null,
+   "price": 722,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:20.893Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": "n",
+   "straight_up_winner": "CAR",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8b",
+   "leg_flag": null,
+   "reasons": [
+    "Had 2 TDs in W4"
+   ],
+   "counter_case": "Long shot"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": 0.5,
+  "total_adj": 1.5,
+  "reasons": [
+   "Carried from the sides pass for game-script context only; props have no calibrated joint model"
+  ]
+ },
+ "sim_runs": [
+  {
+   "home_line": -3,
+   "total": 44.5,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "home_win": 0.601,
+   "over_excl_push": 0.5
+  },
+  {
+   "home_line": -3,
+   "total": 44.5,
+   "margin_adj": 0.5,
+   "total_adj": 1.5,
+   "home_win": 0.614,
+   "over_excl_push": 0.545,
+   "mean_total": 46.0
+  }
+ ],
+ "sources": [
+  "data/generated/props/bookmaker-live-2026-10-24-buccaneers-at-panthers.json (2026-10-24T20:25:20Z)",
+  "data/generated/props/betonline-live-2026-10-24-buccaneers-at-panthers.json (2026-10-24T21:15:16Z; no player rows)",
+  "scratch/w07-game-synthesis-queue-props.json TB@CAR packet",
+  "reports/intel/games/2026-w07-game-TB_at_CAR-sides.md",
+  "data/generated/team-dossiers/2026-w07/CAR.md",
+  "data/generated/team-dossiers/2026-w07/TB.md",
+  "https://www.buccaneers.com/news/buccaneers-panthers-injury-report-oct-23-week-7-2026",
+  "https://www.draftsharks.com/fantasy-football-news/83522/jalen-coker-leads-receiving-in-return"
+ ],
+ "ambiguities": [
+  "BetOnline has no player-prop rows, so all legs are BKR same-game",
+  "No tackles+assists markets captured (candidates if posted: Josiah Trotter, Tykee Smith)",
+  "Target-share data comes from the web, not a repo file",
+  "BKR pulled the Mayfield, Godwin, Otton, Metchie and other TB main markets (QB hedge)",
+  "BEO team-TD rows have no team label"
+ ],
+ "delta_checklist": [
+  "08:30 PT inactives: if Mayfield is out, drop the Irving legs, upgrade Hubbard ATD to B, no Daniels props without a captured row",
+  "Young TDs 1.5 shorter than -150: pass",
+  "McMillan 4.5 receptions -220 or shorter: drop",
+  "Hubbard ATD -200: drop",
+  "Game total 43 or lower: Young yards to C"
+ ],
+ "gate_notes": [
+  "missing_inputs: BEO prop board thin; capped, no BEO prop picks",
+  "roster_vet PASS 13.3h, 9 UNVERIFIED; named players cross-checked against the official 10/23 report and the BKR board",
+  "kickoff not passed",
+  "stack flag: #4 and #5 together = 2 legs shorter than -200, do not add a third"
+ ]
+}

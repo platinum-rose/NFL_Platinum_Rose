@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XVIII draft 2025"
-created: "2026-10-22T14:43:27.251Z"
-modified: "2026-10-22T14:43:27.251Z"
+created: "2026-10-27T13:00:45.589Z"
+modified: "2026-10-27T13:00:45.589Z"
 season: 2025
 type: "fantasy-draft"
 league: "RFI XVIII"

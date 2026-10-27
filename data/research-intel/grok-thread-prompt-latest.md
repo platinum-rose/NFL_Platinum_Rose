@@ -1,5 +1,5 @@
-# Grok Thread Capture Packet — 2026-10-23 (Week 7)
-*Generated automatically by NFL_Dashboard Grok Thread Scanner at 2026-10-24T01:18:45.946Z*
+# Grok Thread Capture Packet — 2026-10-26 (Week 7)
+*Generated automatically by NFL_Dashboard Grok Thread Scanner at 2026-10-27T03:04:56.358Z*
 
 Found **20** active unprocessed Twitter/X bookmark threads for **Week 7** ready for Grok extraction.
 
@@ -35,13 +35,13 @@ Found **20** active unprocessed Twitter/X bookmark threads for **Week 7** ready 
 Copy the block below and paste it directly into Grok:
 
 ```markdown
-You are extracting NFL betting intel from X/Twitter posts for a betting-research database. Today is 2026-10-23; the current slate is NFL 2026 Week 7.
+You are extracting NFL betting intel from X/Twitter posts for a betting-research database. Today is 2026-10-26; the current slate is NFL 2026 Week 7.
 
 For EACH URL below, open the post AND the author's full self-reply thread (every tweet the same author posted under it), read every attached image/graphic, and — if the post links to a video (X video, YouTube) or an article — use the linked content too. Do not rely on the first tweet alone.
 
 Return exactly TWO things, in this order.
 
-### 1) One CSV file named `grok-twitter-picks-2026-10-23.csv`
+### 1) One CSV file named `grok-twitter-picks-2026-10-26.csv`
 Header row exactly:
 `author,tweet_url,bet_type,team_or_market,market,selection,line,odds,rationale`
 
@@ -61,7 +61,7 @@ One row per individual bet. Rules:
 - Hit-rate / streak lists the author posts for bettors (e.g. "props that cashed 4 straight", "C. Watson 3+ Rec — 80%"): one row per line with `bet_type` = `trend`, `selection` = `OVER` (or `YES` for TD streaks), and the hit rate in `rationale`.
 - Parlays: one row per leg with `bet_type` = `parlay_leg` and the leg's real market in `market`; put the parlay's total odds in `rationale`.
 - ONLY picks the author is making or recommending. Do NOT include public-betting splits ("80% of money on…"), line-move reports, other people's picks the author is quoting, or recaps of games already played.
-- Skip anything about games already played before 2026-10-23 and anything that is not NFL (college, other sports).
+- Skip anything about games already played before 2026-10-26 and anything that is not NFL (college, other sports).
 - If a thread has no concrete bet, include no rows for it (list it in section 2 instead).
 - Plain CSV only: no markdown, no code fences, no blank lines, and every row must have all 9 columns.
 
@@ -96,10 +96,10 @@ https://x.com/CodyBrownBets/status/2112186834599961002
 
 ## Instructions Once Grok Generates CSV
 1. Save Grok's output CSV to:
-   `data/vault-seed/manual/grok-week07-threads/grok-twitter-picks-2026-10-23.csv`
+   `data/vault-seed/manual/grok-week07-threads/grok-twitter-picks-2026-10-26.csv`
 2. Ingest into Supabase:
    ```powershell
    node scripts/load-external-intel-picks.mjs --dry-run
    node scripts/load-external-intel-picks.mjs --replace
    ```
-*(The scanner will detect `grok-twitter-picks-2026-10-23.csv` on its next run and retire those URLs from future prompt packets).*
+*(The scanner will detect `grok-twitter-picks-2026-10-26.csv` on its next run and retire those URLs from future prompt packets).*

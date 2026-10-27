@@ -57,7 +57,7 @@ const newest = (dir, re) => {
   } catch { return null; }
 };
 function stamp(p, j) {
-  const cands = [j?.generated_at, j?.meta?.generated_at, j?.captured_at, j?.updated_at, j?.pulled_at, j?.as_of];
+  const cands = [j?.generated_at, j?.meta?.generated_at, j?.captured_at, j?.updated_at, j?.pulled_at, j?.as_of, j?.recorded_at];
   const s = cands.find(Boolean);
   const t = s ? new Date(s) : null;
   return t && !Number.isNaN(+t) ? t : mtime(p);
@@ -104,17 +104,21 @@ const SOURCES = [
       : `${j?.games?.length ?? 0} compared game(s)`,
     fail: Number(j?.week ?? j?.supercontest_week) !== WEEK,
   })],
-  // 2026-09-26: BKR game lines are also captured as a rendered snapshot next to
-  // the week's prop boards (docs/Player_Prop_Odds_Weekly/Week<N>/BKR_Week<N>_current_game_lines.md);
-  // take whichever of the two locations is newer instead of false-flagging STALE.
+  // Only captured live JSON or an explicitly user-supplied current board count
+  // as this week's market. Legacy BKR_current_lines_* files are opening-line
+  // history for movement tracking, never a current-market fallback.
   ['BKR current lines', () => {
     const cands = [
-      newest('data/odds', /^BKR_current_lines/) && `data/odds/${newest('data/odds', /^BKR_current_lines/)}`,
-      newest(`docs/Player_Prop_Odds_Weekly/Week${WEEK}`, /^BKR_Week\d+_current_game_lines/) && `docs/Player_Prop_Odds_Weekly/Week${WEEK}/${newest(`docs/Player_Prop_Odds_Weekly/Week${WEEK}`, /^BKR_Week\d+_current_game_lines/)}`,
+      newest('data/generated/props', new RegExp(`^bookmaker-live-\\d{4}-\\d{2}-\\d{2}-week${WEEK}\\.json$`))
+        && `data/generated/props/${newest('data/generated/props', new RegExp(`^bookmaker-live-\\d{4}-\\d{2}-\\d{2}-week${WEEK}\\.json$`))}`,
+      newest('data/generated/props', new RegExp(`^bookmaker-user-board-\\d{4}-\\d{2}-\\d{2}-week${WEEK}\\.json$`))
+        && `data/generated/props/${newest('data/generated/props', new RegExp(`^bookmaker-user-board-\\d{4}-\\d{2}-\\d{2}-week${WEEK}\\.json$`))}`,
     ].filter(Boolean);
     const mtime = (f) => { try { return fs.statSync(rel(f)).mtimeMs; } catch { return 0; } };
-    return cands.sort((x, y) => mtime(y) - mtime(x))[0] || 'data/odds/BKR_current_lines_missing';
-  }, 36],
+    return cands.sort((x, y) => mtime(y) - mtime(x))[0] || 'data/generated/props/bookmaker-live-week-current-missing';
+  }, 36, (j) => ({ note: j?.capture_time === null
+    ? `user-supplied current board; capture time unstated; ${j?.games?.length ?? '?'} games`
+    : `${j?.capturedAt ? `captured ${j.capturedAt}; ` : ''}${j?.games?.length ?? '?'} games` })],
   ['Alpha packet', 'data/alpha/alpha-packet-2026.json', 48],
   ['Expert dossiers', () => `data/expert-dossiers/${newest('data/expert-dossiers', /\.json$/)}`, 168],
   ['Host citations', 'data/generated/host-citations-latest.json', 168],

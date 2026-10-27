@@ -104,10 +104,18 @@ Date: {meta.get("date", "2026")}
 Task:
 1. Transcribe and summarize the betting-relevant sections.
 2. Extract all explicit betting picks, win totals, futures, and leans.
-3. Preserve speaker names when reasonably clear.
+3. PRESERVE SPEAKER NAMES WITH STRICT VISUAL/AUDITORY ATTRIBUTION:
+   - Identify and attribute speakers ONLY when confirmed via:
+     (a) On-screen name bars, lower-thirds, or title cards showing the speaker's name.
+     (b) Explicit self-introductions (e.g., "I'm Ross Tucker").
+     (c) Direct address by a co-host (e.g., "Simon, what do you think?").
+   - NEVER guess a speaker from memory, prior knowledge, or show context.
+   - If a speaker's name is NOT explicitly shown on screen or spoken aloud, you MUST label them "unknown_<n>" (e.g., "unknown_1", "unknown_2") and note this in "uncertainty_flags".
+   - Be diligent with faces and on-screen name bars: when a name bar appears on screen identifying an analyst or guest, use that exact name for their spoken segments and picks.
 4. Preserve source timestamps in seconds from the start of the video.
 5. Include short verbatim quotes that justify important extracted items.
 6. Use null for unknown price, line, or speaker instead of inventing values.
+   CRITICAL TEAM GUARDRAIL: Never state a player's team from memory. Leave "team" null if the speaker does not explicitly state the team name or city during the discussion.
 7. Also extract "analysis_notes": non-pick commentary worth capturing on its own —
    team/player evaluations, injury or health context, roster/depth-chart notes,
    coaching or scheme discussion, matchup analysis, schedule context, fantasy
@@ -145,6 +153,14 @@ Task:
     meaningful ranking discussion. Include the rank or tier in "topic" or
     "summary", preserve the speaker/ranker when clear, and do not collapse a
     top-10 discussion into only two or three strongest betting angles.
+13. CONTINUOUS SPEAKER SEGMENTS (>= 90% RUNTIME COVERAGE):
+    "speaker_segments" must cover the ENTIRE video runtime contiguously (at least 90% of total seconds).
+    Each segment must accurately delineate speaker turns with:
+    - "start": timestamp in seconds (float)
+    - "end": timestamp in seconds (float)
+    - "speaker": confirmed speaker name or "unknown_<n>"
+    - "text": key spoken dialogue or summary of the turn
+    Do not skip chunks of conversation. If the speaker does not change for a while, keep contiguous segments. Every betting pick must fall within a covering speaker segment matching that pick's speaker.
 {duration_enforcement}
 Return ONLY a JSON object with this exact structure:
 {{
@@ -574,6 +590,9 @@ def main():
             "episodes that repeatedly fail full-duration coverage."
         ),
     )
+    parser.add_argument("--channel", default="", help="Channel name")
+    parser.add_argument("--output", help="Write raw shadow observation result to this JSON file.")
+    parser.add_argument("--staging-output", help="Write antigravity-staging formatted JSON to this file.")
     parser.add_argument("--max-retries", type=int, default=0, help="Retry transient Gemini 503/UNAVAILABLE errors this many times.")
     parser.add_argument("--retry-delay-seconds", type=int, default=20, help="Base delay between retry attempts.")
     args = parser.parse_args()
@@ -608,6 +627,46 @@ def main():
             f"if you didn't already.",
             file=sys.stderr,
         )
+
+    if args.output:
+        os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2)
+
+    if args.staging_output:
+        os.makedirs(os.path.dirname(os.path.abspath(args.staging_output)), exist_ok=True)
+        parsed = result.get("parsed_json") or {}
+        speakers_set = []
+        for s in parsed.get("speaker_segments", []):
+            spk = s.get("speaker")
+            if spk and not spk.lower().startswith("unknown") and spk not in speakers_set:
+                speakers_set.append(spk)
+        for p in parsed.get("extracted_picks", []):
+            spk = p.get("speaker")
+            if spk and not spk.lower().startswith("unknown") and spk not in speakers_set:
+                speakers_set.append(spk)
+        video_id = args.url.split("v=")[-1].split("&")[0]
+        staging_data = {
+            "episode_id": f"youtube-{video_id}",
+            "status": "extracted",
+            "transcript_source": "gemini_3.5_flash_video",
+            "show": args.show,
+            "channel": args.channel or args.show,
+            "title": args.episode_title,
+            "url": args.url,
+            "published_date": args.date,
+            "week": 7,
+            "speakers_on_screen": speakers_set,
+            "transcript_summary": parsed.get("transcript_summary", ""),
+            "coverage_check": parsed.get("coverage_check", {}),
+            "speaker_segments": parsed.get("speaker_segments", []),
+            "extracted_picks": parsed.get("extracted_picks", []),
+            "analysis_notes": parsed.get("analysis_notes", []),
+            "quote_timestamps": parsed.get("quote_timestamps", []),
+            "uncertainty_flags": parsed.get("uncertainty_flags", []),
+        }
+        with open(args.staging_output, "w", encoding="utf-8") as f:
+            json.dump(staging_data, f, indent=2)
 
     print(json.dumps(result, indent=2))
 

@@ -1,0 +1,302 @@
+{
+ "game": "IND@MIN",
+ "generated_at": "2026-10-24T21:40:00Z",
+ "packet_built_at": "2026-10-24T21:33:58.139581+00:00",
+ "recommendations": [
+  {
+   "market": "player_prop",
+   "selection": "Daniel Jones passing TDs Under 0.5",
+   "line": 0.5,
+   "price": 167,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "B",
+   "fair_line": "~-115 (53%)",
+   "edge_pts": null,
+   "playable_to": "+140; pass at +120 or shorter",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": true,
+   "standalone_preferred": true,
+   "card_slot": "single",
+   "reasons": [
+    "Jones 4 TD on 218 att (TD% 1.8%)",
+    "MIN D allowed 3 pass TD in 5 games, EPA/play #1",
+    "IND scores via run: 9 rush TD vs 4 pass",
+    "No Warren/Gould/Pierce; lambda~0.6 -> P(0)~53% vs 37.5% implied"
+   ],
+   "counter_case": "IND trails big, 40+ attempts, garbage-time TD vs soft shell"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Kyler Murray passing TDs Under 1.5",
+   "line": 1.5,
+   "price": -131,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C+",
+   "fair_line": "~-230",
+   "edge_pts": null,
+   "playable_to": "-150; downgrade to PASS if total 43+",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a",
+   "reasons": [
+    "Murray 2 TD in 4 GP; MIN 5 pass TD in 5",
+    "Run-leaning, slow MIN offense; total 41.5",
+    "lambda~1.1 -> P(<=1)~70% vs 56.7%"
+   ],
+   "counter_case": "IND pass D DVOA +15%, 10 pass TD allowed in 6; Gardner out"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Kyler Murray completions Under 20.5",
+   "line": 20.5,
+   "price": -107,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": "19.5",
+   "edge_pts": null,
+   "playable_to": "20.5 -120; pass at 19.5",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a",
+   "reasons": [
+    "69 cmp in 4 GP (17.3/g)",
+    "~27 att x 68% = 18.4 in lead/run script"
+   ],
+   "counter_case": "Gardner-less IND secondary yields easy completions; MIN fresh off bye"
+  },
+  {
+   "market": "atd",
+   "selection": "T.J. Hockenson anytime TD",
+   "line": null,
+   "price": 219,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+180",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e",
+   "reasons": [
+    "IND LBs Boettcher and Allen questionable (both DNP Fri)",
+    "TE red-zone role; expert Anderson backs big Hockenson usage",
+    "DK Pred reference +233"
+   ],
+   "counter_case": "MIN RZ TD rate 0.50; FG-heavy scoring"
+  },
+  {
+   "market": "atd",
+   "selection": "Keenan Allen anytime TD",
+   "line": null,
+   "price": 337,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+300",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e alt",
+   "reasons": [
+    "IND target leader trending 9/9/11",
+    "Pierce IR, Gould and Warren out"
+   ],
+   "counter_case": "IND ~1.5 TD expectation, Taylor takes most"
+  },
+  {
+   "market": "first_td",
+   "selection": "Justin Jefferson first TD",
+   "line": null,
+   "price": 614,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+550",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "8a",
+   "reasons": [
+    "Favorite's alpha vs Gardner-less CB room",
+    "MIN more likely to score first"
+   ],
+   "counter_case": "Run/FG-first MIN script"
+  },
+  {
+   "market": "first_td",
+   "selection": "Jonathan Taylor first TD",
+   "line": null,
+   "price": 425,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+400",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "8a",
+   "reasons": [
+    "IND's only reliable TD source (rush TD 9)"
+   ],
+   "counter_case": "MIN #1 run D (-26.7% DVOA)"
+  },
+  {
+   "market": "first_td",
+   "selection": "T.J. Hockenson first TD",
+   "line": null,
+   "price": 816,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+700",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "8a alt",
+   "reasons": [
+    "Same thesis as ATD at longer price"
+   ],
+   "counter_case": "Low-volume target history"
+  },
+  {
+   "market": "player_prop",
+   "selection": "T.J. Hockenson receptions Over 4.5 / alt 7+ (Over 6.5)",
+   "line": 4.5,
+   "price": 121,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "PASS",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "island ladder (lotto only)",
+   "reasons": [
+    "Expert 7+ rec @+350 now +265 at BKR alt; 70+ yds @+500 now ~+275 (alt o66.5)",
+    "Targets 5/4/4/13/1 not a proven share"
+   ],
+   "counter_case": "IND LB coverage weak, two LBs DNP"
+  },
+  {
+   "market": "atd",
+   "selection": "Jonathan Taylor 2+ TD",
+   "line": null,
+   "price": 257,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:26:13.246Z",
+   "tier": "PASS",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "MIN",
+   "pool_confidence": 13,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "8b",
+   "reasons": [
+    "Implied 28% vs ~15% est. vs #1 defense"
+   ],
+   "counter_case": "Goal-line monopoly"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": null,
+  "total_adj": null,
+  "reasons": [
+   "Props pass: no simulator; game view inherited from sides report (fair MIN -7.0, total 39.5)"
+  ]
+ },
+ "sim_runs": [],
+ "conditional": [
+  {
+   "if": "Jordan Mason inactive",
+   "then": "Aaron Jones carries Over 9.5 -109 BKR tier C (7a); otherwise no Aaron Jones props"
+  }
+ ],
+ "excluded": [
+  "No tackles market on BKR board",
+  "Downs o4.5 rec -123 / Mallory o1.5 rec -173 / Taylor o2.5 rec -102: receptions on expected loser",
+  "Median yardage lines (Jefferson 73.5, Hockenson 36.5, Addison 36.5, Taylor 70.5, Murray 205.5, Jones 187.5)",
+  "Taylor carries U17.5 -140: script priced",
+  "Murray rushing: no matchup fit; no INT market"
+ ],
+ "sources": [
+  "data/generated/props/bookmaker-live-2026-10-24-colts-at-vikings.json (2026-10-24T20:26:13Z)",
+  "data/generated/props/betonline-live-2026-10-24-colts-at-vikings.json (2026-10-24T21:15:32Z)",
+  "data/generated/props/draftkings-predictions-live-2026-10-23-colts-at-vikings.json (reference only)",
+  "reports/intel/games/2026-w07-game-IND_at_MIN-sides.md",
+  "data/generated/team-dossiers/2026-w07/IND.md",
+  "data/generated/team-dossiers/2026-w07/MIN.md",
+  "data/generated/player-usage-trends-2026.json",
+  "scratch/w07-game-synthesis-queue-props.json (IND@MIN packet)",
+  "https://www.vikings.com/news/colts-injury-report-week-7-2026-nfl-season",
+  "https://www.rotoballer.com/?p=1970573"
+ ],
+ "ambiguities": [
+  "BetOnline player-prop board missing: multi-game legs unpriced",
+  "MIN depth chart unverified; MIN FTN through W5",
+  "Usage file = opportunities, not receptions"
+ ],
+ "delta_checklist": [
+  "Inactives 8:30 PT: Mason, Boettcher/Allen, Walley",
+  "Jones pass TD U0.5 shorter than +140 -> downgrade; +120 -> PASS",
+  "Total 43+ -> Murray unders PASS; 40.5 -> Murray TD under to B",
+  "Hockenson ATD shorter than +180 -> PASS"
+ ],
+ "gate_notes": [
+  "missing_inputs: BEO props thin -> BEO-routed legs capped C",
+  "roster_vet PASS 13.3h",
+  "Kickoff not passed",
+  "QBs Jones/Murray confirmed",
+  "Mason dual scenario",
+  "Official Friday report from vikings.com",
+  "Stale coach names ignored"
+ ],
+ "pass": "props"
+}

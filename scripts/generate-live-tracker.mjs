@@ -111,7 +111,10 @@ export function formatPlayerStatString(stats, pos, isConcluded) {
 function legDirection(leg) {
   const d = String((leg && leg.direction) || '').toLowerCase();
   if (d === 'under' || d === 'over') return d;
-  return /\bunder\b/i.test(String((leg && leg.selection) || '')) ? 'under' : 'over';
+  const selection = String((leg && leg.selection) || '');
+  if (/\bunder\b/i.test(selection) || /(?:^|\s)u\s*\d/i.test(selection)) return 'under';
+  if (/\bover\b/i.test(selection) || /(?:^|\s)o\s*\d/i.test(selection)) return 'over';
+  return 'over';
 }
 
 // Player-name key shared by build-time and in-page code. Injected into the page with
@@ -7951,7 +7954,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
         if (isTeamTotal && !isNaN(lineVal)) {
           const curTot = myScore;
-          const isOver = rawMarket.includes('over') || (el.getAttribute('data-selection') || '').toLowerCase().includes('over');
+          const isOver = el.getAttribute('data-direction') === 'over';
           if (ev.isCompleted) {
             const hit = isOver ? (curTot > lineVal) : (curTot < lineVal);
             if (hit) {
@@ -8036,7 +8039,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
         if (isTotal && !isNaN(lineVal)) {
           const curTot = ev.homeScore + ev.awayScore;
-          const isOver = rawMarket.includes('over') || (el.getAttribute('data-selection') || '').toLowerCase().includes('over');
+          const isOver = el.getAttribute('data-direction') === 'over';
 
           // Once the current combined score has already crossed the line, the outcome is
           // mathematically locked in -- NFL scores never decrease within a game, so an Over

@@ -57,24 +57,68 @@ if (!contest) warnings.push(`no SuperContest lines file for week ${WEEK}: contes
 if (!podcast) warnings.push(`no master-intel pull for week ${WEEK}: podcast accounting omitted`);
 if (Date.parse(power.meta.generated_at) - Date.parse(ftn.source_capture_completed_at) > 12 * 3600e3) warnings.push(`FTN context (captured ${ftn.source_capture_completed_at}) predates the power ratings (${power.meta.generated_at}) by more than 12h: its team metrics lag by a game; rerun after the next FTN capture`);
 
-// Slate + market. Week 5 keeps its original BKR props JSON and fixed game list. Later weeks take the slate from the dossier slate file and the market
-// from the pasted BKR board text (data/odds/BKR_current_lines_MMDD_HHMM_buildfmt; newest by default, or --bkr a,b with later files overriding earlier).
+// Slate + market. Week 5 keeps its original BKR props JSON and fixed game list.
+// Later weeks use an explicitly supplied current BKR capture/board, or the
+// newest current-week structured capture. Legacy BKR_current_lines_* text files
+// are opening-line history only and are never eligible as a synthesis market.
 function loadBoard(argBkr) {
-  const dir = 'data/odds';
-  const files = (argBkr ? argBkr.split(',') : [fs.readdirSync(path.join(ROOT, dir)).filter((x) => /^BKR_current_lines_\d{4}_\d{4}_buildfmt$/.test(x)).sort().pop()].filter(Boolean).map((x) => `${dir}/${x}`));
-  if (!files.length) throw new Error('no BKR _buildfmt board found; pass --bkr <path[,path]>');
-  const lines = new Map(); let captured = null;
+  const dir = 'data/generated/props';
+  const pattern = new RegExp(`^(?:bookmaker-live-\\d{4}-\\d{2}-\\d{2}-week${WEEK}|bookmaker-user-board-\\d{4}-\\d{2}-\\d{2}-week${WEEK})\\.json$`);
+  const files = argBkr ? argBkr.split(',') : fs.readdirSync(path.join(ROOT, dir)).filter((x) => pattern.test(x))
+    .map((name) => `${dir}/${name}`).sort((a, b) => fs.statSync(path.join(ROOT, b)).mtimeMs - fs.statSync(path.join(ROOT, a)).mtimeMs).slice(0, 1);
+  if (!files.length) throw new Error(`no current-week BKR capture/board found; opening snapshots are excluded; pass --bkr <structured-json-path[,path]>`);
+  const lines = new Map(); let captured = null; let captureBasis = 'capturedAt field'; let rowCount = 0;
+  const teamNames = {
+    'Arizona Cardinals': 'ARI', 'Atlanta Falcons': 'ATL', 'Baltimore Ravens': 'BAL', 'Buffalo Bills': 'BUF',
+    'Carolina Panthers': 'CAR', 'Chicago Bears': 'CHI', 'Cincinnati Bengals': 'CIN', 'Cleveland Browns': 'CLE',
+    'Dallas Cowboys': 'DAL', 'Denver Broncos': 'DEN', 'Detroit Lions': 'DET', 'Green Bay Packers': 'GB',
+    'Houston Texans': 'HOU', 'Indianapolis Colts': 'IND', 'Jacksonville Jaguars': 'JAX', 'Kansas City Chiefs': 'KC',
+    'Las Vegas Raiders': 'LV', 'Los Angeles Chargers': 'LAC', 'Los Angeles Rams': 'LAR', 'Miami Dolphins': 'MIA',
+    'Minnesota Vikings': 'MIN', 'New England Patriots': 'NE', 'New Orleans Saints': 'NO', 'New York Giants': 'NYG',
+    'New York Jets': 'NYJ', 'Philadelphia Eagles': 'PHI', 'Pittsburgh Steelers': 'PIT', 'San Francisco 49ers': 'SF',
+    'Seattle Seahawks': 'SEA', 'Tampa Bay Buccaneers': 'TB', 'Tennessee Titans': 'TEN', 'Washington Commanders': 'WAS',
+  };
+  const code = (team) => ALIAS[team] || teamNames[team] || team;
   for (const file of files) {
-    const stamp = path.basename(file).match(/_(\d{2})(\d{2})_(\d{2})(\d{2})_buildfmt$/);
-    if (stamp) { const t = new Date(Date.UTC(2026, Number(stamp[1]) - 1, Number(stamp[2]), Number(stamp[3]) + 7, Number(stamp[4]))).toISOString(); if (!captured || t > captured) captured = t; } // filename time is PT (PDT, UTC-7), approximate
-    for (const row of fs.readFileSync(path.join(ROOT, file), 'utf8').split(/\r?\n/)) {
-      const m = row.match(/^(\w+) @ (\w+)\s+\d{1,2}:\d{2}\s+(\w+) ([+-]?\d+(?:\.\d+)?)([+-]\d+) \/ (\w+) ([+-]?\d+(?:\.\d+)?)([+-]\d+)\s+o(\d+(?:\.\d+)?)[+-]\d+/);
-      if (!m) continue;
-      const [, a, h, t1, s1, , , s2, , tot] = m;
-      lines.set(`${canon(a)}@${canon(h)}`, { homeSpread: canon(t1) === canon(h) ? Number(s1) : Number(s2), total: Number(tot) });
+    if (!file.toLowerCase().endsWith('.json')) throw new Error(`legacy text board is opening-line history, not a current synthesis input: ${file}`);
+    const board = read(file);
+    const boardCaptured = board.capturedAt || board.capture_time || null;
+    if (boardCaptured && (!captured || Date.parse(boardCaptured) > Date.parse(captured))) captured = boardCaptured;
+    if (board.games?.length && board.games[0]?.game) {
+      captureBasis = board.capture_time ? 'Bookmaker capture timestamp' : `user-supplied board recorded ${board.recorded_at || 'at unknown time'}; sportsbook capture time unstated`;
+      for (const game of board.games) {
+        const [away, home] = game.game.split('@').map(code);
+        const homeSpread = game.spread?.[home]?.line;
+        const total = game.total?.line;
+        if (away && home && Number.isFinite(Number(homeSpread)) && Number.isFinite(Number(total))) {
+          lines.set(`${away}@${home}`, { homeSpread: Number(homeSpread), total: Number(total) });
+        }
+      }
+      rowCount += board.games.length;
+    } else if (Array.isArray(board.rows)) {
+      captureBasis = 'Bookmaker live capture timestamps';
+      const perGame = new Map();
+      for (const row of board.rows) {
+        if (row.sectionTitle !== 'Game' || row.available === false || !row.event) continue;
+        const [awayName, homeName] = row.event.split(' @ ');
+        if (!homeName) continue;
+        const away = code(awayName); const home = code(homeName); const key = `${away}@${home}`;
+        const entry = perGame.get(key) || {};
+        if (row.bet === 'spread') entry[code(row.side)] = Number(row.line);
+        if (row.bet === 'total' && (row.side === 'Over' || row.side === 'Under')) entry.total = Number(row.line);
+        perGame.set(key, entry);
+        if (row.capturedAt && (!captured || Date.parse(row.capturedAt) > Date.parse(captured))) captured = row.capturedAt;
+      }
+      for (const [key, entry] of perGame) {
+        const home = key.split('@')[1];
+        if (Number.isFinite(entry[home]) && Number.isFinite(entry.total)) lines.set(key, { homeSpread: entry[home], total: entry.total });
+      }
+      rowCount += lines.size;
+    } else {
+      throw new Error(`unsupported BKR current-board JSON schema: ${file}`);
     }
   }
-  return { source: files.join(','), captured_at: captured, captured_at_basis: 'board filename time, PT, approximate', rows: lines.size, find: (game) => lines.get(`${game.away}@${game.home}`) || {} };
+  return { source: files.join(','), captured_at: captured, captured_at_basis: captureBasis, rows: lines.size || rowCount, find: (game) => lines.get(`${game.away}@${game.home}`) || {} };
 }
 let games; let market;
 if (WEEK === 5) {

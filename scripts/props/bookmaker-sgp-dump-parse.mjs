@@ -19,17 +19,25 @@ for (const line of raw) {
   if (!ev) continue;
   if (k === 'T') {
     secIdx++; const t = v.replace(/^.{2,40}?\svs\s.{2,40}?\s*:\s*/i, '');
-    let market = 'unknown', player = null, period = null;
+    let market = 'unknown', player = null, period = null, team = null;
     if (secIdx === 0 || t === 'Game') market = 'game_lines';
     else if (TD[t]) market = TD[t];
+    else if (/ Team Total(?: \+ OT)?$/.test(t)) {
+      const tm = t.match(/^(.*?)(?: (1H|2H|1Q|2Q|3Q|4Q))? Team Total(?: \+ OT)?$/);
+      team = ev.event.split(' @ ').find(n => n.endsWith(tm[1])) || tm[1];
+      period = tm[2] || 'game'; market = 'team_total';
+    }
     else { const p = PERIOD.find(([n]) => v.endsWith(n)); if (p) market = p[1];
       else { const m = PM.find(([n]) => t.endsWith(' ' + n)); if (m) { market = m[1]; player = t.slice(0, -(m[0].length + 1)).trim().replace(/\s+Total$/i, ''); } } }
-    sec = { title: v, market, player, mode: null }; continue;
+    sec = { title: v, market, player, period, team, mode: null }; continue;
   }
   if (k !== 'I' || !sec) continue;
   const base = { book: 'BKR', event: ev.event, eventUrl: ev.eventUrl, sectionTitle: sec.title, market: sec.market, source: 'bookmaker_live_dom', capturedAt: ev.capturedAt, selection: v };
   if (v === 'Money Line') { sec.mode = 'ml'; continue; }
   let m;
+  if (sec.market === 'team_total' && (m = v.match(/^(?:(.*?) - )?(Over|Under)(?: (\d+(?:\.\d+)?)([+-]\d+))?$/))) {
+    ev.rows.push({ ...base, player: null, team: sec.team, period: sec.period, bet: 'team_total', side: m[2], line: m[3] == null ? null : Number(m[3]), odds: odds(m[4]), available: m[4] != null }); continue;
+  }
   if (sec.player && (m = v.match(/^(.*?) (\d+(?:\.\d+)?)\+(?: ([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: 'Over', line: Number(m[2]) - 0.5, threshold: Number(m[2]), odds: odds(m[3]), available: m[3] != null }); continue; }
   if (sec.player && (m = v.match(/^(.*?) - (Over|Under)(?: (\d+(?:\.\d+)?)([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: m[2], line: m[3] == null ? null : Number(m[3]), odds: odds(m[4]), available: m[4] != null }); continue; }
   if (TD[sec.title.replace(/^.{2,40}?\svs\s.{2,40}?\s*:\s*/i, '')] && (m = v.match(/^(.*?)(?: ([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: 'Yes', line: null, odds: odds(m[2]), available: m[2] != null }); continue; }

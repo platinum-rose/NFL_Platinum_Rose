@@ -1,13 +1,29 @@
 {
   "meta": {
-    "description": "Auto-refreshed weekly pass seeding obvious starters missed by the injury-report heuristic in build-projected-starters.js. Derived from real Week 6 2026 usage stats (player_stats_weekly.csv) -- top usage player at each team/position where usage clearly dominates the next player at that position (>= 1.8x, above a position-specific volume floor). QBs are high-confidence; RB/WR/TE are single-game samples and flagged needs_human_review. This file is fully overwritten each run -- it never accumulates stale entries from prior weeks.",
-    "derived_from": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026, week 6)",
+    "description": "Auto-refreshed weekly pass seeding obvious starters missed by the injury-report heuristic in build-projected-starters.js. Derived from real Week 7 2026 usage stats (player_stats_weekly.csv) -- top usage player at each team/position where usage clearly dominates the next player at that position (>= 1.8x, above a position-specific volume floor). QBs are high-confidence; RB/WR/TE are single-game samples and flagged needs_human_review. This file is fully overwritten each run -- it never accumulates stale entries from prior weeks.",
+    "derived_from": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026, week 7)",
     "generated_by": "scripts/build-week-usage-locks.js (Tuesday cadence)",
     "season": 2026,
-    "week": 6,
-    "generated_at": "2026-10-20T18:23:03.516Z"
+    "week": 7,
+    "generated_at": "2026-10-27T17:00:48.067Z"
   },
   "players": [
+    {
+      "player_name": "Tyler Huntley",
+      "team": "BAL",
+      "position": "QB",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "confidence_basis": "manual_depth_chart",
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "evidence": "Week 7 2026 usage leader at QB for BAL (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+    },
     {
       "player_name": "Woody Marks",
       "team": "HOU",
@@ -22,7 +38,23 @@
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 6 2026 usage leader at RB for HOU (usage score 16.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 7 2026 usage leader at RB for HOU (usage score 19.5 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+    },
+    {
+      "player_name": "J.J. McCarthy",
+      "team": "NYG",
+      "position": "QB",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "confidence_basis": "manual_depth_chart",
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "evidence": "Week 7 2026 usage leader at QB for NYG (usage score 28.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     },
     {
       "player_name": "Tanner McKee",
@@ -38,23 +70,23 @@
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 6 2026 usage leader at QB for PHI (usage score 45.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 7 2026 usage leader at QB for PHI (usage score 35.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     },
     {
-      "player_name": "Jalon Daniels",
-      "team": "TB",
-      "position": "QB",
+      "player_name": "Emanuel Wilson",
+      "team": "SEA",
+      "position": "RB",
       "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
       "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
       "evidence_tags": [
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 6 2026 usage leader at QB for TB (usage score 43.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 7 2026 usage leader at RB for SEA (usage score 24.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     }
   ]
 }

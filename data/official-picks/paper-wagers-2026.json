@@ -977,16 +977,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-109",
     "odds_decimal": 1.9174,
     "potential_profit_usd": 18.35,
     "potential_payout_usd": 38.35,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -109 — to win $18.35. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -109 — to win $18.35. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 1 leg hits, 0 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -998,13 +998,16 @@
         "line": 41.5,
         "price": "-109",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_single_ind_min_under_41_5_1",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 26,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; final combined score."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_mia_nyj_under_39",
@@ -1019,16 +1022,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-108",
     "odds_decimal": 1.9259,
     "potential_profit_usd": 18.52,
     "potential_payout_usd": 38.52,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1037,16 +1040,19 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 39",
-        "line": 39.0,
+        "line": 39,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_mia_nyj_under_39_1",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 53,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; final combined score."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_cin_bal_under_47",
@@ -1061,16 +1067,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-118",
     "odds_decimal": 1.8475,
     "potential_profit_usd": 16.95,
     "potential_payout_usd": 36.95,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -118 — to win $16.95. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -118 — to win $16.95. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1079,16 +1085,19 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 47",
-        "line": 47.0,
+        "line": 47,
         "price": "-118",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_cin_bal_under_47_1",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 48,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873012; final combined score."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_gb_det_green_bay_3_5",
@@ -1103,16 +1112,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-103",
     "odds_decimal": 1.9709,
     "potential_profit_usd": 19.42,
     "potential_payout_usd": 39.42,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -103 — to win $19.42. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -103 — to win $19.42. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 1 leg hits, 0 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1124,12 +1133,15 @@
         "line": 3.5,
         "price": "-103",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_single_gb_det_green_bay_3_5_1",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; team margin versus spread."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_tb_car_over_44_5",
@@ -1144,16 +1156,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-108",
     "odds_decimal": 1.9259,
     "potential_profit_usd": 18.52,
     "potential_payout_usd": 38.52,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 1 leg hits, 0 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1165,13 +1177,16 @@
         "line": 44.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_single_tb_car_over_44_5_1",
         "source": "BKR",
         "direction": "over",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 56,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; final combined score."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_kc_sea_kansas_city_3",
@@ -1186,16 +1201,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-115",
     "odds_decimal": 1.8696,
     "potential_profit_usd": 17.39,
     "potential_payout_usd": 37.39,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -115 — to win $17.39. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -115 — to win $17.39. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1204,15 +1219,18 @@
         "opponent": "SEA",
         "market": "spread",
         "selection": "Kansas City +3",
-        "line": 3.0,
+        "line": 3,
         "price": "-115",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_kc_sea_kansas_city_3_1",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; team margin versus spread."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_mia_nyj_new_york_jets_4",
@@ -1227,16 +1245,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-108",
     "odds_decimal": 1.9259,
     "potential_profit_usd": 18.52,
     "potential_payout_usd": 38.52,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1245,15 +1263,18 @@
         "opponent": "MIA",
         "market": "spread",
         "selection": "New York Jets -4",
-        "line": -4.0,
+        "line": -4,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_mia_nyj_new_york_jets_4_1",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; team margin versus spread."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_den_ari_arizona_4_5",
@@ -1268,16 +1289,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "-108",
     "odds_decimal": 1.9259,
     "potential_profit_usd": 18.52,
     "potential_payout_usd": 38.52,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: -108 — to win $18.52. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1289,12 +1310,15 @@
         "line": 4.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_den_ari_arizona_4_5_1",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -14,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; team margin versus spread."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_kc_sea_kc_ml_kansas_city",
@@ -1309,16 +1333,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "+129",
     "odds_decimal": 2.29,
     "potential_profit_usd": 25.8,
     "potential_payout_usd": 45.8,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +129 — to win $25.80. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +129 — to win $25.80. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1330,12 +1354,15 @@
         "line": null,
         "price": "+129",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_kc_sea_kc_ml_kansas_city_1",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": -17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; final team margin."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_mia_nyj_malik_willis_pass_td_under_0_5",
@@ -1350,16 +1377,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "+148",
     "odds_decimal": 2.48,
     "potential_profit_usd": 29.6,
     "potential_payout_usd": 49.6,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +148 — to win $29.60. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +148 — to win $29.60. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1371,14 +1398,17 @@
         "line": 0.5,
         "price": "+148",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_mia_nyj_malik_willis_pass_td_under_0_5_1",
         "source": "BKR",
         "player": "Malik Willis",
         "direction": "under",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN passing_touchdowns stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_single_pit_no_aaron_rodgers_pass_td_over_1_5",
@@ -1393,16 +1423,16 @@
     "ticket_type": "Single",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": "+100",
-    "odds_decimal": 2.0,
-    "potential_profit_usd": 20.0,
-    "potential_payout_usd": 40.0,
-    "status": "PENDING",
-    "result": null,
+    "odds_decimal": 2,
+    "potential_profit_usd": 20,
+    "potential_payout_usd": 40,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "3",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +100 — to win $20.00. Flags: proposal only; recheck price and inactives before placing.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §3), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +100 — to win $20.00. Flags: proposal only; recheck price and inactives before placing. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -1414,14 +1444,17 @@
         "line": 1.5,
         "price": "+100",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_single_pit_no_aaron_rodgers_pass_td_over_1_5_1",
         "source": "BEO",
         "player": "Aaron Rodgers",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN passing_touchdowns stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_dog_ml_round_robin_by_2s",
@@ -1436,16 +1469,16 @@
     "ticket_type": "Round Robin (5 Selections, 2-Team Combinations, 10 Parlays)",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 20.0,
-    "stake_usd": 20.0,
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
     "odds_american": null,
     "odds_decimal": null,
     "potential_profit_usd": 103.08,
     "potential_payout_usd": 123.08,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "4",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §4), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: 10 two-team combos × $2 — all five hit returns $123; 3 of 5 returns about $32. Flags: template = 2u ($20); ATL +123 BEO +130; ARI +193 BEO +186. If Nacua plays, run 4 legs (6 × $2 = $12) or 6 × $3.33 = $20.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §4), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: 10 two-team combos × $2 — all five hit returns $123; 3 of 5 returns about $32. Flags: template = 2u ($20); ATL +123 BEO +130; ARI +193 BEO +186. If Nacua plays, run 4 legs (6 × $2 = $12) or 6 × $3.33 = $20. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0/6 2-selection combinations won; player-pick accuracy is recorded per leg. No combo payout/ROI inferred.",
     "legs": [
       {
         "leg_num": 1,
@@ -1457,10 +1490,12 @@
         "line": null,
         "price": "+129",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_dog_ml_round_robin_by_2s_1",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": -17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; final team margin."
       },
       {
         "leg_num": 2,
@@ -1472,10 +1507,12 @@
         "line": null,
         "price": "+123",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_dog_ml_round_robin_by_2s_2",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": 9,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873017; final team margin."
       },
       {
         "leg_num": 3,
@@ -1487,10 +1524,12 @@
         "line": null,
         "price": "+140",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_dog_ml_round_robin_by_2s_3",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": -6,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; final team margin."
       },
       {
         "leg_num": 4,
@@ -1502,10 +1541,12 @@
         "line": null,
         "price": "+193",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_dog_ml_round_robin_by_2s_4",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": -14,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; final team margin."
       },
       {
         "leg_num": 5,
@@ -1517,17 +1558,19 @@
         "line": null,
         "price": "+157",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "VOID",
         "key": "paper_w7_card_dog_ml_round_robin_by_2s_5",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": "Puka Nacua appeared",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; condition not met; no selection."
       }
     ],
     "round_robin": {
       "selection_count": 5,
       "teams_per_combination": 2,
       "combination_count": 10,
-      "stake_per_combination_usd": 2.0,
+      "stake_per_combination_usd": 2,
       "combinations": [
         {
           "teams": [
@@ -1538,7 +1581,7 @@
             1,
             2
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 8.21
         },
         {
@@ -1550,7 +1593,7 @@
             1,
             3
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 8.99
         },
         {
@@ -1562,7 +1605,7 @@
             1,
             4
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 11.42
         },
         {
@@ -1574,7 +1617,7 @@
             1,
             5
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 9.77
         },
         {
@@ -1586,7 +1629,7 @@
             2,
             3
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 8.7
         },
         {
@@ -1598,7 +1641,7 @@
             2,
             4
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 11.07
         },
         {
@@ -1610,7 +1653,7 @@
             2,
             5
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 9.46
         },
         {
@@ -1622,7 +1665,7 @@
             3,
             4
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 12.06
         },
         {
@@ -1634,7 +1677,7 @@
             3,
             5
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 10.34
         },
         {
@@ -1646,12 +1689,13 @@
             4,
             5
           ],
-          "stake_usd": 2.0,
+          "stake_usd": 2,
           "to_win_usd": 13.06
         }
       ],
       "settlement_method": "sum of winning 2-leg parlays"
-    }
+    },
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_master_round_robin_8_legs_by_4s",
@@ -1666,16 +1710,16 @@
     "ticket_type": "Round Robin (8 Selections, 4-Team Combinations, 70 Parlays)",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 70.0,
-    "stake_usd": 70.0,
+    "cash_risk_usd": 70,
+    "stake_usd": 70,
     "odds_american": null,
     "odds_decimal": null,
     "potential_profit_usd": 972.65,
     "potential_payout_usd": 1042.65,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "4",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §4), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: 70 four-team combos × $1 (~+1,228 each) — all eight hit returns about $1,043; 6 of 8 returns about $199; 5 of 8 about $66. Flags: template 8 legs, 4-team combos, $70-140. Rebalanced Sat 10:35 PM at the direction of Andy: four sides (GB, NYJ, ARI, KC ML) and four totals (three Unders, one Over); seven legs are Platinum Rose recs, DAL/PHI U44 is the one lean (MIA/NYJ U39 shares a game with NYJ -4). Every leg is from a different game. 5 of 8 returns about $66 (just short of the $70 stake), so it needs 6 of 8 to profit. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §4), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: 70 four-team combos × $1 (~+1,228 each) — all eight hit returns about $1,043; 6 of 8 returns about $199; 5 of 8 about $66. Flags: template 8 legs, 4-team combos, $70-140. Rebalanced Sat 10:35 PM at the direction of Andy: four sides (GB, NYJ, ARI, KC ML) and four totals (three Unders, one Over); seven legs are Platinum Rose recs, DAL/PHI U44 is the one lean (MIA/NYJ U39 shares a game with NYJ -4). Every leg is from a different game. 5 of 8 returns about $66 (just short of the $70 stake), so it needs 6 of 8 to profit. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0/70 4-selection combinations won; player-pick accuracy is recorded per leg. No combo payout/ROI inferred.",
     "legs": [
       {
         "leg_num": 1,
@@ -1687,10 +1731,12 @@
         "line": 3.5,
         "price": "-103",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_1",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; team margin versus spread."
       },
       {
         "leg_num": 2,
@@ -1699,13 +1745,15 @@
         "opponent": "MIA",
         "market": "spread",
         "selection": "New York Jets -4",
-        "line": -4.0,
+        "line": -4,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_2",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; team margin versus spread."
       },
       {
         "leg_num": 3,
@@ -1717,10 +1765,12 @@
         "line": 4.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_3",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -14,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; team margin versus spread."
       },
       {
         "leg_num": 4,
@@ -1732,10 +1782,12 @@
         "line": null,
         "price": "+129",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_4",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": -17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; final team margin."
       },
       {
         "leg_num": 5,
@@ -1747,11 +1799,13 @@
         "line": 41.5,
         "price": "-109",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_5",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 26,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; final combined score."
       },
       {
         "leg_num": 6,
@@ -1760,14 +1814,16 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 47",
-        "line": 47.0,
+        "line": 47,
         "price": "-118",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_6",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 48,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873012; final combined score."
       },
       {
         "leg_num": 7,
@@ -1779,11 +1835,13 @@
         "line": 44.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_7",
         "source": "BKR",
         "direction": "over",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 56,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; final combined score."
       },
       {
         "leg_num": 8,
@@ -1792,21 +1850,23 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 44",
-        "line": 44.0,
+        "line": 44,
         "price": "-108",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_master_round_robin_8_legs_by_4s_8",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 59,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; final combined score."
       }
     ],
     "round_robin": {
       "selection_count": 8,
       "teams_per_combination": 4,
       "combination_count": 70,
-      "stake_per_combination_usd": 1.0,
+      "stake_per_combination_usd": 1,
       "combinations": [
         {
           "teams": [
@@ -1821,7 +1881,7 @@
             3,
             4
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -1837,7 +1897,7 @@
             3,
             5
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -1853,7 +1913,7 @@
             3,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -1869,7 +1929,7 @@
             3,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.08
         },
         {
@@ -1885,7 +1945,7 @@
             3,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.08
         },
         {
@@ -1901,7 +1961,7 @@
             4,
             5
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.67
         },
         {
@@ -1917,7 +1977,7 @@
             4,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.06
         },
         {
@@ -1933,7 +1993,7 @@
             4,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -1949,7 +2009,7 @@
             4,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -1965,7 +2025,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.45
         },
         {
@@ -1981,7 +2041,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -1997,7 +2057,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -2013,7 +2073,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -2029,7 +2089,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -2045,7 +2105,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.08
         },
         {
@@ -2061,7 +2121,7 @@
             4,
             5
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.67
         },
         {
@@ -2077,7 +2137,7 @@
             4,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.06
         },
         {
@@ -2093,7 +2153,7 @@
             4,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -2109,7 +2169,7 @@
             4,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -2125,7 +2185,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.45
         },
         {
@@ -2141,7 +2201,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -2157,7 +2217,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -2173,7 +2233,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -2189,7 +2249,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -2205,7 +2265,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.08
         },
         {
@@ -2221,7 +2281,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.99
         },
         {
@@ -2237,7 +2297,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.67
         },
         {
@@ -2253,7 +2313,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.67
         },
         {
@@ -2269,7 +2329,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.06
         },
         {
@@ -2285,7 +2345,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.06
         },
         {
@@ -2301,7 +2361,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.74
         },
         {
@@ -2317,7 +2377,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.45
         },
         {
@@ -2333,7 +2393,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.45
         },
         {
@@ -2349,7 +2409,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 13.02
         },
         {
@@ -2365,7 +2425,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.51
         },
         {
@@ -2381,7 +2441,7 @@
             4,
             5
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2397,7 +2457,7 @@
             4,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2413,7 +2473,7 @@
             4,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.36
         },
         {
@@ -2429,7 +2489,7 @@
             4,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.36
         },
         {
@@ -2445,7 +2505,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         },
         {
@@ -2461,7 +2521,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.7
         },
         {
@@ -2477,7 +2537,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.7
         },
         {
@@ -2493,7 +2553,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.2
         },
         {
@@ -2509,7 +2569,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.2
         },
         {
@@ -2525,7 +2585,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.76
         },
         {
@@ -2541,7 +2601,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.62
         },
         {
@@ -2557,7 +2617,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2573,7 +2633,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2589,7 +2649,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2605,7 +2665,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2621,7 +2681,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.36
         },
         {
@@ -2637,7 +2697,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         },
         {
@@ -2653,7 +2713,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         },
         {
@@ -2669,7 +2729,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.7
         },
         {
@@ -2685,7 +2745,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.2
         },
         {
@@ -2701,7 +2761,7 @@
             5,
             6
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.62
         },
         {
@@ -2717,7 +2777,7 @@
             5,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2733,7 +2793,7 @@
             5,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2749,7 +2809,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2765,7 +2825,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2781,7 +2841,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.36
         },
         {
@@ -2797,7 +2857,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         },
         {
@@ -2813,7 +2873,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         },
         {
@@ -2829,7 +2889,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.7
         },
         {
@@ -2845,7 +2905,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.2
         },
         {
@@ -2861,7 +2921,7 @@
             6,
             7
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.62
         },
         {
@@ -2877,7 +2937,7 @@
             6,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.62
         },
         {
@@ -2893,7 +2953,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 15.29
         },
         {
@@ -2909,7 +2969,7 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 14.69
         },
         {
@@ -2925,12 +2985,13 @@
             7,
             8
           ],
-          "stake_usd": 1.0,
+          "stake_usd": 1,
           "to_win_usd": 12.14
         }
       ],
       "settlement_method": "sum of winning 4-leg parlays"
-    }
+    },
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_morning_parlay_snf_cap",
@@ -2945,16 +3006,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1043",
     "odds_decimal": 11.432,
     "potential_profit_usd": 104.32,
     "potential_payout_usd": 114.32,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "5",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,043 (est.) — returns about $114. Flags: Template: morning totals then the SNF ML cap. No afternoon ML added: the clean afternoon favorites (DEN, already live) duplicate exposure. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,043 (est.) — returns about $114. Flags: Template: morning totals then the SNF ML cap. No afternoon ML added: the clean afternoon favorites (DEN, already live) duplicate exposure. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -2966,11 +3027,13 @@
         "line": 41.5,
         "price": "-109",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_morning_parlay_snf_cap_1",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 26,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; final combined score."
       },
       {
         "leg_num": 2,
@@ -2979,14 +3042,16 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 39",
-        "line": 39.0,
+        "line": 39,
         "price": "-108",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_morning_parlay_snf_cap_2",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 53,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; final combined score."
       },
       {
         "leg_num": 3,
@@ -2995,14 +3060,16 @@
         "opponent": "",
         "market": "total",
         "selection": "Under 47",
-        "line": 47.0,
+        "line": 47,
         "price": "-118",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_morning_parlay_snf_cap_3",
         "source": "BKR",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 48,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873012; final combined score."
       },
       {
         "leg_num": 4,
@@ -3014,12 +3081,15 @@
         "line": null,
         "price": "-148",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_morning_parlay_snf_cap_4",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": 17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; final team margin."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_afternoon_parlay_snf_cap",
@@ -3034,16 +3104,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+844",
     "odds_decimal": 9.4407,
     "potential_profit_usd": 84.41,
     "potential_payout_usd": 94.41,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "card_section": "5",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +844 (est.) — returns about $94. Flags: Template: 2-3 morning heavy favorites + afternoon high-confidence + SNF cap. MIN/NYJ/HOU/CAR/DEN MLs are already live, so PIT and CLE are the only non-duplicate favorites; both are -120-to-161 connectors with no Platinum Rose edge (flagged per the connector rule). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +844 (est.) — returns about $94. Flags: Template: 2-3 morning heavy favorites + afternoon high-confidence + SNF cap. MIN/NYJ/HOU/CAR/DEN MLs are already live, so PIT and CLE are the only non-duplicate favorites; both are -120-to-161 connectors with no Platinum Rose edge (flagged per the connector rule). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 4 leg hits, 0 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3055,10 +3125,12 @@
         "line": null,
         "price": "-161",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_afternoon_parlay_snf_cap_1",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": 6,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; final team margin."
       },
       {
         "leg_num": 2,
@@ -3070,10 +3142,12 @@
         "line": null,
         "price": "-131",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_afternoon_parlay_snf_cap_2",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873013; final team margin."
       },
       {
         "leg_num": 3,
@@ -3085,10 +3159,12 @@
         "line": 3.5,
         "price": "-103",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_afternoon_parlay_snf_cap_3",
         "source": "BKR",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; team margin versus spread."
       },
       {
         "leg_num": 4,
@@ -3100,12 +3176,15 @@
         "line": null,
         "price": "-148",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_afternoon_parlay_snf_cap_4",
         "source": "BKR",
-        "target_stat": "moneyline"
+        "target_stat": "moneyline",
+        "actual_stat": 17,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; final team margin."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_hybrid_a_beo_no_paris_game",
@@ -3120,16 +3199,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1203",
     "odds_decimal": 13.0278,
     "potential_profit_usd": 120.28,
     "potential_payout_usd": 130.28,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "5",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,203 (est.) — returns about $130. Flags: Andy 8:54 PM: no PIT@NO legs. BEO because BKR does not allow cross-game player props. No legs shared with Hybrid B. Request the live BEO multi-game price. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,203 (est.) — returns about $130. Flags: Andy 8:54 PM: no PIT@NO legs. BEO because BKR does not allow cross-game player props. No legs shared with Hybrid B. Request the live BEO multi-game price. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3141,11 +3220,13 @@
         "line": 41.5,
         "price": "-110",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_a_beo_no_paris_game_1",
         "source": "BEO",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 26,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; final combined score."
       },
       {
         "leg_num": 2,
@@ -3157,11 +3238,13 @@
         "line": 39.5,
         "price": "-115",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_hybrid_a_beo_no_paris_game_2",
         "source": "BEO",
         "direction": "under",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 53,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; final combined score."
       },
       {
         "leg_num": 3,
@@ -3173,10 +3256,12 @@
         "line": 3.5,
         "price": "-105",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_a_beo_no_paris_game_3",
         "source": "BEO",
-        "target_stat": "spread"
+        "target_stat": "spread",
+        "actual_stat": -3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; team margin versus spread."
       },
       {
         "leg_num": 4,
@@ -3188,14 +3273,17 @@
         "line": 0.5,
         "price": "-115",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_a_beo_no_paris_game_4",
         "source": "BEO",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN interceptions_thrown stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_hybrid_b_beo_no_paris_game",
@@ -3210,16 +3298,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1899",
     "odds_decimal": 19.994,
     "potential_profit_usd": 189.94,
     "potential_payout_usd": 199.94,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "5",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,899 (est.) — returns about $200. Flags: Andy 8:54 PM: no PIT@NO legs. Two GB@DET props (BEO max two per game). Love TD and Kraft TD are positively correlated (same passing game). No legs shared with Hybrid A. Request the live BEO multi-game price. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §5), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,899 (est.) — returns about $200. Flags: Andy 8:54 PM: no PIT@NO legs. Two GB@DET props (BEO max two per game). Love TD and Kraft TD are positively correlated (same passing game). No legs shared with Hybrid A. Request the live BEO multi-game price. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3231,11 +3319,13 @@
         "line": 44.5,
         "price": "-113",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_b_beo_no_paris_game_1",
         "source": "BEO",
         "direction": "over",
-        "target_stat": "total"
+        "target_stat": "total",
+        "actual_stat": 56,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; final combined score."
       },
       {
         "leg_num": 2,
@@ -3247,12 +3337,14 @@
         "line": 1.5,
         "price": "-175",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_b_beo_no_paris_game_2",
         "source": "BEO",
         "player": "Jordan Love",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 3,
@@ -3264,12 +3356,14 @@
         "line": 0.5,
         "price": "+170",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_hybrid_b_beo_no_paris_game_3",
         "source": "BEO",
         "player": "Tucker Kraft",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -3281,14 +3375,17 @@
         "line": 1.5,
         "price": "+150",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_hybrid_b_beo_no_paris_game_4",
         "source": "BEO",
         "player": "Patrick Mahomes",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN passing_touchdowns stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game",
@@ -3303,16 +3400,16 @@
     "ticket_type": "13-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+153180",
     "odds_decimal": 1532.7954,
     "potential_profit_usd": 15317.95,
     "potential_payout_usd": 15327.95,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +153,180 (est.) — returns about $15,328; book-implied 1 in 1,533, log-based estimate 1 in 121. Flags: Best risk-adjusted leg from each of the 13 games (Prop Stack Agent v1). Includes the Monday DAL@PHI leg, so the ticket stays live through MNF. 2 leg(s) shorter than -200. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +153,180 (est.) — returns about $15,328; book-implied 1 in 1,533, log-based estimate 1 in 121. Flags: Best risk-adjusted leg from each of the 13 games (Prop Stack Agent v1). Includes the Monday DAL@PHI leg, so the ticket stays live through MNF. 2 leg(s) shorter than -200. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 9 leg hits, 4 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3324,13 +3421,15 @@
         "line": 21.5,
         "price": "-115",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_1",
         "source": "BEO",
         "player": "DK Metcalf",
         "direction": "under",
         "target_stat": "longest_reception",
-        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play"
+        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play",
+        "actual_stat": 51,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN longest_reception stat."
       },
       {
         "leg_num": 2,
@@ -3342,13 +3441,15 @@
         "line": 3.5,
         "price": "-135",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_2",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": true,
-        "grading": "manual: total field goals made by both teams from the box score"
+        "grading": "manual: total field goals made by both teams from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873017; ESPN made field-goal scoring plays."
       },
       {
         "leg_num": 3,
@@ -3360,14 +3461,15 @@
         "line": 1.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_3",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Andre Szmyt",
-        "grading_note": "Team field goals graded as Andre Szmyt field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873013; ESPN field_goals_made stat.",
+        "actual_stat": 2
       },
       {
         "leg_num": 4,
@@ -3379,12 +3481,14 @@
         "line": 12.5,
         "price": "+161",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_4",
         "source": "BKR ref; confirm at BEO",
         "player": "Aaron Jones Sr.",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 8,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN carries stat."
       },
       {
         "leg_num": 5,
@@ -3396,13 +3500,15 @@
         "line": 2.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_5",
         "source": "BEO",
         "direction": "under",
         "target_stat": "team_touchdowns",
         "team_market": true,
-        "grading": "manual: count NYJ touchdowns from the box score"
+        "grading": "manual: count NYJ touchdowns from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN scoring plays."
       },
       {
         "leg_num": 6,
@@ -3414,12 +3520,14 @@
         "line": 243.5,
         "price": "-139",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_6",
         "source": "BKR ref; confirm at BEO",
         "player": "Bryce Young",
         "direction": "over",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 163,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; ESPN passing_yards stat."
       },
       {
         "leg_num": 7,
@@ -3431,12 +3539,14 @@
         "line": 9.5,
         "price": "-213",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_7",
         "source": "BKR ref; confirm at BEO",
         "player": "Chase Brown",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 11,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873012; ESPN carries stat."
       },
       {
         "leg_num": 8,
@@ -3448,12 +3558,14 @@
         "line": 2.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_8",
         "source": "BKR ref; confirm at BEO",
         "player": "Dalton Schultz",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 5,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; ESPN receptions stat."
       },
       {
         "leg_num": 9,
@@ -3465,12 +3577,14 @@
         "line": 20.5,
         "price": "-229",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_9",
         "source": "BKR ref; confirm at BEO",
         "player": "Jacoby Brissett",
         "direction": "over",
-        "target_stat": "pass_completions"
+        "target_stat": "pass_completions",
+        "actual_stat": 27,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN pass_completions stat."
       },
       {
         "leg_num": 10,
@@ -3482,12 +3596,14 @@
         "line": 1.5,
         "price": "-175",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_10",
         "source": "BEO",
         "player": "Jordan Love",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 11,
@@ -3499,12 +3615,14 @@
         "line": 1.5,
         "price": "+101",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_11",
         "source": "BKR ref; confirm at BEO",
         "player": "Kirk Cousins",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 12,
@@ -3516,12 +3634,14 @@
         "line": 0.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_12",
         "source": "BEO",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN interceptions_thrown stat."
       },
       {
         "leg_num": 13,
@@ -3533,15 +3653,18 @@
         "line": 3.5,
         "price": "-115",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_perfect_lottery_13_leg_best_leg_from_every_game_13",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": true,
-        "grading": "manual: total field goals made by both teams from the box score"
+        "grading": "manual: total field goals made by both teams from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN made field-goal scoring plays."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than",
@@ -3556,16 +3679,16 @@
     "ticket_type": "7-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+6963",
     "odds_decimal": 70.6307,
     "potential_profit_usd": 696.31,
     "potential_payout_usd": 706.31,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +6,963 (est.) — returns about $706; book-implied 1 in 71, log-based estimate 1 in 12. Flags: Highest-probability legs with no heavy (<-200) price; Darnold INT is the night leg. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +6,963 (est.) — returns about $706; book-implied 1 in 71, log-based estimate 1 in 12. Flags: Highest-probability legs with no heavy (<-200) price; Darnold INT is the night leg. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 4 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3577,13 +3700,15 @@
         "line": 21.5,
         "price": "-115",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_1",
         "source": "BEO",
         "player": "DK Metcalf",
         "direction": "under",
         "target_stat": "longest_reception",
-        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play"
+        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play",
+        "actual_stat": 51,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN longest_reception stat."
       },
       {
         "leg_num": 2,
@@ -3595,12 +3720,14 @@
         "line": 12.5,
         "price": "+161",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_2",
         "source": "BKR ref; confirm at BEO",
         "player": "Aaron Jones Sr.",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 8,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN carries stat."
       },
       {
         "leg_num": 3,
@@ -3612,13 +3739,15 @@
         "line": 2.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_3",
         "source": "BEO",
         "direction": "under",
         "target_stat": "team_touchdowns",
         "team_market": true,
-        "grading": "manual: count NYJ touchdowns from the box score"
+        "grading": "manual: count NYJ touchdowns from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN scoring plays."
       },
       {
         "leg_num": 4,
@@ -3630,12 +3759,14 @@
         "line": 243.5,
         "price": "-139",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_4",
         "source": "BKR ref; confirm at BEO",
         "player": "Bryce Young",
         "direction": "over",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 163,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; ESPN passing_yards stat."
       },
       {
         "leg_num": 5,
@@ -3647,14 +3778,15 @@
         "line": 1.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_5",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Andre Szmyt",
-        "grading_note": "Team field goals graded as Andre Szmyt field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873013; ESPN field_goals_made stat.",
+        "actual_stat": 2
       },
       {
         "leg_num": 6,
@@ -3666,12 +3798,14 @@
         "line": 2.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_6",
         "source": "BKR ref; confirm at BEO",
         "player": "Dalton Schultz",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 5,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; ESPN receptions stat."
       },
       {
         "leg_num": 7,
@@ -3683,14 +3817,17 @@
         "line": 0.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_core_7_leg_highest_hit_rates_no_leg_shorter_than_7",
         "source": "BEO",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN interceptions_thrown stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind_",
@@ -3705,16 +3842,16 @@
     "ticket_type": "7-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+7362",
     "odds_decimal": 74.6204,
     "potential_profit_usd": 736.2,
     "potential_payout_usd": 746.2,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +7,362 (est.) — returns about $746; book-implied 1 in 75, log-based estimate 1 in 25. Flags: Overs where drives stall (CLE, NYJ, MIN, LV, NYG); Unders where wind (Paris) or TD-heavy scripts (SF) cut kicks. The Jets angle: they have zero red-zone TDs in three games but only 2.0 FG/g, so NYJ team TDs Under 2.5 (BEO -150) is the stronger way to play it as a single. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +7,362 (est.) — returns about $746; book-implied 1 in 75, log-based estimate 1 in 25. Flags: Overs where drives stall (CLE, NYJ, MIN, LV, NYG); Unders where wind (Paris) or TD-heavy scripts (SF) cut kicks. The Jets angle: they have zero red-zone TDs in three games but only 2.0 FG/g, so NYJ team TDs Under 2.5 (BEO -150) is the stronger way to play it as a single. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 5 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3726,14 +3863,15 @@
         "line": 1.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__1",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Andre Szmyt",
-        "grading_note": "Team field goals graded as Andre Szmyt field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873013; ESPN field_goals_made stat.",
+        "actual_stat": 2
       },
       {
         "leg_num": 2,
@@ -3745,14 +3883,15 @@
         "line": 1.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__2",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Jason Sanders",
-        "grading_note": "Team field goals graded as Jason Sanders field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN field_goals_made stat.",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -3764,14 +3903,15 @@
         "line": 1.5,
         "price": "-170",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__3",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Will Reichard",
-        "grading_note": "Team field goals graded as Will Reichard field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN field_goals_made stat.",
+        "actual_stat": 3
       },
       {
         "leg_num": 4,
@@ -3783,14 +3923,15 @@
         "line": 1.5,
         "price": "+100",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__4",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Daniel Carlson",
-        "grading_note": "Team field goals graded as Daniel Carlson field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN field_goals_made stat.",
+        "actual_stat": 1
       },
       {
         "leg_num": 5,
@@ -3802,14 +3943,15 @@
         "line": 1.5,
         "price": "+130",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__5",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Eddy Pineiro",
-        "grading_note": "Team field goals graded as Eddy Pineiro field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873017; ESPN field_goals_made stat.",
+        "actual_stat": 0
       },
       {
         "leg_num": 6,
@@ -3821,14 +3963,15 @@
         "line": 1.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__6",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Matt Gay",
-        "grading_note": "Team field goals graded as Matt Gay field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN field_goals_made stat.",
+        "actual_stat": 3
       },
       {
         "leg_num": 7,
@@ -3840,16 +3983,18 @@
         "line": 1.5,
         "price": "+105",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_field_goal_ticket_7_leg_red_zone_stalls_vs_wind__7",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Dominic Zvada",
-        "grading_note": "Team field goals graded as Dominic Zvada field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; ESPN field_goals_made stat.",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken",
@@ -3864,16 +4009,16 @@
     "ticket_type": "8-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": null,
     "odds_decimal": null,
     "potential_profit_usd": null,
     "potential_payout_usd": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: pending markets — log-based estimate 1 in 34; price when the markets post. Flags: QB-under-pressure angle: turnover-prone or heavily sacked QBs against blitz/pass-rush defenses (box-score sacks taken per game, opponent sacks generated, INT rates). Only the two INT legs have a captured BEO price; the sacks/INT legs marked \"no market\" need BEO to post them. Mayfield leg only if he is active. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: pending markets — log-based estimate 1 in 34; price when the markets post. Flags: QB-under-pressure angle: turnover-prone or heavily sacked QBs against blitz/pass-rush defenses (box-score sacks taken per game, opponent sacks generated, INT rates). Only the two INT legs have a captured BEO price; the sacks/INT legs marked \"no market\" need BEO to post them. Mayfield leg only if he is active. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 5 leg hits, 3 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -3885,12 +4030,14 @@
         "line": 0.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_1",
         "source": "BEO",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN interceptions_thrown stat."
       },
       {
         "leg_num": 2,
@@ -3902,12 +4049,14 @@
         "line": 0.5,
         "price": "+100",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_2",
         "source": "BEO",
         "player": "Aaron Rodgers",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN interceptions_thrown stat."
       },
       {
         "leg_num": 3,
@@ -3919,13 +4068,15 @@
         "line": 1.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_3",
         "source": "price at recapture",
         "player": "Malik Willis",
         "direction": "over",
         "target_stat": "sacks_taken",
-        "grading": "manual: Malik Willis sacks taken from the box score / play-by-play"
+        "grading": "manual: Malik Willis sacks taken from the box score / play-by-play",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN sacks_taken stat."
       },
       {
         "leg_num": 4,
@@ -3937,13 +4088,15 @@
         "line": 1.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_4",
         "source": "price at recapture",
         "player": "Tyler Huntley",
         "direction": "over",
         "target_stat": "sacks_taken",
-        "grading": "manual: Tyler Huntley sacks taken from the box score / play-by-play"
+        "grading": "manual: Tyler Huntley sacks taken from the box score / play-by-play",
+        "actual_stat": 4,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873012; ESPN sacks_taken stat."
       },
       {
         "leg_num": 5,
@@ -3955,12 +4108,14 @@
         "line": 0.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_5",
         "source": "price at recapture",
         "player": "Daniel Jones",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN interceptions_thrown stat."
       },
       {
         "leg_num": 6,
@@ -3972,12 +4127,14 @@
         "line": 0.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_6",
         "source": "price at recapture",
         "player": "Jacoby Brissett",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN interceptions_thrown stat."
       },
       {
         "leg_num": 7,
@@ -3989,13 +4146,15 @@
         "line": 2.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_7",
         "source": "price at recapture",
         "player": "J.J. McCarthy",
         "direction": "over",
         "target_stat": "sacks_taken",
-        "grading": "manual: J.J. McCarthy sacks taken from the box score / play-by-play"
+        "grading": "manual: J.J. McCarthy sacks taken from the box score / play-by-play",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; ESPN sacks_taken stat."
       },
       {
         "leg_num": 8,
@@ -4007,18 +4166,21 @@
         "line": 1.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_qb_pressure_ticket_8_leg_ints_and_sacks_taken_8",
         "source": "price at recapture",
         "player": "Baker Mayfield",
         "direction": "over",
         "target_stat": "sacks_taken",
-        "grading": "manual: Baker Mayfield sacks taken from the box score / play-by-play"
+        "grading": "manual: Baker Mayfield sacks taken from the box score / play-by-play",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; ESPN sacks_taken stat."
       }
     ],
     "needs_confirmation": [
       "no complete price set on the card (DKP contract % or unposted markets); payout is the card estimate"
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists",
@@ -4033,16 +4195,16 @@
     "ticket_type": "7-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": null,
     "odds_decimal": null,
     "potential_profit_usd": null,
     "potential_payout_usd": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: pending markets — log-based estimate 1 in 9; price when the markets post. Flags: Tackles + assists has been the best prop category of the season (+22%). Lines are projected from the box-score logs because no book has posted IDP markets yet; take only lines at or below the projected number. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: pending markets — log-based estimate 1 in 9; price when the markets post. Flags: Tackles + assists has been the best prop category of the season (+22%). Lines are projected from the box-score logs because no book has posted IDP markets yet; take only lines at or below the projected number. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 5 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4054,12 +4216,14 @@
         "line": 6.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_1",
         "source": "price at recapture",
         "player": "Akeem Davis-Gaither",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN tackles_combined stat."
       },
       {
         "leg_num": 2,
@@ -4071,12 +4235,14 @@
         "line": 5.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_2",
         "source": "price at recapture",
         "player": "Quentin Lake",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN tackles_combined stat."
       },
       {
         "leg_num": 3,
@@ -4088,12 +4254,14 @@
         "line": 5.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_3",
         "source": "price at recapture",
         "player": "Jaquan Brisker",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN tackles_combined stat."
       },
       {
         "leg_num": 4,
@@ -4105,12 +4273,14 @@
         "line": 7.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_4",
         "source": "price at recapture",
         "player": "Jacob Rodriguez",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 4,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN tackles_combined stat."
       },
       {
         "leg_num": 5,
@@ -4122,12 +4292,14 @@
         "line": 8.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_5",
         "source": "price at recapture",
         "player": "Josiah Trotter",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 10,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; ESPN tackles_combined stat."
       },
       {
         "leg_num": 6,
@@ -4139,12 +4311,14 @@
         "line": 7.5,
         "price": "no market",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_6",
         "source": "price at recapture",
         "player": "Anthony Hill Jr.",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 12,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873013; ESPN tackles_combined stat."
       },
       {
         "leg_num": 7,
@@ -4156,17 +4330,20 @@
         "line": 4.5,
         "price": "no market",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_idp_tackles_ticket_7_leg_tackles_assists_7",
         "source": "price at recapture",
         "player": "Cooper DeJean",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN tackles_combined stat."
       }
     ],
     "needs_confirmation": [
       "no complete price set on the card (DKP contract % or unposted markets); payout is the card estimate"
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_7a_morning_6_leg_early_window",
@@ -4181,16 +4358,16 @@
     "ticket_type": "6-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+4013",
     "odds_decimal": 41.1287,
     "potential_profit_usd": 401.29,
     "potential_payout_usd": 411.29,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +4,013 (est.) — returns about $411; book-implied 1 in 41, log-based estimate 1 in 8. Flags: All six legs settle in the 6:30/10:00 AM window. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +4,013 (est.) — returns about $411; book-implied 1 in 41, log-based estimate 1 in 8. Flags: All six legs settle in the 6:30/10:00 AM window. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 4 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4202,13 +4379,15 @@
         "line": 21.5,
         "price": "-115",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_1",
         "source": "BEO",
         "player": "DK Metcalf",
         "direction": "under",
         "target_stat": "longest_reception",
-        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play"
+        "grading": "manual: DK Metcalf longest reception from the box score / play-by-play",
+        "actual_stat": 51,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; ESPN longest_reception stat."
       },
       {
         "leg_num": 2,
@@ -4220,13 +4399,15 @@
         "line": 3.5,
         "price": "-135",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_2",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": true,
-        "grading": "manual: total field goals made by both teams from the box score"
+        "grading": "manual: total field goals made by both teams from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873017; ESPN made field-goal scoring plays."
       },
       {
         "leg_num": 3,
@@ -4238,12 +4419,14 @@
         "line": 12.5,
         "price": "+161",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_3",
         "source": "BKR ref; confirm at BEO",
         "player": "Aaron Jones Sr.",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 8,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873014; ESPN carries stat."
       },
       {
         "leg_num": 4,
@@ -4255,13 +4438,15 @@
         "line": 2.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_4",
         "source": "BEO",
         "direction": "under",
         "target_stat": "team_touchdowns",
         "team_market": true,
-        "grading": "manual: count NYJ touchdowns from the box score"
+        "grading": "manual: count NYJ touchdowns from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873015; ESPN scoring plays."
       },
       {
         "leg_num": 5,
@@ -4273,12 +4458,14 @@
         "line": 243.5,
         "price": "-139",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_5",
         "source": "BKR ref; confirm at BEO",
         "player": "Bryce Young",
         "direction": "over",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 163,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; ESPN passing_yards stat."
       },
       {
         "leg_num": 6,
@@ -4290,14 +4477,17 @@
         "line": 2.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7a_morning_6_leg_early_window_6",
         "source": "BKR ref; confirm at BEO",
         "player": "Dalton Schultz",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 5,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; ESPN receptions stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_7b_afternoon_4_leg_night_leg_last",
@@ -4312,16 +4502,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+703",
     "odds_decimal": 8.0285,
     "potential_profit_usd": 70.29,
     "potential_payout_usd": 80.29,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "card_section": "7h",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +703 (est.) — returns about $80; book-implied 1 in 8, log-based estimate 1 in 5. Flags: Afternoon legs with the SNF Darnold INT leg resolving last. 1 leg(s) shorter than -200. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7h), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +703 (est.) — returns about $80; book-implied 1 in 8, log-based estimate 1 in 5. Flags: Afternoon legs with the SNF Darnold INT leg resolving last. 1 leg(s) shorter than -200. One leg per game; prices are BEO where captured, otherwise BKR/DKP references: confirm each leg on the BEO slip. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 4 leg hits, 0 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4333,12 +4523,14 @@
         "line": 20.5,
         "price": "-229",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7b_afternoon_4_leg_night_leg_last_1",
         "source": "BKR ref; confirm at BEO",
         "player": "Jacoby Brissett",
         "direction": "over",
-        "target_stat": "pass_completions"
+        "target_stat": "pass_completions",
+        "actual_stat": 27,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN pass_completions stat."
       },
       {
         "leg_num": 2,
@@ -4350,12 +4542,14 @@
         "line": 1.5,
         "price": "-175",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7b_afternoon_4_leg_night_leg_last_2",
         "source": "BEO",
         "player": "Jordan Love",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 3,
@@ -4367,12 +4561,14 @@
         "line": 1.5,
         "price": "+101",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7b_afternoon_4_leg_night_leg_last_3",
         "source": "BKR ref; confirm at BEO",
         "player": "Kirk Cousins",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 4,
@@ -4384,14 +4580,17 @@
         "line": 0.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7b_afternoon_4_leg_night_leg_last_4",
         "source": "BEO",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN interceptions_thrown stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_a_receiving_yards_core_4_leg_snf_cap",
@@ -4406,16 +4605,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+389",
     "odds_decimal": 4.8852,
     "potential_profit_usd": 38.85,
     "potential_payout_usd": 48.85,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +389 (est.) — returns about $49; book-implied 1 in 4.9, log-based estimate 1 in 3.6. Flags: 3 legs at -200 or shorter. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +389 (est.) — returns about $49; book-implied 1 in 4.9, log-based estimate 1 in 3.6. Flags: 3 legs at -200 or shorter. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4427,12 +4626,14 @@
         "line": 51.5,
         "price": "-209",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_a_receiving_yards_core_4_leg_snf_cap_1",
         "source": "DKP",
         "player": "Trey McBride",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 111,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN receiving_yards stat."
       },
       {
         "leg_num": 2,
@@ -4444,12 +4645,14 @@
         "line": 40.5,
         "price": "-223",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_a_receiving_yards_core_4_leg_snf_cap_2",
         "source": "DKP",
         "player": "Sam LaPorta",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 18,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN receiving_yards stat."
       },
       {
         "leg_num": 3,
@@ -4461,12 +4664,14 @@
         "line": 60.5,
         "price": "-200",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_a_receiving_yards_core_4_leg_snf_cap_3",
         "source": "DKP",
         "player": "Brock Bowers",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 73,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN receiving_yards stat."
       },
       {
         "leg_num": 4,
@@ -4478,14 +4683,17 @@
         "line": 82.5,
         "price": "-192",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_a_receiving_yards_core_4_leg_snf_cap_4",
         "source": "DKP",
         "player": "Jaxon Smith-Njigba",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 150,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN receiving_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_b_plus_money_ladder_4_leg_snf_cap",
@@ -4500,16 +4708,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1293",
     "odds_decimal": 13.9265,
     "potential_profit_usd": 129.26,
     "potential_payout_usd": 139.26,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,293 (est.) — returns about $139; book-implied 1 in 13.9, log-based estimate 1 in 9.7. Flags: best value of the four (book 1 in 13.9 vs log 1 in 9.7). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,293 (est.) — returns about $139; book-implied 1 in 13.9, log-based estimate 1 in 9.7. Flags: best value of the four (book 1 in 13.9 vs log 1 in 9.7). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4521,12 +4729,14 @@
         "line": 22.5,
         "price": "-117",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_b_plus_money_ladder_4_leg_snf_cap_1",
         "source": "DKP",
         "player": "Jacoby Brissett",
         "direction": "over",
-        "target_stat": "pass_completions"
+        "target_stat": "pass_completions",
+        "actual_stat": 27,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN pass_completions stat."
       },
       {
         "leg_num": 2,
@@ -4538,12 +4748,14 @@
         "line": 63.5,
         "price": "-196",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_b_plus_money_ladder_4_leg_snf_cap_2",
         "source": "DKP",
         "player": "Matthew Golden",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 39,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN receiving_yards stat."
       },
       {
         "leg_num": 3,
@@ -4555,12 +4767,14 @@
         "line": 80.5,
         "price": "+120",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_b_plus_money_ladder_4_leg_snf_cap_3",
         "source": "DKP",
         "player": "Brock Bowers",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 73,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN receiving_yards stat."
       },
       {
         "leg_num": 4,
@@ -4572,14 +4786,17 @@
         "line": 7.5,
         "price": "+126",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_b_plus_money_ladder_4_leg_snf_cap_4",
         "source": "DKP",
         "player": "Jaxon Smith-Njigba",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 9,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN receptions stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_c_td_stack_4_leg_snf_cap",
@@ -4594,16 +4811,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+2412",
     "odds_decimal": 25.1189,
     "potential_profit_usd": 241.19,
     "potential_payout_usd": 251.19,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,412 (est.) — returns about $251; book-implied 1 in 25.1, log-based estimate 1 in 22.5. Flags: BEO has no LAR@LV props, so DKP. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,412 (est.) — returns about $251; book-implied 1 in 25.1, log-based estimate 1 in 22.5. Flags: BEO has no LAR@LV props, so DKP. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 1 leg hits, 3 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4615,12 +4832,14 @@
         "line": 0.5,
         "price": "+150",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_c_td_stack_4_leg_snf_cap_1",
         "source": "DKP",
         "player": "Trey McBride",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 2,
@@ -4632,12 +4851,14 @@
         "line": 0.5,
         "price": "+160",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_c_td_stack_4_leg_snf_cap_2",
         "source": "DKP",
         "player": "Sam LaPorta",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -4649,12 +4870,14 @@
         "line": 0.5,
         "price": "+122",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_c_td_stack_4_leg_snf_cap_3",
         "source": "DKP",
         "player": "Brock Bowers",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -4666,14 +4889,17 @@
         "line": 0.5,
         "price": "-135",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_c_td_stack_4_leg_snf_cap_4",
         "source": "DKP",
         "player": "Kenneth Walker III",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; player TD scoring plays from ESPN."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_d_kicker_field_goal_stack_4_leg_snf_cap",
@@ -4688,16 +4914,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1215",
     "odds_decimal": 13.1467,
     "potential_profit_usd": 121.47,
     "potential_payout_usd": 131.47,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,215 (est.) — returns about $131; book-implied 1 in 13.1, log-based estimate 1 in 8.6. Flags: all four on BEO's board (Saturday capture). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,215 (est.) — returns about $131; book-implied 1 in 13.1, log-based estimate 1 in 8.6. Flags: all four on BEO's board (Saturday capture). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 1 leg hits, 3 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4709,12 +4935,14 @@
         "line": 8.5,
         "price": "+110",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_d_kicker_field_goal_stack_4_leg_snf_cap_1",
         "source": "BEO",
         "player": "Wil Lutz",
         "direction": "under",
-        "target_stat": "kicking_points"
+        "target_stat": "kicking_points",
+        "actual_stat": 12,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; ESPN kicking_points stat."
       },
       {
         "leg_num": 2,
@@ -4726,14 +4954,15 @@
         "line": 1.5,
         "price": "+100",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_d_kicker_field_goal_stack_4_leg_snf_cap_2",
         "source": "BEO",
         "direction": "under",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Jake Bates",
-        "grading_note": "Team field goals graded as Jake Bates field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN field_goals_made stat.",
+        "actual_stat": 2
       },
       {
         "leg_num": 3,
@@ -4745,14 +4974,15 @@
         "line": 1.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_d_kicker_field_goal_stack_4_leg_snf_cap_3",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Matt Gay",
-        "grading_note": "Team field goals graded as Matt Gay field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN field_goals_made stat.",
+        "actual_stat": 3
       },
       {
         "leg_num": 4,
@@ -4764,16 +4994,18 @@
         "line": 1.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_d_kicker_field_goal_stack_4_leg_snf_cap_4",
         "source": "BEO",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Harrison Butker",
-        "grading_note": "Team field goals graded as Harrison Butker field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN field_goals_made stat.",
+        "actual_stat": 1
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10",
@@ -4788,16 +5020,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+745",
     "odds_decimal": 8.4523,
     "potential_profit_usd": 74.52,
     "potential_payout_usd": 84.52,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +745 (est.) — returns about $85; book-implied 1 in 8.5, log-based estimate 1 in 5.5. Flags: DEN@ARI excluded (already kicked off). Two legs per game, opposite teams. Gibbs and Tucker shorter than -200. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +745 (est.) — returns about $85; book-implied 1 in 8.5, log-based estimate 1 in 5.5. Flags: DEN@ARI excluded (already kicked off). Two legs per game, opposite teams. Gibbs and Tucker shorter than -200. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4809,12 +5041,14 @@
         "line": 29.5,
         "price": "-260",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10_1",
         "source": "DKP",
         "player": "Jahmyr Gibbs",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 27,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN receiving_yards stat."
       },
       {
         "leg_num": 2,
@@ -4826,12 +5060,14 @@
         "line": 63.5,
         "price": "-196",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10_2",
         "source": "DKP",
         "player": "Matthew Golden",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 39,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN receiving_yards stat."
       },
       {
         "leg_num": 3,
@@ -4843,12 +5079,14 @@
         "line": 26.5,
         "price": "-116",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10_3",
         "source": "DKP",
         "player": "Ashton Jeanty",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 61,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN receiving_yards stat."
       },
       {
         "leg_num": 4,
@@ -4860,12 +5098,14 @@
         "line": 30.5,
         "price": "-234",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10_4",
         "source": "DKP",
         "player": "Tre Tucker",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 103,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN receiving_yards stat."
       },
       {
         "leg_num": 5,
@@ -4877,14 +5117,17 @@
         "line": 82.5,
         "price": "-192",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_e_no_den_ari_5_leg_two_per_game_snf_cap_sun_1_10_5",
         "source": "DKP",
         "player": "Jaxon Smith-Njigba",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 150,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN receiving_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s",
@@ -4899,16 +5142,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+1003",
     "odds_decimal": 11.0337,
     "potential_profit_usd": 100.34,
     "potential_payout_usd": 110.34,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7i",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+1,000 (est.) — returns about $110; book-implied about 1 in 11, log-based estimate 1 in 7.9. Flags: Andy asked for prop-type diversity after stack E (all receiving). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7i), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+1,000 (est.) — returns about $110; book-implied about 1 in 11, log-based estimate 1 in 7.9. Flags: Andy asked for prop-type diversity after stack E (all receiving). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -4920,12 +5163,14 @@
         "line": 23.5,
         "price": "-240",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s_1",
         "source": "DKP",
         "player": "Jared Goff",
         "direction": "over",
-        "target_stat": "pass_completions"
+        "target_stat": "pass_completions",
+        "actual_stat": 22,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN pass_completions stat."
       },
       {
         "leg_num": 2,
@@ -4937,12 +5182,14 @@
         "line": 6.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s_2",
         "source": "DKP",
         "player": "Evan Williams",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 9,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; ESPN tackles_combined stat."
       },
       {
         "leg_num": 3,
@@ -4954,12 +5201,14 @@
         "line": 1.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s_3",
         "source": "DKP",
         "player": "Matt Gay",
         "direction": "over",
-        "target_stat": "field_goals_made"
+        "target_stat": "field_goals_made",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; ESPN field_goals_made stat."
       },
       {
         "leg_num": 4,
@@ -4971,12 +5220,14 @@
         "line": 0.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s_4",
         "source": "DKP",
         "player": "Kyren Williams",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873021; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 5,
@@ -4988,14 +5239,17 @@
         "line": 17.5,
         "price": "-171",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_f_diversified_no_den_ari_5_leg_five_prop_types_s_5",
         "source": "DKP",
         "player": "Kenneth Walker III",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 14,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN carries stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_snf_island_tier_1_fresh",
@@ -5010,16 +5264,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+735",
     "odds_decimal": 8.3487,
     "potential_profit_usd": 73.49,
     "potential_payout_usd": 83.49,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7j",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +735 (est.) — returns about $83. Flags: positive with the live SEA ML + Over 41 SGP. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +735 (est.) — returns about $83. Flags: positive with the live SEA ML + Over 41 SGP. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5031,12 +5285,14 @@
         "line": 208.5,
         "price": "-150",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_1_fresh_1",
         "source": "BKR",
         "player": "Patrick Mahomes",
         "direction": "over",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 165,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN passing_yards stat."
       },
       {
         "leg_num": 2,
@@ -5048,12 +5304,14 @@
         "line": 215.5,
         "price": "-148",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_snf_island_tier_1_fresh_2",
         "source": "BKR",
         "player": "Sam Darnold",
         "direction": "over",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 257,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN passing_yards stat."
       },
       {
         "leg_num": 3,
@@ -5065,12 +5323,14 @@
         "line": 13.5,
         "price": "-145",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_snf_island_tier_1_fresh_3",
         "source": "BKR",
         "player": "Emanuel Wilson",
         "direction": "over",
-        "target_stat": "carries"
+        "target_stat": "carries",
+        "actual_stat": 24,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN carries stat."
       },
       {
         "leg_num": 4,
@@ -5082,14 +5342,17 @@
         "line": 1.5,
         "price": "-130",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_1_fresh_4",
         "source": "BKR",
         "player": "George Holani",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN receptions stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_snf_island_tier_2_fresh_diversified",
@@ -5104,16 +5367,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+2408",
     "odds_decimal": 25.0825,
     "potential_profit_usd": 120.41,
     "potential_payout_usd": 125.41,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7j",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,404 (est.) — returns about $125. Flags: rebuilt 4:50 PM at the direction of Andy (original T2 was all receiving: Kelce 55+, Worthy 59+, Shaheed 34+, Barner 3+ rec, Kupp 15+). Four prop types. FG Over pairs with the live Over 41 SGP. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,404 (est.) — returns about $125. Flags: rebuilt 4:50 PM at the direction of Andy (original T2 was all receiving: Kelce 55+, Worthy 59+, Shaheed 34+, Barner 3+ rec, Kupp 15+). Four prop types. FG Over pairs with the live Over 41 SGP. Proposal only. Week 7 accuracy grade 2026-10-27T20:31:21Z: 1 leg hit, 3 misses, 0 unresolved. Emmett Johnson absence from the final box score graded as 0 rushing yards / LOST per no-entry rule. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5125,12 +5388,14 @@
         "line": 18.5,
         "price": "+190",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_2_fresh_diversified_1",
         "source": "BKR",
         "player": "Emmett Johnson",
         "direction": "over",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T20:31:21Z: no Emmett Johnson entry or rushing stats in saved KC Week 7 final data; graded 0 rushing yards / LOST per the no-entry rule."
       },
       {
         "leg_num": 2,
@@ -5142,13 +5407,15 @@
         "line": 3.5,
         "price": "-102",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_2_fresh_diversified_2",
         "source": "BKR",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": true,
-        "grading": "manual: total field goals made by both teams from the box score"
+        "grading": "manual: total field goals made by both teams from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN made field-goal scoring plays."
       },
       {
         "leg_num": 3,
@@ -5160,12 +5427,14 @@
         "line": 0.5,
         "price": "+233",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_2_fresh_diversified_3",
         "source": "BKR",
         "player": "AJ Barner",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -5177,14 +5446,17 @@
         "line": 14.5,
         "price": "-321",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_snf_island_tier_2_fresh_diversified_4",
         "source": "BKR",
         "player": "Cooper Kupp",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 20,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN receiving_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_snf_island_tier_3_moonshot_fresh",
@@ -5199,16 +5471,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+14336",
     "odds_decimal": 144.3635,
     "potential_profit_usd": 716.82,
     "potential_payout_usd": 721.82,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7j",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +14,336 (est.) — returns about $722. Flags: moonshot. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7j), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +14,336 (est.) — returns about $722. Flags: moonshot. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 4 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5220,13 +5492,15 @@
         "line": 0.5,
         "price": "+598",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_3_moonshot_fresh_1",
         "source": "BKR",
         "player": "Emanuel Wilson",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Emanuel Wilson first touchdown from the box score / play-by-play"
+        "grading": "manual: Emanuel Wilson first touchdown from the box score / play-by-play",
+        "actual_stat": "Jaxon Smith-Njigba 28 Yd pass from Sam Darnold (Jason Myers Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; first ESPN touchdown scoring play."
       },
       {
         "leg_num": 2,
@@ -5238,12 +5512,14 @@
         "line": 0.5,
         "price": "+185",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_3_moonshot_fresh_2",
         "source": "BKR",
         "player": "Travis Kelce",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5255,12 +5531,14 @@
         "line": 0.5,
         "price": "+195",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_3_moonshot_fresh_3",
         "source": "BKR",
         "player": "Xavier Worthy",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -5272,14 +5550,17 @@
         "line": 27.5,
         "price": "+146",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_snf_island_tier_3_moonshot_fresh_4",
         "source": "BKR",
         "player": "Patrick Mahomes",
         "direction": "over",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 14,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; ESPN rushing_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_mnf_island_tier_1_fresh",
@@ -5294,16 +5575,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+704",
     "odds_decimal": 8.0377,
     "potential_profit_usd": 70.38,
     "potential_payout_usd": 80.38,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7k",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +704 (est.) — returns about $80. Flags: positive correlation = Dallas controls the game (volume to Lamb and Javonte, drives that stall become Aubrey FGs, PHI trails and leans off Barkley). Four prop types. No leg shorter than -200; no -120 to -100 connectors. Dak is one shared risk on the three DAL legs (rule 4). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +704 (est.) — returns about $80. Flags: positive correlation = Dallas controls the game (volume to Lamb and Javonte, drives that stall become Aubrey FGs, PHI trails and leans off Barkley). Four prop types. No leg shorter than -200; no -120 to -100 connectors. Dak is one shared risk on the three DAL legs (rule 4). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5315,12 +5596,14 @@
         "line": 6.5,
         "price": "-135",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_island_tier_1_fresh_1",
         "source": "BKR",
         "player": "CeeDee Lamb",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 5,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN receptions stat."
       },
       {
         "leg_num": 2,
@@ -5332,12 +5615,14 @@
         "line": 0.5,
         "price": "-165",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_fresh_2",
         "source": "BKR",
         "player": "Javonte Williams",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5349,14 +5634,15 @@
         "line": 1.5,
         "price": "-160",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_fresh_3",
         "source": "BKR",
         "direction": "over",
         "target_stat": "field_goals_made",
         "team_market": false,
         "player": "Brandon Aubrey",
-        "grading_note": "Team field goals graded as Brandon Aubrey field goals made (team kicker per ESPN roster)."
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN field_goals_made stat.",
+        "actual_stat": 3
       },
       {
         "leg_num": 4,
@@ -5368,14 +5654,17 @@
         "line": 63.5,
         "price": "-130",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_fresh_4",
         "source": "BKR",
         "player": "Saquon Barkley",
         "direction": "under",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 62,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN rushing_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_mnf_island_tier_2_fresh_diversified",
@@ -5390,16 +5679,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+2203",
     "odds_decimal": 23.0276,
     "potential_profit_usd": 110.14,
     "potential_payout_usd": 115.14,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7k",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,203 (est.) — returns about $115. Flags: positive correlation = Dallas passing TDs plus a stalled PHI offense (sacks, Elliott under, PHI TD under). Five prop types. No players shared with T1. Fixes the preliminary T2's BKR block: there is no Dak completions leg and no DAL receptions leg. Elliott at +100 sits on the rule-1 boundary. -200 is the longest leg; none are shorter than -200. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +2,203 (est.) — returns about $115. Flags: positive correlation = Dallas passing TDs plus a stalled PHI offense (sacks, Elliott under, PHI TD under). Five prop types. No players shared with T1. Fixes the preliminary T2's BKR block: there is no Dak completions leg and no DAL receptions leg. Elliott at +100 sits on the rule-1 boundary. -200 is the longest leg; none are shorter than -200. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5411,12 +5700,14 @@
         "line": 1.5,
         "price": "-140",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_2_fresh_diversified_1",
         "source": "BKR",
         "player": "Dak Prescott",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 2,
@@ -5428,12 +5719,14 @@
         "line": 0.5,
         "price": "+165",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_2_fresh_diversified_2",
         "source": "BKR",
         "player": "George Pickens",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5445,13 +5738,15 @@
         "line": 6.5,
         "price": "+100",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_2_fresh_diversified_3",
         "source": "BKR",
         "player": "Jake Elliott",
         "direction": "under",
         "target_stat": "fantasy_points_ppr",
-        "grading": "manual: Jake Elliott fantasy points ppr from the box score / play-by-play"
+        "grading": "manual: Jake Elliott fantasy points ppr from the box score / play-by-play",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; kicking-points proxy (3); book fantasy-point rules not recorded."
       },
       {
         "leg_num": 4,
@@ -5463,13 +5758,15 @@
         "line": 4.5,
         "price": "-145",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_island_tier_2_fresh_diversified_4",
         "source": "BKR",
         "direction": "over",
         "target_stat": "sacks",
         "team_market": true,
-        "grading": "manual: total sacks by both defenses from the box score"
+        "grading": "manual: total sacks by both defenses from the box score",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN defensive player sack totals."
       },
       {
         "leg_num": 5,
@@ -5481,15 +5778,18 @@
         "line": 2.5,
         "price": "-200",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_island_tier_2_fresh_diversified_5",
         "source": "BKR",
         "direction": "under",
         "target_stat": "team_touchdowns",
         "team_market": true,
-        "grading": "manual: count PHI touchdowns from the box score"
+        "grading": "manual: count PHI touchdowns from the box score",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN scoring plays."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_mnf_island_tier_3_moonshot_fresh",
@@ -5504,16 +5804,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+8065",
     "odds_decimal": 81.6496,
     "potential_profit_usd": 403.25,
     "potential_payout_usd": 408.25,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7k",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +8,065 (est.) — returns about $408. Flags: moonshot, DAL romp script (three different DAL TD scorers means at least 3 DAL TDs, so Aubrey XPs). BKR may cut the price hard for TD-scorer correlation. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7k), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +8,065 (est.) — returns about $408. Flags: moonshot, DAL romp script (three different DAL TD scorers means at least 3 DAL TDs, so Aubrey XPs). BKR may cut the price hard for TD-scorer correlation. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 4 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5525,13 +5825,15 @@
         "line": 0.5,
         "price": "+350",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_island_tier_3_moonshot_fresh_1",
         "source": "BKR",
         "player": "Javonte Williams",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Javonte Williams first touchdown from the box score / play-by-play"
+        "grading": "manual: Javonte Williams first touchdown from the box score / play-by-play",
+        "actual_stat": "Saquon Barkley 8 Yd Rush (Jake Elliott Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; first ESPN touchdown scoring play."
       },
       {
         "leg_num": 2,
@@ -5543,12 +5845,14 @@
         "line": 0.5,
         "price": "+115",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_3_moonshot_fresh_2",
         "source": "BKR",
         "player": "CeeDee Lamb",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5560,12 +5864,14 @@
         "line": 0.5,
         "price": "+165",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_3_moonshot_fresh_3",
         "source": "BKR",
         "player": "George Pickens",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -5577,13 +5883,15 @@
         "line": 8.5,
         "price": "-125",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_3_moonshot_fresh_4",
         "source": "BKR",
         "player": "Brandon Aubrey",
         "direction": "over",
         "target_stat": "fantasy_points_ppr",
-        "grading": "manual: Brandon Aubrey fantasy points ppr from the box score / play-by-play"
+        "grading": "manual: Brandon Aubrey fantasy points ppr from the box score / play-by-play",
+        "actual_stat": 12,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; kicking-points proxy (12); book fantasy-point rules not recorded."
       },
       {
         "leg_num": 5,
@@ -5595,14 +5903,17 @@
         "line": 63.5,
         "price": "-130",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_3_moonshot_fresh_5",
         "source": "BKR",
         "player": "Saquon Barkley",
         "direction": "under",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 62,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN rushing_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_mnf_island_tier_1_bkr_available_rebuild",
@@ -5617,16 +5928,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": "+772",
     "odds_decimal": 8.7221,
     "potential_profit_usd": 77.22,
     "potential_payout_usd": 87.22,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7l",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +772 (est.) — returns about $87. Flags: Rebuilt 4:27 PM PT after Andy found no Dallas team-FG total at BKR. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +772 (est.) — returns about $87. Flags: Rebuilt 4:27 PM PT after Andy found no Dallas team-FG total at BKR. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5638,12 +5949,14 @@
         "line": 6.5,
         "price": "-135",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_island_tier_1_bkr_available_rebuild_1",
         "source": "BKR",
         "player": "CeeDee Lamb",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 5,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN receptions stat."
       },
       {
         "leg_num": 2,
@@ -5655,12 +5968,14 @@
         "line": 0.5,
         "price": "-165",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_bkr_available_rebuild_2",
         "source": "BKR",
         "player": "Javonte Williams",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5672,10 +5987,12 @@
         "line": null,
         "price": "-131",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_bkr_available_rebuild_3",
         "source": "BKR",
-        "grading": "manual"
+        "grading": "manual",
+        "actual_stat": "DAL first FG",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; first ESPN field-goal scoring play."
       },
       {
         "leg_num": 4,
@@ -5687,14 +6004,17 @@
         "line": 63.5,
         "price": "-130",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_island_tier_1_bkr_available_rebuild_4",
         "source": "BKR",
         "player": "Saquon Barkley",
         "direction": "under",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 62,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN rushing_yards stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_mnf_tier_3_shootout_alternative",
@@ -5709,16 +6029,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+11921",
     "odds_decimal": 120.2143,
     "potential_profit_usd": 596.07,
     "potential_payout_usd": 601.07,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7l",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +11,921 (est.) — returns about $601. Flags: Two-sided alternative to the one-sided Dallas moonshot (Andy, 4:19 PM PT). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +11,921 (est.) — returns about $601. Flags: Two-sided alternative to the one-sided Dallas moonshot (Andy, 4:19 PM PT). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 3 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5730,13 +6050,15 @@
         "line": 0.5,
         "price": "+350",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_tier_3_shootout_alternative_1",
         "source": "BKR",
         "player": "Javonte Williams",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Javonte Williams first touchdown from the box score / play-by-play"
+        "grading": "manual: Javonte Williams first touchdown from the box score / play-by-play",
+        "actual_stat": "Saquon Barkley 8 Yd Rush (Jake Elliott Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; first ESPN touchdown scoring play."
       },
       {
         "leg_num": 2,
@@ -5748,12 +6070,14 @@
         "line": 0.5,
         "price": "+175",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_tier_3_shootout_alternative_2",
         "source": "BKR",
         "player": "Dallas Goedert",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5765,12 +6089,14 @@
         "line": 0.5,
         "price": "+240",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_mnf_tier_3_shootout_alternative_3",
         "source": "BKR",
         "player": "Darius Cooper",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -5782,12 +6108,14 @@
         "line": 1.5,
         "price": "-140",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_tier_3_shootout_alternative_4",
         "source": "BKR",
         "player": "Dak Prescott",
         "direction": "over",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 5,
@@ -5799,12 +6127,15 @@
         "line": null,
         "price": "-150",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_mnf_tier_3_shootout_alternative_5",
         "source": "BKR",
-        "grading": "manual"
+        "grading": "manual",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN scoring plays."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_s1_kickers_game_5_leg",
@@ -5819,16 +6150,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+1825",
     "odds_decimal": 19.2485,
     "potential_profit_usd": 91.24,
     "potential_payout_usd": 96.24,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7l",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,825 (est.) — returns about $96. Flags: Red-zone stalls on both sides. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,825 (est.) — returns about $96. Flags: Red-zone stalls on both sides. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 3 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5840,13 +6171,15 @@
         "line": 8.5,
         "price": "-125",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s1_kickers_game_5_leg_1",
         "source": "DKP",
         "player": "Brandon Aubrey",
         "direction": "over",
         "target_stat": "fantasy_points_ppr",
-        "grading": "manual: Brandon Aubrey fantasy points ppr from the box score / play-by-play"
+        "grading": "manual: Brandon Aubrey fantasy points ppr from the box score / play-by-play",
+        "actual_stat": 12,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; kicking-points proxy (12); book fantasy-point rules not recorded."
       },
       {
         "leg_num": 2,
@@ -5858,13 +6191,15 @@
         "line": 6.5,
         "price": "-130",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_s1_kickers_game_5_leg_2",
         "source": "DKP",
         "player": "Jake Elliott",
         "direction": "over",
         "target_stat": "fantasy_points_ppr",
-        "grading": "manual: Jake Elliott fantasy points ppr from the box score / play-by-play"
+        "grading": "manual: Jake Elliott fantasy points ppr from the box score / play-by-play",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; kicking-points proxy (3); book fantasy-point rules not recorded."
       },
       {
         "leg_num": 3,
@@ -5876,10 +6211,12 @@
         "line": null,
         "price": "-125",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s1_kickers_game_5_leg_3",
         "source": "DKP",
-        "grading": "manual"
+        "grading": "manual",
+        "actual_stat": 55,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; longest made FG from ESPN scoring plays."
       },
       {
         "leg_num": 4,
@@ -5891,12 +6228,14 @@
         "line": 1.5,
         "price": "-190",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s1_kickers_game_5_leg_4",
         "source": "DKP",
         "player": "Tanner McKee",
         "direction": "under",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN passing_touchdowns stat."
       },
       {
         "leg_num": 5,
@@ -5908,12 +6247,15 @@
         "line": null,
         "price": "+120",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_s1_kickers_game_5_leg_5",
         "source": "DKP",
-        "grading": "manual"
+        "grading": "manual",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN scoring plays."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_s2_dallas_supporting_cast_4_leg",
@@ -5928,16 +6270,16 @@
     "ticket_type": "4-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": "+1862",
     "odds_decimal": 19.6187,
     "potential_profit_usd": 93.09,
     "potential_payout_usd": 98.09,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7l",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,862 (est.) — returns about $98. Flags: Dallas moves the ball through underused targets. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: +1,862 (est.) — returns about $98. Flags: Dallas moves the ball through underused targets. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 2 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -5949,12 +6291,14 @@
         "line": 4.5,
         "price": "-130",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_s2_dallas_supporting_cast_4_leg_1",
         "source": "DKP",
         "player": "George Pickens",
         "direction": "over",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 4,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN receptions stat."
       },
       {
         "leg_num": 2,
@@ -5966,12 +6310,14 @@
         "line": 0.5,
         "price": "+265",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_s2_dallas_supporting_cast_4_leg_2",
         "source": "DKP",
         "player": "Jake Ferguson",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -5983,12 +6329,14 @@
         "line": 33.5,
         "price": "-115",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s2_dallas_supporting_cast_4_leg_3",
         "source": "DKP",
         "player": "Ryan Flournoy",
         "direction": "over",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 70,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN receiving_yards stat."
       },
       {
         "leg_num": 4,
@@ -6000,14 +6348,17 @@
         "line": 1.5,
         "price": "-160",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s2_dallas_supporting_cast_4_leg_4",
         "source": "DKP",
         "player": "Brandon Aubrey",
         "direction": "over",
-        "target_stat": "field_goals_made"
+        "target_stat": "field_goals_made",
+        "actual_stat": 3,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN field_goals_made stat."
       }
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_s3_defense_5_leg_dk_tackles_board",
@@ -6022,16 +6373,16 @@
     "ticket_type": "5-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "odds_american": null,
     "odds_decimal": null,
     "potential_profit_usd": null,
     "potential_payout_usd": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7l",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: price pending (DK tackles board). Flags: unpriced (no tackle capture). Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7l), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: price pending (DK tackles board). Flags: unpriced (no tackle capture). Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 4 leg hits, 1 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -6043,12 +6394,14 @@
         "line": 6.5,
         "price": null,
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s3_defense_5_leg_dk_tackles_board_1",
         "source": "DKP",
         "player": "Zack Baun",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 9,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN tackles_combined stat."
       },
       {
         "leg_num": 2,
@@ -6060,12 +6413,14 @@
         "line": 5.5,
         "price": null,
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s3_defense_5_leg_dk_tackles_board_2",
         "source": "DKP",
         "player": "DeMarvion Overshown",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 6,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN tackles_combined stat."
       },
       {
         "leg_num": 3,
@@ -6077,12 +6432,14 @@
         "line": 3.5,
         "price": null,
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s3_defense_5_leg_dk_tackles_board_3",
         "source": "DKP",
         "player": "Cooper DeJean",
         "direction": "over",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 7,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN tackles_combined stat."
       },
       {
         "leg_num": 4,
@@ -6094,13 +6451,15 @@
         "line": 4.5,
         "price": "-145",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_s3_defense_5_leg_dk_tackles_board_4",
         "source": "DKP",
         "direction": "over",
         "target_stat": "sacks",
         "team_market": true,
-        "grading": "manual: total sacks by both defenses from the box score"
+        "grading": "manual: total sacks by both defenses from the box score",
+        "actual_stat": 2,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN defensive player sack totals."
       },
       {
         "leg_num": 5,
@@ -6112,17 +6471,20 @@
         "line": 1.5,
         "price": "-190",
         "game_start": "10/26/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_s3_defense_5_leg_dk_tackles_board_5",
         "source": "DKP",
         "player": "Tanner McKee",
         "direction": "under",
-        "target_stat": "passing_touchdowns"
+        "target_stat": "passing_touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873009; ESPN passing_touchdowns stat."
       }
     ],
     "needs_confirmation": [
       "no complete price set on the card (DKP contract % or unposted markets); payout is the card estimate"
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_7e_anytime_td_7_leg",
@@ -6137,16 +6499,16 @@
     "ticket_type": "7-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": null,
     "odds_decimal": null,
-    "potential_profit_usd": 5311.0,
-    "potential_payout_usd": 5321.0,
-    "status": "PENDING",
-    "result": null,
+    "potential_profit_usd": 5311,
+    "potential_payout_usd": 5321,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7e",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7e), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+53,115 (contract product, before fees) — returns about $5,321 before fees. Flags: DK Predictions contract prices before fees; combo price must be quoted live. One leg per game, a night leg last. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7e), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+53,115 (contract product, before fees) — returns about $5,321 before fees. Flags: DK Predictions contract prices before fees; combo price must be quoted live. One leg per game, a night leg last. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 2 leg hits, 5 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -6158,12 +6520,14 @@
         "line": 0.5,
         "price": "27%",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7e_anytime_td_7_leg_1",
         "source": "DKP",
         "player": "Pat Freiermuth",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873011; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 2,
@@ -6175,12 +6539,14 @@
         "line": 0.5,
         "price": "39%",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7e_anytime_td_7_leg_2",
         "source": "DKP",
         "player": "Tetairoa McMillan",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 3,
@@ -6192,12 +6558,14 @@
         "line": 0.5,
         "price": "51%",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7e_anytime_td_7_leg_3",
         "source": "DKP",
         "player": "Woody Marks",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 4,
@@ -6209,12 +6577,14 @@
         "line": 0.5,
         "price": "45%",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7e_anytime_td_7_leg_4",
         "source": "DKP",
         "player": "George Kittle",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873017; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 5,
@@ -6226,12 +6596,14 @@
         "line": 0.5,
         "price": "40%",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7e_anytime_td_7_leg_5",
         "source": "DKP",
         "player": "Trey McBride",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873019; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 6,
@@ -6243,12 +6615,14 @@
         "line": 0.5,
         "price": "36%",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "paper_w7_card_7e_anytime_td_7_leg_6",
         "source": "DKP",
         "player": "Tucker Kraft",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873020; player TD scoring plays from ESPN."
       },
       {
         "leg_num": 7,
@@ -6260,17 +6634,20 @@
         "line": 0.5,
         "price": "54%",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_7e_anytime_td_7_leg_7",
         "source": "DKP",
         "player": "Kenneth Walker III",
         "direction": "over",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0,
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; player TD scoring plays from ESPN."
       }
     ],
     "needs_confirmation": [
       "no complete price set on the card (DKP contract % or unposted markets); payout is the card estimate"
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   },
   {
     "id": "paper_w7_card_8a_first_td_3_leg",
@@ -6285,16 +6662,16 @@
     "ticket_type": "3-Leg Parlay",
     "category": "AI Recommendation",
     "funding_type": "paper",
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
     "odds_american": null,
     "odds_decimal": null,
-    "potential_profit_usd": 3666.0,
-    "potential_payout_usd": 3676.0,
-    "status": "PENDING",
-    "result": null,
+    "potential_profit_usd": 3666,
+    "potential_payout_usd": 3676,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "7e",
-    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7e), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+36,665 (contract product, before fees) — returns about $3,676 before fees. Flags: highest-variance market; DKP contract product before fees. Proposal only.",
+    "progress_notes": "Platinum Rose AI Week 7 card (reports/bets/2026-w07-card.md §7e), as proposed Sat 10/24. Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: ~+36,665 (contract product, before fees) — returns about $3,676 before fees. Flags: highest-variance market; DKP contract product before fees. Proposal only. Week 7 accuracy grade 2026-10-27T19:46:45Z: 0 leg hits, 3 misses. Paper proposal only; no cash result.",
     "legs": [
       {
         "leg_num": 1,
@@ -6306,13 +6683,15 @@
         "line": 0.5,
         "price": "17%",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_8a_first_td_3_leg_1",
         "source": "DKP",
         "player": "Woody Marks",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Woody Marks first touchdown from the box score / play-by-play"
+        "grading": "manual: Woody Marks first touchdown from the box score / play-by-play",
+        "actual_stat": "Tyrone Tracy Jr. 2 Yd Rush (Dominic Zvada Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873016; first ESPN touchdown scoring play."
       },
       {
         "leg_num": 2,
@@ -6324,13 +6703,15 @@
         "line": 0.5,
         "price": "10%",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_8a_first_td_3_leg_2",
         "source": "DKP",
         "player": "Tetairoa McMillan",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Tetairoa McMillan first touchdown from the box score / play-by-play"
+        "grading": "manual: Tetairoa McMillan first touchdown from the box score / play-by-play",
+        "actual_stat": "Bucky Irving 4 Yd Rush (Chase McLaughlin Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873018; first ESPN touchdown scoring play."
       },
       {
         "leg_num": 3,
@@ -6342,17 +6723,20 @@
         "line": 0.5,
         "price": "16%",
         "game_start": "10/25/2026 @ 05:20 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "paper_w7_card_8a_first_td_3_leg_3",
         "source": "DKP",
         "player": "Kenneth Walker III",
         "direction": "over",
         "target_stat": "first_touchdown",
-        "grading": "manual: Kenneth Walker III first touchdown from the box score / play-by-play"
+        "grading": "manual: Kenneth Walker III first touchdown from the box score / play-by-play",
+        "actual_stat": "Jaxon Smith-Njigba 28 Yd pass from Sam Darnold (Jason Myers Kick)",
+        "grading_note": "2026-10-27T19:46:45Z ESPN Week 7 final; event 401873022; first ESPN touchdown scoring play."
       }
     ],
     "needs_confirmation": [
       "no complete price set on the card (DKP contract % or unposted markets); payout is the card estimate"
-    ]
+    ],
+    "graded_at": "2026-10-27T19:46:45Z"
   }
 ]

@@ -1,0 +1,368 @@
+{
+ "game": "CLE@TEN",
+ "generated_at": "2026-10-24T21:40:06Z",
+ "packet_built_at": "2026-10-24T21:33:58.139581+00:00",
+ "recommendations": [
+  {
+   "market": "player_prop",
+   "selection": "Deshaun Watson rushing yards Over 19.5 (alt)",
+   "player": "Deshaun Watson",
+   "line": 19.5,
+   "price": -253,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to -275",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / 7d hybrid",
+   "reasons": [
+    "6/6 games at 22+ rush yds (38,22,45,22,40,29) [nflverse W1-6]",
+    "7.5 carries/g; TEN match-zone coverage; CLE G Teven Jenkins IR",
+    "Matchup fit stated per QB-rushing rule"
+   ],
+   "counter_case": "Kneel-downs if CLE leads; Judkins+Sampson return may cut designed QB runs; TEN low pressure (21.5%) reduces scrambles",
+   "flags": [
+    "shorter_than_-200"
+   ]
+  },
+  {
+   "market": "player_prop",
+   "selection": "Cam Ward passing TDs Over 0.5",
+   "player": "Cam Ward",
+   "line": 0.5,
+   "price": -199,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to -200; pass at -210 or worse",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a",
+   "reasons": [
+    "Ward TD pass in 4/6 games",
+    "CLE defense allowed 11 pass TDs in 6 games [FTN team-defense overview]",
+    "Price steamed -178 (10-23) to -199"
+   ],
+   "counter_case": "CLE 34.2% pressure vs Ward EPA/DB -0.711 under pressure; Ridley likely out; TEN only 4 pass TDs all year",
+   "flags": [
+    "at_-200_flag_line"
+   ]
+  },
+  {
+   "market": "player_prop",
+   "selection": "Deshaun Watson completions Under 18.5",
+   "player": "Deshaun Watson",
+   "line": 18.5,
+   "price": 101,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to -115",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "single / 7a",
+   "reasons": [
+    "15-16 completions in 4/6 games",
+    "Judkins/Sampson return -> run-heavier script; low-total game"
+   ],
+   "counter_case": "TEN pass D allows 69%+ comp, +1.88 CPOE; if CLE trails Watson throws 33 (W4/W5 profile)"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Denzel Boston receiving yards Over 41.5 (alt)",
+   "player": "Denzel Boston",
+   "line": 41.5,
+   "price": -218,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to -240",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / 7d",
+   "reasons": [
+    "4/6 cleared (59,95,41,89,46,15)",
+    "CLE WR1 ~20% target share; TEN pass DVOA +30.5% (31st); boundary_wr_boost tag"
+   ],
+   "counter_case": "15 yds in W6; possible shadow coverage; volume to Concepcion/Jeudy",
+   "flags": [
+    "shorter_than_-200"
+   ]
+  },
+  {
+   "market": "atd",
+   "selection": "Denzel Boston anytime TD",
+   "player": "Denzel Boston",
+   "line": null,
+   "price": 199,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +175",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e Anytime-TD 7-leg",
+   "reasons": [
+    "3 TDs in 6 games; WR1 on expected winner; red-zone + boundary boost"
+   ],
+   "counter_case": "Low-total game; CLE only 10 offensive TDs in 6 games"
+  },
+  {
+   "market": "atd",
+   "selection": "Harold Fannin anytime TD",
+   "player": "Harold Fannin Jr.",
+   "line": null,
+   "price": 162,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +150",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e Anytime-TD 7-leg",
+   "reasons": [
+    "3 TDs (2 in W3); inside_seam_boost vs depleted TEN safeties"
+   ],
+   "counter_case": "1 catch in each of last 2 games; target share falling"
+  },
+  {
+   "market": "atd",
+   "selection": "Wan'Dale Robinson anytime TD",
+   "player": "Wan'Dale Robinson",
+   "line": null,
+   "price": 275,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +250; drop to watch if Ridley active",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e Anytime-TD 7-leg",
+   "reasons": [
+    "TEN high-volume slot (11/7/7 targets recent), 2 TDs",
+    "CLE press-man profile tags slot/hot-read boost; Ridley likely out"
+   ],
+   "counter_case": "TEN offense 31st EPA; CLE pass D -4.7% DVOA"
+  },
+  {
+   "market": "first_td",
+   "selection": "Denzel Boston first TD",
+   "player": "Denzel Boston",
+   "line": null,
+   "price": 802,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +700",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a First TD",
+   "reasons": [
+    "CLE slight favorite; WR1 with 3 TDs"
+   ],
+   "counter_case": "TEN could score first; low total"
+  },
+  {
+   "market": "first_td",
+   "selection": "Harold Fannin first TD",
+   "player": "Harold Fannin Jr.",
+   "line": null,
+   "price": 731,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +650",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a First TD",
+   "reasons": [
+    "Red-zone TE, 3 TDs"
+   ],
+   "counter_case": "Declining usage"
+  },
+  {
+   "market": "first_td",
+   "selection": "Quinshon Judkins first TD",
+   "player": "Quinshon Judkins",
+   "line": null,
+   "price": 644,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:44.160Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +600; upgrade if named goal-line back",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a First TD",
+   "reasons": [
+    "Lead back returning, no designation"
+   ],
+   "counter_case": "Committee with Sampson; first game back from ankle"
+  },
+  {
+   "market": "total",
+   "selection": "Total Touchdowns Under 3.5 (game special)",
+   "player": null,
+   "line": 3.5,
+   "price": 115,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:22.471Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "to +105",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "CLE",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "BEO multi-game leg (max 2/game)",
+   "reasons": [
+    "Fits sides-pass Under 37.5 lean (fair ~36)",
+    "Two bottom-10 offenses; slow pace"
+   ],
+   "counter_case": "BEO prices Over 3.5 TDs -145; perfect weather; turnover-prone QBs create short fields"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": null,
+  "total_adj": null,
+  "reasons": [
+   "Props pass: no simulator adjustments; game script inherited from sides report (fair CLE -3, total ~36)"
+  ]
+ },
+ "sim_runs": [],
+ "not_proposed": [
+  {
+   "selection": "Deshaun Watson pass TDs Over 0.5",
+   "price": -402,
+   "book": "BKR",
+   "reason": "beyond -350 leg barrier"
+  },
+  {
+   "selection": "Deshaun Watson pass TDs Over 1.5",
+   "price": 158,
+   "book": "BKR",
+   "reason": "2/6 hit; TEN allowed 6 pass TDs"
+  },
+  {
+   "selection": "Calvin Ridley / Tyjae Spears any prop",
+   "reason": "Questionable; DNP=LOST; TEN elevated Osborn/Mullings"
+  },
+  {
+   "selection": "Jerry Jeudy receptions Over 1.5",
+   "price": -158,
+   "book": "BKR",
+   "reason": "target share not proven (9-21%)"
+  },
+  {
+   "selection": "Watson pass yds / rush 29.5, Judkins rush 46.5, Pollard rush 66.5",
+   "reason": "median yardage lines at -107/-108"
+  },
+  {
+   "selection": "Quinshon Judkins ATD",
+   "price": 131,
+   "book": "BKR",
+   "reason": "price short for committee back returning from injury"
+  },
+  {
+   "selection": "2+ TD (8b)",
+   "reason": "37.5 total; Boston +1063 only if forced"
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-props.json (built 2026-10-24T21:33:58Z)",
+  "data/generated/props/bookmaker-live-2026-10-24-browns-at-titans.json (2026-10-24T20:25:44Z)",
+  "data/generated/props/bookmaker-live-2026-10-23-browns-at-titans.json (2026-10-23T20:11:16Z)",
+  "data/generated/props/betonline-live-2026-10-24-browns-at-titans.json (2026-10-24T21:15:22Z)",
+  "data/vault-seed/nflverse/player_stats_weekly.csv (mtime 2026-10-20)",
+  "data/generated/team-dossiers/2026-w07/CLE.md, TEN.md",
+  "reports/intel/games/2026-w07-game-CLE_at_TEN-sides.md",
+  "https://www.tennesseetitans.com/news/week-7-injury-report-titans-vs-browns (updated 2026-10-23)",
+  "https://www.rotowire.com/betting/nfl/game.php?id=2978859 (Sat 10/24 news)"
+ ],
+ "ambiguities": [
+  "No tackles+assists market on BKR board; watchlist Anthony Hill Jr. (TEN, 9.3/g), Carson Schwesinger (CLE, 9.0/g)",
+  "BetOnline player-prop board missing (game specials only)",
+  "No INT market captured",
+  "Judkins/Sampson snap split unknown; nflverse through W6 only",
+  "BEO moved to CLE -1 while BKR held -2.5 (20:25Z)"
+ ],
+ "delta_checklist": [
+  "Ridley/Spears inactive -> confirm Robinson ATD, Ward TD; Ridley active -> Robinson to watch",
+  "Ward o0.5 TD worse than -210 -> pass",
+  "Watson rush o19.5 worse than -275 -> pass; any Watson news -> void CLE legs",
+  "Judkins named goal-line lead -> Judkins first TD C+",
+  "T+A posted for Hill Jr./Schwesinger at <=7.5 -> evaluate",
+  "Boston limited -> drop Boston legs"
+ ],
+ "gate_notes": [
+  "roster_vet PASS (13.3h)",
+  "missing_inputs: betonline player-prop board thin/missing (52 rows)",
+  "Kickoff not passed",
+  "Final injury designations: Titans.com report + RotoWire Saturday news; ESPN injuries page empty",
+  "Priced off newest BKR board 2026-10-24T20:25Z"
+ ],
+ "pass": "props"
+}

@@ -1,0 +1,307 @@
+{
+  "game": "SF@ATL",
+  "pass": "props",
+  "generated_at": "2026-10-24T21:40:00Z",
+  "packet_built_at": "2026-10-24T21:33:58.139581+00:00",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Brock Purdy Over 1.5 Pass TD",
+      "line": 1.5,
+      "price": -129,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-145",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7a / 7d",
+      "reasons": [
+        "14 pass TD in 6 GP, TD% 8.1% (FTN through W6)",
+        "ATL allowed 10 pass TD in 6 games; 2.43 pts/drive last 3 weeks (28th)",
+        "Andy's passing-TD category (+14% season)"
+      ],
+      "counter_case": "McCaffrey takes the RZ TDs on the ground (7 rush TD); a run-heavy script with a lead gives a 1-TD game"
+    },
+    {
+      "market": "player_prop",
+      "selection": "George Kittle Anytime TD",
+      "line": null,
+      "price": -105,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-120",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e / 7a",
+      "reasons": [
+        "5 TD in 6 GP; RZ alpha with Evans and Samuel out",
+        "ATL slot CB Bowman out; te_middle/inside_seam boost (secondary_matchups)",
+        "Action Network/Brandon Anderson NTED pick (one opinion)"
+      ],
+      "counter_case": "Price steamed from +130 to -105 (DKP +122); Terrell's return frees coverage; CMC vultures"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Christian McCaffrey Over 5.5 Receptions",
+      "line": 5.5,
+      "price": -112,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-125",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7a / 7d",
+      "reasons": [
+        "9 of 10 targets in W6, 35% target share after Evans left (Sharp)",
+        "Season TGT/RTE 28.7%; ATL allows 5.3 RB rec/g",
+        "Sharp and Action Network both on it (independent)"
+      ],
+      "counter_case": "Kirk activated restores a slot outlet; positive script means more carries; 4.7 rec/g season"
+    },
+    {
+      "market": "atd",
+      "selection": "Christian McCaffrey Anytime TD",
+      "line": null,
+      "price": -271,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-300",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e / 7d",
+      "reasons": [
+        "7 rush TD in 6 GP; 45.8% of SF carries",
+        "Anchor leg; flagged shorter than -200"
+      ],
+      "counter_case": "Heavy leg: -200-or-shorter legs hit 69% vs 73% implied this season"
+    },
+    {
+      "market": "player_prop",
+      "selection": "George Kittle Over 5.5 Receptions",
+      "line": 5.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-120",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7d",
+      "reasons": [
+        "Evans' 24% target share redistributes to Kittle and CMC",
+        "Correlates with Kittle ATD"
+      ],
+      "counter_case": "Season average 4.3 rec/g; Kirk and Cooks absorb short targets"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Michael Penix Jr. Under 1.5 Pass TD",
+      "line": 1.5,
+      "price": -142,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-155",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "single / 7a",
+      "reasons": [
+        "ATL 49.4% rush; Bijan handles RZ carries",
+        "SF allowed 7 pass TD in 6 games; Morris expected to pressure Penix; Penix EPA/DB -1.13 under pressure",
+        "Correlates with the game Under"
+      ],
+      "counter_case": "No Bosa weakens SF's rush; ATL trailing and throwing late; Pitts and London RZ looks"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Brandin Cooks Over 1.5 Receptions",
+      "line": 1.5,
+      "price": -240,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "-250",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7a",
+      "reasons": [
+        "Top outside WR with Evans and Samuel out (team-site report)",
+        "Filler leg; flagged shorter than -200"
+      ],
+      "counter_case": "Kirk activated Saturday; Kirk and Watkins split targets"
+    },
+    {
+      "market": "atd",
+      "selection": "ATD candidates (7e): Kittle -105, McCaffrey -271, Drake London +125, Kyle Pitts +239, Brandin Cooks +289; Bijan Robinson -373 EXCLUDED (past -350 barrier)",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "7e",
+      "reasons": [
+        "London alpha 28.8% target share, 0 TD on 47 targets (regression)",
+        "Pitts 3 TD; SF S Sigle out (te_middle boost)"
+      ],
+      "counter_case": "BKR ATD prices are juiced vs DKP reference (Bijan -373 vs -223; CMC -271 vs -213)"
+    },
+    {
+      "market": "first_td",
+      "selection": "First-TD candidates (8a): McCaffrey +383, Bijan Robinson +363, Kittle +660, Drake London +823",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8a",
+      "reasons": [
+        "Bellcow RBs for both teams; Kittle Tight Ends Day / scripted-opener angle"
+      ],
+      "counter_case": "First-TD is the highest-variance market"
+    },
+    {
+      "market": "player_prop",
+      "selection": "2+ TD candidates (8b): Bijan Robinson +170, McCaffrey +223 (Kittle +601 to reach target odds)",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-24T20:26:04.665Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "SF",
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "card_slot": "8b",
+      "reasons": [
+        "Both are primary goal-line backs"
+      ],
+      "counter_case": "Three legs will not reach +7000 without a long leg"
+    }
+  ],
+  "tackles_assists": "PASS - no tackle markets captured on BKR; BetOnline has no player props. Watch: Fred Warner T+A if posted.",
+  "adjustments": {
+    "margin_adj": -0.5,
+    "total_adj": -1.0,
+    "reasons": [
+      "Game-script context only, carried from the sides pass (SF short week/no Evans/Samuel; condensed tree, ATL run rate). Not used for prop probabilities."
+    ]
+  },
+  "sim_runs": [
+    {
+      "home_line": 2,
+      "total": 49,
+      "margin_adj": -0.5,
+      "total_adj": -1.0,
+      "away_win_excl_tie": 0.574,
+      "under_excl_push": 0.531,
+      "median_total": 48,
+      "m3": 0.159,
+      "note": "context only; props are not modeled"
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-props.json (SF@ATL packet, built 2026-10-24T21:33:58Z)",
+    "data/generated/props/bookmaker-live-2026-10-24-49ers-at-falcons.json (capturedAt 2026-10-24T20:26:04Z)",
+    "data/generated/props/betonline-live-2026-10-24-49ers-at-falcons.json (2026-10-24T21:15:29Z; no player props)",
+    "data/generated/props/draftkings-predictions-live-2026-10-23-49ers-at-falcons.json (reference only)",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "data/generated/team-dossiers/2026-w07/SF.md",
+    "data/generated/team-dossiers/2026-w07/ATL.md",
+    "reports/intel/games/2026-w07-game-SF_at_ATL-sides.md",
+    "https://www.rotowire.com/betting/nfl/game.php?id=2978836",
+    "https://www.ajc.com/sports/2026/10/falcons-aj-terrell-injured-reserve-eligible-return/"
+  ],
+  "ambiguities": [
+    "BetOnline player-prop board missing; BEO multi-game legs unpriced",
+    "No tackle markets on any executable board",
+    "Bijan main rush/rec rows unavailable on BKR at capture",
+    "Kirk props unavailable on BKR (pulled while he was Q); he was activated Saturday",
+    "Roof status unconfirmed (retractable; weather moot)",
+    "Drake London receptions excluded by the expected-winner rule"
+  ],
+  "delta_checklist": [
+    "Kittle ATD past -120 -> C; past -150 -> drop",
+    "Kirk active in a full role -> drop Cooks o1.5; Kirk inactive -> Cooks B-",
+    "A.J. Terrell inactive -> Purdy o1.5 TD B+, small Kittle/Cooks boost",
+    "Purdy o1.5 TD past -145 -> C",
+    "CMC o5.5 rec past -125 or line to 6.5 -> C/pass",
+    "Total 47.5 or lower -> downgrade Purdy TD and ATD legs one tier",
+    "Warner T+A posted -> evaluate as B"
+  ],
+  "gate_notes": [
+    "missing_inputs: betonline player-prop board thin/missing (noted; BEO legs unpriced)",
+    "roster_vet PASS 13.3h, not rerun",
+    "Saturday activations (Kirk, A.J. Terrell) verified via Rotowire web search",
+    "secondary_matchups coach names ignored; ATL dossier HC stale",
+    "kickoff not passed"
+  ]
+}

@@ -1,0 +1,513 @@
+{
+ "game": "KC@SEA",
+ "generated_at": "2026-10-24T21:42:22Z",
+ "packet_built_at": "2026-10-24T21:33:58.139581+00:00",
+ "game_line_now": {
+  "book": "BKR",
+  "captured_at": "2026-10-24T20:27:03.246Z",
+  "spread": "KC +3 -115 / SEA -3 -101",
+  "total": "42 -108/-108",
+  "ml": "KC +126 / SEA -145"
+ },
+ "recommendations": [
+  {
+   "market": "player_prop",
+   "selection": "Jaxon Smith-Njigba Over 92.5 receiving yards",
+   "player": "Jaxon Smith-Njigba",
+   "line": 92.5,
+   "price": -109,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "single; 9-T1 as 83+ -192",
+   "reasons": [
+    "5/6 games over 92.5 (122/155/128/76/102/134)",
+    "targets 11/11/14/6/8/16, ~27% share",
+    "Charbonnet out -> SEA pass-reliant"
+   ],
+   "counter_case": "Spagnuolo game-plan focus + Delane shadow; low-total script caps volume"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Patrick Mahomes Over 1.5 passing TDs",
+   "player": "Patrick Mahomes",
+   "line": 1.5,
+   "price": 150,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:50.587Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "single; 9-T2",
+   "reasons": [
+    "2+ TD in 4/5 games (2/3/2/2/0)",
+    "Andy category lean: passing TDs",
+    "BKR Mahomes props unavailable"
+   ],
+   "counter_case": "SEA #2 defense; LT absences could push KC to Walker near goal line (0 TD in W6)"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Sam Darnold Over 0.5 interceptions",
+   "player": "Sam Darnold",
+   "line": 0.5,
+   "price": -115,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:50.587Z",
+   "tier": "B",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "single (BEO only; BKR SGP rejects INT); 9-T2",
+   "reasons": [
+    "INT in 4/4 starts (2/1/2/2), 7 INT in 5 starts, INTW% 4.7%",
+    "-0.795 EPA/DB under pressure; KC blitz 26.5%, 9 takeaways"
+   ],
+   "counter_case": "KC sack rate only 3.4%; run-heavy SEA script lowers attempts"
+  },
+  {
+   "market": "atd",
+   "selection": "Kenneth Walker III anytime TD",
+   "player": "Kenneth Walker III",
+   "line": null,
+   "price": -145,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e anchor",
+   "reasons": [
+    "TD in 4/5 games",
+    "DK ref 54% (-117); BEO -135",
+    "sole RB red-zone back"
+   ],
+   "counter_case": "SEA rush DVOA -28.6%, stuff 26.5%; KC down two LTs; Mahomes goal-line runs"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Kenneth Walker III Over 18.5 carries",
+   "player": "Kenneth Walker III",
+   "line": 18.5,
+   "price": -115,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:50.587Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "single; 7c",
+   "reasons": [
+    "23/24/18/22/19 = 4/5",
+    "BKR 19+ -117 equivalent"
+   ],
+   "counter_case": "Trailing script or stalled drives vs elite run D"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Travis Kelce Over 46.5 receiving yards",
+   "player": "Travis Kelce",
+   "line": 46.5,
+   "price": -115,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:50.587Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "9-T1 (BKR 47+ -114)",
+   "reasons": [
+    "71/101/59/15/53 = 4/5",
+    "Rice OUT; Emmanwori Q slot boost"
+   ],
+   "counter_case": "Target spread to Worthy/Gray/Royals as in W6"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Patrick Mahomes Under 17.5 rushing yards",
+   "player": "Patrick Mahomes",
+   "line": 17.5,
+   "price": -115,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:50.587Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "9-T2",
+   "reasons": [
+    "4/5 under (23/17/1/0/16)",
+    "fit: post-ACL low designed-run volume (Rotowire note in packet)"
+   ],
+   "counter_case": "No LT -> broken pockets -> scrambles"
+  },
+  {
+   "market": "player_prop",
+   "selection": "Sam Darnold Under 1.5 passing TDs",
+   "player": "Sam Darnold",
+   "line": 1.5,
+   "price": -146,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "single (not with SEA ATD legs)",
+   "reasons": [
+    "KC allowed 4 pass TD in 5 games",
+    "Darnold 1 and 0 TD last two starts"
+   ],
+   "counter_case": "4-TD game vs WAS; Barner short-yardage TDs"
+  },
+  {
+   "market": "first_td",
+   "selection": "Kenneth Walker III first TD",
+   "player": "Kenneth Walker III",
+   "line": null,
+   "price": 445,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a lead; 9-T3",
+   "reasons": [
+    "DK ref +488; bell-cow"
+   ],
+   "counter_case": "SEA scores first / pass TD"
+  },
+  {
+   "market": "first_td",
+   "selection": "Jaxon Smith-Njigba first TD",
+   "player": "Jaxon Smith-Njigba",
+   "line": null,
+   "price": 593,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a",
+   "reasons": [
+    "TD in 4/6"
+   ],
+   "counter_case": "Spagnuolo focus"
+  },
+  {
+   "market": "first_td",
+   "selection": "AJ Barner first TD",
+   "player": "AJ Barner",
+   "line": null,
+   "price": 869,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a longshot",
+   "reasons": [
+    "short-yardage/tush-push role"
+   ],
+   "counter_case": "low target volume"
+  },
+  {
+   "market": "atd",
+   "selection": "Jaxon Smith-Njigba anytime TD",
+   "player": "Jaxon Smith-Njigba",
+   "line": null,
+   "price": 115,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e",
+   "reasons": [
+    "TD 4/6 games"
+   ],
+   "counter_case": "0 TD last 2 of 3"
+  },
+  {
+   "market": "atd",
+   "selection": "AJ Barner anytime TD",
+   "player": "AJ Barner",
+   "line": null,
+   "price": 256,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:27:03.246Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e alt; 9-T3",
+   "reasons": [
+    "Action Network/Brandon Anderson (one opinion)",
+    "Arroyo out"
+   ],
+   "counter_case": "1 TD in 6 games"
+  },
+  {
+   "market": "atd",
+   "selection": "Kenneth Walker III 2+ TDs (Woolcock longshot)",
+   "player": "Kenneth Walker III",
+   "line": 1.5,
+   "price": 488,
+   "book": "DK Predictions (reference only)",
+   "captured_at": "2026-10-23T19:10:00.519Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": null,
+   "model_prob": null,
+   "supercontest_candidate": null,
+   "straight_up_winner": null,
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "standalone or 7c 8-pick",
+   "reasons": [
+    "3/5 games with 2+ TD per boxes (Woolcock's 4/5 overstated)",
+    "DK implied 17%"
+   ],
+   "counter_case": "elite SEA run D; tiny sample"
+  }
+ ],
+ "island_ladder": [
+  {
+   "tier": "T1",
+   "band": "+600-1000",
+   "book": "BKR SGP",
+   "naive_price": 676,
+   "legs": [
+    "Walker 78+ rush yds -114",
+    "Kelce 47+ rec yds -114",
+    "Smith-Njigba 83+ rec yds -192",
+    "Emanuel Wilson 42+ rush yds -223"
+   ],
+   "legs_shorter_than_-200": 1,
+   "swap": "Kelce 57+ +130 if repriced < +600"
+  },
+  {
+   "tier": "T2",
+   "band": "+1800-3000",
+   "book": "BEO SGP",
+   "naive_price": 2954,
+   "legs": [
+    "Mahomes O1.5 pass TD +150",
+    "Mahomes U17.5 rush -115",
+    "Darnold O0.5 INT -115",
+    "Darnold O31.5 att -115",
+    "Worthy O4.5 rec -115"
+   ],
+   "swap": "Shaheed O4.5 targets -115 if INT blocked; add Royals O2.5 rec if < +1800"
+  },
+  {
+   "tier": "T3",
+   "band": "+6500-20000",
+   "book": "BKR SGP",
+   "naive_price": 10202,
+   "legs": [
+    "Walker first TD +445",
+    "Barner ATD +256",
+    "Noah Gray 26+ rec yds +136",
+    "Shaheed 35+ rec yds +125"
+   ],
+   "note": "Walker reused in a different market (Tier 3 exemption)"
+  }
+ ],
+ "dk_predictions_7c": {
+  "4_pick": [
+   "Walker ATD",
+   "Smith-Njigba 60+ rec yds",
+   "Kelce 40+ rec yds",
+   "E. Wilson 40+ rush yds"
+  ],
+  "6_pick_adds": [
+   "Walker 70+ rush yds",
+   "Mahomes 2+ pass TD"
+  ],
+  "8_pick_adds": [
+   "Walker 2+ TDs",
+   "Barner ATD"
+  ],
+  "note": "prices unverified (DK capture lacks yardage rungs); no 70+/80+ receiving; no KC spread/Over legs (open tickets)"
+ },
+ "open_positions_to_avoid_duplicating": [
+  "KC +3.5 (Flex SGP 740512242)",
+  "KC +8 (teaser 740506458)",
+  "KC@SEA Over 40.5 (lotteries 740636092/740636102)"
+ ],
+ "tackles_watchlist": [
+  {
+   "player": "Ernest Jones IV",
+   "team": "SEA",
+   "tackles_log": [
+    13,
+    8,
+    8,
+    12,
+    9,
+    9
+   ]
+  },
+  {
+   "player": "Nick Bolton",
+   "team": "KC",
+   "tackles_log": [
+    4,
+    13,
+    11,
+    9,
+    11
+   ]
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -1.0,
+  "total_adj": -0.5,
+  "reasons": [
+   "carried from sides pass view; context only for props"
+  ]
+ },
+ "sim_runs": [
+  {
+   "home_line": -3,
+   "total": 42,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "away_cover_excl_push": 0.5,
+   "under_excl_push": 0.5
+  },
+  {
+   "home_line": -3,
+   "total": 42,
+   "margin_adj": -1.0,
+   "total_adj": -0.5,
+   "away_cover_excl_push": 0.5286,
+   "under_excl_push": 0.5156
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-props.json",
+  "data/generated/props/bookmaker-live-2026-10-24-chiefs-at-seahawks.json",
+  "data/generated/props/betonline-live-2026-10-24-chiefs-at-seahawks.json",
+  "data/generated/props/draftkings-predictions-live-2026-10-23-chiefs-at-seahawks.json",
+  "data/fantasy/boxscores/espn-*.json (KC/SEA 2026)",
+  "https://www.cbssports.com/nfl/gametracker/boxscore/NFL_20260914_DEN@KC/",
+  "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
+  "reports/intel/games/2026-w07-game-KC_at_SEA-sides.md",
+  "data/generated/team-dossiers/2026-w07/{KC,SEA}.md"
+ ],
+ "ambiguities": [
+  "no tackles markets captured",
+  "BKR Mahomes props unavailable",
+  "DK yardage rungs not captured",
+  "Woolcock 4/5 claim vs boxes 3/5",
+  "BEO Walker receptions row team-tag glitch"
+ ],
+ "delta_checklist": [
+  "Darnold active at inactives",
+  "Emmanwori/Lawrence/Nwosu status; KC LT starter",
+  "JSN 97.5+ -> C",
+  "Mahomes O1.5 TD -150 -> pass",
+  "Darnold INT -140 -> C; Lock start -> recheck",
+  "tackles lines posting -> add B",
+  "weather beyond forecast"
+ ],
+ "gate_notes": [
+  "missing_inputs empty",
+  "roster_vet PASS 13.3h",
+  "final injury report from chiefs.com both teams",
+  "mis-tagged article/YouTube items dropped",
+  "no wagers/paid APIs/git"
+ ],
+ "pass": "props"
+}

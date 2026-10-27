@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE draft 2024"
-created: "2026-10-22T14:43:27.329Z"
-modified: "2026-10-22T14:43:27.329Z"
+created: "2026-10-27T13:00:45.727Z"
+modified: "2026-10-27T13:00:45.727Z"
 season: 2024
 type: "fantasy-draft"
 league: "CC Bowl XV CHAMPIONS LEAGUE"

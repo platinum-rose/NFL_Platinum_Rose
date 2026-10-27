@@ -1,6 +1,6 @@
 # Week 7 football results and statistics — provisional, 2026-10-26
 
-**Coverage:** 13/14 games final; DAL@PHI pending. Data is from saved ESPN boxscore snapshots and is not a betting-ledger re-grade.
+**Coverage:** 14/14 games final; none pending. Data is from saved ESPN boxscore snapshots and is not a betting-ledger re-grade.
 
 ## Scoreboard and game shape
 
@@ -19,33 +19,33 @@
 | GB@DET | 17–20 | 37 | 3 |
 | LAR@LV | 35–21 | 56 | 14 |
 | KC@SEA | 3–20 | 23 | 17 |
-| DAL@PHI | Pending | — | — |
+| DAL@PHI | 38–21 | 59 | 17 |
 
-Across 13 completed games: **573 points** (44.1 per game), **7 one-score finishes** (margin ≤ 8), and **2 games decided by 20+**. The highest total was TB@CAR (56); the lowest was KC@SEA (23).
+Across 14 completed games: **632 points** (45.1 per game), **7 one-score finishes** (margin ≤ 8), and **2 games decided by 20+**. The highest total was DAL@PHI (59); the lowest was KC@SEA (23).
 
-Home teams went 5–8 against visitors.
+Home teams went 5–9 against visitors.
 
 ## Team production
 
-The 26 teams combined for **8,936 yards** (343.7 per team), including 5,845 net passing yards and 3,091 rushing yards. They recorded 24 turnovers. Third downs: 139/323 (43.0%).
+The 26 teams combined for **9,673 yards** (372.0 per team), including 6,257 net passing yards and 3,416 rushing yards. They recorded 25 turnovers. Third downs: 152/348 (43.7%).
 
 ### Highest team totals
 
 | Team | Opponent | Points |
 |---|---|---:|
 | TB | CAR | 43 |
+| DAL | PHI | 38 |
 | CIN | BAL | 35 |
 | LAR | LV | 35 |
 | CHI | NE | 30 |
-| DEN | ARI | 30 |
 
 | Team | Opponent | Total yards |
 |---|---|---:|
 | CLE | TEN | 491 |
 | NYG | HOU | 420 |
+| DAL | PHI | 416 |
 | DET | GB | 415 |
 | SEA | KC | 410 |
-| CHI | NE | 405 |
 
 | Team | Opponent | Net passing yards |
 |---|---|---:|
@@ -58,10 +58,10 @@ The 26 teams combined for **8,936 yards** (343.7 per team), including 5,845 net 
 | Team | Opponent | Rushing yards |
 |---|---|---:|
 | TB | CAR | 258 |
+| DAL | PHI | 204 |
 | LAR | LV | 199 |
 | NYG | HOU | 188 |
 | CLE | TEN | 183 |
-| DEN | ARI | 159 |
 
 | Team | Opponent | Turnovers |
 |---|---|---:|
@@ -91,11 +91,11 @@ The 26 teams combined for **8,936 yards** (343.7 per team), including 5,845 net 
 
 | Player | Game | Rushing yards |
 |---|---|---:|
+| Javonte Williams (DAL) | DAL@PHI | 155 |
 | Tony Pollard (TEN) | CLE@TEN | 129 |
 | Cam Skattebo (NYG) | NYG@HOU | 124 |
 | Jahmyr Gibbs (DET) | GB@DET | 116 |
 | Bucky Irving (TB) | TB@CAR | 106 |
-| Braelon Allen (NYJ) | MIA@NYJ | 104 |
 
 | Player | Game | Receiving yards |
 |---|---|---:|
@@ -119,7 +119,7 @@ The 26 teams combined for **8,936 yards** (343.7 per team), including 5,845 net 
 | Michael Penix Jr. (ATL) | SF@ATL | 3 |
 | Geno Smith (NYJ) | MIA@NYJ | 3 |
 | Matthew Stafford (LAR) | LAR@LV | 3 |
-| Drake Maye (NE) | NE@CHI | 2 |
+| Dak Prescott (DAL) | DAL@PHI | 3 |
 
 | Player | Game | Receiving TDs |
 |---|---|---:|
@@ -127,7 +127,7 @@ The 26 teams combined for **8,936 yards** (343.7 per team), including 5,845 net 
 | Mason Taylor (NYJ) | MIA@NYJ | 2 |
 | Jameson Williams (DET) | GB@DET | 2 |
 | Davis Allen (LAR) | LAR@LV | 2 |
-| Rhamondre Stevenson (NE) | NE@CHI | 1 |
+| CeeDee Lamb (DAL) | DAL@PHI | 2 |
 
 | Player | Game | Sacks |
 |---|---|---:|

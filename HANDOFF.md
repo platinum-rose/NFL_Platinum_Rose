@@ -1,11 +1,18 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-26 22:15 PT, H2C2 to Claude Team 2: Week 7 closed, Week 8 next)
+## PICK UP HERE (2026-10-27, H2C2 to Claude Team 2: Week 8 readiness and futures update)
 
-- **PICK UP HERE:** `handoffs/2026-10-26-2215-claude-h2c2-claude2-briefing-w7-mnf-close.md`. Week 7 is fully settled: 39 real tickets, $387.51 risked, net −$234.99. MNF DAL 38–21: 8 tickets, −$1.39, DKP 46908050 won $62.00. The briefing covers the MNF island ladders (card §7k/§7l, paper), the Gary sack-line fix, the weekly prop-scraper cadence (live), the Yahoo API briefing for Codex, the needs-Andy list and the Week 8 start (TNF CAR @ GB, Thu 10/29). Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mnf-close-claude2/`.
-- Newer than the list below and not previously indexed: commits `d8e26bf`, `1d504d7`, `8bc29a6`, `003e861`, `5d0824d`, `08256bc`, `7ab6fb0`, `21864cf`, `0493dfd`. None of them had their own handoff file; the briefing §2 records them.
-- **Update Tue 10/27 07:19 PT:** Andy ran the Tuesday cadence (schedule, player stats, usage locks, projected starters, Week 8 opening odds, roster audit; all OK). Briefing §0a has the results and the 8 uncommitted outputs. Next cadence: `wednesday`.
-- Last verified HEAD: `0493dfd` plus the H2C2 commit, on branch `claude/w5-prop-cards-2026-10-11`. `origin/main` = `61da10a`, which is not the working branch. Reconcile live git first.
+- **Start here:** `reports/handoff-snapshots/2026-10-27-h2c2-week8-futures-claude2/H2C2_START_HERE.md`, then the detailed briefing at `handoffs/2026-10-27-1549-claude-h2c2-claude2-closeout-week8-futures.md`.
+- Week 7 is closed and its post-mortem / Platinum AI paper-proposal grades are in `reports/analysis/week7-postmortem/`. Week 8 is underway; the Tuesday cadence already ran 10/27 at 07:18 PT. Do not rerun Tuesday; next cadence is Wednesday. TNF CAR @ GB is Thu 10/29.
+- The latest BEO futures capture and normalized rows are `data/odds/BEO_futures_1027_1456.md`, `data/generated/futures/betonline-futures-2026-10-27_1456.json`, and `data/futures-imports/betonline-2026-10-27.json`. Reconcile prior movement / merged-duplicate discussion against these saved inputs before recommending portfolio changes.
+- Closeout commit: inspect live `git status`, branch, `HEAD`, and upstream before further work. The user's approval covers this scoped project-work commit and push only. The Yahoo API briefing, account statements, private test summaries, scratch media, backups, and `.nfl` transfer buffers were excluded.
+
+### Required startup order
+
+1. Read the H2C2 start brief.
+2. Reconcile current Git and upstream.
+3. Choose one active lane and load only the mapped artifacts.
+4. Consult the detailed briefing / manifest / older handoffs only when that lane needs them.
 
 ## Superseded, kept for history: 2026-10-26 Codex day checkpoints (Week 7 football data and analytics)
 

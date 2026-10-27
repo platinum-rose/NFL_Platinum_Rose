@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XV draft 2022"
-created: "2026-10-22T14:43:27.562Z"
-modified: "2026-10-22T14:43:27.562Z"
+created: "2026-10-27T13:00:46.120Z"
+modified: "2026-10-27T13:00:46.120Z"
 season: 2022
 type: "fantasy-draft"
 league: "RFI XV"

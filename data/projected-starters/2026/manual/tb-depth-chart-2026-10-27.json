@@ -1,0 +1,677 @@
+{
+  "meta": {
+    "description": "Manual all-position Week 8 depth chart for TB, built because the Tuesday cadence flagged TB as estimated_from_local_starter_language only. Week-specific: refresh or delete after Week 8.",
+    "team": "TB",
+    "season": 2026,
+    "week": 8,
+    "sources": [
+      "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "data/nfl-rosters/espn-full-rosters-latest.json (2026-10-26)",
+      "data/vault-seed/nflverse/player_stats_weekly.csv (weeks 6-7)"
+    ],
+    "built_by": "Claude Team 2",
+    "built_at": "2026-10-27"
+  },
+  "players": [
+    {
+      "player_name": "Baker Mayfield",
+      "team": "TB",
+      "position": "QB",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. QB1. Returned from thumb injury and started Week 7 at CAR (30-point win, 11 attempts in a blowout). Re-check the Wed-Fri practice report.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jalon Daniels",
+      "team": "TB",
+      "position": "QB",
+      "role": "backup",
+      "starter_confidence": 0.2,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. QB2 (started weeks 3-6 while Mayfield was out).",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Bucky Irving",
+      "team": "TB",
+      "position": "RB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RB1. Week 7: 24 carries, 106 yards.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Kenny Gainwell",
+      "team": "TB",
+      "position": "RB",
+      "role": "rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RB2. Week 7: 14 carries, 88 yards.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Sean Tucker",
+      "team": "TB",
+      "position": "RB",
+      "role": "backup",
+      "starter_confidence": 0.3,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RB3. Week 7: 7 carries, 52 yards.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Emeka Egbuka",
+      "team": "TB",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.6,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RWR1, but Ourlads marked him Out (O) for Week 7 and he had no Week 7 stats. Week 8 status unverified; check the practice report before any leg.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Ted Hurst III",
+      "team": "TB",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LWR1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Chris Godwin Jr.",
+      "team": "TB",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. Slot WR1. Week 7: 5 targets, 27 yards.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tez Johnson",
+      "team": "TB",
+      "position": "WR",
+      "role": "rotation",
+      "starter_confidence": 0.45,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RWR2 / PR. Starts if Egbuka is out.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Kameron Johnson",
+      "team": "TB",
+      "position": "WR",
+      "role": "backup",
+      "starter_confidence": 0.25,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. SWR2 / KR.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Cade Otton",
+      "team": "TB",
+      "position": "TE",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. TE1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Payne Durham",
+      "team": "TB",
+      "position": "TE",
+      "role": "backup",
+      "starter_confidence": 0.3,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. TE2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tristan Wirfs",
+      "team": "TB",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LT.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Ben Bredeson",
+      "team": "TB",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LG.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Graham Barton",
+      "team": "TB",
+      "position": "C",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. C.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Cody Mauch",
+      "team": "TB",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RG.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Luke Goedeke",
+      "team": "TB",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.6,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RT, marked Out (O) for Week 7 by Ourlads; Justin Skule is the backup.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Calijah Kancey",
+      "team": "TB",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LDE (3-4 base).",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Vita Vea",
+      "team": "TB",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. NT. Week 7: 1 sack.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "A'Shawn Robinson",
+      "team": "TB",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RDE.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Rueben Bain Jr.",
+      "team": "TB",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LOLB (2026 1st-round pick).",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Yaya Diaby",
+      "team": "TB",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. ROLB. Week 7: 3 sacks.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Alex Anzalone",
+      "team": "TB",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. WLB. Week 7: 4 solo + 2 assists.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Josiah Trotter",
+      "team": "TB",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. MLB. Week 6: 5+7, Week 7: 3+7 tackles.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "SirVocea Dennis",
+      "team": "TB",
+      "position": "LB",
+      "role": "backup",
+      "starter_confidence": 0.3,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. MLB2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Zyon McCollum",
+      "team": "TB",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. LCB.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jacob Parrish",
+      "team": "TB",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RCB.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Keionte Scott",
+      "team": "TB",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. Nickel.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tykee Smith",
+      "team": "TB",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. SS. Week 7: 1+6 tackles.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Antoine Winfield Jr.",
+      "team": "TB",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.55,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. FS, marked Out (O) for Week 7 by Ourlads; Ifeatu Melifonwu filled in. Check Week 8 status.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Ifeatu Melifonwu",
+      "team": "TB",
+      "position": "S",
+      "role": "rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. FS2; started Week 7 with Winfield out.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Chase McLaughlin",
+      "team": "TB",
+      "position": "K",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. K.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Riley Dixon",
+      "team": "TB",
+      "position": "P",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "tb-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/TB",
+      "published_at": "2026-10-26T18:03:00Z",
+      "evidence": "Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. P / holder.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    }
+  ]
+}

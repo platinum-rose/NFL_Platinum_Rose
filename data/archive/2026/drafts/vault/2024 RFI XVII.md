@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XVII draft 2024"
-created: "2026-10-22T14:43:27.347Z"
-modified: "2026-10-22T14:43:27.347Z"
+created: "2026-10-27T13:00:45.760Z"
+modified: "2026-10-27T13:00:45.760Z"
 season: 2024
 type: "fantasy-draft"
 league: "RFI XVII"

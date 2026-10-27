@@ -1,0 +1,446 @@
+{
+ "game": "PIT@NO",
+ "generated_at": "2026-10-24T21:55:00Z",
+ "packet_built_at": "2026-10-24T21:33:58Z",
+ "recommendations": [
+  {
+   "market": "player_prop",
+   "selection": "Aaron Rodgers Over 21.5 completions",
+   "line": 21.5,
+   "price": -125,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "B",
+   "fair_line": "~-200 (5/6 L6 hit)",
+   "edge_pts": null,
+   "playable_to": "-160; at BKR use alt O20.5 to -230",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / BEO 2-leg stack (pair with Rodgers TD)",
+   "reasons": [
+    "nflverse weekly: 24,23,19,22,22,33 completions -> 5/6 >=22",
+    "aDOT 7.6 short-area offense (FTN); wind 25-28 km/h gusts 53-57 km/h at kickoff hours (Open-Meteo pulled Sat) favors short completions over yards",
+    "PIT pass rate: DPBK 67%, 39 att/g; NO D CBALL 71.6%, pass DVOA +20.9%"
+   ],
+   "counter_case": "PIT is the expected winner in wind: a lead plus Warren vs the league's worst run defense can drop attempts to ~30 (W5: 22/31). Rodgers CPOE -1.6.",
+   "alt_book_quote": {
+    "book": "BKR",
+    "selection": "Over 20.5 completions (alt)",
+    "price": -209,
+    "captured_at": "2026-10-24T20:25:11.274Z",
+    "flag": "shorter than -200"
+   }
+  },
+  {
+   "market": "player_prop",
+   "selection": "Aaron Rodgers Over 1.5 passing TD",
+   "line": 1.5,
+   "price": 100,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "B",
+   "fair_line": "~-125 (Poisson lam~1.8 -> 54%)",
+   "edge_pts": null,
+   "playable_to": "-120 (BKR main -119 is the edge floor; BKR alt O1.5 -113)",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7a / BEO 2-leg stack / single",
+   "reasons": [
+    "Rodgers 2+ TD in 4/6 (1,0,3,3,3,2); 12 pass TD vs 1 team rush TD all season -> red zone runs through the air",
+    "NO D allowed 10 pass TD in 6 g, pass DVOA +20.9%, EPA/DB +0.092 (FTN)",
+    "Season category edge: passing TDs +14% (NFL_WEEKLY_CARD_PROCESS)"
+   ],
+   "counter_case": "Wind and a run-first game script vs a bad run D (45.9% rush success allowed) could turn red-zone trips into Warren/Dowdle runs or FGs. PIT RZ TD rate only 53%.",
+   "alt_book_quote": {
+    "book": "BKR",
+    "selection": "Over 1.5 pass TD",
+    "price": -119,
+    "captured_at": "2026-10-24T20:25:11.274Z"
+   }
+  },
+  {
+   "market": "atd",
+   "selection": "Pat Freiermuth anytime TD",
+   "line": null,
+   "price": 218,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "B",
+   "fair_line": "~+170 (TD in 3/6 g, 4 TD)",
+   "edge_pts": null,
+   "playable_to": "+180",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e ATD 7-leg / BKR SGP with Rodgers O1.5 TD",
+   "reasons": [
+    "4 TD on 21 rec; scored in W1, W4, W5 (2)",
+    "TE1 red-zone role, FREAD 62% (FTN usage); PIT has 1 rush TD in 6 games",
+    "DKP reference +257 (28%) -> market range +218 to +257"
+   ],
+   "counter_case": "Washington (TD W4, W6) takes red-zone TE work; Freiermuth had 2/3 for 11 yds in W6 as Bernard emerged."
+  },
+  {
+   "market": "atd",
+   "selection": "Tyler Shough anytime TD",
+   "line": null,
+   "price": 376,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": "~+250 (rush TD in 2/6)",
+   "edge_pts": null,
+   "playable_to": "+300",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e ATD 7-leg / single",
+   "reasons": [
+    "Rush TDs W2 and W6; 5-32-1 last week",
+    "Matchup fit for QB run: PIT man-heavy Cover 1 / blitz 26.4% empties the middle; NO expected to trail",
+    "NO 6 team rush TDs vs PIT run D DVOA -20% -> goal-line sneak/designed run more likely than RB plunge",
+    "DKP ref +426"
+   ],
+   "counter_case": "PIT front (#6 EPA D, 7.0% sack rate) contains him; zero or one carries in 3/6 games."
+  },
+  {
+   "market": "player_prop",
+   "selection": "Germie Bernard Over 4.5 receptions",
+   "line": 4.5,
+   "price": -150,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "C",
+   "fair_line": "~-160",
+   "edge_pts": null,
+   "playable_to": "-165",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7d hybrid / BKR SGP",
+   "reasons": [
+    "WR2 by default: Roman Wilson + Pittman Jr. IR, Skowronek OUT (packet availability)",
+    "Last two games 6/9 and 11/12 since the room thinned; TGT/RTE 20%",
+    "Slot target vs NO man coverage (slot_wr_boost tag, secondary_matchups)"
+   ],
+   "counter_case": "Only a 2-game sample of WR2 volume; W2-W4 he had 4, 1, 2 catches. MVS re-signed and may take snaps.",
+   "alt_book_quote": {
+    "book": "BKR",
+    "selection": "Over 4.5 receptions (alt)",
+    "price": -157,
+    "captured_at": "2026-10-24T20:25:11.274Z"
+   }
+  },
+  {
+   "market": "player_prop",
+   "selection": "Jaylen Warren longest rush Over 14.5",
+   "line": 14.5,
+   "price": -130,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "C",
+   "fair_line": "~-150",
+   "edge_pts": null,
+   "playable_to": "-140",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7d hybrid / BEO stack leg",
+   "reasons": [
+    "NO run D: 45.9% success allowed, YBCO 1.27, stuff rate 18.2% (FTN)",
+    "Warren 5.5 YPC, 20+ runs in 3/6 games (nflverse rushing_20)",
+    "Action Network pick O13.5 (packet expert_picks_pull); wind favors the run game"
+   ],
+   "counter_case": "Dowdle (Q, knee) returned in W6 and cut Warren to 14-50 with no 20+ run; a split backfield caps attempts at ~12."
+  },
+  {
+   "market": "player_prop",
+   "selection": "Tyler Shough Over 0.5 interceptions",
+   "line": 0.5,
+   "price": -145,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "C",
+   "fair_line": "~-150",
+   "edge_pts": null,
+   "playable_to": "-150 (BEO only; BKR SGPs do not take INT legs)",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "single (BEO)",
+   "reasons": [
+    "Stated fit: a young QB likely trailing into gusts to ~55 km/h vs a PIT D with 6 INT and INTW 4.0%",
+    "Shough INT in 3/6 (2,0,1,0,2,0), 5 INT plus 3 fumbles",
+    "PIT blitz 26.4%, pressure 22%"
+   ],
+   "counter_case": "PIT CPOE allowed -6.5%, but it has picked off 1/g only; Shough had a clean W6 (0 INT, 3 TD)."
+  },
+  {
+   "market": "player_prop",
+   "selection": "Longest field goal of the game Under 49.5",
+   "line": 49.5,
+   "price": -110,
+   "book": "BEO",
+   "captured_at": "2026-10-24T21:15:13.114Z",
+   "tier": "C",
+   "fair_line": "~-135",
+   "edge_pts": null,
+   "playable_to": "-125",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "card_slot": "single (BEO)",
+   "reasons": [
+    "Open-Meteo Sat pull: 25-28 km/h sustained, gusts 53-57 km/h westerly (276-282 deg) through the 14:30-18:00 CET window, open-air stadium",
+    "Coaches avoid 50+ attempts in crosswinds; BEO total FG U3.5 -110 agrees"
+   ],
+   "counter_case": "A tailwind half can allow a 52-55 yd try; check BEO rules on whether 'no FG made' grades as Under."
+  },
+  {
+   "market": "atd",
+   "selection": "Darnell Washington anytime TD",
+   "line": null,
+   "price": 254,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+230",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e alt",
+   "reasons": [
+    "TD in W4 and W6; red-zone TE2. His BKR yardage/rec markets were pulled (NA): confirm he is active"
+   ],
+   "counter_case": "Freiermuth takes the same red-zone looks"
+  },
+  {
+   "market": "atd",
+   "selection": "Chris Olave anytime TD",
+   "line": null,
+   "price": 179,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+170",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "7e alt (NO side)",
+   "reasons": [
+    "27% target share, alpha vs PIT secondary rated high vulnerability 6.19 with Echols OUT"
+   ],
+   "counter_case": "Only 2 TD in 6 g; wind cuts deep shots"
+  },
+  {
+   "market": "first_td",
+   "selection": "Pat Freiermuth first TD",
+   "line": null,
+   "price": 845,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+750",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a First TD",
+   "reasons": [
+    "PIT favored (1Q ML -144) and red-zone TE role; DKP ref +1150"
+   ],
+   "counter_case": "Metcalf/Washington/Bernard split the opening-drive targets"
+  },
+  {
+   "market": "first_td",
+   "selection": "Tyler Shough first TD",
+   "line": null,
+   "price": 1221,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+1000",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a First TD (longshot)",
+   "reasons": [
+    "QB rush TD in 2/6; NO opening scripts"
+   ],
+   "counter_case": "NO 1Q TT U3.5 -137 implies a slow NO start"
+  },
+  {
+   "market": "first_td",
+   "selection": "Juwan Johnson first TD",
+   "line": null,
+   "price": 1030,
+   "book": "BKR",
+   "captured_at": "2026-10-24T20:25:11.274Z",
+   "tier": "C",
+   "fair_line": null,
+   "edge_pts": null,
+   "playable_to": "+900",
+   "model_prob": null,
+   "supercontest_candidate": false,
+   "straight_up_winner": "PIT",
+   "pool_confidence": null,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "card_slot": "8a alt",
+   "reasons": [
+    "3 TD, TD in 2/6; DKP ref +1567"
+   ],
+   "counter_case": "Zero catches on 2 targets in W6"
+  }
+ ],
+ "two_plus_td": {
+  "market": "two_plus_td",
+  "candidates": [
+   {
+    "player": "Pat Freiermuth",
+    "price": 1124,
+    "book": "BKR",
+    "captured_at": "2026-10-24T20:25:11.274Z",
+    "note": "2 TD in W5; best 8b value on the board"
+   },
+   {
+    "player": "DK Metcalf",
+    "price": 826,
+    "book": "BKR",
+    "captured_at": "2026-10-24T20:25:11.274Z",
+    "note": "only 1 TD in 6 g, so the price is short for the hit rate"
+   },
+   {
+    "player": "Jaylen Warren",
+    "price": 330,
+    "book": "BKR",
+    "captured_at": "2026-10-24T20:25:11.274Z",
+    "note": "AVOID: PIT has 1 rush TD all season"
+   }
+  ]
+ },
+ "heavy_leg_flag": "Only Rodgers O20.5 cmp (BKR alt -209) is shorter than -200; every BEO leg is -150 or longer.",
+ "passes": [
+  {
+   "selection": "DK Metcalf O4.5 rec -130 BKR",
+   "reason": "5+ catches in only 2/6 (4,4,3,5,3,11) despite a 23.7% share; alt O3.5 is -570, beyond the barrier"
+  },
+  {
+   "selection": "Chris Olave O5.5 rec -148 / O65.5 yds -196",
+   "reason": "NO is the expected loser (Andy's receptions rule); 4 and 4 catches, 46 and 43 yds the last 2 weeks; wind"
+  },
+  {
+   "selection": "Jaylen Warren ATD -145 BKR",
+   "reason": "PIT 1 rush TD in 6 g; Dowdle Q splits work; DKP ref -108"
+  },
+  {
+   "selection": "Shough O1.5 pass TD +136",
+   "reason": "Hit 3/6, but PIT allows 1.0 pass TD/g and the wind; roughly a coin flip at 42% implied, so no edge"
+  },
+  {
+   "selection": "Tackles+assists",
+   "reason": "No T+A market on the BKR or BEO boards. Watch for Payton Wilson (11 tkl W6) / Pete Werner (11 tkl W6) postings Sunday"
+  },
+  {
+   "selection": "Median yardage (Rodgers 230.5, Metcalf 58.5, Olave 75.5, Warren 64.5, Miller 36.5)",
+   "reason": "Andy rule: no -110/-120 median yardage"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.5,
+  "total_adj": -1.5,
+  "reasons": [
+   "carried from sides pass (PIT by ~3.8, total ~43); used only for game script, not prop probabilities"
+  ]
+ },
+ "sim_runs": [
+  {
+   "cmd": "margin-simulator.mjs --selftest",
+   "result": "all self-tests passed"
+  },
+  {
+   "cmd": "--home-line 3 --total 44.5 --margin-adj -0.5 --total-adj -1.5",
+   "result": "re-run for script context; sides pass: PIT cover 51.4% excl push, Under 54.5%"
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-props.json (built 2026-10-24T21:33:58Z)",
+  "data/generated/props/bookmaker-live-2026-10-24-steelers-at-saints.json (capturedAt 2026-10-24T20:25:11Z)",
+  "data/generated/props/betonline-live-2026-10-24-steelers-at-saints.json (capturedAt 2026-10-24T21:15:13Z)",
+  "data/generated/props/draftkings-predictions-live-2026-10-23-steelers-at-saints.json (ref only, 2026-10-23T19:10Z)",
+  "data/vault-seed/nflverse/player_stats_weekly.csv (2026 W1-W6)",
+  "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (2026-10-20T15:14Z)",
+  "reports/intel/games/2026-w07-game-PIT_at_NO-sides.md",
+  "Open-Meteo hourly forecast Saint-Denis pulled 2026-10-24 ~21:50Z",
+  "thefantasyfootballers.com Dowdle news (Friday: limited, Q)"
+ ],
+ "ambiguities": [
+  "Dowdle Q (knee, limited Fri): BKR has pulled Warren/Dowdle rush and carry markets",
+  "Darnell Washington rec/yds markets NA at BKR with no injury designation found",
+  "DeShon Elliott Q vs IR/DTR conflict (secondary only)",
+  "BKR roster lists unfamiliar names (Tonyan, Homer, B. Johnson, Welch etc.); none used",
+  "DST ends in Europe on 10/25: kickoff is 14:30 CET local, matching the wind hours used"
+ ],
+ "delta_checklist": [
+  "Inactives ~5:00 AM PT: Dowdle OUT -> Warren longest rush to B, consider Warren carries O14.5 BEO; Dowdle IN -> keep C",
+  "Washington inactive -> Freiermuth ATD to B+ and FTD to primary",
+  "Sunday wind: gusts < 30 km/h -> drop FG Under and the Shough INT wind reason; gusts 55+ -> keep all",
+  "Rodgers O1.5 TD: pass if BEO moves to -125 or BKR to -135",
+  "Bernard: if MVS is announced in a starter role, drop to PASS",
+  "Shough INT: BKR SGPs do not take it, BEO only"
+ ],
+ "gate_notes": [
+  "roster_vet PASS (age 13.3h, 1 INFO, 9 UNVERIFIED); not re-run",
+  "missing_inputs empty",
+  "Kickoff not passed (Sun 06:30 PT); forward picks issued",
+  "Friday designations from the sides pass (team-site fetch) + Dowdle web check: PIT Echols OUT, Skowronek OUT, Dowdle Q, Elliott Q; NO Ruiz Q, Shepherd Q; Kamara no designation",
+  "Stale coach names in secondary_matchups (Dennis Allen, Lattimore/Mathieu, Tomlin/Austin/Fitzpatrick) ignored; dossiers list PIT HC Mike McCarthy, NO HC Kellen Moore",
+  "No T+A markets on either executable board"
+ ],
+ "pass": "props"
+}

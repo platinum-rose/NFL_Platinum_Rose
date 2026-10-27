@@ -1,40 +1,216 @@
 {
-  "episode_slug": "youtube-b9FjoVzHbY0",
-  "show": "YouTube Discovery",
-  "date": "manual",
-  "priority": "manual",
-  "mode": "live-youtube",
   "model": "gemini-3.5-flash",
-  "input_source": "youtube_video_url",
-  "reprocess_required": false,
-  "reprocess_reason": null,
-  "quality_flags": [],
-  "run": {
-    "run_id": "youtube_gemini_727d3d72d734",
-    "mode": "live-youtube",
-    "model": "gemini-3.5-flash",
-    "input_source": "youtube_video_url",
-    "youtube_url": "https://www.youtube.com/watch?v=b9FjoVzHbY0",
-    "latency_ms": 70689,
-    "estimated_cost_usd": 0.039317,
-    "input_tokens": 376420,
-    "output_tokens": 4187,
-    "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter analyze the NFL Week 7 slate on Sharp or Square, reviewing market moves, sharp calls, and futures value. They highlight key bets including the Falcons, Bucs, Dolphins, and Chiefs while breaking down line movements across major matchups.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 4115,\n    \"last_analyzed_timestamp\": 4115,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 6.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Polymarket, part of The Volume Podcast Network.\"\n    },\n    {\n      \"start\": 6.0,\n      \"end\": 24.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"This is the show that makes the squares sharper and makes the wise guys pay attention. I'm Chad Millman, joined as always by my co-host, my BFF, my companion, my compadre, professional bettor Simon Hunter. Hello Simon.\"\n    },\n    {\n      \"start\": 24.0,\n      \"end\": 26.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, how are we doing?\"\n    },\n    {\n      \"start\": 26.0,\n      \"end\": 49.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Brother, I apologize for my orange complexion and what will no doubt be a massive amount of honking. I'm recording from our New York studio today, also known as my mother-in-law's apartment on the Upper East Side.\"\n    },\n    {\n      \"start\": 49.0,\n      \"end\": 127.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"This is our Thursday NFL Week 7 show. We're going to do sharp calls, brass balls, underdog and favorites round robins, Simon's biggest bets, sharp versus square, and narrow down to our final picks for the pick'em contest.\"\n    },\n    {\n      \"start\": 127.0,\n      \"end\": 209.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Simon, briefly on Tuesday we had questions from Discord about futures. The Packers have been a hot topic for adjusting futures with Josh Jacobs and Micah Parsons coming back. Is it a good time to capture a team on the rise?\"\n    },\n    {\n      \"start\": 209.0,\n      \"end\": 337.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I definitely think we should be taking positions on teams we like. The NFC is wide open. Teams like Minnesota are 5-0 or 6-0, but Green Bay at 100-1 or 110-1 to beat the Chiefs in the Super Bowl is incredible value if Parsons returns.\"\n    },\n    {\n      \"start\": 337.0,\n      \"end\": 378.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Also in award markets, Kevin O'Connell is +650 to be Coach of the Year. He's undefeated with a new quarterback in a tough NFC North division.\"\n    },\n    {\n      \"start\": 378.0,\n      \"end\": 504.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Green Bay has really been the pivot point a third into the season on whether to invest in futures or match-ups.\"\n    },\n    {\n      \"start\": 504.0,\n      \"end\": 834.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Every week Simon gets feedback from his professional betting colleagues on what they like, hate, and where they think we are right or wrong. It's time for Sharp Calls.\"\n    },\n    {\n      \"start\": 834.0,\n      \"end\": 993.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Plenty of sharp love for the Falcons at +3.5, Bucs +3.5, Miami Dolphins, and Bengals +3. Also hearing pros taking Green Bay against Detroit, Denver, and Tennessee over Cleveland.\"\n    },\n    {\n      \"start\": 993.0,\n      \"end\": 1235.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"The biggest talk of the town is Kansas City at Seattle. Pro groups are heavily divided between Seattle and Kansas City +2.5 or +3.\"\n    },\n    {\n      \"start\": 1235.0,\n      \"end\": 1441.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Looking at Giants at Texans (-10.5), the line moved from 9.5 to 10.5. Public money is on the Giants, but professional sharp money is driving Houston up.\"\n    },\n    {\n      \"start\": 1441.0,\n      \"end\": 1601.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Be careful chasing late Sunday morning steam. The London travel fatigue for teams returning to the US without a bye is real.\"\n    },\n    {\n      \"start\": 1601.0,\n      \"end\": 1803.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"For Niners at Falcons (+2.5), it was Chad's Choice at +3.5 earlier. Majority of tickets are on 49ers, but sharp money is on Atlanta.\"\n    },\n    {\n      \"start\": 1803.0,\n      \"end\": 2009.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Don't take Atlanta if it drops below 3. Protect yourself around key field goal numbers.\"\n    },\n    {\n      \"start\": 2009.0,\n      \"end\": 2256.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Bucs at Panthers (+3). Simon's choice was Tampa Bay +3.5 earlier. Wise guys still like Tampa Bay coming off a loss.\"\n    },\n    {\n      \"start\": 2256.0,\n      \"end\": 2745.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Browns (-1.5) at Titans. Major discrepancy between tickets and money here with heavy sharp money on Tennessee.\"\n    },\n    {\n      \"start\": 2745.0,\n      \"end\": 3033.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"It's time for our Brass Balls Trade of the Week on Polymarket: Miami Dolphins (+4.5) trading at 52% probability against the NY Jets.\"\n    },\n    {\n      \"start\": 3033.0,\n      \"end\": 3130.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Polymarket is the best new prediction market where you can trade sports outcomes like stocks. Sign up with code SHARP for a $25 bonus.\"\n    },\n    {\n      \"start\": 3130.0,\n      \"end\": 3388.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Colts at Vikings (-6.5). Minnesota is a rare sharp favorite coming off their bye week.\"\n    },\n    {\n      \"start\": 3388.0,\n      \"end\": 3518.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Brian Flores' defense causes massive problems for quarterbacks like Daniel Jones. If Jonathan Taylor runs for 150 yards Indianapolis has a chance, but Minnesota's scheme gives them a big edge.\"\n    },\n    {\n      \"start\": 3518.0,\n      \"end\": 3838.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Broncos (-4.5) at Cardinals. Line is moving towards Denver as sharp bettors back Bo Nix and Sean Payton over Arizona.\"\n    },\n    {\n      \"start\": 3838.0,\n      \"end\": 4010.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Packers at Lions (-3). Detroit off a bye with Brian Branch returning. Sharp money coming in on Green Bay +3.5.\"\n    },\n    {\n      \"start\": 4010.0,\n      \"end\": 4252.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Rams (-4.5) at Raiders. Line dropped from 5.5 to 4.5/3.5 with sharp money taking Las Vegas at home.\"\n    },\n    {\n      \"start\": 4252.0,\n      \"end\": 4625.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Chiefs at Seahawks (-2.5). Patrick Mahomes is 10-3 ATS in his career as an underdog. Sharp money likes Seattle at home, but public and trend betting favours Kansas City.\"\n    },\n    {\n      \"start\": 4625.0,\n      \"end\": 4708.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"For our Discord Group Bet, we're taking a 2-team teaser: Chiefs (+8.5) and Vikings (-0.5).\"\n    },\n    {\n      \"start\": 4708.0,\n      \"end\": 4802.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Underdog Moneyline Parlay: Falcons (+140), Bucs (+140), Chiefs (+124), Raiders (+185), Dolphins (+185).\"\n    },\n    {\n      \"start\": 4802.0,\n      \"end\": 4880.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Favorites Moneyline Parlay: Bengals (-122), Broncos (-210), Lions (-165).\"\n    },\n    {\n      \"start\": 4880.0,\n      \"end\": 4942.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Sharp vs. Square: Chad is taking Lions -3 (Square), Simon is taking Broncos -4 (Sharp).\"\n    },\n    {\n      \"start\": 4942.0,\n      \"end\": 5036.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Survivor Pool Pick of the Week: Minnesota Vikings over Indianapolis Colts.\"\n    },\n    {\n      \"start\": 5036.0,\n      \"end\": 5115.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Thank you for watching Sharp or Square! Subscribe on YouTube, rate and review on Apple and Spotify, and join us Sunday live at 11 AM Eastern.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"MIN\",\n      \"player\": \"Kevin O'Connell\",\n      \"market\": \"coach_of_the_year\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 650,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 337,\n      \"rationale\": \"Undefeated start with a new quarterback in a stacked NFC North; great value at +650.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 10000,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 252,\n      \"rationale\": \"Green Bay at 100-1 or 110-1 to beat KC in Super Bowl is high upside if Micah Parsons returns.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 841,\n      \"rationale\": \"Chad's Choice pick early in the week at +3.5 hosting an injured 49ers squad.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 900,\n      \"rationale\": \"Simon Says pick at +3.5 against Carolina in a classic bounce-back spot.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1665,\n      \"rationale\": \"Brass Balls Trade of the Week on Polymarket; getting 4.5 points against NY Jets.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DEN\",\n      \"line\": -4.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3974,\n      \"rationale\": \"Simon's Sharp pick in Sharp vs. Square; backing Denver's defense against Arizona.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -3.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3554,\n      \"rationale\": \"Chad's Square pick in Sharp vs. Square; taking Detroit coming off a bye week.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 4003,\n      \"rationale\": \"Vikings home against Colts off a bye week is the safest survivor option in a tough week.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\n        \"KC\",\n        \"SEA\"\n      ],\n      \"players\": [\n        \"Patrick Mahomes\"\n      ],\n      \"topic\": \"Chiefs vs Seahawks line split\",\n      \"summary\": \"Public bettors are heavily backing Mahomes as a road underdog (+2.5), while several prominent sharp groups are siding with Seattle at home.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1141,\n      \"quote\": \"Very small amount of groups like me on the Chiefs, and a lot of really heavily smart groups influenced taking the Seattle side.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\n        \"NYG\"\n      ],\n      \"players\": [],\n      \"topic\": \"Giants post-London fatigue\",\n      \"summary\": \"Giants traveling back from London to play Houston without a bye week creates a strong rest disparity.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1521,\n      \"quote\": \"Teams playing in England coming back and playing a game... the fall off in the second half is a real thing.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"LAR\"\n      ],\n      \"players\": [\n        \"Aaron Donald\"\n      ],\n      \"topic\": \"Rams roster and injury concerns\",\n      \"summary\": \"The Rams roster is top-heavy and compromised by key injuries on the interior defensive line, making them inflated road favorites against Vegas.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2841,\n      \"quote\": \"This Rams team is battered mentally and they have so many injuries.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Mahomes Underdog Record\",\n      \"timestamp\": 3390,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"Mahomes as a dog is basically 10 and 3.\"\n    },\n    {\n      \"topic\": \"Brass Balls Trade\",\n      \"timestamp\": 1665,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"Our Brass Balls Trade of the Week presented by Polymarket is the Miami Dolphins trading at +4.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
-    "extracted_picks": [
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=b9FjoVzHbY0",
+  "latency_ms": 59615,
+  "estimated_cost_usd": 0.03932,
+  "input_tokens": 376850,
+  "output_tokens": 4087,
+  "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter break down the NFL Week 7 betting board on 'Sharp or Square'. They analyze key sharp movements, contest strategies, underdog/favorites moneyline parlays, and best bets for games including 49ers-Falcons, Bucs-Panthers, Rams-Raiders, Packers-Lions, and Chiefs-Seahawks.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 4115,\n    \"last_analyzed_timestamp\": 4114,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 24.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Polymarket, part of The Volume Podcast Network. I'm Chad Millman, joined as always by Simon Hunter.\"\n    },\n    {\n      \"start\": 24.0,\n      \"end\": 26.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, how are we doing?\"\n    },\n    {\n      \"start\": 26.0,\n      \"end\": 126.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Brother, I apologize for my orange complexion and New York studio background. This is our Thursday Week 7 NFL show with Sharp Calls, Brass Balls, and Contest picks.\"\n    },\n    {\n      \"start\": 126.0,\n      \"end\": 208.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"As soon as we talked about futures, people were asking if it's time to capture teams on the rise like Green Bay or Minnesota in the NFC.\"\n    },\n    {\n      \"start\": 208.0,\n      \"end\": 377.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Looking at exact Super Bowl matchups, Chiefs to beat Packers is 100 to 1 and Packers to beat Chiefs is 110 to 1. In player futures, Golden is 40 to 1 to lead in receiving, and Kevin O'Connell is +650 to win Coach of the Year.\"\n    },\n    {\n      \"start\": 377.0,\n      \"end\": 503.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Green Bay has been the pivot point in these futures conversations. Let's move into our weekly Sharp Calls segment.\"\n    },\n    {\n      \"start\": 503.0,\n      \"end\": 514.0,\n      \"speaker\": \"Audio Montage\",\n      \"text\": \"[Movie clips montage for Sharp Calls]\"\n    },\n    {\n      \"start\": 514.0,\n      \"end\": 755.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Sharp calls loved Falcons +3.5, Bucs +3.5, Dolphins/Jets, Cincy line flip, Green Bay +3 vs Detroit, Denver, Tennessee, and Seattle vs Kansas City.\"\n    },\n    {\n      \"start\": 755.0,\n      \"end\": 819.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's start with Giants at Texans, where line moved from 9.5 to 10.5 after McCarthy was named starter.\"\n    },\n    {\n      \"start\": 819.0,\n      \"end\": 995.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Be careful chasing line moves late, but respect the sharp money coming in on Houston against McCarthy and Minnesota's travel return from London.\"\n    },\n    {\n      \"start\": 995.0,\n      \"end\": 1022.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"San Francisco at Atlanta moved down through 3 to Atlanta +2.5. Pros are on Atlanta while public is on Niners.\"\n    },\n    {\n      \"start\": 1022.0,\n      \"end\": 1205.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I wouldn't take Falcons below +3, but the matchup favors Atlanta with Mike Evans out for San Francisco impacting third downs.\"\n    },\n    {\n      \"start\": 1205.0,\n      \"end\": 1379.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Tampa Bay at Carolina is Bucs +3. We loved Carolina earlier, but backing Bryce Young as a field-goal favorite is tough.\"\n    },\n    {\n      \"start\": 1379.0,\n      \"end\": 1500.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Keep it simple, don't ask Bryce Young to blow out divisional opponents. Tampa Bay +3 or +3.5 after a loss is a great situational spot.\"\n    },\n    {\n      \"start\": 1500.0,\n      \"end\": 1664.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Cleveland at Tennessee has Browns -1.5 road favorites. Huge discrepancy between tickets and money on Tennessee.\"\n    },\n    {\n      \"start\": 1664.0,\n      \"end\": 1830.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Browns choke in this exact spot 80% of the time after big divisional wins. Plus, off-field drama around Tennessee adds uncertainty.\"\n    },\n    {\n      \"start\": 1830.0,\n      \"end\": 1860.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's be grown-ups and avoid forcing Tennessee into our contest picks.\"\n    },\n    {\n      \"start\": 1860.0,\n      \"end\": 2040.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Agreed, let's look at the Polymarket Brass Balls Trade of the Week: Miami Dolphins +4.5 against the New York Jets.\"\n    },\n    {\n      \"start\": 2040.0,\n      \"end\": 2250.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Division underdog with over 4 points in a low-scoring divisional matchup. Jets are overrated by back-to-back covers.\"\n    },\n    {\n      \"start\": 2250.0,\n      \"end\": 2310.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Sign up on Polymarket with code SHARP for a $25 bonus. Next up, Colts at Vikings (-6.5).\"\n    },\n    {\n      \"start\": 2310.0,\n      \"end\": 2610.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Flores' defense gives huge problems to quarterbacks like Daniel Jones unless Jonathan Taylor runs for 150+ yards.\"\n    },\n    {\n      \"start\": 2610.0,\n      \"end\": 2760.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Broncos at Cardinals (-4.5). Bo Nix struggles on the road while Cardinals have been competitive.\"\n    },\n    {\n      \"start\": 2760.0,\n      \"end\": 2849.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Sharps are on Denver here viewing it as a get-right spot against Arizona's weak defense.\"\n    },\n    {\n      \"start\": 2849.0,\n      \"end\": 3100.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Packers at Lions (-3). Line touched -3.5. Green Bay's defense looked elite against Dallas, but Detroit is well-rested off a bye.\"\n    },\n    {\n      \"start\": 3100.0,\n      \"end\": 3250.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Detroit's defense gives up points to everyone. If line is -3 or lower, I lean Lions, but Packers +3.5 is sharp value.\"\n    },\n    {\n      \"start\": 3250.0,\n      \"end\": 3500.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Rams at Raiders line dropped from -4.5 to -3.5. Rams are depleted with injuries on defense and along the line.\"\n    },\n    {\n      \"start\": 3500.0,\n      \"end\": 3705.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Chiefs at Seahawks (-2.5). Patrick Mahomes is 10-3 ATS as a dog in his career.\"\n    },\n    {\n      \"start\": 3705.0,\n      \"end\": 3808.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Discord Group Bet of the week: Chiefs +8.5 and Vikings -0.5 teaser.\"\n    },\n    {\n      \"start\": 3808.0,\n      \"end\": 3900.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Underdog ML Parlay: Falcons, Bucs, Chiefs, Raiders, Dolphins. Favorites ML Parlay: Bengals, Broncos, Lions.\"\n    },\n    {\n      \"start\": 3900.0,\n      \"end\": 3942.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"My biggest bets this week are Falcons +3.5 and Bucs +3.5 based on line value.\"\n    },\n    {\n      \"start\": 3942.0,\n      \"end\": 4028.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"In Sharp vs. Square, I'll take Detroit -3 and Simon takes Denver -4. Survivor pick is Minnesota.\"\n    },\n    {\n      \"start\": 4028.0,\n      \"end\": 4115.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Subscribe to the show, rate 5 stars, see you live Sunday at 11am Eastern!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 10000,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 242,\n      \"rationale\": \"Super Bowl exact matchup bet for Chiefs to beat Packers offering 100-to-1 value.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 11000,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 265,\n      \"rationale\": \"Packers to beat Chiefs Super Bowl exact matchup at 110-to-1 odds.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"coach_of_the_year\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 650,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 337,\n      \"rationale\": \"Kevin O'Connell leading undefeated Vikings squad with new QB system.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 4.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1675,\n      \"rationale\": \"Polymarket Brass Balls Trade of the Week taking Miami +4.5 vs Jets in close divisional rivalry.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3900,\n      \"rationale\": \"Heavy sharp backing on Falcons at +3.5 against 49ers with key receiver injuries.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3910,\n      \"rationale\": \"Bounce-back divisional spot for Bucs as underdogs vs Panthers led by Bryce Young.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -3.0,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3954,\n      \"rationale\": \"Chad's pick for Sharp vs Square taking well-rested Lions at home vs Green Bay.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DEN\",\n      \"line\": -4.0,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3974,\n      \"rationale\": \"Simon's pick for Sharp vs Square taking Denver as favorites over Cardinals.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3998,\n      \"rationale\": \"Top survivor pool recommendation hosting Colts off a bye week.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"HOU\", \"NYG\"],\n      \"players\": [\"J.J. McCarthy\"],\n      \"topic\": \"Texans vs Giants line jump\",\n      \"summary\": \"Line jumped from -9.5 to -10.5 after J.J. McCarthy was named starter for Minnesota/Houston context.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 755,\n      \"quote\": \"When McCarthy gets announced as the starter, it immediately went to 10.5.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"SF\", \"ATL\"],\n      \"players\": [\"Mike Evans\"],\n      \"topic\": \"49ers receivers health impact\",\n      \"summary\": \"Mike Evans injury significantly impacts Brock Purdy's third-down conversion effectiveness.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1080,\n      \"quote\": \"Mike Evans has been everything to that offense, especially on third downs.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"KC\", \"SEA\"],\n      \"players\": [\"Patrick Mahomes\", \"Sam Darnold\"],\n      \"topic\": \"Chiefs defense vs Darnold turnovers\",\n      \"summary\": \"Spagnuolo's defense expected to force mistakes from Sam Darnold if forced into pure passing downs.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3570,\n      \"quote\": \"Spags is going to load the box and make Darnold beat them one on one.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Dolphins Brass Balls\",\n      \"timestamp\": 1675,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"Our Brass Balls trade of the week presented by Polymarket is the Miami Dolphins +4.5.\"\n    },\n    {\n      \"topic\": \"Mahomes Underdog Record\",\n      \"timestamp\": 3500,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"Betting against Mahomes as a dog has been a losing proposition.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+  "parsed_json": {
+    "transcript_summary": "Chad Millman and Simon Hunter break down the NFL Week 7 betting board on 'Sharp or Square'. They analyze key sharp movements, contest strategies, underdog/favorites moneyline parlays, and best bets for games including 49ers-Falcons, Bucs-Panthers, Rams-Raiders, Packers-Lions, and Chiefs-Seahawks.",
+    "coverage_check": {
+      "video_duration_seconds": 4115,
+      "last_analyzed_timestamp": 4114,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
       {
-        "team": "MIN",
-        "player": "Kevin O'Connell",
-        "market": "coach_of_the_year",
-        "side": "YES",
-        "line": null,
-        "price": 650,
-        "week": null,
-        "speaker": "Simon Hunter",
-        "source_timestamp": 337,
-        "rationale": "Undefeated start with a new quarterback in a stacked NFC North; great value at +650."
+        "start": 0.0,
+        "end": 24.0,
+        "speaker": "Chad Millman",
+        "text": "Welcome to Sharp or Square presented by Polymarket, part of The Volume Podcast Network. I'm Chad Millman, joined as always by Simon Hunter."
       },
       {
-        "team": "GB",
+        "start": 24.0,
+        "end": 26.0,
+        "speaker": "Simon Hunter",
+        "text": "Chad, how are we doing?"
+      },
+      {
+        "start": 26.0,
+        "end": 126.0,
+        "speaker": "Chad Millman",
+        "text": "Brother, I apologize for my orange complexion and New York studio background. This is our Thursday Week 7 NFL show with Sharp Calls, Brass Balls, and Contest picks."
+      },
+      {
+        "start": 126.0,
+        "end": 208.0,
+        "speaker": "Simon Hunter",
+        "text": "As soon as we talked about futures, people were asking if it's time to capture teams on the rise like Green Bay or Minnesota in the NFC."
+      },
+      {
+        "start": 208.0,
+        "end": 377.0,
+        "speaker": "Simon Hunter",
+        "text": "Looking at exact Super Bowl matchups, Chiefs to beat Packers is 100 to 1 and Packers to beat Chiefs is 110 to 1. In player futures, Golden is 40 to 1 to lead in receiving, and Kevin O'Connell is +650 to win Coach of the Year."
+      },
+      {
+        "start": 377.0,
+        "end": 503.0,
+        "speaker": "Chad Millman",
+        "text": "Green Bay has been the pivot point in these futures conversations. Let's move into our weekly Sharp Calls segment."
+      },
+      {
+        "start": 503.0,
+        "end": 514.0,
+        "speaker": "Audio Montage",
+        "text": "[Movie clips montage for Sharp Calls]"
+      },
+      {
+        "start": 514.0,
+        "end": 755.0,
+        "speaker": "Simon Hunter",
+        "text": "Sharp calls loved Falcons +3.5, Bucs +3.5, Dolphins/Jets, Cincy line flip, Green Bay +3 vs Detroit, Denver, Tennessee, and Seattle vs Kansas City."
+      },
+      {
+        "start": 755.0,
+        "end": 819.0,
+        "speaker": "Chad Millman",
+        "text": "Let's start with Giants at Texans, where line moved from 9.5 to 10.5 after McCarthy was named starter."
+      },
+      {
+        "start": 819.0,
+        "end": 995.0,
+        "speaker": "Simon Hunter",
+        "text": "Be careful chasing line moves late, but respect the sharp money coming in on Houston against McCarthy and Minnesota's travel return from London."
+      },
+      {
+        "start": 995.0,
+        "end": 1022.0,
+        "speaker": "Chad Millman",
+        "text": "San Francisco at Atlanta moved down through 3 to Atlanta +2.5. Pros are on Atlanta while public is on Niners."
+      },
+      {
+        "start": 1022.0,
+        "end": 1205.0,
+        "speaker": "Simon Hunter",
+        "text": "I wouldn't take Falcons below +3, but the matchup favors Atlanta with Mike Evans out for San Francisco impacting third downs."
+      },
+      {
+        "start": 1205.0,
+        "end": 1379.0,
+        "speaker": "Chad Millman",
+        "text": "Tampa Bay at Carolina is Bucs +3. We loved Carolina earlier, but backing Bryce Young as a field-goal favorite is tough."
+      },
+      {
+        "start": 1379.0,
+        "end": 1500.0,
+        "speaker": "Simon Hunter",
+        "text": "Keep it simple, don't ask Bryce Young to blow out divisional opponents. Tampa Bay +3 or +3.5 after a loss is a great situational spot."
+      },
+      {
+        "start": 1500.0,
+        "end": 1664.0,
+        "speaker": "Chad Millman",
+        "text": "Cleveland at Tennessee has Browns -1.5 road favorites. Huge discrepancy between tickets and money on Tennessee."
+      },
+      {
+        "start": 1664.0,
+        "end": 1830.0,
+        "speaker": "Simon Hunter",
+        "text": "Browns choke in this exact spot 80% of the time after big divisional wins. Plus, off-field drama around Tennessee adds uncertainty."
+      },
+      {
+        "start": 1830.0,
+        "end": 1860.0,
+        "speaker": "Chad Millman",
+        "text": "Let's be grown-ups and avoid forcing Tennessee into our contest picks."
+      },
+      {
+        "start": 1860.0,
+        "end": 2040.0,
+        "speaker": "Simon Hunter",
+        "text": "Agreed, let's look at the Polymarket Brass Balls Trade of the Week: Miami Dolphins +4.5 against the New York Jets."
+      },
+      {
+        "start": 2040.0,
+        "end": 2250.0,
+        "speaker": "Simon Hunter",
+        "text": "Division underdog with over 4 points in a low-scoring divisional matchup. Jets are overrated by back-to-back covers."
+      },
+      {
+        "start": 2250.0,
+        "end": 2310.0,
+        "speaker": "Chad Millman",
+        "text": "Sign up on Polymarket with code SHARP for a $25 bonus. Next up, Colts at Vikings (-6.5)."
+      },
+      {
+        "start": 2310.0,
+        "end": 2610.0,
+        "speaker": "Simon Hunter",
+        "text": "Flores' defense gives huge problems to quarterbacks like Daniel Jones unless Jonathan Taylor runs for 150+ yards."
+      },
+      {
+        "start": 2610.0,
+        "end": 2760.0,
+        "speaker": "Chad Millman",
+        "text": "Broncos at Cardinals (-4.5). Bo Nix struggles on the road while Cardinals have been competitive."
+      },
+      {
+        "start": 2760.0,
+        "end": 2849.0,
+        "speaker": "Simon Hunter",
+        "text": "Sharps are on Denver here viewing it as a get-right spot against Arizona's weak defense."
+      },
+      {
+        "start": 2849.0,
+        "end": 3100.0,
+        "speaker": "Chad Millman",
+        "text": "Packers at Lions (-3). Line touched -3.5. Green Bay's defense looked elite against Dallas, but Detroit is well-rested off a bye."
+      },
+      {
+        "start": 3100.0,
+        "end": 3250.0,
+        "speaker": "Simon Hunter",
+        "text": "Detroit's defense gives up points to everyone. If line is -3 or lower, I lean Lions, but Packers +3.5 is sharp value."
+      },
+      {
+        "start": 3250.0,
+        "end": 3500.0,
+        "speaker": "Simon Hunter",
+        "text": "Rams at Raiders line dropped from -4.5 to -3.5. Rams are depleted with injuries on defense and along the line."
+      },
+      {
+        "start": 3500.0,
+        "end": 3705.0,
+        "speaker": "Chad Millman",
+        "text": "Chiefs at Seahawks (-2.5). Patrick Mahomes is 10-3 ATS as a dog in his career."
+      },
+      {
+        "start": 3705.0,
+        "end": 3808.0,
+        "speaker": "Chad Millman",
+        "text": "Discord Group Bet of the week: Chiefs +8.5 and Vikings -0.5 teaser."
+      },
+      {
+        "start": 3808.0,
+        "end": 3900.0,
+        "speaker": "Simon Hunter",
+        "text": "Underdog ML Parlay: Falcons, Bucs, Chiefs, Raiders, Dolphins. Favorites ML Parlay: Bengals, Broncos, Lions."
+      },
+      {
+        "start": 3900.0,
+        "end": 3942.0,
+        "speaker": "Simon Hunter",
+        "text": "My biggest bets this week are Falcons +3.5 and Bucs +3.5 based on line value."
+      },
+      {
+        "start": 3942.0,
+        "end": 4028.0,
+        "speaker": "Chad Millman",
+        "text": "In Sharp vs. Square, I'll take Detroit -3 and Simon takes Denver -4. Survivor pick is Minnesota."
+      },
+      {
+        "start": 4028.0,
+        "end": 4115.0,
+        "speaker": "Chad Millman",
+        "text": "Subscribe to the show, rate 5 stars, see you live Sunday at 11am Eastern!"
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "KC",
         "player": null,
         "market": "super_bowl_winner",
         "side": "YES",
@@ -42,32 +218,32 @@
         "price": 10000,
         "week": null,
         "speaker": "Simon Hunter",
-        "source_timestamp": 252,
-        "rationale": "Green Bay at 100-1 or 110-1 to beat KC in Super Bowl is high upside if Micah Parsons returns."
+        "source_timestamp": 242,
+        "rationale": "Super Bowl exact matchup bet for Chiefs to beat Packers offering 100-to-1 value."
       },
       {
-        "team": "ATL",
+        "team": "GB",
         "player": null,
-        "market": "spread",
-        "side": "ATL",
-        "line": 3.5,
-        "price": null,
-        "week": 7,
-        "speaker": "Chad Millman",
-        "source_timestamp": 841,
-        "rationale": "Chad's Choice pick early in the week at +3.5 hosting an injured 49ers squad."
-      },
-      {
-        "team": "TB",
-        "player": null,
-        "market": "spread",
-        "side": "TB",
-        "line": 3.5,
-        "price": null,
-        "week": 7,
+        "market": "super_bowl_winner",
+        "side": "YES",
+        "line": null,
+        "price": 11000,
+        "week": null,
         "speaker": "Simon Hunter",
-        "source_timestamp": 900,
-        "rationale": "Simon Says pick at +3.5 against Carolina in a classic bounce-back spot."
+        "source_timestamp": 265,
+        "rationale": "Packers to beat Chiefs Super Bowl exact matchup at 110-to-1 odds."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "coach_of_the_year",
+        "side": "YES",
+        "line": null,
+        "price": 650,
+        "week": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 337,
+        "rationale": "Kevin O'Connell leading undefeated Vikings squad with new QB system."
       },
       {
         "team": "MIA",
@@ -75,137 +251,148 @@
         "market": "spread",
         "side": "MIA",
         "line": 4.5,
-        "price": null,
+        "price": -110,
         "week": 7,
         "speaker": "Chad Millman",
-        "source_timestamp": 1665,
-        "rationale": "Brass Balls Trade of the Week on Polymarket; getting 4.5 points against NY Jets."
+        "source_timestamp": 1675,
+        "rationale": "Polymarket Brass Balls Trade of the Week taking Miami +4.5 vs Jets in close divisional rivalry."
       },
       {
-        "team": "DEN",
+        "team": "ATL",
         "player": null,
         "market": "spread",
-        "side": "DEN",
-        "line": -4,
-        "price": null,
+        "side": "ATL",
+        "line": 3.5,
+        "price": -110,
         "week": 7,
         "speaker": "Simon Hunter",
-        "source_timestamp": 3974,
-        "rationale": "Simon's Sharp pick in Sharp vs. Square; backing Denver's defense against Arizona."
+        "source_timestamp": 3900,
+        "rationale": "Heavy sharp backing on Falcons at +3.5 against 49ers with key receiver injuries."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": "TB",
+        "line": 3.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3910,
+        "rationale": "Bounce-back divisional spot for Bucs as underdogs vs Panthers led by Bryce Young."
       },
       {
         "team": "DET",
         "player": null,
         "market": "spread",
         "side": "DET",
-        "line": -3,
-        "price": null,
+        "line": -3.0,
+        "price": -110,
         "week": 7,
         "speaker": "Chad Millman",
-        "source_timestamp": 3554,
-        "rationale": "Chad's Square pick in Sharp vs. Square; taking Detroit coming off a bye week."
+        "source_timestamp": 3954,
+        "rationale": "Chad's pick for Sharp vs Square taking well-rested Lions at home vs Green Bay."
+      },
+      {
+        "team": "DEN",
+        "player": null,
+        "market": "spread",
+        "side": "DEN",
+        "line": -4.0,
+        "price": -110,
+        "week": 7,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3974,
+        "rationale": "Simon's pick for Sharp vs Square taking Denver as favorites over Cardinals."
       },
       {
         "team": "MIN",
         "player": null,
         "market": "survivor_pick",
-        "side": "NO",
+        "side": null,
         "line": null,
         "price": null,
         "week": 7,
         "speaker": "Simon Hunter",
-        "source_timestamp": 4003,
-        "rationale": "Vikings home against Colts off a bye week is the safest survivor option in a tough week."
+        "source_timestamp": 3998,
+        "rationale": "Top survivor pool recommendation hosting Colts off a bye week."
       }
     ],
     "analysis_notes": [
       {
         "note_type": "market_sentiment",
         "teams": [
+          "HOU",
+          "NYG"
+        ],
+        "players": [
+          "J.J. McCarthy"
+        ],
+        "topic": "Texans vs Giants line jump",
+        "summary": "Line jumped from -9.5 to -10.5 after J.J. McCarthy was named starter for Minnesota/Houston context.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 755,
+        "quote": "When McCarthy gets announced as the starter, it immediately went to 10.5.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "SF",
+          "ATL"
+        ],
+        "players": [
+          "Mike Evans"
+        ],
+        "topic": "49ers receivers health impact",
+        "summary": "Mike Evans injury significantly impacts Brock Purdy's third-down conversion effectiveness.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1080,
+        "quote": "Mike Evans has been everything to that offense, especially on third downs.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
           "KC",
           "SEA"
         ],
         "players": [
-          "Patrick Mahomes"
+          "Patrick Mahomes",
+          "Sam Darnold"
         ],
-        "topic": "Chiefs vs Seahawks line split",
-        "summary": "Public bettors are heavily backing Mahomes as a road underdog (+2.5), while several prominent sharp groups are siding with Seattle at home.",
+        "topic": "Chiefs defense vs Darnold turnovers",
+        "summary": "Spagnuolo's defense expected to force mistakes from Sam Darnold if forced into pure passing downs.",
         "speaker": "Simon Hunter",
-        "source_timestamp": 1141,
-        "quote": "Very small amount of groups like me on the Chiefs, and a lot of really heavily smart groups influenced taking the Seattle side.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "schedule_context",
-        "teams": [
-          "NYG"
-        ],
-        "players": [],
-        "topic": "Giants post-London fatigue",
-        "summary": "Giants traveling back from London to play Houston without a bye week creates a strong rest disparity.",
-        "speaker": "Simon Hunter",
-        "source_timestamp": 1521,
-        "quote": "Teams playing in England coming back and playing a game... the fall off in the second half is a real thing.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "team_evaluation",
-        "teams": [
-          "LAR"
-        ],
-        "players": [
-          "Aaron Donald"
-        ],
-        "topic": "Rams roster and injury concerns",
-        "summary": "The Rams roster is top-heavy and compromised by key injuries on the interior defensive line, making them inflated road favorites against Vegas.",
-        "speaker": "Simon Hunter",
-        "source_timestamp": 2841,
-        "quote": "This Rams team is battered mentally and they have so many injuries.",
+        "source_timestamp": 3570,
+        "quote": "Spags is going to load the box and make Darnold beat them one on one.",
         "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Mahomes Underdog Record",
-        "timestamp": 3390,
-        "speaker": "Simon Hunter",
-        "quote": "Mahomes as a dog is basically 10 and 3."
+        "topic": "Dolphins Brass Balls",
+        "timestamp": 1675,
+        "speaker": "Chad Millman",
+        "quote": "Our Brass Balls trade of the week presented by Polymarket is the Miami Dolphins +4.5."
       },
       {
-        "topic": "Brass Balls Trade",
-        "timestamp": 1665,
+        "topic": "Mahomes Underdog Record",
+        "timestamp": 3500,
         "speaker": "Chad Millman",
-        "quote": "Our Brass Balls Trade of the Week presented by Polymarket is the Miami Dolphins trading at +4.5."
+        "quote": "Betting against Mahomes as a dog has been a losing proposition."
       }
     ],
-    "coverage_assessment": {
-      "last_covered_timestamp": 5115,
-      "self_reported_reached_end": true,
-      "duration_used_for_check": 4115,
-      "segment_start_seconds": null,
-      "segment_end_seconds": null,
-      "suspected_incomplete": false,
-      "reason": null,
-      "coverage_ratio": 1.243
-    }
+    "uncertainty_flags": []
   },
-  "scoring": {
-    "score_status": "not_scored",
-    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
-    "total_ground_truth": 0,
-    "total_shadow_extracted": 8,
-    "full_exact_matches": 0,
-    "precision_pct": "not scored",
-    "recall_pct": "not scored",
-    "f1_score_pct": "not scored",
-    "dimension_accuracy": {
-      "team": null,
-      "market": null,
-      "side": null,
-      "line": null,
-      "price": null,
-      "speaker": null,
-      "source_timestamp": null
-    }
+  "coverage_assessment": {
+    "last_covered_timestamp": 4115.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 4115,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 1.0
   }
 }

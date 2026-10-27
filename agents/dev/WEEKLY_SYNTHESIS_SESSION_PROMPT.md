@@ -76,10 +76,12 @@ If the ROSTER VET row is STALE, that is a STOP A item with no "go ahead anyway" 
 | ROSTER VET (gate) | Fix what `data/generated/master-intel/w<NN>-roster-vet.json` lists: narratives/digest/card by hand; matchup seeds via `python3 scripts/nfl-rosters/rebuild_matchup_seeds.py` then `npm run secondary-matchups`; mis-tagged picks at their source file |
 | Alpha packet (gated: fails on stale inputs) | `npm run alpha:packet` after the above |
 | Prop boards | Andy pastes BEO boards into `docs/Player_Prop_Odds_Weekly/Week<N>/`, or live capture via `scripts/props/betonline-live-parser.mjs` (see `scripts/props/README.md`) |
-| BKR current lines | Andy's capture into `data/odds/BKR_current_lines_<MMDD>` |
+| BKR current lines | Current-week structured capture `data/generated/props/bookmaker-live-<YYYY-MM-DD>-week<N>.json`, or a newly normalized user-supplied board in the same folder. Require the actual capture time for captured-market freshness; if unstated, label it as user-supplied with capture time unknown. |
 | BEO/BKR futures boards | Andy screenshots/exports → `npm run futures:ingest-beo-screenshots` (Supabase `futures_odds_snapshots` only carries **Super Bowl** prices) |
 | Podcasts | Podcast Ingest workflow. **Check the AssemblyAI balance first:** it was negative on 9/21, and every episode errors until it's topped up. |
 | Articles / X bookmarks | `research-intel-ingest` / bookmarks cron (normally automatic) |
+
+**BKR naming / source boundary:** historical `data/odds/BKR_current_lines_*` files are legacy opening snapshots and are eligible only as per-game opening-line fallbacks for movement tracking. New opening snapshots should use `BKR_Opening_lines_*`. Never use either text prefix as the current market for a weekly synthesis; use a current-week structured Bookmaker capture or an explicitly supplied current board instead.
 
 ## 5. Phase 2a — What the record says (read once, ~2k tokens)
 

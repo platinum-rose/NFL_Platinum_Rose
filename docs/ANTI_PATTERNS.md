@@ -26,6 +26,9 @@
 
 ## Storage & Data
 
+- **Spread-only filtering must preserve the argument:** Removing other markets from SuperContest must not replace substantive pick reasoning with generic cover definitions. Every AI proposal and alternate needs a cited Pitch and Pushback, including conflicting evidence and source dates.
+- **Current prop menus must not inherit archived prices:** Select BEO and DKP captures by timestamp and week; preserve each row's side and threshold semantics. A missing current offer stays missing. Prediction contracts are labeled before fees and excluded from sportsbook best-price ladders.
+
 - **Artifact row count is not evidence coverage**: A dated artifact can still be incomplete when its query is capped, article bodies are missing, or stored text ends at an ingest ceiling. Never label article records as "reviewed" from row count alone. Report corpus completeness and body-evidence status separately, keep pick-oriented rows unresolved until their usable bodies are examined, and block frontier synthesis when those gates are unknown or failed.
 
 - **Public file fetches — Vite base path**: NEVER use hardcoded `/filename.json`. Vite base is `/platinum-rose-app/` so `public/` files must be fetched as `./filename.json` or `` `${import.meta.env.BASE_URL}filename.json` ``. Hardcoded `/` prefix 404s in production.
