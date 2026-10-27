@@ -518,6 +518,20 @@ function applyLiveOdds(rows, liveOddsMap, snapshotFetchedAt) {
   return { applied, skippedFinal, missing };
 }
 
+function carriedForwardCacheRows(failedWeeks, seasonType) {
+  const weeks = new Set(failedWeeks.filter((w) => typeof w === 'number'));
+  if (!weeks.size || !fs.existsSync(CACHE_PATH)) return [];
+  try {
+    const cached = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
+    return Array.isArray(cached)
+      ? cached.filter((r) => weeks.has(Number(r.week)) && Number(r.season_type) === Number(seasonType))
+      : [];
+  } catch (err) {
+    console.warn(`  Could not read the existing cache to carry failed weeks forward: ${err.message}`);
+    return [];
+  }
+}
+
 function writeScheduleCache(rows) {
   const cacheRows = rows
     .map((r) => ({
@@ -643,8 +657,19 @@ async function run() {
     console.log('  No live odds snapshot available — all rows using ESPN bundled odds.');
   }
 
-  writeScheduleCache(allRows);
-  console.log(`  Cache updated: ${CACHE_PATH}`);
+  // A failed week fetch must not erase that week from the cache (the 2026-10-27
+  // Tuesday run lost Week 7 to an ESPN timeout, and an offline run wiped the whole
+  // file). Carry the previously cached rows forward for failed weeks; skip the
+  // write if nothing was fetched. Carried rows go to the cache only, never Supabase.
+  const cacheRows = [...allRows, ...carriedForwardCacheRows(failedWeeks, cfg.seasonType)];
+  if (allRows.length === 0) {
+    console.warn('  No games fetched: leaving the schedule cache unchanged.');
+  } else {
+    writeScheduleCache(cacheRows);
+    console.log(`  Cache updated: ${CACHE_PATH}` + (cacheRows.length > allRows.length
+      ? ` (${cacheRows.length - allRows.length} row(s) carried forward for failed week(s) ${failedWeeks.join(', ')})`
+      : ''));
+  }
 
   if (cfg.dryRun) {
     console.log('  Dry run enabled: skipping Supabase upsert.');
