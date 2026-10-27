@@ -1,0 +1,702 @@
+{
+  "meta": {
+    "description": "Manual all-position Week 8 depth chart for ARI, built because the Tuesday cadence flagged ARI as estimated_from_local_starter_language only. Week-specific: refresh or delete after Week 8.",
+    "team": "ARI",
+    "season": 2026,
+    "week": 8,
+    "sources": [
+      "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "data/nfl-rosters/espn-full-rosters-latest.json (2026-10-26)",
+      "data/vault-seed/nflverse/player_stats_weekly.csv (weeks 5-7)",
+      "data/player-availability/latest.json (2026-10-26)"
+    ],
+    "built_by": "Claude Team 2",
+    "built_at": "2026-10-27",
+    "caveats": [
+      "Ourlads 'O' suffixes reflect Week 7 OUT designations; Week 8 practice reports (Wed-Fri) supersede.",
+      "Not a pick or projection; research context only."
+    ]
+  },
+  "players": [
+    {
+      "player_name": "Jacoby Brissett",
+      "team": "ARI",
+      "position": "QB",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB1. Week 7: 48 attempts, 7 rushes.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Gardner Minshew II",
+      "team": "ARI",
+      "position": "QB",
+      "role": "backup",
+      "starter_confidence": 0.15,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Carson Beck",
+      "team": "ARI",
+      "position": "QB",
+      "role": "backup",
+      "starter_confidence": 0.05,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB3; back injury, inactive/emergency QB Week 7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jeremiyah Love",
+      "team": "ARI",
+      "position": "RB",
+      "role": "starter",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Ourlads RB1 but marked O; OUT Weeks 6-7 (ankle). LaFleur said Monday he will practice Wednesday. Confirm Wed-Fri practice report.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Bam Knight",
+      "team": "ARI",
+      "position": "RB",
+      "role": "rotation",
+      "starter_confidence": 0.55,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Led the backfield Weeks 6-7 with Love out (15 and 7 carries). Role shrinks if Love returns.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tyler Allgeier",
+      "team": "ARI",
+      "position": "RB",
+      "role": "rotation",
+      "starter_confidence": 0.45,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB2 on Ourlads. Weeks 6-7: 18 and 8 carries.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Evan Hull",
+      "team": "ARI",
+      "position": "RB",
+      "role": "backup",
+      "starter_confidence": 0.15,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB4; signed from practice squad 10/24. Tuesday's estimated RB row for ARI is superseded by this chart.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Michael Wilson",
+      "team": "ARI",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR1. 7-8 targets each of Weeks 5-7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Kendrick Bourne",
+      "team": "ARI",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR1. 6-8 targets each of Weeks 5-7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Simi Fehoko",
+      "team": "ARI",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LWR1 on Ourlads after Jalen Brooks' season-ending wrist surgery (announced 10/26); 0 targets Weeks 5-6, so his volume is unproven.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Reggie Virgil",
+      "team": "ARI",
+      "position": "WR",
+      "role": "rotation",
+      "starter_confidence": 0.35,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Devin Duvernay",
+      "team": "ARI",
+      "position": "WR",
+      "role": "backup",
+      "starter_confidence": 0.2,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR2 and PR/KR.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Trey McBride",
+      "team": "ARI",
+      "position": "TE",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. TE1. Week 7: 13 targets, 10-111-1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Elijah Higgins",
+      "team": "ARI",
+      "position": "TE",
+      "role": "backup",
+      "starter_confidence": 0.35,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. TE2; 3 targets each of Weeks 5-7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jayden Williams",
+      "team": "ARI",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LT1 (rookie); Paris Johnson Jr. on IR.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Isaac Seumalo",
+      "team": "ARI",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LG1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Hjalte Froholdt",
+      "team": "ARI",
+      "position": "C",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. C1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jon Gaines II",
+      "team": "ARI",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RG1 but OUT Week 7; Hayden Conner is RG2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Hayden Conner",
+      "team": "ARI",
+      "position": "G",
+      "role": "rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RG2; starts if Gaines stays out.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Elijah Wilkinson",
+      "team": "ARI",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RT1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Walter Nolen III",
+      "team": "ARI",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.45,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LDE1 but OUT Week 7; L.J. Collier is next.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Roy Lopez",
+      "team": "ARI",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. NT1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Dante Stills",
+      "team": "ARI",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RDE1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Baron Browning",
+      "team": "ARI",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LOLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Josh Sweat",
+      "team": "ARI",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. ROLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Mack Wilson Sr.",
+      "team": "ARI",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. MLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jack Gibbens",
+      "team": "ARI",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. WLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Max Melton",
+      "team": "ARI",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.4,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LCB1 but OUT Week 7 (knee); Kei'Trel Clark is next.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Denzel Burke",
+      "team": "ARI",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RCB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Garrett Williams",
+      "team": "ARI",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Nickel CB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Budda Baker",
+      "team": "ARI",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SS1; groin, Questionable Week 7 then active.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Andrew Wingard",
+      "team": "ARI",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.45,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. FS1 but OUT Week 7; Dadrion Taylor-Demerson is next.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Chad Ryland",
+      "team": "ARI",
+      "position": "K",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. K1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Blake Gillikin",
+      "team": "ARI",
+      "position": "P",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "ari-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+      "published_at": "2026-10-27T21:21:00Z",
+      "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. P1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    }
+  ]
+}

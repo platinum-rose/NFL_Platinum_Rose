@@ -1,0 +1,662 @@
+{
+  "meta": {
+    "description": "Manual all-position Week 8 depth chart for MIN, built because the Tuesday cadence flagged MIN as estimated_from_local_starter_language only. Week-specific: refresh or delete after Week 8.",
+    "team": "MIN",
+    "season": 2026,
+    "week": 8,
+    "sources": [
+      "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "data/nfl-rosters/espn-full-rosters-latest.json (2026-10-26)",
+      "data/vault-seed/nflverse/player_stats_weekly.csv (weeks 5 and 7)",
+      "data/player-availability/latest.json (2026-10-26)"
+    ],
+    "built_by": "Claude Team 2",
+    "built_at": "2026-10-27",
+    "caveats": [
+      "Ourlads 'O' suffixes reflect Week 7 OUT designations; Week 8 practice reports (Wed-Fri) supersede.",
+      "Not a pick or projection; research context only."
+    ]
+  },
+  "players": [
+    {
+      "player_name": "Kyler Murray",
+      "team": "MIN",
+      "position": "QB",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB1. Week 7: 14/24, 150 yds, 1 TD, 5 rushes for 39.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Carson Wentz",
+      "team": "MIN",
+      "position": "QB",
+      "role": "backup",
+      "starter_confidence": 0.15,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Max Brosmer",
+      "team": "MIN",
+      "position": "QB",
+      "role": "backup",
+      "starter_confidence": 0.05,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB3; OUT Week 7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Aaron Jones Sr.",
+      "team": "MIN",
+      "position": "RB",
+      "role": "starter",
+      "starter_confidence": 0.6,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. Ourlads RB1. Left Week 7 with a left-knee injury reported as not significant (Questionable, 10/26). Week 7: 8 carries before exiting.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jordan Mason",
+      "team": "MIN",
+      "position": "RB",
+      "role": "rotation",
+      "starter_confidence": 0.55,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB2. Week 7: 15 carries for 68 after Jones left; ESPN roster lists him day-to-day.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Demond Claiborne",
+      "team": "MIN",
+      "position": "RB",
+      "role": "backup",
+      "starter_confidence": 0.1,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB3; OUT Week 7. DeeJay Dallas (Tuesday's estimated MIN RB row) is on the practice squad per Ourlads, so that row is superseded.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Justin Jefferson",
+      "team": "MIN",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LWR1. 7 targets in each of Weeks 5 and 7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jordan Addison",
+      "team": "MIN",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RWR1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jauan Jennings",
+      "team": "MIN",
+      "position": "WR",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. SWR1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Myles Price",
+      "team": "MIN",
+      "position": "WR",
+      "role": "rotation",
+      "starter_confidence": 0.3,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. SWR2 and PR/KR; head injury Week 7, returned in the 2nd quarter.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tai Felton",
+      "team": "MIN",
+      "position": "WR",
+      "role": "backup",
+      "starter_confidence": 0.25,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LWR2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "T.J. Hockenson",
+      "team": "MIN",
+      "position": "TE",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. TE1. Week 7: 4-35-1 on 5 targets.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Gavin Bartholomew",
+      "team": "MIN",
+      "position": "TE",
+      "role": "backup",
+      "starter_confidence": 0.35,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. TE2.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Christian Darrisaw",
+      "team": "MIN",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LT1; cleared concussion protocol before Week 7.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Joe Huber",
+      "team": "MIN",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LG1; Donovan Jackson on IR.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Blake Brandel",
+      "team": "MIN",
+      "position": "C",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. C1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Will Fries",
+      "team": "MIN",
+      "position": "G",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RG1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Brian O'Neill",
+      "team": "MIN",
+      "position": "OT",
+      "role": "starter",
+      "starter_confidence": 0.9,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RT1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "oline",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Tyrion Ingram-Dawkins",
+      "team": "MIN",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. DE1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Levi Drake Rodriguez",
+      "team": "MIN",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. NT1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jalen Redmond",
+      "team": "MIN",
+      "position": "DT",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. DT1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Dallas Turner",
+      "team": "MIN",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LOLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Andrew Van Ginkel",
+      "team": "MIN",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. ROLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Blake Cashman",
+      "team": "MIN",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. MLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Eric Wilson",
+      "team": "MIN",
+      "position": "LB",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. WLB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "idp_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Isaiah Rodgers",
+      "team": "MIN",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LCB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Byron Murphy Jr.",
+      "team": "MIN",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RCB1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Jay Ward",
+      "team": "MIN",
+      "position": "CB",
+      "role": "starter",
+      "starter_confidence": 0.75,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. Nickel CB1 (ESPN lists S).",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Joshua Metellus",
+      "team": "MIN",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. SS1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Harrison Smith",
+      "team": "MIN",
+      "position": "S",
+      "role": "starter",
+      "starter_confidence": 0.85,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. FS1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "secondary",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Will Reichard",
+      "team": "MIN",
+      "position": "K",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. K1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "player_name": "Brett Thorson",
+      "team": "MIN",
+      "position": "P",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.9,
+      "source_count": 2,
+      "source": "min-depth-chart-2026-10-27.json",
+      "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/MIN",
+      "published_at": "2026-10-26T18:01:00Z",
+      "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. P1.",
+      "evidence_tags": [
+        "manual_projection",
+        "manual_all_position_depth_chart"
+      ],
+      "impact_bucket": "special_teams",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    }
+  ]
+}
