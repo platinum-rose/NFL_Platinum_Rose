@@ -11,7 +11,8 @@
 
 param(
     [string]$TaskName = "NFL_DraftKings_Prediction_Sync",
-    [int]$IntervalHours = 3,
+    [ValidateRange(0, 59)]
+    [int]$OffsetMinutes = 20,
     [switch]$Overwrite = $false,
     [switch]$Force = $false
 )
@@ -19,6 +20,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 try {
+    . (Join-Path $PSScriptRoot 'prop-scrape-schedule.ps1')
     $RepoRoot = (Get-Item $PSScriptRoot).Parent.Parent.FullName
     $NodePath = (Get-Command node).Source
     $ScriptPath = Join-Path $RepoRoot "scripts\props\cron-dkp-scrape.mjs"
@@ -37,10 +39,9 @@ try {
     # Define action to run in background
     $Action = New-ScheduledTaskAction -Execute $NodePath -Argument "`"$ScriptPath`"" -WorkingDirectory $RepoRoot
 
-    # Trigger: daily at 08:30 (staggered 15 min after BetOnline 08:15 and 30 min after Bookmaker 08:00),
-    # repeating every $IntervalHours hours
-    $Trigger = New-ScheduledTaskTrigger -Daily -At "08:30"
-    $Trigger.Repetition = (New-ScheduledTaskTrigger -Once -At "08:30" -RepetitionInterval (New-TimeSpan -Hours $IntervalHours) -RepetitionDuration (New-TimeSpan -Days 365)).Repetition
+    # Triggers: the shared weekly cadence in prop-scrape-schedule.ps1, shifted +$OffsetMinutes min (default +20,
+    # i.e. 10 min after BetOnline and 20 min after Bookmaker); no intra-day repetition.
+    $Trigger = @(New-PropScrapeTriggers -OffsetMinutes $OffsetMinutes)
 
     # Settings: run on battery, run a missed occurrence when the machine is next available, 20 min hard limit.
     # (Wake-from-sleep is NOT enabled; add -WakeToRun here if you want that.)
@@ -52,7 +53,7 @@ try {
 
     # Verify, don't assume
     $Registered = Get-ScheduledTask -TaskName $TaskName -ErrorAction Stop
-    Write-Host "[SUCCESS] Registered scheduled task '$($Registered.TaskName)' (state: $($Registered.State)) to run every $IntervalHours hours." -ForegroundColor Green
+    Write-Host "[SUCCESS] Registered scheduled task '$($Registered.TaskName)' (state: $($Registered.State)) on the weekly cadence: $(Get-PropScrapeCadenceSummary -OffsetMinutes $OffsetMinutes)." -ForegroundColor Green
     Write-Host "[INFO] To run manually at any time: npm run props:dkp:cron or 'dkp'" -ForegroundColor Yellow
     exit 0
 } catch {

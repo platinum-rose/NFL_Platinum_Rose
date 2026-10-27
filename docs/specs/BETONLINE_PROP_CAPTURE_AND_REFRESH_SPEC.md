@@ -107,7 +107,7 @@ bolp
 ### Method B: Background Automatic Scheduling
 The Windows Task Scheduler job runs automatically:
 - **Task Name:** `NFL_BetOnline_Prop_Sync`
-- **Cadence:** Every 3 hours at `:15` past the hour (staggered from Bookmaker at `:00`).
+- **Cadence:** Shared weekly schedule in `scripts/props/prop-scrape-schedule.ps1` (Pacific local time): Mon 10/13/16, Tue 13, Wed 10/14/20, Thu 10/13/16, Fri 13, Sat 10/14/20, Sun 8/12/15/16/21. BetOnline runs +10 min after each time (Bookmaker +0, DraftKings +20). No intra-day repetition; use `npm run props:bol:cron` for extra captures.
 - **Status Check:**
   ```powershell
   Get-ScheduledTask -TaskName 'NFL_BetOnline_Prop_Sync' | Format-List TaskName, State
