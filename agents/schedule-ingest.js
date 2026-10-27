@@ -518,16 +518,20 @@ function applyLiveOdds(rows, liveOddsMap, snapshotFetchedAt) {
   return { applied, skippedFinal, missing };
 }
 
-function carriedForwardCacheRows(failedWeeks, seasonType) {
-  const weeks = new Set(failedWeeks.filter((w) => typeof w === 'number'));
-  if (!weeks.size || !fs.existsSync(CACHE_PATH)) return [];
+function carriedForwardCacheRows(fetchedRows) {
+  // Keep every cached row whose (season_type, week) was not fetched successfully
+  // this run: weeks outside --start-week/--end-week and weeks whose fetch failed.
+  if (!fs.existsSync(CACHE_PATH)) return [];
+  const key = (r) => `${Number(r.season_type)}|${Number(r.week)}`;
+  const fetchedWeeks = new Set(fetchedRows.map(key));
+  const fetchedIds = new Set(fetchedRows.map((r) => r.game_id));
   try {
     const cached = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
     return Array.isArray(cached)
-      ? cached.filter((r) => weeks.has(Number(r.week)) && Number(r.season_type) === Number(seasonType))
+      ? cached.filter((r) => !fetchedWeeks.has(key(r)) && !fetchedIds.has(r.game_id))
       : [];
   } catch (err) {
-    console.warn(`  Could not read the existing cache to carry failed weeks forward: ${err.message}`);
+    console.warn(`  Could not read the existing cache to carry unfetched weeks forward: ${err.message}`);
     return [];
   }
 }
@@ -657,17 +661,18 @@ async function run() {
     console.log('  No live odds snapshot available — all rows using ESPN bundled odds.');
   }
 
-  // A failed week fetch must not erase that week from the cache (the 2026-10-27
-  // Tuesday run lost Week 7 to an ESPN timeout, and an offline run wiped the whole
-  // file). Carry the previously cached rows forward for failed weeks; skip the
-  // write if nothing was fetched. Carried rows go to the cache only, never Supabase.
-  const cacheRows = [...allRows, ...carriedForwardCacheRows(failedWeeks, cfg.seasonType)];
+  // The cache must only gain or refresh weeks, never lose them: the 2026-10-27
+  // Tuesday run dropped Week 7 on an ESPN timeout, an offline run wiped the file,
+  // and a single-week run replaced all 272 games with 14. Keep cached rows for every
+  // week not fetched this run; skip the write if nothing was fetched. Kept rows go
+  // to the cache only, never to Supabase.
+  const cacheRows = [...allRows, ...carriedForwardCacheRows(allRows)];
   if (allRows.length === 0) {
     console.warn('  No games fetched: leaving the schedule cache unchanged.');
   } else {
     writeScheduleCache(cacheRows);
     console.log(`  Cache updated: ${CACHE_PATH}` + (cacheRows.length > allRows.length
-      ? ` (${cacheRows.length - allRows.length} row(s) carried forward for failed week(s) ${failedWeeks.join(', ')})`
+      ? ` (${cacheRows.length - allRows.length} cached row(s) kept for weeks not fetched this run` + (failedWeeks.length ? `; failed: ${failedWeeks.join(', ')})` : ')')
       : ''));
   }
 
