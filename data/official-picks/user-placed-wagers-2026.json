@@ -57,9 +57,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "unknown",
-    "is_promo_credit": null,
-    "cash_risk_usd": 4.95,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 4.95,
     "units": 0,
     "odds_american": "+829",
@@ -137,9 +137,10 @@
         "actual_stat": 0
       }
     ],
-    "progress_notes": "Auto-graded via ESPN box scores on 2026-09-14T20:31:33.692Z: at least one leg LOST, parlay busted. Full stake ($4.95) lost. | Settled 2026-09-28 by Claude Team 3 (Week 1 close-out; matches week1-post-mortem totals).",
+    "progress_notes": "Auto-graded via ESPN box scores on 2026-09-14T20:31:33.692Z: at least one leg LOST, parlay busted. Full stake ($4.95) lost. | Settled 2026-09-28 by Claude Team 3 (Week 1 close-out; matches week1-post-mortem totals). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "settled_payout_usd": 0,
-    "profit_usd": -4.95
+    "profit_usd": 0,
+    "promo_credit_stake_usd": 4.95
   },
   {
     "id": "bet_20260909_bm_738444813_2team",
@@ -515,7 +516,9 @@
         "actual_stat": 0,
         "status": "LOST"
       }
-    ]
+    ],
+    "profit_usd": 0,
+    "settled_payout_usd": 0
   },
   {
     "id": "bet_1789085490286_dkp_ferguson_td",
@@ -556,7 +559,9 @@
         "actual_stat": 0,
         "status": "LOST"
       }
-    ]
+    ],
+    "profit_usd": 0,
+    "settled_payout_usd": 0
   },
   {
     "id": "bet_1789085880000_bm_open_parlay_7t",
@@ -20092,9 +20097,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "5-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.94,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.94,
     "units": 0.99,
     "odds_american": "+1248",
@@ -20105,7 +20110,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-15 16:43 PT screenshot: Order Successful, Trade Placed, 5 Pick Combo (7%), Total $9.94, Payout $134. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Built by Andy on DK Predictions after BEO limited his to-win amounts. JSN anytime TD also appears on BEO tickets 1005682691 and 1005675166 (shared exposure). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L2 LOST (car=14 vs 16.5).",
+    "progress_notes": "Andy 2026-10-15 16:43 PT screenshot: Order Successful, Trade Placed, 5 Pick Combo (7%), Total $9.94, Payout $134. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Built by Andy on DK Predictions after BEO limited his to-win amounts. JSN anytime TD also appears on BEO tickets 1005682691 and 1005675166 (shared exposure). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L2 LOST (car=14 vs 16.5). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -20204,8 +20209,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.94,
-    "graded_at": "2026-10-16T10:30:02.210Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-16T10:30:02.210Z",
+    "promo_credit_stake_usd": 9.94
   },
   {
     "id": "bet_20261013_bkr_740212915_9team_parlay",
@@ -20532,9 +20538,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "3-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 4.99,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 4.99,
     "units": 0.5,
     "odds_american": "+6132",
@@ -20545,7 +20551,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-15 17:01 PT screenshot: Order Successful, Trade Placed, 3 Pick Combo (1.5%), Total $4.99, Payout $311. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Chosen over a DK sportsbook 3-leg parlay (+3800) because the prediction market does not apply the same-game correlation cut. Slightly under the Island Tier 3 floor (+6500).",
+    "progress_notes": "Andy 2026-10-15 17:01 PT screenshot: Order Successful, Trade Placed, 3 Pick Combo (1.5%), Total $4.99, Payout $311. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Chosen over a DK sportsbook 3-leg parlay (+3800) because the prediction market does not apply the same-game correlation cut. Slightly under the Island Tier 3 floor (+6500). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -20606,8 +20612,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -4.99,
-    "graded_at": "2026-10-16T10:30:02.210Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-16T10:30:02.210Z",
+    "promo_credit_stake_usd": 4.99
   },
   {
     "id": "bet_20261015_dkp_6pick_combo_sea_den",
@@ -20621,9 +20628,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+9360",
@@ -20634,7 +20641,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39144341, 6 Pick Combo (1%), Bought $5.00, Pays out $473.00. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L1 WON (fg=2 vs 1.5).",
+    "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39144341, 6 Pick Combo (1%), Bought $5.00, Pays out $473.00. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L1 WON (fg=2 vs 1.5). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -20752,8 +20759,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -5,
-    "graded_at": "2026-10-16T10:30:02.210Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-16T10:30:02.210Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "id": "bet_20261015_dkp_7pick_combo_sea_den",
@@ -20767,9 +20775,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "7-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 10,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 10,
     "units": 1,
     "odds_american": "+6130",
@@ -20780,7 +20788,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39149838, 7 Pick Combo (1.5%), Bought $10.00, Pays out $623.00. Seventh leg Alex Singleton 8+ Tackles + Assists. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L6 LOST (car=14 vs 16.5).",
+    "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39149838, 7 Pick Combo (1.5%), Bought $10.00, Pays out $623.00. Seventh leg Alex Singleton 8+ Tackles + Assists. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0). | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L6 LOST (car=14 vs 16.5). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -20917,8 +20925,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -10,
-    "graded_at": "2026-10-16T10:30:02.210Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-16T10:30:02.210Z",
+    "promo_credit_stake_usd": 10
   },
   {
     "id": "bet_20261015_bkr_740291356_9team_parlay_sunday",
@@ -22452,9 +22461,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.98,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.98,
     "units": 1,
     "odds_american": "+2275",
@@ -22465,7 +22474,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-18 13:13 PT: DK Predictions 6 Pick Combo (3.9%), Total $9.98, Payout $237. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Shares Allen/BUF with BEO 1006732445, Kyren with several tickets, Watson with 740444569, Bowers/Williams exposure. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded. | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L1 LOST (0 TD); L2 LOST (0 TD); L3 WON (BUF 33-30); L4 WON (1 TD); L5 LOST (0 TD); L6 LOST (0 TD).",
+    "progress_notes": "Andy 2026-10-18 13:13 PT: DK Predictions 6 Pick Combo (3.9%), Total $9.98, Payout $237. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Shares Allen/BUF with BEO 1006732445, Kyren with several tickets, Watson with 740444569, Bowers/Williams exposure. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded. | Remaining legs graded 2026-10-19 by Claude from ESPN finals (ticket result unchanged): L1 LOST (0 TD); L2 LOST (0 TD); L3 WON (BUF 33-30); L4 WON (1 TD); L5 LOST (0 TD); L6 LOST (0 TD). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -22579,8 +22588,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.98,
-    "graded_at": "2026-10-19T03:59:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-19T03:59:00Z",
+    "promo_credit_stake_usd": 9.98
   },
   {
     "id": "bet_20261018_bkr_740479908_dal_gb_under56_hedge",
@@ -22697,11 +22707,11 @@
     "book": "DraftKings Predictions",
     "ticket_type": "5-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
     "is_split": false,
     "split_partner": null,
-    "cash_risk_usd": 24.06,
+    "cash_risk_usd": 0,
     "stake_usd": 24.06,
     "units": 2.41,
     "odds_american": "+1346",
@@ -22710,7 +22720,7 @@
     "potential_payout_usd": 348,
     "status": "SETTLED",
     "result": "loss",
-    "progress_notes": "Andy 2026-10-19: DK Predictions 5 Pick Combo bought 2026-10-18 5:07 PM PT (13 min before DAL @ GB kickoff), $24.06 at 6.5% shown, payout $348.00 (profit $323.94). 6.5% does not match 24.06/348 = 6.91%; stake and payout recorded as given. 41516472 is DK's position ID; DK statement purchase ID 5621BE50-7D5C-57CD-CC4F-9040FF83B960, statement -$24.06 (cash). Per-leg prices not shown. Logged late by Claude on Andy's go-ahead, verified loss by Andy. | Graded 2026-10-19 by Claude from ESPN final DAL 13 @ GB 23: L1 LOST; L2 WON (1); L3 LOST (258); L4 WON (1); L5 LOST (0).",
+    "progress_notes": "Andy 2026-10-19: DK Predictions 5 Pick Combo bought 2026-10-18 5:07 PM PT (13 min before DAL @ GB kickoff), $24.06 at 6.5% shown, payout $348.00 (profit $323.94). 6.5% does not match 24.06/348 = 6.91%; stake and payout recorded as given. 41516472 is DK's position ID; DK statement purchase ID 5621BE50-7D5C-57CD-CC4F-9040FF83B960, statement -$24.06 (cash). Per-leg prices not shown. Logged late by Claude on Andy's go-ahead, verified loss by Andy. | Graded 2026-10-19 by Claude from ESPN final DAL 13 @ GB 23: L1 LOST; L2 WON (1); L3 LOST (258); L4 WON (1); L5 LOST (0). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -22802,8 +22812,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -24.06,
-    "graded_at": "2026-10-20T05:34:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-20T05:34:00Z",
+    "promo_credit_stake_usd": 24.06
   },
   {
     "id": "bet_20261018_dkp_dal_plus3p5_live_hedge",
@@ -22817,9 +22828,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "Straight Contract - Spread (Event Trading)",
     "category": "Spread",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.69,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.69,
     "units": 1,
     "odds_american": "+120",
@@ -22830,7 +22841,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-18 17:43 PT: DK Predictions DAL +3.5 at 49%, cost $9.69, unboosted payout $19, +25% boost payout $21.33 (profit boosted 1.25 x 9.31 = 11.64). Live hedge/middle vs GB ML tickets 740291356 + 740441886: wins if DAL wins or GB wins by 1-3. No ticket number shown. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +3.5 lost (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "progress_notes": "Andy 2026-10-18 17:43 PT: DK Predictions DAL +3.5 at 49%, cost $9.69, unboosted payout $19, +25% boost payout $21.33 (profit boosted 1.25 x 9.31 = 11.64). Live hedge/middle vs GB ML tickets 740291356 + 740441886: wins if DAL wins or GB wins by 1-3. No ticket number shown. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +3.5 lost (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -22851,8 +22862,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.69,
-    "graded_at": "2026-10-19T03:59:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-19T03:59:00Z",
+    "promo_credit_stake_usd": 9.69
   },
   {
     "id": "bet_20261018_bkr_740483359_dal_plus4_live_hedge",
@@ -23070,9 +23082,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 10.37,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 10.37,
     "units": 1,
     "odds_american": "+4326",
@@ -23083,7 +23095,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-19 15:58 PT: DK Predictions 6 Pick Combo (2.1% at fill; 2.2% quoted), Total $10.37, Payout $459. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. MNF island proposal stack: same WAS pass-volume outcome as BKR/BEO variants (not placed). Placed after inactives (Diggs, Evans active). | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 LOST (0); L2 WON (1); L3 WON (7); L4 LOST (1); L5 WON (3); L6 WON (69).",
+    "progress_notes": "Andy 2026-10-19 15:58 PT: DK Predictions 6 Pick Combo (2.1% at fill; 2.2% quoted), Total $10.37, Payout $459. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. MNF island proposal stack: same WAS pass-volume outcome as BKR/BEO variants (not placed). Placed after inactives (Diggs, Evans active). | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 LOST (0); L2 WON (1); L3 WON (7); L4 LOST (1); L5 WON (3); L6 WON (69). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -23201,8 +23213,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -10.37,
-    "graded_at": "2026-10-20T03:41:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-20T03:41:00Z",
+    "promo_credit_stake_usd": 10.37
   },
   {
     "id": "bet_20261019_dkp_6pick_combo_was_sf_cmc_sf_ml",
@@ -23216,9 +23229,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.99,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.99,
     "units": 1,
     "odds_american": "+1484",
@@ -23229,7 +23242,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-19 16:05 PT: DK Predictions 6 Pick Combo (7.5%, +30% boost), Total $9.99, unboosted payout $124, boosted payout $158.20 (profit boosted 1.3 x 114.01 = 148.21). Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. SF-win stack: SF ML + McCaffrey legs stack with SF teaser 740279274 and SuperContest 740416960 (all pay on SF). Companion to DK 6-pick bet_20261019_dkp_6pick_combo_was_sf (WAS volume lean). | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 WON (50); L2 WON (64); L3 WON (2); L4 LOST (10); L5 WON (5, 5+ line is inclusive); L6 WON (SF 23-17 WSH).",
+    "progress_notes": "Andy 2026-10-19 16:05 PT: DK Predictions 6 Pick Combo (7.5%, +30% boost), Total $9.99, unboosted payout $124, boosted payout $158.20 (profit boosted 1.3 x 114.01 = 148.21). Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. SF-win stack: SF ML + McCaffrey legs stack with SF teaser 740279274 and SuperContest 740416960 (all pay on SF). Companion to DK 6-pick bet_20261019_dkp_6pick_combo_was_sf (WAS volume lean). | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 WON (50); L2 WON (64); L3 WON (2); L4 LOST (10); L5 WON (5, 5+ line is inclusive); L6 WON (SF 23-17 WSH). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -23345,8 +23358,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.99,
-    "graded_at": "2026-10-20T03:41:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-20T03:41:00Z",
+    "promo_credit_stake_usd": 9.99
   },
   {
     "id": "bet_20261019_beo_8leg_mnf_was_sf_17900",
@@ -23545,9 +23559,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "6-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.94,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.94,
     "units": 1,
     "odds_american": "+843",
@@ -23558,7 +23572,7 @@
     "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-19 16:20 PT: DK Predictions 6 Pick Combo (12%, +25% boost), Total $9.94, unboosted payout $77, boosted payout $93.77 (profit boosted 1.25 x 67.06 = 83.83). Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Final MNF ticket; easy-leg boost use. Overlaps: McLaurin, Okonkwo, Williams, Kittle with DK combo bet_20261019_dkp_6pick_combo_was_sf; McCaffrey and Daniels with bet_20261019_dkp_6pick_combo_was_sf_cmc_sf_ml. | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 LOST (27); L2 WON (7); L3 LOST (10); L4 WON (2); L5 WON (69); L6 WON (3).",
+    "progress_notes": "Andy 2026-10-19 16:20 PT: DK Predictions 6 Pick Combo (12%, +25% boost), Total $9.94, unboosted payout $77, boosted payout $93.77 (profit boosted 1.25 x 67.06 = 83.83). Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Final MNF ticket; easy-leg boost use. Overlaps: McLaurin, Okonkwo, Williams, Kittle with DK combo bet_20261019_dkp_6pick_combo_was_sf; McCaffrey and Daniels with bet_20261019_dkp_6pick_combo_was_sf_cmc_sf_ml. | Graded 2026-10-19 by Claude (Week 6 MNF close-out) from ESPN final WSH 17 @ SF 23 (total 40): L1 LOST (27); L2 WON (7); L3 LOST (10); L4 WON (2); L5 WON (69); L6 WON (3). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -23676,8 +23690,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.94,
-    "graded_at": "2026-10-20T03:41:00Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-20T03:41:00Z",
+    "promo_credit_stake_usd": 9.94
   },
   {
     "id": "bet_20261019_bkr_740512242_6team_flex_sgp_xweek",
@@ -24340,9 +24355,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+1980",
@@ -24357,7 +24372,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 16:39 PT, DK Predictions position 43598793: 5 Pick Combo 4.5%, Bought $5.00, Pays out $104.00 (no boost). Island ladder Tier 2. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 16:39 PT, DK Predictions position 43598793: 5 Pick Combo 4.5%, Bought $5.00, Pays out $104.00 (no boost). Island ladder Tier 2. Funding assumed cash. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -24456,8 +24471,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -5,
-    "graded_at": "2026-10-23T10:30:03.374Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-23T10:30:03.374Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "id": "bet_20261022_dkp_43591231_4pick_tier1_ne_chi",
@@ -24472,9 +24488,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.95,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.95,
     "units": 0.99,
     "odds_american": "+835",
@@ -24489,7 +24505,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 16:32 PT, DK Predictions position 43591231: 4 Pick Combo 10%, Bought $9.95, Pays out $93.00 (no boost). Island ladder Tier 1. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 16:32 PT, DK Predictions position 43591231: 4 Pick Combo 10%, Bought $9.95, Pays out $93.00 (no boost). Island ladder Tier 1. Funding assumed cash. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -24569,8 +24585,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.95,
-    "graded_at": "2026-10-23T10:30:03.374Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-23T10:30:03.374Z",
+    "promo_credit_stake_usd": 9.95
   },
   {
     "id": "bet_20261022_dkp_43579067_6pick_tier3_ne_chi",
@@ -24585,9 +24602,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+10340",
@@ -24602,7 +24619,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 16:22 PT, DK Predictions position 43579067: 6 Pick Combo 0.9%, Bought $5.00, Pays out $522.00 (no boost). Island ladder Tier 3 lottery. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 16:22 PT, DK Predictions position 43579067: 6 Pick Combo 0.9%, Bought $5.00, Pays out $522.00 (no boost). Island ladder Tier 3 lottery. Funding assumed cash. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -24720,8 +24737,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -5,
-    "graded_at": "2026-10-23T10:30:03.374Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-23T10:30:03.374Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "id": "bet_20261022_dkp_43564438_7pick_tier3_boost25_ne_chi",
@@ -24736,9 +24754,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.99,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.99,
     "units": 1,
     "odds_american": "+10685",
@@ -24753,7 +24771,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 16:10 PT, DK Predictions position 43564438: 7 Pick Combo 1.1%, Bought $9.99. Order confirmation showed Payout $864 unboosted / $1,077.50 with +25% NFL Profit Boost (profit boosted 1.25 x 854.01 = 1067.51). My Trades list shows $864.00. Logged at the boosted figure per the confirmation; use $864 if the boost was not credited. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 16:10 PT, DK Predictions position 43564438: 7 Pick Combo 1.1%, Bought $9.99. Order confirmation showed Payout $864 unboosted / $1,077.50 with +25% NFL Profit Boost (profit boosted 1.25 x 854.01 = 1067.51). My Trades list shows $864.00. Logged at the boosted figure per the confirmation; use $864 if the boost was not credited. Funding assumed cash. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -24890,8 +24908,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -9.99,
-    "graded_at": "2026-10-23T10:30:03.374Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-23T10:30:03.374Z",
+    "promo_credit_stake_usd": 9.99
   },
   {
     "id": "bet_20261022_bkr_740627731_8team_open2",
@@ -26469,9 +26488,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5.07,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5.07,
     "units": 0.507,
     "odds_american": "+30511",
@@ -26488,7 +26507,7 @@
       "placed_at approximate (~9:35 AM PT)"
     ],
     "promotion": "DK Predictions +30% profit boost (not shown on the My Trades card)",
-    "progress_notes": "Andy 2026-10-25 09:37 PT: DK Predictions position 45868275, 8 Pick Combo 0.4%, Bought $5.07, Pays out $1,195.00 unboosted; with the +30% profit boost Andy reports a total payout of $1,551 (profit 1.30 x 1,189.93 = 1546.91, payout 1551.98). Logged at the boosted figure; use $1,195 if the boost was not credited. Rebuild of BEO ticket 1008680961 (8-leg) after the Rodgers 2+ pass TD leg was failing in Paris: Rodgers dropped, Kirk Cousins 2+ pass TDs added (Prop Stack Agent best leg for LAR@LV). Lines differ from the BEO ticket: Henry 70+ (BEO 74+), NYJ FG via Jason Sanders 2+ FG made. SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) Isaiah Likely Anytime TD Scorer; George Kittle Anytime TD Scorer; Jason Sanders 2+ Field Goals Made; Derrick Henry 70+ Rushing Yards",
+    "progress_notes": "Andy 2026-10-25 09:37 PT: DK Predictions position 45868275, 8 Pick Combo 0.4%, Bought $5.07, Pays out $1,195.00 unboosted; with the +30% profit boost Andy reports a total payout of $1,551 (profit 1.30 x 1,189.93 = 1546.91, payout 1551.98). Logged at the boosted figure; use $1,195 if the boost was not credited. Rebuild of BEO ticket 1008680961 (8-leg) after the Rodgers 2+ pass TD leg was failing in Paris: Rodgers dropped, Kirk Cousins 2+ pass TDs added (Prop Stack Agent best leg for LAR@LV). Lines differ from the BEO ticket: Henry 70+ (BEO 74+), NYJ FG via Jason Sanders 2+ FG made. SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) Isaiah Likely Anytime TD Scorer; George Kittle Anytime TD Scorer; Jason Sanders 2+ Field Goals Made; Derrick Henry 70+ Rushing Yards Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -26643,9 +26662,10 @@
       }
     ],
     "platinum_rose_source": "Week 7 Prop Stack Agent rebuild (Option B), Sun 10/25 09:23 PT",
-    "profit_usd": -5.07,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-25T21:22:14Z"
+    "graded_at": "2026-10-25T21:22:14Z",
+    "promo_credit_stake_usd": 5.07
   },
   {
     "id": "bet_20261025_dkp_45488862_5pick_int_pressure_combo",
@@ -26660,9 +26680,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 4.94,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 4.94,
     "units": 0.494,
     "odds_american": "+1459",
@@ -26679,7 +26699,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45488862, 5 Pick Combo 6%, Bought $4.94, Pays out $77.00. QB-pressure / kicking angles from the Prop Stack Agent (D. Jones and Darnold INT, Szmyt 2+ FG). SETTLED WIN 2026-10-25 20:50 PT (mobile tracker ESPN grading)",
+    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45488862, 5 Pick Combo 6%, Bought $4.94, Pays out $77.00. QB-pressure / kicking angles from the Prop Stack Agent (D. Jones and Darnold INT, Szmyt 2+ FG). SETTLED WIN 2026-10-25 20:50 PT (mobile tracker ESPN grading) Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -26784,7 +26804,8 @@
     ],
     "profit_usd": 72.06,
     "settled_payout_usd": 77,
-    "graded_at": "2026-10-26T03:50:48Z"
+    "graded_at": "2026-10-26T03:50:48Z",
+    "promo_credit_stake_usd": 4.94
   },
   {
     "id": "bet_20261025_dkp_45474408_4pick_kraft_love_mahomes_tbcar_over",
@@ -26799,9 +26820,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5.12,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5.12,
     "units": 0.512,
     "odds_american": "+1248",
@@ -26818,7 +26839,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45474408, 4 Pick Combo 7%, Bought $5.12, Pays out $69.00. Kraft ATD and Love 2+ pass TD are the same game (positively correlated). SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Patrick Mahomes 2+ Passing Touchdowns",
+    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45474408, 4 Pick Combo 7%, Bought $5.12, Pays out $69.00. Kraft ATD and Love 2+ pass TD are the same game (positively correlated). SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Patrick Mahomes 2+ Passing Touchdowns Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -26899,9 +26920,10 @@
         "grading_note": "total 56. ESPN 401873018, mobile-tracker grading 2026-10-25 20:50 PT"
       }
     ],
-    "profit_usd": -5.12,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-26T03:50:48Z"
+    "graded_at": "2026-10-26T03:50:48Z",
+    "promo_credit_stake_usd": 5.12
   },
   {
     "id": "bet_20261025_dkp_45451260_8pick_7e_atd_lottery",
@@ -26916,9 +26938,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+47960",
@@ -26935,7 +26957,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45451260, 8 Pick Combo 0.2%, Bought $5.00, Pays out $2,403.00. Matches the Platinum Rose 7e anytime-TD slate (plus Irving). Settled LOSS 2026-10-25 09:44 PT: Freiermuth (PIT@NO, final) did not score.",
+    "progress_notes": "Andy 2026-10-25 09:42 PT: DK Predictions position 45451260, 8 Pick Combo 0.2%, Bought $5.00, Pays out $2,403.00. Matches the Platinum Rose 7e anytime-TD slate (plus Irving). Settled LOSS 2026-10-25 09:44 PT: Freiermuth (PIT@NO, final) did not score. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -27085,8 +27107,9 @@
       }
     ],
     "settled_payout_usd": 0,
-    "profit_usd": -5,
-    "graded_at": "2026-10-25T16:42:42Z"
+    "profit_usd": 0,
+    "graded_at": "2026-10-25T16:42:42Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "date": "2026-10-25",
@@ -28255,9 +28278,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+5760",
@@ -28274,7 +28297,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 18:10 PT: DK Predictions position 46464866, 8 Pick Combo 1.6%, Bought $5.00, Pays out $293.00. All 8 legs are SNF KC @ SEA. Rosters checked against espn-full-rosters-latest: Barner, Darnold, E. Wilson, Myers = SEA; Kelce, K. Walker III = KC. Darnold 1+ INT and 2+ pass TD are both on this slip. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) A.J. Barner Anytime TD Scorer; Sam Darnold 2+ Passing Touchdowns; Kenneth Walker III Anytime TD Scorer",
+    "progress_notes": "Andy 2026-10-25 18:10 PT: DK Predictions position 46464866, 8 Pick Combo 1.6%, Bought $5.00, Pays out $293.00. All 8 legs are SNF KC @ SEA. Rosters checked against espn-full-rosters-latest: Barner, Darnold, E. Wilson, Myers = SEA; Kelce, K. Walker III = KC. Darnold 1+ INT and 2+ pass TD are both on this slip. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) A.J. Barner Anytime TD Scorer; Sam Darnold 2+ Passing Touchdowns; Kenneth Walker III Anytime TD Scorer Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -28437,9 +28460,10 @@
         "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
     ],
-    "profit_usd": -5,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-26T03:50:48Z"
+    "graded_at": "2026-10-26T03:50:48Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "id": "bet_20261025_dkp_46447402_4pick_snf_atd_kc_sea",
@@ -28454,9 +28478,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+5440",
@@ -28473,7 +28497,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-25 18:11 PT: DK Predictions position 46447402, 4 Pick Combo 1.7%, Bought $5.00, Pays out $277.00. Four SNF anytime TDs (Walker III and Kelce KC; E. Wilson and Barner SEA, per espn-full-rosters-latest). Walker ATD and Barner ATD overlap with 8-pick 46464866. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kenneth Walker III Anytime TD Scorer; Travis Kelce Anytime TD Scorer; A.J. Barner Anytime TD Scorer",
+    "progress_notes": "Andy 2026-10-25 18:11 PT: DK Predictions position 46447402, 4 Pick Combo 1.7%, Bought $5.00, Pays out $277.00. Four SNF anytime TDs (Walker III and Kelce KC; E. Wilson and Barner SEA, per espn-full-rosters-latest). Walker ATD and Barner ATD overlap with 8-pick 46464866. SETTLED LOSS 2026-10-25 20:50 PT (mobile tracker ESPN grading): lost leg(s) Kenneth Walker III Anytime TD Scorer; Travis Kelce Anytime TD Scorer; A.J. Barner Anytime TD Scorer Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "legs": [
       {
         "leg_num": 1,
@@ -28556,9 +28580,10 @@
         "grading_note": "0 TD. ESPN 401873022, mobile-tracker grading 2026-10-25 20:50 PT"
       }
     ],
-    "profit_usd": -5,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-26T03:50:48Z"
+    "graded_at": "2026-10-26T03:50:48Z",
+    "promo_credit_stake_usd": 5
   },
   {
     "id": "bet_20261026_bkr_740869686_mnf_sgp_5leg",
@@ -28883,9 +28908,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5.0,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5.0,
     "units": 0.5,
     "odds_american": "+11580",
@@ -28902,7 +28927,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-26 16:40 PT: DK Predictions position 46920838, 8 Pick Combo 0.8%, Bought $5.00, Pays out $584.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Rashan Gary 0.5+ Total Sacks; Darius Cooper Anytime TD Scorer",
+    "progress_notes": "Andy 2026-10-26 16:40 PT: DK Predictions position 46920838, 8 Pick Combo 0.8%, Bought $5.00, Pays out $584.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Rashan Gary 0.5+ Total Sacks; Darius Cooper Anytime TD Scorer Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "platinum_rose_source": "Andy own build",
     "rosters_checked": "espn-full-rosters-latest 2026-10-26T23:03Z + 3:45 PM PT inactives; all players active",
     "legs": [
@@ -29067,9 +29092,10 @@
         "grading_note": "2 rec. ESPN 401873009, mobile-tracker grading 2026-10-26 20:46 PT"
       }
     ],
-    "profit_usd": -5.0,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-27T03:46:06Z"
+    "graded_at": "2026-10-27T03:46:06Z",
+    "promo_credit_stake_usd": 5.0
   },
   {
     "id": "bet_20261026_dkp_46908050_6pick_mnf_dal_phi",
@@ -29084,9 +29110,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.99,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.99,
     "units": 0.999,
     "odds_american": "+521",
@@ -29103,7 +29129,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-26 16:40 PT: DK Predictions position 46908050, 6 Pick Combo 15%, Bought $9.99, Pays out $62.00. SETTLED WIN 2026-10-26 20:46 PT (mobile tracker ESPN grading). Confirmed by Andy 2026-10-26 21:40 PT: DK Predictions settled position shows YOU WON, Paid $62.00.",
+    "progress_notes": "Andy 2026-10-26 16:40 PT: DK Predictions position 46908050, 6 Pick Combo 15%, Bought $9.99, Pays out $62.00. SETTLED WIN 2026-10-26 20:46 PT (mobile tracker ESPN grading). Confirmed by Andy 2026-10-26 21:40 PT: DK Predictions settled position shows YOU WON, Paid $62.00. Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "platinum_rose_source": "Andy own build",
     "rosters_checked": "espn-full-rosters-latest 2026-10-26T23:03Z + 3:45 PM PT inactives; all players active",
     "legs": [
@@ -29230,7 +29256,8 @@
     ],
     "profit_usd": 52.01,
     "settled_payout_usd": 62.0,
-    "graded_at": "2026-10-27T03:46:06Z"
+    "graded_at": "2026-10-27T03:46:06Z",
+    "promo_credit_stake_usd": 9.99
   },
   {
     "id": "bet_20261026_bkr_740871157_mnf_2team_u445_dal_m25",
@@ -29322,9 +29349,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 5.0,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 5.0,
     "units": 0.5,
     "odds_american": "+2820",
@@ -29341,7 +29368,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 47012140, 5 Pick Combo 3.2%, Bought $5.00, Pays out $146.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Dallas Goedert Anytime TD Scorer",
+    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 47012140, 5 Pick Combo 3.2%, Bought $5.00, Pays out $146.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Dallas Goedert Anytime TD Scorer Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "platinum_rose_source": "Andy own build (draws on the 4:50 PM S1-S3 stack ideas)",
     "rosters_checked": "espn-full-rosters-latest 2026-10-26T23:03Z + 3:45 PM PT inactives; all players active",
     "legs": [
@@ -29446,9 +29473,10 @@
         "grading_note": "2 TD. ESPN 401873009, mobile-tracker grading 2026-10-26 20:46 PT"
       }
     ],
-    "profit_usd": -5.0,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-27T03:46:06Z"
+    "graded_at": "2026-10-27T03:46:06Z",
+    "promo_credit_stake_usd": 5.0
   },
   {
     "id": "bet_20261026_dkp_46998409_5pick_mnf_dal_phi",
@@ -29463,9 +29491,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 9.97,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 9.97,
     "units": 0.997,
     "odds_american": "+2448",
@@ -29482,7 +29510,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 46998409, 5 Pick Combo 3.7%, Bought $9.97, Pays out $254.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) George Pickens 5+ Receptions; Jake Ferguson Anytime TD Scorer",
+    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 46998409, 5 Pick Combo 3.7%, Bought $9.97, Pays out $254.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) George Pickens 5+ Receptions; Jake Ferguson Anytime TD Scorer Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "platinum_rose_source": "Andy own build (draws on the 4:50 PM S1-S3 stack ideas)",
     "rosters_checked": "espn-full-rosters-latest 2026-10-26T23:03Z + 3:45 PM PT inactives; all players active",
     "legs": [
@@ -29587,9 +29615,10 @@
         "grading_note": "3 FG. ESPN 401873009, mobile-tracker grading 2026-10-26 20:46 PT"
       }
     ],
-    "profit_usd": -9.97,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-27T03:46:06Z"
+    "graded_at": "2026-10-27T03:46:06Z",
+    "promo_credit_stake_usd": 9.97
   },
   {
     "id": "bet_20261026_dkp_46957964_6pick_mnf_dal_phi",
@@ -29604,9 +29633,9 @@
     "book": "DraftKings Predictions",
     "ticket_type": "N-Pick Combo Contract (Event Trading)",
     "category": "Prop/Prediction Market",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 4.91,
+    "funding_type": "promo_credit",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 4.91,
     "units": 0.491,
     "odds_american": "+674",
@@ -29623,7 +29652,7 @@
       "funding_type (assumed cash)",
       "profit boost (none shown)"
     ],
-    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 46957964, 6 Pick Combo 12%, Bought $4.91, Pays out $38.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Jake Elliott 1+ Field Goals Made; Jake Ferguson 3+ Receptions",
+    "progress_notes": "Andy 2026-10-26 17:19 PT: DK Predictions position 46957964, 6 Pick Combo 12%, Bought $4.91, Pays out $38.00. SETTLED LOSS 2026-10-26 20:46 PT (mobile tracker ESPN grading): lost leg(s) Jake Elliott 1+ Field Goals Made; Jake Ferguson 3+ Receptions Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "platinum_rose_source": "Andy own build (draws on the 4:50 PM S1-S3 stack ideas)",
     "rosters_checked": "espn-full-rosters-latest 2026-10-26T23:03Z + 3:45 PM PT inactives; all players active",
     "legs": [
@@ -29748,8 +29777,9 @@
         "grading_note": "155 rush yds. ESPN 401873009, mobile-tracker grading 2026-10-26 20:46 PT"
       }
     ],
-    "profit_usd": -4.91,
+    "profit_usd": 0,
     "settled_payout_usd": 0,
-    "graded_at": "2026-10-27T03:46:06Z"
+    "graded_at": "2026-10-27T03:46:06Z",
+    "promo_credit_stake_usd": 4.91
   }
 ]
