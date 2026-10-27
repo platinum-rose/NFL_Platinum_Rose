@@ -33,6 +33,59 @@ H2C2 means "Handoff 2 Claude 2", Andy's name for a cross-team handoff.
 6. **Yahoo Fantasy API is working.** Andy sent Codex a briefing (`docs/YAHOO_FANTASY_API_ACCESS_FOR_CODEX.md`). The client secret still needs rotating (needs Andy).
 7. **Scheduled tasks are live** (§4.7): Hedge Watch runs for Thu/Sun/Mon, the Tue 8 AM team-profile refresh, and the Thu 8 AM SuperContest lines ingest. The Windows weekly archive runs **tonight at 23:30 PT**, and the Yahoo Survivor sync runs Tue 10:00.
 
+## 0a. UPDATE Tue 2026-10-27 07:19 PT: the Tuesday cadence has run (Andy)
+
+Andy ran `node scripts/toolbox.mjs --cadence tuesday` at about 07:18 PT. It took 32.6 s and every step succeeded. **Don't rerun it. The next cadence is `wednesday`.** Results:
+
+1. **Schedule ingest** (`agents/schedule-ingest.js`, weeks 1–18): 272 rows, no duplicates. Cache: `public/schedule.json`.
+   - Supabase `games` table upserted.
+   - Live odds applied to 12 games; 153 rows fell back to ESPN odds, including Week 8 ARI@DAL and PHI@WAS.
+2. **Player stats:** nflverse weekly (83,326 rows) and seasonal (9,658) refreshed in `data/vault-seed/nflverse/`. Supabase `player_stats` got 7,440 rows and `player_season_stats` got 1,690 (season 2026).
+3. **Usage locks** from Week 7 usage: 14 lock candidates written to `data/projected-starters/2026/manual/week-usage-locks.json`.
+   - 303 rows archived to `data/generated/player-usage-history/2026/week-07.json`.
+   - Trends updated in `data/generated/player-usage-trends-2026.json`.
+4. **Projected starters** rebuilt: 85 signals, 32 teams, 61 manual and 25 estimated rows. Snapshot `data/projected-starters/2026/latest.json`, markdown `docs/projected-starters/projected-starters-latest.md`.
+   - **One team needs a manual depth chart: TB** ("estimated_from_local_starter_language"). TB hosts ATL Sun 1 PM ET.
+5. **Week 8 opening game odds via TheOddsAPI** (`agents/game-odds-ingest.js`): 14 events, 126 rows written to Supabase `game_odds_snapshots`, 17 line movements, 1,008 rows older than 90 days pruned.
+   - **Quota: 364 credits remaining** (floor 15). Andy ran this step himself as part of his cadence. **Agents still don't call TheOddsAPI on their own.**
+6. **Roster audit** (`scripts/audit-all32-rosters.js`): 0 team-assignment conflicts.
+   - Najee Harris, Russell Wilson and Justin Fields were "not found in active primary datasets".
+   - Per Andy's preference, **web-search a missing player before using or flagging him.**
+   - Confirmed placements: Rodgers PIT, Pickens DAL, Diggs WAS, Barkley PHI, Henry BAL, K. Allen IND, Cousins LV.
+
+**Week 8 slate with Tuesday opening lines** (home spread, DraftKings unless marked ESPN; from `public/schedule.json`; times ET):
+
+| Game | Time | Home spread | Total |
+|---|---|---:|---:|
+| CAR @ GB | Thu 8:15 PM | GB −3.5 | 47.5 |
+| BAL @ BUF | Sun 1 PM | BUF −3.5 | 53.5 |
+| TEN @ CIN | Sun 1 PM | CIN −10 | 46.5 |
+| ARI @ DAL | Sun 1 PM | DAL −6 (ESPN) | 54.5 |
+| MIN @ DET | Sun 1 PM | DET −3 | 46.5 |
+| LV @ NYJ | Sun 1 PM | NYJ −1.5 | 45.5 |
+| CLE @ PIT | Sun 1 PM | PIT −3.5 | 39.5 |
+| ATL @ TB | Sun 1 PM | TB −2.5 | 46.5 |
+| IND @ JAX | Sun 1 PM | JAX −7.5 | 46.5 |
+| LAC @ LAR | Sun 4:05 PM | LAR −6.5 | 44.5 |
+| KC @ DEN | Sun 4:25 PM | DEN +1.5 | 41.5 |
+| NE @ MIA | Sun 4:25 PM | MIA +7.5 | 44.5 |
+| PHI @ WAS | Sun 8:20 PM | WAS −4.5 (ESPN) | 40.5 |
+| CHI @ SEA | Mon 8:15 PM | SEA −3 | 46.5 |
+
+**These cadence outputs are uncommitted in the working tree.** Commit them **by name** with your first Week 8 commit, after a quick look:
+- `public/schedule.json`
+- `data/projected-starters/2026/latest.json`
+- `data/projected-starters/2026/manual/week-usage-locks.json`
+- `data/projected-starters/2026/projected-starters-2026-10-27.json` (new)
+- `docs/projected-starters/projected-starters-latest.md`
+- `docs/projected-starters/projected-starters-2026-10-27.md` (new)
+- `data/generated/player-usage-trends-2026.json`
+- `data/generated/player-usage-history/2026/week-07.json` (new)
+
+The `.nfl/receipts/*` and `data/vault-seed/nflverse/*` files are gitignored or local; leave them.
+
+The log Andy pasted also held three repeats of the **Monday cadence** settlement preview, generated 2026-10-26 07:33 PT, **before MNF**. It shows "31 tickets, DAL @ PHI pending". That is stale: MNF is settled (§3), so ignore it.
+
 ## 1. Read these first (in order)
 
 | # | File | Why |
@@ -327,10 +380,11 @@ The MNF one-shot "Mobile tracker: MNF final grading" fired at 20:46 and is finis
 ```
 Resume Platinum Rose NFL (Andy's NFL_Dashboard) as Claude Team 2. Repo: E:\dev\projects\NFL_Dashboard on Andy's Windows PC
 (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11 (push here, not main).
-HEAD at handoff: the H2C2 commit on top of 0493dfd. Week 7 fully settled (39 real tickets, -$234.99); Week 8 begins (TNF CAR @ GB Thu 10/29).
+HEAD at handoff: the H2C2 commits on top of 0493dfd (briefing updated Tue 07:19 PT with the Tuesday cadence, section 0a). Week 7 fully settled (39 real tickets, -$234.99). Week 8: the Tuesday cadence already ran Tue 10/27 07:18 PT (do NOT rerun);
+next is `node scripts/toolbox.mjs --cadence wednesday`. TNF CAR @ GB Thu 10/29 (opened GB -3.5, 47.5).
 
 Read, in order:
-1. handoffs/2026-10-26-2215-claude-h2c2-claude2-briefing-w7-mnf-close.md  (this briefing; sections 0, 6, 7 first)
+1. handoffs/2026-10-26-2215-claude-h2c2-claude2-briefing-w7-mnf-close.md  (this briefing; sections 0, 0a, 6, 7 first)
 2. reports/handoff-snapshots/2026-10-26-h2c2-w7-mnf-close-claude2/week7-ticket-ledger.md
 3. CLAUDE.md (roster gate, wager single source of truth) and agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md section 7.2 + section 5 rules 1-7 (the only betting rules)
 4. docs/MOBILE_LIVE_TRACKER.md, then reports/bets/2026-w07-card.md sections 7j/7k/7l (island format)
@@ -345,12 +399,15 @@ don't modify live Windows Scheduled Tasks (give Andy the command, verify read-on
 Every file you make must be viewable in-session; put copy-paste text (prompts, messages) inline in a code block.
 
 First actions:
+0. Review and commit (named files only) the 8 uncommitted Tuesday-cadence outputs listed in briefing section 0a. TB needs a manual
+   all-position depth chart (the only team flagged). Web-search any player the roster audit could not find before using him.
 1. Grade card 7l S1 and S3 (paper, still open) from data/fantasy/boxscores/espn-401873009.json; report only.
 2. Add Week 7 entries (D38+) to the claude.ai project doc claude/recommendation-ledger-2026.md; mirror to
    docs/claude-project-dev/recommendation-ledger-2026.md.
 3. Before Thu 13:00 PT: run `node scripts/generate-live-tracker-mobile.mjs` (no --week) and confirm Week 8 is detected.
 4. Ask Andy the needs-Andy list in briefing section 6c (bankroll sync, TNF settle check-in, Yahoo secret rotation, paper write-back).
-5. Run the Week 8 cadence (node scripts/toolbox.mjs --cadence <day>) per docs/NFL_WEEKLY_CARD_PROCESS.md; roster gate
+5. Continue the Week 8 cadence from wednesday (node scripts/toolbox.mjs --cadence wednesday, then wednesday-pm, thursday, ...) per
+   docs/NFL_WEEKLY_CARD_PROCESS.md. TheOddsAPI is called only by Andy's own cadence runs (364 credits left), never ad hoc; roster gate
    (python3 scripts/nfl-rosters/roster_vet.py --week 8 --date <capture-date> --fetch --strict --card <file>) before anything is presented.
 When Andy places tickets, log them to data/official-picks/user-placed-wagers-2026.json per briefing section 4.2 ("X+" means line X-0.5),
 regenerate both trackers, republish the phone page if he wants it, commit named files and push.

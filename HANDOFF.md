@@ -4,6 +4,7 @@
 
 - **PICK UP HERE:** `handoffs/2026-10-26-2215-claude-h2c2-claude2-briefing-w7-mnf-close.md`. Week 7 is fully settled: 39 real tickets, $387.51 risked, net −$234.99. MNF DAL 38–21: 8 tickets, −$1.39, DKP 46908050 won $62.00. The briefing covers the MNF island ladders (card §7k/§7l, paper), the Gary sack-line fix, the weekly prop-scraper cadence (live), the Yahoo API briefing for Codex, the needs-Andy list and the Week 8 start (TNF CAR @ GB, Thu 10/29). Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mnf-close-claude2/`.
 - Newer than the list below and not previously indexed: commits `d8e26bf`, `1d504d7`, `8bc29a6`, `003e861`, `5d0824d`, `08256bc`, `7ab6fb0`, `21864cf`, `0493dfd`. None of them had their own handoff file; the briefing §2 records them.
+- **Update Tue 10/27 07:19 PT:** Andy ran the Tuesday cadence (schedule, player stats, usage locks, projected starters, Week 8 opening odds, roster audit; all OK). Briefing §0a has the results and the 8 uncommitted outputs. Next cadence: `wednesday`.
 - Last verified HEAD: `0493dfd` plus the H2C2 commit, on branch `claude/w5-prop-cards-2026-10-11`. `origin/main` = `61da10a`, which is not the working branch. Reconcile live git first.
 
 ## Superseded, kept for history: 2026-10-26 Codex day checkpoints (Week 7 football data and analytics)
