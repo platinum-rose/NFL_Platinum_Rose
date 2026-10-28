@@ -518,22 +518,14 @@ function applyLiveOdds(rows, liveOddsMap, snapshotFetchedAt) {
   return { applied, skippedFinal, missing };
 }
 
-function carriedForwardCacheRows(fetchedRows) {
+export function carriedForwardCacheRows(fetchedRows, cachedRows) {
   // Keep every cached row whose (season_type, week) was not fetched successfully
   // this run: weeks outside --start-week/--end-week and weeks whose fetch failed.
-  if (!fs.existsSync(CACHE_PATH)) return [];
+  if (!Array.isArray(cachedRows)) return [];
   const key = (r) => `${Number(r.season_type)}|${Number(r.week)}`;
   const fetchedWeeks = new Set(fetchedRows.map(key));
   const fetchedIds = new Set(fetchedRows.map((r) => r.game_id));
-  try {
-    const cached = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
-    return Array.isArray(cached)
-      ? cached.filter((r) => !fetchedWeeks.has(key(r)) && !fetchedIds.has(r.game_id))
-      : [];
-  } catch (err) {
-    console.warn(`  Could not read the existing cache to carry unfetched weeks forward: ${err.message}`);
-    return [];
-  }
+  return cachedRows.filter((r) => !fetchedWeeks.has(key(r)) && !fetchedIds.has(r.game_id));
 }
 
 function writeScheduleCache(rows) {
@@ -666,7 +658,16 @@ async function run() {
   // and a single-week run replaced all 272 games with 14. Keep cached rows for every
   // week not fetched this run; skip the write if nothing was fetched. Kept rows go
   // to the cache only, never to Supabase.
-  const cacheRows = [...allRows, ...carriedForwardCacheRows(allRows)];
+  let cachedRows = [];
+  try {
+    if (fs.existsSync(CACHE_PATH)) {
+      const parsed = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
+      cachedRows = Array.isArray(parsed) ? parsed : [];
+    }
+  } catch (err) {
+    console.warn(`  Could not read the existing cache to carry unfetched weeks forward: ${err.message}`);
+  }
+  const cacheRows = [...allRows, ...carriedForwardCacheRows(allRows, cachedRows)];
   if (allRows.length === 0) {
     console.warn('  No games fetched: leaving the schedule cache unchanged.');
   } else {

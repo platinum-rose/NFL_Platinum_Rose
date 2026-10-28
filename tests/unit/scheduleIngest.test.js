@@ -107,6 +107,58 @@ describe('game_odds_snapshots schedule overlay', () => {
     });
 });
 
+describe('carriedForwardCacheRows', () => {
+    const cached = [
+        { game_id: 'week-1-game', season_type: 2, week: 1 },
+        { game_id: 'week-2-game', season_type: 2, week: 2 },
+        { game_id: 'week-3-game', season_type: 2, week: 3 },
+    ];
+
+    it('keeps all weeks outside a single-week fetch', async () => {
+        const { carriedForwardCacheRows } = await import('../../agents/schedule-ingest.js');
+        const refreshedWeek = [{ game_id: 'week-2-new-game', season_type: 2, week: 2 }];
+
+        expect(carriedForwardCacheRows(refreshedWeek, cached)).toEqual([
+            cached[0], cached[2],
+        ]);
+    });
+
+    it('returns the unchanged cache when no rows were fetched', async () => {
+        const { carriedForwardCacheRows } = await import('../../agents/schedule-ingest.js');
+
+        expect(carriedForwardCacheRows([], cached)).toEqual(cached);
+        // run() separately guards this case and skips writeScheduleCache when allRows is empty.
+    });
+
+    it('replaces only the fetched week rows', async () => {
+        const { carriedForwardCacheRows } = await import('../../agents/schedule-ingest.js');
+        const refreshed = [{ game_id: 'week-2-new-game', season_type: 2, week: 2 }];
+
+        expect([...refreshed, ...carriedForwardCacheRows(refreshed, cached)]).toEqual([
+            refreshed[0], cached[0], cached[2],
+        ]);
+    });
+
+    it('keeps cached rows for a week that failed to fetch', async () => {
+        const { carriedForwardCacheRows } = await import('../../agents/schedule-ingest.js');
+        const fetchedFromOtherWeek = [{ game_id: 'week-1-new-game', season_type: 2, week: 1 }];
+
+        expect(carriedForwardCacheRows(fetchedFromOtherWeek, cached)).toEqual([
+            cached[1], cached[2],
+        ]);
+    });
+
+    it('does not duplicate a game moved into a fetched week', async () => {
+        const { carriedForwardCacheRows } = await import('../../agents/schedule-ingest.js');
+        const movedGame = { game_id: 'moved-game', season_type: 2, week: 3 };
+        const priorCache = [...cached, { ...movedGame, week: 2 }];
+        const fetched = [movedGame];
+
+        const result = [...fetched, ...carriedForwardCacheRows(fetched, priorCache)];
+        expect(result.filter((row) => row.game_id === 'moved-game')).toEqual([movedGame]);
+    });
+});
+
 // ── per-week resilience (loop try/catch) ─────────────────────────────────────
 describe('per-week resilience', () => {
     let fetchWeek;
