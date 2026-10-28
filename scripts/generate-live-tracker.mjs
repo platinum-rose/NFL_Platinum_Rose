@@ -207,6 +207,12 @@ function firstTdLegState(player, team, market, map) {
   return { resolved: true, hit, label: rec.scorerDisplay + (rec.period ? ' Q' + rec.period + (rec.clock ? ' ' + rec.clock : '') : '') };
 }
 
+function trackerScoreboardUrl(schedule, week) {
+  const season = schedule.find(g => Number(g.week) === Number(week) && g.season)?.season;
+  const seasonQuery = season ? `dates=${encodeURIComponent(season)}&` : '';
+  return `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?${seasonQuery}seasontype=2&week=${encodeURIComponent(week)}&groups=50`;
+}
+
 async function loadConcludedGameStats(schedule = [], week = 1) {
   const boxscoresDir = path.join(ROOT, 'data', 'fantasy', 'boxscores');
   await mkdir(boxscoresDir, { recursive: true });
@@ -218,7 +224,8 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
   const firstTdByTeam = {};
   const NORM_ABBR = { WSH: 'WAS', JAC: 'JAX' };
   const normAbbr = (a) => NORM_ABBR[a] || a;
-  const weekGames = schedule.filter(g => g.week === week);
+  const weekGames = schedule.filter(g => Number(g.week) === Number(week));
+  const weekEventIds = new Set(weekGames.map(g => g.id || g.game_id).filter(Boolean).map(String));
 
   const concludedGames = weekGames.filter(g => g.status === 'post' || g.status === 'final');
 
@@ -234,10 +241,13 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
   // from a different week than the one being rendered.
 
   try {
-    const sbRes = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+    const sbRes = await fetch(trackerScoreboardUrl(schedule, week));
     if (sbRes.ok) {
       const sbData = await sbRes.json();
       (sbData.events || []).forEach(ev => {
+        // An unfiltered/current scoreboard can still contain the previous slate on
+        // Tuesday/Wednesday. Never seed this week's stats or injuries from it.
+        if (!weekEventIds.has(String(ev.id))) return;
         const isLive = ev.status?.type?.state === 'in';
         const isPost = ev.status?.type?.completed || ev.status?.type?.name === 'STATUS_FINAL';
         if ((isLive || isPost) && ev.id) {
@@ -290,10 +300,9 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
     let data = null;
     try {
       const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`);
-      if (res.ok) {
-        data = await res.json();
-        await writeFile(cachePath, JSON.stringify(data, null, 2), 'utf8');
-      }
+      if (!res.ok) throw new Error(`ESPN summary HTTP ${res.status}`);
+      data = await res.json();
+      await writeFile(cachePath, JSON.stringify(data, null, 2), 'utf8');
     } catch {
       try {
         const raw = await readFile(cachePath, 'utf8');
@@ -402,6 +411,10 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
         }
       }
     }
+  }
+
+  if (eventIds.size === 0) {
+    console.log(`   Week ${week}: no live/final game summaries; game-summary injury lookup is empty. Pregame fantasy roster injury statuses remain available.`);
   }
 
   return { athleteStatsMap, athleteInjuriesMap, teamStatusMap, teamScoreMap, firstTdByTeam };
@@ -1016,6 +1029,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       legDetails,
       legsWon: (bet.legs || []).filter(l => l.status === 'WON').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
       legsPushed: (bet.legs || []).filter(l => l.status === 'PUSH').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
+      // Recorded results take precedence over older browser checkmarks.
+      legResults: Object.fromEntries((bet.legs || [])
+        .filter(l => ['WON', 'LOST', 'PUSH'].includes(String(l.status || '').toUpperCase()))
+        .map(l => [l.key, String(l.status).toUpperCase()])),
       // Legs whose player left the game injured / was inactive (ledger leg flag
       // `injury_exit: true`). Seeds the 🚑 Out state so injury bad beats survive a
       // tracker regenerate. Keys use the leg's ORIGINAL index (not the filtered index).
@@ -4843,6 +4860,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const OPEN_SLOT_LEG_KEYS = new Set();
     Object.values(TICKET_CONFIG).forEach(c => (c.openSlotLegs || []).forEach(k => OPEN_SLOT_LEG_KEYS.add(k)));
     const INITIAL_SCHEDULE = ${JSON.stringify(weekSchedule).replace(/<\/script/gi, '<\\/script')};
+    const SCOREBOARD_URL = ${JSON.stringify(trackerScoreboardUrl(schedule, week))};
+    const TRACKED_EVENT_IDS = new Set(INITIAL_SCHEDULE.map(g => g.id || g.game_id).filter(Boolean).map(String));
     const STORAGE_KEY = 'sunday_tracker_state_week_${week}';
     const SPLITS_KEY = 'sunday_splits_week_${week}';
     const BURNS_KEY = 'sunday_burns_week_${week}';
@@ -6377,6 +6396,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
 
     async function fetchSummaryForEvent(eventId, isLive = false, isCompleted = false) {
+      if (!TRACKED_EVENT_IDS.has(String(eventId))) return;
       if (!eventId) return;
       const now = Date.now();
       const lastFetch = lastBoxscoreFetchTime[String(eventId)] || 0;
@@ -7517,7 +7537,27 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       return CLIENT_TEAM_MAP[c] || c;
     }
 
+    function reconcileRecordedLegResults() {
+      for (const cfg of Object.values(TICKET_CONFIG)) {
+        for (const [key, result] of Object.entries(cfg.legResults || {})) {
+          if (!['WON', 'LOST', 'PUSH'].includes(result)) continue;
+          checkedState[key] = result === 'WON';
+          burntLegsState[key] = result === 'LOST';
+          pushedLegsState[key] = result === 'PUSH';
+          const el = document.getElementById('leg-' + key);
+          if (el) {
+            el.classList.toggle('checked', result === 'WON');
+            el.classList.toggle('leg-burnt', result === 'LOST');
+            el.classList.toggle('leg-pushed', result === 'PUSH');
+            el.classList.toggle('leg-missed', result === 'LOST');
+            el.classList.toggle('pace-hit', result === 'WON');
+          }
+        }
+      }
+    }
+
     function updateAllLegPacingGrades(events) {
+      reconcileRecordedLegResults();
       if (!events || !Array.isArray(events)) {
         events = window._lastScoreboardEvents || [];
       }
@@ -9292,6 +9332,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
 
     function render() {
+      reconcileRecordedLegResults();
       let totalWon = 0;
       let totalAlivePotential = 0;
       let burntCount = 0;
@@ -10011,7 +10052,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
-        const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard', {
+        const res = await fetch(SCOREBOARD_URL, {
           signal: controller.signal
         });
         clearTimeout(timeoutId);
@@ -10022,6 +10063,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const data = await res.json();
         if (currentSeq !== pollSeq) return; // Stale response guard
         if (data && Array.isArray(data.events)) {
+          data.events = data.events.filter(ev => TRACKED_EVENT_IDS.has(String(ev.id)));
           // Trigger summary fetch for all live or completed games
           data.events.forEach(ev => {
             const isCompleted = ev.status?.type?.completed === true || ev.status?.type?.name === 'STATUS_FINAL';
@@ -10058,7 +10100,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           const schedRes = await fetch('schedule.json');
           if (schedRes.ok) {
             const schedData = await schedRes.json();
-            const wSched = schedData.filter(g => g.week === 1 || g.week === ${week});
+            const wSched = schedData.filter(g => Number(g.week) === ${Number(week)});
             updateLeftSidebarFromSchedule(wSched);
           }
         } catch {}

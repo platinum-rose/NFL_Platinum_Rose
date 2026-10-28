@@ -168,7 +168,7 @@ async function runCadence(day) {
 
   switch (d) {
     case 'tuesday':
-      console.log(`${c.cyan}1. Ingesting Weekly Schedule (ESPN)...${c.reset}`);
+      console.log(`${c.cyan}1. Ingesting Weekly Schedule (ESPN; writes local schedule caches and Supabase games; no TheOddsAPI calls)...${c.reset}`);
       await run('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18']);
       console.log(`${c.cyan}2. Refreshing Player Stats (nflverse weekly + seasonal)...${c.reset}`);
       await run(repoPython(), ['scripts/fetch_nflverse_data.py', '--datasets', 'player_stats_weekly', 'player_stats_seasonal', '--force']);

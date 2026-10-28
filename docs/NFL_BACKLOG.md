@@ -76,7 +76,28 @@ A `TEMPLATE.md` is in `data/vault-seed/manual/` — copy, rename with today's da
 
 ## Infrastructure
 
-*(add items here as they come up)*
+### [ ] Live Tracker result precedence, week isolation, and activation
+
+**Updated:** 2026-10-28. Source fixes are verified on the working branch, pending
+merge to main and production artifact verification; keep this item open under
+the backlog's completion rule.
+
+- Recorded WON/LOST/PUSH results now override conflicting browser marks. A
+  37-point final reproduced the prior false Hit; the patched Chromium replay
+  preserved the correct results across reload.
+- Builder and browser requests are constrained to the rendered schedule week;
+  summary HTTP failures use the saved cache. Empty pregame game-summary injury
+  context must not be replaced with previous-week injury designations.
+- Tuesday toolbox wording describes local cache writes and Supabase upserts.
+  The corrected saved cadence report is gitignored; external Claude reporting
+  prompts are outside the repository and have not been changed.
+- Verification: 21/21 focused tests; source syntax and test lint passed.
+- Remaining: regenerate/verify the real tracker only with the required roster
+  gate and Andy's artifact-publication approval; inspect M6 before updating it.
+  Review hook invocation paths separately: `.claude/settings.json` references
+  `hooks/scripts/...`, while the repaired scanner is `.claude/hooks/check-secrets.js`.
+
+Evidence: `reports/engineering/live-tracker-correctness-2026-10-28.md`.
 
 ---
 
@@ -86,5 +107,5 @@ A `TEMPLATE.md` is in `data/vault-seed/manual/` — copy, rename with today's da
 |---------|-------|------|------|
 | Data Ingestion | 1 | 1 | 0 |
 | Agent / UI Features | 0 | 0 | 0 |
-| Infrastructure | 0 | 0 | 0 |
-| **Total** | **1** | **1** | **0** |
+| Infrastructure | 1 | 1 | 0 |
+| **Total** | **2** | **2** | **0** |
