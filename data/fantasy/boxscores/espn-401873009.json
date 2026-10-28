@@ -23750,67 +23750,6 @@
       "injuries": [
         {
           "status": "Questionable",
-          "date": "2026-10-27T21:24Z",
-          "athlete": {
-            "id": "4710711",
-            "uid": "s:20~l:28~a:4710711",
-            "guid": "ba25e10d-e58c-3355-880c-1432cd748497",
-            "lastName": "Rogers",
-            "fullName": "DJ Rogers",
-            "displayName": "DJ Rogers",
-            "shortName": "D. Rogers",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4710711/dj-rogers",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4710711.png",
-              "alt": "DJ Rogers"
-            },
-            "jersey": "49",
-            "position": {
-              "name": "Tight End",
-              "displayName": "Tight End",
-              "abbreviation": "TE"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4710711?lang=en&region=us"
-            },
-            "status": {
-              "id": "13",
-              "name": "Day-To-Day",
-              "type": "day-to-day",
-              "abbreviation": "Day-To-Day"
-            }
-          },
-          "type": {
-            "id": "2",
-            "name": "INJURY_STATUS_QUESTIONABLE",
-            "description": "questionable",
-            "abbreviation": "Q"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "QUESTIONABLE",
-              "abbreviation": "QUESTIONABLE",
-              "displayDescription": "Questionable"
-            },
-            "type": "Knee",
-            "location": "Leg",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-11-08"
-          }
-        },
-        {
-          "status": "Questionable",
           "date": "2026-10-27T13:11Z",
           "athlete": {
             "id": "4428914",
@@ -24050,6 +23989,67 @@
             "location": "Leg",
             "detail": "Plantar Fasciitis",
             "side": "Right",
+            "returnDate": "2026-11-01"
+          }
+        },
+        {
+          "status": "Injured Reserve",
+          "date": "2026-10-25T18:30Z",
+          "athlete": {
+            "id": "4427816",
+            "uid": "s:20~l:28~a:4427816",
+            "guid": "d3a3fab9-bc09-02b2-57fa-8a6f2f2927e9",
+            "lastName": "Liufau",
+            "fullName": "Marist Liufau",
+            "displayName": "Marist Liufau",
+            "shortName": "M. Liufau",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4427816/marist-liufau",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4427816.png",
+              "alt": "Marist Liufau"
+            },
+            "jersey": "35",
+            "position": {
+              "name": "Linebacker",
+              "displayName": "Linebacker",
+              "abbreviation": "LB"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4427816?lang=en&region=us"
+            },
+            "status": {
+              "id": "13",
+              "name": "Day-To-Day",
+              "type": "day-to-day",
+              "abbreviation": "Day-To-Day"
+            }
+          },
+          "type": {
+            "id": "5",
+            "name": "INJURY_STATUS_IR",
+            "description": "Injured Reserve",
+            "abbreviation": "IR"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "IR-R",
+              "abbreviation": "IR-R",
+              "displayDescription": "IR-R"
+            },
+            "type": "Forearm",
+            "location": "Arm",
+            "detail": "Fracture",
+            "side": "Left",
             "returnDate": "2026-11-01"
           }
         }

@@ -25481,67 +25481,6 @@
         },
         {
           "status": "Questionable",
-          "date": "2026-10-27T21:23Z",
-          "athlete": {
-            "id": "4588298",
-            "uid": "s:20~l:28~a:4588298",
-            "guid": "92d6c3c2-da03-3e42-a7ca-0df3eff841d4",
-            "lastName": "Geers",
-            "fullName": "Jameson Geers",
-            "displayName": "Jameson Geers",
-            "shortName": "J. Geers",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4588298/jameson-geers",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4588298.png",
-              "alt": "Jameson Geers"
-            },
-            "jersey": "46",
-            "position": {
-              "name": "Tight End",
-              "displayName": "Tight End",
-              "abbreviation": "TE"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4588298?lang=en&region=us"
-            },
-            "status": {
-              "id": "13",
-              "name": "Day-To-Day",
-              "type": "day-to-day",
-              "abbreviation": "Day-To-Day"
-            }
-          },
-          "type": {
-            "id": "2",
-            "name": "INJURY_STATUS_QUESTIONABLE",
-            "description": "questionable",
-            "abbreviation": "Q"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "QUESTIONABLE",
-              "abbreviation": "QUESTIONABLE",
-              "displayDescription": "Questionable"
-            },
-            "type": "Undisclosed",
-            "location": "Other",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-11-08"
-          }
-        },
-        {
-          "status": "Questionable",
           "date": "2026-10-27T13:11Z",
           "athlete": {
             "id": "3918331",
@@ -25717,6 +25656,67 @@
               "displayDescription": "Questionable"
             },
             "type": "Ankle",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Not Specified",
+            "returnDate": "2026-11-01"
+          }
+        },
+        {
+          "status": "Questionable",
+          "date": "2026-10-27T13:11Z",
+          "athlete": {
+            "id": "4367199",
+            "uid": "s:20~l:28~a:4367199",
+            "guid": "731adf24-78b7-0653-620f-009e100647a4",
+            "lastName": "Gaines II",
+            "fullName": "Jon Gaines II",
+            "displayName": "Jon Gaines II",
+            "shortName": "J. Gaines II",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4367199/jon-gaines-ii",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4367199.png",
+              "alt": "Jon Gaines II"
+            },
+            "jersey": "71",
+            "position": {
+              "name": "Guard",
+              "displayName": "Guard",
+              "abbreviation": "G"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4367199?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
+            },
+            "type": "Knee",
             "location": "Leg",
             "detail": "Not Specified",
             "side": "Not Specified",

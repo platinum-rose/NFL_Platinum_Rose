@@ -22537,6 +22537,67 @@
       },
       "injuries": [
         {
+          "status": "Doubtful",
+          "date": "2026-10-28T00:20Z",
+          "athlete": {
+            "id": "4832793",
+            "uid": "s:20~l:28~a:4832793",
+            "guid": "f7003cfe-f478-373c-80f1-ad96cb7fe6c0",
+            "lastName": "Ioane",
+            "fullName": "Olaivavega Ioane",
+            "displayName": "Olaivavega Ioane",
+            "shortName": "O. Ioane",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4832793/olaivavega-ioane",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4832793.png",
+              "alt": "Olaivavega Ioane"
+            },
+            "jersey": "71",
+            "position": {
+              "name": "Guard",
+              "displayName": "Guard",
+              "abbreviation": "G"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4832793?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "3",
+            "name": "INJURY_STATUS_DOUBTFUL",
+            "description": "doubtful",
+            "abbreviation": "D"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "DOUBTFUL",
+              "abbreviation": "DOUBTFUL",
+              "displayDescription": "Doubtful"
+            },
+            "type": "Knee - MCL",
+            "location": "Leg",
+            "detail": "Sprain",
+            "side": "Not Specified",
+            "returnDate": "2026-11-01"
+          }
+        },
+        {
           "status": "Questionable",
           "date": "2026-10-27T20:32Z",
           "athlete": {
@@ -22594,67 +22655,6 @@
             "location": "Leg",
             "detail": "Sprain",
             "side": "Left",
-            "returnDate": "2026-11-01"
-          }
-        },
-        {
-          "status": "Doubtful",
-          "date": "2026-10-27T14:34Z",
-          "athlete": {
-            "id": "4832793",
-            "uid": "s:20~l:28~a:4832793",
-            "guid": "f7003cfe-f478-373c-80f1-ad96cb7fe6c0",
-            "lastName": "Ioane",
-            "fullName": "Olaivavega Ioane",
-            "displayName": "Olaivavega Ioane",
-            "shortName": "O. Ioane",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4832793/olaivavega-ioane",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4832793.png",
-              "alt": "Olaivavega Ioane"
-            },
-            "jersey": "71",
-            "position": {
-              "name": "Guard",
-              "displayName": "Guard",
-              "abbreviation": "G"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4832793?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "type": {
-            "id": "3",
-            "name": "INJURY_STATUS_DOUBTFUL",
-            "description": "doubtful",
-            "abbreviation": "D"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "DOUBTFUL",
-              "abbreviation": "DOUBTFUL",
-              "displayDescription": "Doubtful"
-            },
-            "type": "Knee - MCL",
-            "location": "Leg",
-            "detail": "Sprain",
-            "side": "Not Specified",
             "returnDate": "2026-11-01"
           }
         },
@@ -22972,67 +22972,6 @@
         },
         {
           "status": "Out",
-          "date": "2026-10-27T18:25Z",
-          "athlete": {
-            "id": "4819215",
-            "uid": "s:20~l:28~a:4819215",
-            "guid": "a4ec6694-a2d8-3609-a412-caf144ca0cd7",
-            "lastName": "Kattus",
-            "fullName": "Josh Kattus",
-            "displayName": "Josh Kattus",
-            "shortName": "J. Kattus",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4819215/josh-kattus",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4819215.png",
-              "alt": "Josh Kattus"
-            },
-            "jersey": "48",
-            "position": {
-              "name": "Tight End",
-              "displayName": "Tight End",
-              "abbreviation": "TE"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4819215?lang=en&region=us"
-            },
-            "status": {
-              "id": "29",
-              "name": "Practice Squad",
-              "type": "practice-squad",
-              "abbreviation": "Practice Squad"
-            }
-          },
-          "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "OUT",
-              "abbreviation": "OUT",
-              "displayDescription": "Out"
-            },
-            "type": "Undisclosed",
-            "location": "Other",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-11-29"
-          }
-        },
-        {
-          "status": "Out",
           "date": "2026-10-26T21:53Z",
           "athlete": {
             "id": "4401811",
@@ -23212,6 +23151,67 @@
             "detail": "Fracture",
             "side": "Right",
             "returnDate": "2026-11-23"
+          }
+        },
+        {
+          "status": "Injured Reserve",
+          "date": "2026-09-29T23:16Z",
+          "athlete": {
+            "id": "3125356",
+            "uid": "s:20~l:28~a:3125356",
+            "guid": "596d272b-21a0-e588-a59a-53e4ee6f84ae",
+            "lastName": "Davis",
+            "fullName": "Jalen Davis",
+            "displayName": "Jalen Davis",
+            "shortName": "J. Davis",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/3125356/jalen-davis",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3125356.png",
+              "alt": "Jalen Davis"
+            },
+            "jersey": "35",
+            "position": {
+              "name": "Cornerback",
+              "displayName": "Cornerback",
+              "abbreviation": "CB"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/3125356?lang=en&region=us"
+            },
+            "status": {
+              "id": "13",
+              "name": "Day-To-Day",
+              "type": "day-to-day",
+              "abbreviation": "Day-To-Day"
+            }
+          },
+          "type": {
+            "id": "5",
+            "name": "INJURY_STATUS_IR",
+            "description": "Injured Reserve",
+            "abbreviation": "IR"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "IR",
+              "abbreviation": "IR",
+              "displayDescription": "IR"
+            },
+            "type": "Hamstring",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Left",
+            "returnDate": "2026-11-08"
           }
         }
       ]
