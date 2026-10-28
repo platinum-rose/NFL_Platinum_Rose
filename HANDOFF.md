@@ -1,6 +1,13 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-27, H2C2 to Claude Team 2: Week 8 readiness and futures update)
+## PICK UP HERE (2026-10-27 5:35 PM PT, H2C2 Claude Team 2 → Codex: Week 8 prep done, schedule-ingest fixed)
+
+- **Start here:** `handoffs/2026-10-27-1735-claude-h2c2-codex-week8-wednesday.md`.
+- ARI and MIN manual Week 8 depth charts added; teams needing manual depth chart 2 → 0. Roster gate PASS 2026-10-28T00:15Z (0 blocking).
+- `agents/schedule-ingest.js` no longer drops cached weeks; `public/schedule.json` restored to 272 games. Codex: add a committed test and verify (§3 of the briefing), then fix the malformed secret-scan hook.
+- Next cadence is **Wednesday**; do not rerun Tuesday. TNF CAR @ GB Thu 10/29. Live Tracker GB @ DET O/U defect is still unverified.
+
+## Superseded, kept for history: 2026-10-27, H2C2 to Claude Team 2: Week 8 readiness and futures update
 
 - **Start here:** `reports/handoff-snapshots/2026-10-27-h2c2-week8-futures-claude2/H2C2_START_HERE.md`, then the detailed briefing at `handoffs/2026-10-27-1549-claude-h2c2-claude2-closeout-week8-futures.md`.
 - Week 7 is closed and its post-mortem / Platinum AI paper-proposal grades are in `reports/analysis/week7-postmortem/`. Week 8 is underway; the Tuesday cadence already ran 10/27 at 07:18 PT. Do not rerun Tuesday; next cadence is Wednesday. TNF CAR @ GB is Thu 10/29.
