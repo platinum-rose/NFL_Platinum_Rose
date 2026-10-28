@@ -1,55 +1,27 @@
 # NFL_Dashboard — Current Handoff
 
-## PICK UP HERE (2026-10-27 5:35 PM PT, H2C2 Claude Team 2 → Codex: Week 8 prep done, schedule-ingest fixed)
+## Pick up here — October 28, 2026
 
-- **Start here:** `handoffs/2026-10-27-1735-claude-h2c2-codex-week8-wednesday.md`.
-- ARI and MIN manual Week 8 depth charts added; teams needing manual depth chart 2 → 0. Roster gate PASS 2026-10-28T00:15Z (0 blocking).
-- `agents/schedule-ingest.js` no longer drops cached weeks; `public/schedule.json` restored to 272 games. Codex: add a committed test and verify (§3 of the briefing), then fix the malformed secret-scan hook.
-- Next cadence is **Wednesday**; do not rerun Tuesday. TNF CAR @ GB Thu 10/29. Live Tracker GB @ DET O/U defect is still unverified.
+Read `handoffs/2026-10-28-0022-codex-tracker-engineering.md`, then reconcile live Git and read `AGENTS.md` / `CLAUDE.md`.
 
-## Superseded, kept for history: 2026-10-27, H2C2 to Claude Team 2: Week 8 readiness and futures update
+- Working branch: `claude/w5-prop-cards-2026-10-11`.
+- Code checkpoint: `6dca59f19c7e490b1793c8b67a16995137490379`; this documentation closeout follows it. Verify final HEAD/upstream live.
+- Verified: **21/21 focused tests**, offline Chromium false-Hit reproduction and fixed reload replay, source syntax, test lint, and staged secret-pattern/whitespace checks. No full-suite result is claimed.
+- Schedule carry-forward tests (`371010c`) and scanner script repair (`d6ab1f0`) are committed. Tracker source now prioritizes recorded results over stale browser marks, isolates scoreboard data to the rendered week, and uses cached summaries on HTTP failure. Cadence wording now describes Supabase writes correctly.
+- Real tracker artifacts were not rebuilt or published for this fix. Scheduled Windows jobs have dirtied both tracker HTML files and the market timestamp again; preserve them. The private Yahoo access document and untracked scratch/backups remain excluded.
 
-- **Start here:** `reports/handoff-snapshots/2026-10-27-h2c2-week8-futures-claude2/H2C2_START_HERE.md`, then the detailed briefing at `handoffs/2026-10-27-1549-claude-h2c2-claude2-closeout-week8-futures.md`.
-- Week 7 is closed and its post-mortem / Platinum AI paper-proposal grades are in `reports/analysis/week7-postmortem/`. Week 8 is underway; the Tuesday cadence already ran 10/27 at 07:18 PT. Do not rerun Tuesday; next cadence is Wednesday. TNF CAR @ GB is Thu 10/29.
-- The latest BEO futures capture and normalized rows are `data/odds/BEO_futures_1027_1456.md`, `data/generated/futures/betonline-futures-2026-10-27_1456.json`, and `data/futures-imports/betonline-2026-10-27.json`. Reconcile prior movement / merged-duplicate discussion against these saved inputs before recommending portfolio changes.
-- Closeout commit: inspect live `git status`, branch, `HEAD`, and upstream before further work. The user's approval covers this scoped project-work commit and push only. The Yahoo API briefing, account statements, private test summaries, scratch media, backups, and `.nfl` transfer buffers were excluded.
+## Next work
 
-### Required startup order
-
-1. Read the H2C2 start brief.
-2. Reconcile current Git and upstream.
-3. Choose one active lane and load only the mapped artifacts.
-4. Consult the detailed briefing / manifest / older handoffs only when that lane needs them.
-
-## Superseded, kept for history: 2026-10-26 Codex day checkpoints (Week 7 football data and analytics)
-
-- Was the pick-up: `handoffs/2026-10-26-codex-week7-football-stats.md`. The provisional post-mortem now includes 13 completed games, team/player stats, scoring plays, and ticket accounting; DAL @ PHI and proposal-vs-results analysis remain open.
-- Prior ticket checkpoint: `handoffs/2026-10-26-codex-week7-postmortem-data.md`.
-- Prior network checkpoint: `handoffs/2026-10-26-codex-espn-lookup-alignment.md`. The mobile tracker now shares the Monday settlement request helper; live DNS still failed in this shell.
-- Prior engineering checkpoint: `handoffs/2026-10-26-codex-hedge-watch-engineering.md` (`35525d4`), including hedge-alert tests and replay results.
-- Context and binding guardrails: `handoffs/2026-10-26-0745-claude-h2c2-codex-briefing-w7-mobile-tracker-hedge-watch.md`. Snapshot: `reports/handoff-snapshots/2026-10-26-h2c2-w7-mobile-tracker-hedge-watch/`.
-- Reconcile live Git before acting. Preserve the dirty shared checkout and do not touch ledgers, Supabase, betting accounts, or artifact publication without the specific authorization recorded in the H2C2 briefing.
-
-## Superseded, kept for history: Week 7 SuperContest report correction
-
-> Superseded: the SC report was finalized 2026-10-25 (`34b0781`); see the 10/25 handoff.
-
-
-Repository: `E:\dev\projects\NFL_Dashboard`
-Branch: `claude/w5-prop-cards-2026-10-11`
-Report checkpoint: `0284a88bf7addbd79601f8891ffa0f821cbe2258`, pushed and verified remotely. A documentation-only closeout follows it; reconcile live HEAD.
-
-Read `handoffs/2026-10-24-1820-codex-resume-supercontest-sides-only.md` for the full resume prompt, source map, build command and remaining requirements.
-
-**Next:** Inspect the exact local Week 7 SuperContest HTML and reproduce Andy's unresolved report issue. Restore substantive spread-only pitch summaries and weekly post-mortems while preserving the established layout, expert sides/current BKR spreads, standings and AI-versus-official tracking. A keyword audit is not proof of a working report.
-
-**State:** Prior build and roster gate passed; rendered behavior remains unverified. No tests run during closeout. PDF remains stale. AI proposal has five sides plus three alternates; Andy/Amanda's official five remain pending.
+1. Inspect the active M6 worktree before updating it; last verified clean at `ba8b2e7`, not advanced by this Windows closeout.
+2. Finish the independent depth-chart reconciliation; sampled position differences remain. Inspect Wednesday run logs/readiness before considering any cadence.
+3. Next cadence is **Wednesday**, then Wednesday PM after practice reports. **Do not rerun Tuesday.** TNF: CAR @ GB, October 29 at 5:15 PM Pacific.
+4. Real tracker activation requires the roster gate, Andy's publication approval, and actual page verification. Hook invocation paths also need separate review; scanner syntax is fixed, automatic wiring is unverified.
 
 ## Guardrails
 
-- Preserve the dirty shared checkout and local generated/reference files. No reset, clean, stash, broad staging or unrelated commits.
-- Use `git -c core.fsmonitor=false` for Git inspection. Live Git wins over historical handoffs.
-- SuperContest report is spread sides only; other markets stay out of its cards, expert rows and post-mortems.
-- Current BKR capture and fixed contest spreads are distinct; legacy BKR current-lines files are opening-line evidence only.
-- No wagers, account actions, official-pick promotion, ledger/Supabase writes or paid synthesis without explicit authorization.
-- Rebuild with Windows Python 3.14; mandatory roster gate must pass. Verify actual rendered report before claiming the issue fixed.
+- Preserve dirty/concurrent work. No broad staging, reset, clean, stash, or unreviewed deletion. Use `git -c core.fsmonitor=false`.
+- No account, wager, portfolio/ledger, Supabase, paid API/model action, or artifact publication without Andy's per-action OK. Live schedule ingest writes Supabase; dry-run can still write local caches.
+- A passing live roster gate is required before player-named output. Saved October 27 clearance is not Wednesday PM clearance.
+- Active M6 path: `/home/andrewlrose/projects/NFL_Dashboard_w5_current`. Leave legacy checkouts and frozen backups alone.
+
+Details: `reports/engineering/live-tracker-correctness-2026-10-28.md`. Prior scope and original guardrails: `handoffs/2026-10-27-1735-claude-h2c2-codex-week8-wednesday.md`.
