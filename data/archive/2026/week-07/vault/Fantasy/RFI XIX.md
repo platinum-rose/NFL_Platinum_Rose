@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "RFI XIX — Week 7"
-created: "2026-10-27T14:58:02.675Z"
-modified: "2026-10-27T14:58:02.675Z"
+created: "2026-10-29T13:00:48.783Z"
+modified: "2026-10-29T13:00:48.783Z"
 season: 2026
 week: 7
 type: "fantasy-league-week"
@@ -24,7 +24,7 @@ my_rank: 5
 
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
-| Tremendous Slouch | 108.88 | 98.66 | vs | Golden Domers 4 J&J | 101.62 | 97.85 |
+| Tremendous Slouch | 108.78 | 98.66 | vs | Golden Domers 4 J&J | 101.62 | 97.85 |
 | Snookies Squad | 137.2 | 105.01 | vs | Sheriff Of Paddy's | 79.22 | 112.19 |
 | Doug Exeter | 97.32 | 109.3 | vs | Fat Lazy AmAndicans | 111.3 | 105.23 |
 | 2026 Champ! | 97.2 | 112.82 | vs | Shanimals | 136.54 | 101.48 |
@@ -36,11 +36,11 @@ my_rank: 5
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
 | 1 | Sheriff Of Paddy's | 6-1-0 | 816.98 | 760.6400000000001 |
-| 2 | Tremendous Slouch | 4-3-0 | 783.44 | 748.98 |
+| 2 | Tremendous Slouch | 4-3-0 | 783.34 | 748.98 |
 | 3 | NotSoNewlyWedz | 4-3-0 | 781.32 | 660.4200000000001 |
 | 4 | Doug Exeter | 4-3-0 | 780.64 | 698.9799999999999 |
 | 5 | **Fat Lazy AmAndicans** | 4-3-0 | 718.36 | 754.06 |
-| 6 | Golden Domers 4 J&J | 4-3-0 | 689.7 | 674.4 |
+| 6 | Golden Domers 4 J&J | 4-3-0 | 689.7 | 674.3 |
 | 7 | 2026 Champ! | 4-3-0 | 672.92 | 709.5199999999999 |
 | 8 | Shrimp Gang | 3-4-0 | 719.34 | 711.8799999999999 |
 | 9 | Shanimals | 3-4-0 | 717.54 | 689.34 |
@@ -78,12 +78,12 @@ Starters 111.30 · bench 1.80
 | Tony Pollard | TEN | RB | 34 | Snookies Squad | RB |
 | Drake Maye | NE | QB | 31.44 | Shanimals | QB |
 | Dak Prescott | DAL | QB | 29.28 | NotSoNewlyWedz | BN |
-| Bo Nix | DEN | QB | 28.28 | Tremendous Slouch | QB |
+| Bo Nix | DEN | QB | 28.18 | Tremendous Slouch | QB |
+| Buccaneers | TB | DEF | 27 | Tough Nuts | BN |
 | Javonte Williams | DAL | RB | 26.5 | Golden Domers 4 J&J | RB |
 | Michael Penix Jr. | ATL | QB | 26.42 | Tough Nuts | QB |
 | Caleb Williams | CHI | QB | 26.12 | Golden Domers 4 J&J | QB |
 | Jaxon Smith-Njigba | SEA | WR | 25.8 | Doug Exeter | WR |
-| Buccaneers | TB | DEF | 25 | Tough Nuts | BN |
 | Tee Higgins | CIN | WR | 23.8 | NotSoNewlyWedz | W/R/T |
 | Matthew Stafford | LAR | QB | 23.5 | 2026 Champ! | QB |
 | Jameson Williams | DET | WR | 23.1 | Shanimals | WR |

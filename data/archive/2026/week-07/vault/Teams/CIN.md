@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CIN — Week 7"
-created: "2026-10-27T14:58:02.140Z"
-modified: "2026-10-27T14:58:02.140Z"
+created: "2026-10-29T13:00:48.759Z"
+modified: "2026-10-29T13:00:48.759Z"
 season: 2026
 week: 7
 type: "team-week"

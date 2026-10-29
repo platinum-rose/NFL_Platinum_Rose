@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "IND @ MIN — Week 7"
-created: "2026-10-27T14:58:01.876Z"
-modified: "2026-10-27T14:58:01.876Z"
+created: "2026-10-29T13:00:48.747Z"
+modified: "2026-10-29T13:00:48.747Z"
 season: 2026
 week: 7
 type: "game-week"

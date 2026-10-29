@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "The Honey Badgers — Week 7"
-created: "2026-10-27T14:58:02.617Z"
-modified: "2026-10-27T14:58:02.617Z"
+created: "2026-10-29T13:00:48.779Z"
+modified: "2026-10-29T13:00:48.779Z"
 season: 2026
 week: 7
 type: "fantasy-league-week"
@@ -15,7 +15,7 @@ league: "The Honey Badgers"
 league_key: "470.l.351555"
 my_team: "Fat Lazy Americans"
 my_points: 143.87
-opp_points: 131.49
+opp_points: 132.24
 my_rank: 8
 ---
 # The Honey Badgers — Week 7
@@ -25,27 +25,27 @@ my_rank: 8
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
 | Olivators | 155.32 | 139.4 | vs | Kryponite | 145.58 | 123.04 |
-| CopperTheBigRedDog | 161.17 | 151.88 | vs | The Trophy Wives | 113.51 | 124.24 |
+| CopperTheBigRedDog | 164.92 | 151.88 | vs | The Trophy Wives | 113.51 | 124.24 |
 | Dolphin Boobiez | 139.38 | 149.57 | vs | JRZ | 114.6 | 127.98 |
-| Fat Lazy Americans | 143.87 | 139.77 | vs | Unicorn Love | 131.49 | 122.56 |
+| Fat Lazy Americans | 143.87 | 139.77 | vs | Unicorn Love | 132.24 | 122.56 |
 | Jesus take the wheel | 133.6 | 122.12 | vs | My Balls Are Afoot | 112.23 | 127.73 |
-| Comfy In Chair | 150.33 | 131.03 | vs | The Curious Case of Cookus | 113.52 | 133.04 |
+| Comfy In Chair | 150.23 | 131.03 | vs | The Curious Case of Cookus | 113.52 | 133.04 |
 
 ## Standings
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | CopperTheBigRedDog | 6-1-0 | 1102.1 | 919.22 |
+| 1 | CopperTheBigRedDog | 6-1-0 | 1105.85 | 919.22 |
 | 2 | Dolphin Boobiez | 6-1-0 | 1066.52 | 919.8800000000001 |
 | 3 | Olivators | 4-3-0 | 1044.38 | 1046.61 |
-| 4 | The Curious Case of Cookus | 4-3-0 | 945.82 | 861.0200000000001 |
-| 5 | Comfy In Chair | 4-3-0 | 932.89 | 885.02 |
-| 6 | The Trophy Wives | 4-3-0 | 929.42 | 917.73 |
+| 4 | The Curious Case of Cookus | 4-3-0 | 945.82 | 860.9200000000001 |
+| 5 | Comfy In Chair | 4-3-0 | 932.79 | 885.02 |
+| 6 | The Trophy Wives | 4-3-0 | 929.42 | 921.48 |
 | 7 | Jesus take the wheel | 4-3-0 | 910.22 | 942.9200000000001 |
-| 8 | **Fat Lazy Americans** | 3-4-0 | 987.4 | 989.15 |
+| 8 | **Fat Lazy Americans** | 3-4-0 | 987.4 | 989.9 |
 | 9 | My Balls Are Afoot | 3-4-0 | 918.03 | 993.79 |
 | 10 | Kryponite | 2-5-0 | 848.24 | 913.8399999999999 |
-| 11 | Unicorn Love | 1-6-0 | 866.59 | 1018.72 |
+| 11 | Unicorn Love | 1-6-0 | 867.34 | 1018.72 |
 | 12 | JRZ | 1-6-0 | 849.65 | 993.36 |
 
 ## My lineup (Fat Lazy Americans)
@@ -81,7 +81,7 @@ Starters 143.87 · bench 52.32
 | Tony Pollard | TEN | RB | 35 | CopperTheBigRedDog | BN |
 | Drake Maye | NE | QB | 33.44 | Unicorn Love | QB |
 | Malik Willis | MIA | QB | 31.02 | Dolphin Boobiez | BN |
-| Bo Nix | DEN | QB | 30.28 | Comfy In Chair | QB |
+| Bo Nix | DEN | QB | 30.18 | Comfy In Chair | QB |
 | Dak Prescott | DAL | QB | 29.28 | Kryponite | QB |
 | Caleb Williams | CHI | QB | 27.12 | Fat Lazy Americans | QB |
 | Jaxon Smith-Njigba | SEA | WR | 26.8 | Olivators | WR |

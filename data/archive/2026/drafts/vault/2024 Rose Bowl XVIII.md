@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "Rose Bowl XVIII draft 2024"
-created: "2026-10-27T13:00:45.699Z"
-modified: "2026-10-27T13:00:45.699Z"
+created: "2026-10-29T13:00:48.436Z"
+modified: "2026-10-29T13:00:48.436Z"
 season: 2024
 type: "fantasy-draft"
 league: "Rose Bowl XVIII"

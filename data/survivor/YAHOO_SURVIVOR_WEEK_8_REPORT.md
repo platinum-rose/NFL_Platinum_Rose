@@ -1,6 +1,6 @@
 # Yahoo Survival Football — Week 8 Intelligence Report
 
-**Generated:** 2026-10-27T17:00:05.446Z | **Season:** 2026 | **Week:** 8
+**Generated:** 2026-10-29T01:00:05.291Z | **Season:** 2026 | **Week:** 8
 
 ---
 

@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "2023 - The League draft 2023"
-created: "2026-10-27T13:00:45.797Z"
-modified: "2026-10-27T13:00:45.797Z"
+created: "2026-10-29T13:00:48.485Z"
+modified: "2026-10-29T13:00:48.485Z"
 season: 2023
 type: "fantasy-draft"
 league: "2023 - The League"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 7"
-created: "2026-10-27T14:58:02.714Z"
-modified: "2026-10-27T14:58:02.714Z"
+created: "2026-10-29T13:00:48.787Z"
+modified: "2026-10-29T13:00:48.787Z"
 season: 2026
 week: 7
 type: "contests-week"
@@ -35,7 +35,7 @@ pools: ["Ken's Pickem League"]
 ## Survivor
 
 
-**Generated:** 2026-10-27T13:00:44.394Z | **Season:** 2026 | **Week:** 7
+**Generated:** 2026-10-29T13:00:47.357Z | **Season:** 2026 | **Week:** 7
 
 ---
 

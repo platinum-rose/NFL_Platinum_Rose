@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "Rose Bowl XIX draft 2026"
-created: "2026-10-27T13:00:45.352Z"
-modified: "2026-10-27T13:00:45.352Z"
+created: "2026-10-29T13:00:48.262Z"
+modified: "2026-10-29T13:00:48.262Z"
 season: 2026
 type: "fantasy-draft"
 league: "Rose Bowl XIX"
@@ -192,7 +192,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 113 | 10 | Jukin Junies | Michael Pittman Jr. | PIT | WR | 16.9 |
 | 114 | 10 | L.V. Rosekillers | Brandon Aubrey | DAL | K | 67 |
 | 115 | 10 | CallinginSickMonday | Josh Jacobs | GB | RB | 20.1 |
-| 116 | 10 | Sir Nix A Lot | Bo Nix | DEN | QB | 109.94 |
+| 116 | 10 | Sir Nix A Lot | Bo Nix | DEN | QB | 109.84 |
 | 117 | 10 | Bear Force One | Jack Campbell | DET | LB | 43.5 |
 | 118 | 10 | **Fat Lazy Americans** | Kyle Monangai | CHI | RB | 59.3 |
 | 119 | 10 | Concussion Protocol | Quentin Johnston | LAC | WR | 18.1 |
@@ -211,7 +211,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 132 | 11 | Chubbtown Brownies | Woody Marks | HOU | RB | 69.3 |
 | 133 | 12 | Chubbtown Brownies | Emmett Johnson | KC | RB | 30.46 |
 | 134 | 12 | Panda XL | Aaron Donald | LAR | DT,DE | 2 |
-| 135 | 12 | Waiting for Basketball | Fred Warner | SF | LB | 62.5 |
+| 135 | 12 | Waiting for Basketball | Fred Warner | SF | LB | 65 |
 | 136 | 12 | OUTLAWS | Jaxson Dart | NYG | QB | 33.4 |
 | 137 | 12 | Jukin Junies | Blake Cashman | MIN | LB | 62.5 |
 | 138 | 12 | L.V. Rosekillers | Romeo Doubs | NE | WR | 23.1 |

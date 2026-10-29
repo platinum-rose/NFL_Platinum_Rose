@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "TEN — Week 7"
-created: "2026-10-27T14:58:02.207Z"
-modified: "2026-10-27T14:58:02.207Z"
+created: "2026-10-29T13:00:48.761Z"
+modified: "2026-10-29T13:00:48.761Z"
 season: 2026
 week: 7
 type: "team-week"

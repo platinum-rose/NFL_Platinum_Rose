@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "The Honey Badgers draft 2026"
-created: "2026-10-27T13:00:45.314Z"
-modified: "2026-10-27T13:00:45.314Z"
+created: "2026-10-29T13:00:48.242Z"
+modified: "2026-10-29T13:00:48.242Z"
 season: 2026
 type: "fantasy-draft"
 league: "The Honey Badgers"
@@ -33,7 +33,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 68 | 6 |  | Carnell Tate | TEN | WR | 57.6 | -27 |
 | 77 | 7 |  | Carson Schwesinger | CLE | LB | 77.5 | 14 |
 | 92 | 8 |  | RJ Harvey | DEN | RB | 54.9 | -15 |
-| 101 | 9 |  | Matthew Golden | GB | WR | 94.1 | 59 |
+| 101 | 9 |  | Matthew Golden | GB | WR | 94.1 | 58 |
 | 116 | 10 |  | Zack Baun | PHI | LB | 61.25 | 28 |
 | 125 | 11 |  | Makai Lemon | PHI | WR |  |  |
 | 140 | 12 |  | Brock Bowers | LV | TE | 78.5 | 78 |
@@ -50,7 +50,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 177 | Jordan Love | QB | The Trophy Wives | 167.82 | +172 |
 | 175 | Jared Goff | QB | Olivators | 165.02 | +168 |
 | 197 | Caleb Williams | QB | Fat Lazy Americans | 96.6 | +158 |
-| 194 | Spencer Shrader | K | The Curious Case of Cookus | 92.75 | +150 |
+| 194 | Spencer Shrader | K | The Curious Case of Cookus | 92.75 | +149 |
 | 143 | Brock Purdy | QB | The Curious Case of Cookus | 184.02 | +141 |
 | 169 | Malik Willis | QB | Dolphin Boobiez | 102.58 | +141 |
 | 152 | Patrick Mahomes | QB | JRZ | 128.06 | +136 |
@@ -151,7 +151,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 72 | 6 | Dolphin Boobiez | Jonathon Brooks | CAR | RB | 8.3 |
 | 73 | 7 | Dolphin Boobiez | Chris Godwin Jr. | TB | WR | 39.6 |
 | 74 | 7 | The Curious Case of Cookus | Quentin Johnston | LAC | WR | 20.8 |
-| 75 | 7 | Comfy In Chair | Bo Nix | DEN | QB | 115.94 |
+| 75 | 7 | Comfy In Chair | Bo Nix | DEN | QB | 115.84 |
 | 76 | 7 | Jesus take the wheel | Jayden Reed | GB | WR | 3.5 |
 | 77 | 7 | **Fat Lazy Americans** | Carson Schwesinger | CLE | LB | 77.5 |
 | 78 | 7 | Kryponite | Dak Prescott | DAL | QB | 162.14 |
@@ -185,7 +185,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 106 | 9 | Unicorn Love | Baker Mayfield | TB | QB | 51.76 |
 | 107 | 9 | My Balls Are Afoot | Kyle Monangai | CHI | RB | 56.8 |
 | 108 | 9 | CopperTheBigRedDog | Blake Cashman | MIN | LB | 84.5 |
-| 109 | 10 | CopperTheBigRedDog | Fred Warner | SF | LB | 91.5 |
+| 109 | 10 | CopperTheBigRedDog | Fred Warner | SF | LB | 95.25 |
 | 110 | 10 | My Balls Are Afoot | Michael Pittman Jr. | PIT | WR | 13.9 |
 | 111 | 10 | Unicorn Love | Roquan Smith | BAL | LB | 74.25 |
 | 112 | 10 | The Trophy Wives | KC Concepcion Jr. | CLE | WR | 39 |

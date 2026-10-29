@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "GB @ DET — Week 7"
-created: "2026-10-27T14:58:01.979Z"
-modified: "2026-10-27T14:58:01.979Z"
+created: "2026-10-29T13:00:48.752Z"
+modified: "2026-10-29T13:00:48.752Z"
 season: 2026
 week: 7
 type: "game-week"

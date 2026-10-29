@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NYG @ HOU — Week 7"
-created: "2026-10-27T14:58:01.908Z"
-modified: "2026-10-27T14:58:01.908Z"
+created: "2026-10-29T13:00:48.749Z"
+modified: "2026-10-29T13:00:48.749Z"
 season: 2026
 week: 7
 type: "game-week"

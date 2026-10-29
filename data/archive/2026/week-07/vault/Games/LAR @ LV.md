@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "LAR @ LV — Week 7"
-created: "2026-10-27T14:58:02.001Z"
-modified: "2026-10-27T14:58:02.001Z"
+created: "2026-10-29T13:00:48.753Z"
+modified: "2026-10-29T13:00:48.753Z"
 season: 2026
 week: 7
 type: "game-week"

@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XIX draft 2026"
-created: "2026-10-27T13:00:45.414Z"
-modified: "2026-10-27T13:00:45.414Z"
+created: "2026-10-29T13:00:48.293Z"
+modified: "2026-10-29T13:00:48.293Z"
 season: 2026
 type: "fantasy-draft"
 league: "RFI XIX"
@@ -189,7 +189,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 112 | 10 | Golden Domers 4 J&J | Josh Jacobs | GB | RB | 16.6 |
 | 113 | 10 | 2026 Champ! | Matthew Stafford | LAR | QB | 151.36 |
 | 114 | 10 | Doug Exeter | Dallas Goedert | PHI | TE | 35 |
-| 115 | 10 | CousinCamp | Bo Nix | DEN | QB | 105.46 |
+| 115 | 10 | CousinCamp | Bo Nix | DEN | QB | 105.36 |
 | 116 | 10 | **Fat Lazy AmAndicans** | Xavier Worthy | KC | WR | 24.7 |
 | 117 | 10 | Tremendous Slouch | Rashid Shaheed | SEA | WR | 5.34 |
 | 118 | 10 | Shanimals | Kyle Monangai | CHI | RB | 54.8 |

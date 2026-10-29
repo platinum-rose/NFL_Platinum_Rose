@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "LAR — Week 7"
-created: "2026-10-27T14:58:02.486Z"
-modified: "2026-10-27T14:58:02.486Z"
+created: "2026-10-29T13:00:48.774Z"
+modified: "2026-10-29T13:00:48.774Z"
 season: 2026
 week: 7
 type: "team-week"

@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "2024 - The League draft 2024"
-created: "2026-10-27T13:00:45.625Z"
-modified: "2026-10-27T13:00:45.625Z"
+created: "2026-10-29T13:00:48.399Z"
+modified: "2026-10-29T13:00:48.399Z"
 season: 2024
 type: "fantasy-draft"
 league: "2024 - The League"

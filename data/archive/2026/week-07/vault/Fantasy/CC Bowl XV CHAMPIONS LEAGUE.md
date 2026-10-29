@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 7"
-created: "2026-10-27T14:58:02.656Z"
-modified: "2026-10-27T14:58:02.656Z"
+created: "2026-10-29T13:00:48.782Z"
+modified: "2026-10-29T13:00:48.782Z"
 season: 2026
 week: 7
 type: "fantasy-league-week"
@@ -15,7 +15,7 @@ league: "CC Bowl XV CHAMPIONS LEAGUE"
 league_key: "470.l.735870"
 my_team: "Fat Lazy Americans"
 my_points: 170.08
-opp_points: 153.7
+opp_points: 157.2
 my_rank: 1
 ---
 # CC Bowl XV CHAMPIONS LEAGUE — Week 7
@@ -24,23 +24,23 @@ my_rank: 1
 
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
-| Fat Lazy Americans | 170.08 | 164.56 | vs | CallingInSickMonday | 153.7 | 155.06 |
+| Fat Lazy Americans | 170.08 | 164.56 | vs | CallingInSickMonday | 157.2 | 155.06 |
 | Isotopes | 140.64 | 141.05 | vs | KC Masterpiece | 116.76 | 101.1 |
-| Ninja Goblins | 128.1 | 123.86 | vs | Ava's Mafia | 134.42 | 125.83 |
+| Ninja Goblins | 128.6 | 123.86 | vs | Ava's Mafia | 134.42 | 125.83 |
 | Prestige Worldwide | 169.76 | 155.53 | vs | The Omen | 139.52 | 165.04 |
 
 ## Standings
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | **Fat Lazy Americans** | 6-1-0 | 1190.34 | 977.72 |
+| 1 | **Fat Lazy Americans** | 6-1-0 | 1190.34 | 981.22 |
 | 2 | KC Masterpiece | 4-3-0 | 1063.18 | 1059.1399999999999 |
 | 3 | Prestige Worldwide | 4-3-0 | 1012.3 | 1113.64 |
-| 4 | Ninja Goblins | 4-3-0 | 920.42 | 989.4399999999999 |
-| 5 | CallingInSickMonday | 3-4-0 | 1073.6 | 986.98 |
+| 4 | Ninja Goblins | 4-3-0 | 920.92 | 989.4399999999999 |
+| 5 | CallingInSickMonday | 3-4-0 | 1077.1 | 986.98 |
 | 6 | Isotopes | 3-4-0 | 1049.94 | 1009.24 |
 | 7 | The Omen | 2-5-0 | 1085.96 | 1118.5 |
-| 8 | Ava's Mafia | 2-5-0 | 928.86 | 1069.9399999999998 |
+| 8 | Ava's Mafia | 2-5-0 | 928.86 | 1070.4399999999998 |
 
 ## My lineup (Fat Lazy Americans)
 

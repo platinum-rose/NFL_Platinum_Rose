@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "SEA — Week 7"
-created: "2026-10-27T14:58:02.543Z"
-modified: "2026-10-27T14:58:02.543Z"
+created: "2026-10-29T13:00:48.776Z"
+modified: "2026-10-29T13:00:48.776Z"
 season: 2026
 week: 7
 type: "team-week"

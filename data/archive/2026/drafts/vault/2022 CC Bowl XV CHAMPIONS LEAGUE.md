@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE draft 2022"
-created: "2026-10-27T13:00:46.088Z"
-modified: "2026-10-27T13:00:46.088Z"
+created: "2026-10-29T13:00:48.629Z"
+modified: "2026-10-29T13:00:48.629Z"
 season: 2022
 type: "fantasy-draft"
 league: "CC Bowl XV CHAMPIONS LEAGUE"

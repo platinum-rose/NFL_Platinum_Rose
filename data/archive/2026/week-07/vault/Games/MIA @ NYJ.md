@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "MIA @ NYJ — Week 7"
-created: "2026-10-27T14:58:01.892Z"
-modified: "2026-10-27T14:58:01.892Z"
+created: "2026-10-29T13:00:48.748Z"
+modified: "2026-10-29T13:00:48.748Z"
 season: 2026
 week: 7
 type: "game-week"

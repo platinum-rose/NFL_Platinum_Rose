@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 7"
-created: "2026-10-27T14:58:02.793Z"
-modified: "2026-10-27T14:58:02.793Z"
+created: "2026-10-29T13:00:48.790Z"
+modified: "2026-10-29T13:00:48.790Z"
 season: 2026
 week: 7
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 5
 ---
 # NFL 2026 — Week 7
 
-Favorites ATS 8-6-0 · Overs 9 of 14 · archived 2026-10-27T14:58Z
+Favorites ATS 8-6-0 · Overs 9 of 14 · archived 2026-10-29T13:00Z
 
 ## Games
 

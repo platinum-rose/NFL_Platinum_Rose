@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "KC @ SEA — Week 7"
-created: "2026-10-27T14:58:02.020Z"
-modified: "2026-10-27T14:58:02.020Z"
+created: "2026-10-29T13:00:48.753Z"
+modified: "2026-10-29T13:00:48.753Z"
 season: 2026
 week: 7
 type: "game-week"

@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "2026 -  The League draft 2026"
-created: "2026-10-27T13:00:45.274Z"
-modified: "2026-10-27T13:00:45.274Z"
+created: "2026-10-29T13:00:48.219Z"
+modified: "2026-10-29T13:00:48.219Z"
 season: 2026
 type: "fantasy-draft"
 league: "2026 -  The League"
@@ -214,7 +214,7 @@ tags: ["nfl", "season-2026", "fantasy", "nfl/fantasy-draft"]
 | 135 | 12 | Kona’s Kickers | Tre Tucker | LV | WR | 85.3 |
 | 136 | 12 | Dumpster Fire | Keaton Mitchell | LAC | RB | 14.5 |
 | 137 | 12 | Berserker | Jonah Coleman | DEN | RB | 21.2 |
-| 138 | 12 | Billy Goat Tavern | Fred Warner | SF | LB | 64 |
+| 138 | 12 | Billy Goat Tavern | Fred Warner | SF | LB | 66.5 |
 | 139 | 12 | Wailin Raylans | Jaxson Dart | NYG | QB | 33.4 |
 | 140 | 12 | I LIKE BIG TDS | Nakobe Dean | LV | LB | 69.5 |
 | 141 | 12 | No Talent Ass Clowns | Isaiah Likely | NYG | TE | 92 |

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "MIN — Week 7"
-created: "2026-10-27T14:58:02.243Z"
-modified: "2026-10-27T14:58:02.243Z"
+created: "2026-10-29T13:00:48.763Z"
+modified: "2026-10-29T13:00:48.763Z"
 season: 2026
 week: 7
 type: "team-week"

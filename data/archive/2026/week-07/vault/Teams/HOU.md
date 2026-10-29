@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "HOU — Week 7"
-created: "2026-10-27T14:58:02.316Z"
-modified: "2026-10-27T14:58:02.316Z"
+created: "2026-10-29T13:00:48.766Z"
+modified: "2026-10-29T13:00:48.766Z"
 season: 2026
 week: 7
 type: "team-week"

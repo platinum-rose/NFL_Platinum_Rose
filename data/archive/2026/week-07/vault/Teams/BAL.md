@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "BAL — Week 7"
-created: "2026-10-27T14:58:02.157Z"
-modified: "2026-10-27T14:58:02.157Z"
+created: "2026-10-29T13:00:48.759Z"
+modified: "2026-10-29T13:00:48.759Z"
 season: 2026
 week: 7
 type: "team-week"
