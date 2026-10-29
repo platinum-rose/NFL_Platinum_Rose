@@ -14,8 +14,19 @@
     "built_at": "2026-10-27",
     "caveats": [
       "Ourlads 'O' suffixes reflect Week 7 OUT designations; Week 8 practice reports (Wed-Fri) supersede.",
-      "Not a pick or projection; research context only."
-    ]
+      "Not a pick or projection; research context only.",
+      "Independent team-page comparison completed 2026-10-28 with role/order/package differences; original Ourlads claims retained. See reconciliation report. No Wednesday practice or availability clearance."
+    ],
+    "independent_reconciliation": {
+      "status": "completed_with_conflicts",
+      "observed_at": "2026-10-28T07:48:49.983403+00:00",
+      "source_url": "https://www.vikings.com/team/depth-chart",
+      "source_updated_at": null,
+      "report": "reports/engineering/week8-depth-chart-reconciliation-2026-10-28.json",
+      "manual_rows_checked": 32,
+      "rows_requiring_review": 4,
+      "role_or_availability_clearance": false
+    }
   },
   "players": [
     {
@@ -92,7 +103,8 @@
       "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. Ourlads RB1. Left Week 7 with a left-knee injury reported as not significant (Questionable, 10/26). Week 7: 8 carries before exiting.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -112,7 +124,8 @@
       "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB2. Week 7: 15 carries for 68 after Jones left; ESPN roster lists him day-to-day.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -132,7 +145,8 @@
       "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB3; OUT Week 7. DeeJay Dallas (Tuesday's estimated MIN RB row) is on the practice squad per Ourlads, so that row is superseded.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -572,10 +586,11 @@
       "evidence": "Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. Nickel CB1 (ESPN lists S).",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "secondary",
-      "needs_human_review": false,
+      "needs_human_review": true,
       "confidence_basis": "manual_depth_chart"
     },
     {

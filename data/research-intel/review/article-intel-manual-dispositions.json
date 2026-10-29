@@ -1,6 +1,6 @@
 {
   "schema": "article_pick_source_manual_dispositions_v1",
-  "generated_at": "2026-10-21T20:55:00.000Z",
+  "generated_at": "2026-10-28T19:10:00.000Z",
   "guardrail": "Manual A05 dispositions resolve pick-oriented article rows for evidence integrity only. They do not promote bets, create official picks, or make inference leads actionable.",
   "dispositions": [
     {
@@ -997,6 +997,102 @@
         "prose_style_picks_missed_by_extractor"
       ],
       "notes": "Author Zachary Cohen (VSiN), NE @ CHI TNF. Picks read from the page, no sportsbook named: Patriots +3 (-105, 1.5u); Patriots ML (+138, 0.5u sprinkle); Drake Maye Over 1.5 passing TDs (-115). No total pick; no injury or inactive notes. Maye 3+ TD claim verified in nflverse (W4 3, W5 4, W6 3). Prices need verification against current boards before any use."
+    },
+    {
+      "id": 9861,
+      "source": "ESPN NFL",
+      "title": "How Chargers' 2026 first-round pick Akheem Mesidor is faring so far",
+      "url": "https://www.espn.com/nfl/story/_/id/50278837/los-angeles-chargers-akheem-mesidor-2026-performance",
+      "disposition": "reviewed_no_actionable_actual_pick",
+      "pick_oriented": false,
+      "reviewed_at": "2026-10-28T17:45:00.000Z",
+      "reviewer": "Claude (Andy-directed 2026-10-28)",
+      "evidence_basis": [
+        "body_available",
+        "non_betting_editorial",
+        "draft_pick_wording_false_positive",
+        "body_scanned_for_betting_terms"
+      ],
+      "notes": "Andy 2026-10-28: quick fix, per-article only (no global draft-pick keyword exclusion). ESPN feature on Chargers 2026 first-round pick Akheem Mesidor. 'Pick' is draft usage. Body scanned 2026-10-28: only betting text is ESPN sidebar links (Week 8 early bets, odds page); no selection, line or price in the article."
+    },
+    {
+      "id": 9898,
+      "source": "PFF",
+      "title": "Seahawks acquire All-Pro G Quenton Nelson from Colts for two draft picks",
+      "url": "https://www.pff.com/news/nfl-seahawks-quenton-nelson-trade-analysis/",
+      "disposition": "reviewed_no_actionable_actual_pick",
+      "pick_oriented": false,
+      "reviewed_at": "2026-10-28T17:45:00.000Z",
+      "reviewer": "Claude (Andy-directed 2026-10-28)",
+      "evidence_basis": [
+        "body_available",
+        "non_betting_editorial",
+        "draft_pick_wording_false_positive",
+        "body_scanned_for_betting_terms"
+      ],
+      "notes": "Andy 2026-10-28: quick fix, per-article only (no global draft-pick keyword exclusion). PFF trade news: Seahawks acquire Quenton Nelson from Colts for two draft picks. Body is mostly paywall/site chrome; the extracted market lead was a PFF subscription price banner. No selection, line or price."
+    },
+    {
+      "id": 9944,
+      "source": "Pro Football Talk",
+      "title": "Giants GM Joe Schoen on trades: We're looking, but has to make sense now and in future",
+      "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/giants-gm-joe-schoen-on-trades-were-looking-but-has-to-make-sense-now-and-in-future",
+      "disposition": "reviewed_no_actionable_actual_pick",
+      "pick_oriented": false,
+      "reviewed_at": "2026-10-28T17:45:00.000Z",
+      "reviewer": "Claude (Andy-directed 2026-10-28)",
+      "evidence_basis": [
+        "body_available",
+        "non_betting_editorial",
+        "draft_pick_wording_false_positive",
+        "body_scanned_for_betting_terms"
+      ],
+      "notes": "Andy 2026-10-28: quick fix, per-article only (no global draft-pick keyword exclusion). PFT: Giants GM Joe Schoen on trade approach ('future picks' = draft picks). Extracted leads were site nav and a generic quote. No selection, line or price."
+    },
+    {
+      "id": 9925,
+      "source": "Pro Football Talk",
+      "title": "Texas left tackle and likely first-round pick Trevor Goosby out for season",
+      "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/texas-left-tackle-and-likely-first-round-pick-trevor-goosby-out-for-season",
+      "disposition": "reviewed_no_actionable_actual_pick",
+      "pick_oriented": false,
+      "reviewed_at": "2026-10-28T17:45:00.000Z",
+      "reviewer": "Claude (Andy-directed 2026-10-28)",
+      "evidence_basis": [
+        "body_available",
+        "non_betting_editorial",
+        "draft_pick_wording_false_positive",
+        "body_scanned_for_betting_terms"
+      ],
+      "notes": "Andy 2026-10-28: quick fix, per-article only (no global draft-pick keyword exclusion). PFT: Texas LT Trevor Goosby (likely first-round pick) out for season. Only betting text is a mention of 2027 No. 1 overall pick odds (15th) as context; not an analyst wager. 32-team tag came from site nav."
+    },
+    {
+      "id": 9978,
+      "source": "Action Network",
+      "title": "NFL Playoff Picture: Week 8 AFC Division Odds & Futures Reset ...",
+      "url": "https://www.actionnetwork.com/nfl/nfl-playoff-picture-week-8-afc-division-odds-futures-reset",
+      "disposition": "reviewed_selection_needs_execution_verification",
+      "reviewed_at": "2026-10-28T19:10:00.000Z",
+      "reviewer": "Claude (Andy-directed 2026-10-28)",
+      "teams": [
+        "BAL",
+        "CIN",
+        "CLE",
+        "PIT",
+        "KC",
+        "DEN",
+        "HOU",
+        "NYJ"
+      ],
+      "evidence_basis": [
+        "body_available",
+        "manual_read_of_stored_body",
+        "prose_style_picks_missed_by_extractor"
+      ],
+      "flags": [
+        "futures_article"
+      ],
+      "notes": "Author Brandon Anderson (Action Network), published 2026-10-28 09:00 PT. Extractor caught only Zay Flowers receiving-yards leader +4900. Author's 'Futures Bets Placed This Week' list: Bengals AFC 1-seed +1150 (Polymarket, 8%); Texans Over 8.5 wins +134 (DraftKings); Jets Over 5.5 wins +117 (Kalshi, 46%); Jets Over 6.5 wins +270 (Polymarket, 27%); Jonah Coleman OROY +6000 (BetMGM); Zay Flowers receiving yards leader +4900. Per-team 'How to bet' recs not in his placed list: Ravens to miss playoffs +198 (FanDuel); Deshaun Watson Comeback POY +3000 (BetRivers); Steelers make playoffs 47% (Polymarket) or division +475 (Caesars) - author says he does not buy the Steelers, so treat the PIT line as ambiguous. Broncos AFC West +170 (DraftKings) is conditional ('if you like Denver to steal this game' vs KC), not his bet. Author: prefers Bengals 1-seed over Burrow MVP (+600). Andy 2026-10-28: considering adding Bengals positions; relates to his open GB-vs-CIN Super Bowl exacta tickets in the futures ledger. Prices need re-verification before any execution."
     }
   ]
 }

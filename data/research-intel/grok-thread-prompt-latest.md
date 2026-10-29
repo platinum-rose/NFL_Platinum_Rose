@@ -1,32 +1,22 @@
-# Grok Thread Capture Packet — 2026-10-26 (Week 7)
-*Generated automatically by NFL_Dashboard Grok Thread Scanner at 2026-10-27T03:04:56.358Z*
+# Grok Thread Capture Packet — 2026-10-29 (Week 8)
+*Generated automatically by NFL_Dashboard Grok Thread Scanner at 2026-10-29T15:04:55.780Z*
 
-Found **20** active unprocessed Twitter/X bookmark threads for **Week 7** ready for Grok extraction.
+Found **10** active unprocessed Twitter/X bookmark threads for **Week 8** ready for Grok extraction.
 
-## Unprocessed Threads (20)
+## Unprocessed Threads (10)
 
 | Author | URL | Type | Context |
 | :--- | :--- | :--- | :--- |
-| @Patrick Everson | [Tweet Link](https://x.com/PatrickE_Vegas/status/2113362291379061056) | Multi-Tweet Thread | [1/2] Bears are -3 (-102) vs. Patriots for TNF at @DKSports, |
-| @Deepak Chona, MD. SMA | [Tweet Link](https://x.com/SportMDAnalysis/status/2113324739712180720) | Multi-Tweet Thread | [1/9] #NFL Injury Updates |
-| @RotoWire Fantasy Football | [Tweet Link](https://x.com/RotoWireNFL/status/2113085347445821810) | Multi-Tweet Thread | [1/2] 🚨 Fantasy Football News Updates You Need to Know |
-| @Joe Holka | [Tweet Link](https://x.com/thejoeholkashow/status/2113072100722495592) | Multi-Tweet Thread | [1/2] 8-0 last TNF... |
-| @Sal Bets | [Tweet Link](https://x.com/salbets_/status/2112891425339658600) | Multi-Tweet Thread | [1/15] This might sound crazy but… |
-| @RotoWire Fantasy Football | [Tweet Link](https://x.com/RotoWireNFL/status/2112345490863919547) | Multi-Tweet Thread | [1/2] 🚨 Fantasy Football News Updates You Need to Know |
-| @Cody Brown Bets | [Tweet Link](https://x.com/CodyBrownBets/status/2112227602387583104) | Multi-Tweet Thread | [1/4] Three plus money straights I love on MNF… |
-| @FATBOSS | [Tweet Link](https://x.com/FATBOSSPICKS/status/2112102743804387803) | Multi-Tweet Thread | [1/2] NFL TRENDS 📝 |
-| @Harry Lock Picks | [Tweet Link](https://x.com/HarryLockPicks/status/2113346013289472028) | Zero Signal Note | 🏈 All of these teams win in Week 7 of the NFL... |
-| @Sean Koerner | [Tweet Link](https://x.com/The_Oddsmaker/status/2113330293230698869) | Zero Signal Note | Week 7 Pick ’Em Rankings are LIVE 🏈      |
-| @Cody Brown Bets | [Tweet Link](https://x.com/CodyBrownBets/status/2113303420140712371) | Zero Signal Note | 🏟️ +335 Patriots @ Bears SGP |
-| @Sal Bets | [Tweet Link](https://x.com/salbets_/status/2113303365220438256) | Zero Signal Note | My 4 Best Bets for Thursday Night Football: https://t.co/uBC |
-| @John Ewing | [Tweet Link](https://x.com/johnewing/status/2113303113650344249) | Zero Signal Note | Teams getting +50% of bets have gone 35-53-3 (39.8%) ATS so  |
-| @Dan’s AI Sports Picks | [Tweet Link](https://x.com/DanGambleAI/status/2113297367613260229) | Zero Signal Note | 🏈 +334 TNF Same Game Parlay |
-| @Brian Peotter | [Tweet Link](https://x.com/Brian_Peotter/status/2113276005032812563) | Zero Signal Note | I was curious which NFL teams had the best fans, and what wo |
-| @Cody Brown Bets | [Tweet Link](https://x.com/CodyBrownBets/status/2113273842697146643) | Zero Signal Note | 💯 These seven TNF props have cashed in every game so far th |
-| @Patrick Everson | [Tweet Link](https://x.com/PatrickE_Vegas/status/2113261184619360541) | Zero Signal Note | Sharp action on NFL Week 7 Odds at @CaesarsSports: |
-| @John Ewing | [Tweet Link](https://x.com/johnewing/status/2112699133832163496) | Zero Signal Note | NFL favorites of 6 or more points are 8-19-3 (30) ATS this s |
-| @John Ewing | [Tweet Link](https://x.com/johnewing/status/2112536819007094889) | Zero Signal Note | NFL teams getting +50% of bets have gone 35-53-3 (40%) ATS t |
-| @Cody Brown Bets | [Tweet Link](https://x.com/CodyBrownBets/status/2112186834599961002) | Zero Signal Note | You guys want to see my MNF SGP?  |
+| @Deepak Chona, MD. SMA | [Tweet Link](https://x.com/SportMDAnalysis/status/2114837615975473465) | Multi-Tweet Thread | [1/9] #NFL Injury Updates |
+| @Deepak Chona, MD. SMA | [Tweet Link](https://x.com/SportMDAnalysis/status/2114081508642185515) | Multi-Tweet Thread | [1/5] #NFL Injury Updates |
+| @John Ewing | [Tweet Link](https://x.com/johnewing/status/2115235849214492891) | Zero Signal Note | Underdogs in division games have gone 23-10 (70%) ATS this N |
+| @John Ewing | [Tweet Link](https://x.com/johnewing/status/2115232075561250847) | Zero Signal Note | NFL favorites of 6 or more points have gone 8-21-3 (28%) ATS |
+| @Warren Sharp | [Tweet Link](https://x.com/SharpFootball/status/2115111530039775712) | Zero Signal Note | the Minnesota Vikings are only undefeated team left |
+| @Ben Fawkes | [Tweet Link](https://x.com/BFawkes22/status/2115078062966456417) | Zero Signal Note | Best NFL teams against the spread this season: |
+| @PFF Fantasy | [Tweet Link](https://x.com/PFF_Fantasy/status/2114922950940070137) | Zero Signal Note | Waiver wire targets ahead of NFL Week 8 🎯 |
+| @FATBOSS | [Tweet Link](https://x.com/FATBOSSPICKS/status/2114699525411725730) | Zero Signal Note | NFL 📝  |
+| @Cody Brown Bets | [Tweet Link](https://x.com/CodyBrownBets/status/2113767729090212315) | Zero Signal Note | I’M GOING TO DETROIT! |
+| @Warren Sharp | [Tweet Link](https://x.com/SharpFootball/status/2113664746981322913) | Zero Signal Note | Kyler Murray vs man coverage this season: |
 
 ---
 
@@ -35,13 +25,13 @@ Found **20** active unprocessed Twitter/X bookmark threads for **Week 7** ready 
 Copy the block below and paste it directly into Grok:
 
 ```markdown
-You are extracting NFL betting intel from X/Twitter posts for a betting-research database. Today is 2026-10-26; the current slate is NFL 2026 Week 7.
+You are extracting NFL betting intel from X/Twitter posts for a betting-research database. Today is 2026-10-29; the current slate is NFL 2026 Week 8.
 
 For EACH URL below, open the post AND the author's full self-reply thread (every tweet the same author posted under it), read every attached image/graphic, and — if the post links to a video (X video, YouTube) or an article — use the linked content too. Do not rely on the first tweet alone.
 
 Return exactly TWO things, in this order.
 
-### 1) One CSV file named `grok-twitter-picks-2026-10-26.csv`
+### 1) One CSV file named `grok-twitter-picks-2026-10-29.csv`
 Header row exactly:
 `author,tweet_url,bet_type,team_or_market,market,selection,line,odds,rationale`
 
@@ -61,7 +51,7 @@ One row per individual bet. Rules:
 - Hit-rate / streak lists the author posts for bettors (e.g. "props that cashed 4 straight", "C. Watson 3+ Rec — 80%"): one row per line with `bet_type` = `trend`, `selection` = `OVER` (or `YES` for TD streaks), and the hit rate in `rationale`.
 - Parlays: one row per leg with `bet_type` = `parlay_leg` and the leg's real market in `market`; put the parlay's total odds in `rationale`.
 - ONLY picks the author is making or recommending. Do NOT include public-betting splits ("80% of money on…"), line-move reports, other people's picks the author is quoting, or recaps of games already played.
-- Skip anything about games already played before 2026-10-26 and anything that is not NFL (college, other sports).
+- Skip anything about games already played before 2026-10-29 and anything that is not NFL (college, other sports).
 - If a thread has no concrete bet, include no rows for it (list it in section 2 instead).
 - Plain CSV only: no markdown, no code fences, no blank lines, and every row must have all 9 columns.
 
@@ -70,36 +60,26 @@ A table with one row per URL: `handle | tweet_url | picks captured | source used
 In `notes`, say why a thread produced zero picks (e.g. "public money splits only", "game already played", "picks behind paywall", "video had no audio") and flag anything you could NOT access.
 
 URLs:
-https://x.com/PatrickE_Vegas/status/2113362291379061056
-https://x.com/SportMDAnalysis/status/2113324739712180720
-https://x.com/RotoWireNFL/status/2113085347445821810
-https://x.com/thejoeholkashow/status/2113072100722495592
-https://x.com/salbets_/status/2112891425339658600
-https://x.com/RotoWireNFL/status/2112345490863919547
-https://x.com/CodyBrownBets/status/2112227602387583104
-https://x.com/FATBOSSPICKS/status/2112102743804387803
-https://x.com/HarryLockPicks/status/2113346013289472028
-https://x.com/The_Oddsmaker/status/2113330293230698869
-https://x.com/CodyBrownBets/status/2113303420140712371
-https://x.com/salbets_/status/2113303365220438256
-https://x.com/johnewing/status/2113303113650344249
-https://x.com/DanGambleAI/status/2113297367613260229
-https://x.com/Brian_Peotter/status/2113276005032812563
-https://x.com/CodyBrownBets/status/2113273842697146643
-https://x.com/PatrickE_Vegas/status/2113261184619360541
-https://x.com/johnewing/status/2112699133832163496
-https://x.com/johnewing/status/2112536819007094889
-https://x.com/CodyBrownBets/status/2112186834599961002
+https://x.com/SportMDAnalysis/status/2114837615975473465
+https://x.com/SportMDAnalysis/status/2114081508642185515
+https://x.com/johnewing/status/2115235849214492891
+https://x.com/johnewing/status/2115232075561250847
+https://x.com/SharpFootball/status/2115111530039775712
+https://x.com/BFawkes22/status/2115078062966456417
+https://x.com/PFF_Fantasy/status/2114922950940070137
+https://x.com/FATBOSSPICKS/status/2114699525411725730
+https://x.com/CodyBrownBets/status/2113767729090212315
+https://x.com/SharpFootball/status/2113664746981322913
 ```
 
 ---
 
 ## Instructions Once Grok Generates CSV
 1. Save Grok's output CSV to:
-   `data/vault-seed/manual/grok-week07-threads/grok-twitter-picks-2026-10-26.csv`
+   `data/vault-seed/manual/grok-week08-threads/grok-twitter-picks-2026-10-29.csv`
 2. Ingest into Supabase:
    ```powershell
    node scripts/load-external-intel-picks.mjs --dry-run
    node scripts/load-external-intel-picks.mjs --replace
    ```
-*(The scanner will detect `grok-twitter-picks-2026-10-26.csv` on its next run and retire those URLs from future prompt packets).*
+*(The scanner will detect `grok-twitter-picks-2026-10-29.csv` on its next run and retire those URLs from future prompt packets).*

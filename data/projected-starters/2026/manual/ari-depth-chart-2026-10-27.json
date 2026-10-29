@@ -14,8 +14,19 @@
     "built_at": "2026-10-27",
     "caveats": [
       "Ourlads 'O' suffixes reflect Week 7 OUT designations; Week 8 practice reports (Wed-Fri) supersede.",
-      "Not a pick or projection; research context only."
-    ]
+      "Not a pick or projection; research context only.",
+      "Independent team-page comparison completed 2026-10-28 with role/order/package differences; original Ourlads claims retained. See reconciliation report. No Wednesday practice or availability clearance."
+    ],
+    "independent_reconciliation": {
+      "status": "completed_with_conflicts",
+      "observed_at": "2026-10-28T07:48:49.672481+00:00",
+      "source_url": "https://www.azcardinals.com/team/depth-chart",
+      "source_updated_at": null,
+      "report": "reports/engineering/week8-depth-chart-reconciliation-2026-10-28.json",
+      "manual_rows_checked": 34,
+      "rows_requiring_review": 7,
+      "role_or_availability_clearance": false
+    }
   },
   "players": [
     {
@@ -92,7 +103,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Ourlads RB1 but marked O; OUT Weeks 6-7 (ankle). LaFleur said Monday he will practice Wednesday. Confirm Wed-Fri practice report.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -132,7 +144,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB2 on Ourlads. Weeks 6-7: 18 and 8 carries.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -212,7 +225,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LWR1 on Ourlads after Jalen Brooks' season-ending wrist surgery (announced 10/26); 0 targets Weeks 5-6, so his volume is unproven.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "skill_major",
       "needs_human_review": true,
@@ -232,7 +246,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR2.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "skill_major",
       "needs_human_review": true,
@@ -252,7 +267,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR2 and PR/KR.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "skill_major",
       "needs_human_review": true,
@@ -292,7 +308,8 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. TE2; 3 targets each of Weeks 5-7.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "te_uncertain",
       "needs_human_review": true,
@@ -492,10 +509,11 @@
       "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LOLB1.",
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart"
+        "manual_all_position_depth_chart",
+        "independent_depth_chart_review"
       ],
       "impact_bucket": "starter_uncertain",
-      "needs_human_review": false,
+      "needs_human_review": true,
       "confidence_basis": "manual_depth_chart"
     },
     {

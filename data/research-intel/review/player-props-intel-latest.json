@@ -1,126 +1,227 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-24T01:18:51.182Z",
-  "week": 7,
+  "generated_at": "2026-10-29T15:34:40.837Z",
+  "week": 8,
   "season": 2026,
   "summary": {
-    "articles_scanned": 512,
-    "total_props": 4,
-    "tier_1_props": 4,
-    "touchdown_props": 1,
-    "curated_parlays": 0,
-    "games_covered": 4
+    "articles_scanned": 264,
+    "total_props": 13,
+    "tier_1_props": 10,
+    "touchdown_props": 8,
+    "curated_parlays": 1,
+    "games_covered": 3
   },
-  "parlayCards": [],
+  "parlayCards": [
+    {
+      "id": "parlay__CAR_at_GB__car/gb_stack",
+      "title": "CAR/GB Prop Stack SGP (CAR @ GB)",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__10124__josh_jacobs__rushing_yards",
+          "player": "Josh Jacobs",
+          "team": "GB",
+          "game": "CAR @ GB",
+          "game_slate": "Thursday Night Football",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "59.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "BettingPros Staff (BettingPros)",
+          "source_article_id": 10124,
+          "source_url": "https://www.bettingpros.com/articles/best-nfl-player-props-thursday-night-football-panthers-vs-packers-week-8-2026/",
+          "rationale": "NFL Prop Bet Cheat Sheet Picks & Predictions: Panthers vs. Packers What is an NFL player prop bet?",
+          "week": 8,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "GB_offense"
+            ],
+            "positive_correlations": [
+              "Jordan Love Passing TDs",
+              "Josh Jacobs Receptions",
+              "Savion Williams Receiving Yards"
+            ]
+          },
+          "selection": "Over 59.5 Rushing Yards"
+        },
+        {
+          "id": "prop__10119__jordan_love__passing_tds",
+          "player": "Jordan Love",
+          "team": "GB",
+          "game": "CAR @ GB",
+          "game_slate": "Thursday Night Football",
+          "category": "passing_tds",
+          "category_label": "Passing TDs",
+          "stat_type": "passing",
+          "line": "2+",
+          "side": "over",
+          "price": "-154",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 10119,
+          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+          "rationale": "The juice on this selection is getting a bit out of control. If you want to add this prop to your bets this evening, get it in early.",
+          "week": 8,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_tds",
+              "GB_offense"
+            ],
+            "positive_correlations": [
+              "Josh Jacobs Rushing Yards",
+              "Josh Jacobs Receptions",
+              "Savion Williams Receiving Yards"
+            ]
+          },
+          "selection": "Over 2+ Passing TDs"
+        },
+        {
+          "id": "prop__10119__chuba_hubbard__anytime_td",
+          "player": "Chuba Hubbard",
+          "team": "CAR",
+          "game": "CAR @ GB",
+          "game_slate": "Thursday Night Football",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Yes",
+          "side": "anytime",
+          "price": "-115",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 10119,
+          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+          "rationale": "You can throw away Chuba Hubbard's performance last week in what was a complete nightmare for the Carolina Panthers. Hubbard rushed for a season-low seven attempts.",
+          "week": 8,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "End-Zone Target",
+            "synergy_tags": [
+              "anytime_td",
+              "CAR_offense"
+            ],
+            "positive_correlations": [
+              "Chuba Hubbard Anytime Touchdown Scorer",
+              "Tetairoa McMillan Anytime Touchdown Scorer",
+              "Darren Waller Receiving Yards"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        }
+      ],
+      "estimated_odds": "+479",
+      "payout_multiplier": "5.79x",
+      "payout_on_10": "$57.88",
+      "payout_on_25": "$144.70",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from BettingPros Staff (BettingPros), Steve Krebs (BettingPros) for CAR @ GB."
+    }
+  ],
   "props": [
     {
-      "id": "prop__9378__tucker_kraft__receptions",
-      "player": "Tucker Kraft",
+      "id": "prop__10124__josh_jacobs__rushing_yards",
+      "player": "Josh Jacobs",
       "team": "GB",
-      "game": "GB @ DET",
-      "game_slate": "Sunday Late Window",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "4.5",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "59.5",
       "side": "over",
-      "price": "-102",
+      "price": "-114",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 9378,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/",
-      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 7 Best Prop Bet: Bryce Young Over 250.5 Passing Yards (-115) The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.",
-      "week": 7,
+      "analyst": "BettingPros Staff (BettingPros)",
+      "source_article_id": 10124,
+      "source_url": "https://www.bettingpros.com/articles/best-nfl-player-props-thursday-night-football-panthers-vs-packers-week-8-2026/",
+      "rationale": "NFL Prop Bet Cheat Sheet Picks & Predictions: Panthers vs. Packers What is an NFL player prop bet?",
+      "week": 8,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
       "parlay_utility": {
-        "role": "Pass-Catching Piece",
+        "role": "Ground Game Piece",
         "synergy_tags": [
-          "receptions",
+          "rushing_yards",
           "GB_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "Jordan Love Passing TDs",
+          "Josh Jacobs Receptions",
+          "Savion Williams Receiving Yards"
+        ]
       }
     },
     {
-      "id": "prop__9378__bryce_young__passing_yards",
-      "player": "Bryce Young",
-      "team": "CAR",
-      "game": "TB @ CAR",
-      "game_slate": "Sunday Early Window",
-      "category": "passing_yards",
-      "category_label": "Passing Yards",
+      "id": "prop__10119__jordan_love__passing_tds",
+      "player": "Jordan Love",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
       "stat_type": "passing",
-      "line": "250.5",
+      "line": "2+",
       "side": "over",
-      "price": "-115",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 9378,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/",
-      "rationale": "The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.",
-      "week": 7,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_yards",
-          "CAR_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__8921__aaron_rodgers__pass_attempts",
-      "player": "Aaron Rodgers",
-      "team": "PIT",
-      "game": "PIT @ NO",
-      "game_slate": "Sunday Early Window",
-      "category": "pass_attempts",
-      "category_label": "Pass Attempts",
-      "stat_type": "passing",
-      "line": "28+",
-      "side": "over",
-      "price": "-542",
+      "price": "-154",
       "book": "DraftKings/FanDuel (per source article)",
       "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 8921,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/",
-      "rationale": "This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks.",
-      "week": 7,
+      "source_article_id": 10119,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+      "rationale": "The juice on this selection is getting a bit out of control. If you want to add this prop to your bets this evening, get it in early.",
+      "week": 8,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
       "parlay_utility": {
         "role": "Passing Volume Anchor",
         "synergy_tags": [
-          "pass_attempts",
-          "PIT_offense"
+          "passing_tds",
+          "GB_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Josh Jacobs Receptions",
+          "Savion Williams Receiving Yards"
+        ]
       }
     },
     {
-      "id": "prop__8921__nico_collins__anytime_td",
-      "player": "Nico Collins",
-      "team": "HOU",
-      "game": "NYG @ HOU",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__10119__chuba_hubbard__anytime_td",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
       "category": "anytime_td",
       "category_label": "Anytime Touchdown Scorer",
       "stat_type": "touchdown",
       "line": "Yes",
       "side": "anytime",
-      "price": "+100",
+      "price": "-115",
       "book": "DraftKings/FanDuel (per source article)",
       "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 8921,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/",
-      "rationale": "We close out our parlay with another positive return that is sure to drop throughout the week. You will want to get in on this leg before it is no longer a positive return.",
-      "week": 7,
+      "source_article_id": 10119,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+      "rationale": "You can throw away Chuba Hubbard's performance last week in what was a complete nightmare for the Carolina Panthers. Hubbard rushed for a season-low seven attempts.",
+      "week": 8,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -128,7 +229,343 @@
         "role": "End-Zone Target",
         "synergy_tags": [
           "anytime_td",
-          "HOU_offense"
+          "CAR_offense"
+        ],
+        "positive_correlations": [
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Tetairoa McMillan Anytime Touchdown Scorer",
+          "Darren Waller Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__10119__josh_jacobs__receptions",
+      "player": "Josh Jacobs",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "3+",
+      "side": "over",
+      "price": "-135",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 10119,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+      "rationale": "Our next selection is somewhat surprising given the immediate role Josh Jacobs played in the passing game on Sunday. In his first game back, Jacobs was targeted on seven passes and caught five.",
+      "week": 8,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "GB_offense"
+        ],
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Jordan Love Passing TDs",
+          "Savion Williams Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__10119__savion_williams__receiving_yards",
+      "player": "Savion Williams",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "25+",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 10119,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-panthers-vs-packers/",
+      "rationale": "We close out the night with our sweatiest selection of all. Savion Williams has cleared 25 yards in two consecutive games.",
+      "week": 8,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "GB_offense"
+        ],
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Jordan Love Passing TDs",
+          "Josh Jacobs Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9927__jordan_love__passing_tds",
+      "player": "Jordan Love",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "2+",
+      "side": "over",
+      "price": "-166",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 9927,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-8-picks-predictions-best-early-parlays-2026/",
+      "rationale": "We open the week with a safe parlay that starts on Thursday with the Carolina Panthers versus the Green Bay Packers. Jordan Love wasn't anywhere near his best on Sunday against the Lions.",
+      "week": 8,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "GB_offense"
+        ],
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Jordan Love Passing TDs",
+          "Josh Jacobs Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__10110__chuba_hubbard__anytime_td",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "-120",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 10110,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-panthers-vs-packers/",
+      "rationale": "Over the last three games, Chuba Hubbard has handled 78.6% of the Panthers' running back carries. In that span, he's recorded 61 touches (20.3 per game) and three touchdowns.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "CAR_offense"
+        ],
+        "positive_correlations": [
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Tetairoa McMillan Anytime Touchdown Scorer",
+          "Darren Waller Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__10110__tucker_kraft__anytime_td",
+      "player": "Tucker Kraft",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+165",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 10110,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-panthers-vs-packers/",
+      "rationale": "Tucker Kraft enters Week 8 with two touchdowns this season, including one last week. Now, he faces a Panthers defense that has allowed four touchdowns to tight ends this season.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "GB_offense"
+        ],
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Jordan Love Passing TDs",
+          "Josh Jacobs Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__10111__christian_watson__first_td",
+      "player": "Christian Watson",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+850",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 10111,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-panthers-vs-packers/",
+      "rationale": "Green Bay leads the NFL with over 80% of its offensive yardage coming via the pass. So while the Carolina defense is coming off a game where it allowed the second-most rushing yards of any team this season, it's wise to start stockpiling your touchdown scorer portfolios for this game with Packers pass-catchers.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "first_td",
+          "GB_offense"
+        ],
+        "positive_correlations": [
+          "Josh Jacobs Rushing Yards",
+          "Jordan Love Passing TDs",
+          "Josh Jacobs Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__10111__tetairoa_mcmillan__anytime_td",
+      "player": "Tetairoa McMillan",
+      "team": "CAR",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+180",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 10111,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-panthers-vs-packers/",
+      "rationale": "Fellow Panthers wide receiver Jalen Coker was nicked up with a shoulder injury last week. That has me looking to Tetairoa McMillan as Carolina's top pass-catching option.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "CAR_offense"
+        ],
+        "positive_correlations": [
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Darren Waller Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__10112__darren_waller__receiving_yards",
+      "player": "Darren Waller",
+      "team": "CAR",
+      "game": "CAR @ GB",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "20.5",
+      "side": "under",
+      "price": "-116",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 10112,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-panthers-vs-packers-week-8/",
+      "rationale": "Darren Waller was the only bright spot for the Panthers in their Week 7 beatdown. He secured a 50-yard touchdown reception on one of his two targets.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CAR_offense"
+        ],
+        "positive_correlations": [
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Chuba Hubbard Anytime Touchdown Scorer",
+          "Tetairoa McMillan Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__10101__gunnar_helm__receiving_yards",
+      "player": "Gunnar Helm",
+      "team": "TEN",
+      "game": "TEN @ CIN",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "15.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Zachary Cohen (VSiN)",
+      "source_article_id": 10101,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-8-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "vs. Bengals Week 7 Picks Texans -9.5 (-122) vs.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "TEN_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__10101__drake_maye__passing_tds",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ MIA",
+      "game_slate": "Sunday Late Window",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "1.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Zachary Cohen (VSiN)",
+      "source_article_id": 10101,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-8-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "vs. Bears PARLAY: Vikings ML vs.",
+      "week": 8,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "NE_offense"
         ],
         "positive_correlations": []
       }
