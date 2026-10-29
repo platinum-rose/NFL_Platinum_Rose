@@ -1,0 +1,1509 @@
+{
+  "schema": "independent_depth_chart_reconciliation_v1",
+  "season": 2026,
+  "week": 8,
+  "status": "completed_with_conflicts",
+  "role_or_availability_clearance": false,
+  "roster_gate": {
+    "status": "PASS",
+    "roster_source": "2026-10-28T07:42:38.648326+00:00",
+    "blocking_count": 0,
+    "snapshot_sha256": "20171a8cb3d0730cde5144ea2c1902b06c17fa1024be8a9406874870450cd205"
+  },
+  "teams": {
+    "ARI": {
+      "manual_chart": "data/projected-starters/2026/manual/ari-depth-chart-2026-10-27.json",
+      "manual_chart_sha256_before": "47048668258954274130e1c23764fb62c1b5809121b58331638d5ceee7a7b504",
+      "source_url": "https://www.azcardinals.com/team/depth-chart",
+      "source_updated_at": null,
+      "source_observed_at": "2026-10-28T07:48:49.672481+00:00",
+      "source_response_sha256": "1f4a19da9ceff07a7bb878ffb029ffdf5d715b204fec8dbbb63f8ae02ec4da06",
+      "comparison_scope": "Every manual row; position-family normalization; special-team duties kept separate; no simultaneous-lineup inference",
+      "counts": {
+        "manual_rows": 34,
+        "roster_team_verified": 34,
+        "role_level_agrees": 27,
+        "rows_requiring_independent_review": 7
+      },
+      "rows": [
+        {
+          "player_name": "Jacoby Brissett",
+          "position": "QB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Gardner Minshew II",
+          "position": "QB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Carson Beck",
+          "position": "QB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 3,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Jeremiyah Love",
+          "position": "RB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "depth_order_conflict",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Bam Knight",
+          "position": "RB",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 3,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Tyler Allgeier",
+          "position": "RB",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "depth_order_conflict",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Evan Hull",
+          "position": "RB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 4,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Michael Wilson",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Kendrick Bourne",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Simi Fehoko",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "formation_difference",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Reggie Virgil",
+          "position": "WR",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "receiver_alignment_difference",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Devin Duvernay",
+          "position": "WR",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 3,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "depth_order_difference",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Trey McBride",
+          "position": "TE",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "TE",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Elijah Higgins",
+          "position": "TE",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "TE",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "formation_difference",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Jayden Williams",
+          "position": "OT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "LT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Isaac Seumalo",
+          "position": "G",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "LG",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Hjalte Froholdt",
+          "position": "C",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "C",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jon Gaines II",
+          "position": "G",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RG",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Hayden Conner",
+          "position": "G",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "LG",
+              "depth": 2,
+              "shared_first_cell": false
+            },
+            {
+              "unit": "offense",
+              "position": "RG",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Elijah Wilkinson",
+          "position": "OT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Walter Nolen III",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "DT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Roy Lopez",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "NT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Dante Stills",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "DT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Baron Browning",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "OLB",
+              "depth": 1,
+              "shared_first_cell": true
+            }
+          ],
+          "comparison": "shared_first_slot",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Josh Sweat",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "OLB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Mack Wilson Sr.",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "ILB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jack Gibbens",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "ILB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Max Melton",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "CB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Denzel Burke",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "CB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Garrett Williams",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "CB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Budda Baker",
+          "position": "S",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "S",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Andrew Wingard",
+          "position": "S",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "S",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Chad Ryland",
+          "position": "K",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "K",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Blake Gillikin",
+          "position": "P",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "P",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        }
+      ],
+      "additional_official_rows": [
+        {
+          "player_name": "Zaven Collins",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "OLB",
+              "depth": 1,
+              "shared_first_cell": true
+            }
+          ],
+          "in_manual_chart": false
+        },
+        {
+          "player_name": "Casey Kreiter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "LS",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "in_manual_chart": false
+        }
+      ],
+      "manual_chart_sha256_after": "96da01a0509847049fa48e9000a9e5ace2254305d13b41759b1c3a019a88f159"
+    },
+    "MIN": {
+      "manual_chart": "data/projected-starters/2026/manual/min-depth-chart-2026-10-27.json",
+      "manual_chart_sha256_before": "1b1bb35f0b79fa9a9c6e5d6a47bd3a68421d9f1d6b389a7a8ee99321b8be252b",
+      "source_url": "https://www.vikings.com/team/depth-chart",
+      "source_updated_at": null,
+      "source_observed_at": "2026-10-28T07:48:49.983403+00:00",
+      "source_response_sha256": "f19d07f59f22a66ddba54625076235b98e37b75254f2e2a9515aca04b578f70d",
+      "comparison_scope": "Every manual row; position-family normalization; special-team duties kept separate; no simultaneous-lineup inference",
+      "counts": {
+        "manual_rows": 32,
+        "roster_team_verified": 32,
+        "role_level_agrees": 28,
+        "rows_requiring_independent_review": 4
+      },
+      "rows": [
+        {
+          "player_name": "Kyler Murray",
+          "position": "QB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Carson Wentz",
+          "position": "QB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Max Brosmer",
+          "position": "QB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "QB",
+              "depth": 3,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Aaron Jones Sr.",
+          "position": "RB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 1,
+              "shared_first_cell": true
+            }
+          ],
+          "comparison": "shared_first_slot",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Jordan Mason",
+          "position": "RB",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "injuredReserveOrOut"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 1,
+              "shared_first_cell": true
+            }
+          ],
+          "comparison": "shared_first_slot",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Demond Claiborne",
+          "position": "RB",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "depth_order_difference",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Justin Jefferson",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jordan Addison",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jauan Jennings",
+          "position": "WR",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Myles Price",
+          "position": "WR",
+          "local_role": "rotation",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Tai Felton",
+          "position": "WR",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "WR",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "T.J. Hockenson",
+          "position": "TE",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "TE",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Gavin Bartholomew",
+          "position": "TE",
+          "local_role": "backup",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "TE",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Christian Darrisaw",
+          "position": "OT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "LT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Joe Huber",
+          "position": "G",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "LG",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Blake Brandel",
+          "position": "C",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "C",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Will Fries",
+          "position": "G",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RG",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Brian O'Neill",
+          "position": "OT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RT",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Tyrion Ingram-Dawkins",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "DL",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Levi Drake Rodriguez",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "DL",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jalen Redmond",
+          "position": "DT",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "DL",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Dallas Turner",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "OLB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Andrew Van Ginkel",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "OLB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Blake Cashman",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "LB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Eric Wilson",
+          "position": "LB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "LB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Isaiah Rodgers",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "CB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Byron Murphy Jr.",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "CB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Jay Ward",
+          "position": "CB",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "S",
+              "depth": 2,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "position_and_role_conflict",
+          "needs_human_review_after": true
+        },
+        {
+          "player_name": "Joshua Metellus",
+          "position": "S",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "S",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Harrison Smith",
+          "position": "S",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "defense"
+          ],
+          "official_slots": [
+            {
+              "unit": "defense",
+              "position": "S",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Will Reichard",
+          "position": "K",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "K",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        },
+        {
+          "player_name": "Brett Thorson",
+          "position": "P",
+          "local_role": "starter",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "P",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "comparison": "role_level_agrees",
+          "needs_human_review_after": false
+        }
+      ],
+      "additional_official_rows": [
+        {
+          "player_name": "Max Bredeson",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "offense"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "FB",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "in_manual_chart": false
+        },
+        {
+          "player_name": "Andrew DePaola",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "specialTeam"
+          ],
+          "official_slots": [
+            {
+              "unit": "special_teams",
+              "position": "LS",
+              "depth": 1,
+              "shared_first_cell": false
+            }
+          ],
+          "in_manual_chart": false
+        },
+        {
+          "player_name": "DeeJay Dallas",
+          "roster_team_verified": true,
+          "roster_groups": [
+            "practiceSquad"
+          ],
+          "official_slots": [
+            {
+              "unit": "offense",
+              "position": "RB",
+              "depth": 3,
+              "shared_first_cell": false
+            }
+          ],
+          "in_manual_chart": false
+        }
+      ],
+      "manual_chart_sha256_after": "c21ac29a66e1819b82b8c5f9baf286a78791a72ab0b8188959fdfc4cbfdc4957"
+    }
+  },
+  "captured_at": "2026-10-28T07:48:50.006585+00:00",
+  "interpretation": [
+    "Comparison finished; source disagreements remain unresolved. Original Ourlads role claims are retained and flagged, not replaced with unproved current starter or availability claims.",
+    "Official team pages show no explicit update timestamp. Observation time is not publication time.",
+    "Position families reconcile DL/DT/DE, LB/ILB/OLB and safety/nickel descriptions; chart packages are not forced into eleven simultaneous starters.",
+    "The projected-starters builder hardcodes the independent reconciliation missing marker; this report does not change that gate or claim all teams independently reconciled.",
+    "No Wednesday practice clearance, tracker build/publication, paid call, Supabase operation, account/ledger/wager mutation or Tuesday rerun."
+  ],
+  "local_changes": {
+    "manual_chart_roles_changed": false,
+    "review_flags_added": 11,
+    "previously_clear_rows_set_to_review": 2,
+    "projected_starters_latest_rebuilt": false
+  },
+  "builder_verification": {
+    "checked_at": "2026-10-28T07:53:36.468Z",
+    "dry_run": true,
+    "tagged_rows": 11,
+    "review_required_rows": 8,
+    "existing_approvals_overriding_review": [
+      {
+        "player_name": "Tyler Allgeier",
+        "team": "ARI",
+        "decided_at": "2026-09-16T03:10:05.798Z"
+      },
+      {
+        "player_name": "Aaron Jones Sr.",
+        "team": "MIN",
+        "decided_at": "2026-09-16T03:10:05.798Z"
+      },
+      {
+        "player_name": "Jordan Mason",
+        "team": "MIN",
+        "decided_at": "2026-09-16T03:10:05.798Z"
+      }
+    ],
+    "generated_files_written": false,
+    "named_review_validation": "pass"
+  },
+  "alpha_readiness": {
+    "ok": false,
+    "checked_at": "2026-10-28T07:53:36.483Z",
+    "current_week": 8,
+    "max_age_hours": 36,
+    "inputs": [
+      {
+        "key": "player_availability",
+        "ok": true,
+        "generated_at": "2026-10-27T23:30:02.145Z",
+        "age_hours": 8.39,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "projected_starters",
+        "ok": true,
+        "generated_at": "2026-10-27T23:04:32.046Z",
+        "age_hours": 8.82,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "secondary_matchups",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:48.719Z",
+        "age_hours": 102.58,
+        "week": 7,
+        "problems": [
+          "stale: 102.58h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      },
+      {
+        "key": "player_props_intel",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:51.182Z",
+        "age_hours": 102.58,
+        "week": 7,
+        "problems": [
+          "stale: 102.58h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      }
+    ],
+    "errors": [
+      "secondary_matchups (data/secondary-matchups/latest.json): stale: 102.58h old (max 36h); week 7 != current week 8",
+      "player_props_intel (data/research-intel/review/player-props-intel-latest.json): stale: 102.58h old (max 36h); week 7 != current week 8"
+    ]
+  },
+  "test_fixture_cleanup": {
+    "path": "public/test-live-tracker.html",
+    "pre_run_state": "clean in initial Git status",
+    "backup": "E:/data/.tmp/nfl-week8-verification-20261028/test-live-tracker-from-unit-run.html",
+    "restored_exact_head_bytes": true
+  },
+  "verification": {
+    "json_and_membership_validation": "pass",
+    "manual_chart_roles_confidences_and_original_evidence_preserved": true,
+    "focused_tests": {
+      "passed": 21,
+      "failed": 0,
+      "within_full_run": true
+    },
+    "full_suite": {
+      "files": 145,
+      "passed_files": 134,
+      "failed_files": 11,
+      "passed_tests": 2046,
+      "failed_tests": 27,
+      "result_path": "reports/engineering/week8-unit-tests-2026-10-28.json",
+      "baseline_comparison_performed": false
+    },
+    "offline_chromium_replay": "prior checkpoint only; not rerun in this data/research session"
+  }
+}

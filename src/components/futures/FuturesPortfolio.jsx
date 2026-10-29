@@ -22,7 +22,7 @@ import { TEAM_LOGOS } from '../../lib/teams';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const fmt = (n, decimals = 0) => n?.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) ?? '—';
-const fmtUSD = (n) => `$${fmt(Math.abs(n))}`;
+const fmtUSD = (n) => `$${fmt(Math.abs(n), 2)}`;
 const fmtOdds = (o) => (o >= 0 ? `+${o}` : `${o}`);
 const statusColor = {
   OPEN: 'text-cyan-400',
@@ -122,6 +122,11 @@ export default function FuturesPortfolio({ onAddPosition }) {
 
       {/* Summary */}
       <SummaryCards summary={summary} />
+      <p className="text-xs text-slate-400">
+        This view uses positions saved in this browser. Reconcile them with your records before making decisions.
+        Payout totals add individual ticket payouts; conflicting outcomes may prevent all tickets from winning.
+        Hedge totals include planned and recorded hedges and are not confirmed wagers.
+      </p>
 
       {/* Parlay quick stats (when parlays exist) */}
       {(summary.liveParlays > 0) && (
@@ -131,7 +136,7 @@ export default function FuturesPortfolio({ onAddPosition }) {
           <span className="text-slate-500 text-xs">·</span>
           <span className="text-slate-400 text-xs">{fmtUSD(summary.parlayExposure)} staked</span>
           <span className="text-slate-500 text-xs">·</span>
-          <span className="text-emerald-400 text-xs font-mono">{fmtUSD(summary.parlayMaxPayout)} max payout</span>
+          <span className="text-emerald-400 text-xs font-mono">{fmtUSD(summary.parlayMaxPayout)} sum of potential payouts</span>
           <button
             onClick={() => setSubTab('parlays')}
             className="ml-auto text-xs text-purple-400 hover:text-purple-300 font-bold transition"
@@ -202,9 +207,9 @@ function SummaryCards({ summary }) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
       <SumCard label="Open Positions" value={summary.openPositions} icon={Layers} color="cyan" />
-      <SumCard label="Total Invested" value={fmtUSD(summary.totalInvested)} icon={DollarSign} color="blue" />
-      <SumCard label="Max Payout" value={fmtUSD(summary.maxPayout)} icon={TrendingUp} color="emerald" />
-      <SumCard label="Hedge Exposure" value={fmtUSD(summary.hedgeStakes)} icon={Shield} color="amber" />
+      <SumCard label="Open Position Stakes" value={fmtUSD(summary.totalInvested)} icon={DollarSign} color="blue" />
+      <SumCard label="Sum of Potential Payouts" value={fmtUSD(summary.maxPayout)} icon={TrendingUp} color="emerald" />
+      <SumCard label="Hedge Stakes (incl. planned)" value={fmtUSD(summary.hedgeStakes)} icon={Shield} color="amber" />
       <SumCard
         label="Settled P&L"
         value={`${summary.settledProfit >= 0 ? '+' : '-'}${fmtUSD(summary.settledProfit)}`}
@@ -278,6 +283,9 @@ function PositionsView({
 function ExposureView({ exposure, onAddPosition }) {
   return (
     <div className="space-y-2">
+      {exposure.length > 0 && (
+        <p className="text-xs text-slate-400">Grouped by the primary team on each open position. Payouts are ticket sums, not a scenario payout; exactas and other positions may require additional outcomes.</p>
+      )}
       {exposure.length === 0 ? (
         <EmptyState onAdd={onAddPosition} />
       ) : (
@@ -298,14 +306,8 @@ function ExposureView({ exposure, onAddPosition }) {
               <div className="text-white font-mono text-sm">{fmtUSD(entry.totalStake)}</div>
             </div>
             <div className="text-right">
-              <div className="text-slate-400 text-xs">Potential</div>
+              <div className="text-slate-400 text-xs">Sum of potential payouts</div>
               <div className="text-emerald-400 font-mono text-sm font-bold">{fmtUSD(entry.totalPayout)}</div>
-            </div>
-            <div className="text-right">
-              <div className="text-slate-400 text-xs">ROI</div>
-              <div className="text-cyan-400 font-mono text-sm">
-                {entry.totalStake > 0 ? `${fmt(((entry.totalPayout - entry.totalStake) / entry.totalStake) * 100)}%` : '—'}
-              </div>
             </div>
           </div>
         ))

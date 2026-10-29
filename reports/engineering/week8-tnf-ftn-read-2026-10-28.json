@@ -1,0 +1,1223 @@
+{
+  "checked_at": "2026-10-29T01:34:01.196Z",
+  "source": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+  "source_sha256": "9d1e5ca2603ea752e2391c99161f007eb71bb15b79f1743af648313c7ad18ebd",
+  "source_generated_at": "2026-10-28T15:09:55.294Z",
+  "capture_started_at": "2026-10-28T15:02:49.095Z",
+  "capture_completed_at": "2026-10-28T15:09:42.621Z",
+  "week": 8,
+  "coverage_status": "pass_week7_game_counts",
+  "limitations": [
+    "Statistics are through completed Week7, not projections or current playing-status confirmations.",
+    "Rates may reflect small samples, injuries and role changes.",
+    "Table aliases and duplicate headers require source-level check.",
+    "Saved bookmaker prices are historical observations and may change."
+  ],
+  "teams": {
+    "CAR": {
+      "team_tables": [
+        {
+          "category": "team-defense",
+          "subpage": "efficiency",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/PLY": "0.056",
+            "DVOA": "1.4%",
+            "SUCC%": "45.8%",
+            "EXP%": "8.4%",
+            "CONV%": "43.5%",
+            "TO": "4",
+            "TO%": "1.1%",
+            "3&O": "17.1%",
+            "MTKL%": "12.3%",
+            "PEN%": "4.3%",
+            "PENY": "32.2"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "overview",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "YD/PLY": "5.6",
+            "PT/GM": "25.3",
+            "FD%": "30.2%",
+            "TO": "4",
+            "DPBK%": "56.3%",
+            "YD": "1,190",
+            "TD": "7",
+            "INT": "2",
+            "RUSH%": "43.7%",
+            "YD__2": "903",
+            "TD__2": "11"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "pass-rush",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "DPBK": "209",
+            "SK": "9",
+            "SK%": "4.3%",
+            "QBH%": "12.0%",
+            "PRESS": "61",
+            "PRESS%": "29.2%",
+            "QPRESS%": "60.7%",
+            "TTPR": "2.42",
+            "DISR%": "1.4%",
+            "BLZ%": "34.9%"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "passing-analytics",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/DB": "0.094",
+            "SUCC%": "46.4%",
+            "DVOA": "13.3%",
+            "CPOE": "-2.78%",
+            "CBALL%": "67.2%",
+            "EXP%": "8.0%",
+            "INTW%": "2.2%",
+            "TGHT%": "31.7%",
+            "OPEN%": "56.5%",
+            "TA%": "4.8%",
+            "DROP%": "4.3%"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "rush-analytics",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/ATT": "0.007",
+            "SUCC%": "41.4%",
+            "DVOA": "-5.3%",
+            "aRYOE": "",
+            "EXP%": "11.1%",
+            "STF%": "17.3%",
+            "YBCO": "1.30",
+            "YACO": "2.40"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "efficiency",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/PLY": "0.031",
+            "DVOA": "6.1%",
+            "SUCC%": "43.3%",
+            "EXP%": "9.9%",
+            "CONV%": "40.4%",
+            "TO": "5",
+            "TO%": "1.27%",
+            "PENY": "47.0",
+            "PEN%": "9.11%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "overview",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "YD/PLY": "6.0",
+            "PT/GM": "24.8",
+            "FD%": "31.1%",
+            "TO": "5",
+            "DPBK%": "65.6%",
+            "YD": "1,759",
+            "TD": "12",
+            "INT": "4",
+            "RUSH%": "34.4%",
+            "YD__2": "609",
+            "TD__2": "5"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "pass-protection",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "SK": "17",
+            "SK%": "6.6%",
+            "QBSK%": "0.0%",
+            "QBH%": "15.4%",
+            "PRESS%": "32.8%",
+            "UPRES%": "20.9%",
+            "BLITZ%": "26.6%",
+            "TTPR": "2.65",
+            "TTT": "2.59",
+            "EPA/DB": "-0.311",
+            "DVOA": "-73.2%",
+            "SUCC%": "29.4%",
+            "EPA/DB__2": "0.320",
+            "DVOA__2": "40.6%",
+            "SUCC%__2": "51.7%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "passing-analytics",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/DB": "0.113",
+            "SUCC%": "44.4%",
+            "DVOA": "18.8%",
+            "CPOE": "0.3%",
+            "CBALL%": "62.4%",
+            "EXP%": "16.7%",
+            "INTW%": "1.7%",
+            "HLT%": "3.0%",
+            "TA%": "11.1%",
+            "DROP%": "3.0%",
+            "aDOT": "8.7",
+            "aYAC": "5.3"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "rushing-analytics",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "EPA/ATT": "-0.124",
+            "SUCC%": "40.4%",
+            "DVOA": "2.1%",
+            "aRYOE": "",
+            "EXP%": "10.3%",
+            "STF%": "20.6%",
+            "aYBCO": "0.95",
+            "aYACO": "1.91",
+            "CRT%": "49.1%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "tempo",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "PLY/GM": "65.8",
+            "TOP": "27.82",
+            "DRV/GM": "11.5",
+            "SEC/PLY": "25.2",
+            "PLY/DRV": "5.8",
+            "YD/DRV": "34.3",
+            "SEC/DRV": "145",
+            "3&O": "13.0%",
+            "SCD%": "43.5%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "tendencies",
+          "metrics": {
+            "Team": "Carolina Panthers",
+            "GP": "6",
+            "DPBK%": "65.6%",
+            "RUSH%": "34.4%",
+            "SHG%": "58.7%",
+            "NH%": "6.6%",
+            "MOT%": "54.9%",
+            "PA%": "26.6%",
+            "IZ%": "22.8%",
+            "OZ%": "34.6%",
+            "MD%": "31.6%",
+            "PWR%": "4.4%",
+            "CTR%": "0.0%"
+          }
+        }
+      ],
+      "players": [
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Tetairoa McMillan",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "6",
+            "AIR": "585",
+            "AIR%": "31.0%",
+            "aDOT": "10.8",
+            "RACR": "0.87",
+            "WOPR": "0.60",
+            "cAIR": "374",
+            "cAIR%": "63.9%",
+            "PRYD": "211",
+            "PRYD%": "36.1%",
+            "dAIR": "5",
+            "dAIR%": "0.9%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Jalen Coker",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "5",
+            "AIR": "456",
+            "AIR%": "24.2%",
+            "aDOT": "11.7",
+            "RACR": "0.72",
+            "WOPR": "0.45",
+            "cAIR": "228",
+            "cAIR%": "50.0%",
+            "PRYD": "228",
+            "PRYD%": "50.0%",
+            "dAIR": "6",
+            "dAIR%": "1.3%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Darren Waller",
+            "Team": "Carolina Panthers",
+            "Position": "TE",
+            "GP": "6",
+            "AIR": "229",
+            "AIR%": "12.1%",
+            "aDOT": "10.0",
+            "RACR": "0.86",
+            "WOPR": "0.25",
+            "cAIR": "133",
+            "cAIR%": "58.1%",
+            "PRYD": "96",
+            "PRYD%": "41.9%",
+            "dAIR": "6",
+            "dAIR%": "2.6%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "AIR": "-25",
+            "AIR%": "-1.3%",
+            "aDOT": "-1.4",
+            "RACR": "-4.48",
+            "WOPR": "0.12",
+            "cAIR": "-21",
+            "cAIR%": "84.0%",
+            "PRYD": "-4",
+            "PRYD%": "16.0%",
+            "dAIR": "0",
+            "dAIR%": "0.0%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Tetairoa McMillan",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "6",
+            "EPA": "23.2",
+            "EPA/RTE": "0.098",
+            "EPA/TGT": "0.429",
+            "DVOA": "23.4%",
+            "DYAR": "55",
+            "SEP%": "40.7%",
+            "xCOMP": "61.1%",
+            "CPOE": "5.6%",
+            "YDOE": "30.7",
+            "aYDOE": "0.569"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "EPA": "10.4",
+            "EPA/RTE": "0.070",
+            "EPA/TGT": "0.580",
+            "DVOA": "17.5%",
+            "DYAR": "58",
+            "SEP%": "72.2%",
+            "xCOMP": "83.0%",
+            "CPOE": "0.3%",
+            "YDOE": "18.4",
+            "aYDOE": "1.022"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Darren Waller",
+            "Team": "Carolina Panthers",
+            "Position": "TE",
+            "GP": "6",
+            "EPA": "9.5",
+            "EPA/RTE": "0.067",
+            "EPA/TGT": "0.414",
+            "DVOA": "19.3%",
+            "DYAR": "56",
+            "SEP%": "26.1%",
+            "xCOMP": "56.1%",
+            "CPOE": "4.8%",
+            "YDOE": "43.6",
+            "aYDOE": "1.896"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Jalen Coker",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "5",
+            "EPA": "8.5",
+            "EPA/RTE": "0.056",
+            "EPA/TGT": "0.219",
+            "DVOA": "55.9%",
+            "DYAR": "23",
+            "SEP%": "38.5%",
+            "xCOMP": "64.2%",
+            "CPOE": "-0.1%",
+            "YDOE": "1.5",
+            "aYDOE": "0.038"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Tetairoa McMillan",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "6",
+            "RTE": "237",
+            "YPRR": "2.16",
+            "TPRR": "0.23",
+            "EXP%": "25.0%",
+            "CBALL%": "66.7%",
+            "CNTGT%": "11.1%",
+            "CNREC%": "33.3%",
+            "DROP": "1",
+            "DROP%": "1.9%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Jalen Coker",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "5",
+            "RTE": "153",
+            "YPRR": "2.14",
+            "TPRR": "0.25",
+            "EXP%": "16.0%",
+            "CBALL%": "69.2%",
+            "CNTGT%": "7.7%",
+            "CNREC%": "66.7%",
+            "DROP": "1",
+            "DROP%": "2.6%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "RTE": "150",
+            "YPRR": "0.75",
+            "TPRR": "0.12",
+            "EXP%": "13.3%",
+            "CBALL%": "83.3%",
+            "CNTGT%": "5.6%",
+            "CNREC%": "0.0%",
+            "DROP": "0",
+            "DROP%": "0.0%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Darren Waller",
+            "Team": "Carolina Panthers",
+            "Position": "TE",
+            "GP": "6",
+            "RTE": "141",
+            "YPRR": "1.40",
+            "TPRR": "0.16",
+            "EXP%": "7.1%",
+            "CBALL%": "69.6%",
+            "CNTGT%": "21.7%",
+            "CNREC%": "40.0%",
+            "DROP": "1",
+            "DROP%": "4.3%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Tetairoa McMillan",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "6",
+            "TGT": "54",
+            "REC": "36",
+            "YD": "511",
+            "TD": "2",
+            "YD/TGT": "9.5",
+            "YD/REC": "14.2",
+            "YAC": "129",
+            "FUML": "1"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Jalen Coker",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "5",
+            "TGT": "39",
+            "REC": "25",
+            "YD": "328",
+            "TD": "2",
+            "YD/TGT": "8.4",
+            "YD/REC": "13.1",
+            "YAC": "116",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Darren Waller",
+            "Team": "Carolina Panthers",
+            "Position": "TE",
+            "GP": "6",
+            "TGT": "23",
+            "REC": "14",
+            "YD": "198",
+            "TD": "3",
+            "YD/TGT": "8.6",
+            "YD/REC": "14.1",
+            "YAC": "75",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "TGT": "18",
+            "REC": "15",
+            "YD": "112",
+            "TD": "2",
+            "YD/TGT": "6.2",
+            "YD/REC": "7.5",
+            "YAC": "133",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Tetairoa McMillan",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "6",
+            "SNP": "346",
+            "SNP%": "82.4%",
+            "TGT": "54",
+            "TGT%": "25.5%",
+            "TGT/RTE": "22.8%",
+            "RTE": "237",
+            "RTE%": "87.3%",
+            "FREAD": "38",
+            "FREAD%": "70.4%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "SNP": "326",
+            "SNP%": "77.6%",
+            "TGT": "18",
+            "TGT%": "8.5%",
+            "TGT/RTE": "12.0%",
+            "RTE": "150",
+            "RTE%": "55.2%",
+            "FREAD": "1",
+            "FREAD%": "5.6%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Jalen Coker",
+            "Team": "Carolina Panthers",
+            "Position": "WR",
+            "GP": "5",
+            "SNP": "230",
+            "SNP%": "54.8%",
+            "TGT": "39",
+            "TGT%": "18.4%",
+            "TGT/RTE": "25.5%",
+            "RTE": "153",
+            "RTE%": "56.4%",
+            "FREAD": "30",
+            "FREAD%": "76.9%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Darren Waller",
+            "Team": "Carolina Panthers",
+            "Position": "TE",
+            "GP": "6",
+            "SNP": "193",
+            "SNP%": "46.0%",
+            "TGT": "23",
+            "TGT%": "10.8%",
+            "TGT/RTE": "16.3%",
+            "RTE": "141",
+            "RTE%": "52.1%",
+            "FREAD": "13",
+            "FREAD%": "56.5%"
+          }
+        },
+        {
+          "category": "rushing",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "EPA": "9.0",
+            "EPA/ATT": "0.093",
+            "DVOA": "25.2%",
+            "DYAR": "145",
+            "xYD": "405.3",
+            "YDOE": "53.69",
+            "aYDOE": "0.554",
+            "CRT%": ""
+          }
+        },
+        {
+          "category": "rushing",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "SUCC%": "48.5%",
+            "YBCO": "1.09",
+            "YACO": "2.25",
+            "AVT%": "22.7%",
+            "CRT%": "47.5%",
+            "EXP%": "12.4%",
+            "STF%": "12.4%"
+          }
+        },
+        {
+          "category": "rushing",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "ATT": "97",
+            "YD": "459",
+            "YD/ATT": "4.7",
+            "TD": "4",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "rushing",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Chuba Hubbard",
+            "Team": "Carolina Panthers",
+            "Position": "RB",
+            "GP": "6",
+            "SNP": "326",
+            "SNP%": "77.6%",
+            "ATT": "97",
+            "ATT%": "67.4%",
+            "TCH": "112",
+            "TCH%": "39.7%",
+            "OPP": "115",
+            "OPP%": "32.3%"
+          }
+        }
+      ]
+    },
+    "GB": {
+      "team_tables": [
+        {
+          "category": "team-defense",
+          "subpage": "efficiency",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/PLY": "-0.061",
+            "DVOA": "-9.8%",
+            "SUCC%": "44.3%",
+            "EXP%": "6.4%",
+            "CONV%": "45.4%",
+            "TO": "12",
+            "TO%": "2.6%",
+            "3&O": "15.6%",
+            "MTKL%": "11.9%",
+            "PEN%": "6.4%",
+            "PENY": "41.0"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "overview",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "YD/PLY": "5.1",
+            "PT/GM": "20.7",
+            "FD%": "28.7%",
+            "TO": "12",
+            "DPBK%": "59.7%",
+            "YD": "1,558",
+            "TD": "9",
+            "INT": "9",
+            "RUSH%": "40.3%",
+            "YD__2": "805",
+            "TD__2": "9"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "pass-rush",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "DPBK": "279",
+            "SK": "16",
+            "SK%": "5.7%",
+            "QBH%": "13.6%",
+            "PRESS": "75",
+            "PRESS%": "26.9%",
+            "QPRESS%": "57.3%",
+            "TTPR": "2.39",
+            "DISR%": "1.4%",
+            "BLZ%": "33.3%"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "passing-analytics",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/DB": "-0.034",
+            "SUCC%": "45.2%",
+            "DVOA": "-10.6%",
+            "CPOE": "1.00%",
+            "CBALL%": "71.1%",
+            "EXP%": "8.2%",
+            "INTW%": "4.9%",
+            "TGHT%": "32.1%",
+            "OPEN%": "54.1%",
+            "TA%": "3.7%",
+            "DROP%": "3.7%"
+          }
+        },
+        {
+          "category": "team-defense",
+          "subpage": "rush-analytics",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/ATT": "-0.101",
+            "SUCC%": "43.1%",
+            "DVOA": "-8.9%",
+            "aRYOE": "",
+            "EXP%": "8.0%",
+            "STF%": "26.1%",
+            "YBCO": "0.81",
+            "YACO": "2.38"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "efficiency",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/PLY": "-0.010",
+            "DVOA": "-11.1%",
+            "SUCC%": "38.8%",
+            "EXP%": "9.3%",
+            "CONV%": "39.6%",
+            "TO": "8",
+            "TO%": "1.86%",
+            "PENY": "37.0",
+            "PEN%": "8.14%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "overview",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "YD/PLY": "5.5",
+            "PT/GM": "20.6",
+            "FD%": "26.0%",
+            "TO": "8",
+            "DPBK%": "66.7%",
+            "YD": "1,958",
+            "TD": "13",
+            "INT": "5",
+            "RUSH%": "33.3%",
+            "YD__2": "419",
+            "TD__2": "3"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "pass-protection",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "SK": "14",
+            "SK%": "4.9%",
+            "QBSK%": "42.9%",
+            "QBH%": "17.8%",
+            "PRESS%": "28.6%",
+            "UPRES%": "41.1%",
+            "BLITZ%": "34.5%",
+            "TTPR": "2.32",
+            "TTT": "2.29",
+            "EPA/DB": "-0.224",
+            "DVOA": "-67.6%",
+            "SUCC%": "32.9%",
+            "EPA/DB__2": "0.259",
+            "DVOA__2": "19.2%",
+            "SUCC%__2": "45.4%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "passing-analytics",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/DB": "0.121",
+            "SUCC%": "41.8%",
+            "DVOA": "11.6%",
+            "CPOE": "-4.6%",
+            "CBALL%": "70.2%",
+            "EXP%": "18.5%",
+            "INTW%": "3.7%",
+            "HLT%": "2.6%",
+            "TA%": "2.6%",
+            "DROP%": "7.4%",
+            "aDOT": "9.0",
+            "aYAC": "5.4"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "rushing-analytics",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "EPA/ATT": "-0.272",
+            "SUCC%": "32.9%",
+            "DVOA": "-32.0%",
+            "aRYOE": "",
+            "EXP%": "7.0%",
+            "STF%": "26.6%",
+            "aYBCO": "1.03",
+            "aYACO": "1.79",
+            "CRT%": "62.0%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "tempo",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "PLY/GM": "61.4",
+            "TOP": "27.07",
+            "DRV/GM": "11.0",
+            "SEC/PLY": "26.4",
+            "PLY/DRV": "5.6",
+            "YD/DRV": "30.9",
+            "SEC/DRV": "148",
+            "3&O": "24.7%",
+            "SCD%": "35.1%"
+          }
+        },
+        {
+          "category": "team-offense",
+          "subpage": "tendencies",
+          "metrics": {
+            "Team": "Green Bay Packers",
+            "GP": "7",
+            "DPBK%": "66.7%",
+            "RUSH%": "33.3%",
+            "SHG%": "62.8%",
+            "NH%": "7.9%",
+            "MOT%": "60.9%",
+            "PA%": "19.2%",
+            "IZ%": "22.4%",
+            "OZ%": "28.0%",
+            "MD%": "22.4%",
+            "PWR%": "9.1%",
+            "CTR%": "4.9%"
+          }
+        }
+      ],
+      "players": [
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Matthew Golden",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "AIR": "982",
+            "AIR%": "40.0%",
+            "aDOT": "14.0",
+            "RACR": "0.55",
+            "WOPR": "0.68",
+            "cAIR": "484",
+            "cAIR%": "49.3%",
+            "PRYD": "498",
+            "PRYD%": "50.7%",
+            "dAIR": "104",
+            "dAIR%": "10.6%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Christian Watson",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "AIR": "752",
+            "AIR%": "30.6%",
+            "aDOT": "13.4",
+            "RACR": "0.79",
+            "WOPR": "0.53",
+            "cAIR": "439",
+            "cAIR%": "58.4%",
+            "PRYD": "313",
+            "PRYD%": "41.6%",
+            "dAIR": "39",
+            "dAIR%": "5.2%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "air-yards",
+          "metrics": {
+            "Player": "Tucker Kraft",
+            "Team": "Green Bay Packers",
+            "Position": "TE",
+            "GP": "7",
+            "AIR": "239",
+            "AIR%": "9.7%",
+            "aDOT": "5.6",
+            "RACR": "1.24",
+            "WOPR": "0.31",
+            "cAIR": "139",
+            "cAIR%": "58.2%",
+            "PRYD": "100",
+            "PRYD%": "41.8%",
+            "dAIR": "3",
+            "dAIR%": "1.3%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Christian Watson",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "EPA": "29.2",
+            "EPA/RTE": "0.118",
+            "EPA/TGT": "0.521",
+            "DVOA": "64.1%",
+            "DYAR": "133",
+            "SEP%": "35.7%",
+            "xCOMP": "61.1%",
+            "CPOE": "-0.4%",
+            "YDOE": "145.7",
+            "aYDOE": "2.601"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Tucker Kraft",
+            "Team": "Green Bay Packers",
+            "Position": "TE",
+            "GP": "7",
+            "EPA": "14.4",
+            "EPA/RTE": "0.067",
+            "EPA/TGT": "0.334",
+            "DVOA": "7.4%",
+            "DYAR": "-26",
+            "SEP%": "46.5%",
+            "xCOMP": "76.3%",
+            "CPOE": "-8.9%",
+            "YDOE": "-1.9",
+            "aYDOE": "-0.045"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "analytics",
+          "metrics": {
+            "Player": "Matthew Golden",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "EPA": "7.1",
+            "EPA/RTE": "0.027",
+            "EPA/TGT": "0.101",
+            "DVOA": "62.5%",
+            "DYAR": "19",
+            "SEP%": "32.9%",
+            "xCOMP": "53.5%",
+            "CPOE": "-2.1%",
+            "YDOE": "-0.5",
+            "aYDOE": "-0.008"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Matthew Golden",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "RTE": "264",
+            "YPRR": "2.06",
+            "TPRR": "0.27",
+            "EXP%": "27.8%",
+            "CBALL%": "64.3%",
+            "CNTGT%": "30.0%",
+            "CNREC%": "19.0%",
+            "DROP": "7",
+            "DROP%": "10.0%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Christian Watson",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "RTE": "248",
+            "YPRR": "2.40",
+            "TPRR": "0.23",
+            "EXP%": "32.4%",
+            "CBALL%": "69.6%",
+            "CNTGT%": "30.4%",
+            "CNREC%": "23.5%",
+            "DROP": "3",
+            "DROP%": "5.4%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "efficiency",
+          "metrics": {
+            "Player": "Tucker Kraft",
+            "Team": "Green Bay Packers",
+            "Position": "TE",
+            "GP": "7",
+            "RTE": "215",
+            "YPRR": "1.38",
+            "TPRR": "0.20",
+            "EXP%": "13.8%",
+            "CBALL%": "86.0%",
+            "CNTGT%": "16.3%",
+            "CNREC%": "42.9%",
+            "DROP": "4",
+            "DROP%": "9.3%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Matthew Golden",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "TGT": "70",
+            "REC": "36",
+            "YD": "545",
+            "TD": "3",
+            "YD/TGT": "7.8",
+            "YD/REC": "15.1",
+            "YAC": "171",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Christian Watson",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "TGT": "56",
+            "REC": "34",
+            "YD": "595",
+            "TD": "6",
+            "YD/TGT": "10.6",
+            "YD/REC": "17.5",
+            "YAC": "181",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "overview",
+          "metrics": {
+            "Player": "Tucker Kraft",
+            "Team": "Green Bay Packers",
+            "Position": "TE",
+            "GP": "7",
+            "TGT": "43",
+            "REC": "29",
+            "YD": "297",
+            "TD": "2",
+            "YD/TGT": "6.9",
+            "YD/REC": "10.2",
+            "YAC": "175",
+            "FUML": "0"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Matthew Golden",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "SNP": "382",
+            "SNP%": "83.6%",
+            "TGT": "70",
+            "TGT%": "26.5%",
+            "TGT/RTE": "26.5%",
+            "RTE": "264",
+            "RTE%": "83.6%",
+            "FREAD": "49",
+            "FREAD%": "70.0%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Tucker Kraft",
+            "Team": "Green Bay Packers",
+            "Position": "TE",
+            "GP": "7",
+            "SNP": "373",
+            "SNP%": "81.6%",
+            "TGT": "43",
+            "TGT%": "16.3%",
+            "TGT/RTE": "20.0%",
+            "RTE": "215",
+            "RTE%": "67.2%",
+            "FREAD": "25",
+            "FREAD%": "58.1%"
+          }
+        },
+        {
+          "category": "receiving",
+          "subpage": "usage",
+          "metrics": {
+            "Player": "Christian Watson",
+            "Team": "Green Bay Packers",
+            "Position": "WR",
+            "GP": "7",
+            "SNP": "369",
+            "SNP%": "80.7%",
+            "TGT": "56",
+            "TGT%": "21.2%",
+            "TGT/RTE": "22.6%",
+            "RTE": "248",
+            "RTE%": "80.5%",
+            "FREAD": "48",
+            "FREAD%": "85.7%"
+          }
+        }
+      ]
+    }
+  }
+}
