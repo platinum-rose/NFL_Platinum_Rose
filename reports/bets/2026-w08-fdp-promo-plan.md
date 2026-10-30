@@ -338,3 +338,21 @@ Saturday set (no repeats of tonight's legs; one leg per game; no CLE @ PIT props
 - KC@DEN: **Travis Kelce 2+ rec** (85%, 6/6) — backups: J.K. Dobbins 25+ rush yds (83%) · Kenneth Walker III 60+ rush yds (79%)
 - BAL@BUF: **Mark Andrews 2+ rec** (82%, 6/7) — backups: James Cook III 60+ rush yds (81%) · Derrick Henry 50+ rush yds (80%)
 - PHI@WSH: **Dallas Goedert 2+ rec** (81%, 4/5) — backups: WSH ML (70%)
+
+### Saturday stacks — revised 3:15 PM PT (Andy: drop 2 legs from each, add one ATD)
+ATD odds = 2026 box-score TD-game rate, shaded down (Javonte 6/7 games, Gibbs 5/6). Reminder: short-priced ATDs have run −16 vs price in Andy's history (n=32).
+
+**T1 ($10)** — 5 legs, win ~41%, fair ~2.44x (expect ~2.8x displayed). Dropped Javonte 25+ rush yds and Jefferson 30+ rec yds.
+- TEN@CIN: **Joe Burrow 175+ pass yds** (87%) — backups: Chase Brown 2+ rec · Ja'Marr Chase 25+ rec yds
+- ARI@DAL: **Javonte Williams anytime TD** (~70%; 6/7 games, 9 TDs) — backups: Kyren Williams ATD (LAC@LAR) · CeeDee Lamb ATD
+- LV@NYJ: **Garrett Wilson 25+ rec yds** (88%) — backups: Brock Bowers 4+ rec · Ashton Jeanty 3+ rec
+- IND@JAX: **Josh Downs 2+ rec** (88%) — backups: Brenton Strange 2+ rec · Trevor Lawrence 175+ pass yds
+- NE@MIA: **Drake Maye 175+ pass yds** (87%) — backups: Hunter Henry 2+ rec · Malik Washington 3+ rec
+
+**T2 ($10)** — 4 legs, win ~43%, fair ~2.34x (expect ~2.7x displayed). Dropped Mark Andrews 2+ rec and Dallas Goedert 2+ rec.
+- LAC@LAR: **Puka Nacua 60+ rec yds** (86%) — backups: Matthew Stafford 175+ pass yds · Nacua 5+ rec
+- ATL@TB: **Chris Godwin Jr. 25+ rec yds** (86%) — backups: Bucky Irving 40+ rush yds · Drake London 3+ rec
+- KC@DEN: **Travis Kelce 2+ rec** (85%) — backups: J.K. Dobbins 25+ rush yds · Kenneth Walker III 60+ rush yds
+- MIN@DET: **Jahmyr Gibbs anytime TD** (~68%; 5/6 games, 9 TDs) — backups: James Cook III ATD (BAL@BUF; 5/6) · Jonathan Taylor ATD (IND@JAX; 5/7)
+
+Roster vet PASS for the ATD legs and backups; no injury designations as of 3:15 PM PT.
