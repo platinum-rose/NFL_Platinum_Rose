@@ -114,18 +114,20 @@ tackles       near even (-149..+149)    14  win  71%  implied  54%  edge +17
 Takeaways used to build the stacks:
 - **Best:** tackles (+12/+17 at fav/near-even prices), QB passing TDs (63% won; +30 on near-even prices, n=12), QB INT (+7), low receiving-yard rungs priced as favorites (+11).
 - **Worst "easy" types:** short-priced anytime TDs (−150 to −299: won 50% vs 66% implied, n=32) and heavy ML favorites (≤ −300: 64% vs 78%, n=25), each roughly 2 SD below the price. Sacks (−16), first TD (−15) and game totals at near-even (−10) are also poor.
-- So each stack carries at most one ML, and only one stack carries an ATD (Bijan, the shortest Sunday ATD on the Bookmaker board). QB 1+/2+ passing-TD and tackles legs are spread across the stacks.
+- So each stack carries at most one ML, and only one stack carries an ATD (Bijan, the shortest Sunday ATD on the Bookmaker board). QB 1+ passing-TD legs are spread across the stacks. **FDP does not offer defensive props** (Andy, Oct 30), so no tackles legs.
 
-**Pricing:** ML = DK de-vigged (12:10 PM PT). Passing-TD and ATD legs = Bookmaker Thursday SGP board, implied × 0.96 to strip vig. Tackles = calibrated hit rates from the defensive sheet. Alt totals = normal model (SD 13.5 pts) off the DK main total, minus 2 pts. Yardage/reception rungs = 2026 box scores. **Roster gate:** strict roster vet PASS, 27 player legs, ESPN rosters 1:44 PM PT Oct 30; all player legs have no injury designation.
+**Pricing:** ML = DK de-vigged (12:10 PM PT). Passing-TD and ATD legs = Bookmaker Thursday SGP board, implied × 0.96 to strip vig. Alt totals = normal model (SD 13.5 pts) off the DK main total, minus 2 pts. Yardage/reception rungs = 2026 box scores. **Roster gate:** strict roster vet PASS, 27 player legs, ESPN rosters 1:44 PM PT Oct 30; all player legs have no injury designation.
 
 **If FDP doesn't offer a leg** (FDP may not list defensive or alt-total markets): use the nearest rung at or below it, or swap in a same-game leg from the easy-leg list below. Place only if FDP's displayed multiple ≥ min.
 
 ### Full-slate stacks (place before 10:00 AM PT Sunday)
 
-**S1** — win 38%, fair 2.65x, min 2.33x
+_Updated 2:15 PM PT: FDP does not offer defensive props, so all tackles legs were replaced (S1 and L1: Bo Nix 15+ completions; S3: Aaron Rodgers 1+ pass TD; L2: Luther Burden III 3+ rec). Roster vet PASS, 27 player legs._
+
+**S1** — win 40%, fair 2.52x, min 2.22x
 - TEN@CIN: CIN ML (84%) — ML
 - ARI@DAL: Jacoby Brissett 1+ pass TD (93%) — pass TD
-- KC@DEN: Alex Singleton 8+ tackles+assists (77%) — tackles
+- KC@DEN: Bo Nix 15+ completions (81%) — completions
 - LV@NYJ: Tre Tucker 2+ rec (89%) — receptions
 - LAC@LAR: Kyren Williams 40+ rush yds (89%) — rush yds
 - BAL@BUF: BAL @ BUF Over 42.5 (alt total; main 54.5) (79%) — alt total
@@ -138,11 +140,11 @@ Takeaways used to build the stacks:
 - NE@MIA: Greg Dulcich 2+ rec (86%) — receptions
 - ATL@TB: Bijan Robinson anytime TD (68%) — ATD
 
-**S3** — win 35%, fair 2.83x, min 2.49x
+**S3** — win 36%, fair 2.76x, min 2.43x
 - TEN@CIN: Tony Pollard 25+ rush yds (90%) — rush yds
 - ARI@DAL: ARI @ DAL Over 41.5 (alt total; main 54.5) (81%) — alt total
 - LAC@LAR: Tyler Higbee 2+ rec (88%) — receptions
-- CLE@PIT: Payton Wilson 6+ tackles+assists (77%) — tackles
+- CLE@PIT: Aaron Rodgers 1+ pass TD (79%) — pass TD
 - ATL@TB: Baker Mayfield 1+ pass TD (84%) — pass TD
 - PHI@WSH: Stefon Diggs 30+ rec yds (85%) — rec yds
 
@@ -156,19 +158,19 @@ Takeaways used to build the stacks:
 
 ### Late fallback (bonus lands after 10 AM Sunday; place before 1:05 PM PT)
 
-**L1** — win 37%, fair 2.73x, min 2.40x
+**L1** — win 38%, fair 2.60x, min 2.29x
 - LAC@LAR: LAR ML (70%) — ML
-- KC@DEN: Alex Singleton 8+ tackles+assists (77%) — tackles
+- KC@DEN: Bo Nix 15+ completions (81%) — completions
 - NE@MIA: Drake Maye 175+ pass yds (87%) — pass yds
 - PHI@WSH: Stefon Diggs 30+ rec yds (85%) — rec yds
 - CHI@SEA: Jaxon Smith-Njigba 60+ rec yds (92%) — rec yds
 
-**L2** — win 36%, fair 2.81x, min 2.48x
+**L2** — win 40%, fair 2.49x, min 2.19x
 - NE@MIA: NE ML (73%) — ML
 - KC@DEN: Patrick Mahomes 150+ pass yds (88%) — pass yds
 - LAC@LAR: Tyler Higbee 2+ rec (88%) — receptions
 - PHI@WSH: PHI @ WSH Under 53.5 (alt total) (81%) — alt total
-- CHI@SEA: Ernest Jones IV 8+ tackles+assists (77%) — tackles
+- CHI@SEA: Luther Burden III 3+ rec (87%) — receptions
 
 **L3** — win 41%, fair 2.42x, min 2.13x
 - PHI@WSH: WSH ML (70%) — ML
