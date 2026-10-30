@@ -309,3 +309,32 @@ _Superseded: A1–A4/B1–B4 (1:50 PM) and the props-only S1–S4/L1–L4 (1:55 
 | CHI @ SEA | CHI | D'Andre Swift 2+ receptions | 79% | 6/7, avg 3.1 |
 
 _2:40 PM PT: FDP lists no player props for CLE @ PIT. S3 Rodgers 1+ pass TD → Geno Smith 1+ pass TD (LV @ NYJ; backups Garrett Wilson 25+ rec yds, Brock Bowers 4+ rec). Avoid CLE @ PIT props in later builds._
+
+## Placed with Bonus #1 ($20, landed Fri Oct 30 right after the Day 1 trade — promo is live)
+All profit-only payouts (FDP pays displayed multiple × subtotal minus the bonus stake).
+| Ticket | Order | Legs | Bonus | Displayed | Payout |
+|---|---|---|---|---|---|
+| A (S1 + Andy's add) | — | Derrick Henry ATD, CIN ML, Tre Tucker o1.5 rec, Brissett o0.5 pass TD, Kyren Williams o39.5 rush, Josh Allen o199.5 pass yds, Xavier Worthy o1.5 rec | $5.00 ($4.57 + $0.43 fee) | 4.76x | $16.74 |
+| B (S2; Pollard for Jaylen Warren — no PIT rush props) | 01A18EB6-1327-798F | JAX ML, Goff o199.5, Cousins o0.5 pass TD, Dulcich o1.5 rec, Pollard o24.5 rush, Bijan ATD | $4.99 ($4.65 + $0.34) | 3.70x | $12.25 |
+| C (S3; Geno TD for Rodgers — no CLE @ PIT props) | 01A18EBF-2FD3-7EE5 | Higgins o1.5 rec, McBride o4.5 rec, Higbee o1.5 rec, Diggs o29.5 rec yds, Mayfield o0.5 pass TD, Geno Smith o0.5 pass TD | $5.00 ($4.74 + $0.26) | 2.70x | $7.82 |
+| D (S4; Antonio Williams for Goedert) | 01A18EC8-740D-7DD | NE ML, St. Brown o3.5 rec, Tyler Warren o2.5 rec, Antonio Williams o1.5 rec, Flowers o49.5 rec yds, Mahomes o149.5 pass yds | $5.01 ($4.71 + $0.30) | 3.22x | $10.19 |
+
+FDP's displayed multiples ran about 1.15–1.2× my fair prices, so my box-score leg odds likely run a few points high. Target ~2.1–2.4x fair to land 2–3x displayed.
+
+## Bonus #2+ format (Andy, Oct 30 2:49 PM PT): **2 × $10 stacks per $20 bonus, 2–3x displayed**, same mixed strategy
+Saturday set (no repeats of tonight's legs; one leg per game; no CLE @ PIT props). Roster vet PASS (30 legs incl. backups, ESPN rosters 1:44 PM PT); no injury designations as of 2:50 PM PT.
+
+**T1** ($10) — 6 legs, win 43%, fair 2.33x (expect ~2.7x displayed at FDP)
+- TEN@CIN: **Joe Burrow 175+ pass yds** (87%, 6/6) — backups: Chase Brown 2+ rec (85%) · Ja'Marr Chase 25+ rec yds (79%)
+- ARI@DAL: **Javonte Williams 25+ rush yds** (86%, 7/7) — backups: Dak Prescott 200+ pass yds (79%) · CeeDee Lamb 4+ rec (78%)
+- LV@NYJ: **Garrett Wilson 25+ rec yds** (88%, 7/7) — backups: Brock Bowers 4+ rec (87%) · Ashton Jeanty 3+ rec (86%)
+- IND@JAX: **Josh Downs 2+ rec** (88%, 7/7) — backups: Brenton Strange 2+ rec (88%) · Trevor Lawrence 175+ pass yds (86%)
+- MIN@DET: **Justin Jefferson 30+ rec yds** (87%, 5/5) — backups: Jameson Williams 30+ rec yds (86%) · Jahmyr Gibbs 4+ rec (82%)
+- NE@MIA: **Drake Maye 175+ pass yds** (87%, 7/7) — backups: Hunter Henry 2+ rec (82%) · Malik Washington 3+ rec (83%)
+
+**T2** ($10) — 5 legs, win 41%, fair 2.41x (expect ~2.8x displayed at FDP)
+- LAC@LAR: **Puka Nacua 60+ rec yds** (86%, 5/5) — backups: Matthew Stafford 175+ pass yds (82%) · Puka Nacua 5+ rec (84%)
+- ATL@TB: **Chris Godwin Jr. 25+ rec yds** (86%, 7/7) — backups: Bucky Irving 40+ rush yds (85%) · Drake London 3+ rec (83%)
+- KC@DEN: **Travis Kelce 2+ rec** (85%, 6/6) — backups: J.K. Dobbins 25+ rush yds (83%) · Kenneth Walker III 60+ rush yds (79%)
+- BAL@BUF: **Mark Andrews 2+ rec** (82%, 6/7) — backups: James Cook III 60+ rush yds (81%) · Derrick Henry 50+ rush yds (80%)
+- PHI@WSH: **Dallas Goedert 2+ rec** (81%, 4/5) — backups: WSH ML (70%)
