@@ -35,3 +35,14 @@ Resume prompt:
 ```
 Resume Platinum Rose NFL. Branch claude/w5-prop-cards-2026-10-11 (local commits on top of pushed 97ec2ff; check whether Andy pushed). Friday injury re-check done; no pool slot changes; live BKR legs clear; FDP promo reminders scheduled. Next: defense:props rebuild after the 3 PM cadence, DK defensive rerun Saturday, Sunday inactives and entries. Read HANDOFF.md, reconcile live Git, then handoffs/2026-10-30-1325-claude-week8-friday-injuries-fdp-promo.md.
 ```
+
+## Addendum 1:35 PM PT — Sal Bets "Way Too Early 5 Best Bets Week 8" (video; Andy transcribed)
+Source: x.com/salbets_/status/2115481971044331576 (posted Oct 28). Sal's graded history in `expert-history-graded-w04-w07.json` is tiny (2-3 graded, 3 ungraded).
+| Pick | Check (1:30 PM PT) |
+|---|---|
+| Bijan Robinson over 79.5 rush yds (ATL @ TB) | BEO Thu: o80.5 −107. ATL RB2 Brian Robinson ruled OUT → more Bijan carries. Supports. |
+| A.J. Brown over 59.5 rec yds (NE @ MIA) | **Questionable** (ankle/knee; DNP Thu). Only after inactives (~11:55 AM PT Sun for the 1:25 PM game). Missing player = busted leg. |
+| Jacoby Brissett over 249.5 pass yds (ARI @ DAL) | ESPN depth chart QB1. BEO Thu: o257.5 +100; 248+ at −145. DAL −7, total 54.5 → ARI trailing script. Correlates with the DAL ML legs. |
+| Jared Goff under 274.5 pass yds (MIN @ DET) | Total 46.5; MIN pass D strong (SharpFootball: 3 passing TDs allowed all season). No board price captured. |
+| Ollie Gordon II under 59.5 rush yds (NE @ MIA) | MIA RB1 on depth chart. MIA +7 → trailing script, fewer carries. Correlates with the NE ML legs. No board price captured. |
+Not logged to Supabase or the ledger; proposal-only notes.
