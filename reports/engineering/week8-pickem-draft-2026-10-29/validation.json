@@ -1,0 +1,153 @@
+{
+  "generated_at": "2026-10-29T15:52:18.253960+00:00",
+  "checks": [
+    {
+      "check": "input_hash",
+      "path": "data/generated/props/bookmaker-live-2026-10-29-week8.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/generated/props/betonline-live-2026-10-29-week8.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/generated/props/draftkings-predictions-live-2026-10-28-week8.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/pickem/pools-2026.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/nfl-rosters/espn-full-rosters-latest.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/player-availability/latest.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2026-w7.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2026-w7.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "reports/engineering/week8-article-ingest-2026-10-29/proposed-notes.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "reports/engineering/week8-podcasts-2026-10-29/candidate-intel.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "reports/engineering/week8-tnf-podcasts-2026-10-28/ross-tucker-local.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "reports/engineering/week8-pickem-draft-2026-10-29/schedule-provider.json",
+      "pass": true
+    },
+    {
+      "check": "input_hash",
+      "path": "reports/engineering/week8-pickem-draft-2026-10-29/official-injuries.html",
+      "pass": true
+    },
+    {
+      "check": "all_games_once",
+      "pool": "simplysportsware",
+      "pass": true
+    },
+    {
+      "check": "confidence_slots_1_to_14",
+      "pool": "simplysportsware",
+      "pass": true
+    },
+    {
+      "check": "expected_score_arithmetic",
+      "pool": "simplysportsware",
+      "pass": true,
+      "recomputed": 74.2557
+    },
+    {
+      "check": "flip_caps",
+      "pool": "simplysportsware",
+      "pass": true
+    },
+    {
+      "check": "all_games_once",
+      "pool": "yahoo",
+      "pass": true
+    },
+    {
+      "check": "confidence_slots_1_to_14",
+      "pool": "yahoo",
+      "pass": true
+    },
+    {
+      "check": "expected_score_arithmetic",
+      "pool": "yahoo",
+      "pass": true,
+      "recomputed": 74.1743
+    },
+    {
+      "check": "flip_caps",
+      "pool": "yahoo",
+      "pass": true
+    },
+    {
+      "check": "all_games_once",
+      "pool": "cbs",
+      "pass": true
+    },
+    {
+      "check": "expected_score_arithmetic",
+      "pool": "cbs",
+      "pass": true,
+      "recomputed": 9.1734
+    },
+    {
+      "check": "flip_caps",
+      "pool": "cbs",
+      "pass": true
+    },
+    {
+      "check": "two_fullgame_book_pairs_each_game",
+      "pass": true
+    },
+    {
+      "check": "LV_exact_source_quote",
+      "pass": true
+    },
+    {
+      "check": "post_draft_roster_gate",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "no_external_mutations_in_draft": true,
+  "scope": "local proposal and approved public roster refresh only"
+}

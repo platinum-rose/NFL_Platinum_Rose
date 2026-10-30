@@ -1,0 +1,9 @@
+# Week 8 SuperContest reconciliation — October 29, 2026
+
+Read `HANDOFF.md`, reconcile Git, then use this for the Thursday cadence / SuperContest lane. The earlier missing-Week-8 state in `handoffs/2026-10-29-codex-thursday-cadence-repair.md` is superseded: a concurrently created `data/supercontest/week-08-lines.json` was captured at 9:07 AM Pacific and attributed to Andy's pasted contest lines. All 14 matchups, favorites, home/away teams and spreads agree with Westgate's public Week 8 selection sheet. Source and verification: `reports/engineering/week8-supercontest-reconcile-2026-10-29/verification.json` and `README.md`.
+
+The existing `data/supercontest/latest.json` still pointed to Week 7; it now exactly matches the Week 8 file, preserving the manual source and original capture timestamp. The prior pointer is backed up in the reconciliation folder. No account, wager or ledger was touched.
+
+The concurrently created `data/supercontest/live-market-comparison.json` is Week 8, with 14 games, but its DK/FD underlying odds capture is **October 28 at 2:00 PM Pacific**. Its October 29 sync time does not refresh the odds. Its `clv` labels describe snapshot differences, not verified closing-line value. Preserve this shared file. A separate local comparison against BetOnline's saved **October 29, 10:10 AM Pacific** snapshot is in the reconciliation README. Neither capture is a current executable offer.
+
+The full Thursday cadence has not been rerun or certified. Any new Supabase read, account action, wager, ledger/portfolio mutation, paid call or publication requires Andy's per-action OK. `--live` odds remain unapproved. TNF wager card remains HOLD. Prior repair tests remain **40/40** and changes remain uncommitted. Preserve dirty and concurrent work; no commit, push or external database action was made in this reconciliation.

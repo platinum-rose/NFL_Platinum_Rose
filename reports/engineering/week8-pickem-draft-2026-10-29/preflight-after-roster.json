@@ -1,0 +1,200 @@
+{
+ "week": 8,
+ "week_start_utc": "2026-10-27T04:00:00.000Z",
+ "week_end_utc": "2026-11-03T04:00:00.000Z",
+ "generated_at": "2026-10-29T15:41:41.742Z",
+ "rows": [
+  {
+   "label": "Player availability",
+   "path": "data/player-availability/latest.json",
+   "age_h": 0,
+   "max_h": 24,
+   "status": "ok",
+   "note": "1146 events"
+  },
+  {
+   "label": "Projected starters",
+   "path": "data/projected-starters/2026/projected-starters-2026-10-28.json",
+   "age_h": 18,
+   "max_h": 36,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Roster map",
+   "path": "data/nfl-rosters/roster-map-latest.json",
+   "age_h": 0,
+   "max_h": 72,
+   "status": "ok",
+   "note": "845 players"
+  },
+  {
+   "label": "ESPN rosters 2026 (full)",
+   "path": "data/nfl-rosters/espn-full-rosters-latest.json",
+   "age_h": 0,
+   "max_h": 24,
+   "status": "ok",
+   "note": "2558 players, 32 teams"
+  },
+  {
+   "label": "ROSTER VET (gate)",
+   "path": null,
+   "age_h": null,
+   "max_h": null,
+   "status": "ok",
+   "note": "ROSTER VET: PASS - 0 blocking issue(s); player legs resolved: card 2, digest 0; ESPN rosters 2026-10-29T15:40Z (0.0h old, 2558 players)  [python: C:\\Users\\andre\\asr-eval\\.venv\\Scripts\\python.exe]  -> details: data/generated/master-intel/w08-roster-vet.json"
+  },
+  {
+   "label": "Secondary matchups",
+   "path": "data/secondary-matchups/latest.json",
+   "age_h": 134,
+   "max_h": 96,
+   "status": "STALE",
+   "note": "week 7"
+  },
+  {
+   "label": "Usage trends (season)",
+   "path": "data/generated/player-usage-trends-2026.json",
+   "age_h": 47,
+   "max_h": 72,
+   "status": "ok",
+   "note": "through wk 7"
+  },
+  {
+   "label": "ESPN box scores",
+   "path": null,
+   "age_h": null,
+   "max_h": null,
+   "status": "ok",
+   "note": "108 files (expect ~112)"
+  },
+  {
+   "label": "Prediction markets",
+   "path": "data/prediction-markets/latest.json",
+   "age_h": 18,
+   "max_h": 48,
+   "status": "ok",
+   "note": "4055 contracts"
+  },
+  {
+   "label": "Cross-market coherence",
+   "path": "data/prediction-markets/cross-market-coherence-latest.json",
+   "age_h": 18,
+   "max_h": 48,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "SuperContest lines",
+   "path": "data/supercontest/live-market-comparison.json",
+   "age_h": 19,
+   "max_h": 168,
+   "status": "STALE",
+   "note": "14 compared game(s)"
+  },
+  {
+   "label": "BKR current lines",
+   "path": "data/generated/props/bookmaker-live-2026-10-29-week8.json",
+   "age_h": 15,
+   "max_h": 36,
+   "status": "ok",
+   "note": "captured 2026-10-29T00:26:53.613Z; ? games"
+  },
+  {
+   "label": "Alpha packet",
+   "path": "data/alpha/alpha-packet-2026.json",
+   "age_h": 134,
+   "max_h": 48,
+   "status": "STALE",
+   "note": ""
+  },
+  {
+   "label": "Expert dossiers",
+   "path": "data/expert-dossiers/steve-fezzik.json",
+   "age_h": 144,
+   "max_h": 168,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Host citations",
+   "path": "data/generated/host-citations-latest.json",
+   "age_h": 144,
+   "max_h": 168,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Player-props intel",
+   "path": "docs/player-props-intel/player-props-intel-latest.md",
+   "age_h": 0,
+   "max_h": 168,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Promoted podcast intelligence",
+   "path": "data/generated/master-intel/w08-pull.json",
+   "age_h": null,
+   "max_h": 168,
+   "status": "STALE",
+   "note": "0 promoted episode(s), 0 pick(s), 0 analysis note(s)"
+  },
+  {
+   "label": "Team DVOA / power",
+   "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+   "age_h": 16,
+   "max_h": 240,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Prop boards Week8",
+   "path": null,
+   "age_h": null,
+   "max_h": null,
+   "status": "STALE",
+   "note": "0 board file(s)"
+  },
+  {
+   "label": "Futures ledger",
+   "path": "data/futures-imports/andy-portfolio-ledger-2026.json",
+   "age_h": 184,
+   "max_h": 168,
+   "status": "STALE",
+   "note": ""
+  },
+  {
+   "label": "BEO futures board (import)",
+   "path": "data/futures-imports/betonline-2026-10-27.json",
+   "age_h": 42,
+   "max_h": 168,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "BKR futures board (import)",
+   "path": "data/futures-imports/bookmaker-2026-10-07.json",
+   "age_h": 513,
+   "max_h": 168,
+   "status": "STALE",
+   "note": ""
+  },
+  {
+   "label": "Promotions",
+   "path": "data/sportsbooks/promotions-2026.json",
+   "age_h": 16,
+   "max_h": 168,
+   "status": "ok",
+   "note": ""
+  },
+  {
+   "label": "Gemini API billing (LLM)",
+   "path": null,
+   "age_h": null,
+   "max_h": null,
+   "status": "ok",
+   "note": "skipped (--no-fetch)"
+  }
+ ]
+}

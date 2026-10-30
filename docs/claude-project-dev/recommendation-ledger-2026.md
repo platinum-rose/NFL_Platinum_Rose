@@ -4,7 +4,7 @@
 
 **2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. **Update 2026-09-29 (Claude Team 2): recovered.** The older version was still in the claude.ai DEV project; it is preserved verbatim as `claude/recommendation-ledger-2026-pre-rebuild.md` (repo mirror `docs/claude-project-dev/recommendation-ledger-2026-pre-rebuild.md`). Cite its entries as **P-D1…P-D15** (Week 2 D1–D12 all IRRELEVANT; Week 3 TNF P-D13–P-D15 overlap D1–D4 here). Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
+**Last updated:** 2026-10-29 ~17:35 PT by Claude (Week 8 section D48–D53 opened: TNF CAR @ GB and weekend tickets logged, pending). Earlier 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
 
 ---
 
@@ -237,6 +237,77 @@ Built 2026-10-27 by Claude Team 2 from the ESPN finals (`reports/analysis/week7-
 
 ### Week 7 close-out
 **Week 7 (restated 2026-10-27): 24 cash tickets, $292.57 staked, 0 won, net −$279.05** (first booked as 39 tickets, −$234.99, before the 15 DK Predictions tickets were retagged promo). Paper: 43 tickets, 5 cashed, 38 burnt, −$279.01 on $570. Divergence tally: Claude right - D40 (afternoon parlay +$84.41 on paper; SEA ML cap); skip/pass right - D38 (−$103.71), D39 master RR (−$70); agreement - D39 dog RR (lost), D41 SuperContest (3-2), D43 B ladder (lost); Andy right - the Metcalf Over flip in D42; IRRELEVANT - D42 card tickets, D43, D44, D45, D46, D47. The card's game-level picks did better than its prop stacks: sides/totals singles 3-8 but the afternoon parlay cashed and the SuperContest went 3-2, while all 26 card prop tickets burnt (§7h, §7i, §7j, §7k, §7l, §7e/8a). Both W7 wins (DKP, promo-funded) were short-connector combos that used card theses (QB INTs, Love 2+ TD, Javonte ATD). **Season through Week 7: cash tickets −$700.44 on $3,302.31, plus the DK Predictions account result +$127.13 = −$573.31** (see the reconciliation below; first booked as −$765.29 on $3,506.16).
+
+---
+
+## Week 8 (2026-10-29 TNF CAR @ GB through MNF CHI @ SEA, 2026-11-02) — in progress
+
+Opened 2026-10-29 ~17:35 PT by Claude (DEV session, Andy-approved ledger update). Sources:
+- `reports/bets/2026-w08-tnf-island-ladder-2026-10-29.md`, `2026-w08-tnf-sgp-proposals-2026-10-29.md`, `2026-w08-weekend-parlay-proposal-2026-10-29.md`, `2026-w08-pool-picks-proposal-2026-10-29.md`.
+- Placed tickets: `data/official-picks/user-placed-wagers-2026.json`, logged 17:25–17:35 PT. The 10 new rows were upserted to Supabase `user_bankroll_bets` via SQL (the device VM could not reach Supabase).
+
+Session rule added by Andy (3:34 PM PT): **no full-game spreads or totals inside prop parlays.** Weekend multi-game parlays may use sides and totals.
+
+**Money (placed, pending).** 10 Week 8 tickets:
+- Cash: $71.02 (BEO $21.02, BKR $50.00).
+- DK Predictions promo: $29.85.
+- Two of the BKR tickets (740904942, 740900674) were placed Oct 27 and first logged tonight.
+
+**D48 – TNF Tier 1 (Island ladder S1/S2) → DKP 48373977** ($10 promo, +30% boost, pays $355.80).
+- Placed: Hubbard ATD, McKinney 4+ T+A, Jacobs 15+ carries, Young 1+ INT, Kraft 4+ rec, Watson 5+ rec.
+- Andy built it through three slip revisions with Claude.
+- Claude's swaps adopted: Jacobs carries instead of 63+ rush yds; Kraft TD dropped.
+- Andy's own legs: McKinney, plus Watson 5+ rec (added at DK).
+- Claude's revised S1 used Young u10.5 rush yds and Kraft 5+ rec; Andy took Kraft at 4+.
+- **Partial agreement.** Pending.
+
+**D49 – TNF Tier 2 (S4 rebuilt on the 3:59 PM BEO SGP board) → BEO 1010127424** ($6.02, +2300, to win $138.46).
+- Love 1+ INT, Coker ATD, Van Ness 1+ sack (+140; Claude's replacement for the GB team-sacks leg, which the SGP builder does not offer), Waller 22+ rec yds.
+- **Agreement.** Pending.
+
+**D50 – Weekend 11-leg proposal → BKR 740983886** ($10, to win $1,265.60).
+- TNF leg: Jacobs ATD.
+- Sunday legs: BUF/DAL/PIT/LAR/NE ML, Chase ATD, Irving ATD.
+- Totals: Andy bought IND-JAX to u47.5 and KC-DEN to u42.
+- SNF cap: WSH ML.
+- **Agreement**, with Andy's line buys. Pending.
+
+**D51 – Second weekend proposal (9 legs, Love 2+ pass TD lead) → BKR 740984963** ($10, to win $1,055.54).
+- Claude's swaps adopted: BAL-BUF Over (for Allen ATD, not offered), ATL-TB Under (for TB ML).
+- Andy's changes:
+  - Bought LAC-LAR o43, BAL-BUF o53, ATL-TB u46, CLE-PIT u40.5.
+  - WSH ML instead of −5.5.
+  - Added Burrow 2+ pass TD at **−386**, which breaks the −350 barrier (flagged after placement; Claude had quoted roughly −150 to −180).
+- **Agreement with line buys; Burrow −386 flagged.** Pending.
+
+**D52 – Andy's original TNF 8-leg slip (+6900; Watson 5+ rec, Jacobs/Hubbard/McMillan ATD, Metchie 2+ rec, McKinney 4+, Love 2+ TD, Young INT).**
+- Claude advised against placing it as built: it needed roughly 4–5 TDs, an over script contrary to the day's Under lean.
+- Not placed (paper). Grade after the game.
+
+**D53 – TNF straight-bet "quick hits" (BEO).**
+- Claude proposed five straights:
+  - Under 47.5 (top pick)
+  - Jacobs o76.5 R+R
+  - Metchie o15.5 rec yds
+  - McMillan o74.5 rec yds
+  - Hubbard o14.5 rec yds
+- None was placed as a straight. Andy folded similar legs into SGP 1010136110 (below).
+- Grade the five straights on paper after the game.
+
+**Andy-built Week 8 tickets (independent action; some use Claude's legs):**
+- BEO 1010136110 SGP 8-leg ($10, +2800, Parlay Insurance eligible per Andy, terms unverified).
+- BEO 1010107890 8-leg ($5, +9800).
+- DKP 48487002 7-pick ($9.98 promo, +20% boost, pays $319.60).
+- DKP 48337161 2-pick CAR +4.5 / U48.5 ($9.87 promo, pays $32).
+- BKR 740904942 6-team ML parlay ($5, 10/27).
+- BKR 740900674 SGP CAR +4 / Over 46 ($25, 10/27). Its Over runs opposite tonight's Under positions.
+
+**Concentration note (TNF):** Young INT is on 3 tickets, Hubbard ATD on 3, Jacobs ATD on 3, McKinney 4+ on 2, and Van Ness sack on 2.
+
+**Pools (not wagers; for reference).** Duma rule confirmed: the "quarterly" and four-game-segment prize is one rolling 4-week window, paid weekly. Picks entered:
+- duma GB 10, Yahoo GB 8, CBS GB.
+- Tiebreakers: most points DAL, fewest PHI.
+- Sunday tiebreaker scores (proposed): SEA 24–21, WSH 23–17.
 
 ---
 

@@ -1,0 +1,23 @@
+# NFL article intel — October 29 afternoon
+
+Local research only; no database ingestion or pick/ledger publication. Feed capture started 2026-10-29T19:48:45.645Z (12:48 PM Pacific). The previous feed capture began 7:55 AM Pacific.
+
+## Coverage
+
+- 8 of 9 configured feeds were available: 110 unique candidates. Action Network's direct RSS returned HTTP 403; it remains a coverage gap. One additional Action Network article was discovered through a publicly indexed publisher page and retained as a source-only supplement. The feed block was not bypassed.
+- 41 URLs were absent from the morning batch; 34 had publication timestamps after the morning capture. Six previously seen URLs had changed feed metadata; this is not proof the article body changed. The remaining 63 feed entries were unchanged against the morning batch and refer back to the earlier evidence. The supplemental Action Network URL is separate from these counts.
+- Of the 47 feed deltas, 28 article/main-element bodies were extracted, 10 whole-page captures need boundary review, four ESPN HTTP preview URLs were retained as metadata only, and five Rotowire entries have item-specific RSS text only. Automated extraction is not a human verification or an entitlement to paywalled content. URL absence is not proof of a new Supabase row.
+
+## Key source findings
+
+- **CAR@GB:** [Action Network's multi-author preview](https://www.actionnetwork.com/nfl/panthers-vs-packers-picks-props-odds-predictions-thursday-night-football-oct-29) contains opposing spread opinions: John Lanfranca picks Green Bay -3.5; Billy Ward favors the under and describes Carolina +3.5 in a same-game parlay. These are separate authors, not consensus. The article's table lists the Packers price at -110 while the author's detailed pick says -112. Both are historical article references; neither is a verified live offer. Ward's parlay combines Carolina +3.5 with under 47.5; do not turn that combination into two independent standalone selections.
+- **CAR@GB:** [Thursday Night Football Same-Game Parlay: Panthers vs. Packers best bets](https://www.pff.com/news/bet-thursday-night-football-same-game-parlay-panthers-vs-packers-best-bets/) proposes a three-leg same-game parlay: Josh Jacobs 70+ rushing and receiving yards, Jordan Love 240+ passing yards, and Christian Watson 60+ receiving yards. Preserve all three as **parlay-only**; the article's claimed +480 is a historical source price, not a quote. The TNF wager card remains HOLD.
+- **Week 8 pick’em:** [PFT's Week 8 2026 NFL picks](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/pfts-week-8-2026-nfl-picks) offers one author's first-impression straight-up picks. Mike Florio selects Arizona over Dallas, Las Vegas over the Jets, and Denver over Kansas City; the article itself describes its approach as first-impulse guessing. This is one source, not a calibrated model. Las Vegas aligns with the previously drafted Yahoo/CBS deviation; Denver is new corroborating source evidence for the existing optional upset watch, not an automatic change to the pool draft. Arizona conflicts with the earlier Dallas selection.
+- **NE@MIA:** [Report: A.J. Brown's Week 8 availability up in the air due to knee injury](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/report-a-j-browns-week-8-availability-up-in-the-air-due-to-knee-injury) reports A.J. Brown missed Thursday practice with a knee issue and says his Sunday availability is uncertain. Treat this as a report and recheck the final team designation; the refreshed roster confirms team membership, not health.
+- **CHI@SEA:** [Seahawks plan to start Quenton Nelson at left guard Monday night](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-plan-to-start-quenton-nelson-at-left-guard-monday-night) reports Seattle plans to start Quenton Nelson at left guard Monday and describes the corresponding line shift. His roster team is SEA; Jeffery Simmons is on CHI. Verify Monday activation and actual usage before relying on either role.
+
+## Boundaries and audit
+
+The team checks in 'named-player-check.json' use the 8:40 AM Pacific full ESPN roster snapshot. Source context and specific market prices remain qualitative, unverified and non-executable; no locked pick, account, wager, ledger, Supabase action, paid call or email was made. Existing morning ingestion approval is fulfilled and does not authorize a new write.
+
+Files: 'capture.json', 'feed-preview.json', retained 'feeds/' and 'articles/', 'intake-delta.json', 'action-network-public-index-supplement.json', 'named-player-check.json', and 'sha256-manifest.json'. The SHA manifest from the capture predates this review; the separate review manifest covers the later files.

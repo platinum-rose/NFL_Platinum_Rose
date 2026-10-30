@@ -1,7 +1,7 @@
 {
   "schema": "pickem_pools_v1",
   "season": 2026,
-  "updated_at": "2026-10-27T15:05:00Z",
+  "updated_at": "2026-10-29T20:25:05.016Z",
   "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
   "pools": [
     {
@@ -11,7 +11,7 @@
       "format": "confidence",
       "scoring": "confidence 1..N (N = games that week)",
       "entrants": 93,
-      "entrants_note": "93 on the 10/05 standings",
+      "entrants_note": "93 rows in October 29 overall standings",
       "lock": "per_game_kickoff",
       "prizes": [
         "weekly",
@@ -22,6 +22,23 @@
       "strategy": "market",
       "strategy_note": "Three of four prizes are cumulative -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
       "standings": {
+        "as_of": "2026-10-29 13:20 PT, overall standings; before Week 8",
+        "rank_row": 21,
+        "site_rank": 21,
+        "pts": 599.5,
+        "leader": "Fangirl 635",
+        "gap_to_leader": 35.5,
+        "games": 106,
+        "wins": 66,
+        "losses": 39,
+        "ties": 1,
+        "previous_week_rank": 35,
+        "source": "reports/engineering/week8-pool-standings-2026-10-29.md",
+        "note": "Another row has 599.5; site labels rows 21 and 22. Leader has 107 counted games; reason for difference unverified."
+      },
+      "url": "https://www.simplysportsware.com/pool-home",
+      "entry_name": "Fat Lazy American",
+      "prior_standings": {
         "as_of": "2026-10-16 Week 5 final (read in Chrome)",
         "rank_row": 48,
         "site_rank": 47,
@@ -37,9 +54,7 @@
         },
         "week4_rank_row": 55,
         "source": "data/pickem/simplysportsware-duma2-2026-w06-partial.json"
-      },
-      "url": "https://www.simplysportsware.com/pool-home",
-      "entry_name": "Fat Lazy American"
+      }
     },
     {
       "id": "yahoo",
@@ -97,7 +112,7 @@
       "format": "straight_up",
       "scoring": "1 point per correct pick",
       "entrants": 73,
-      "entrants_note": "73 on the 10/05 standings",
+      "entrants_note": "73 entries in October 29 standings",
       "lock": "per_game_kickoff",
       "prizes": [
         "weekly",
@@ -111,6 +126,25 @@
         "max_tier": 2
       },
       "standings": {
+        "as_of": "2026-10-29 13:21 PT, overall standings; before Week 8",
+        "rank": 23,
+        "tied": 7,
+        "ytd": 64,
+        "leader": "greg barrows 70",
+        "gap_to_leader_picks": 6,
+        "by_week": {
+          "1": 12,
+          "2": 10,
+          "3": 8,
+          "4": 10,
+          "5": 7,
+          "6": 8,
+          "7": 9
+        },
+        "source": "reports/engineering/week8-pool-standings-2026-10-29.md"
+      },
+      "url": "https://picks.cbssports.com/football/pickem/pools/kbxw63b2ge3dknzyheytg===",
+      "prior_standings": {
         "as_of": "2026-10-16 Week 5 final (Overall tab, Chrome)",
         "rank": 27,
         "tied": 6,
@@ -125,8 +159,7 @@
         },
         "week4_rank": 27,
         "source": "data/pickem/cbs-bukbuk-2026-w06-partial.json"
-      },
-      "url": "https://picks.cbssports.com/football/pickem/pools/kbxw63b2ge3dknzyheytg==="
+      }
     }
   ]
 }
