@@ -210,7 +210,7 @@ function firstTdLegState(player, team, market, map) {
 function trackerScoreboardUrl(schedule, week) {
   const season = schedule.find(g => Number(g.week) === Number(week) && g.season)?.season;
   const seasonQuery = season ? `dates=${encodeURIComponent(season)}&` : '';
-  return `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?${seasonQuery}seasontype=2&week=${encodeURIComponent(week)}&groups=50`;
+  return `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?${seasonQuery}seasontype=2&week=${encodeURIComponent(week)}`;
 }
 
 async function loadConcludedGameStats(schedule = [], week = 1) {

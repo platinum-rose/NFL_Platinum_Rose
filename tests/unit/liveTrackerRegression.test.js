@@ -128,7 +128,8 @@ describe('Live Tracker generated runtime regressions', () => {
     io.files.set('public/schedule.json', [{ ...game, id: 'next-week', game_id: 'next-week', week: 8, status: 'pre' }]);
     const { html } = await generateLiveTracker({ week: 8, outPaths: ['fixture.html'] });
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch.mock.calls[0][0]).toContain('dates=2026&seasontype=2&week=8&groups=50');
+    expect(fetch.mock.calls[0][0]).toContain('dates=2026&seasontype=2&week=8');
+    expect(fetch.mock.calls[0][0]).not.toContain('groups=');
     expect(html).toContain('const INITIAL_INJURIES = {};');
     expect(html).not.toContain('Fixture Athlete');
     expect([...io.writes.keys()]).toEqual(['fixture.html']);
