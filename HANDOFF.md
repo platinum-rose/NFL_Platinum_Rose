@@ -2,6 +2,8 @@
 
 ## Pick up here — October 29, 2026
 
+**Current Claude pickup (1:25 PM PT Oct 30):** Friday injury re-check done (no pool slot changes; all live BKR player legs clear; Jihaad Campbell OUT → Zack Baun bump). Committed the missing `scripts/lib/atomic-file-write.js` (`c132558`). FDP promo plan and 5 scheduled reminders set; FDP ticket not yet logged. Local commits not pushed. Start with `handoffs/2026-10-30-1325-claude-week8-friday-injuries-fdp-promo.md`.
+
 **Current Claude pickup (9:30 AM PT Oct 30):** TNF graded (GB 27–19; cash −$51.02) and settled in Supabase with Andy's OK; the two BKR weekend parlays are alive. Live tracker `groups=50` bug fixed. Defensive props layer, backtests and weekly defensive-board capture built (runbook `docs/defensive-props/DEFENSIVE_BOARDS_RUNBOOK.md`). Pools re-slotted on 9:10 AM DK prices. Start with `handoffs/2026-10-30-0930-claude-week8-tnf-graded-defense-boards-pools.md`. Next: the Friday injury report re-check, weekend-card analytics, a DK defensive rerun Saturday (first run 11:09 AM Fri returned no tackles; diagnostics added in `5d527d6`), then Sunday entries. Branch pushed ~11:35 AM PT Oct 30.
 
 

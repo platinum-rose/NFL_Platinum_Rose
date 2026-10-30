@@ -110,3 +110,24 @@ Expected points on the 13 remaining games: duma **85.9** (+10 banked = 95.9); Ya
 - Monday CHI @ SEA: recheck Monday; SEA 6 / Yahoo 4.
 
 **Optional leverage (unchanged):** Yahoo LV 1 / KC 2 costs about 0.08 point; CBS LV over NYJ costs about 0.05 correct picks (NYJ is only 52.6%). Your call Sunday.
+
+## Friday 1 PM injury re-check (October 30, 2026, about 1:21 PM PT)
+
+**Proposal only; nothing entered.** Sources: ESPN injuries API (official Friday designations) and DK moneylines via the ESPN scoreboard, both pulled about 1:21 PM PT. A player with no Friday entry has no designation and is treated as playing.
+
+**Slots: no changes to the 9:20 AM re-slot.**
+- NE 14 holds. A.J. Brown is **questionable** (ankle/knee), not out, and NE is still −325 (73.4%).
+- BUF 8 / DET 7 holds on price. BUF −175 (60.9%), DET −170 (60.4%). Kincaid and DJ Moore are questionable; Gibbs and St. Brown have no designation. It is still a coin flip: swapping back to DET 8 / BUF 7 costs under 0.01 point if you prefer DET's cleaner report.
+- TB's moneyline is back at −135 (55.2%; estimate was 56%). TB 5 / Yahoo 3 holds. Egbuka is **out** and Gainwell questionable; Irving has no designation.
+- WSH −265 (69.6%) vs LAR −270 (70.0%): LAR 12 / WSH 11 holds. PHI ruled out DeVonta Smith, Dontayvion Wicks, Britain Covey, CB Jonathan Jones and LB Jihaad Campbell. Barkley has no designation.
+- JAX −500 (80.0%) unchanged. CIN: TEN WR Carnell Tate is **out**.
+
+**Live BKR weekend parlays:** every player leg is clear. Chase, Burrow, Irving, Tuten and Stevenson have no designation. NE's TreVeyon Henderson (illness) is questionable after missing Friday practice, which helps Stevenson's TD leg.
+
+**Defensive (vacated tackles):**
+- **Jihaad Campbell (PHI LB, 7.0 T+A avg) is OUT.** By the sheet's rule (+1.4 to the other LBs), Zack Baun's projection goes from 8.2 to about **9.6** vs WSH (SNF). The backtest found the real bump runs larger (about +2.2).
+- Roquan Smith, Kyle Hamilton (BAL), Carson Schwesinger (CLE) and Kendal Daniels (ATL) have **no designation** (playing), so there's no BAL/CLE bump.
+- Still questionable: Landman (LAR), Brandon Jones (DEN), Caleb Downs (DAL), Mack Wilson (ARI), Drake Thomas (SEA, Monday). Derwin James (LAC) is doubtful but has played only 3 games, so his absence is mostly baked in.
+- Rebuild the sheet after the 3 PM Windows Friday cadence refreshes availability: `npm run defense:props`.
+
+**Sunday morning:** check inactives (about 8:30 AM PT) for the questionables above, refresh prices, then enter.
