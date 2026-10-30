@@ -56,80 +56,137 @@ Expected value of one $20 bonus at roughly Day 1 pricing: about $8 at 2x, $11 at
 ## Exposure
 Today's FDP combo, both live BKR weekend parlays and the Window A stacks all lean on the same Week 8 favorites (NE, DAL, LAR, WSH, CIN, JAX). One upset (e.g. MIA over NE) can hit several tickets at once.
 
-## Bonus prop stacks — 4 × $5 per $20 bonus, spread across the whole Sunday slate (revised Oct 30, ~1:55 PM PT)
+## Bonus stacks — 4 × $5 per $20 bonus, mixed leg types across the whole Sunday slate (revised Oct 30, ~2:05 PM PT)
 
-Andy's spec: each $20 bonus is split into **4 separate $5 stacks** of easy legs, about 2–3x each, **spread across all Sunday games**. Each stack takes one leg from 6 different games; across the four stacks every one of the 12 Sunday games appears exactly twice, with a different player each time. All legs are player props (no moneylines), so none of them repeat the ML legs on your FDP Day 1 combo or BKR tickets.
+Andy's spec: each $20 bonus = **4 separate $5 stacks**, about 2–3x each, spread across all Sunday games, mixing easy anytime TDs, moneylines, alt totals/spreads and props. Each stack = one leg from 6 different games; across S1–S4 every Sunday game appears exactly twice.
 
-**How leg odds were set:** each prop leg's hit chance comes from that player's 2026 ESPN box scores (Weeks 1–8), blending his actual hit rate with a normal-curve estimate, trimming his average 3% and capping any leg at 92%. Games where a player had no stat in the box score are missing, which skews slightly high. Win % assumes the legs are independent (they come from different games). **Roster gate:** strict roster vet PASS, 35 player legs resolved, ESPN rosters 1:44 PM PT Oct 30. Players with a Friday injury designation are excluded.
+### What Andy's own history says (graded NFL legs in user-placed-wagers-2026.json; CFB excluded)
+Edge = actual win % minus the price's implied %. Small samples; treat buckets under ~30 legs as hints.
 
-**Place if FDP's displayed multiple ≥ min.** If FDP doesn't offer a rung, use the nearest rung at or below it, or swap in another leg from the same game in the easy-leg list below.
+```
+type              n   win%  priced implied%   edge
+ATD             307    44%     131      46%    -2
+spread          207    52%     187      54%    -2
+ML              163    55%     152      60%    -5
+receptions      135    55%      59      60%    -5
+rec yds         119    50%      57      56%    -6
+game total       83    47%      61      55%    -8
+rush yds         68    49%      28      60%   -11
+pass TDs         60    63%      28      65%    -2
+tackles          46    59%      26      58%    +1
+QB INT           44    57%      20      50%    +7
+sacks            34    26%      24      42%   -16
+carries          24    54%      10      58%    -4
+pass yds         19    53%       9      55%    -3
+1st TD           17     6%      10      21%   -15
+FGs              14    50%       0       0%    +0
+pass att/cmp     12    50%       6      56%    -6
+team total        3    33%       3      52%   -19
+2+ TD             3    33%       3      30%    +4
+rush+rec yds      2    50%       0       0%    +0
+
+By price bucket (priced legs only, n>=8):
+ATD           dog (+150..+399)          44  win  45%  implied  32%  edge +13
+ATD           fav (-299..-150)          32  win  50%  implied  66%  edge -16
+ATD           near even (-149..+149)    48  win  50%  implied  49%  edge +1
+ML            dog (+150..+399)          23  win  30%  implied  33%  edge -3
+ML            fav (-299..-150)          71  win  61%  implied  67%  edge -6
+ML            heavy fav (≤-300)         25  win  64%  implied  78%  edge -14
+ML            near even (-149..+149)    32  win  53%  implied  51%  edge +2
+QB INT        near even (-149..+149)    16  win  50%  implied  53%  edge -3
+game total    near even (-149..+149)    59  win  46%  implied  56%  edge -10
+pass TDs      fav (-299..-150)           9  win  56%  implied  65%  edge -10
+pass TDs      near even (-149..+149)    12  win  83%  implied  53%  edge +30
+pass yds      near even (-149..+149)     9  win  67%  implied  55%  edge +11
+rec yds       fav (-299..-150)           9  win  78%  implied  67%  edge +11
+rec yds       near even (-149..+149)    47  win  36%  implied  53%  edge -17
+receptions    fav (-299..-150)          26  win  62%  implied  65%  edge -4
+receptions    near even (-149..+149)    30  win  47%  implied  53%  edge -6
+rush yds      fav (-299..-150)          10  win  70%  implied  67%  edge +3
+rush yds      near even (-149..+149)    17  win  47%  implied  54%  edge -7
+sacks         near even (-149..+149)    16  win  38%  implied  47%  edge -10
+spread        fav (-299..-150)           8  win  50%  implied  61%  edge -11
+spread        near even (-149..+149)   178  win  52%  implied  54%  edge -2
+tackles       fav (-299..-150)          12  win  75%  implied  63%  edge +12
+tackles       near even (-149..+149)    14  win  71%  implied  54%  edge +17
+```
+
+Takeaways used to build the stacks:
+- **Best:** tackles (+12/+17 at fav/near-even prices), QB passing TDs (63% won; +30 on near-even prices, n=12), QB INT (+7), low receiving-yard rungs priced as favorites (+11).
+- **Worst "easy" types:** short-priced anytime TDs (−150 to −299: won 50% vs 66% implied, n=32) and heavy ML favorites (≤ −300: 64% vs 78%, n=25), each roughly 2 SD below the price. Sacks (−16), first TD (−15) and game totals at near-even (−10) are also poor.
+- So each stack carries at most one ML, and only one stack carries an ATD (Bijan, the shortest Sunday ATD on the Bookmaker board). QB 1+/2+ passing-TD and tackles legs are spread across the stacks.
+
+**Pricing:** ML = DK de-vigged (12:10 PM PT). Passing-TD and ATD legs = Bookmaker Thursday SGP board, implied × 0.96 to strip vig. Tackles = calibrated hit rates from the defensive sheet. Alt totals = normal model (SD 13.5 pts) off the DK main total, minus 2 pts. Yardage/reception rungs = 2026 box scores. **Roster gate:** strict roster vet PASS, 27 player legs, ESPN rosters 1:44 PM PT Oct 30; all player legs have no injury designation.
+
+**If FDP doesn't offer a leg** (FDP may not list defensive or alt-total markets): use the nearest rung at or below it, or swap in a same-game leg from the easy-leg list below. Place only if FDP's displayed multiple ≥ min.
 
 ### Full-slate stacks (place before 10:00 AM PT Sunday)
 
-**S1** — 6 games, win 50%, fair 2.01x, min 1.77x
-- BAL @ BUF: Zay Flowers 50+ rec yds (88%)
-- TEN @ CIN: Tony Pollard 25+ rush yds (90%)
-- ARI @ DAL: Trey McBride 30+ rec yds (89%)
-- MIN @ DET: Amon-Ra St. Brown 4+ rec (89%)
-- LV @ NYJ: Tre Tucker 2+ rec (89%)
-- CLE @ PIT: Jaylen Warren 40+ rush yds (88%)
+**S1** — win 38%, fair 2.65x, min 2.33x
+- TEN@CIN: CIN ML (84%) — ML
+- ARI@DAL: Jacoby Brissett 1+ pass TD (93%) — pass TD
+- KC@DEN: Alex Singleton 8+ tackles+assists (77%) — tackles
+- LV@NYJ: Tre Tucker 2+ rec (89%) — receptions
+- LAC@LAR: Kyren Williams 40+ rush yds (89%) — rush yds
+- BAL@BUF: BAL @ BUF Over 42.5 (alt total; main 54.5) (79%) — alt total
 
-**S2** — 6 games, win 45%, fair 2.23x, min 1.96x
-- MIN @ DET: Jared Goff 200+ pass yds (88%)
-- LV @ NYJ: Garrett Wilson 25+ rec yds (88%)
-- CLE @ PIT: Aaron Rodgers 175+ pass yds (86%)
-- ATL @ TB: Chris Godwin Jr. 25+ rec yds (86%)
-- IND @ JAX: Tyler Warren 3+ rec (88%)
-- LAC @ LAR: Kyren Williams 40+ rush yds (89%)
+**S2** — win 32%, fair 3.10x, min 2.73x
+- IND@JAX: JAX ML (80%) — ML
+- LV@NYJ: Kirk Cousins 1+ pass TD (89%) — pass TD
+- MIN@DET: Jared Goff 200+ pass yds (88%) — pass yds
+- CLE@PIT: Jaylen Warren 40+ rush yds (88%) — rush yds
+- NE@MIA: Greg Dulcich 2+ rec (86%) — receptions
+- ATL@TB: Bijan Robinson anytime TD (68%) — ATD
 
-**S3** — 6 games, win 42%, fair 2.36x, min 2.08x
-- ATL @ TB: Bucky Irving 40+ rush yds (85%)
-- IND @ JAX: Josh Downs 2+ rec (88%)
-- LAC @ LAR: Tyler Higbee 2+ rec (88%)
-- KC @ DEN: Xavier Worthy 2+ rec (88%)
-- NE @ MIA: Drake Maye 175+ pass yds (87%)
-- PHI @ WSH: Stefon Diggs 30+ rec yds (85%)
+**S3** — win 35%, fair 2.83x, min 2.49x
+- TEN@CIN: Tony Pollard 25+ rush yds (90%) — rush yds
+- ARI@DAL: ARI @ DAL Over 41.5 (alt total; main 54.5) (81%) — alt total
+- LAC@LAR: Tyler Higbee 2+ rec (88%) — receptions
+- CLE@PIT: Payton Wilson 6+ tackles+assists (77%) — tackles
+- ATL@TB: Baker Mayfield 1+ pass TD (84%) — pass TD
+- PHI@WSH: Stefon Diggs 30+ rec yds (85%) — rec yds
 
-**S4** — 6 games, win 40%, fair 2.50x, min 2.20x
-- KC @ DEN: Patrick Mahomes 150+ pass yds (88%)
-- NE @ MIA: Greg Dulcich 2+ rec (86%)
-- PHI @ WSH: Antonio Williams 2+ rec (83%)
-- BAL @ BUF: Mark Andrews 2+ rec (82%)
-- TEN @ CIN: Tee Higgins 2+ rec (88%)
-- ARI @ DAL: Dak Prescott 175+ pass yds (89%)
+**S4** — win 36%, fair 2.77x, min 2.43x
+- IND@JAX: Tyler Warren 3+ rec (88%) — receptions
+- KC@DEN: Patrick Mahomes 150+ pass yds (88%) — pass yds
+- BAL@BUF: Zay Flowers 50+ rec yds (88%) — rec yds
+- MIN@DET: Amon-Ra St. Brown 4+ rec (89%) — receptions
+- NE@MIA: NE ML (73%) — ML
+- PHI@WSH: PHI @ WSH Under 53.5 (alt total; main 40.5) (81%) — alt total
 
-### Late fallback (bonus lands after 10 AM Sunday; place before 1:05 PM PT; games LAC @ LAR, KC @ DEN, NE @ MIA, SNF PHI @ WSH, MNF CHI @ SEA)
+### Late fallback (bonus lands after 10 AM Sunday; place before 1:05 PM PT)
 
-**L1** — 5 games, win 53%, fair 1.88x, min 1.65x
-- LAC @ LAR: Kyren Williams 40+ rush yds (89%)
-- KC @ DEN: Xavier Worthy 2+ rec (88%)
-- NE @ MIA: Drake Maye 175+ pass yds (87%)
-- PHI @ WSH: Stefon Diggs 30+ rec yds (85%)
-- CHI @ SEA: Jaxon Smith-Njigba 60+ rec yds (92%)
+**L1** — win 37%, fair 2.73x, min 2.40x
+- LAC@LAR: LAR ML (70%) — ML
+- KC@DEN: Alex Singleton 8+ tackles+assists (77%) — tackles
+- NE@MIA: Drake Maye 175+ pass yds (87%) — pass yds
+- PHI@WSH: Stefon Diggs 30+ rec yds (85%) — rec yds
+- CHI@SEA: Jaxon Smith-Njigba 60+ rec yds (92%) — rec yds
 
-**L2** — 5 games, win 48%, fair 2.07x, min 1.82x
-- KC @ DEN: Patrick Mahomes 150+ pass yds (88%)
-- NE @ MIA: Greg Dulcich 2+ rec (86%)
-- PHI @ WSH: Antonio Williams 2+ rec (83%)
-- CHI @ SEA: Rome Odunze 30+ rec yds (88%)
-- LAC @ LAR: Tyler Higbee 2+ rec (88%)
+**L2** — win 36%, fair 2.81x, min 2.48x
+- NE@MIA: NE ML (73%) — ML
+- KC@DEN: Patrick Mahomes 150+ pass yds (88%) — pass yds
+- LAC@LAR: Tyler Higbee 2+ rec (88%) — receptions
+- PHI@WSH: PHI @ WSH Under 53.5 (alt total) (81%) — alt total
+- CHI@SEA: Ernest Jones IV 8+ tackles+assists (77%) — tackles
 
-**L3** — 5 games, win 43%, fair 2.34x, min 2.06x
-- NE @ MIA: Malik Washington 3+ rec (83%)
-- PHI @ WSH: Dallas Goedert 2+ rec (81%)
-- CHI @ SEA: Luther Burden III 3+ rec (87%)
-- LAC @ LAR: Puka Nacua 60+ rec yds (86%)
-- KC @ DEN: Travis Kelce 2+ rec (85%)
+**L3** — win 41%, fair 2.42x, min 2.13x
+- PHI@WSH: WSH ML (70%) — ML
+- LAC@LAR: Kyren Williams 40+ rush yds (89%) — rush yds
+- KC@DEN: Xavier Worthy 2+ rec (88%) — receptions
+- NE@MIA: Greg Dulcich 2+ rec (86%) — receptions
+- CHI@SEA: Rome Odunze 30+ rec yds (88%) — rec yds
 
-**L4** — 4 games, win 47%, fair 2.12x, min 1.86x
-- CHI @ SEA: D'Andre Swift 40+ rush yds (85%)
-- LAC @ LAR: Matthew Stafford 175+ pass yds (82%)
-- KC @ DEN: J.K. Dobbins 25+ rush yds (83%)
-- NE @ MIA: Hunter Henry 2+ rec (82%)
+**L4** — win 38%, fair 2.63x, min 2.32x
+- KC@DEN: KC @ DEN Under 51.5 (alt total; main 40.5) (77%) — alt total
+- LAC@LAR: Puka Nacua 60+ rec yds (86%) — rec yds
+- NE@MIA: Malik Washington 3+ rec (83%) — receptions
+- PHI@WSH: Dallas Goedert 2+ rec (81%) — receptions
+- CHI@SEA: D'Andre Swift 40+ rush yds (85%) — rush yds
 
-Week 9 (Mon–Wed bonuses): rebuilt the same way on Monday morning after Sunday's games.
+Exposure: S1 (CIN ML), S2 (JAX ML), S4 / L2 (NE ML), L1 (LAR ML) and L3 (WSH ML) repeat moneylines on your FDP Day 1 combo or BKR tickets.
 
-_Superseded: the earlier game-grouped stacks A1–A4 / B1–B4 (1:50 PM) are replaced by S1–S4 / L1–L4._
+_Superseded: A1–A4/B1–B4 (1:50 PM) and the props-only S1–S4/L1–L4 (1:55 PM)._
 
 ### Easy-leg list (Sunday/Monday, healthy starters, ~78%+ hit chance; highest qualifying rung per player-stat)
 
