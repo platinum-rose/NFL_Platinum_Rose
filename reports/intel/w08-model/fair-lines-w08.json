@@ -1,0 +1,743 @@
+[
+ {
+  "game": "LV@NYJ",
+  "home_line": -1.5,
+  "total": 45.5,
+  "srs_fair": -2.0,
+  "fair_line": -1.7,
+  "edge_pts": -0.2,
+  "tot_base": 47.6,
+  "fair_total": 46.2,
+  "tot_edge": 0.8,
+  "sim": {
+   "inputs": {
+    "homeLine": -1.5,
+    "total": 45.5,
+    "marginAdj": 0.183,
+    "totalAdj": 0.75
+   },
+   "home_cover": 0.5048031928513074,
+   "away_cover": 0.4951968071486922,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5048031928513076,
+   "away_cover_excl_push": 0.4951968071486924,
+   "over": 0.5227612720193038,
+   "under": 0.47723872798069655,
+   "total_push": 0,
+   "over_excl_push": 0.5227612720193036,
+   "under_excl_push": 0.47723872798069633,
+   "home_win": 0.5412514323310094,
+   "home_win_excl_tie": 0.5291486366120395,
+   "tie": 0.024205591437939655,
+   "center_shift": {
+    "margin": -0.10832168320217417,
+    "total": -0.0037758413662096757
+   },
+   "distribution": {
+    "mean_margin": 1.3443914052376964,
+    "median_margin": 2,
+    "mean_total": 46.255475757027625,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.16000011048687757,
+    "m7": 0.09532393735659084
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "ARI@DAL",
+  "home_line": -7.0,
+  "total": 54.5,
+  "srs_fair": -10.4,
+  "fair_line": -8.2,
+  "edge_pts": -1.2,
+  "tot_base": 51.4,
+  "fair_total": 53.4,
+  "tot_edge": -1.1,
+  "sim": {
+   "inputs": {
+    "homeLine": -7,
+    "total": 54.5,
+    "marginAdj": 1.192,
+    "totalAdj": -1.1
+   },
+   "home_cover": 0.5055512625641113,
+   "away_cover": 0.4394766020754616,
+   "side_push": 0.054972135360427526,
+   "home_cover_excl_push": 0.5349591070067813,
+   "away_cover_excl_push": 0.4650408929932187,
+   "over": 0.4666139268819153,
+   "under": 0.5333860731180845,
+   "total_push": 0,
+   "over_excl_push": 0.4666139268819154,
+   "under_excl_push": 0.5333860731180846,
+   "home_win": 0.7549805436698331,
+   "home_win_excl_tie": 0.745508194752782,
+   "tie": 0.01894469783410242,
+   "center_shift": {
+    "margin": 2.194208712333384,
+    "total": -0.00023011751498458466
+   },
+   "distribution": {
+    "mean_margin": 9.155749826116315,
+    "median_margin": 8,
+    "mean_total": 53.4009157808497,
+    "median_total": 53
+   },
+   "exact_margin_pct": {
+    "m3": 0.12693337644265285,
+    "m7": 0.08019701928602498
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "ATL@TB",
+  "home_line": -2.5,
+  "total": 43.5,
+  "srs_fair": -2.3,
+  "fair_line": -2.4,
+  "edge_pts": 0.1,
+  "tot_base": 46.9,
+  "fair_total": 44.7,
+  "tot_edge": 1.2,
+  "sim": {
+   "inputs": {
+    "homeLine": -2.5,
+    "total": 43.5,
+    "marginAdj": -0.058,
+    "totalAdj": 1.2
+   },
+   "home_cover": 0.498478782724185,
+   "away_cover": 0.5015212172758147,
+   "side_push": 0,
+   "home_cover_excl_push": 0.49847878272418517,
+   "away_cover_excl_push": 0.5015212172758149,
+   "over": 0.536369907711413,
+   "under": 0.46363009228858604,
+   "total_push": 0,
+   "over_excl_push": 0.5363699077114135,
+   "under_excl_push": 0.4636300922885864,
+   "home_win": 0.5591844130821048,
+   "home_win_excl_tie": 0.5471545388931426,
+   "tie": 0.024059748377924253,
+   "center_shift": {
+    "margin": -0.17908297512588267,
+    "total": -0.006622413300657826
+   },
+   "distribution": {
+    "mean_margin": 1.933687179583528,
+    "median_margin": 2,
+    "mean_total": 44.707377441672314,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.15909062954907233,
+    "m7": 0.09492539984547782
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "CLE@PIT",
+  "home_line": -3.5,
+  "total": 39.5,
+  "srs_fair": -6.7,
+  "fair_line": -4.6,
+  "edge_pts": -1.1,
+  "tot_base": 40.7,
+  "fair_total": 39.9,
+  "tot_edge": 0.4,
+  "sim": {
+   "inputs": {
+    "homeLine": -3.5,
+    "total": 39.5,
+    "marginAdj": 1.137,
+    "totalAdj": 0.425
+   },
+   "home_cover": 0.5303548510765163,
+   "away_cover": 0.46964514892348364,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5303548510765164,
+   "away_cover_excl_push": 0.4696451489234837,
+   "over": 0.512867155199244,
+   "under": 0.4871328448007556,
+   "total_push": 0,
+   "over_excl_push": 0.5128671551992442,
+   "under_excl_push": 0.4871328448007558,
+   "home_win": 0.6684160661077965,
+   "home_win_excl_tie": 0.6574033528910428,
+   "tie": 0.022025426433507453,
+   "center_shift": {
+    "margin": 1.9567059200176407,
+    "total": -0.019113362461386174
+   },
+   "distribution": {
+    "mean_margin": 5.704381989658243,
+    "median_margin": 5,
+    "mean_total": 39.95188531982095,
+    "median_total": 40
+   },
+   "exact_margin_pct": {
+    "m3": 0.14636008048282667,
+    "m7": 0.08924762498690017
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "IND@JAX",
+  "home_line": -10.0,
+  "total": 46.5,
+  "srs_fair": -14.0,
+  "fair_line": -11.4,
+  "edge_pts": -1.4,
+  "tot_base": 45.4,
+  "fair_total": 46.1,
+  "tot_edge": -0.4,
+  "sim": {
+   "inputs": {
+    "homeLine": -10,
+    "total": 46.5,
+    "marginAdj": 1.411,
+    "totalAdj": -0.4
+   },
+   "home_cover": 0.5283046803704992,
+   "away_cover": 0.4467692452142746,
+   "side_push": 0.02492607441522586,
+   "home_cover_excl_push": 0.5418098735987253,
+   "away_cover_excl_push": 0.45819012640127466,
+   "over": 0.48785464571231724,
+   "under": 0.5121453542876827,
+   "total_push": 0,
+   "over_excl_push": 0.48785464571231724,
+   "under_excl_push": 0.5121453542876827,
+   "home_win": 0.8221654367617758,
+   "home_win_excl_tie": 0.8143868639632061,
+   "tie": 0.015557145597139296,
+   "center_shift": {
+    "margin": 2.3879934420858904,
+    "total": -0.0028281450646794326
+   },
+   "distribution": {
+    "mean_margin": 12.42030087822285,
+    "median_margin": 12,
+    "mean_total": 46.10680455878288,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.10533907074048074,
+    "m7": 0.06953209756200344
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "BAL@BUF",
+  "home_line": -3.0,
+  "total": 54.5,
+  "srs_fair": -5.7,
+  "fair_line": -4.0,
+  "edge_pts": -1.0,
+  "tot_base": 54.7,
+  "fair_total": 54.6,
+  "tot_edge": 0.1,
+  "sim": {
+   "inputs": {
+    "homeLine": -3,
+    "total": 54.5,
+    "marginAdj": 0.956,
+    "totalAdj": 0.058
+   },
+   "home_cover": 0.48394486668143205,
+   "away_cover": 0.4336751538097203,
+   "side_push": 0.0823799795088477,
+   "home_cover_excl_push": 0.5273913557622713,
+   "away_cover_excl_push": 0.47260864423772864,
+   "over": 0.5017624373733366,
+   "under": 0.49823756262666347,
+   "total_push": 0,
+   "over_excl_push": 0.5017624373733366,
+   "under_excl_push": 0.49823756262666347,
+   "home_win": 0.6254980018066809,
+   "home_win_excl_tie": 0.6139666225335567,
+   "tie": 0.023062758546248396,
+   "center_shift": {
+    "margin": 0.8973694019970686,
+    "total": -0.00023011751498458466
+   },
+   "distribution": {
+    "mean_margin": 4.172404521813049,
+    "median_margin": 3,
+    "mean_total": 54.558564585344,
+    "median_total": 55
+   },
+   "exact_margin_pct": {
+    "m3": 0.15286064194432677,
+    "m7": 0.09217063750229193
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "MIN@DET",
+  "home_line": -3.5,
+  "total": 46.0,
+  "srs_fair": 5.3,
+  "fair_line": -0.4,
+  "edge_pts": 3.1,
+  "tot_base": 45.7,
+  "fair_total": 45.9,
+  "tot_edge": -0.1,
+  "sim": {
+   "inputs": {
+    "homeLine": -3.5,
+    "total": 46,
+    "marginAdj": -3.076,
+    "totalAdj": -0.117
+   },
+   "home_cover": 0.4190783285749548,
+   "away_cover": 0.5809216714250447,
+   "side_push": 0,
+   "home_cover_excl_push": 0.419078328574955,
+   "away_cover_excl_push": 0.5809216714250449,
+   "over": 0.4812566291983753,
+   "under": 0.48835696955194474,
+   "total_push": 0.03038640124968025,
+   "over_excl_push": 0.49633857220921784,
+   "under_excl_push": 0.5036614277907822,
+   "home_win": 0.5622440413640507,
+   "home_win_excl_tie": 0.5502292203544716,
+   "tie": 0.0240296420191581,
+   "center_shift": {
+    "margin": 1.9567059200176407,
+    "total": -0.00327243390031029
+   },
+   "distribution": {
+    "mean_margin": 2.034710205939205,
+    "median_margin": 3,
+    "mean_total": 45.88994222438275,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.15890283260410726,
+    "m7": 0.09484298380850938
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "TEN@CIN",
+  "home_line": -12.5,
+  "total": 46.5,
+  "srs_fair": -19.5,
+  "fair_line": -15.0,
+  "edge_pts": -2.5,
+  "tot_base": 42.6,
+  "fair_total": 45.1,
+  "tot_edge": -1.4,
+  "sim": {
+   "inputs": {
+    "homeLine": -12.5,
+    "total": 46.5,
+    "marginAdj": 2.457,
+    "totalAdj": -1.363
+   },
+   "home_cover": 0.572497245940695,
+   "away_cover": 0.42750275405930466,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5724972459406952,
+   "away_cover_excl_push": 0.4275027540593048,
+   "over": 0.4586857238955978,
+   "under": 0.5413142761044021,
+   "total_push": 0,
+   "over_excl_push": 0.45868572389559786,
+   "under_excl_push": 0.5413142761044022,
+   "home_win": 0.8746736557781751,
+   "home_win_excl_tie": 0.868571480951644,
+   "tie": 0.012204349653062135,
+   "center_shift": {
+    "margin": 2.0724547149319745,
+    "total": -0.0028281450646794326
+   },
+   "distribution": {
+    "mean_margin": 15.651609305874658,
+    "median_margin": 15,
+    "mean_total": 45.14663621511381,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.08368491694509558,
+    "m7": 0.0580990947332687
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "LAC@LAR",
+  "home_line": -6.5,
+  "total": 45.5,
+  "srs_fair": -11.2,
+  "fair_line": -8.2,
+  "edge_pts": -1.7,
+  "tot_base": 43.6,
+  "fair_total": 44.8,
+  "tot_edge": -0.7,
+  "sim": {
+   "inputs": {
+    "homeLine": -6.5,
+    "total": 45.5,
+    "marginAdj": 1.657,
+    "totalAdj": -0.671
+   },
+   "home_cover": 0.5455140643435581,
+   "away_cover": 0.45448593565644174,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5455140643435582,
+   "away_cover_excl_push": 0.45448593565644185,
+   "over": 0.47963661855603656,
+   "under": 0.5203633814439634,
+   "total_push": 0,
+   "over_excl_push": 0.47963661855603656,
+   "under_excl_push": 0.5203633814439634,
+   "home_win": 0.7432069824654116,
+   "home_win_excl_tie": 0.7334845164580828,
+   "tie": 0.019444932014657697,
+   "center_shift": {
+    "margin": 1.6826915161204292,
+    "total": -0.0037758413662096757
+   },
+   "distribution": {
+    "mean_margin": 8.647485770605599,
+    "median_margin": 7,
+    "mean_total": 44.838747483521786,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.13010075744046576,
+    "m7": 0.08170601444321897
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "NE@MIA",
+  "home_line": 7.0,
+  "total": 43.5,
+  "srs_fair": 10.4,
+  "fair_line": 8.2,
+  "edge_pts": 1.2,
+  "tot_base": 42.9,
+  "fair_total": 43.3,
+  "tot_edge": -0.2,
+  "sim": {
+   "inputs": {
+    "homeLine": 7,
+    "total": 43.5,
+    "marginAdj": -1.202,
+    "totalAdj": -0.212
+   },
+   "home_cover": 0.4392022412279764,
+   "away_cover": 0.5058319849182703,
+   "side_push": 0.054965773853753785,
+   "home_cover_excl_push": 0.4647474441417835,
+   "away_cover_excl_push": 0.5352525558582164,
+   "over": 0.4935671920959782,
+   "under": 0.5064328079040217,
+   "total_push": 0,
+   "over_excl_push": 0.49356719209597827,
+   "under_excl_push": 0.5064328079040218,
+   "home_win": 0.24480646513236332,
+   "home_win_excl_tie": 0.23533876375566742,
+   "tie": 0.01893540275339176,
+   "center_shift": {
+    "margin": -2.1942087123333947,
+    "total": -0.006622413300657826
+   },
+   "distribution": {
+    "mean_margin": -9.16508639237582,
+    "median_margin": -8,
+    "mean_total": 43.3015361292194,
+    "median_total": 43
+   },
+   "exact_margin_pct": {
+    "m3": 0.1268744723032319,
+    "m7": 0.08016882842554912
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "KC@DEN",
+  "home_line": 1.5,
+  "total": 40.5,
+  "srs_fair": 1.5,
+  "fair_line": 1.5,
+  "edge_pts": -0.0,
+  "tot_base": 40.9,
+  "fair_total": 40.6,
+  "tot_edge": 0.1,
+  "sim": {
+   "inputs": {
+    "homeLine": 1.5,
+    "total": 40.5,
+    "marginAdj": 0.015,
+    "totalAdj": 0.125
+   },
+   "home_cover": 0.5003936653418786,
+   "away_cover": 0.49960633465812226,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5003936653418781,
+   "away_cover_excl_push": 0.4996063346581218,
+   "over": 0.5037875482528539,
+   "under": 0.4962124517471455,
+   "total_push": 0,
+   "over_excl_push": 0.5037875482528542,
+   "under_excl_push": 0.49621245174714584,
+   "home_win": 0.46392249737014807,
+   "home_win_excl_tie": 0.4518035134211652,
+   "tie": 0.02423796789796571,
+   "center_shift": {
+    "margin": 0.10832168320217417,
+    "total": -0.014779983334445745
+   },
+   "distribution": {
+    "mean_margin": -1.1751172279747308,
+    "median_margin": -1,
+    "mean_total": 40.649154571594444,
+    "median_total": 41
+   },
+   "exact_margin_pct": {
+    "m3": 0.16020192976308506,
+    "m7": 0.09541224188750896
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "PHI@WAS",
+  "home_line": -6.0,
+  "total": 40.5,
+  "srs_fair": -1.2,
+  "fair_line": -4.3,
+  "edge_pts": 1.7,
+  "tot_base": 46.9,
+  "fair_total": 42.7,
+  "tot_edge": 2.2,
+  "sim": {
+   "inputs": {
+    "homeLine": -6,
+    "total": 40.5,
+    "marginAdj": -1.669,
+    "totalAdj": 2.242
+   },
+   "home_cover": 0.442459035457169,
+   "away_cover": 0.5328557431438009,
+   "side_push": 0.024685221399030222,
+   "home_cover_excl_push": 0.4536576756191983,
+   "away_cover_excl_push": 0.5463423243808017,
+   "over": 0.5676405620697689,
+   "under": 0.43235943793023146,
+   "total_push": 0,
+   "over_excl_push": 0.5676405620697687,
+   "under_excl_push": 0.4323594379302313,
+   "home_win": 0.6554886549763627,
+   "home_win_excl_tie": 0.644303164835173,
+   "tie": 0.022370980282379303,
+   "center_shift": {
+    "margin": 1.7313781895434652,
+    "total": -0.014779983334445745
+   },
+   "distribution": {
+    "mean_margin": 5.233715870998225,
+    "median_margin": 4,
+    "mean_total": 42.750406495347995,
+    "median_total": 43
+   },
+   "exact_margin_pct": {
+    "m3": 0.14852768173073452,
+    "m7": 0.09022788272013721
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "CHI@SEA",
+  "home_line": -3.0,
+  "total": 46.5,
+  "srs_fair": 0.7,
+  "fair_line": -1.7,
+  "edge_pts": 1.3,
+  "tot_base": 44.0,
+  "fair_total": 45.6,
+  "tot_edge": -0.9,
+  "sim": {
+   "inputs": {
+    "homeLine": -3,
+    "total": 46.5,
+    "marginAdj": -1.292,
+    "totalAdj": -0.875
+   },
+   "home_cover": 0.42488637271932284,
+   "away_cover": 0.4925372081635663,
+   "side_push": 0.08257641911711129,
+   "home_cover_excl_push": 0.46312998877839,
+   "away_cover_excl_push": 0.5368700112216099,
+   "over": 0.4734485804244946,
+   "under": 0.5265514195755056,
+   "total_push": 0,
+   "over_excl_push": 0.4734485804244945,
+   "under_excl_push": 0.5265514195755054,
+   "home_win": 0.5680708131978232,
+   "home_win_excl_tie": 0.5560867702994623,
+   "tie": 0.023968085796721682,
+   "center_shift": {
+    "margin": 0.8973694019970686,
+    "total": -0.0028281450646794326
+   },
+   "distribution": {
+    "mean_margin": 2.227553348329046,
+    "median_margin": 3,
+    "mean_total": 45.633117592166954,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.1585188055369307,
+    "m7": 0.09467432279881025
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ }
+]

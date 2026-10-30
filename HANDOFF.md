@@ -2,6 +2,8 @@
 
 ## Pick up here — October 29, 2026
 
+**Current Claude pickup (3:55 PM PT Oct 30):** Week 8 Master Intel (multi-page site + PDF) and SuperContest Intel built from a Friday digest; one Platinum Rose rec (MIN +3.5). SC gate FAIL only on Andy inputs (post-Week-7 standings, locked five). Nothing published or archived. Builds need `$HOME/pyenv312` (Py 3.12) and `NODE_USE_ENV_PROXY=1`. Start with `handoffs/2026-10-30-1555-claude-week8-master-intel-sc-built.md`.
+
 **Current Claude pickup (3:30 PM PT Oct 30):** Next: build the Week 8 Master Intel (multi-page) and SuperContest Intel reports. FanDuel Predicts promo running on scheduled reminders (plan `reports/bets/2026-w08-fdp-promo-plan.md`); 5 FDP tickets placed, not yet logged. Branch pushed ~3:30 PM PT. Start with `handoffs/2026-10-30-1530-claude-week8-fdp-promo-master-intel-next.md`.
 
 **Current Claude pickup (1:25 PM PT Oct 30):** Friday injury re-check done (no pool slot changes; all live BKR player legs clear; Jihaad Campbell OUT → Zack Baun bump). Committed the missing `scripts/lib/atomic-file-write.js` (`c132558`). FDP promo plan and 5 scheduled reminders set; FDP ticket not yet logged. Local commits not pushed. Start with `handoffs/2026-10-30-1325-claude-week8-friday-injuries-fdp-promo.md`.

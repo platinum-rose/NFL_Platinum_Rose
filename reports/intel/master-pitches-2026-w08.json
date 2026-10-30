@@ -1,0 +1,59 @@
+{
+ "schema": "master_pitches_v1",
+ "season": 2026,
+ "week": 8,
+ "built_at": "2026-10-30T15:50:00-07:00",
+ "note": "The Pitch and The Pushback for every Platinum Rose straight-bet recommendation. Keys are GAME|Side or GAME|Total and must match digest section C.",
+ "picks": {
+  "MIN@DET|Side": {
+   "pick": "MIN +3.5 (BKR +3 +102)",
+   "pitch": [
+    {
+     "text": "The number: Friday's blend makes Detroit only a 0.4-point favorite, so +3.5 carries a 3.1-point edge and protects the key number 3. The simulator has Minnesota covering 58.1% at +3.5 (Friday snapshot, not a fresh run). Bookmaker's Thursday board had MIN +3 at +102; the consensus +3.5 is the better number.",
+     "ref": [
+      1
+     ]
+    },
+    {
+     "text": "The matchup: Minnesota is 6-0, first in SRS (8.5) and in net points (+8.5 a game), while Detroit is 4-2 at a 1.7 SRS. Kyler Murray gets a Lions secondary rated high-vulnerability with safety Kerby Joseph out, which is where Justin Jefferson, Jordan Addison and T.J. Hockenson line up. Minnesota's only Friday designation is safety Jay Ward (questionable).",
+     "ref": [
+      1,
+      2
+     ]
+    },
+    {
+     "text": "Who agrees: Sharp or Square takes MIN +3.5, and Even Money uses Minnesota as a teaser leg. Spread money is close to even (49% of money on Minnesota against 58% of bets), so there is no sharp flag on either side.",
+     "ref": [
+      2
+     ]
+    }
+   ],
+   "pushback": [
+    {
+     "text": "Detroit's path: Jared Goff at home with Amon-Ra St. Brown and Jahmyr Gibbs, neither carrying a Friday designation after practicing in full Thursday. A Gibbs-led early lead turns this into a one-touchdown Lions win, and the market has priced Detroit as the better team despite the records.",
+     "ref": [
+      2
+     ]
+    },
+    {
+     "text": "Who disagrees: Action Network, BettingPros and Even Money all list Lions -3. The line moved from the Action Network open of 3 to 3.5 toward Detroit, and 51% of spread money sits on Detroit with 42% of bets, a nine-point lean that is short of a flag but points the other way.",
+     "ref": [
+      2
+     ]
+    },
+    {
+     "text": "Limits: the edge comes from an SRS baseline built on six or seven games per team; it ignores schedule strength and injuries, so the 58.1% is a rough Friday figure, not high confidence. Thursday's Bookmaker parlay 740984963 also carries Detroit's moneyline, so this single partly offsets it.",
+     "ref": [
+      1,
+      3
+     ]
+    }
+   ],
+   "sources": {
+    "1": "Friday 10/30 fair-line blend and simulator: reports/intel/w08-model/fair-lines-w08.json (AN consensus Fri ~3:40 PM PT moved 35% toward SRS baseline; margin-simulator.mjs) and digest scratch/w08-synthesis-digest-sat.md.",
+    "2": "Friday 10/30 market and news write-up: reports/intel/master-intel-narratives-2026-w08.md (AN splits Fri ~3:40 PM PT, AN openers Sun 10/25 5 PM PT, ESPN Friday injury designations, BKR Thu 10/29 4 PM PT board).",
+    "3": "Live ticket 740984963: reports/bets/2026-w08-card.md section 5."
+   }
+  }
+ }
+}

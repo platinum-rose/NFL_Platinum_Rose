@@ -1,0 +1,251 @@
+{
+ "schema": "actionnetwork_openers_v1",
+ "season": 2026,
+ "week": 8,
+ "cutoff_utc": "2026-10-26T00:00:00Z",
+ "label": "Action Network open, Sun 10/25 5:00 PM PT",
+ "pulled_at_utc": "2026-10-30T22:40:00Z",
+ "source": "https://api.actionnetwork.com/web/v2/scoreboard/nfl + /markets/event/<id>/history, book_id 30 (\"Open\"); fetched via browser (VM proxy blocks AN)",
+ "definition": "first line recorded by the AN \"Open\" book on/after cutoff_utc; spreads are each team's handicap",
+ "raw_history_dir": "reports/engineering/week8-an-browser-pull-2026-10-30",
+ "games": {
+  "CAR@GB": {
+   "an_game_id": 290943,
+   "kickoff_utc": "2026-10-30T00:15:00.000Z",
+   "sp": {
+    "GB": -4.0,
+    "CAR": 4.0
+   },
+   "sp_odds_home": -111,
+   "sp_at": "2026-10-26T01:09:35Z",
+   "tot": 47.0,
+   "tot_at": "2026-10-26T00:08:55Z",
+   "ml": {
+    "CAR": 160,
+    "GB": -196
+   },
+   "carried_from_before_cutoff": false
+  },
+  "LV@NYJ": {
+   "an_game_id": 290944,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "NYJ": -1.5,
+    "LV": 1.5
+   },
+   "sp_odds_home": -104,
+   "sp_at": "2026-10-26T00:56:40Z",
+   "tot": 44.5,
+   "tot_at": "2026-10-26T01:05:05Z",
+   "ml": {
+    "LV": -103,
+    "NYJ": -118
+   },
+   "carried_from_before_cutoff": false
+  },
+  "ARI@DAL": {
+   "an_game_id": 290945,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "DAL": -6.5,
+    "ARI": 6.5
+   },
+   "sp_odds_home": -109,
+   "sp_at": "2026-10-26T04:49:25Z",
+   "tot": 53.0,
+   "tot_at": "2026-10-26T00:44:05Z",
+   "ml": {
+    "ARI": 230,
+    "DAL": -301
+   },
+   "carried_from_before_cutoff": false
+  },
+  "ATL@TB": {
+   "an_game_id": 290946,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "TB": -1.5,
+    "ATL": 1.5
+   },
+   "sp_odds_home": -110,
+   "sp_at": "2026-10-26T00:12:15Z",
+   "tot": 45.0,
+   "tot_at": "2026-10-26T00:12:15Z",
+   "ml": {
+    "ATL": 104,
+    "TB": -125
+   },
+   "carried_from_before_cutoff": false
+  },
+  "CLE@PIT": {
+   "an_game_id": 290947,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "PIT": -3.5,
+    "CLE": 3.5
+   },
+   "sp_odds_home": -116,
+   "sp_at": "2026-10-26T04:12:05Z",
+   "tot": 39.5,
+   "tot_at": "2026-10-26T04:11:05Z",
+   "ml": {
+    "CLE": 164,
+    "PIT": -200
+   },
+   "carried_from_before_cutoff": false
+  },
+  "IND@JAX": {
+   "an_game_id": 290948,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "JAX": -7.5,
+    "IND": 7.5
+   },
+   "sp_odds_home": -108,
+   "sp_at": "2026-10-26T00:59:05Z",
+   "tot": 46.5,
+   "tot_at": "2026-10-26T00:12:05Z",
+   "ml": {
+    "IND": 305,
+    "JAX": -400
+   },
+   "carried_from_before_cutoff": false
+  },
+  "BAL@BUF": {
+   "an_game_id": 290949,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "BUF": -3.5,
+    "BAL": 3.5
+   },
+   "sp_odds_home": -107,
+   "sp_at": "2026-10-26T00:59:05Z",
+   "tot": 53.5,
+   "tot_at": "2026-10-26T01:04:25Z",
+   "ml": {
+    "BAL": 159,
+    "BUF": -191
+   },
+   "carried_from_before_cutoff": false
+  },
+  "MIN@DET": {
+   "an_game_id": 290950,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "DET": -3.0,
+    "MIN": 3.0
+   },
+   "sp_odds_home": -103,
+   "sp_at": "2026-10-26T00:11:55Z",
+   "tot": 46.5,
+   "tot_at": "2026-10-27T07:00:55Z",
+   "ml": {
+    "MIN": 135,
+    "DET": -162
+   },
+   "carried_from_before_cutoff": false
+  },
+  "TEN@CIN": {
+   "an_game_id": 290951,
+   "kickoff_utc": "2026-11-01T18:00:00.000Z",
+   "sp": {
+    "CIN": -10.0,
+    "TEN": 10.0
+   },
+   "sp_odds_home": -110,
+   "sp_at": "2026-10-26T01:04:55Z",
+   "tot": 47.0,
+   "tot_at": "2026-10-26T04:01:45Z",
+   "ml": {
+    "TEN": 437,
+    "CIN": -612
+   },
+   "carried_from_before_cutoff": false
+  },
+  "LAC@LAR": {
+   "an_game_id": 290952,
+   "kickoff_utc": "2026-11-01T21:05:00.000Z",
+   "sp": {
+    "LAR": -7.5,
+    "LAC": 7.5
+   },
+   "sp_odds_home": -107,
+   "sp_at": "2026-10-26T00:21:05Z",
+   "tot": 45.5,
+   "tot_at": "2026-10-26T00:16:55Z",
+   "ml": {
+    "LAC": 283,
+    "LAR": -372
+   },
+   "carried_from_before_cutoff": false
+  },
+  "NE@MIA": {
+   "an_game_id": 290953,
+   "kickoff_utc": "2026-11-01T21:25:00.000Z",
+   "sp": {
+    "MIA": 7.5,
+    "NE": -7.5
+   },
+   "sp_odds_home": -113,
+   "sp_at": "2026-10-26T00:18:25Z",
+   "tot": 44.5,
+   "tot_at": "2026-10-26T12:46:55Z",
+   "ml": {
+    "NE": -387,
+    "MIA": 310
+   },
+   "carried_from_before_cutoff": false
+  },
+  "KC@DEN": {
+   "an_game_id": 290954,
+   "kickoff_utc": "2026-11-01T21:25:00.000Z",
+   "sp": {
+    "DEN": 1.5,
+    "KC": -1.5
+   },
+   "sp_odds_home": -111,
+   "sp_at": "2026-10-27T23:03:10Z",
+   "tot": 42.0,
+   "tot_at": "2026-10-26T03:56:55Z",
+   "ml": {
+    "KC": -125,
+    "DEN": 104
+   },
+   "carried_from_before_cutoff": false
+  },
+  "PHI@WAS": {
+   "an_game_id": 290955,
+   "kickoff_utc": "2026-11-02T01:20:00.000Z",
+   "sp": {
+    "WAS": -3.5,
+    "PHI": 3.5
+   },
+   "sp_odds_home": -114,
+   "sp_at": "2026-10-26T01:10:55Z",
+   "tot": 41.0,
+   "tot_at": "2026-10-26T00:58:25Z",
+   "ml": {
+    "PHI": 160,
+    "WAS": -190
+   },
+   "carried_from_before_cutoff": false
+  },
+  "CHI@SEA": {
+   "an_game_id": 290956,
+   "kickoff_utc": "2026-11-03T01:15:00.000Z",
+   "sp": {
+    "SEA": -3.0,
+    "CHI": 3.0
+   },
+   "sp_odds_home": -113,
+   "sp_at": "2026-10-26T03:15:45Z",
+   "tot": 47.0,
+   "tot_at": "2026-10-26T03:15:45Z",
+   "ml": {
+    "CHI": 140,
+    "SEA": -169
+   },
+   "carried_from_before_cutoff": false
+  }
+ }
+}
