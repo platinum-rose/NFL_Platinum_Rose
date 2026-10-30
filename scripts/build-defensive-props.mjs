@@ -241,8 +241,10 @@ const EXCLUDE_STATUSES = new Set(['OUT', 'IR', 'PUP', 'SUSPENSION', 'DOUBTFUL'])
 // Walk-forward backtest, 2026 Weeks 3-7 (docs/defensive-props/defensive-backtest-2026-w07.md):
 // raw season hit rates overstate the top end (96% -> 75%) and understate the bottom (1% -> 11%).
 export const calibrateHitRate = raw => (raw == null ? null : Math.round((0.10 + 0.67 * raw) * 100) / 100);
-// Same backtest: when a 6+ T+A teammate in the unit is missing, LB->LB +2.2 (61% up), S->S +1.6, LB->S +0.4.
-const VACATED_BUMP = { 'LB->LB': 2.2, 'S->S': 1.6, 'LB->S': 0.4 };
+// Walk-forward v2 (scripts/defensive_backfill.py): vacated LBs ran +1.2 vs. baseline out of sample (in-sample study said +2.2).
+const VACATED_BUMP = { 'LB->LB': 1.4, 'S->S': 1.6, 'LB->S': 0.4 };
+// Defenders finished ~0.35 T+A under their prior average the following week (W3-7 walk-forward).
+const REGRESSION_ADJ = -0.3;
 export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, { rosterById = null, availability = {} } = {}) {
   const excluded = [];
   // Anchors (6+ T+A, 3+ games) ruled out this week. The bump for a teammate is scaled by the share of
@@ -279,7 +281,7 @@ export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, {
           avg_ta: p.avg_ta, last3_avg_ta: p.last3_avg_ta, median_ta: p.median_ta,
           opp_group_factor: gf, opp_plays_factor: o?.plays_factor ?? 1, crew_factor: round(crewAdj),
           // Backtest: opponent and crew factors added error (MAE 2.13 vs 2.06), so they are shown, not applied.
-          proj_ta: round(p.avg_ta + vacBump, 1),
+          proj_ta: round(p.avg_ta + REGRESSION_ADJ + vacBump, 1),
           vacated_from: vacated.map(x => `${x.a.player} (${x.a.group} ${x.a.avg_ta}, played ${Math.round(x.share * 100)}% of his games)`), vacated_bump: vacBump,
           hit_rate_ta: p.hit_rate_ta,
           calibrated_hit_ta: Object.fromEntries(Object.entries(p.hit_rate_ta).map(([k, v]) => [k, calibrateHitRate(v)])), sack_game_rate: p.sack_game_rate, int_game_rate: p.int_game_rate,
@@ -302,7 +304,8 @@ function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUse
   L.push('- **Hit rate N+** = share of games the player reached N or more tackles+assists. Compare with the prop price\'s implied probability.');
   L.push('- **Opp group factor** = how many T+A this week\'s opponent offense gives to that position group vs. league average (1.20 = 20% more).');
   L.push('- **Crew factor** = home scorer\'s assist-crediting tendency, applied to the assist share of the player\'s average. Assists are the noisiest part of a T+A line.');
-  L.push('- **Proj** = season average, plus a vacated-tackle bump when a 6+ T+A teammate in the unit is newly out (LB→LB +2.2, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the Weeks 3–7 backtest found they added error.');
+  L.push('- **Proj** = season average − 0.3 (defenders regress about that much week to week), plus a vacated-tackle bump when a 6+ T+A teammate in the unit is out (LB→LB +1.4, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the backtests found they added error.');
+  L.push('- **Compare book lines to the average, not the median.** Walk-forward over Weeks 3–7: a line 1 tackle under the average went over 63% of the time; 1 over, 31%. When the average sits 0.5+ above the median, a median-based line went over 69%.');
   L.push('- **Hit %** columns are calibrated (0.10 + 0.67 × raw season rate), because raw rates ran hot at the top and cold at the bottom in the backtest.');
   L.push('- **Line rule of thumb:** a book line half a tackle under the player\'s median went over 49% of the time — season form alone is not an edge. Edges come from opponent snap volume (more opponent plays = more tackles) and vacated tackles.');
   L.push('');

@@ -40,3 +40,62 @@ The linebacker bump was right and still too small. The safety bump was mixed, as
 - Seven weeks is a small sample; the calibration and bumps should be refit as weeks are added.
 - ESPN only lists defenders who recorded a stat, so a 0-tackle game is invisible (slight upward bias).
 - No historical sportsbook defensive prop lines are stored yet, so "edge" is measured against the player's own median, not actual prices.
+
+---
+
+# Backfill v2 — snaps, play-by-play, expected plays, and Andy's own legs (added 2026-10-29 ~22:30 PT)
+
+Data added for Weeks 1–7 (`node scripts/fetch-nflverse.mjs`, then `python scripts/defensive_backfill.py`):
+- nflverse snap counts: 96.6% of defender-games matched.
+- nflverse play-by-play tackle credits: 92.4% matched.
+- Closing spread and total for all 107 games.
+
+Outputs:
+- `data/defensive-props/defensive-enriched-2026.json`
+- `data/defensive-props/expected-plays-model-2026.json`
+- `data/defensive-props/defensive-backtest-v2-2026-w07.json`
+
+Andy's leg review: `reports/analysis/defensive-legs-review/andy-defensive-legs-2026-w01-w08.json`.
+
+## What the backfill showed
+
+1. **Opponent play volume can't be predicted from the betting lines, at least not yet.** A walk-forward model using closing total, spread, the opponent's prior play counts and the defense's prior plays faced had error of 6.53 plays vs. 6.49 for the plain league average (r ≈ 0). Total alone: r = 0.10; spread alone: r = 0.02. Volume is the biggest driver of tackles (r = 0.80 in-game), but it is decided inside the game. **Don't pay up for a "high-volume script" angle on its own.**
+2. **Snap counts don't sharpen the average.**
+   - T+A per snap × last-3 snap share × expected plays scored error 2.07 vs. 2.06 for the season average.
+   - Snaps help a little for DL (1.55 vs. 1.63).
+   - Last-3 snap share predicts next week's snap share no better than the season share (error 0.110 vs. 0.112).
+   - Use snaps to *spot role changes* (new starter, rotation), not to project.
+3. **Compare a book line to the player's average, not the median.**
+   - The fair line sits about 0.25 under the average: a line half a tackle under the average went over 53% of the time; a line at the average, 45%.
+   - A line 1 tackle under the average went over **63%**; 1 tackle over, **31%**.
+   - When the average is 0.5+ above the median, a median-based line went over **69%** (293 cases, steady each week 4–7).
+   - The weekly sheet's projection is now average − 0.3, because defenders finished about 0.35 tackles under their prior average the following week.
+4. **The vacated-tackle bump is real but smaller out of sample.**
+   - Linebackers covering a missing 6+ T+A linebacker ran +1.2 tackles vs. baseline (43 cases), not the +2.2 the in-sample study suggested.
+   - Safeties ran +0.7.
+   - The sheet now uses LB→LB +1.4, S→S +1.6, LB→S +0.4, scaled by the games shared with the absent player.
+5. **Where tackles come from (play-by-play, Weeks 1–7):**
+
+| Position | Runs | Short passes | Deep passes | Sacks | Special teams |
+|---|---|---|---|---|---|
+| LB | 55% | 29% | 1% | 4% | 11% |
+| S | 45% | 37% | 6% | 1% | 11% |
+| CB | 31% | 54% | 8% | 1% | 7% |
+| DL | 79% | 9% | 0% | 10% | 3% |
+
+ESPN's tackle totals include some special-teams tackles. They run about 0.36 higher than play-by-play scrimmage tackles, and match exactly in 72% of games. Check each book's settlement rule. A linebacker who also covers kicks gets a small bump on ESPN-settled markets.
+
+## Andy's defensive legs, Weeks 1–8 (124 graded overs)
+
+"ROI if straights" scores each leg as a 1-unit straight bet at its listed price (70 legs had prices).
+
+| Market | Legs | Hit rate | Avg implied (priced) | ROI if straights | Model's pre-week probability |
+|---|---|---|---|---|---|
+| **Tackles + assists** | 46 | **58.7%** | 58.0% | **+27.9%** (26 priced) | 54.8% |
+| **Sacks** | 34 | **26.5%** | 42.3% | **−37.3%** (24 priced) | 24.0% |
+| INT (mostly QB INTs thrown) | 44 | 56.8% | 49.6% | −25.7% (20 priced) | 52.6% |
+
+- **Sacks are the leak:** 9 wins in 34, at prices implying 42%. The model would have said about 24%. Its sack calibration (prior sack-game rate over 50% → 38% next week) matched what happened. **Stop playing sack overs as parlay filler.** If you play one at all, it's a lone plus-money leg on a rusher with a sack in over half his games, at a price implying under 35%.
+- **Tackles are the best defensive market for you:** 59% hits at about −140 average implied, +28% as straights. Keep using them, with the average-vs-line rule above.
+- **QB INT legs** hit 57%, but the priced ones lost money (−26%). The small split is telling: when the model's probability beat the price, they went 6-2 (+40%); when it didn't, 0-4. Price-check INT legs against the QB's prior INT rate (shrunk toward the league ~45%).
+- The samples are small (8–26 priced legs per bucket). Re-run weekly; `grade_andy_defensive_legs.py` is rerunnable.

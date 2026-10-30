@@ -59,7 +59,7 @@ describe('defensive props builder', () => {
       availability: { 'Backer Two|GB': 'OUT' },
     });
     expect(sheet.map(r => r.player)).toEqual(['Safety One']);
-    expect(sheet[0].proj_ta).toBe(5.4); // season avg 5 + LB->S vacated bump 0.4 (opp/crew factors informational)
+    expect(sheet[0].proj_ta).toBe(5.1); // season avg 5 - 0.3 regression + LB->S vacated bump 0.4
     expect(sheet[0].vacated_bump).toBe(0.4);
     expect(sheet[0].calibrated_hit_ta['4+']).toBeCloseTo(0.77, 2);
     expect(sheet.excluded).toEqual([{ player: 'Backer Two', team: 'GB', reason: 'OUT' }]);

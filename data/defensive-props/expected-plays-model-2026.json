@@ -1,0 +1,1379 @@
+{
+ "season": 2026,
+ "through_week": 7,
+ "rows": 4537,
+ "snap_match_rate": 0.966,
+ "pbp_match_rate": 0.924,
+ "espn_minus_pbp_scrimmage_ta": {
+  "mean": 0.363,
+  "exact_share": 0.719
+ },
+ "games_with_lines": 107,
+ "summary": {
+  "n_test": 150,
+  "mae_model": 6.53,
+  "mae_naive_league_mean": 6.49,
+  "r_model": -0.014,
+  "r_total_only": 0.1,
+  "r_spread_only": 0.024,
+  "coefficients_full_sample": {
+   "intercept": 43.717,
+   "total_line": 0.151,
+   "team_spread": -0.018,
+   "opp_offense_prior_plays": 0.089,
+   "defense_prior_plays_faced": 0.107
+  }
+ },
+ "walk_forward": [
+  {
+   "week": 3,
+   "team": "ATL",
+   "actual": 63,
+   "pred": 61.124773667542215,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": -4.5
+  },
+  {
+   "week": 3,
+   "team": "GB",
+   "actual": 66,
+   "pred": 59.2153445989393,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": 4.5
+  },
+  {
+   "week": 3,
+   "team": "CAR",
+   "actual": 63,
+   "pred": 57.96934377718057,
+   "naive": 60.84375,
+   "total": 41.5,
+   "spread": 2.5
+  },
+  {
+   "week": 3,
+   "team": "CLE",
+   "actual": 74,
+   "pred": 60.42178083511787,
+   "naive": 60.84375,
+   "total": 41.5,
+   "spread": -2.5
+  },
+  {
+   "week": 3,
+   "team": "CIN",
+   "actual": 59,
+   "pred": 59.51426679689491,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": 3.5
+  },
+  {
+   "week": 3,
+   "team": "PIT",
+   "actual": 56,
+   "pred": 61.18656581275799,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": -3.5
+  },
+  {
+   "week": 3,
+   "team": "HOU",
+   "actual": 71,
+   "pred": 59.449148826412404,
+   "naive": 60.84375,
+   "total": 41.5,
+   "spread": 1.5
+  },
+  {
+   "week": 3,
+   "team": "IND",
+   "actual": 51,
+   "pred": 60.89329463709646,
+   "naive": 60.84375,
+   "total": 41.5,
+   "spread": -1.5
+  },
+  {
+   "week": 3,
+   "team": "KC",
+   "actual": 67,
+   "pred": 58.44317225268931,
+   "naive": 60.84375,
+   "total": 45.5,
+   "spread": 10.0
+  },
+  {
+   "week": 3,
+   "team": "MIA",
+   "actual": 49,
+   "pred": 64.50738802489198,
+   "naive": 60.84375,
+   "total": 45.5,
+   "spread": -10.0
+  },
+  {
+   "week": 3,
+   "team": "BUF",
+   "actual": 64,
+   "pred": 60.390246900895846,
+   "naive": 60.84375,
+   "total": 50.5,
+   "spread": 7.0
+  },
+  {
+   "week": 3,
+   "team": "LAC",
+   "actual": 63,
+   "pred": 63.93691765078948,
+   "naive": 60.84375,
+   "total": 50.5,
+   "spread": -7.0
+  },
+  {
+   "week": 3,
+   "team": "DET",
+   "actual": 61,
+   "pred": 60.53991050290198,
+   "naive": 60.84375,
+   "total": 49.5,
+   "spread": 7.0
+  },
+  {
+   "week": 3,
+   "team": "NYJ",
+   "actual": 64,
+   "pred": 65.15030962560701,
+   "naive": 60.84375,
+   "total": 49.5,
+   "spread": -7.0
+  },
+  {
+   "week": 3,
+   "team": "SEA",
+   "actual": 65,
+   "pred": 58.32599471484982,
+   "naive": 60.84375,
+   "total": 40.5,
+   "spread": 8.5
+  },
+  {
+   "week": 3,
+   "team": "WSH",
+   "actual": 64,
+   "pred": 61.39478663699644,
+   "naive": 60.84375,
+   "total": 40.5,
+   "spread": -8.5
+  },
+  {
+   "week": 3,
+   "team": "NYG",
+   "actual": 57,
+   "pred": 57.151622571712764,
+   "naive": 60.84375,
+   "total": 37.5,
+   "spread": 2.5
+  },
+  {
+   "week": 3,
+   "team": "TEN",
+   "actual": 58,
+   "pred": 58.6991161942251,
+   "naive": 60.84375,
+   "total": 37.5,
+   "spread": -2.5
+  },
+  {
+   "week": 3,
+   "team": "JAX",
+   "actual": 60,
+   "pred": 61.02001971358859,
+   "naive": 60.84375,
+   "total": 46.5,
+   "spread": 3.0
+  },
+  {
+   "week": 3,
+   "team": "NE",
+   "actual": 60,
+   "pred": 61.740739305769125,
+   "naive": 60.84375,
+   "total": 46.5,
+   "spread": -3.0
+  },
+  {
+   "week": 3,
+   "team": "ARI",
+   "actual": 50,
+   "pred": 63.401546338082966,
+   "naive": 60.84375,
+   "total": 48.5,
+   "spread": -7.5
+  },
+  {
+   "week": 3,
+   "team": "SF",
+   "actual": 81,
+   "pred": 60.4980488764678,
+   "naive": 60.84375,
+   "total": 48.5,
+   "spread": 7.5
+  },
+  {
+   "week": 3,
+   "team": "MIN",
+   "actual": 64,
+   "pred": 58.98042254692926,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": 1.5
+  },
+  {
+   "week": 3,
+   "team": "TB",
+   "actual": 55,
+   "pred": 60.06520350476357,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": -1.5
+  },
+  {
+   "week": 3,
+   "team": "BAL",
+   "actual": 71,
+   "pred": 62.41945226630956,
+   "naive": 60.84375,
+   "total": 53.5,
+   "spread": 3.0
+  },
+  {
+   "week": 3,
+   "team": "DAL",
+   "actual": 58,
+   "pred": 63.90685464489107,
+   "naive": 60.84375,
+   "total": 53.5,
+   "spread": -3.0
+  },
+  {
+   "week": 3,
+   "team": "LV",
+   "actual": 72,
+   "pred": 62.75536132831125,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": -3.5
+  },
+  {
+   "week": 3,
+   "team": "NO",
+   "actual": 63,
+   "pred": 59.68347898055777,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": 3.5
+  },
+  {
+   "week": 3,
+   "team": "DEN",
+   "actual": 82,
+   "pred": 59.85231855604165,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": 1.5
+  },
+  {
+   "week": 3,
+   "team": "LAR",
+   "actual": 60,
+   "pred": 60.08775889860142,
+   "naive": 60.84375,
+   "total": 43.5,
+   "spread": -1.5
+  },
+  {
+   "week": 3,
+   "team": "CHI",
+   "actual": 47,
+   "pred": 61.244220945156684,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": -3.5
+  },
+  {
+   "week": 3,
+   "team": "PHI",
+   "actual": 69,
+   "pred": 60.2553873772769,
+   "naive": 60.84375,
+   "total": 42.5,
+   "spread": 3.5
+  },
+  {
+   "week": 4,
+   "team": "CLE",
+   "actual": 64,
+   "pred": 59.39495836578824,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": -2.5
+  },
+  {
+   "week": 4,
+   "team": "PIT",
+   "actual": 62,
+   "pred": 60.94389331913154,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": 2.5
+  },
+  {
+   "week": 4,
+   "team": "IND",
+   "actual": 61,
+   "pred": 62.77383355016262,
+   "naive": 61.46875,
+   "total": 46.5,
+   "spread": 4.5
+  },
+  {
+   "week": 4,
+   "team": "WSH",
+   "actual": 66,
+   "pred": 61.92960819422774,
+   "naive": 61.46875,
+   "total": 46.5,
+   "spread": -4.5
+  },
+  {
+   "week": 4,
+   "team": "ARI",
+   "actual": 61,
+   "pred": 62.60476533621876,
+   "naive": 61.46875,
+   "total": 44.5,
+   "spread": 2.5
+  },
+  {
+   "week": 4,
+   "team": "NYG",
+   "actual": 63,
+   "pred": 61.841478242588714,
+   "naive": 61.46875,
+   "total": 44.5,
+   "spread": -2.5
+  },
+  {
+   "week": 4,
+   "team": "DAL",
+   "actual": 52,
+   "pred": 62.09709506396763,
+   "naive": 61.46875,
+   "total": 48.5,
+   "spread": -3.0
+  },
+  {
+   "week": 4,
+   "team": "HOU",
+   "actual": 73,
+   "pred": 63.31775983236093,
+   "naive": 61.46875,
+   "total": 48.5,
+   "spread": 3.0
+  },
+  {
+   "week": 4,
+   "team": "GB",
+   "actual": 61,
+   "pred": 60.01917168722578,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": 3.0
+  },
+  {
+   "week": 4,
+   "team": "TB",
+   "actual": 55,
+   "pred": 59.873333344730455,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": -3.0
+  },
+  {
+   "week": 4,
+   "team": "CIN",
+   "actual": 54,
+   "pred": 63.804885088626264,
+   "naive": 61.46875,
+   "total": 51.5,
+   "spread": 2.5
+  },
+  {
+   "week": 4,
+   "team": "JAX",
+   "actual": 71,
+   "pred": 63.68931080434653,
+   "naive": 61.46875,
+   "total": 51.5,
+   "spread": -2.5
+  },
+  {
+   "week": 4,
+   "team": "LAR",
+   "actual": 58,
+   "pred": 61.81835731229007,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": 3.5
+  },
+  {
+   "week": 4,
+   "team": "PHI",
+   "actual": 77,
+   "pred": 60.53896708285673,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": -3.5
+  },
+  {
+   "week": 4,
+   "team": "BUF",
+   "actual": 73,
+   "pred": 63.72359368969926,
+   "naive": 61.46875,
+   "total": 49.5,
+   "spread": 7.0
+  },
+  {
+   "week": 4,
+   "team": "NE",
+   "actual": 54,
+   "pred": 62.1973853495573,
+   "naive": 61.46875,
+   "total": 49.5,
+   "spread": -7.0
+  },
+  {
+   "week": 4,
+   "team": "CHI",
+   "actual": 32,
+   "pred": 62.830208093104595,
+   "naive": 61.46875,
+   "total": 43.5,
+   "spread": 3.5
+  },
+  {
+   "week": 4,
+   "team": "NYJ",
+   "actual": 89,
+   "pred": 61.63999030648599,
+   "naive": 61.46875,
+   "total": 43.5,
+   "spread": -3.5
+  },
+  {
+   "week": 4,
+   "team": "BAL",
+   "actual": 58,
+   "pred": 62.7770538254562,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": 11.5
+  },
+  {
+   "week": 4,
+   "team": "TEN",
+   "actual": 61,
+   "pred": 58.91118838730871,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": -11.5
+  },
+  {
+   "week": 4,
+   "team": "MIA",
+   "actual": 72,
+   "pred": 58.90400661562349,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": -10.0
+  },
+  {
+   "week": 4,
+   "team": "MIN",
+   "actual": 37,
+   "pred": 61.089327426880615,
+   "naive": 61.46875,
+   "total": 38.5,
+   "spread": 10.0
+  },
+  {
+   "week": 4,
+   "team": "DEN",
+   "actual": 65,
+   "pred": 61.541566628174564,
+   "naive": 61.46875,
+   "total": 48.5,
+   "spread": -3.0
+  },
+  {
+   "week": 4,
+   "team": "SF",
+   "actual": 64,
+   "pred": 62.87413324543093,
+   "naive": 61.46875,
+   "total": 48.5,
+   "spread": 3.0
+  },
+  {
+   "week": 4,
+   "team": "KC",
+   "actual": 78,
+   "pred": 63.519042596659844,
+   "naive": 61.46875,
+   "total": 47.5,
+   "spread": 4.5
+  },
+  {
+   "week": 4,
+   "team": "LV",
+   "actual": 58,
+   "pred": 61.82195004064648,
+   "naive": 61.46875,
+   "total": 47.5,
+   "spread": -4.5
+  },
+  {
+   "week": 4,
+   "team": "LAC",
+   "actual": 58,
+   "pred": 59.59780646297783,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": -7.0
+  },
+  {
+   "week": 4,
+   "team": "SEA",
+   "actual": 68,
+   "pred": 62.42429682446964,
+   "naive": 61.46875,
+   "total": 42.5,
+   "spread": 7.0
+  },
+  {
+   "week": 4,
+   "team": "CAR",
+   "actual": 68,
+   "pred": 62.70944347312099,
+   "naive": 61.46875,
+   "total": 52.5,
+   "spread": -4.5
+  },
+  {
+   "week": 4,
+   "team": "DET",
+   "actual": 72,
+   "pred": 63.66994264167827,
+   "naive": 61.46875,
+   "total": 52.5,
+   "spread": 4.5
+  },
+  {
+   "week": 4,
+   "team": "ATL",
+   "actual": 69,
+   "pred": 62.36666533693962,
+   "naive": 61.46875,
+   "total": 47.5,
+   "spread": -1.5
+  },
+  {
+   "week": 4,
+   "team": "NO",
+   "actual": 56,
+   "pred": 62.537985317410545,
+   "naive": 61.46875,
+   "total": 47.5,
+   "spread": 1.5
+  },
+  {
+   "week": 5,
+   "team": "DAL",
+   "actual": 65,
+   "pred": 63.801740087579645,
+   "naive": 61.8046875,
+   "total": 49.5,
+   "spread": 9.5
+  },
+  {
+   "week": 5,
+   "team": "TB",
+   "actual": 55,
+   "pred": 64.38556721765718,
+   "naive": 61.8046875,
+   "total": 49.5,
+   "spread": -9.5
+  },
+  {
+   "week": 5,
+   "team": "JAX",
+   "actual": 59,
+   "pred": 60.79303776401145,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": 7.5
+  },
+  {
+   "week": 5,
+   "team": "PHI",
+   "actual": 68,
+   "pred": 59.897970643079155,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": -7.5
+  },
+  {
+   "week": 5,
+   "team": "CIN",
+   "actual": 64,
+   "pred": 61.45007025201603,
+   "naive": 61.8046875,
+   "total": 44.5,
+   "spread": 7.0
+  },
+  {
+   "week": 5,
+   "team": "MIA",
+   "actual": 63,
+   "pred": 62.237823687602095,
+   "naive": 61.8046875,
+   "total": 44.5,
+   "spread": -7.0
+  },
+  {
+   "week": 5,
+   "team": "CLE",
+   "actual": 66,
+   "pred": 59.08059129121192,
+   "naive": 61.8046875,
+   "total": 38.5,
+   "spread": -2.5
+  },
+  {
+   "week": 5,
+   "team": "NYJ",
+   "actual": 65,
+   "pred": 59.241527515197696,
+   "naive": 61.8046875,
+   "total": 38.5,
+   "spread": 2.5
+  },
+  {
+   "week": 5,
+   "team": "HOU",
+   "actual": 58,
+   "pred": 58.55206242094734,
+   "naive": 61.8046875,
+   "total": 37.5,
+   "spread": 6.5
+  },
+  {
+   "week": 5,
+   "team": "TEN",
+   "actual": 63,
+   "pred": 59.20032452463058,
+   "naive": 61.8046875,
+   "total": 37.5,
+   "spread": -6.5
+  },
+  {
+   "week": 5,
+   "team": "IND",
+   "actual": 54,
+   "pred": 60.72564579049989,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": -3.0
+  },
+  {
+   "week": 5,
+   "team": "PIT",
+   "actual": 69,
+   "pred": 61.4944120718523,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": 3.0
+  },
+  {
+   "week": 5,
+   "team": "LV",
+   "actual": 66,
+   "pred": 62.55931891555892,
+   "naive": 61.8046875,
+   "total": 45.5,
+   "spread": -3.5
+  },
+  {
+   "week": 5,
+   "team": "NE",
+   "actual": 57,
+   "pred": 63.2398379097237,
+   "naive": 61.8046875,
+   "total": 45.5,
+   "spread": 3.5
+  },
+  {
+   "week": 5,
+   "team": "MIN",
+   "actual": 43,
+   "pred": 61.87429406771707,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": 2.5
+  },
+  {
+   "week": 5,
+   "team": "NO",
+   "actual": 68,
+   "pred": 60.63684832858408,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": -2.5
+  },
+  {
+   "week": 5,
+   "team": "NYG",
+   "actual": 60,
+   "pred": 61.466871632231985,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": -3.5
+  },
+  {
+   "week": 5,
+   "team": "WSH",
+   "actual": 84,
+   "pred": 61.04156217368587,
+   "naive": 61.8046875,
+   "total": 41.5,
+   "spread": 3.5
+  },
+  {
+   "week": 5,
+   "team": "DEN",
+   "actual": 63,
+   "pred": 60.543546992482945,
+   "naive": 61.8046875,
+   "total": 42.5,
+   "spread": 3.5
+  },
+  {
+   "week": 5,
+   "team": "LAC",
+   "actual": 57,
+   "pred": 60.70372338104534,
+   "naive": 61.8046875,
+   "total": 42.5,
+   "spread": -3.5
+  },
+  {
+   "week": 5,
+   "team": "CHI",
+   "actual": 59,
+   "pred": 64.09407562591772,
+   "naive": 61.8046875,
+   "total": 46.5,
+   "spread": 1.5
+  },
+  {
+   "week": 5,
+   "team": "GB",
+   "actual": 68,
+   "pred": 63.22136400595271,
+   "naive": 61.8046875,
+   "total": 46.5,
+   "spread": -1.5
+  },
+  {
+   "week": 5,
+   "team": "ARI",
+   "actual": 65,
+   "pred": 66.93859694879474,
+   "naive": 61.8046875,
+   "total": 55.5,
+   "spread": -5.5
+  },
+  {
+   "week": 5,
+   "team": "DET",
+   "actual": 71,
+   "pred": 65.21744431094814,
+   "naive": 61.8046875,
+   "total": 55.5,
+   "spread": 5.5
+  },
+  {
+   "week": 5,
+   "team": "SEA",
+   "actual": 56,
+   "pred": 62.38395506473897,
+   "naive": 61.8046875,
+   "total": 46.5,
+   "spread": 3.0
+  },
+  {
+   "week": 5,
+   "team": "SF",
+   "actual": 60,
+   "pred": 62.19161122891025,
+   "naive": 61.8046875,
+   "total": 46.5,
+   "spread": -3.0
+  },
+  {
+   "week": 5,
+   "team": "ATL",
+   "actual": 71,
+   "pred": 61.5673378094245,
+   "naive": 61.8046875,
+   "total": 44.5,
+   "spread": 3.5
+  },
+  {
+   "week": 5,
+   "team": "BAL",
+   "actual": 64,
+   "pred": 61.94292223925086,
+   "naive": 61.8046875,
+   "total": 44.5,
+   "spread": -3.5
+  },
+  {
+   "week": 5,
+   "team": "BUF",
+   "actual": 78,
+   "pred": 65.86223842539226,
+   "naive": 61.8046875,
+   "total": 55.5,
+   "spread": -3.5
+  },
+  {
+   "week": 5,
+   "team": "LAR",
+   "actual": 57,
+   "pred": 66.24255878963541,
+   "naive": 61.8046875,
+   "total": 55.5,
+   "spread": 3.5
+  },
+  {
+   "week": 6,
+   "team": "DEN",
+   "actual": 82,
+   "pred": 60.844764766501484,
+   "naive": 62.06962025316456,
+   "total": 40.5,
+   "spread": -2.5
+  },
+  {
+   "week": 6,
+   "team": "SEA",
+   "actual": 57,
+   "pred": 60.93853643312695,
+   "naive": 62.06962025316456,
+   "total": 40.5,
+   "spread": 2.5
+  },
+  {
+   "week": 6,
+   "team": "HOU",
+   "actual": 68,
+   "pred": 61.52285716198604,
+   "naive": 62.06962025316456,
+   "total": 42.5,
+   "spread": -2.5
+  },
+  {
+   "week": 6,
+   "team": "JAX",
+   "actual": 59,
+   "pred": 61.82805085573105,
+   "naive": 62.06962025316456,
+   "total": 42.5,
+   "spread": 2.5
+  },
+  {
+   "week": 6,
+   "team": "BAL",
+   "actual": 60,
+   "pred": 60.65891130060113,
+   "naive": 62.06962025316456,
+   "total": 39.5,
+   "spread": 3.0
+  },
+  {
+   "week": 6,
+   "team": "CLE",
+   "actual": 57,
+   "pred": 60.72160802685328,
+   "naive": 62.06962025316456,
+   "total": 39.5,
+   "spread": -3.0
+  },
+  {
+   "week": 6,
+   "team": "CAR",
+   "actual": 61,
+   "pred": 60.4614079121433,
+   "naive": 62.06962025316456,
+   "total": 39.5,
+   "spread": 3.0
+  },
+  {
+   "week": 6,
+   "team": "PHI",
+   "actual": 74,
+   "pred": 60.87887422488618,
+   "naive": 62.06962025316456,
+   "total": 39.5,
+   "spread": -3.0
+  },
+  {
+   "week": 6,
+   "team": "ATL",
+   "actual": 73,
+   "pred": 64.75924215623805,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": -1.5
+  },
+  {
+   "week": 6,
+   "team": "CHI",
+   "actual": 50,
+   "pred": 64.7383629729497,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": 1.5
+  },
+  {
+   "week": 6,
+   "team": "NO",
+   "actual": 72,
+   "pred": 62.98801078851978,
+   "naive": 62.06962025316456,
+   "total": 46.5,
+   "spread": 1.5
+  },
+  {
+   "week": 6,
+   "team": "NYG",
+   "actual": 68,
+   "pred": 63.20385931703612,
+   "naive": 62.06962025316456,
+   "total": 46.5,
+   "spread": -1.5
+  },
+  {
+   "week": 6,
+   "team": "NE",
+   "actual": 60,
+   "pred": 62.00163642261231,
+   "naive": 62.06962025316456,
+   "total": 43.5,
+   "spread": 7.5
+  },
+  {
+   "week": 6,
+   "team": "NYJ",
+   "actual": 68,
+   "pred": 62.020968480831854,
+   "naive": 62.06962025316456,
+   "total": 43.5,
+   "spread": -7.5
+  },
+  {
+   "week": 6,
+   "team": "PIT",
+   "actual": 73,
+   "pred": 60.52795262711239,
+   "naive": 62.06962025316456,
+   "total": 38.5,
+   "spread": 2.5
+  },
+  {
+   "week": 6,
+   "team": "TB",
+   "actual": 76,
+   "pred": 60.64612729678722,
+   "naive": 62.06962025316456,
+   "total": 38.5,
+   "spread": -2.5
+  },
+  {
+   "week": 6,
+   "team": "IND",
+   "actual": 45,
+   "pred": 61.681987047066514,
+   "naive": 62.06962025316456,
+   "total": 43.5,
+   "spread": 6.5
+  },
+  {
+   "week": 6,
+   "team": "TEN",
+   "actual": 78,
+   "pred": 62.04780603281409,
+   "naive": 62.06962025316456,
+   "total": 43.5,
+   "spread": -6.5
+  },
+  {
+   "week": 6,
+   "team": "ARI",
+   "actual": 56,
+   "pred": 64.85074291901968,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": -12.5
+  },
+  {
+   "week": 6,
+   "team": "LAR",
+   "actual": 70,
+   "pred": 64.69036995655622,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": 12.5
+  },
+  {
+   "week": 6,
+   "team": "BUF",
+   "actual": 61,
+   "pred": 64.8593594767137,
+   "naive": 62.06962025316456,
+   "total": 53.5,
+   "spread": 5.5
+  },
+  {
+   "week": 6,
+   "team": "LV",
+   "actual": 64,
+   "pred": 64.84869858683506,
+   "naive": 62.06962025316456,
+   "total": 53.5,
+   "spread": -5.5
+  },
+  {
+   "week": 6,
+   "team": "KC",
+   "actual": 63,
+   "pred": 61.32648795258908,
+   "naive": 62.06962025316456,
+   "total": 41.5,
+   "spread": 7.5
+  },
+  {
+   "week": 6,
+   "team": "LAC",
+   "actual": 57,
+   "pred": 61.43277102767338,
+   "naive": 62.06962025316456,
+   "total": 41.5,
+   "spread": -7.5
+  },
+  {
+   "week": 6,
+   "team": "DAL",
+   "actual": 70,
+   "pred": 64.83174713690126,
+   "naive": 62.06962025316456,
+   "total": 53.5,
+   "spread": 1.5
+  },
+  {
+   "week": 6,
+   "team": "GB",
+   "actual": 70,
+   "pred": 64.81554738425078,
+   "naive": 62.06962025316456,
+   "total": 53.5,
+   "spread": -1.5
+  },
+  {
+   "week": 6,
+   "team": "SF",
+   "actual": 61,
+   "pred": 64.41733271445932,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": 7.5
+  },
+  {
+   "week": 6,
+   "team": "WSH",
+   "actual": 60,
+   "pred": 64.07507526932541,
+   "naive": 62.06962025316456,
+   "total": 51.5,
+   "spread": -7.5
+  },
+  {
+   "week": 7,
+   "team": "DAL",
+   "actual": 62,
+   "pred": 62.17141742516285,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": 4.5
+  },
+  {
+   "week": 7,
+   "team": "PHI",
+   "actual": 65,
+   "pred": 63.159875875467655,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": -4.5
+  },
+  {
+   "week": 7,
+   "team": "CHI",
+   "actual": 50,
+   "pred": 63.41972824298625,
+   "naive": 62.473118279569896,
+   "total": 50.5,
+   "spread": 3.0
+  },
+  {
+   "week": 7,
+   "team": "NE",
+   "actual": 66,
+   "pred": 64.83821083833406,
+   "naive": 62.473118279569896,
+   "total": 50.5,
+   "spread": -3.0
+  },
+  {
+   "week": 7,
+   "team": "NO",
+   "actual": 63,
+   "pred": 63.116602292862446,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": -3.0
+  },
+  {
+   "week": 7,
+   "team": "PIT",
+   "actual": 57,
+   "pred": 63.015414342632226,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": 3.0
+  },
+  {
+   "week": 7,
+   "team": "BAL",
+   "actual": 51,
+   "pred": 63.316410139915966,
+   "naive": 62.473118279569896,
+   "total": 46.5,
+   "spread": -3.0
+  },
+  {
+   "week": 7,
+   "team": "CIN",
+   "actual": 65,
+   "pred": 62.91375148269769,
+   "naive": 62.473118279569896,
+   "total": 46.5,
+   "spread": 3.0
+  },
+  {
+   "week": 7,
+   "team": "CLE",
+   "actual": 62,
+   "pred": 60.66904585118576,
+   "naive": 62.473118279569896,
+   "total": 36.5,
+   "spread": 1.5
+  },
+  {
+   "week": 7,
+   "team": "TEN",
+   "actual": 66,
+   "pred": 61.49668459594044,
+   "naive": 62.473118279569896,
+   "total": 36.5,
+   "spread": -1.5
+  },
+  {
+   "week": 7,
+   "team": "IND",
+   "actual": 56,
+   "pred": 62.468458016161755,
+   "naive": 62.473118279569896,
+   "total": 41.5,
+   "spread": -6.5
+  },
+  {
+   "week": 7,
+   "team": "MIN",
+   "actual": 59,
+   "pred": 62.28551707284856,
+   "naive": 62.473118279569896,
+   "total": 41.5,
+   "spread": 6.5
+  },
+  {
+   "week": 7,
+   "team": "MIA",
+   "actual": 53,
+   "pred": 61.828269764079884,
+   "naive": 62.473118279569896,
+   "total": 39.5,
+   "spread": -3.5
+  },
+  {
+   "week": 7,
+   "team": "NYJ",
+   "actual": 64,
+   "pred": 61.27082846545957,
+   "naive": 62.473118279569896,
+   "total": 39.5,
+   "spread": 3.5
+  },
+  {
+   "week": 7,
+   "team": "HOU",
+   "actual": 65,
+   "pred": 62.54855957267164,
+   "naive": 62.473118279569896,
+   "total": 42.5,
+   "spread": 10.0
+  },
+  {
+   "week": 7,
+   "team": "NYG",
+   "actual": 54,
+   "pred": 62.95640780279755,
+   "naive": 62.473118279569896,
+   "total": 42.5,
+   "spread": -10.0
+  },
+  {
+   "week": 7,
+   "team": "ATL",
+   "actual": 65,
+   "pred": 63.47962666950947,
+   "naive": 62.473118279569896,
+   "total": 49.5,
+   "spread": -2.5
+  },
+  {
+   "week": 7,
+   "team": "SF",
+   "actual": 63,
+   "pred": 63.37109426776311,
+   "naive": 62.473118279569896,
+   "total": 49.5,
+   "spread": 2.5
+  },
+  {
+   "week": 7,
+   "team": "CAR",
+   "actual": 60,
+   "pred": 62.935965187592856,
+   "naive": 62.473118279569896,
+   "total": 44.5,
+   "spread": 3.0
+  },
+  {
+   "week": 7,
+   "team": "TB",
+   "actual": 54,
+   "pred": 63.508326082133934,
+   "naive": 62.473118279569896,
+   "total": 44.5,
+   "spread": -3.0
+  },
+  {
+   "week": 7,
+   "team": "ARI",
+   "actual": 56,
+   "pred": 62.438670871941554,
+   "naive": 62.473118279569896,
+   "total": 44.5,
+   "spread": -4.5
+  },
+  {
+   "week": 7,
+   "team": "DEN",
+   "actual": 75,
+   "pred": 63.43530027884342,
+   "naive": 62.473118279569896,
+   "total": 44.5,
+   "spread": 4.5
+  },
+  {
+   "week": 7,
+   "team": "DET",
+   "actual": 65,
+   "pred": 64.69329926027531,
+   "naive": 62.473118279569896,
+   "total": 55.5,
+   "spread": 3.5
+  },
+  {
+   "week": 7,
+   "team": "GB",
+   "actual": 66,
+   "pred": 65.34740286154363,
+   "naive": 62.473118279569896,
+   "total": 55.5,
+   "spread": -3.5
+  },
+  {
+   "week": 7,
+   "team": "LAR",
+   "actual": 64,
+   "pred": 63.6464211434824,
+   "naive": 62.473118279569896,
+   "total": 49.5,
+   "spread": 3.5
+  },
+  {
+   "week": 7,
+   "team": "LV",
+   "actual": 68,
+   "pred": 64.40675644846809,
+   "naive": 62.473118279569896,
+   "total": 49.5,
+   "spread": -3.5
+  },
+  {
+   "week": 7,
+   "team": "KC",
+   "actual": 69,
+   "pred": 62.99238086897614,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": -3.0
+  },
+  {
+   "week": 7,
+   "team": "SEA",
+   "actual": 50,
+   "pred": 62.44198452883097,
+   "naive": 62.473118279569896,
+   "total": 43.5,
+   "spread": 3.0
+  }
+ ]
+}
