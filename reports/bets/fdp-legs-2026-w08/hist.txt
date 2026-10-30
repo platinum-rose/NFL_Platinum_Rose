@@ -1,0 +1,45 @@
+type              n   win%  priced implied%   edge
+ATD             307    44%     131      46%    -2
+spread          207    52%     187      54%    -2
+ML              163    55%     152      60%    -5
+receptions      135    55%      59      60%    -5
+rec yds         119    50%      57      56%    -6
+game total       83    47%      61      55%    -8
+rush yds         68    49%      28      60%   -11
+pass TDs         60    63%      28      65%    -2
+tackles          46    59%      26      58%    +1
+QB INT           44    57%      20      50%    +7
+sacks            34    26%      24      42%   -16
+carries          24    54%      10      58%    -4
+pass yds         19    53%       9      55%    -3
+1st TD           17     6%      10      21%   -15
+FGs              14    50%       0       0%    +0
+pass att/cmp     12    50%       6      56%    -6
+team total        3    33%       3      52%   -19
+2+ TD             3    33%       3      30%    +4
+rush+rec yds      2    50%       0       0%    +0
+
+By price bucket (priced legs only, n>=8):
+ATD           dog (+150..+399)          44  win  45%  implied  32%  edge +13
+ATD           fav (-299..-150)          32  win  50%  implied  66%  edge -16
+ATD           near even (-149..+149)    48  win  50%  implied  49%  edge +1
+ML            dog (+150..+399)          23  win  30%  implied  33%  edge -3
+ML            fav (-299..-150)          71  win  61%  implied  67%  edge -6
+ML            heavy fav (≤-300)         25  win  64%  implied  78%  edge -14
+ML            near even (-149..+149)    32  win  53%  implied  51%  edge +2
+QB INT        near even (-149..+149)    16  win  50%  implied  53%  edge -3
+game total    near even (-149..+149)    59  win  46%  implied  56%  edge -10
+pass TDs      fav (-299..-150)           9  win  56%  implied  65%  edge -10
+pass TDs      near even (-149..+149)    12  win  83%  implied  53%  edge +30
+pass yds      near even (-149..+149)     9  win  67%  implied  55%  edge +11
+rec yds       fav (-299..-150)           9  win  78%  implied  67%  edge +11
+rec yds       near even (-149..+149)    47  win  36%  implied  53%  edge -17
+receptions    fav (-299..-150)          26  win  62%  implied  65%  edge -4
+receptions    near even (-149..+149)    30  win  47%  implied  53%  edge -6
+rush yds      fav (-299..-150)          10  win  70%  implied  67%  edge +3
+rush yds      near even (-149..+149)    17  win  47%  implied  54%  edge -7
+sacks         near even (-149..+149)    16  win  38%  implied  47%  edge -10
+spread        fav (-299..-150)           8  win  50%  implied  61%  edge -11
+spread        near even (-149..+149)   178  win  52%  implied  54%  edge -2
+tackles       fav (-299..-150)          12  win  75%  implied  63%  edge +12
+tackles       near even (-149..+149)    14  win  71%  implied  54%  edge +17

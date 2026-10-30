@@ -1,6 +1,6 @@
 import json,re
 from collections import defaultdict
-d=json.load(open('data/official-picks/user-placed-wagers-2026.json'))
+d=json.load(open(__import__("os").environ.get("WAGERS","data/official-picks/user-placed-wagers-2026.json")))
 rows=d if isinstance(d,list) else next(v for v in d.values() if isinstance(v,list))
 norm={'anytime_touchdown':'ATD','anytime_td':'ATD','atd':'ATD','touchdowns':'ATD','touchdowns_2_plus':'2+ TD','first_touchdown':'1st TD','first_td':'1st TD','first_touchdown_scorer':'1st TD',
 'spread':'spread','sgp_spread':'spread','moneyline':'ML','sgp_moneyline':'ML','total':'game total','sgp_total':'game total','alternate_total_points':'game total','team_total':'team total',
