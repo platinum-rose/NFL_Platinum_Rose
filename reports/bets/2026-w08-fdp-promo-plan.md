@@ -307,3 +307,5 @@ _Superseded: A1–A4/B1–B4 (1:50 PM) and the props-only S1–S4/L1–L4 (1:55 
 | CHI @ SEA | CHI | D'Andre Swift 40+ rush yds | 85% | 7/7, avg 68.0 |
 | CHI @ SEA | CHI | Luther Burden III 40+ rec yds | 79% | 6/7, avg 70.1 |
 | CHI @ SEA | CHI | D'Andre Swift 2+ receptions | 79% | 6/7, avg 3.1 |
+
+_2:40 PM PT: FDP lists no player props for CLE @ PIT. S3 Rodgers 1+ pass TD → Geno Smith 1+ pass TD (LV @ NYJ; backups Garrett Wilson 25+ rec yds, Brock Bowers 4+ rec). Avoid CLE @ PIT props in later builds._
