@@ -14,6 +14,7 @@
     "app:open": "node scripts/toolbox-app-server.mjs --open",
     "toolbox": "node scripts/toolbox.mjs",
     "tracker:generate": "node scripts/generate-live-tracker.mjs",
+    "defense:props": "node scripts/build-defensive-props.mjs",
     "tracker:launch": "node scripts/toolbox.mjs --launch-tracker",
     "fantasy:sync": "node scripts/sync-yahoo-fantasy.mjs",
     "reconcile:settlement": "node scripts/reconcile-settlement.mjs",

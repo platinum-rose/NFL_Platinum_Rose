@@ -1,0 +1,634 @@
+{
+  "generated_at": "2026-10-30T03:28:21.694Z",
+  "season": 2026,
+  "through_week": 7,
+  "target_week": 8,
+  "games_used": 107,
+  "missing_event_ids": [],
+  "unmapped_positions": 33,
+  "roster_as_of": "2026-10-29T15:40:31.105239+00:00",
+  "availability_as_of": "2026-10-29T23:30:01.795Z",
+  "league_avg_ta_by_group": {
+    "LB": 23.7,
+    "S": 14.6,
+    "CB": 13.7,
+    "EDGE": 0,
+    "DL": 13.6
+  },
+  "league_avg_plays": 62.3,
+  "offenses": {
+    "SEA": {
+      "games": 7,
+      "avg_plays": 64,
+      "plays_factor": 1.03,
+      "rush_share": 0.48,
+      "group_factors": {
+        "LB": 1.17,
+        "S": 1.04,
+        "CB": 0.93,
+        "EDGE": null,
+        "DL": 0.93
+      }
+    },
+    "NE": {
+      "games": 7,
+      "avg_plays": 62.4,
+      "plays_factor": 1,
+      "rush_share": 0.48,
+      "group_factors": {
+        "LB": 1.07,
+        "S": 0.92,
+        "CB": 0.97,
+        "EDGE": null,
+        "DL": 1.14
+      }
+    },
+    "SF": {
+      "games": 7,
+      "avg_plays": 58.4,
+      "plays_factor": 0.94,
+      "rush_share": 0.48,
+      "group_factors": {
+        "LB": 1.07,
+        "S": 1.15,
+        "CB": 0.83,
+        "EDGE": null,
+        "DL": 0.79
+      }
+    },
+    "LAR": {
+      "games": 7,
+      "avg_plays": 68.3,
+      "plays_factor": 1.1,
+      "rush_share": 0.4,
+      "group_factors": {
+        "LB": 1.13,
+        "S": 1.06,
+        "CB": 1.21,
+        "EDGE": null,
+        "DL": 0.78
+      }
+    },
+    "PIT": {
+      "games": 7,
+      "avg_plays": 63.9,
+      "plays_factor": 1.02,
+      "rush_share": 0.38,
+      "group_factors": {
+        "LB": 0.95,
+        "S": 1.09,
+        "CB": 1.09,
+        "EDGE": null,
+        "DL": 0.98
+      }
+    },
+    "ATL": {
+      "games": 7,
+      "avg_plays": 60.4,
+      "plays_factor": 0.97,
+      "rush_share": 0.51,
+      "group_factors": {
+        "LB": 1.05,
+        "S": 1.06,
+        "CB": 0.75,
+        "EDGE": null,
+        "DL": 1.04
+      }
+    },
+    "IND": {
+      "games": 7,
+      "avg_plays": 65.6,
+      "plays_factor": 1.05,
+      "rush_share": 0.45,
+      "group_factors": {
+        "LB": 0.98,
+        "S": 1.21,
+        "CB": 1.02,
+        "EDGE": null,
+        "DL": 1.13
+      }
+    },
+    "BAL": {
+      "games": 7,
+      "avg_plays": 61.7,
+      "plays_factor": 0.99,
+      "rush_share": 0.51,
+      "group_factors": {
+        "LB": 0.95,
+        "S": 1.06,
+        "CB": 0.75,
+        "EDGE": null,
+        "DL": 1.45
+      }
+    },
+    "HOU": {
+      "games": 7,
+      "avg_plays": 61.4,
+      "plays_factor": 0.99,
+      "rush_share": 0.4,
+      "group_factors": {
+        "LB": 0.96,
+        "S": 1.07,
+        "CB": 0.92,
+        "EDGE": null,
+        "DL": 1.1
+      }
+    },
+    "BUF": {
+      "games": 6,
+      "avg_plays": 59.8,
+      "plays_factor": 0.96,
+      "rush_share": 0.51,
+      "group_factors": {
+        "LB": 1.04,
+        "S": 1.14,
+        "CB": 0.8,
+        "EDGE": null,
+        "DL": 0.8
+      }
+    },
+    "CHI": {
+      "games": 7,
+      "avg_plays": 72.1,
+      "plays_factor": 1.16,
+      "rush_share": 0.51,
+      "group_factors": {
+        "LB": 1.11,
+        "S": 1.32,
+        "CB": 1.12,
+        "EDGE": null,
+        "DL": 1.25
+      }
+    },
+    "CAR": {
+      "games": 6,
+      "avg_plays": 66,
+      "plays_factor": 1.06,
+      "rush_share": 0.39,
+      "group_factors": {
+        "LB": 0.89,
+        "S": 0.99,
+        "CB": 1.07,
+        "EDGE": null,
+        "DL": 1.16
+      }
+    },
+    "JAX": {
+      "games": 6,
+      "avg_plays": 60.2,
+      "plays_factor": 0.97,
+      "rush_share": 0.48,
+      "group_factors": {
+        "LB": 0.9,
+        "S": 0.75,
+        "CB": 1.33,
+        "EDGE": null,
+        "DL": 0.9
+      }
+    },
+    "CLE": {
+      "games": 7,
+      "avg_plays": 60,
+      "plays_factor": 0.96,
+      "rush_share": 0.47,
+      "group_factors": {
+        "LB": 0.98,
+        "S": 1.07,
+        "CB": 0.85,
+        "EDGE": null,
+        "DL": 1.06
+      }
+    },
+    "NO": {
+      "games": 7,
+      "avg_plays": 65.6,
+      "plays_factor": 1.05,
+      "rush_share": 0.39,
+      "group_factors": {
+        "LB": 1.01,
+        "S": 0.89,
+        "CB": 1.27,
+        "EDGE": null,
+        "DL": 0.84
+      }
+    },
+    "DET": {
+      "games": 6,
+      "avg_plays": 66.3,
+      "plays_factor": 1.06,
+      "rush_share": 0.42,
+      "group_factors": {
+        "LB": 1.05,
+        "S": 1.18,
+        "CB": 1.11,
+        "EDGE": null,
+        "DL": 1.01
+      }
+    },
+    "TEN": {
+      "games": 7,
+      "avg_plays": 54.3,
+      "plays_factor": 0.87,
+      "rush_share": 0.44,
+      "group_factors": {
+        "LB": 0.95,
+        "S": 0.82,
+        "CB": 0.86,
+        "EDGE": null,
+        "DL": 0.78
+      }
+    },
+    "NYJ": {
+      "games": 7,
+      "avg_plays": 58.1,
+      "plays_factor": 0.93,
+      "rush_share": 0.46,
+      "group_factors": {
+        "LB": 0.87,
+        "S": 1.11,
+        "CB": 1.04,
+        "EDGE": null,
+        "DL": 1.1
+      }
+    },
+    "TB": {
+      "games": 7,
+      "avg_plays": 62.4,
+      "plays_factor": 1,
+      "rush_share": 0.51,
+      "group_factors": {
+        "LB": 1.16,
+        "S": 0.94,
+        "CB": 1.16,
+        "EDGE": null,
+        "DL": 0.91
+      }
+    },
+    "CIN": {
+      "games": 6,
+      "avg_plays": 60.5,
+      "plays_factor": 0.97,
+      "rush_share": 0.38,
+      "group_factors": {
+        "LB": 1.06,
+        "S": 0.92,
+        "CB": 1.1,
+        "EDGE": null,
+        "DL": 0.86
+      }
+    },
+    "LAC": {
+      "games": 6,
+      "avg_plays": 61.8,
+      "plays_factor": 0.99,
+      "rush_share": 0.48,
+      "group_factors": {
+        "LB": 1.1,
+        "S": 0.9,
+        "CB": 1.05,
+        "EDGE": null,
+        "DL": 0.9
+      }
+    },
+    "ARI": {
+      "games": 7,
+      "avg_plays": 68.4,
+      "plays_factor": 1.1,
+      "rush_share": 0.39,
+      "group_factors": {
+        "LB": 1.19,
+        "S": 0.94,
+        "CB": 1.24,
+        "EDGE": null,
+        "DL": 0.96
+      }
+    },
+    "MIN": {
+      "games": 6,
+      "avg_plays": 60.5,
+      "plays_factor": 0.97,
+      "rush_share": 0.52,
+      "group_factors": {
+        "LB": 0.87,
+        "S": 0.95,
+        "CB": 0.89,
+        "EDGE": null,
+        "DL": 1.4
+      }
+    },
+    "GB": {
+      "games": 7,
+      "avg_plays": 61.3,
+      "plays_factor": 0.98,
+      "rush_share": 0.35,
+      "group_factors": {
+        "LB": 0.72,
+        "S": 0.83,
+        "CB": 1,
+        "EDGE": null,
+        "DL": 0.79
+      }
+    },
+    "MIA": {
+      "games": 6,
+      "avg_plays": 56.3,
+      "plays_factor": 0.9,
+      "rush_share": 0.53,
+      "group_factors": {
+        "LB": 0.9,
+        "S": 1.07,
+        "CB": 0.71,
+        "EDGE": null,
+        "DL": 1.24
+      }
+    },
+    "LV": {
+      "games": 7,
+      "avg_plays": 64.3,
+      "plays_factor": 1.03,
+      "rush_share": 0.4,
+      "group_factors": {
+        "LB": 1.02,
+        "S": 1.08,
+        "CB": 1.02,
+        "EDGE": null,
+        "DL": 0.97
+      }
+    },
+    "WSH": {
+      "games": 6,
+      "avg_plays": 63.5,
+      "plays_factor": 1.02,
+      "rush_share": 0.45,
+      "group_factors": {
+        "LB": 1.17,
+        "S": 0.72,
+        "CB": 0.85,
+        "EDGE": null,
+        "DL": 1.16
+      }
+    },
+    "PHI": {
+      "games": 7,
+      "avg_plays": 58.9,
+      "plays_factor": 0.94,
+      "rush_share": 0.4,
+      "group_factors": {
+        "LB": 0.79,
+        "S": 1.06,
+        "CB": 0.8,
+        "EDGE": null,
+        "DL": 0.74
+      }
+    },
+    "NYG": {
+      "games": 7,
+      "avg_plays": 66.1,
+      "plays_factor": 1.06,
+      "rush_share": 0.45,
+      "group_factors": {
+        "LB": 1.04,
+        "S": 0.97,
+        "CB": 1.08,
+        "EDGE": null,
+        "DL": 1.25
+      }
+    },
+    "DAL": {
+      "games": 7,
+      "avg_plays": 62.9,
+      "plays_factor": 1.01,
+      "rush_share": 0.37,
+      "group_factors": {
+        "LB": 0.9,
+        "S": 1,
+        "CB": 1.03,
+        "EDGE": null,
+        "DL": 0.92
+      }
+    },
+    "KC": {
+      "games": 6,
+      "avg_plays": 59.8,
+      "plays_factor": 0.96,
+      "rush_share": 0.46,
+      "group_factors": {
+        "LB": 1.07,
+        "S": 0.9,
+        "CB": 1.13,
+        "EDGE": null,
+        "DL": 0.88
+      }
+    },
+    "DEN": {
+      "games": 7,
+      "avg_plays": 57.1,
+      "plays_factor": 0.92,
+      "rush_share": 0.44,
+      "group_factors": {
+        "LB": 0.89,
+        "S": 0.7,
+        "CB": 1,
+        "EDGE": null,
+        "DL": 0.84
+      }
+    }
+  },
+  "stat_crews": {
+    "league_assist_rate": 0.453,
+    "crews": {
+      "SEA": {
+        "home_games": 4,
+        "assist_rate": 0.405,
+        "vs_league": 0.89,
+        "total_ta_per_game": 132.8
+      },
+      "LAR": {
+        "home_games": 4,
+        "assist_rate": 0.476,
+        "vs_league": 1.05,
+        "total_ta_per_game": 141.8
+      },
+      "PIT": {
+        "home_games": 3,
+        "assist_rate": 0.497,
+        "vs_league": 1.1,
+        "total_ta_per_game": 132.7
+      },
+      "IND": {
+        "home_games": 3,
+        "assist_rate": 0.474,
+        "vs_league": 1.05,
+        "total_ta_per_game": 135
+      },
+      "HOU": {
+        "home_games": 4,
+        "assist_rate": 0.472,
+        "vs_league": 1.04,
+        "total_ta_per_game": 143.5
+      },
+      "CAR": {
+        "home_games": 3,
+        "assist_rate": 0.459,
+        "vs_league": 1.01,
+        "total_ta_per_game": 138.7
+      },
+      "JAX": {
+        "home_games": 4,
+        "assist_rate": 0.465,
+        "vs_league": 1.03,
+        "total_ta_per_game": 130.8
+      },
+      "DET": {
+        "home_games": 3,
+        "assist_rate": 0.421,
+        "vs_league": 0.93,
+        "total_ta_per_game": 146.3
+      },
+      "TEN": {
+        "home_games": 4,
+        "assist_rate": 0.474,
+        "vs_league": 1.05,
+        "total_ta_per_game": 136
+      },
+      "CIN": {
+        "home_games": 2,
+        "assist_rate": 0.333,
+        "vs_league": 0.74,
+        "total_ta_per_game": 130.5
+      },
+      "LAC": {
+        "home_games": 3,
+        "assist_rate": 0.447,
+        "vs_league": 0.99,
+        "total_ta_per_game": 135
+      },
+      "MIN": {
+        "home_games": 3,
+        "assist_rate": 0.403,
+        "vs_league": 0.89,
+        "total_ta_per_game": 126.7
+      },
+      "LV": {
+        "home_games": 4,
+        "assist_rate": 0.51,
+        "vs_league": 1.13,
+        "total_ta_per_game": 141.8
+      },
+      "PHI": {
+        "home_games": 4,
+        "assist_rate": 0.435,
+        "vs_league": 0.96,
+        "total_ta_per_game": 132.8
+      },
+      "NYG": {
+        "home_games": 4,
+        "assist_rate": 0.407,
+        "vs_league": 0.9,
+        "total_ta_per_game": 136.3
+      },
+      "KC": {
+        "home_games": 3,
+        "assist_rate": 0.519,
+        "vs_league": 1.15,
+        "total_ta_per_game": 146.3
+      },
+      "BUF": {
+        "home_games": 3,
+        "assist_rate": 0.434,
+        "vs_league": 0.96,
+        "total_ta_per_game": 134.3
+      },
+      "ATL": {
+        "home_games": 4,
+        "assist_rate": 0.445,
+        "vs_league": 0.98,
+        "total_ta_per_game": 142.3
+      },
+      "TB": {
+        "home_games": 4,
+        "assist_rate": 0.452,
+        "vs_league": 1,
+        "total_ta_per_game": 140.5
+      },
+      "NYJ": {
+        "home_games": 3,
+        "assist_rate": 0.474,
+        "vs_league": 1.05,
+        "total_ta_per_game": 138.7
+      },
+      "CHI": {
+        "home_games": 4,
+        "assist_rate": 0.479,
+        "vs_league": 1.06,
+        "total_ta_per_game": 137.3
+      },
+      "BAL": {
+        "home_games": 3,
+        "assist_rate": 0.44,
+        "vs_league": 0.97,
+        "total_ta_per_game": 133.3
+      },
+      "DEN": {
+        "home_games": 3,
+        "assist_rate": 0.425,
+        "vs_league": 0.94,
+        "total_ta_per_game": 133.3
+      },
+      "SF": {
+        "home_games": 4,
+        "assist_rate": 0.5,
+        "vs_league": 1.1,
+        "total_ta_per_game": 136.5
+      },
+      "ARI": {
+        "home_games": 3,
+        "assist_rate": 0.474,
+        "vs_league": 1.05,
+        "total_ta_per_game": 140
+      },
+      "DAL": {
+        "home_games": 3,
+        "assist_rate": 0.392,
+        "vs_league": 0.87,
+        "total_ta_per_game": 132.7
+      },
+      "NE": {
+        "home_games": 3,
+        "assist_rate": 0.465,
+        "vs_league": 1.03,
+        "total_ta_per_game": 139.7
+      },
+      "GB": {
+        "home_games": 3,
+        "assist_rate": 0.375,
+        "vs_league": 0.83,
+        "total_ta_per_game": 132.3
+      },
+      "CLE": {
+        "home_games": 3,
+        "assist_rate": 0.448,
+        "vs_league": 0.99,
+        "total_ta_per_game": 137
+      },
+      "MIA": {
+        "home_games": 2,
+        "assist_rate": 0.565,
+        "vs_league": 1.25,
+        "total_ta_per_game": 146
+      },
+      "WSH": {
+        "home_games": 3,
+        "assist_rate": 0.45,
+        "vs_league": 0.99,
+        "total_ta_per_game": 143.7
+      },
+      "NO": {
+        "home_games": 4,
+        "assist_rate": 0.431,
+        "vs_league": 0.95,
+        "total_ta_per_game": 135.3
+      }
+    }
+  }
+}
