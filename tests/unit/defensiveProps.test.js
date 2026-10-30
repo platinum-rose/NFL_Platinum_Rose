@@ -59,7 +59,20 @@ describe('defensive props builder', () => {
       availability: { 'Backer Two|GB': 'OUT' },
     });
     expect(sheet.map(r => r.player)).toEqual(['Safety One']);
-    expect(sheet[0].proj_ta).toBe(6);
+    expect(sheet[0].proj_ta).toBe(5.4); // season avg 5 + LB->S vacated bump 0.4 (opp/crew factors informational)
+    expect(sheet[0].vacated_bump).toBe(0.4);
+    expect(sheet[0].calibrated_hit_ta['4+']).toBeCloseTo(0.77, 2);
     expect(sheet.excluded).toEqual([{ player: 'Backer Two', team: 'GB', reason: 'OUT' }]);
+  });
+});
+
+describe('defensive props backtest', () => {
+  it('walk-forward only uses earlier weeks', async () => {
+    const { walkForward } = await import('../../scripts/backtest-defensive-props.mjs');
+    const rows = [1, 2, 3, 4].flatMap(w => extractDefensiveRows(summary(w, 20, 10, w === 4 ? 12 : 4, 3), { positionsById: { 1: 'S', 2: 'LB' } }));
+    const preds = walkForward(rows);
+    const w4 = preds.find(p => p.week === 4 && p.player === 'Safety One');
+    expect(w4.p_avg).toBe(4); // week-4 outlier (12) not leaked into its own projection
+    expect(w4.actual).toBe(12);
   });
 });

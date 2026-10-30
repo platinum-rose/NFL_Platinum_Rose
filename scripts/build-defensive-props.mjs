@@ -238,8 +238,22 @@ export function buildStatCrewFactors(rows) {
 }
 
 const EXCLUDE_STATUSES = new Set(['OUT', 'IR', 'PUP', 'SUSPENSION', 'DOUBTFUL']);
+// Walk-forward backtest, 2026 Weeks 3-7 (docs/defensive-props/defensive-backtest-2026-w07.md):
+// raw season hit rates overstate the top end (96% -> 75%) and understate the bottom (1% -> 11%).
+export const calibrateHitRate = raw => (raw == null ? null : Math.round((0.10 + 0.67 * raw) * 100) / 100);
+// Same backtest: when a 6+ T+A teammate in the unit is missing, LB->LB +2.2 (61% up), S->S +1.6, LB->S +0.4.
+const VACATED_BUMP = { 'LB->LB': 2.2, 'S->S': 1.6, 'LB->S': 0.4 };
 export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, { rosterById = null, availability = {} } = {}) {
   const excluded = [];
+  // Anchors (6+ T+A, 3+ games) ruled out this week. The bump for a teammate is scaled by the share of
+  // that teammate's games the anchor played in (an absence already baked into his average counts less).
+  const newlyOut = {};
+  for (const [key, status] of Object.entries(availability)) {
+    if (!EXCLUDE_STATUSES.has(status)) continue;
+    const [name, team] = key.split('|');
+    const a = profiles.find(x => x.player === name && x.team === team && x.games >= 3 && x.avg_ta >= 6);
+    if (a) (newlyOut[team] ||= []).push(a);
+  }
   const games = schedule.filter(g => Number(g.week) === Number(week));
   const sheet = [];
   for (const g of games) {
@@ -254,14 +268,21 @@ export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, {
         const gf = o?.group_factors?.[p.group] ?? 1;
         // Blend: assists slice scaled by crew tendency; whole line scaled by opponent group factor.
         const crewAdj = crew && crew.home_games >= 2 ? 1 + (crew.vs_league - 1) * (p.avg_assists / (p.avg_ta || 1)) : 1;
+        const vacated = (newlyOut[team] || []).filter(a => a.athlete_id !== p.athlete_id)
+          .map(a => ({ a, k: `${a.group}->${p.group}`, share: p.weeks.filter(w => a.weeks.includes(w)).length / p.weeks.length }))
+          .filter(x => VACATED_BUMP[x.k] && x.share > 0);
+        const vacBump = round(vacated.reduce((sum, x) => sum + VACATED_BUMP[x.k] * x.share, 0), 1);
         sheet.push({
           event_id: g.id, game: `${g.visitor} @ ${g.home}`, kickoff_utc: g.kickoff_utc,
           player: p.player, team, position: p.position, group: p.group, injury_status: status,
           traded_in: p.team !== team,
           avg_ta: p.avg_ta, last3_avg_ta: p.last3_avg_ta, median_ta: p.median_ta,
           opp_group_factor: gf, opp_plays_factor: o?.plays_factor ?? 1, crew_factor: round(crewAdj),
-          proj_ta: round(p.avg_ta * gf * crewAdj, 1),
-          hit_rate_ta: p.hit_rate_ta, sack_game_rate: p.sack_game_rate, int_game_rate: p.int_game_rate,
+          // Backtest: opponent and crew factors added error (MAE 2.13 vs 2.06), so they are shown, not applied.
+          proj_ta: round(p.avg_ta + vacBump, 1),
+          vacated_from: vacated.map(x => `${x.a.player} (${x.a.group} ${x.a.avg_ta}, played ${Math.round(x.share * 100)}% of his games)`), vacated_bump: vacBump,
+          hit_rate_ta: p.hit_rate_ta,
+          calibrated_hit_ta: Object.fromEntries(Object.entries(p.hit_rate_ta).map(([k, v]) => [k, calibrateHitRate(v)])), sack_game_rate: p.sack_game_rate, int_game_rate: p.int_game_rate,
         });
       }
     }
@@ -281,18 +302,20 @@ function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUse
   L.push('- **Hit rate N+** = share of games the player reached N or more tackles+assists. Compare with the prop price\'s implied probability.');
   L.push('- **Opp group factor** = how many T+A this week\'s opponent offense gives to that position group vs. league average (1.20 = 20% more).');
   L.push('- **Crew factor** = home scorer\'s assist-crediting tendency, applied to the assist share of the player\'s average. Assists are the noisiest part of a T+A line.');
-  L.push('- **Proj** = season avg × opp group factor × crew factor. A screen, not a model: check role, injuries and snap share before placing.');
+  L.push('- **Proj** = season average, plus a vacated-tackle bump when a 6+ T+A teammate in the unit is newly out (LB→LB +2.2, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the Weeks 3–7 backtest found they added error.');
+  L.push('- **Hit %** columns are calibrated (0.10 + 0.67 × raw season rate), because raw rates ran hot at the top and cold at the bottom in the backtest.');
+  L.push('- **Line rule of thumb:** a book line half a tackle under the player\'s median went over 49% of the time — season form alone is not an edge. Edges come from opponent snap volume (more opponent plays = more tackles) and vacated tackles.');
   L.push('');
   L.push(`## Week ${targetWeek} matchup sheet (top 60 by projection)`);
   L.push('');
   L.push(`Gated on the ESPN roster (${meta.roster_as_of || 'n/a'}) and player availability (${meta.availability_as_of || 'n/a'}): OUT/IR/PUP/Suspended/Doubtful and players no longer on the active roster are removed (${(sheet.excluded || []).length} removed). Questionable players are marked Q; players now on a new team are marked *. This is a research screen, not the strict pre-publication roster gate.`);
   L.push('');
-  L.push('| Game | Player | Pos | Avg | L3 | Med | Opp× | Crew× | Proj | 4+ | 5+ | 6+ | 7+ | 8+ | Sack% |');
-  L.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
+  L.push('| Game | Player | Pos | Avg | L3 | Med | Opp× | Crew× | Proj | Cal 4+ | Cal 5+ | Cal 6+ | Cal 7+ | Cal 8+ | Sack% | Vacated by |');
+  L.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
   const pct = v => (v == null ? '' : `${Math.round(v * 100)}%`);
   for (const r of sheet.slice(0, 60)) {
-    const h = r.hit_rate_ta;
-    L.push(`| ${r.game} | ${r.player} (${r.team})${r.injury_status === 'QUESTIONABLE' ? ' Q' : ''}${r.traded_in ? '*' : ''} | ${r.position || '?'} | ${r.avg_ta} | ${r.last3_avg_ta} | ${r.median_ta} | ${r.opp_group_factor} | ${r.crew_factor} | **${r.proj_ta}** | ${pct(h['4+'])} | ${pct(h['5+'])} | ${pct(h['6+'])} | ${pct(h['7+'])} | ${pct(h['8+'])} | ${pct(r.sack_game_rate)} |`);
+    const h = r.calibrated_hit_ta;
+    L.push(`| ${r.game} | ${r.player} (${r.team})${r.injury_status === 'QUESTIONABLE' ? ' Q' : ''}${r.traded_in ? '*' : ''} | ${r.position || '?'} | ${r.avg_ta} | ${r.last3_avg_ta} | ${r.median_ta} | ${r.opp_group_factor} | ${r.crew_factor} | **${r.proj_ta}** | ${pct(h['4+'])} | ${pct(h['5+'])} | ${pct(h['6+'])} | ${pct(h['7+'])} | ${pct(h['8+'])} | ${pct(r.sack_game_rate)} | ${(r.vacated_from || []).join('; ')} |`);
   }
   L.push('');
   L.push('## Offenses: tackle environment they create');

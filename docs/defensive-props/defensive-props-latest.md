@@ -1,79 +1,81 @@
 # Defensive props research — 2026 through Week 7
 
-Generated 2026-10-30T03:28:21.694Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
+Generated 2026-10-30T03:35:02.012Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
 
 ## How to read this
 - **Hit rate N+** = share of games the player reached N or more tackles+assists. Compare with the prop price's implied probability.
 - **Opp group factor** = how many T+A this week's opponent offense gives to that position group vs. league average (1.20 = 20% more).
 - **Crew factor** = home scorer's assist-crediting tendency, applied to the assist share of the player's average. Assists are the noisiest part of a T+A line.
-- **Proj** = season avg × opp group factor × crew factor. A screen, not a model: check role, injuries and snap share before placing.
+- **Proj** = season average, plus a vacated-tackle bump when a 6+ T+A teammate in the unit is newly out (LB→LB +2.2, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the Weeks 3–7 backtest found they added error.
+- **Hit %** columns are calibrated (0.10 + 0.67 × raw season rate), because raw rates ran hot at the top and cold at the bottom in the backtest.
+- **Line rule of thumb:** a book line half a tackle under the player's median went over 49% of the time — season form alone is not an edge. Edges come from opponent snap volume (more opponent plays = more tackles) and vacated tackles.
 
 ## Week 8 matchup sheet (top 60 by projection)
 
 Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availability (2026-10-29T23:30:01.795Z): OUT/IR/PUP/Suspended/Doubtful and players no longer on the active roster are removed (29 removed). Questionable players are marked Q; players now on a new team are marked *. This is a research screen, not the strict pre-publication roster gate.
 
-| Game | Player | Pos | Avg | L3 | Med | Opp× | Crew× | Proj | 4+ | 5+ | 6+ | 7+ | 8+ | Sack% |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| KC @ DEN | Alex Singleton (DEN) | LB | 12.43 | 13.33 | 13 | 1.07 | 0.97 | **12.9** | 100% | 100% | 100% | 100% | 100% | 14% |
-| NE @ MIA | Jacob Rodriguez (MIA) | LB | 10.17 | 11 | 9.5 | 1.07 | 1.14 | **12.4** | 100% | 83% | 83% | 67% | 67% | 0% |
-| ATL @ TB | Josiah Trotter (TB) | LB | 10.33 | 9.67 | 10.5 | 1.05 | 1 | **10.8** | 100% | 100% | 100% | 100% | 83% | 17% |
-| NE @ MIA | Jordyn Brooks (MIA) | LB | 8.67 | 10 | 9 | 1.07 | 1.14 | **10.6** | 83% | 83% | 83% | 83% | 83% | 0% |
-| CHI @ SEA | Ernest Jones IV (SEA) | LB | 9.71 | 9 | 9 | 1.11 | 0.95 | **10.2** | 100% | 100% | 100% | 100% | 100% | 43% |
-| LV @ NYJ | Minkah Fitzpatrick (NYJ) | S | 9 | 6.67 | 7.5 | 1.08 | 1.02 | **9.9** | 100% | 100% | 50% | 50% | 50% | 0% |
-| LAC @ LAR | Nate Landman (LAR) Q | LB | 8.5 | 11 | 9 | 1.1 | 1.02 | **9.6** | 83% | 83% | 83% | 83% | 67% | 0% |
-| MIN @ DET | Blake Cashman (MIN) | LB | 9 | 9.67 | 8.5 | 1.05 | 0.97 | **9.2** | 100% | 100% | 100% | 100% | 83% | 67% |
-| CLE @ PIT | Carson Schwesinger (CLE) Q | LB | 9.14 | 9.67 | 9 | 0.95 | 1.06 | **9.2** | 100% | 100% | 100% | 86% | 86% | 14% |
-| CLE @ PIT | Payton Wilson (PIT) | LB | 8.71 | 9 | 9 | 0.98 | 1.05 | **8.9** | 100% | 100% | 100% | 57% | 57% | 14% |
-| LV @ NYJ | Dane Belton (NYJ) | S | 8 | 8.67 | 8 | 1.08 | 1.02 | **8.8** | 86% | 86% | 86% | 71% | 57% | 14% |
-| TEN @ CIN | Anthony Hill Jr. (TEN) | LB | 9.71 | 8.67 | 9 | 1.06 | 0.84 | **8.6** | 100% | 100% | 86% | 86% | 86% | 0% |
-| LV @ NYJ | Nakobe Dean (LV) | LB | 9.71 | 12 | 12 | 0.87 | 1.02 | **8.6** | 100% | 100% | 86% | 71% | 71% | 29% |
-| KC @ DEN | Nick Bolton (KC) | LB | 9.83 | 10.33 | 11 | 0.89 | 0.97 | **8.5** | 100% | 83% | 83% | 83% | 83% | 0% |
-| PHI @ WAS | Zack Baun (PHI) | LB | 8.5 | 8.67 | 9 | 1 | 1 | **8.5** | 100% | 83% | 83% | 67% | 67% | 0% |
-| LV @ NYJ | Jamien Sherwood (NYJ) | LB | 7.71 | 7.67 | 8 | 1.02 | 1.03 | **8.1** | 100% | 71% | 71% | 57% | 57% | 0% |
-| CAR @ GB | Evan Williams (GB) | S | 8.71 | 9 | 9 | 0.99 | 0.93 | **8** | 100% | 100% | 100% | 86% | 57% | 14% |
-| BAL @ BUF | Roquan Smith (BAL) Q | LB | 7.86 | 7 | 8 | 1.04 | 0.98 | **8** | 100% | 100% | 86% | 71% | 71% | 29% |
-| BAL @ BUF | Kyle Hamilton (BAL) Q | S | 7.14 | 5.67 | 7 | 1.14 | 0.99 | **8** | 100% | 86% | 71% | 57% | 29% | 0% |
-| IND @ JAX | Akeem Davis-Gaither (IND) | LB | 8.57 | 7.67 | 8 | 0.9 | 1.01 | **7.8** | 100% | 100% | 100% | 100% | 57% | 0% |
-| MIN @ DET | Jack Campbell (DET) | LB | 9 | 11.67 | 9 | 0.87 | 0.97 | **7.6** | 100% | 100% | 100% | 67% | 50% | 0% |
-| LAC @ LAR | Derwin James Jr. (LAC) Q | S | 7 | 7 | 7 | 1.06 | 1.02 | **7.6** | 100% | 67% | 67% | 67% | 33% | 0% |
-| BAL @ BUF | Cole Bishop (BUF) | S | 7.17 | 8.33 | 7 | 1.06 | 0.98 | **7.5** | 100% | 100% | 83% | 67% | 17% | 0% |
-| LV @ NYJ | Jeremy Chinn (LV) | S | 6.57 | 8 | 7 | 1.11 | 1.01 | **7.4** | 100% | 86% | 57% | 57% | 29% | 14% |
-| LAC @ LAR | Elijah Molden (LAC) | CB | 6 | 6.33 | 6 | 1.21 | 1.02 | **7.4** | 100% | 100% | 50% | 50% | 0% | 0% |
-| CHI @ SEA | Drake Thomas (SEA) Q | LB | 7 | 6.33 | 7 | 1.11 | 0.95 | **7.4** | 100% | 100% | 60% | 60% | 40% | 20% |
-| NE @ MIA | Christian Elliss (NE) | LB | 7.29 | 8.67 | 6 | 0.9 | 1.11 | **7.3** | 86% | 71% | 71% | 43% | 29% | 14% |
-| CLE @ PIT | Patrick Queen (PIT) | LB | 6.86 | 6.67 | 7 | 0.98 | 1.06 | **7.2** | 71% | 71% | 57% | 57% | 43% | 14% |
-| BAL @ BUF | Dorian Williams (BUF) | LB | 7.67 | 7.33 | 8.5 | 0.95 | 0.98 | **7.1** | 100% | 100% | 83% | 67% | 67% | 0% |
-| MIN @ DET | Joshua Metellus (MIN) | S | 6.17 | 5.67 | 6 | 1.18 | 0.97 | **7.1** | 100% | 83% | 50% | 50% | 17% | 17% |
-| CLE @ PIT | Jaquan Brisker (PIT) | S | 6.29 | 5.67 | 7 | 1.07 | 1.05 | **7.1** | 86% | 86% | 86% | 57% | 14% | 0% |
-| CLE @ PIT | Quincy Williams (CLE) | LB | 7.14 | 9 | 6 | 0.95 | 1.04 | **7.1** | 100% | 71% | 71% | 43% | 43% | 14% |
-| BAL @ BUF | Terrel Bernard (BUF) | LB | 7.5 | 7.67 | 7 | 0.95 | 0.98 | **7** | 100% | 100% | 67% | 67% | 33% | 0% |
-| TEN @ CIN | Kevin Winston Jr. (TEN) | S | 8.6 | 8.33 | 8 | 0.92 | 0.89 | **7** | 100% | 80% | 80% | 80% | 60% | 0% |
-| PHI @ WAS | Jihaad Campbell (PHI) Q | LB | 7 | 4 | 9 | 1 | 1 | **7** | 86% | 86% | 57% | 57% | 57% | 14% |
-| IND @ JAX | Foyesade Oluokun (JAX) | LB | 7 | 8.33 | 7 | 0.98 | 1.01 | **6.9** | 100% | 83% | 83% | 67% | 33% | 0% |
-| KC @ DEN | Drue Tranquill (KC) | LB | 8 | 8.67 | 7 | 0.89 | 0.97 | **6.9** | 100% | 100% | 100% | 100% | 33% | 0% |
-| BAL @ BUF | Trenton Simpson (BAL) | LB | 6.71 | 7 | 7 | 1.04 | 0.98 | **6.8** | 100% | 86% | 86% | 57% | 29% | 14% |
-| TEN @ CIN | Barrett Carter (CIN) | LB | 8.33 | 10.33 | 8.5 | 0.95 | 0.85 | **6.8** | 100% | 100% | 83% | 67% | 67% | 33% |
-| LV @ NYJ | Demario Davis (NYJ) | LB | 6.57 | 4.67 | 7 | 1.02 | 1.02 | **6.8** | 86% | 57% | 57% | 57% | 43% | 29% |
-| LAC @ LAR | Daiyan Henley (LAC) | LB | 5.83 | 5 | 5.5 | 1.13 | 1.03 | **6.8** | 83% | 67% | 50% | 33% | 33% | 17% |
-| TEN @ CIN | Demetrius Knight Jr. (CIN) | LB | 8.33 | 7.33 | 8 | 0.95 | 0.85 | **6.7** | 100% | 100% | 100% | 83% | 67% | 0% |
-| CLE @ PIT | Ronnie Hickman (CLE) | S | 5.86 | 5.67 | 5 | 1.09 | 1.05 | **6.7** | 71% | 71% | 43% | 43% | 43% | 14% |
-| IND @ JAX | Justin Walley (IND) Q | CB | 5 | 4.33 | 5 | 1.33 | 1.01 | **6.7** | 71% | 57% | 43% | 14% | 14% | 14% |
-| BAL @ BUF | Malaki Starks (BAL) | S | 5.86 | 6 | 6 | 1.14 | 0.98 | **6.6** | 86% | 71% | 57% | 29% | 14% | 14% |
-| ARI @ DAL | Dee Winters (DAL) Q | LB | 5.83 | 5 | 6 | 1.19 | 0.96 | **6.6** | 83% | 67% | 50% | 50% | 33% | 0% |
-| LV @ NYJ | Quay Walker (LV) | LB | 7.43 | 7.33 | 6 | 0.87 | 1.03 | **6.6** | 100% | 86% | 86% | 43% | 43% | 29% |
-| ATL @ TB | Kendal Daniels (ATL) Q | LB | 5.71 | 8.67 | 4 | 1.16 | 1 | **6.6** | 71% | 43% | 43% | 43% | 29% | 14% |
-| CHI @ SEA | Dillon Thieneman (CHI) | S | 6.71 | 5.67 | 7 | 1.04 | 0.95 | **6.6** | 86% | 86% | 86% | 71% | 29% | 29% |
-| IND @ JAX | Ventrell Miller (JAX) | LB | 6.5 | 5 | 6.5 | 0.98 | 1.02 | **6.5** | 83% | 83% | 83% | 50% | 17% | 17% |
-| KC @ DEN | Brandon Jones (DEN) Q | S | 7.43 | 7 | 8 | 0.9 | 0.98 | **6.5** | 100% | 86% | 57% | 57% | 57% | 0% |
-| NE @ MIA | Chris Johnson (MIA) | CB | 6 | 5.33 | 5.5 | 0.97 | 1.12 | **6.5** | 83% | 83% | 50% | 33% | 33% | 0% |
-| TEN @ CIN | Amani Hooker (TEN) | S | 7.67 | 8 | 6 | 0.92 | 0.9 | **6.4** | 100% | 100% | 83% | 33% | 33% | 0% |
-| ATL @ TB | Antoine Winfield Jr. (TB) | S | 6 | 5 | 5.5 | 1.06 | 1 | **6.4** | 100% | 75% | 50% | 25% | 25% | 0% |
-| LAC @ LAR | Quentin Lake (LAR) | S | 7 | 6.67 | 7 | 0.9 | 1.02 | **6.4** | 100% | 100% | 100% | 57% | 14% | 0% |
-| NE @ MIA | Robert Spillane (NE) | LB | 6.29 | 5 | 6 | 0.9 | 1.14 | **6.4** | 100% | 100% | 57% | 43% | 29% | 0% |
-| PHI @ WAS | Cooper DeJean (PHI) | CB | 6.43 | 7.33 | 5 | 1 | 1 | **6.4** | 100% | 100% | 43% | 43% | 29% | 0% |
-| CAR @ GB | Keisean Nixon (GB) | CB | 6.14 | 6 | 6 | 1.07 | 0.96 | **6.3** | 100% | 86% | 71% | 43% | 14% | 14% |
-| MIN @ DET | Chuck Clark (DET) | S | 6.83 | 6.67 | 7 | 0.95 | 0.97 | **6.3** | 83% | 83% | 67% | 67% | 33% | 17% |
-| CHI @ SEA | Devon Witherspoon (SEA) | CB | 5.86 | 4.33 | 5 | 1.12 | 0.95 | **6.3** | 100% | 71% | 43% | 29% | 29% | 0% |
+| Game | Player | Pos | Avg | L3 | Med | Opp× | Crew× | Proj | Cal 4+ | Cal 5+ | Cal 6+ | Cal 7+ | Cal 8+ | Sack% | Vacated by |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| KC @ DEN | Alex Singleton (DEN) | LB | 12.43 | 13.33 | 13 | 1.07 | 0.97 | **12.4** | 77% | 77% | 77% | 77% | 77% | 14% |  |
+| ATL @ TB | Josiah Trotter (TB) | LB | 10.33 | 9.67 | 10.5 | 1.05 | 1 | **10.3** | 77% | 77% | 77% | 77% | 66% | 17% |  |
+| NE @ MIA | Jacob Rodriguez (MIA) | LB | 10.17 | 11 | 9.5 | 1.07 | 1.14 | **10.2** | 77% | 66% | 66% | 55% | 55% | 0% |  |
+| KC @ DEN | Nick Bolton (KC) | LB | 9.83 | 10.33 | 11 | 0.89 | 0.97 | **9.8** | 77% | 66% | 66% | 66% | 66% | 0% |  |
+| TEN @ CIN | Anthony Hill Jr. (TEN) | LB | 9.71 | 8.67 | 9 | 1.06 | 0.84 | **9.7** | 77% | 77% | 68% | 68% | 68% | 0% |  |
+| LV @ NYJ | Nakobe Dean (LV) | LB | 9.71 | 12 | 12 | 0.87 | 1.02 | **9.7** | 77% | 77% | 68% | 58% | 58% | 29% |  |
+| CHI @ SEA | Ernest Jones IV (SEA) | LB | 9.71 | 9 | 9 | 1.11 | 0.95 | **9.7** | 77% | 77% | 77% | 77% | 77% | 43% |  |
+| CAR @ GB | Evan Williams (GB) | S | 8.71 | 9 | 9 | 0.99 | 0.93 | **9.3** | 77% | 77% | 77% | 68% | 48% | 14% | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| CLE @ PIT | Carson Schwesinger (CLE) Q | LB | 9.14 | 9.67 | 9 | 0.95 | 1.06 | **9.1** | 77% | 77% | 77% | 68% | 68% | 14% |  |
+| MIN @ DET | Jack Campbell (DET) | LB | 9 | 11.67 | 9 | 0.87 | 0.97 | **9** | 77% | 77% | 77% | 55% | 44% | 0% |  |
+| MIN @ DET | Blake Cashman (MIN) | LB | 9 | 9.67 | 8.5 | 1.05 | 0.97 | **9** | 77% | 77% | 77% | 77% | 66% | 67% |  |
+| LV @ NYJ | Minkah Fitzpatrick (NYJ) | S | 9 | 6.67 | 7.5 | 1.08 | 1.02 | **9** | 77% | 77% | 44% | 44% | 44% | 0% |  |
+| CLE @ PIT | Payton Wilson (PIT) | LB | 8.71 | 9 | 9 | 0.98 | 1.05 | **8.7** | 77% | 77% | 77% | 48% | 48% | 14% |  |
+| NE @ MIA | Jordyn Brooks (MIA) | LB | 8.67 | 10 | 9 | 1.07 | 1.14 | **8.7** | 66% | 66% | 66% | 66% | 66% | 0% |  |
+| TEN @ CIN | Kevin Winston Jr. (TEN) | S | 8.6 | 8.33 | 8 | 0.92 | 0.89 | **8.6** | 77% | 64% | 64% | 64% | 50% | 0% |  |
+| IND @ JAX | Akeem Davis-Gaither (IND) | LB | 8.57 | 7.67 | 8 | 0.9 | 1.01 | **8.6** | 77% | 77% | 77% | 77% | 48% | 0% |  |
+| LAC @ LAR | Nate Landman (LAR) Q | LB | 8.5 | 11 | 9 | 1.1 | 1.02 | **8.5** | 66% | 66% | 66% | 66% | 55% | 0% |  |
+| PHI @ WAS | Zack Baun (PHI) | LB | 8.5 | 8.67 | 9 | 1 | 1 | **8.5** | 77% | 66% | 66% | 55% | 55% | 0% |  |
+| TEN @ CIN | Barrett Carter (CIN) | LB | 8.33 | 10.33 | 8.5 | 0.95 | 0.85 | **8.3** | 77% | 77% | 66% | 55% | 55% | 33% |  |
+| TEN @ CIN | Demetrius Knight Jr. (CIN) | LB | 8.33 | 7.33 | 8 | 0.95 | 0.85 | **8.3** | 77% | 77% | 77% | 66% | 55% | 0% |  |
+| LV @ NYJ | Dane Belton (NYJ) | S | 8 | 8.67 | 8 | 1.08 | 1.02 | **8** | 68% | 68% | 68% | 58% | 48% | 14% |  |
+| KC @ DEN | Drue Tranquill (KC) | LB | 8 | 8.67 | 7 | 0.89 | 0.97 | **8** | 77% | 77% | 77% | 77% | 32% | 0% |  |
+| BAL @ BUF | Roquan Smith (BAL) Q | LB | 7.86 | 7 | 8 | 1.04 | 0.98 | **7.9** | 77% | 77% | 68% | 58% | 58% | 29% |  |
+| CAR @ GB | Isaiah McDuffie (GB) | LB | 4.71 | 7.33 | 4 | 0.89 | 0.91 | **7.8** | 58% | 39% | 29% | 19% | 19% | 0% | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| CAR @ GB | Devin Lloyd (CAR) | LB | 7.8 | 5.67 | 9 | 0.72 | 0.93 | **7.8** | 77% | 50% | 50% | 50% | 50% | 40% |  |
+| BAL @ BUF | Dorian Williams (BUF) | LB | 7.67 | 7.33 | 8.5 | 0.95 | 0.98 | **7.7** | 77% | 77% | 66% | 55% | 55% | 0% |  |
+| TEN @ CIN | Amani Hooker (TEN) | S | 7.67 | 8 | 6 | 0.92 | 0.9 | **7.7** | 77% | 77% | 66% | 32% | 32% | 0% |  |
+| LV @ NYJ | Jamien Sherwood (NYJ) | LB | 7.71 | 7.67 | 8 | 1.02 | 1.03 | **7.7** | 77% | 58% | 58% | 48% | 48% | 0% |  |
+| BAL @ BUF | Terrel Bernard (BUF) | LB | 7.5 | 7.67 | 7 | 0.95 | 0.98 | **7.5** | 77% | 77% | 55% | 55% | 32% | 0% |  |
+| LV @ NYJ | Quay Walker (LV) | LB | 7.43 | 7.33 | 6 | 0.87 | 1.03 | **7.4** | 77% | 68% | 68% | 39% | 39% | 29% |  |
+| KC @ DEN | Brandon Jones (DEN) Q | S | 7.43 | 7 | 8 | 0.9 | 0.98 | **7.4** | 77% | 68% | 48% | 48% | 48% | 0% |  |
+| CAR @ GB | Bobby Okereke (CAR) | LB | 7.33 | 8.33 | 7.5 | 0.72 | 0.94 | **7.3** | 77% | 66% | 66% | 55% | 44% | 17% |  |
+| NE @ MIA | Christian Elliss (NE) | LB | 7.29 | 8.67 | 6 | 0.9 | 1.11 | **7.3** | 68% | 58% | 58% | 39% | 29% | 14% |  |
+| BAL @ BUF | Cole Bishop (BUF) | S | 7.17 | 8.33 | 7 | 1.06 | 0.98 | **7.2** | 77% | 77% | 66% | 55% | 21% | 0% |  |
+| BAL @ BUF | Kyle Hamilton (BAL) Q | S | 7.14 | 5.67 | 7 | 1.14 | 0.99 | **7.1** | 77% | 68% | 58% | 48% | 29% | 0% |  |
+| CLE @ PIT | Quincy Williams (CLE) | LB | 7.14 | 9 | 6 | 0.95 | 1.04 | **7.1** | 77% | 58% | 58% | 39% | 39% | 14% |  |
+| ARI @ DAL | Jack Gibbens (ARI) | LB | 7 | 5.67 | 7 | 0.9 | 0.93 | **7** | 68% | 68% | 68% | 68% | 39% | 14% |  |
+| IND @ JAX | Foyesade Oluokun (JAX) | LB | 7 | 8.33 | 7 | 0.98 | 1.01 | **7** | 77% | 66% | 66% | 55% | 32% | 0% |  |
+| LAC @ LAR | Quentin Lake (LAR) | S | 7 | 6.67 | 7 | 0.9 | 1.02 | **7** | 77% | 77% | 77% | 48% | 19% | 0% |  |
+| LAC @ LAR | Derwin James Jr. (LAC) Q | S | 7 | 7 | 7 | 1.06 | 1.02 | **7** | 77% | 55% | 55% | 55% | 32% | 0% |  |
+| PHI @ WAS | Jihaad Campbell (PHI) Q | LB | 7 | 4 | 9 | 1 | 1 | **7** | 68% | 68% | 48% | 48% | 48% | 14% |  |
+| CHI @ SEA | Drake Thomas (SEA) Q | LB | 7 | 6.33 | 7 | 1.11 | 0.95 | **7** | 77% | 77% | 50% | 50% | 37% | 20% |  |
+| ARI @ DAL | Caleb Downs (DAL) Q | S | 6.86 | 7 | 7 | 0.94 | 0.95 | **6.9** | 68% | 58% | 48% | 48% | 39% | 14% |  |
+| CLE @ PIT | Patrick Queen (PIT) | LB | 6.86 | 6.67 | 7 | 0.98 | 1.06 | **6.9** | 58% | 58% | 48% | 48% | 39% | 14% |  |
+| MIN @ DET | D.J. Reed (DET) | CB | 6.83 | 5.67 | 6.5 | 0.89 | 0.98 | **6.8** | 77% | 66% | 66% | 44% | 32% | 0% |  |
+| MIN @ DET | Chuck Clark (DET) | S | 6.83 | 6.67 | 7 | 0.95 | 0.97 | **6.8** | 66% | 66% | 55% | 55% | 32% | 17% |  |
+| BAL @ BUF | Trenton Simpson (BAL) | LB | 6.71 | 7 | 7 | 1.04 | 0.98 | **6.7** | 77% | 68% | 68% | 48% | 29% | 14% |  |
+| ARI @ DAL | Mack Wilson Sr. (ARI) Q | LB | 6.71 | 6.33 | 7 | 0.9 | 0.93 | **6.7** | 68% | 68% | 68% | 48% | 29% | 0% |  |
+| CHI @ SEA | Dillon Thieneman (CHI) | S | 6.71 | 5.67 | 7 | 1.04 | 0.95 | **6.7** | 68% | 68% | 68% | 58% | 29% | 29% |  |
+| LV @ NYJ | Demario Davis (NYJ) | LB | 6.57 | 4.67 | 7 | 1.02 | 1.02 | **6.6** | 68% | 48% | 48% | 48% | 39% | 29% |  |
+| LV @ NYJ | Jeremy Chinn (LV) | S | 6.57 | 8 | 7 | 1.11 | 1.01 | **6.6** | 77% | 68% | 48% | 48% | 29% | 14% |  |
+| MIN @ DET | Christian Izien (DET) | S | 6.5 | 7.67 | 7 | 0.95 | 0.98 | **6.5** | 44% | 44% | 44% | 44% | 44% | 25% |  |
+| IND @ JAX | Ventrell Miller (JAX) | LB | 6.5 | 5 | 6.5 | 0.98 | 1.02 | **6.5** | 66% | 66% | 66% | 44% | 21% | 17% |  |
+| PHI @ WAS | Cooper DeJean (PHI) | CB | 6.43 | 7.33 | 5 | 1 | 1 | **6.4** | 77% | 77% | 39% | 39% | 29% | 0% |  |
+| ARI @ DAL | Budda Baker (ARI) | S | 6.29 | 6.33 | 5 | 1 | 0.94 | **6.3** | 68% | 58% | 39% | 29% | 29% | 57% |  |
+| CLE @ PIT | Jaquan Brisker (PIT) | S | 6.29 | 5.67 | 7 | 1.07 | 1.05 | **6.3** | 68% | 68% | 68% | 48% | 19% | 0% |  |
+| CLE @ PIT | Jalen Ramsey (PIT) | CB | 6.29 | 8.67 | 7 | 0.85 | 1.04 | **6.3** | 68% | 58% | 48% | 48% | 39% | 14% |  |
+| ATL @ TB | Xavier Watts (ATL) | S | 6.29 | 6.67 | 7 | 0.94 | 1 | **6.3** | 68% | 58% | 48% | 48% | 29% | 14% |  |
+| NE @ MIA | Robert Spillane (NE) | LB | 6.29 | 5 | 6 | 0.9 | 1.14 | **6.3** | 77% | 77% | 48% | 39% | 29% | 0% |  |
+| TEN @ CIN | Jordan Battle (CIN) Q | S | 6.17 | 5.33 | 6 | 0.82 | 0.91 | **6.2** | 77% | 55% | 44% | 44% | 32% | 0% |  |
 
 ## Offenses: tackle environment they create
 
