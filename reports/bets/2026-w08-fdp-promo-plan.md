@@ -356,3 +356,39 @@ ATD odds = 2026 box-score TD-game rate, shaded down (Javonte 6/7 games, Gibbs 5/
 - MIN@DET: **Jahmyr Gibbs anytime TD** (~68%; 5/6 games, 9 TDs) — backups: James Cook III ATD (BAL@BUF; 5/6) · Jonathan Taylor ATD (IND@JAX; 5/7)
 
 Roster vet PASS for the ATD legs and backups; no injury designations as of 3:15 PM PT.
+
+## Bonus schedule (Andy, Oct 30 3:19 PM PT): each bonus = 2 × $10 stacks, 2–3x displayed, one ATD each
+| Bonus (from qualifier on) | Stacks | Games |
+|---|---|---|
+| #2 (Sat) | T1/T2 (above) | Sunday full slate, place before 10 AM PT Sun |
+| #3 (Sun) | V1/V2 | **Sunday afternoon + evening only** (LAC @ LAR 1:05, KC @ DEN 1:25, NE @ MIA 1:25, SNF PHI @ WSH 5:20 PM PT); place before 1:05 PM PT |
+| #4 (Mon) | M1/M2 | **MNF CHI @ SEA** only (5:15 PM PT Mon) |
+| #5 (Tue) | N1/N2 | **Week 9 TNF JAX @ BAL** only (Thu Nov 5, 5:15 PM PT) |
+
+ATD odds = 2026 TD-game rate (box scores Wk 1–8), shaded ~5 pts. Expect FDP to display ~1.15× fair. Roster vet PASS (25 legs incl. backups); no injury designations on any listed player as of 3:25 PM PT. Avoid Friday/Saturday legs (Kyren 40+ rush, Worthy, Mahomes 150+, NE ML, Diggs rec yds, Higbee, Antonio Williams, Nacua 60+, Kelce 2+, Maye 175+, Dulcich). **If Andy used Kyren Williams ATD as a T1 backup on Saturday, swap V1's ATD to Ollie Gordon II ATD.**
+
+**V1 ($10, Sunday afternoon)** — fair ~2.3x (~2.7x displayed)
+- LAC @ LAR: **Kyren Williams anytime TD** (~62%; 5/7 games) — backups: Puka Nacua 5+ rec (84%) · Matthew Stafford 175+ pass yds (82%)
+- KC @ DEN: **J.K. Dobbins 25+ rush yds** (83%; 6/7) — backups: Kenneth Walker III 60+ rush yds (79%) · Travis Kelce 30+ rec yds (78%)
+- NE @ MIA: **Malik Washington 3+ rec** (83%; 6/6) — backups: Malik Washington 30+ rec yds (82%) · Ollie Gordon II 25+ rush yds (78%)
+
+**V2 ($10, Sunday afternoon + SNF)** — fair ~2.5x (~2.9x displayed)
+- KC @ DEN: **Kenneth Walker III anytime TD** (~57%; 4/6) — backups: Ollie Gordon II ATD (4/5) · Kyren Williams ATD
+- NE @ MIA: **Hunter Henry 2+ rec** (82%; 6/7) — backups: Hunter Henry 25+ rec yds (78%) · Malik Washington 30+ rec yds
+- PHI @ WSH (SNF): **Dallas Goedert 2+ rec** (81%; 4/5) — backups: Chig Okonkwo 2+ rec (82%; 4/4) · WSH ML (70%)
+
+**M1 ($10, MNF CHI @ SEA)** — fair ~2.2x (~2.5x displayed); add Rome Odunze 2+ rec (86%) if it shows under 2x
+- **Jaxon Smith-Njigba anytime TD** (~62%; 5/7) · **D'Andre Swift 40+ rush yds** (85%; 7/7) · **Luther Burden III 3+ rec** (87%; 7/7)
+
+**M2 ($10, MNF)** — fair ~2.4x (~2.75x displayed)
+- **D'Andre Swift anytime TD** (~51%; 4/7) · **Jaxon Smith-Njigba 60+ rec yds** (92%; 7/7) · **Rome Odunze 2+ rec** (86%; 7/7)
+- Backups: Luther Burden III 40+ rec yds (79%) · Swift 2+ rec (79%) · Caleb Williams 150+ pass yds (78%)
+
+**N1 ($10, TNF JAX @ BAL, Week 9)** — fair ~2.1x (~2.45x displayed)
+- **Derrick Henry anytime TD** (~62%; 5/7) · **Trevor Lawrence 175+ pass yds** (86%; 6/6) · **Brenton Strange 2+ rec** (88%; 6/6)
+
+**N2 ($10, TNF)** — fair ~2.6x (~3.0x displayed)
+- **Bhayshul Tuten anytime TD** (~47%; 3/6) · **Mark Andrews 2+ rec** (82%; 6/7)
+- Backups: Zay Flowers 5+ rec (82%) · Derrick Henry 50+ rush yds (80%) · Parker Washington 2+ rec (82%)
+
+MNF and TNF stacks get re-checked Monday morning (Sunday injuries, Week 8 box scores added).
