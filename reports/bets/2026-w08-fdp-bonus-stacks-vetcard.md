@@ -1,7 +1,7 @@
 | Game | Leg | Stack |
 |---|---|---|
 | ARI@DAL | Jacoby Brissett 1+ pass TD | S1 |
-| KC@DEN | Bo Nix 15+ completions | S1 |
+| KC@DEN | Xavier Worthy 2+ rec | S1 |
 | LV@NYJ | Tre Tucker 2+ rec | S1 |
 | LAC@LAR | Kyren Williams 40+ rush yds | S1 |
 | BAL@BUF | Josh Allen 200+ pass yds | S1 |
@@ -21,7 +21,7 @@
 | BAL@BUF | Zay Flowers 50+ rec yds | S4 |
 | MIN@DET | Amon-Ra St. Brown 4+ rec | S4 |
 | PHI@WSH | Dallas Goedert 2+ rec | S4 |
-| KC@DEN | Bo Nix 15+ completions | L1 |
+| KC@DEN | J.K. Dobbins 25+ rush yds | L1 |
 | NE@MIA | Drake Maye 175+ pass yds | L1 |
 | PHI@WSH | Stefon Diggs 30+ rec yds | L1 |
 | CHI@SEA | Jaxon Smith-Njigba 60+ rec yds | L1 |
