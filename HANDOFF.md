@@ -2,6 +2,9 @@
 
 ## Pick up here — October 29, 2026
 
+**Current Claude pickup (9:30 AM PT Oct 30):** TNF graded (GB 27–19; cash −$51.02) and settled in Supabase with Andy's OK; the two BKR weekend parlays are alive. Live tracker `groups=50` bug fixed. Defensive props layer, backtests and weekly defensive-board capture built (runbook `docs/defensive-props/DEFENSIVE_BOARDS_RUNBOOK.md`). Pools re-slotted on 9:10 AM DK prices. Start with `handoffs/2026-10-30-0930-claude-week8-tnf-graded-defense-boards-pools.md`. Next: the ~1 PM PT Friday injury report re-check, then Sunday entries. Branch is 8 commits ahead of origin until Andy pushes.
+
+
 **Current Claude pickup (5:40 PM PT Oct 29):** Week 8 TNF CAR @ GB is live with 10 pending tickets: 3 DKP promo, 3 BEO, 4 BKR, including two weekend multi-game parlays with SNF WSH caps. Start with `handoffs/2026-10-29-1740-claude-week8-tnf-placed-weekend-parlays.md`. Next: grade TNF from ESPN, then the Friday/Sunday pool re-slot. Duma prize is a rolling 4-week window paid weekly. No wager, account, Supabase, paid action or publication without per-action approval. Prior pickup: `handoffs/2026-10-29-1425-claude-week8-pools-tnf-proposals.md`.
 
 Reconcile live Git, read `AGENTS.md` / `CLAUDE.md`, then use `handoffs/2026-10-29-0215-claude-futures-hedge-planning.md` for the latest futures state (hedge planner, open parlays live, Oct 29 BetOnline ticket) and `handoffs/2026-10-28-1940-codex-claude-week8-futures-tnf.md` for the TNF pickup (CAR @ GB today, 5:15 PM PT; card still HOLD); earlier TNF detail: `handoffs/2026-10-28-1819-claude-h2c2-codex-week8-tnf-parlay-prep.md`. Earlier engineering refresh audit: `reports/engineering/week8-refresh-audit-2026-10-28.md`. Tracker implementation history: `handoffs/2026-10-28-0022-codex-tracker-engineering.md`.

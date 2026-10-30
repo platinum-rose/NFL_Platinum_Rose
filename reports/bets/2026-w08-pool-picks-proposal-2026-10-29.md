@@ -76,3 +76,37 @@ Sean Koerner's Action Network confidence table (read earlier this afternoon) pic
 - **CHI @ SEA:** Chicago added Simmons; Seattle plans to start Quenton Nelson at left guard; Jadarian Price (SEA) was designated to return from IR. Keep SEA at 6 for now and recheck Monday.
 - **Mike Florio (PFT, self-described "first impulse" picks):** ARI over DAL, LV over NYJ, DEN over KC. One unweighted source. LV and DEN line up with the optional Yahoo/CBS leverage choices. ARI is not adopted.
 - Roster check for these names: `reports/engineering/week8-pools-tnf-2026-10-29/afternoon-articles-named-player-check.txt` (all match the 8:40 AM ESPN snapshot).
+
+## Friday re-slot (October 30, 2026, about 9:20 AM PT)
+
+**Proposal only; nothing entered.** Prices: DraftKings moneylines via the ESPN scoreboard, pulled about 9:10 AM PT, de-vigged two-way. TB's moneyline was **off the board** at pull time (ATL +120 only); TB is estimated at 56% from TB −2.5. Final Friday injury designations post about 1 PM PT; recheck then and again Sunday morning.
+
+Results already in: GB won (duma 10 and Yahoo 8 banked; CBS GB correct).
+
+| Game | Pick | Win est. | duma (3–16, GB 10 used) | Thursday proposal | Yahoo (1–14, GB 8 used) | CBS |
+|---|---|---:|---:|---:|---:|---|
+| TEN@CIN | CIN | 83.7% | 16 | 16 | 14 | CIN |
+| IND@JAX | JAX | 80.0% | 15 | 15 | 13 | JAX |
+| NE@MIA | NE | 73.4% | 14 | 14 | 12 | NE |
+| ARI@DAL | DAL | 72.6% | 13 | 13 | 11 | DAL |
+| LAC@LAR | LAR | 70.0% | 12 | 12 | 10 | LAR |
+| PHI@WSH | WSH | 68.5% | 11 | 11 | 9 | WSH |
+| CLE@PIT | PIT | 63.1% | 9 | 9 | 7 | PIT |
+| BAL@BUF | BUF | 60.9% | 8 | 7 | 6 | BUF |
+| MIN@DET | DET | 60.4% | 7 | 8 | 5 | DET |
+| CHI@SEA | SEA | 60.4% | 6 | 6 | 4 | SEA |
+| ATL@TB | TB | 56.0% | 5 | 5 | 3 | TB |
+| LV@NYJ | NYJ | 52.6% | 4 | 4 | 2 | NYJ |
+| KC@DEN | KC | 51.7% | 3 | 3 | 1 | KC |
+
+Expected points on the 13 remaining games: duma **85.9** (+10 banked = 95.9); Yahoo **68.8** (+8 banked = 76.8).
+
+**Changes from Thursday:** BUF moves 7 → 8 and DET 8 → 7. BUF (60.9%) and DET (60.4%) are now a coin-flip apart; DET has the better injury trend (Gibbs and St. Brown DNP Wednesday, full Thursday) while BUF has Kincaid and DJ Moore limited. If DET's pair carry no designation at 1 PM, swapping them back costs under 0.01 point. Everything else holds.
+
+**Injury watch for the 1 PM reports:**
+- NE: A.J. Brown (ankle/knee) did not practice Thursday. NE is still −325; NE 14 holds unless he is ruled out *and* the price moves.
+- BUF: Kincaid (chest) and DJ Moore (shoulder) limited Thursday. Lamar Jackson full both days.
+- TB: Bucky Irving did not practice Thursday, and TB's moneyline was pulled. TB 5 / Yahoo 3 are low slots, so little is at risk. **Irving ATD is a leg on BKR 740983886 (11-team weekend parlay)** — if he is ruled out, the leg should void/reduce per Bookmaker rules; check the ticket after the report.
+- Monday CHI @ SEA: recheck Monday; SEA 6 / Yahoo 4.
+
+**Optional leverage (unchanged):** Yahoo LV 1 / KC 2 costs about 0.08 point; CBS LV over NYJ costs about 0.05 correct picks (NYJ is only 52.6%). Your call Sunday.
