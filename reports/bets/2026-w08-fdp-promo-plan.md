@@ -56,73 +56,80 @@ Expected value of one $20 bonus at roughly Day 1 pricing: about $8 at 2x, $11 at
 ## Exposure
 Today's FDP combo, both live BKR weekend parlays and the Window A stacks all lean on the same Week 8 favorites (NE, DAL, LAR, WSH, CIN, JAX). One upset (e.g. MIA over NE) can hit several tickets at once.
 
-## Bonus prop stacks — 4 × $5 per $20 bonus (added Oct 30, ~1:50 PM PT)
+## Bonus prop stacks — 4 × $5 per $20 bonus, spread across the whole Sunday slate (revised Oct 30, ~1:55 PM PT)
 
-Andy's spec: every $20 bonus is split into **4 separate $5 stacks** of easy legs (player props, moneylines, alt lines), about 2–3x each. Use the window that matches when the bonus lands; the four stacks in a window use different games, so one bad game only kills one stack.
+Andy's spec: each $20 bonus is split into **4 separate $5 stacks** of easy legs, about 2–3x each, **spread across all Sunday games**. Each stack takes one leg from 6 different games; across the four stacks every one of the 12 Sunday games appears exactly twice, with a different player each time. All legs are player props (no moneylines), so none of them repeat the ML legs on your FDP Day 1 combo or BKR tickets.
 
-**How leg odds were set:** each prop leg's hit chance comes from that player's 2026 ESPN box scores (Weeks 1–8), blending his actual hit rate with a normal-curve estimate, trimming his average 3% and capping any leg at 92%. Moneylines are DK de-vigged (12:10 PM PT). Games where a player had no stat in the box score are missing, which skews slightly high, so treat each leg as a few points easier than it really is. Same-game legs are positively correlated, so true combo odds are a bit better than the products shown. **Roster gate:** strict roster vet PASS, 25 player legs resolved, ESPN rosters 1:44 PM PT Oct 30. Players with a Friday injury designation are excluded.
+**How leg odds were set:** each prop leg's hit chance comes from that player's 2026 ESPN box scores (Weeks 1–8), blending his actual hit rate with a normal-curve estimate, trimming his average 3% and capping any leg at 92%. Games where a player had no stat in the box score are missing, which skews slightly high. Win % assumes the legs are independent (they come from different games). **Roster gate:** strict roster vet PASS, 35 player legs resolved, ESPN rosters 1:44 PM PT Oct 30. Players with a Friday injury designation are excluded.
 
 **Place if FDP's displayed multiple ≥ min.** If FDP doesn't offer a rung, use the nearest rung at or below it, or swap in another leg from the same game in the easy-leg list below.
 
-**A1 (CIN + JAX favorites)** — 5 legs, win 41%, fair 2.41x, min 2.12x
-- CIN ML (84%)
-- Joe Burrow 175+ pass yds (87%)
-- JAX ML (80%)
-- Trevor Lawrence 175+ pass yds (86%)
-- Bhayshul Tuten 40+ rush yds (83%)
+### Full-slate stacks (place before 10:00 AM PT Sunday)
 
-**A2 (ARI @ DAL shootout, 54.5 total)** — 4 legs, win 44%, fair 2.26x, min 1.99x
-- DAL ML (73%)
-- Jacoby Brissett 150+ pass yds (81%)
-- Trey McBride 5+ receptions (88%)
-- Javonte Williams 25+ rush yds (86%)
+**S1** — 6 games, win 50%, fair 2.01x, min 1.77x
+- BAL @ BUF: Zay Flowers 50+ rec yds (88%)
+- TEN @ CIN: Tony Pollard 25+ rush yds (90%)
+- ARI @ DAL: Trey McBride 30+ rec yds (89%)
+- MIN @ DET: Amon-Ra St. Brown 4+ rec (89%)
+- LV @ NYJ: Tre Tucker 2+ rec (89%)
+- CLE @ PIT: Jaylen Warren 40+ rush yds (88%)
 
-**A3 (LAR + DET offenses, no ML)** — 6 legs, win 41%, fair 2.46x, min 2.16x
-- Kyren Williams 40+ rush yds (89%)
-- Puka Nacua 60+ rec yds (86%)
-- Tyler Higbee 2+ receptions (88%)
-- Jared Goff 200+ pass yds (88%)
-- Jameson Williams 30+ rec yds (86%)
-- Amon-Ra St. Brown 5+ receptions (80%)
+**S2** — 6 games, win 45%, fair 2.23x, min 1.96x
+- MIN @ DET: Jared Goff 200+ pass yds (88%)
+- LV @ NYJ: Garrett Wilson 25+ rec yds (88%)
+- CLE @ PIT: Aaron Rodgers 175+ pass yds (86%)
+- ATL @ TB: Chris Godwin Jr. 25+ rec yds (86%)
+- IND @ JAX: Tyler Warren 3+ rec (88%)
+- LAC @ LAR: Kyren Williams 40+ rush yds (89%)
 
-**A4 (NE, KC, PIT)** — 5 legs, win 42%, fair 2.36x, min 2.07x
-- Drake Maye 175+ pass yds (87%)
-- NE ML (73%)
-- Patrick Mahomes 150+ pass yds (88%)
-- Jaylen Warren 40+ rush yds (88%)
-- Aaron Rodgers 175+ pass yds (86%)
+**S3** — 6 games, win 42%, fair 2.36x, min 2.08x
+- ATL @ TB: Bucky Irving 40+ rush yds (85%)
+- IND @ JAX: Josh Downs 2+ rec (88%)
+- LAC @ LAR: Tyler Higbee 2+ rec (88%)
+- KC @ DEN: Xavier Worthy 2+ rec (88%)
+- NE @ MIA: Drake Maye 175+ pass yds (87%)
+- PHI @ WSH: Stefon Diggs 30+ rec yds (85%)
 
-**B1 (SNF PHI @ WSH)** — 4 legs, win 40%, fair 2.50x, min 2.20x
-- WSH ML (70%)
-- Stefon Diggs 30+ rec yds (85%)
-- Antonio Williams 2+ receptions (83%)
-- Dallas Goedert 2+ receptions (81%)
+**S4** — 6 games, win 40%, fair 2.50x, min 2.20x
+- KC @ DEN: Patrick Mahomes 150+ pass yds (88%)
+- NE @ MIA: Greg Dulcich 2+ rec (86%)
+- PHI @ WSH: Antonio Williams 2+ rec (83%)
+- BAL @ BUF: Mark Andrews 2+ rec (82%)
+- TEN @ CIN: Tee Higgins 2+ rec (88%)
+- ARI @ DAL: Dak Prescott 175+ pass yds (89%)
 
-**B2 (MNF CHI @ SEA)** — 6 legs, win 38%, fair 2.61x, min 2.30x
-- Jaxon Smith-Njigba 60+ rec yds (92%)
-- Jaxon Smith-Njigba 5+ receptions (88%)
-- Rome Odunze 30+ rec yds (88%)
-- D'Andre Swift 40+ rush yds (85%)
-- Luther Burden III 40+ rec yds (79%)
-- D'Andre Swift 2+ receptions (79%)
+### Late fallback (bonus lands after 10 AM Sunday; place before 1:05 PM PT; games LAC @ LAR, KC @ DEN, NE @ MIA, SNF PHI @ WSH, MNF CHI @ SEA)
 
-**B3 (SNF + MNF mix)** — 4 legs, win 46%, fair 2.15x, min 1.90x
-- WSH ML (70%)
-- Jaxon Smith-Njigba 60+ rec yds (92%)
-- D'Andre Swift 40+ rush yds (85%)
-- Stefon Diggs 30+ rec yds (85%)
+**L1** — 5 games, win 53%, fair 1.88x, min 1.65x
+- LAC @ LAR: Kyren Williams 40+ rush yds (89%)
+- KC @ DEN: Xavier Worthy 2+ rec (88%)
+- NE @ MIA: Drake Maye 175+ pass yds (87%)
+- PHI @ WSH: Stefon Diggs 30+ rec yds (85%)
+- CHI @ SEA: Jaxon Smith-Njigba 60+ rec yds (92%)
 
-**B4 (late Sunday: KC @ DEN, NE @ MIA, LAC @ LAR)** — 6 legs, win 43%, fair 2.31x, min 2.04x
-- Patrick Mahomes 150+ pass yds (88%)
-- Xavier Worthy 2+ receptions (88%)
-- Travis Kelce 2+ receptions (85%)
-- Drake Maye 175+ pass yds (87%)
-- Kyren Williams 40+ rush yds (89%)
-- Puka Nacua 60+ rec yds (86%)
+**L2** — 5 games, win 48%, fair 2.07x, min 1.82x
+- KC @ DEN: Patrick Mahomes 150+ pass yds (88%)
+- NE @ MIA: Greg Dulcich 2+ rec (86%)
+- PHI @ WSH: Antonio Williams 2+ rec (83%)
+- CHI @ SEA: Rome Odunze 30+ rec yds (88%)
+- LAC @ LAR: Tyler Higbee 2+ rec (88%)
 
-Window A (bonus lands Fri/Sat; place before 10:00 AM PT Sun): **A1–A4**. Window B (bonus lands Sunday): **B4** must go in before 1:05 PM PT; **B1–B3** before SNF (5:20 PM PT). Week 9 (Mon–Wed bonuses): the reminders rebuild prop stacks the same way after Sunday's games.
+**L3** — 5 games, win 43%, fair 2.34x, min 2.06x
+- NE @ MIA: Malik Washington 3+ rec (83%)
+- PHI @ WSH: Dallas Goedert 2+ rec (81%)
+- CHI @ SEA: Luther Burden III 3+ rec (87%)
+- LAC @ LAR: Puka Nacua 60+ rec yds (86%)
+- KC @ DEN: Travis Kelce 2+ rec (85%)
 
-Exposure: A1 (CIN, JAX ML), A2 (DAL ML), A4 (NE ML) and B1/B3 (WSH ML) repeat moneylines already on your FDP Day 1 combo and the BKR tickets.
+**L4** — 4 games, win 47%, fair 2.12x, min 1.86x
+- CHI @ SEA: D'Andre Swift 40+ rush yds (85%)
+- LAC @ LAR: Matthew Stafford 175+ pass yds (82%)
+- KC @ DEN: J.K. Dobbins 25+ rush yds (83%)
+- NE @ MIA: Hunter Henry 2+ rec (82%)
+
+Week 9 (Mon–Wed bonuses): rebuilt the same way on Monday morning after Sunday's games.
+
+_Superseded: the earlier game-grouped stacks A1–A4 / B1–B4 (1:50 PM) are replaced by S1–S4 / L1–L4._
 
 ### Easy-leg list (Sunday/Monday, healthy starters, ~78%+ hit chance; highest qualifying rung per player-stat)
 
