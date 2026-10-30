@@ -4,7 +4,7 @@
 
 **2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. **Update 2026-09-29 (Claude Team 2): recovered.** The older version was still in the claude.ai DEV project; it is preserved verbatim as `claude/recommendation-ledger-2026-pre-rebuild.md` (repo mirror `docs/claude-project-dev/recommendation-ledger-2026-pre-rebuild.md`). Cite its entries as **P-D1…P-D15** (Week 2 D1–D12 all IRRELEVANT; Week 3 TNF P-D13–P-D15 overlap D1–D4 here). Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-10-29 ~17:35 PT by Claude (Week 8 section D48–D53 opened: TNF CAR @ GB and weekend tickets logged, pending). Earlier 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
+**Last updated:** 2026-10-29 ~20:55 PT by Claude (Week 8 TNF graded: D48/D49 and the Andy-built TNF tickets lost, D50/D51 TNF legs won and still alive, D52/D53 graded on paper). Earlier 2026-10-29 ~17:35 PT by Claude (Week 8 section D48–D53 opened: TNF CAR @ GB and weekend tickets logged, pending). Earlier 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
 
 ---
 
@@ -303,6 +303,27 @@ Session rule added by Andy (3:34 PM PT): **no full-game spreads or totals inside
 - BKR 740900674 SGP CAR +4 / Over 46 ($25, 10/27). Its Over runs opposite tonight's Under positions.
 
 **Concentration note (TNF):** Young INT is on 3 tickets, Hubbard ATD on 3, Jacobs ATD on 3, McKinney 4+ on 2, and Van Ness sack on 2.
+
+**TNF results — CAR @ GB final 27–19 (graded 2026-10-29 ~20:55 PT from ESPN 401873023).** Tickets were settled in the wagers file by the 20:50 PT settle check-in; legs re-checked by hand and agree.
+
+| Entry | Ticket | Result | Missed legs | Cash P/L |
+|---|---|---|---|---:|
+| D48 Tier 1 (partial agreement) | DKP 48373977 | LOST 5/6 | McKinney 4+ T+A (3) — Andy's own leg; all Claude legs hit | $0 (promo $10) |
+| D49 Tier 2 (agreement) | BEO 1010127424 | LOST 3/4 | Waller 22+ rec yds (11) | −$6.02 |
+| D50 weekend 11-leg | BKR 740983886 | TNF leg WON (Jacobs 1 rush + 1 rec TD) | — | alive, $10 |
+| D51 weekend 10-leg | BKR 740984963 | TNF leg WON (Love 3 pass TD) | — | alive, $10 |
+| D52 Andy's 8-leg slip (paper; Claude advised against) | — | LOST 6/8 on paper | McMillan ATD (0), McKinney 4+ (3) | n/a |
+| D53 five straights (paper) | — | 2–3 on paper | Jacobs o76.5 R+R (52), Metchie o15.5 rec yds (14), McMillan o74.5 rec yds (58); won Under 47.5 (46), Hubbard o14.5 rec yds (38) | −1.18u at an assumed −110 each |
+| Andy-built | BEO 1010136110 SGP | LOST 3/8 | Watson ATD, Waller 15+, Smack 1+ FG (0/0), Jacobs 70+ R+R (52), Metchie 15+ (14) | −$10.00 |
+| Andy-built | BEO 1010107890 | LOST 6/8 | Watson ATD, McMillan 66+ rec yds (58) | −$5.00 |
+| Andy-built | DKP 48487002 | LOST 5/7 | McKinney 4+ (3), Young 2+ pass TD (1) | $0 (promo $9.98) |
+| Andy-built | DKP 48337161 | LOST 1/2 | CAR +4.5 (lost by 8); Under 48.5 won | $0 (promo $9.87) |
+| Andy-built (10/27) | BKR 740904942 6-team ML | LOST | CAR ML | −$5.00 |
+| Andy-built (10/27) | BKR 740900674 SGP | LOST | CAR +4 (lost by 8); Over 46 pushed at 46 | −$25.00 |
+
+- **TNF cash: −$51.02** (BEO −$21.02, BKR −$30.00). DK promo stakes lost: $29.85. Still live: $20 cash on the two BKR weekend parlays (WSH ML SNF cap on both).
+- **Concentration check:** Young INT went 3/3, Jacobs ATD 3/3, Hubbard ATD 3/3 and Van Ness sack 2/2. McKinney 4+ busted both DK combos. Watson ATD (0) busted two BEO tickets despite 8 catches for 113.
+- **Defensive-prop lesson (see `docs/defensive-props/defensive-intel-findings-2026-w07.md`):** McKinney's raw 4+ rate was 57% (about 48% calibrated). With GB's LBs out, the backtest says the extra tackles go to the other LBs (+2.2), not the safeties (+0.4). McDuffie (10) and Hopper (8) were the right defensive legs.
 
 **Pools (not wagers; for reference).** Duma rule confirmed: the "quarterly" and four-game-segment prize is one rolling 4-week window, paid weekly. Picks entered:
 - duma GB 10, Yahoo GB 8, CBS GB.
