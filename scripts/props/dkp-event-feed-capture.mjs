@@ -247,22 +247,35 @@ async function captureEvent(browser, idOrSlug, { keepRaw, dateStr, tabs = null }
       responses.push({ url, status: r.status(), at: new Date().toISOString(), body });
     } catch { /* response body unavailable */ }
   });
+  // Diagnostics (2026-10-30): record which tabs/chips existed and were clicked, plus what the
+  // DEFENSIVE view showed, so "DK has not posted defense yet" can be told apart from a click miss.
+  const diagnostics = { clicks: [], tabsSeen: [], defensiveText: null };
   const click = async (label) => {
     const loc = page.getByText(new RegExp('^\\s*' + label.replace(/[+/]/g, '\\$&') + '\\s*$', 'i')).first();
-    if ((await loc.count()) === 0) return false;
-    try { await loc.click({ timeout: 4000 }); await page.waitForTimeout(2200); return true; } catch { return false; }
+    const found = (await loc.count()) > 0;
+    if (!found) { diagnostics.clicks.push({ label, found, clicked: false }); return false; }
+    try { await loc.click({ timeout: 4000 }); await page.waitForTimeout(2200); diagnostics.clicks.push({ label, found, clicked: true }); return true; }
+    catch { diagnostics.clicks.push({ label, found, clicked: false }); return false; }
   };
   try {
     await page.goto(idOrSlug.startsWith('http') ? idOrSlug : EVENT_URL(idOrSlug), { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(5000);
+    const bodyLines = async () => (await page.evaluate(() => document.body.innerText || '')).split('\n').map(x => x.trim()).filter(Boolean);
+    const known = new Set(TAB_STEPS.map(([t]) => t).concat(['POPULAR', 'TD SCORERS', 'GAME LINES']));
+    diagnostics.tabsSeen = [...new Set((await bodyLines()).filter(l => known.has(l.toUpperCase())))];
     for (const [tab, chips] of (tabs ? TAB_STEPS.filter(([t]) => tabs.includes(t)) : TAB_STEPS)) {
       if (!(await click(tab))) continue;
+      if (tab === 'DEFENSIVE') {
+        const lines = await bodyLines(); const i = lines.findIndex(l => l.toUpperCase() === 'TEAM PROPS');
+        diagnostics.defensiveText = lines.slice(i > -1 ? i + 1 : 0, (i > -1 ? i + 1 : 0) + 40).join(' | ').slice(0, 800);
+      }
       for (const c of chips) await click(c);
     }
   } finally {
     await page.close().catch(() => {});
   }
   const decoded = decodeFeedResponses(responses, eventIdFromInput(idOrSlug));
+  decoded.diagnostics = diagnostics;
   if (keepRaw) {
     const rawDir = path.join(OUT_DIR, 'raw');
     fs.mkdirSync(rawDir, { recursive: true });
@@ -331,12 +344,17 @@ async function main() {
       if (gameFilter && !(gameFilter.every(g => [event.away, event.home].includes(g)))) { console.log(`skip (${event.away}@${event.home} != ${gameFilter.join('@')})`); continue; }
       const gate = (defenseOnly ? validateDefenseCapture : validateEventCapture)(decoded, { expectTeams: gameFilter && gameFilter.length === 2 ? gameFilter : null });
       console.log(`${event.away}@${event.home}: ${rows.length} rows, gate ${gate.pass ? 'PASS' : 'FAIL'}${gate.pass ? '' : ' - ' + gate.defects.join('; ')}`);
+      if (defenseOnly) {
+        const d = decoded.diagnostics || {};
+        const c = (d.clicks || []).map(x => `${x.label}:${x.clicked ? 'ok' : x.found ? 'click-failed' : 'not-found'}`).join(', ');
+        console.log(`    tabs seen: ${(d.tabsSeen || []).join(', ') || 'none'} | clicks: ${c}`);
+      }
       const out = {
         schema: 'draftkings_predictions_feed_v1',
         book: 'DKP',
         capturedAt: new Date().toISOString(),
         date: dateStr, week: weekNum,
-        event, gate,
+        event, gate, diagnostics: decoded.diagnostics,
         summary: { rows: rows.length, by_market: summarizeRows(rows) },
         rows,
       };
