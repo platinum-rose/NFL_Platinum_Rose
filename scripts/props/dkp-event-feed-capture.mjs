@@ -16,6 +16,8 @@
 //   node scripts/props/dkp-event-feed-capture.mjs --event 34118185   # one event (id or full URL), comma list ok
 //   node scripts/props/dkp-event-feed-capture.mjs --game DAL@GB      # slate discovery, filter by team abbr
 //   Flags: --week N  --date YYYY-MM-DD  --keep-raw  --include-started  --dry-run
+//   --defense-only: open only the DEFENSIVE tab and write draftkings-predictions-defense-<date>-<a>-at-<h>.json
+//                   (no master file; collected by scripts/props/build-defensive-boards.mjs)
 //
 // Output (data/generated/props/):
 //   draftkings-predictions-feed-<date>-<away>-at-<home>.json   per game (always written, gate result inside)
@@ -51,7 +53,8 @@ export const TAB_STEPS = [
   ['GAME PROPS', []],
   ['HALVES', []],
   ['QUARTERS', []],
-  ['DEFENSIVE', []],
+  // Sacks is the default view; T+A, solo tackles and assists sit behind their own chips (Andy, 2026-10-29).
+  ['DEFENSIVE', ['Tackles + Assists', 'Tackles', 'Assists']],
   ['SPECIAL TEAMS', []],
 ];
 
@@ -74,7 +77,10 @@ const MARKET_MAP = [
   [/^Rushing Attempts/i, 'carries'],
   [/^Rush(ing)? \+ Rec(eiving)?/i, 'rush_rec_yds'],
   [/^Sacks/i, 'sacks'],
-  [/^Tackles/i, 'tackles'],
+  // Order matters: combined T+A before solo tackles; both typeName forms seen as '<X> Milestones' / 'O/U'.
+  [/Tackles\s*(\+|and)\s*Assists|Combined Tackles/i, 'tackles_assists'],
+  [/^Assists/i, 'assists'],
+  [/^(Solo )?Tackles/i, 'tackles'],
   [/Team Total Points/i, 'team_total'],
   [/^Total Points/i, 'game_total'],
   [/^Spread/i, 'spread'],
@@ -189,6 +195,23 @@ export function validateEventCapture({ event, rows }, { expectTeams = null } = {
   return { pass: defects.length === 0, defects };
 }
 
+// Gate for --defense-only captures: only the DEFENSIVE tab is opened, so no TD/game-line rows are expected.
+export function validateDefenseCapture({ event, rows }, { expectTeams = null } = {}) {
+  const defects = [];
+  const by = summarizeRows(rows);
+  if (!event.eventId) defects.push('no event metadata in feed');
+  if (!event.away || !event.home) defects.push('could not resolve away/home teams');
+  const def = (by.tackles_assists || 0) + (by.tackles || 0) + (by.assists || 0) + (by.sacks || 0);
+  if (def < 5) defects.push(`defensive rows ${def} < 5`);
+  const nullOdds = rows.filter(r => r.american == null).length;
+  if (nullOdds) defects.push(`${nullOdds} row(s) with null odds`);
+  if (expectTeams && event.away && event.home) {
+    const set = new Set([event.away, event.home]);
+    if (!expectTeams.every(t => set.has(t))) defects.push(`event ${event.away}@${event.home} does not match requested ${expectTeams.join('@')}`);
+  }
+  return { pass: defects.length === 0, defects };
+}
+
 export function eventIdFromInput(v) {
   const m = String(v).match(/(\d{6,})\s*$/) || String(v).match(/\/(\d{6,})(?:[/?#]|$)/);
   return m ? m[1] : null;
@@ -211,7 +234,7 @@ async function isCdpAvailable() {
   } catch { return false; }
 }
 
-async function captureEvent(browser, idOrSlug, { keepRaw, dateStr }) {
+async function captureEvent(browser, idOrSlug, { keepRaw, dateStr, tabs = null }) {
   const ctx = browser.contexts()[0];
   const page = await ctx.newPage();
   const responses = [];
@@ -232,7 +255,7 @@ async function captureEvent(browser, idOrSlug, { keepRaw, dateStr }) {
   try {
     await page.goto(idOrSlug.startsWith('http') ? idOrSlug : EVENT_URL(idOrSlug), { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(5000);
-    for (const [tab, chips] of TAB_STEPS) {
+    for (const [tab, chips] of (tabs ? TAB_STEPS.filter(([t]) => tabs.includes(t)) : TAB_STEPS)) {
       if (!(await click(tab))) continue;
       for (const c of chips) await click(c);
     }
@@ -266,6 +289,7 @@ async function main() {
   const dateStr = arg('--date') || localDateString();
   const weekNum = arg('--week') ? Number(arg('--week')) : calculateNflWeek();
   const keepRaw = has('--keep-raw');
+  const defenseOnly = has('--defense-only'); // DEFENSIVE tab only (sacks, T+A, solo tackles, assists); separate output files
   const dry = has('--dry-run');
   const includeStarted = has('--include-started');
   const gameFilter = arg('--game') ? arg('--game').toUpperCase().split('@') : null;
@@ -297,7 +321,7 @@ async function main() {
     const games = [];
     for (const t of targets) {
       process.stdout.write(`- event ${t.id} ... `);
-      const decoded = await captureEvent(browser, t.url.startsWith('http') ? t.url : t.id, { keepRaw, dateStr });
+      const decoded = await captureEvent(browser, t.url.startsWith('http') ? t.url : t.id, { keepRaw, dateStr, tabs: defenseOnly ? ['DEFENSIVE'] : null });
       const { event, rows } = decoded;
       const start = event.start ? new Date(event.start) : null;
       if (!arg('--event')) {
@@ -305,7 +329,7 @@ async function main() {
         if (start && start < new Date() && !includeStarted) { console.log('skip (already started)'); continue; }
       }
       if (gameFilter && !(gameFilter.every(g => [event.away, event.home].includes(g)))) { console.log(`skip (${event.away}@${event.home} != ${gameFilter.join('@')})`); continue; }
-      const gate = validateEventCapture(decoded, { expectTeams: gameFilter && gameFilter.length === 2 ? gameFilter : null });
+      const gate = (defenseOnly ? validateDefenseCapture : validateEventCapture)(decoded, { expectTeams: gameFilter && gameFilter.length === 2 ? gameFilter : null });
       console.log(`${event.away}@${event.home}: ${rows.length} rows, gate ${gate.pass ? 'PASS' : 'FAIL'}${gate.pass ? '' : ' - ' + gate.defects.join('; ')}`);
       const out = {
         schema: 'draftkings_predictions_feed_v1',
@@ -319,12 +343,12 @@ async function main() {
       games.push(out);
       if (!dry) {
         fs.mkdirSync(OUT_DIR, { recursive: true });
-        writeFileAtomic(path.join(OUT_DIR, `draftkings-predictions-feed-${dateStr}-${slug(event.away)}-at-${slug(event.home)}.json`), JSON.stringify(out, null, 2));
+        writeFileAtomic(path.join(OUT_DIR, `draftkings-predictions-${defenseOnly ? 'defense' : 'feed'}-${dateStr}-${slug(event.away)}-at-${slug(event.home)}.json`), JSON.stringify(out, null, 2));
       }
     }
 
     const passed = games.filter(g => g.gate.pass);
-    if (!dry && passed.length) {
+    if (!dry && passed.length && !defenseOnly) {
       const master = {
         schema: 'draftkings_predictions_feed_master_v1', book: 'DKP', capturedAt: new Date().toISOString(), date: dateStr, week: weekNum,
         games: passed.map(g => ({ eventId: g.event.eventId, away: g.event.away, home: g.event.home, start: g.event.start, rows: g.summary.rows })),

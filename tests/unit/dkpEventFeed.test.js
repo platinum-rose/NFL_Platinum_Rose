@@ -7,7 +7,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  americanOf, classifyMarket, decodeFeedResponses, validateEventCapture,
+  americanOf, classifyMarket, decodeFeedResponses, validateEventCapture, TAB_STEPS,
   eventIdFromInput, summarizeRows, weekWindow,
 } from '../../scripts/props/dkp-event-feed-capture.mjs';
 
@@ -26,6 +26,14 @@ describe('helpers', () => {
     expect(classifyMarket('Receiving Yards Milestones')).toBe('rec_yds');
     expect(classifyMarket('Total Points - 1st Half')).toBe('1h_game_total');
     expect(classifyMarket('Something New')).toBe('other');
+    // Defensive chips (added 2026-10-29): combined T+A must not fall into solo tackles.
+    expect(classifyMarket('Tackles + Assists Milestones')).toBe('tackles_assists');
+    expect(classifyMarket('Tackles and Assists O/U')).toBe('tackles_assists');
+    expect(classifyMarket('', 'Xavier McKinney Tackles + Assists')).toBe('tackles_assists');
+    expect(classifyMarket('Tackles Milestones')).toBe('tackles');
+    expect(classifyMarket('Solo Tackles O/U')).toBe('tackles');
+    expect(classifyMarket('Assists Milestones')).toBe('assists');
+    expect(classifyMarket('Sacks Milestones')).toBe('sacks');
   });
   it('extracts event ids from ids and URLs', () => {
     expect(eventIdFromInput('34118185')).toBe('34118185');
@@ -75,5 +83,12 @@ describe('decodeFeedResponses on the DAL@GB fixture', () => {
     expect(validateEventCapture(decoded, { expectTeams: ['NE', 'CHI'] }).pass).toBe(false);
     const empty = decodeFeedResponses([], '1');
     expect(validateEventCapture(empty).pass).toBe(false);
+  });
+});
+
+describe('defensive tab chips', () => {
+  it('clicks every defensive chip so tackles markets load', () => {
+    const def = TAB_STEPS.find(([tab]) => tab === 'DEFENSIVE');
+    expect(def[1]).toEqual(['Tackles + Assists', 'Tackles', 'Assists']);
   });
 });

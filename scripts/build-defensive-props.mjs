@@ -245,7 +245,7 @@ export const calibrateHitRate = raw => (raw == null ? null : Math.round((0.10 + 
 const VACATED_BUMP = { 'LB->LB': 1.4, 'S->S': 1.6, 'LB->S': 0.4 };
 // Defenders finished ~0.35 T+A under their prior average the following week (W3-7 walk-forward).
 const REGRESSION_ADJ = -0.3;
-export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, { rosterById = null, availability = {} } = {}) {
+export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, { rosterById = null, availability = {}, roleById = {} } = {}) {
   const excluded = [];
   // Anchors (6+ T+A, 3+ games) ruled out this week. The bump for a teammate is scaled by the share of
   // that teammate's games the anchor played in (an absence already baked into his average counts less).
@@ -274,6 +274,11 @@ export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, {
           .map(a => ({ a, k: `${a.group}->${p.group}`, share: p.weeks.filter(w => a.weeks.includes(w)).length / p.weeks.length }))
           .filter(x => VACATED_BUMP[x.k] && x.share > 0);
         const vacBump = round(vacated.reduce((sum, x) => sum + VACATED_BUMP[x.k] * x.share, 0), 1);
+        // Role change (snap share jumped 25+ pts to 80%+ last game): blend season avg with T+A/snap x new share x 63 plays.
+        // Weeks 3-7 role-change cases: season avg MAE 2.80 (bias -1.07), blend 2.62 (bias +0.12). Replaces the vacated bump.
+        const role = roleById[p.athlete_id];
+        const roleAdj = role ? round((role.snap_proj - p.avg_ta) / 2, 1) : null;
+        const shift = role ? roleAdj : vacBump;
         sheet.push({
           event_id: g.id, game: `${g.visitor} @ ${g.home}`, kickoff_utc: g.kickoff_utc,
           player: p.player, team, position: p.position, group: p.group, injury_status: status,
@@ -281,7 +286,8 @@ export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, {
           avg_ta: p.avg_ta, last3_avg_ta: p.last3_avg_ta, median_ta: p.median_ta,
           opp_group_factor: gf, opp_plays_factor: o?.plays_factor ?? 1, crew_factor: round(crewAdj),
           // Backtest: opponent and crew factors added error (MAE 2.13 vs 2.06), so they are shown, not applied.
-          proj_ta: round(p.avg_ta + REGRESSION_ADJ + vacBump, 1),
+          proj_ta: round(p.avg_ta + REGRESSION_ADJ + shift, 1), shift,
+          role_change: role ? { last_def_pct: role.last_pct, season_def_pct: role.season_pct, snap_proj: role.snap_proj } : null,
           vacated_from: vacated.map(x => `${x.a.player} (${x.a.group} ${x.a.avg_ta}, played ${Math.round(x.share * 100)}% of his games)`), vacated_bump: vacBump,
           hit_rate_ta: p.hit_rate_ta,
           calibrated_hit_ta: Object.fromEntries(Object.entries(p.hit_rate_ta).map(([k, v]) => [k, calibrateHitRate(v)])), sack_game_rate: p.sack_game_rate, int_game_rate: p.int_game_rate,
@@ -294,7 +300,35 @@ export function buildMatchupSheet(profiles, oppFactors, crews, schedule, week, {
   return sheet;
 }
 
-function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUsed, profiles, oppFactors, crews, sheet, meta = {} }) {
+// Price saved defensive offers (scripts/props/build-defensive-boards.mjs) against the sheet.
+// T+A / solo / assists: calibrated prior hit rate at the threshold; sacks 1+: backtested sack map.
+const SACK_MAP = rate => (rate === 0 ? 0.08 : rate <= 0.25 ? 0.10 : rate <= 0.5 ? 0.18 : 0.38);
+const impliedOf = a => (a > 0 ? 100 / (a + 100) : -a / (-a + 100));
+const payoutOf = a => (a > 0 ? a / 100 : 100 / -a);
+export function priceOffers(offers, sheet, profiles) {
+  const key = (n, t) => `${String(n).toLowerCase().replace(/[^a-z]/g, '')}|${t}`;
+  const rowBy = new Map(sheet.map(r => [key(r.player, r.team), r]));
+  const profBy = new Map(profiles.map(p => [key(p.player, p.team), p]));
+  const out = [];
+  for (const o of offers) {
+    const r = rowBy.get(key(o.player, o.team));
+    const p = r && profBy.get(key(r.player, r.team)) || profiles.find(x => key(x.player, r?.team) === key(o.player, o.team));
+    if (!r || !p) continue;
+    let prob = null;
+    // Shift each past game by this week's vacated-tackle bump before counting hits at the threshold.
+    if (o.market === 'tackles_assists') prob = calibrateHitRate(p.game_log_ta.filter(t => t + (r.shift || 0) >= o.threshold).length / p.game_log_ta.length);
+    else if (o.market === 'sacks' && o.threshold === 1) prob = SACK_MAP(p.sack_game_rate);
+    if (prob == null) continue;
+    const imp = impliedOf(o.american);
+    out.push({ book: o.book, game: r.game, player: r.player, team: r.team, group: r.group, market: o.market, threshold: o.threshold, american: o.american,
+      implied: round(imp, 3), model_prob: round(prob, 3), edge: round(prob - imp, 3), ev_per_unit: round(prob * payoutOf(o.american) - (1 - prob), 3),
+      avg_ta: r.avg_ta, proj_ta: r.proj_ta, line_minus_proj: o.market === 'tackles_assists' ? round(o.threshold - 0.5 - r.proj_ta, 1) : null,
+      vacated_from: r.vacated_from, injury_status: r.injury_status, capturedAt: o.capturedAt });
+  }
+  return out.sort((a, b) => b.edge - a.edge);
+}
+
+function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUsed, profiles, oppFactors, crews, sheet, meta = {}, priced = [] }) {
   const L = [];
   L.push(`# Defensive props research — ${season} through Week ${throughWeek}`);
   L.push('');
@@ -306,6 +340,7 @@ function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUse
   L.push('- **Crew factor** = home scorer\'s assist-crediting tendency, applied to the assist share of the player\'s average. Assists are the noisiest part of a T+A line.');
   L.push('- **Proj** = season average − 0.3 (defenders regress about that much week to week), plus a vacated-tackle bump when a 6+ T+A teammate in the unit is out (LB→LB +1.4, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the backtests found they added error.');
   L.push('- **Compare book lines to the average, not the median.** Walk-forward over Weeks 3–7: a line 1 tackle under the average went over 63% of the time; 1 over, 31%. When the average sits 0.5+ above the median, a median-based line went over 69%.');
+  L.push('- **↑role** = snap share jumped to 80%+ last game (25+ pts over his season share). Projection blends the season average with T+A per snap × new share × 63 plays, in place of the vacated bump.');
   L.push('- **Hit %** columns are calibrated (0.10 + 0.67 × raw season rate), because raw rates ran hot at the top and cold at the bottom in the backtest.');
   L.push('- **Line rule of thumb:** a book line half a tackle under the player\'s median went over 49% of the time — season form alone is not an edge. Edges come from opponent snap volume (more opponent plays = more tackles) and vacated tackles.');
   L.push('');
@@ -318,7 +353,22 @@ function renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUse
   const pct = v => (v == null ? '' : `${Math.round(v * 100)}%`);
   for (const r of sheet.slice(0, 60)) {
     const h = r.calibrated_hit_ta;
-    L.push(`| ${r.game} | ${r.player} (${r.team})${r.injury_status === 'QUESTIONABLE' ? ' Q' : ''}${r.traded_in ? '*' : ''} | ${r.position || '?'} | ${r.avg_ta} | ${r.last3_avg_ta} | ${r.median_ta} | ${r.opp_group_factor} | ${r.crew_factor} | **${r.proj_ta}** | ${pct(h['4+'])} | ${pct(h['5+'])} | ${pct(h['6+'])} | ${pct(h['7+'])} | ${pct(h['8+'])} | ${pct(r.sack_game_rate)} | ${(r.vacated_from || []).join('; ')} |`);
+    L.push(`| ${r.game} | ${r.player} (${r.team})${r.injury_status === 'QUESTIONABLE' ? ' Q' : ''}${r.traded_in ? '*' : ''}${r.role_change ? ' ↑role' : ''} | ${r.position || '?'} | ${r.avg_ta} | ${r.last3_avg_ta} | ${r.median_ta} | ${r.opp_group_factor} | ${r.crew_factor} | **${r.proj_ta}** | ${pct(h['4+'])} | ${pct(h['5+'])} | ${pct(h['6+'])} | ${pct(h['7+'])} | ${pct(h['8+'])} | ${pct(r.sack_game_rate)} | ${(r.vacated_from || []).join('; ')} |`);
+  }
+  L.push('');
+  L.push(`## Priced defensive offers (${priced.length} matched)`);
+  L.push('');
+  if (!priced.length) {
+    L.push('No saved defensive boards for this week yet. Capture: `npm run props:dkp:defense` (DK) and drop BetOnline parlay-builder text into `data/intake-drop/beo-sgp/`, then `npm run props:defense:boards`.');
+  } else {
+    L.push('Model probability: calibrated prior hit rate at the threshold (T+A) or the backtested sack map (1+ sack). **Edge** = model − implied. Small samples: treat as a screen, and check role and injury news. Rungs priced under 25% implied went 3 for 81 in the first graded boards.');
+    L.push('');
+    L.push('| Book | Game | Player | Market | Price | Implied | Model | Edge | EV/unit | Line − proj | Vacated by |');
+    L.push('|---|---|---|---|---|---|---|---|---|---|---|');
+    const show = [...priced.filter(x => x.edge >= 0.05).slice(0, 30), ...priced.filter(x => x.edge <= -0.15).slice(-15)];
+    for (const x of show) L.push(`| ${x.book} | ${x.game} | ${x.player} (${x.team})${x.injury_status === 'QUESTIONABLE' ? ' Q' : ''} | ${x.market === 'tackles_assists' ? 'T+A' : 'Sacks'} ${x.threshold}+ | ${x.american > 0 ? '+' : ''}${x.american} | ${pct(x.implied)} | ${pct(x.model_prob)} | ${x.edge > 0 ? '+' : ''}${Math.round(x.edge * 100)} pts | ${x.ev_per_unit} | ${x.line_minus_proj ?? ''} | ${(x.vacated_from || []).join('; ')} |`);
+    L.push('');
+    L.push('Rows at the bottom (edge ≤ −15 pts) are overs the model says are badly overpriced.');
   }
   L.push('');
   L.push('## Offenses: tackle environment they create');
@@ -397,7 +447,27 @@ async function main() {
   const { opp_plays_median, profiles } = buildProfiles(rows);
   const oppFactors = buildOpponentFactors(rows);
   const crews = buildStatCrewFactors(rows);
-  const sheet = buildMatchupSheet(profiles, oppFactors, crews, games, targetWeek, { rosterById, availability });
+  // Snap shares from scripts/defensive_backfill.py (optional; role-change flags need it).
+  const roleById = {};
+  try {
+    const enr = await readJson(path.join(OUT_DIR, `defensive-enriched-${season}.json`));
+    const g = {};
+    for (const r of enr.rows) if (r.def_snaps && r.week <= throughWeek) (g[r.athlete_id] ||= []).push(r);
+    for (const [id, rs] of Object.entries(g)) {
+      if (rs.length < 2) continue;
+      rs.sort((a, b) => a.week - b.week);
+      const last = rs[rs.length - 1].def_pct; const seasonPct = rs.reduce((x, r) => x + r.def_pct, 0) / rs.length;
+      if (last - seasonPct < 0.25 || last < 0.8) continue;
+      const rate = rs.reduce((x, r) => x + r.tackles_assists, 0) / rs.reduce((x, r) => x + r.def_snaps, 0);
+      roleById[id] = { last_pct: round(last, 2), season_pct: round(seasonPct, 2), snap_proj: round(rate * last * 63, 1) };
+    }
+  } catch { /* enriched file not built yet */ }
+  const sheet = buildMatchupSheet(profiles, oppFactors, crews, games, targetWeek, { rosterById, availability, roleById });
+  let priced = [];
+  try {
+    const boards = await readJson(path.join(OUT_DIR, 'boards', `defensive-boards-week-${String(targetWeek).padStart(2, '0')}.json`));
+    priced = priceOffers(boards.offers || [], sheet, profiles);
+  } catch { /* no boards saved for this week */ }
   const generatedAt = new Date().toISOString();
   const meta = { generated_at: generatedAt, season, through_week: throughWeek, target_week: targetWeek, games_used: gamesUsed, missing_event_ids: missing, unmapped_positions: rows.filter(r => !r.position).length, roster_as_of: roster.generated_at || null, availability_as_of: availabilityAsOf };
 
@@ -406,8 +476,8 @@ async function main() {
   await writeFileAtomic(path.join(OUT_DIR, `defensive-game-log-${season}.json`), JSON.stringify({ ...meta, sources, rows }, null, 2) + '\n');
   await writeFileAtomic(path.join(OUT_DIR, 'defensive-player-profiles-latest.json'), JSON.stringify({ ...meta, opp_plays_median, profiles }, null, 2) + '\n');
   await writeFileAtomic(path.join(OUT_DIR, 'defensive-opponent-factors-latest.json'), JSON.stringify({ ...meta, ...oppFactors, stat_crews: crews }, null, 2) + '\n');
-  await writeFileAtomic(path.join(OUT_DIR, `defensive-matchups-week-${String(targetWeek).padStart(2, '0')}.json`), JSON.stringify({ ...meta, excluded: sheet.excluded, rows: sheet }, null, 2) + '\n');
-  await writeFileAtomic(path.join(DOCS_DIR, 'defensive-props-latest.md'), renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUsed, profiles, oppFactors, crews, sheet, meta }));
+  await writeFileAtomic(path.join(OUT_DIR, `defensive-matchups-week-${String(targetWeek).padStart(2, '0')}.json`), JSON.stringify({ ...meta, excluded: sheet.excluded, priced_offers: priced, rows: sheet }, null, 2) + '\n');
+  await writeFileAtomic(path.join(DOCS_DIR, 'defensive-props-latest.md'), renderMarkdown({ generatedAt, season, throughWeek, targetWeek, gamesUsed, profiles, oppFactors, crews, sheet, meta, priced }));
   console.log(JSON.stringify({ ...meta, rows: rows.length, profiles: profiles.length, matchup_rows: sheet.length, matchup_excluded: sheet.excluded.length }, null, 2));
 }
 

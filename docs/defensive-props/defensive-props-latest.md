@@ -1,6 +1,6 @@
 # Defensive props research — 2026 through Week 7
 
-Generated 2026-10-30T04:48:42.119Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
+Generated 2026-10-30T05:35:04.928Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
 
 ## How to read this
 - **Hit rate N+** = share of games the player reached N or more tackles+assists. Compare with the prop price's implied probability.
@@ -8,6 +8,7 @@ Generated 2026-10-30T04:48:42.119Z. Source: ESPN game summaries (107 completed g
 - **Crew factor** = home scorer's assist-crediting tendency, applied to the assist share of the player's average. Assists are the noisiest part of a T+A line.
 - **Proj** = season average − 0.3 (defenders regress about that much week to week), plus a vacated-tackle bump when a 6+ T+A teammate in the unit is out (LB→LB +1.4, S→S +1.6, LB→S +0.4). Opponent and crew factors are shown for reference only: the backtests found they added error.
 - **Compare book lines to the average, not the median.** Walk-forward over Weeks 3–7: a line 1 tackle under the average went over 63% of the time; 1 over, 31%. When the average sits 0.5+ above the median, a median-based line went over 69%.
+- **↑role** = snap share jumped to 80%+ last game (25+ pts over his season share). Projection blends the season average with T+A per snap × new share × 63 plays, in place of the vacated bump.
 - **Hit %** columns are calibrated (0.10 + 0.67 × raw season rate), because raw rates ran hot at the top and cold at the bottom in the backtest.
 - **Line rule of thumb:** a book line half a tackle under the player's median went over 49% of the time — season form alone is not an edge. Edges come from opponent snap volume (more opponent plays = more tackles) and vacated tackles.
 
@@ -41,6 +42,7 @@ Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availabil
 | KC @ DEN | Drue Tranquill (KC) | LB | 8 | 8.67 | 7 | 0.89 | 0.97 | **7.7** | 77% | 77% | 77% | 77% | 32% | 0% |  |
 | BAL @ BUF | Roquan Smith (BAL) Q | LB | 7.86 | 7 | 8 | 1.04 | 0.98 | **7.6** | 77% | 77% | 68% | 58% | 58% | 29% |  |
 | CAR @ GB | Devin Lloyd (CAR) | LB | 7.8 | 5.67 | 9 | 0.72 | 0.93 | **7.5** | 77% | 50% | 50% | 50% | 50% | 40% |  |
+| CAR @ GB | Isaiah McDuffie (GB) ↑role | LB | 4.71 | 7.33 | 4 | 0.89 | 0.91 | **7.4** | 58% | 39% | 29% | 19% | 19% | 0% | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BAL @ BUF | Dorian Williams (BUF) | LB | 7.67 | 7.33 | 8.5 | 0.95 | 0.98 | **7.4** | 77% | 77% | 66% | 55% | 55% | 0% |  |
 | TEN @ CIN | Amani Hooker (TEN) | S | 7.67 | 8 | 6 | 0.92 | 0.9 | **7.4** | 77% | 77% | 66% | 32% | 32% | 0% |  |
 | LV @ NYJ | Jamien Sherwood (NYJ) | LB | 7.71 | 7.67 | 8 | 1.02 | 1.03 | **7.4** | 77% | 58% | 58% | 48% | 48% | 0% |  |
@@ -53,6 +55,7 @@ Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availabil
 | BAL @ BUF | Kyle Hamilton (BAL) Q | S | 7.14 | 5.67 | 7 | 1.14 | 0.99 | **6.8** | 77% | 68% | 58% | 48% | 29% | 0% |  |
 | CLE @ PIT | Quincy Williams (CLE) | LB | 7.14 | 9 | 6 | 0.95 | 1.04 | **6.8** | 77% | 58% | 58% | 39% | 39% | 14% |  |
 | ARI @ DAL | Jack Gibbens (ARI) | LB | 7 | 5.67 | 7 | 0.9 | 0.93 | **6.7** | 68% | 68% | 68% | 68% | 39% | 14% |  |
+| ATL @ TB | Kendal Daniels (ATL) Q ↑role | LB | 5.71 | 8.67 | 4 | 1.16 | 1 | **6.7** | 58% | 39% | 39% | 39% | 29% | 14% |  |
 | IND @ JAX | Foyesade Oluokun (JAX) | LB | 7 | 8.33 | 7 | 0.98 | 1.01 | **6.7** | 77% | 66% | 66% | 55% | 32% | 0% |  |
 | LAC @ LAR | Quentin Lake (LAR) | S | 7 | 6.67 | 7 | 0.9 | 1.02 | **6.7** | 77% | 77% | 77% | 48% | 19% | 0% |  |
 | LAC @ LAR | Derwin James Jr. (LAC) Q | S | 7 | 7 | 7 | 1.06 | 1.02 | **6.7** | 77% | 55% | 55% | 55% | 32% | 0% |  |
@@ -62,10 +65,10 @@ Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availabil
 | CLE @ PIT | Patrick Queen (PIT) | LB | 6.86 | 6.67 | 7 | 0.98 | 1.06 | **6.6** | 58% | 58% | 48% | 48% | 39% | 14% |  |
 | MIN @ DET | D.J. Reed (DET) | CB | 6.83 | 5.67 | 6.5 | 0.89 | 0.98 | **6.5** | 77% | 66% | 66% | 44% | 32% | 0% |  |
 | MIN @ DET | Chuck Clark (DET) | S | 6.83 | 6.67 | 7 | 0.95 | 0.97 | **6.5** | 66% | 66% | 55% | 55% | 32% | 17% |  |
-| CAR @ GB | Isaiah McDuffie (GB) | LB | 4.71 | 7.33 | 4 | 0.89 | 0.91 | **6.4** | 58% | 39% | 29% | 19% | 19% | 0% | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BAL @ BUF | Trenton Simpson (BAL) | LB | 6.71 | 7 | 7 | 1.04 | 0.98 | **6.4** | 77% | 68% | 68% | 48% | 29% | 14% |  |
 | ARI @ DAL | Mack Wilson Sr. (ARI) Q | LB | 6.71 | 6.33 | 7 | 0.9 | 0.93 | **6.4** | 68% | 68% | 68% | 48% | 29% | 0% |  |
 | CHI @ SEA | Dillon Thieneman (CHI) | S | 6.71 | 5.67 | 7 | 1.04 | 0.95 | **6.4** | 68% | 68% | 68% | 58% | 29% | 29% |  |
+| TEN @ CIN | Tony Adams (TEN) ↑role | S | 4.8 | 7 | 2 | 0.92 | 0.87 | **6.3** | 37% | 37% | 37% | 37% | 37% | 20% |  |
 | LV @ NYJ | Demario Davis (NYJ) | LB | 6.57 | 4.67 | 7 | 1.02 | 1.02 | **6.3** | 68% | 48% | 48% | 48% | 39% | 29% |  |
 | LV @ NYJ | Jeremy Chinn (LV) | S | 6.57 | 8 | 7 | 1.11 | 1.01 | **6.3** | 77% | 68% | 48% | 48% | 29% | 14% |  |
 | MIN @ DET | Christian Izien (DET) | S | 6.5 | 7.67 | 7 | 0.95 | 0.98 | **6.2** | 44% | 44% | 44% | 44% | 44% | 25% |  |
@@ -75,8 +78,43 @@ Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availabil
 | CLE @ PIT | Jaquan Brisker (PIT) | S | 6.29 | 5.67 | 7 | 1.07 | 1.05 | **6** | 68% | 68% | 68% | 48% | 19% | 0% |  |
 | CLE @ PIT | Jalen Ramsey (PIT) | CB | 6.29 | 8.67 | 7 | 0.85 | 1.04 | **6** | 68% | 58% | 48% | 48% | 39% | 14% |  |
 | ATL @ TB | Xavier Watts (ATL) | S | 6.29 | 6.67 | 7 | 0.94 | 1 | **6** | 68% | 58% | 48% | 48% | 29% | 14% |  |
-| NE @ MIA | Robert Spillane (NE) | LB | 6.29 | 5 | 6 | 0.9 | 1.14 | **6** | 77% | 77% | 48% | 39% | 29% | 0% |  |
-| TEN @ CIN | Jordan Battle (CIN) Q | S | 6.17 | 5.33 | 6 | 0.82 | 0.91 | **5.9** | 77% | 55% | 44% | 44% | 32% | 0% |  |
+
+## Priced defensive offers (70 matched)
+
+Model probability: calibrated prior hit rate at the threshold (T+A) or the backtested sack map (1+ sack). **Edge** = model − implied. Small samples: treat as a screen, and check role and injury news. Rungs priced under 25% implied went 3 for 81 in the first graded boards.
+
+| Book | Game | Player | Market | Price | Implied | Model | Edge | EV/unit | Line − proj | Vacated by |
+|---|---|---|---|---|---|---|---|---|---|---|
+| BEO | CAR @ GB | Devin Lloyd (CAR) | T+A 9+ | +250 | 29% | 50% | +21 pts | 0.75 | 1 |  |
+| BEO | CAR @ GB | Javon Bullard (GB) | T+A 7+ | +188 | 35% | 48% | +13 pts | 0.382 | 0.9 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Javon Bullard (GB) | T+A 6+ | +118 | 46% | 58% | +12 pts | 0.264 | -0.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Evan Williams (GB) | T+A 10+ | +270 | 27% | 39% | +12 pts | 0.443 | 0.5 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Evan Williams (GB) | T+A 9+ | +170 | 37% | 48% | +11 pts | 0.296 | -0.5 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Devin Lloyd (CAR) | T+A 8+ | +156 | 39% | 50% | +11 pts | 0.28 | 0 |  |
+| BEO | CAR @ GB | Devin Lloyd (CAR) | T+A 11+ | +700 | 13% | 23% | +11 pts | 0.84 | 3 |  |
+| BEO | CAR @ GB | Keisean Nixon (GB) | T+A 6+ | +110 | 48% | 58% | +10 pts | 0.218 | -0.3 |  |
+| BEO | CAR @ GB | Bobby Okereke (CAR) | T+A 7+ | +114 | 47% | 55% | +8 pts | 0.177 | -0.5 |  |
+| BEO | CAR @ GB | Lukas Van Ness (GB) | T+A 7+ | +625 | 14% | 20% | +6 pts | 0.45 | 2.9 |  |
+| BEO | CAR @ GB | Evan Williams (GB) | T+A 7+ | -157 | 61% | 67% | +6 pts | 0.097 | -2.5 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Keisean Nixon (GB) | T+A 5+ | -157 | 61% | 67% | +6 pts | 0.097 | -1.3 |  |
+| BEO | CAR @ GB | Bobby Okereke (CAR) | T+A 8+ | +158 | 39% | 44% | +5 pts | 0.135 | 0.5 |  |
+| BEO | CAR @ GB | Xavier McKinney (GB) | T+A 5+ | -124 | 55% | 39% | -16 pts | -0.295 | -0.2 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Devin Lloyd (CAR) | T+A 6+ | -209 | 68% | 50% | -18 pts | -0.261 | -2 |  |
+| BEO | CAR @ GB | Javon Bullard (GB) | T+A 4+ | -345 | 78% | 58% | -19 pts | -0.252 | -2.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Isaiah McDuffie (GB) | T+A 10+ | +144 | 41% | 20% | -21 pts | -0.512 | 2.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Lukas Van Ness (GB) | Sacks 1+ | +150 | 40% | 18% | -22 pts | -0.55 |  |  |
+| BEO | CAR @ GB | Nick Scott (CAR) | T+A 8+ | +210 | 32% | 10% | -22 pts | -0.69 | 3 |  |
+| BEO | CAR @ GB | Isaiah McDuffie (GB) | T+A 9+ | -106 | 52% | 29% | -22 pts | -0.436 | 1.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Nick Scott (CAR) | T+A 5+ | -271 | 73% | 50% | -23 pts | -0.315 | 0 |  |
+| BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 4+ | -358 | 78% | 55% | -23 pts | -0.296 | -0.2 |  |
+| BEO | CAR @ GB | Xavier McKinney (GB) | T+A 6+ | +129 | 44% | 20% | -24 pts | -0.542 | 0.8 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Xavier McKinney (GB) | T+A 4+ | -271 | 73% | 48% | -25 pts | -0.343 | -1.2 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 7+ | +185 | 35% | 10% | -25 pts | -0.715 | 2.8 |  |
+| BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 5+ | -148 | 60% | 32% | -28 pts | -0.464 | 0.8 |  |
+| BEO | CAR @ GB | Isaiah McDuffie (GB) | T+A 8+ | -213 | 68% | 39% | -29 pts | -0.427 | 0.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
+| BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 6+ | +116 | 46% | 10% | -36 pts | -0.784 | 1.8 |  |
+
+Rows at the bottom (edge ≤ −15 pts) are overs the model says are badly overpriced.
 
 ## Offenses: tackle environment they create
 
