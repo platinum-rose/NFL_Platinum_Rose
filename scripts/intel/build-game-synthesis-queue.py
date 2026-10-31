@@ -56,6 +56,7 @@ pull = use('master_intel_pull', f'data/generated/master-intel/w{WW}-pull.json') 
 openers = use('an_openers', f'data/odds/actionnetwork-openers-{S}-w{WW}.json') or {}
 sc = use('supercontest_lines', f'data/supercontest/week-{WW}-lines.json') or {}
 wx = use('weather', f'data/research-intel/review/{S}-w{WW}-weather-venue.json') or {}
+PRIMER = use('an_primer', f'data/intel/extracted/{S}-w{WW}-primer-intel.json') or {}
 yt = use('youtube_picks', f'data/podcasts/youtube-extracted-picks-{S}-w{WW}.json') or {}
 try:  # 2026-10-30: Twitter/X video picks (Antigravity) ride the YouTube-picks path; dupes of Grok rows dropped
     import sys as _sys; _sys.path.insert(0, os.path.join(ROOT, 'scripts', 'master-intel')) if 'ROOT' in globals() else _sys.path.insert(0, 'scripts/master-intel')
@@ -167,6 +168,9 @@ for g in slate.get('games', []):
         return mentions(r.get('visitor'), A) or mentions(r.get('home'), H) or mentions(r.get('visitor'), H) or mentions(r.get('home'), A)
     p['expert_picks_pull'] = [r for r in pull.get('expert', []) if ex_match(r)]
     p['youtube_picks_approved'] = [r for r in yt.get('picks', []) if r.get('game') == M]
+    # 2026-10-30: Evan Abrams' Action Network primer (scripts/intel/primer_feed.py) — trends, Bet Labs systems, QB/coach/ref, public splits
+    p['an_primer'] = dict(game=(PRIMER.get('games') or {}).get(M), rows=[r for r in (PRIMER.get('rows') or []) if r.get('game') in (M, 'SLATE')])
+    if not PRIMER: missing.append('Action Network primer (python3 scripts/intel/primer_feed.py --week N)')
     p['youtube_dropped'] = [{'game': r.get('game'), 'speaker': r.get('speaker'), 'reason': r.get('drop_reason') or r.get('reason')} for r in yt.get('dropped', []) if r.get('game') == M]
     sig = [r for r in pull.get('signals', []) if mentions(' '.join(str(r.get(k, '')) for k in ('team_or_market', 'lean', 'rationale')), A) or mentions(' '.join(str(r.get(k, '')) for k in ('team_or_market', 'lean', 'rationale')), H)]
     p['pick_signals'] = [{k: (trim(v, 500) if isinstance(v, str) else v) for k, v in r.items()} for r in sig][:60]
