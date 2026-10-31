@@ -3,7 +3,7 @@
  "season": 2026,
  "week": 8,
  "stage": "friday",
- "run_at": "2026-10-30T23:09:20.448726-07:00",
+ "run_at": "2026-10-30T23:13:37.731432-07:00",
  "verdict": "GREEN",
  "games_remaining": 13,
  "bkr_capture_date": "2026-10-31",
@@ -141,7 +141,7 @@
   ]
  },
  "required_failures": 0,
- "warnings": 7,
+ "warnings": 6,
  "checks": [
   {
    "id": "A1",
@@ -176,7 +176,7 @@
    "title": "Bookmaker capture (SGP props + game lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 4.2h old (limit 30h); games=13 (need 13)",
+   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 4.3h old (limit 30h); games=13 (need 13)",
    "fix": ""
   },
   {
@@ -203,7 +203,7 @@
    "title": "Master Intel pull (signals, expert picks, articles, splits)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/master-intel/w08-pull.json \u2014 0.4h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94",
+   "detail": "data/generated/master-intel/w08-pull.json \u2014 0.5h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94",
    "fix": ""
   },
   {
@@ -212,7 +212,7 @@
    "title": "Betting splits (Action Network)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (4.0h; limit 30h)",
+   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (4.1h; limit 30h)",
    "fix": ""
   },
   {
@@ -239,7 +239,7 @@
    "title": "Prediction markets + coherence",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 8.1h old (limit 36h)",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 8.2h old (limit 36h)",
    "fix": ""
   },
   {
@@ -275,7 +275,7 @@
    "title": "Weather / venue",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 5.1h old (limit 48h)",
+   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 5.2h old (limit 48h)",
    "fix": ""
   },
   {
@@ -374,7 +374,7 @@
    "title": "Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (15.7h)",
+   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (15.8h)",
    "fix": ""
   },
   {
@@ -383,7 +383,7 @@
    "title": "Twitter/X bookmark intel (text)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (1.5h)",
+   "detail": "107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (1.6h)",
    "fix": ""
   },
   {
@@ -400,9 +400,9 @@
    "group": "Expert & media intel",
    "title": "Preferred-expert final cards (coverage)",
    "level": "ADVISORY",
-   "status": "WARN",
-   "detail": "roster status=draft_pending_andy; 33/37 experts with a Week 8 card found; missing: none; excused (no card published): Collin Wilson, Ed Feng, Joe Madden, Pat Fitzmaurice",
-   "fix": "Andy confirms data/expert-tracking/preferred-experts-2026.json (status \"confirmed\"). Find each missing expert's card (article / podcast / YouTube / X) and ingest it, or list them under \"experts_no_card\": {\"names\": [...], \"note\": ...} in the gate-manual file after checking."
+   "status": "PASS",
+   "detail": "roster status=confirmed; 33/37 experts with a Week 8 card found; missing: none; excused (no card published): Collin Wilson, Ed Feng, Joe Madden, Pat Fitzmaurice",
+   "fix": ""
   },
   {
    "id": "S1",

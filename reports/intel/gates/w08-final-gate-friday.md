@@ -1,8 +1,8 @@
 # Final Gate Check — 2026 Week 8 — Friday run
 
-Run Fri Oct 30, 11:09 PM PT · games to play: 13 · BKR capture date: 2026-10-31
+Run Fri Oct 30, 11:13 PM PT · games to play: 13 · BKR capture date: 2026-10-31
 
-## Verdict: **GREEN** — 0 required failure(s), 7 advisory warning(s)
+## Verdict: **GREEN** — 0 required failure(s), 6 advisory warning(s)
 
 All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md` with STAGE=friday.
 
@@ -19,14 +19,14 @@ All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md`
 
 | # | Check | Level | Status | Detail | Fix |
 |---|---|---|---|---|---|
-| L1 | Bookmaker capture (SGP props + game lines) | REQUIRED | ✅ PASS | data/generated/props/bookmaker-live-2026-10-31-week8.json — 4.2h old (limit 30h); games=13 (need 13) |  |
+| L1 | Bookmaker capture (SGP props + game lines) | REQUIRED | ✅ PASS | data/generated/props/bookmaker-live-2026-10-31-week8.json — 4.3h old (limit 30h); games=13 (need 13) |  |
 | L2 | BKR game-lines file for the synthesis queue | REQUIRED | ✅ PASS | data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt |  |
 | L3 | Action Network openers (line-move baseline) | REQUIRED | ✅ PASS | data/odds/actionnetwork-openers-2026-w08.json |  |
-| L4 | Master Intel pull (signals, expert picks, articles, splits) | REQUIRED | ✅ PASS | data/generated/master-intel/w08-pull.json — 0.4h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94 |  |
-| L5 | Betting splits (Action Network) | REQUIRED | ✅ PASS | 14 games, newest capture 2026-10-31T02:06:35+00:00 (4.0h; limit 30h) |  |
+| L4 | Master Intel pull (signals, expert picks, articles, splits) | REQUIRED | ✅ PASS | data/generated/master-intel/w08-pull.json — 0.5h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94 |  |
+| L5 | Betting splits (Action Network) | REQUIRED | ✅ PASS | 14 games, newest capture 2026-10-31T02:06:35+00:00 (4.1h; limit 30h) |  |
 | L6 | BetOnline player props (prop stacks, props pass) | ADVISORY | ⚠️ WARN | data/generated/props/betonline-live-2026-10-29-week8.json; rows=522; age=31.0h | npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon). |
 | L7 | DraftKings Predictions props | ADVISORY | ⚠️ WARN | data/generated/props/dk-predictions-2026-10-17-titans-at-colts.json | npm run props:dkp:launch (log in) → npm run props:dkp:cron → npm run props:dkp:defense |
-| L8 | Prediction markets + coherence | ADVISORY | ✅ PASS | data/prediction-markets/cross-market-coherence-latest.json — 8.1h old (limit 36h) |  |
+| L8 | Prediction markets + coherence | ADVISORY | ✅ PASS | data/prediction-markets/cross-market-coherence-latest.json — 8.2h old (limit 36h) |  |
 | L9 | SuperContest contest lines | REQUIRED | ✅ PASS | data/supercontest/week-08-lines.json |  |
 
 ## Rosters & injuries
@@ -35,7 +35,7 @@ All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md`
 |---|---|---|---|---|---|
 | I1 | Player availability / injury report | REQUIRED | ✅ PASS | data/player-availability/latest.json — 6.7h old (limit 24h) |  |
 | I2 | Projected starters | REQUIRED | ✅ PASS | data/projected-starters/2026/projected-starters-2026-10-30.json — 8.2h old (limit 30h) |  |
-| I3 | Weather / venue | ADVISORY | ✅ PASS | data/research-intel/review/2026-w08-weather-venue.json — 5.1h old (limit 48h) |  |
+| I3 | Weather / venue | ADVISORY | ✅ PASS | data/research-intel/review/2026-w08-weather-venue.json — 5.2h old (limit 48h) |  |
 
 ## Analytics
 
@@ -63,10 +63,10 @@ All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md`
 }
  | Cover failed feeds by browser pulls. |
 | E6 | Podcast intel (audio transcripts + promoted picks) | REQUIRED | ✅ PASS | transcripts processed=14; promoted episodes=0, picks=0; YouTube picks file=yes |  |
-| E7 | Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...) | REQUIRED | ✅ PASS | 116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (15.7h) |  |
-| E8 | Twitter/X bookmark intel (text) | REQUIRED | ✅ PASS | 107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (1.5h) |  |
+| E7 | Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...) | REQUIRED | ✅ PASS | 116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (15.8h) |  |
+| E8 | Twitter/X bookmark intel (text) | REQUIRED | ✅ PASS | 107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (1.6h) |  |
 | E9 | Twitter media queue (videos / images / threads) processed | ADVISORY | ✅ PASS | data/twitter/w08-media-extraction-queue.json: 0 Sunday-slate items still pending ({}) |  |
-| E10 | Preferred-expert final cards (coverage) | ADVISORY | ⚠️ WARN | roster status=draft_pending_andy; 33/37 experts with a Week 8 card found; missing: none; excused (no card published): Collin Wilson, Ed Feng, Joe Madden, Pat Fitzmaurice | Andy confirms data/expert-tracking/preferred-experts-2026.json (status "confirmed"). Find each missing expert's card (article / podcast / YouTube / X) and ingest it, or list them under "experts_no_card": {"names": [...], "note": ...} in the gate-manual file after checking. |
+| E10 | Preferred-expert final cards (coverage) | ADVISORY | ✅ PASS | roster status=confirmed; 33/37 experts with a Week 8 card found; missing: none; excused (no card published): Collin Wilson, Ed Feng, Joe Madden, Pat Fitzmaurice |  |
 
 ## Synthesis queues
 
@@ -167,3 +167,36 @@ All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md`
 | image_or_chart | Cody Main | done | https://x.com/cmain7/status/2115818876864958729 | Grok (reads tweet images) first; if Grok returns no data, screenshot v |
 | image_or_chart | Sal Bets | done | https://x.com/salbets_/status/2115803148317270318 | Grok (reads tweet images) first; if Grok returns no data, screenshot v |
 | image_or_chart | The Prop Dealer | done | https://x.com/thepropdealer/status/2115628503236329931 | Grok (reads tweet images) first; if Grok returns no data, screenshot v |
+
+## Preflight freshness table (`weekly-synthesis-preflight.mjs`)
+
+```
+Weekly synthesis preflight — 2026 Week 8 — 2026-10-31T06:13:41.214Z
+WEEK_START=2026-10-27T04:00:00.000Z  WEEK_END=2026-11-03T04:00:00.000Z  (use in SQL kickoff/captured filters)
+ ok   Player availability               7h  1158 events  [data/player-availability/latest.json]
+ ok   Projected starters                8h    [data/projected-starters/2026/projected-starters-2026-10-30.json]
+ ok   Roster map                        8h  845 players  [data/nfl-rosters/roster-map-latest.json]
+ ok   ESPN rosters 2026 (full)          9h  2558 players, 32 teams  [data/nfl-rosters/espn-full-rosters-latest.json]
+ ok   ROSTER VET (gate)                     ROSTER VET: PASS - 0 blocking issue(s); player legs resolved: card 7, digest 0; ESPN rosters 2026-10-30T20:44Z (9.5h old, 2558 players)  [python: python3]  -> details: data/generated/master-intel/w08-roster-vet.json
+ ok   Secondary matchups                8h  week 8  [data/secondary-matchups/latest.json]
+STALE Usage trends (season)            85h  through wk 7  [data/generated/player-usage-trends-2026.json]
+ ok   ESPN box scores                       109 files (expect ~112)
+ ok   Prediction markets                8h  4141 contracts  [data/prediction-markets/latest.json]
+ ok   Cross-market coherence            8h    [data/prediction-markets/cross-market-coherence-latest.json]
+ ok   SuperContest lines               10h  14 compared game(s)  [data/supercontest/live-market-comparison.json]
+ ok   BKR current lines                 4h  captured 2026-10-31T01:50:29.530Z; ? games  [data/generated/props/bookmaker-live-2026-10-31-week8.json]
+ ok   Alpha packet                      8h    [data/alpha/alpha-packet-2026.json]
+ ok   Expert dossiers                   5h    [data/expert-dossiers/steve-fezzik.json]
+ ok   Host citations                    5h    [data/generated/host-citations-latest.json]
+ ok   Player-props intel                8h    [docs/player-props-intel/player-props-intel-latest.md]
+STALE Promoted podcast intelligence      1h  0 promoted episode(s), 0 pick(s), 0 analysis note(s)  [data/generated/master-intel/w08-pull.json]
+ ok   Team DVOA / power                55h    [data/generated/team-profiles/team-power-ratings-2026.json]
+STALE Prop boards Week8                     0 board file(s)
+STALE Futures ledger                  222h    [data/futures-imports/andy-portfolio-ledger-2026.json]
+ ok   BEO futures board (import)        3h    [data/futures-imports/betonline-2026-10-30.json]
+STALE BKR futures board (import)      552h    [data/futures-imports/bookmaker-2026-10-07.json]
+ ok   Promotions                       54h    [data/sportsbooks/promotions-2026.json]
+ ok   Gemini API billing (LLM)              active (HTTP 200)
+
+5 stale of 24. Supabase feeds (odds, injuries, intel notes, expert picks) are checked separately via SQL.
+```
