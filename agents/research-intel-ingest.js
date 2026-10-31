@@ -42,6 +42,8 @@ async function fetchViaCurl(feed) {
       '-o', tmpFile,
       '-w', '%{http_code} %{content_type}',
       ...(ua ? ['-A', ua] : []),
+      // 2026-10-30: per-feed extra request headers (e.g. r.jina.ai X-Return-Format).
+      ...((feed.curlHeaders || []).flatMap((h) => ['-H', h])),
       '--max-time', '30',
       '--max-filesize', String(maxBytes),
       feed.url,
@@ -159,6 +161,14 @@ const FEEDS = [
     // flag at all => clean 200 with the real RSS body intact (12 items).
     // curlUA: null tells fetchViaCurl to omit the -A flag entirely.
     curlUA: null,
+    // 2026-10-30: r.jina.ai began converting the RSS to Markdown (XML tags
+    // stripped), so every run failed "Response is not a parseable RSS/Atom
+    // feed" and Action Network articles stopped reaching research_intel_notes.
+    // `X-Return-Format: text` makes the reader return the original body with
+    // the <rss>/<item> XML intact (verified live: 200, 15 items). The direct
+    // URL also returns valid RSS again from residential networks, but GitHub
+    // runners were IP-blocked, so the proxy stays.
+    curlHeaders: ['X-Return-Format: text'],
     bodyOnlyFeedCheck: true,
   },
   {
