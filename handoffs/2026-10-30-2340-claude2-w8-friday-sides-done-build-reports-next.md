@@ -32,3 +32,9 @@ Build BOTH Intel reports (Master + SuperContest) tonight for review, from Friday
 - Saturday: BEO props rerun ~2 PM; AN + BKR recapture; Saturday gate (`final_gate_check.py --week 8 --stage saturday`, snapshot dist to `_friday` first).
 - Antigravity: B image-card numbers + C (Cody Brown parlay) undelivered. DKP needs Andy's manual login.
 - Kickoffs: DST ends Sunday — early games 10:00 AM PST, inactives ~8:30 AM PT.
+
+## Post-commit update (~11:55 PM): SC pitches rewritten (uncommitted, on disk)
+- `reports/intel/supercontest-pitches-2026-w08.json` was rewritten to the Week 7 schema and passes the pitch checks in check_sc_report.py.
+- AI five: CIN -10.5, BAL +3.5, CLE +3.5, LAC +6.5, CHI +3. Alternates: MIN +3.5, MIA +7, JAX -9.5. No locked card yet.
+- **The build will fail until two sections are fixed.** build.py takes the five from `## SuperContest` in `reports/bets/2026-w08-card.md` and the alternates from the narratives file. Both still have the Friday baseline (CIN/JAX/MIN/DAL/BAL; alternates CHI/PHI/LAR, plus the bad CIN fair -15 and MIN fair -0.4). Update both when you rewrite them in steps 5–6.
+- ATL@TB props are also complete (uncommitted).

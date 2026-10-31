@@ -37,6 +37,9 @@ REQUIRED_IDS = {
     'report-controls': 'Expand/collapse controls',
     'side-toc': 'Contents rail',
     'disclaimer': 'Disclaimer',
+    'sc4-gg': 'v4 Game-by-Game filter/sort grid',
+    'sc4-xbar': 'v4 Experts filter bar',
+    'sc-pick-summary': 'v4 collapsible Pick Summary',
 }
 REQUIRED_TEXT = {
     'sc-who': 'Andy / Amanda "who am I" toggle (localStorage key sc-who)',
@@ -91,6 +94,15 @@ def check(week, season, out_dir=None):
     for wk in range(1, week + 1):
         if f'sc-week-review-{wk}' not in ids: fails.append(f'season review: missing Week {wk} post-mortem (#sc-week-review-{wk})')
     if 'Amanda Rose' not in text: fails.append('standings: Amanda Rose not shown')
+    # v4 layout (Andy, locked 2026-10-31)
+    n_cards = len(rep.get('our_five', [])) + len(rep.get('alternates', []))
+    def n_cls(cls):
+        return len(re.findall(r'class="(?:[^"]*\s)?' + re.escape(cls) + r'(?:\s[^"]*)?"', raw))
+    for cls, label, need in (('sc4-tiles', 'proposal stat tiles', n_cards), ('sc4-bul', 'bulleted Pitch/Pushback', 2 * n_cards),
+                             ('sc4-x', 'experts for/against', n_cards), ('sc4-gh', 'Master-style game headers', 1), ('sc4-pj', 'projected score in game headers', 1)):
+        if n_cls(cls) < need: fails.append(f'v4 layout: {label} missing ({n_cls(cls)} of {need}+ .{cls})')
+    ranked = raw.split('id="sc-ranked"')[-1].split('id="sc-market"')[0]
+    if 'data-sort' not in ranked or 'Favorite' not in ranked: fails.append('v4 layout: Every Side, Ranked is not the one-row-per-side sortable table')
 
     # 2. Spread-only
     for pat, label in FORBIDDEN:

@@ -1,0 +1,491 @@
+{
+  "game": "CLE@PIT",
+  "pass": "props",
+  "generated_at": "2026-10-31T06:45:00Z",
+  "packet_built_at": "2026-10-31T06:09:18.504339+00:00",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Jaylen Warren (PIT) receiving yards OVER",
+      "line": 24.5,
+      "price": -104,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "B",
+      "fair_line": 30.5,
+      "edge_pts": 6.0,
+      "playable_to": "to 26.5 -115; pass at 27.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "7/7 games over 24.5 (pbp W1-W7: 27,34,49,33,87,28,36), median 34",
+        "CLE blitz 23.6% + Rodgers TTT 2.51 -> checkdowns; Warren 14.2% tgt share, 53.6% route rate (FTN)"
+      ],
+      "counter_case": "Dowdle 6/6-45 receiving in W7 can siphon RB targets"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Quinshon Judkins (CLE) rushing yards UNDER",
+      "line": 46.5,
+      "price": -108,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "B",
+      "fair_line": 40.5,
+      "edge_pts": 6.0,
+      "playable_to": "to 44.5 -115; pass at 42.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "PIT run D DVOA -26.6%, EPA/att -0.128, YBCO 0.82 (FTN)",
+        "Judkins aYDOE -0.947; 3/6 under; Sampson back (46% snaps W7)",
+        "sides script: CLE trails early"
+      ],
+      "counter_case": "17-96 in W7; CLE OL graded well (Fano 92.2 PFF)"
+    },
+    {
+      "market": "player_prop",
+      "selection": "DK Metcalf (PIT) receiving yards UNDER",
+      "line": 52.5,
+      "price": -103,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C+",
+      "fair_line": 46.5,
+      "edge_pts": 6.0,
+      "playable_to": "to 50.5; pass at 48.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "4/7 under, median 40",
+        "SEP% 27.6%, DVOA -21.4% (FTN); Andrew Erickson u4.5 rec (BettingPros YouTube) same thesis",
+        "CLE pressure 32.6%; man 71% in W4"
+      ],
+      "counter_case": "115 yds vs CLE in W4; one deep shot clears"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jaylen Warren (PIT) rushing yards OVER",
+      "line": 65.5,
+      "price": 101,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": 70.5,
+      "edge_pts": 5.0,
+      "playable_to": "to 67.5 -110; pass at 69.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n",
+      "standalone_preferred": "n",
+      "reasons": [
+        "80 ypg, 4/7 over; aYDOE +1.154",
+        "W4 vs CLE 17-93; PIT leads-early script"
+      ],
+      "counter_case": "Dowdle 9 carries/44% snaps W7; CLE run D DVOA -11.8%"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Deshaun Watson (CLE) rushing yards OVER",
+      "line": 25.5,
+      "price": -108,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": 28.5,
+      "edge_pts": 3.0,
+      "playable_to": "to 27.5; pass at 29.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "4/7 over, median 29",
+        "PIT man-heavy, blitz 26.9% -> scramble lanes; Cody Brown alt 10+ (directional)"
+      ],
+      "counter_case": "W7 only 3-19 when pocket was clean"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Deshaun Watson (CLE) passing yards OVER",
+      "line": 210.5,
+      "price": -109,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": 222.5,
+      "edge_pts": 12.0,
+      "playable_to": "to 215.5; pass at 220.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n",
+      "standalone_preferred": "n",
+      "reasons": [
+        "268 vs PIT W4; PIT pass D DVOA +5.3%, OPEN% allowed 69.9%",
+        "PIT CB Slaughter + Echols OUT; CLE trailing script"
+      ],
+      "counter_case": "PIT 4th in pass TD rate allowed, 6.7 Y/A; 3/7 over"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Pat Freiermuth (PIT) receiving yards UNDER",
+      "line": 24.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": 21.5,
+      "edge_pts": 3.0,
+      "playable_to": "to 22.5; pass at 20.5",
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n",
+      "standalone_preferred": "n",
+      "reasons": [
+        "4/7 under, last two 11 and 20",
+        "snaps 72%->53% as Darnell Washington's role grows"
+      ],
+      "counter_case": "Cody Brown Freiermuth 10+ alt (opposing direction); one seam catch clears"
+    },
+    {
+      "market": "atd",
+      "selection": "Darnell Washington (PIT) anytime TD",
+      "line": 0.5,
+      "price": 278,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "3 TDs (W4 vs CLE, W6, W7), 6 RZ targets team-high; rough share fair ~35% vs 26.5% implied (not a model prob)"
+      ],
+      "counter_case": "35% route rate; TD variance"
+    },
+    {
+      "market": "atd",
+      "selection": "Denzel Boston (CLE) anytime TD",
+      "line": 0.5,
+      "price": 241,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C+",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "3 TDs, 5 RZ targets; PIT CB depth thin"
+      ],
+      "counter_case": "PIT 2.9% pass TD rate allowed"
+    },
+    {
+      "market": "atd",
+      "selection": "Harold Fannin Jr. (CLE) anytime TD",
+      "line": 0.5,
+      "price": 274,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C+",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "3 TDs, 9 targets W7"
+      ],
+      "counter_case": "TDs only W3-W4"
+    },
+    {
+      "market": "atd",
+      "selection": "Quinshon Judkins (CLE) anytime TD",
+      "line": 0.5,
+      "price": 125,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "6 gl10 carries, 3 TDs; near fair"
+      ],
+      "counter_case": "PIT run D elite"
+    },
+    {
+      "market": "atd",
+      "selection": "Pat Freiermuth (PIT) anytime TD",
+      "line": 0.5,
+      "price": 259,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "4 TDs team high"
+      ],
+      "counter_case": "snap share falling"
+    },
+    {
+      "market": "atd",
+      "selection": "Germie Bernard (PIT) anytime TD",
+      "line": 0.5,
+      "price": 235,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "6 RZ targets, 91-94% snaps"
+      ],
+      "counter_case": "1 TD"
+    },
+    {
+      "market": "atd",
+      "selection": "DK Metcalf (PIT) anytime TD",
+      "line": 0.5,
+      "price": 200,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C-",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "filler leg; 4 RZ targets"
+      ],
+      "counter_case": "1 TD in 7 games; short price"
+    },
+    {
+      "market": "atd",
+      "selection": "FADE: Jaylen Warren (PIT) anytime TD",
+      "line": 0.5,
+      "price": -126,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "PASS",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "-126 = 55.8% implied; 2 TDs in 7 games; PIT 1 rush TD all season (FTN)"
+      ],
+      "counter_case": "he is PIT's lead back"
+    },
+    {
+      "market": "first_td",
+      "selection": "Darnell Washington (PIT) first TD",
+      "line": null,
+      "price": 950,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C+",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "PIT scored first TD 4/7 games; Washington W7 first TD"
+      ],
+      "counter_case": "long-shot variance"
+    },
+    {
+      "market": "first_td",
+      "selection": "Pat Freiermuth (PIT) first TD",
+      "line": null,
+      "price": 988,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "team TD leader"
+      ],
+      "counter_case": "falling snaps"
+    },
+    {
+      "market": "first_td",
+      "selection": "Denzel Boston (CLE) first TD",
+      "line": null,
+      "price": 911,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "CLE top RZ WR"
+      ],
+      "counter_case": "CLE 1Q woes (58-13)"
+    },
+    {
+      "market": "first_td",
+      "selection": "Harold Fannin Jr. (CLE) first TD",
+      "line": null,
+      "price": 1022,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": "n",
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y",
+      "standalone_preferred": "n",
+      "reasons": [
+        "CLE's only first TD (W3)"
+      ],
+      "counter_case": "CLE 1Q woes"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -1.0,
+    "total_adj": 0.0,
+    "reasons": [
+      "inherited from sides pass for game script: PIT intl no-bye -0.5, CLE pressure/man -0.5, PIT CB depth -0.25, offset +0.25; total 0.0"
+    ]
+  },
+  "sim_runs": [
+    {
+      "args": "--selftest",
+      "result": "all self-tests passed"
+    },
+    {
+      "args": "--home-line -3.5 --total 38.5 --margin-adj -1.0",
+      "away_cover": 0.5266,
+      "over": 0.5,
+      "note": "context only; props have no calibrated model"
+    }
+  ],
+  "sources": [
+    "data/generated/props/bookmaker-live-2026-10-31-browns-at-steelers.json (2026-10-31T01:51:46Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-28-browns-at-steelers.json (reference only, 2026-10-29T03:20Z)",
+    "data/generated/props/betonline-live-2026-10-29-browns-at-steelers.json (no player props)",
+    "data/nflverse/2026/play_by_play_2026.csv.gz (W1-W7)",
+    "data/nflverse/2026/snap_counts_2026.csv",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (2026-10-30T22:00Z)",
+    "data/generated/team-dossiers/2026-w08/CLE.md, PIT.md",
+    "data/nfl-rosters/roster-map-latest.json",
+    "scratch/w08-game-synthesis-queue-props.json packet: youtube_picks_approved, an_primer, availability, qb_operator_notes, news_notes",
+    "reports/intel/games/2026-w08-game-CLE_at_PIT-sides.md"
+  ],
+  "ambiguities": [
+    "BetOnline player props not posted",
+    "BKR board ~5h old at writing",
+    "TD shares from 7-game samples",
+    "availability feed needs_human_review; QB file not Andy-confirmed",
+    "Brandon Anderson McLaughlin rationale references KC/DEN (likely misattributed); no BKR row anyway",
+    "Friday official injury report not found by web check"
+  ],
+  "delta_checklist": [
+    "Howard OUT: keep Watson rush over, Watson pass over -> PASS",
+    "Harden OUT: Metcalf under -> PASS",
+    "Sampson inactive: Judkins under -> PASS",
+    "Dowdle out: Warren rec/rush overs -> B",
+    "Warren rec yds 27.5+ -> C; Judkins 42.5 -> PASS; Metcalf 48.5 -> PASS; Watson pass 220.5+ -> PASS",
+    "Washington ATD below +240: no longer top value",
+    "Re-check BetOnline Sat ~2 PM"
+  ],
+  "gate_notes": [
+    "missing_inputs: betonline player-prop board thin (22 rows) - BKR only",
+    "roster_vet PASS 8.5h",
+    "Friday web check: no current-week official page found; packet statuses used",
+    "secondary_matchups coach names stale; ignored",
+    "youtube verify flags: Metcalf SEA->PIT, McLaughlin DEN->CLE resolved via roster map",
+    "no BKR QB INT legs"
+  ]
+}

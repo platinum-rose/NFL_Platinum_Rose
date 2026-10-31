@@ -1,235 +1,233 @@
 {
- "schema": "supercontest_pitch_v1",
- "season": 2026,
- "week": 8,
- "as_of": "Friday 2026-10-30 evidence review",
- "method": "Explains the Dashboard AI proposal using the Friday fair-line blend [1] and the Friday market/news write-up [2]. Simulator figures are Friday snapshots; projections are not cover probabilities.",
- "picks": {
-  "CIN": {
-   "game": "TEN@CIN",
-   "pitch": [
-    {
-     "text": "The number is the case: the contest froze CIN at -10.5 on Thursday, and the market has since moved to -12.5 after Carnell Tate was ruled out. That is two points of line value before any opinion, and Friday's blend puts fair at CIN -15.0, which leaves 4.5 points of room against the contest number.",
-     "ref": 1
+  "schema": "supercontest_pitch_v1",
+  "season": 2026,
+  "week": 8,
+  "as_of": "Friday night 2026-10-30 PT synthesis review (supersedes the Friday-baseline version)",
+  "method": "Explains the Dashboard AI proposal from the 13 Friday-night sides syntheses [1] and the refreshed fair lines in reports/intel/w08-model/fair-lines-w08-synth.json, which supersede fair-lines-w08.json. Cover figures are fresh margin-simulator runs at each contest line, with the same view expressed against that line (caps soft 2.0 / hard 3.0). Contest lines: data/supercontest/week-08-lines.json. Proposal: CIN -10.5, BAL +3.5, CLE +3.5, LAC +6.5, CHI +3; alternates MIN +3.5, MIA +7, JAX -9.5. No locked official card for Week 8 exists yet.",
+  "picks": {
+    "CIN": {
+      "game": "TEN@CIN",
+      "pitch": [
+        {
+          "text": "Fair line after the Friday-night refresh is CIN -12.25 against a contest line of CIN -10.5: 1.75 points of edge, the largest on the slate. The simulator, run at the contest number with that same view, has Cincinnati covering 55.1%. The market has kept moving through the contest line (BKR -11.5, Action Network consensus -12.5), so the locked -10.5 is now one to two points cheaper than any book.",
+          "ref": 1
+        },
+        {
+          "text": "The matchup gap widened this week. Cincinnati's passing game (0.223 EPA per dropback, 37.4% FTN pass DVOA) faces a Tennessee defense ranked 23rd in EPA allowed that traded Jeffery Simmons on 10/29. Tennessee's offense is 31st in EPA per play (-0.112, 1.56 points per drive) and plays without Carnell Tate, Tyjae Spears and punter Tommy Townsend. The synthesis script is a 14-to-20-point halftime lead, with Tennessee 0-7 ATS in second quarters.",
+          "ref": 1
+        },
+        {
+          "text": "Steve Makinen (VSiN) has CIN -11.5 as a best bet, BettingPros took CIN -10, and PFT projects 34-17. Spread money leans Cincinnati at 74% of dollars on 67% of tickets, a mild 7-point gap rather than a sharp flag.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "The live path for Tennessee is the backdoor. Cincinnati is without safety Kyle Dugger and slot corner Jalen Davis, and the secondary file rates Tennessee's passing against that group as medium, favouring Wan'Dale Robinson underneath. A 24-7 lead that becomes 24-14 in garbage time lands on the wrong side of 10.5.",
+          "ref": 1
+        },
+        {
+          "text": "Sean Koerner (TEN +10.5, projection +9.7, his top ATS confidence), Dave Tuley (TEN +10.5 best bet) and Even Money (TEN +10) all took Tennessee, though Koerner and Tuley priced it before the Simmons trade. The trend file cuts against big favourites: 6-plus-point favourites are 8-21-3 ATS this season, Burrow is 1-3 ATS when closing above -8.5, and Brad Allen's home favourites are 8-17 ATS.",
+          "ref": 1
+        },
+        {
+          "text": "The Friday-baseline write-up claimed a fair CIN -15.0 and 4.5 points of room; that SRS-only figure is superseded, and the real edge is 1.75. Cincinnati's FTN tables run through Week 6, and Friday injury designations were blank on the team page, so the synthesis used Thursday practice reports. If Ja'Marr Chase sits, the pick drops a tier.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "The matchup supports it. Cincinnati is 4-2 with an 8.2 SRS, third in the league; Tennessee is 1-6 at -9.8 and plays without Tate and Tyjae Spears, with Calvin Ridley questionable. Joe Burrow and Ja'Marr Chase face a Titans defense thinned by a midseason trade of its top interior lineman. BettingPros took Cincinnati at -10 and -10.5.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ],
-   "pushback": [
-    {
-     "text": "Double-digit favorites concede late scores. Cam Ward still has Wan'Dale Robinson and Elic Ayomanor, and Cincinnati is missing Kyle Dugger in the secondary; two explosive plays and a garbage-time touchdown make an 11-point game, which still covers -10.5 but leaves little cushion.",
-     "ref": 2
+    "BAL": {
+      "game": "BAL@BUF",
+      "pitch": [
+        {
+          "text": "The contest gives Baltimore +3.5 while BKR has moved to +3, so the contest keeps the hook over the most common margin; the simulator puts 15.7% of results on exactly 3. Fair line is BUF -2.5, one point of edge, and the simulator has Baltimore covering 52.7% at +3.5. The synthesis grades it B, the strongest underdog on the board.",
+          "ref": 1
+        },
+        {
+          "text": "Lamar Jackson was cleared Friday after full practices Wednesday and Thursday, and he returns against a Buffalo secondary missing C.J. Gardner-Johnson (suspension) and two corners on IR, with nickel Dee Alford questionable. Buffalo's pass defense rates 27.3% DVOA and allows 0.234 EPA per dropback; Baltimore's pass offense rated 45.7% DVOA with Lamar. With Lamar in Weeks 1 to 4, Baltimore was 3-1 and +40.",
+          "ref": 1
+        },
+        {
+          "text": "Spread money is the clearest signal in the game: Buffalo draws 57% of tickets but only 38% to 39% of money, a 19-point gap and a sharp flag on Baltimore. Joe Gibbs (Warren Sharp), Stuckey (Lamar 13-2 ATS as an underdog), Steve Fezzik, Sharp or Square, Even Money and the BettingPros panel took Baltimore, nearly all at +3.5; Makinen is on +3.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Buffalo is off a bye and Baltimore is off a 35-13 loss; rest-advantage teams are 22-8-1 ATS this season and 15-3-1 ATS as favourites. Lamar is 3-12 ATS outdoors since 2025, Buffalo covered the last three home meetings with him, and this is his first game back from a high-ankle sprain behind a line missing guard Vega Ioane.",
+          "ref": 1
+        },
+        {
+          "text": "Matt Perrault (BUF -3.5), Seth Woolcock (BUF -3) and PFT (Bills 28-24) are on Buffalo, and Sean Koerner projects BUF -3.3, which makes +3.5 only a slight Baltimore edge at his number. BetMGM lists Bills -3 as its most-bet side by tickets, and the half point that moved toward Baltimore at BKR is already priced in there.",
+          "ref": 1
+        },
+        {
+          "text": "52.7% is a modest edge built on a one-point adjustment. Buffalo's FTN data is a week stale because of the bye, and the sources disagree on Buffalo's head coach. If Lamar is a surprise inactive, the synthesis flips to a Buffalo lean and Baltimore should be pulled.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "Even Money's Titans +10 is an earlier, teaser-style dissent. The 4.5 points of room come from an SRS baseline that cannot see injuries or schedule strength, so treat it as a rough Friday figure. Most of the move already happened on Tate's news, which the contest number captures.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "JAX": {
-   "game": "IND@JAX",
-   "pitch": [
-    {
-     "text": "The contest gives JAX -9.5 against a market of -10 and a fair line of JAX -11.4, so the pick has 1.9 points of room and stays below 10. The Action Network open was -7.5, and the market has moved 2.5 points toward Jacksonville since.",
-     "ref": 1
+    "CLE": {
+      "game": "CLE@PIT",
+      "pitch": [
+        {
+          "text": "Fair line is PIT -2.5 against a contest line of PIT -3.5, one point of edge, and the simulator has Cleveland covering 52.7% at +3.5. BKR has the same number but charges -113 on Cleveland, which needs 53.05% to break even; the synthesis calls the contest, with no juice, the best use of this read. A 3-point Pittsburgh win (15.4% of simulated results) still cashes.",
+          "ref": 1
+        },
+        {
+          "text": "Pressure is the mechanism. Cleveland pressures at 32.6% (41.4% quick pressure) and played man on 71% of snaps in the Week 4 meeting, a 27-24 Browns win with five sacks of Rodgers. Rodgers posts -0.601 EPA per dropback under pressure with a 40.9% pressure-to-sack rate. Pittsburgh is down corners Doneiko Slaughter and Brandin Echols, with Israel Mukuamu on IR and Donte Kent on PUP, and is playing its first game back from an international trip without a bye.",
+          "ref": 1
+        },
+        {
+          "text": "Matt Perrault, Andrew Erickson, Chad Millman, Steve Fezzik, Even Money and Dave Tuley (VSiN best bet) all took Cleveland at +3.5, the same number the contest offers. PFT's 16-13 Pittsburgh projection would also land inside the number. Division underdogs are 23-10 ATS this season.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Pittsburgh is the better team on paper: SRS +3.82 (8th) to -1.43 (21st), and net DVOA +10.1% to -3.4%. Cleveland has been outscored 58-13 in first quarters, and its line allows a 9.6% sack rate against T.J. Watt, with tackle Tytus Howard questionable after a concussion. An early deficit that forces Watson into giveaways is the path to a 7-to-10-point Steelers win.",
+          "ref": 1
+        },
+        {
+          "text": "Sean Koerner, the sharpest number in the packet, has PIT -3.5 with a -3.7 projection. Evan Abrams' trends favour Pittsburgh: 22-1 straight up and 16-7 ATS at home against Cleveland since 2004, Rodgers 39-25-1 ATS in revenge games, and favourites with referee Kemp 30-10 ATS. The public is on Cleveland (BetMGM's second most-bet side, 67% of money), and the book now charges more for +3.5.",
+          "ref": 1
+        },
+        {
+          "text": "The synthesis grades this C+, a one-point edge. The QB confirmations for this game were web-checked rather than Andy-confirmed. If Howard is out, the view trims by about 0.25 point; Cleveland is still the contest side, but with almost no cushion.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "Trevor Lawrence faces an Indianapolis secondary rated high-vulnerability with cornerback Justin Walley out, which suits Brian Thomas Jr. and Parker Washington. Jacksonville is 4-2 with an 8.4 SRS, second in the league; Indianapolis is 2-5 at -4.1. BettingPros backed Jacksonville at -7.5 earlier in the week.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ],
-   "pushback": [
-    {
-     "text": "Jacksonville leans on one back, Bhayshul Tuten, and Jakobi Meyers is questionable. If Daniel Jones keeps the game short with Josh Downs underneath, a 24\u201317 result lands under the number.",
-     "ref": 2
+    "LAC": {
+      "game": "LAC@LAR",
+      "pitch": [
+        {
+          "text": "Fair line is LAR -5.5 against a contest line of LAR -6.5, one point of edge, and the simulator has the Chargers covering 52.7% at +6.5. The market opened LAR -7.5 and has moved a full point toward the Chargers, through the 7, so the contest line now matches BKR rather than lagging it.",
+          "ref": 1
+        },
+        {
+          "text": "The Rams' defensive front is depleted: Myles Garrett will not return this week, and Kobie Turner and Poona Ford are on IR, so their -20.7% rush defense DVOA was built with players who are not available. Davante Adams is out after surgery, which pushes the Rams toward the run and a slower second half. The Chargers come off a bye with a defense ranked 7th in EPA allowed (-0.047), and Herbert has lost 13 of 16 games as a west-coast underdog, only one by 10 or more.",
+          "ref": 1
+        },
+        {
+          "text": "The Chargers draw 31% of spread tickets but 44% of money, a 13-point gap and a sharp flag. Steve Makinen (VSiN best bet) and Stuckey are on the Chargers, and 6-plus-point favourites are 8-21-3 ATS this season. Koerner's +6.4 projection is effectively the number, so he is neutral here.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "The Chargers' offense ranks last in EPA per play (-0.202), scores 15.0 points a game, allows a 9.5% sack rate and has 12 giveaways; the team is 0-5-1 ATS. Without Derwin James, the secondary file rates the Rams' passing matchup high, with Stafford targeting the middle. The SRS gap (LAR -0.37, LAC -10.1) implies about Rams -10, and a 7-point Rams win, the second key margin, loses this pick.",
+          "ref": 1
+        },
+        {
+          "text": "Jason Radowitz, Iain MacMillan and the BettingPros early card all took LAR -6.5, the contest number, and PFT projects 30-13. Stafford is 14-7 ATS as a favourite. The opposing case does not depend on a stale line.",
+          "ref": 1
+        },
+        {
+          "text": "The synthesis grades this C with no gap between contest and market. Trent McDuffie's status is still conflicted between the operator notes and the availability feed. If Rams money climbs back to 70% or more, the synthesis drops the side to a pass.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "The edge is modest: 1.9 points of room from a baseline with six or seven games per team. Spread money leans Jacksonville (65% of money, 55% of bets) but not by enough to flag, and most of the 2.5-point move is already priced in.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "MIN": {
-   "game": "MIN@DET",
-   "pitch": [
-    {
-     "text": "Minnesota +3.5 in the contest matches the market, and Friday's blend makes fair DET -0.4: 3.1 points of room, with the key number 3 protected. The simulator has Minnesota covering 58.1% at +3.5. It is the week's only Platinum Rose side.",
-     "ref": 1
+    "CHI": {
+      "game": "CHI@SEA",
+      "pitch": [
+        {
+          "text": "Fair line is SEA -2.0 against a contest line of SEA -3, one point of edge. The simulator has Chicago winning the contest point 48.5% of the time with an 8.3% push, which is 52.9% excluding pushes and about 0.53 expected points with the half-point push. The power numbers are even (CHI SRS 6.77, 4th; SEA 4.57, 7th), so the 3 is mostly home field.",
+          "ref": 1
+        },
+        {
+          "text": "Seattle left tackle Charles Cross is out, and Darnold's EPA per dropback falls from +0.341 clean to -0.729 under pressure. Chicago added Jeffery Simmons by trade on 10/29 and has Montez Sweat back from suspension, and it also has the rest edge for the Monday game. The synthesis script is a low-scoring game decided by one score.",
+          "ref": 1
+        },
+        {
+          "text": "Brandon Anderson, Even Money, Steve Fezzik and Lock & Cash took Chicago at +3.5, and ESPN's betting staff took +3. Koerner projects exactly +3, so he is neutral.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Seattle's defense ranks 2nd in EPA and is the best unit in the game, and Darnold is 8-0 straight up in home night starts since leaving the Jets. Seattle also added guard Quenton Nelson, who starts Monday, which partly offsets Cross. A Seattle win by 7 built on one defensive score is a plausible result.",
+          "ref": 1
+        },
+        {
+          "text": "Doug Kezirian (SEA -3), Joe Gibbs, Sharp or Square's Simon (SEA -3), Zachary Cohen (SEA -2.5) and PFT (20-14) are on Seattle. BetMGM reports 71% of money on SEA -3, and the BKR price has moved to -119 on Seattle, so the market wants -3.5. Four of the Chicago picks were made at +3.5 and have lost the hook.",
+          "ref": 1
+        },
+        {
+          "text": "For a Monday game the final injury report comes out Saturday, so these designations are practice-based. Simmons' snap share after five days with the team is unknown. The 52.9% figure leans on 8.3% push mass at 3, so this is a C-tier read, not a strong edge.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "Minnesota is 6-0, first in SRS (8.5) and net points (+8.5 a game). Kyler Murray gets a Detroit secondary rated high-vulnerability without Kerby Joseph, which is where Justin Jefferson, Jordan Addison and T.J. Hockenson line up. Sharp or Square takes MIN +3.5.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ],
-   "pushback": [
-    {
-     "text": "Detroit is at home with Jared Goff, Amon-Ra St. Brown and Jahmyr Gibbs, none carrying a Friday designation. Action Network, BettingPros and Even Money list Lions -3, and the line moved from the 3 open to 3.5 toward Detroit.",
-     "ref": 2
+    "MIN": {
+      "game": "MIN@DET",
+      "pitch": [
+        {
+          "text": "After the refresh, fair line is DET -2.7 against a contest line of DET -3.5: 0.8 point of edge, crossing the 3, and the simulator has Minnesota covering 52.1%. The contest is half a point better than BKR's +3. The Friday baseline's fair DET -0.4 came from an SRS adjustment of -3.08 that broke the 3.0 hard cap and has been rejected.",
+          "ref": 1
+        },
+        {
+          "text": "Minnesota's #1 defense (-0.193 EPA per play, 39% pressure, 71% blitz rate) meets Goff, whose EPA per dropback drops from +0.467 clean to -0.310 under pressure. Detroit is without safety Kerby Joseph, has Avonte Maddox and Thomas Harper on IR, and lists Roger McCreary as questionable. Simon Hunter, Chad Millman and Dave Tuley (VSiN best bet) all took MIN +3.5.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Detroit's #4 offense (30.7 points a game) is the best unit on the field, and Minnesota's offense is 29th in EPA against the easiest schedule in the league, with a 4-0 record in one-score games. Goff is 5-0 straight up and 4-0-1 ATS against Murray.",
+          "ref": 1
+        },
+        {
+          "text": "This is the alternate because the evidence is split. Six named voices are on Detroit, including Koerner (DET -3.5, projection -3.8), and spread money runs 51% Detroit on 41% of tickets, a 10-point flag toward Detroit. BetMGM shows 74% of money on DET -3.5. The 0.8-point edge is the smallest on this card.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "Spread money is 51% on Detroit with 42% of bets, a mild lean the other way. The 58.1% is a Friday snapshot built on an SRS baseline that ignores schedule strength, so it is a moderate edge, not a certainty.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "DAL": {
-   "game": "ARI@DAL",
-   "pitch": [
-    {
-     "text": "DAL -6.5 in the contest sits a half-point under the market's -7 and under the key number 7. Friday's blend puts fair at DAL -8.2, so the pick has 1.7 points of room, and a seven-point Dallas win covers here but only pushes at the book.",
-     "ref": 1
+    "MIA": {
+      "game": "NE@MIA",
+      "pitch": [
+        {
+          "text": "Fair line is NE -6.5 against a contest line of NE -7: half a point of edge. The simulator has Miami covering 48.6% with a 5.6% push at 7, or 51.5% excluding pushes. BKR charges -117 on the same number, so the synthesis keeps Miami as a contest-only candidate.",
+          "ref": 1
+        },
+        {
+          "text": "The forecast is about 20 mph wind with an 80% chance of rain, which hurts a pass-first New England offense (0.228 EPA per dropback, -16.3% rush DVOA), and A.J. Brown missed Thursday and Friday practice. The line has moved toward Miami against 75% of tickets. Sean Koerner has MIA +7 at his #3 ATS confidence (projection +6.5), and New England is 3-10-1 ATS at Miami since 2012.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "New England has 10 days of rest, an SRS of +5.80 to Miami's -6.14, and a raw power gap of about 9 points. Maye is 16-0 straight up and 12-4 ATS as a 3-plus-point favourite, and Vrabel is 5-0 ATS with New England off a loss. Miami is without tackle Kadyn Proctor and ranks 30th in EPA allowed.",
+          "ref": 1
+        },
+        {
+          "text": "This is an alternate because the edge is half a point and 7 is a key number: a 7-point New England win is only a push. The BettingPros, Sharp or Square and Even Money picks were made at +7.5 and are half a point stale. PFT projects New England 31-20.",
+          "ref": 1
+        }
+      ]
     },
-    {
-     "text": "Arizona is 2-5 at -9.7, near the bottom of the league by SRS, and plays without defensive tackle Walter Nolen III. Dak Prescott and CeeDee Lamb face a medium-tier Arizona secondary. Even Money took Dallas -6.5.",
-     "ref": [
-      1,
-      2
-     ]
+    "JAX": {
+      "game": "IND@JAX",
+      "pitch": [
+        {
+          "text": "Fair line is JAX -10.5 against a contest line of JAX -9.5, one point of edge, and the simulator has Jacksonville covering 52.9%. The contest sits under the 10 that BKR now shows, after a 2.5-point move from the -7.5 open, almost all of it after Indianapolis traded Quenton Nelson and DeForest Buckner on 10/27.",
+          "ref": 1
+        },
+        {
+          "text": "Indianapolis averages 4.51 yards per play, ranks 26th in EPA (-0.056) and has 12 giveaways, and now faces a Jacksonville run defense at -31.1% rush DVOA without its best guard. Jacksonville is 3rd in offensive EPA per play (0.152) and off a bye, and is 18-3-1 ATS against Indianapolis since 2015.",
+          "ref": 1
+        }
+      ],
+      "pushback": [
+        {
+          "text": "The synthesis rates this a lean, not a candidate, because of heavy counter-signals. Dave Tuley (IND +10 best bet) and Sean Koerner (IND +10, #6 confidence) are on Indianapolis, while all the Jacksonville picks were made at -7.5. Referee Adrian Hill's home favourites are 0-12 ATS since 2025, and Lawrence is 0-6 ATS with him.",
+          "ref": 1
+        },
+        {
+          "text": "6-plus-point favourites are 8-21-3 ATS this season, and Jakobi Meyers is questionable. The likely script is a 24-27 to 13-17 Jacksonville win, which puts a late Indianapolis score inside the 7-to-10 cover band. It is the third alternate for those reasons.",
+          "ref": 1
+        }
+      ]
     }
-   ],
-   "pushback": [
-    {
-     "text": "Heavy money is on Arizona to win outright (73% of the money on 10% of those bets), and Sharp or Square took ARI +6.5. George Pickens is questionable and KaVontae Turpin is out, which thins Dallas' receiving group behind Lamb.",
-     "ref": 2
-    },
-    {
-     "text": "1.7 points of room is a small edge from a rough Friday baseline. Jacoby Brissett protecting the ball and Trey McBride winning his matchup is a realistic path to a 27\u201324 game.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "BAL": {
-   "game": "BAL@BUF",
-   "pitch": [
-    {
-     "text": "The contest gives BAL +3.5 while the market has moved to +3, so the pick gains a half-point and the hook over the key number 3. 63% of spread money is on Baltimore with 44% of bets, a big-money flag, and the line fell from the 3.5 open to 3.",
-     "ref": 2
-    },
-    {
-     "text": "Four named voices back Baltimore at +3.5: Warren Sharp, Sharp or Square, Even Money and BettingPros. Lamar Jackson is a full go, while Buffalo lists DJ Moore, Dalton Kincaid and right tackle Spencer Brown as questionable, and Josh Allen faces a Baltimore secondary missing Jaylinn Hawkins.",
-     "ref": 2
-    }
-   ],
-   "pushback": [
-    {
-     "text": "Friday's blend disagrees: fair BUF -4.0 leaves Baltimore half a point short at +3.5. Buffalo is 5-1 with a 3.3 SRS; Baltimore is 4-3 at -0.9. That is why BAL is the fifth pick, not a Platinum Rose side.",
-     "ref": 1
-    },
-    {
-     "text": "One BettingPros row has BUF -3.5. If Moore and Kincaid both play, Buffalo's discount disappears, and Allen's running can turn this into a seven-point Bills win.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "CHI": {
-   "game": "CHI@SEA",
-   "pitch": [
-    {
-     "text": "CHI +3 matches the market and Friday's blend makes fair SEA -1.7, 1.3 points of room. The line has held at the -3 open for Monday night.",
-     "ref": 1
-    },
-    {
-     "text": "Chicago is 5-2 with a 6.8 SRS, fourth in the league, against Seattle at 4.6. Seattle's left tackle Charles Cross is doubtful and its defensive front has several questionable players. Action Network and Even Money took CHI +3.5.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ],
-   "pushback": [
-    {
-     "text": "Sharp or Square took SEA -3 and Warren Sharp backs Seattle. Spread money is split 50\u201350 while 60% of bets are on Chicago, so the money leans Seattle relative to the tickets.",
-     "ref": 2
-    },
-    {
-     "text": "It is an alternate because the room is only 1.3 points, and Monday's injury report on Cross and Colston Loveland can move it before kickoff.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
-  },
-  "PHI": {
-   "game": "PHI@WAS",
-   "pitch": [
-    {
-     "text": "PHI +5.5 in the contest against a market of +6; Friday's blend before injuries makes fair WAS -4.3, so the pick keeps 1.2 points of room even after giving up the half-point.",
-     "ref": 1
-    },
-    {
-     "text": "Heavy money backs Philadelphia to win outright (68% of the money on 17% of those bets), and Action Network took the Eagles +6. The teams are nearly even by SRS (WAS -7.7, PHI -7.4).",
-     "ref": 2
-    }
-   ],
-   "pushback": [
-    {
-     "text": "The line moved from WAS -3.5 to -6 because DeVonta Smith, Dontayvion Wicks and Britain Covey are out at receiver and cornerback Jonathan Jones and linebacker Jihaad Campbell are out too. The baseline cannot see any of that, so the 1.2 points are probably overstated.",
-     "ref": [
-      1,
-      2
-     ]
-    },
-    {
-     "text": "BettingPros took WAS -3.5 earlier, and Washington's Stefon Diggs draws a medium-tier Philadelphia secondary. It is an alternate because the contest number is worse than the market.",
-     "ref": 2
-    }
-   ]
-  },
-  "LAR": {
-   "game": "LAC@LAR",
-   "pitch": [
-    {
-     "text": "LAR -6.5 matches the market, and Friday's blend makes fair LAR -8.2, 1.7 points of room. The Chargers are 0-6 with the league's worst SRS (-10.1).",
-     "ref": 1
-    },
-    {
-     "text": "The Chargers' secondary is missing two starters, Derwin James Jr. and Deane Leonard, which rates Matthew Stafford to Puka Nacua as the slate's clearest passing mismatch. The Rams are 3-4 but carry a -0.4 SRS against the Chargers' -10.1, a gap of nearly 10 points before home field.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ],
-   "pushback": [
-    {
-     "text": "The line moved from the 7.5 open to 6.5 while 70% of bets sat on the Rams, reverse line movement against this side. No named expert backs the Rams.",
-     "ref": 2
-    },
-    {
-     "text": "Justin Herbert can still produce a late backdoor score with Ladd McConkey, and Trent McDuffie is questionable for the Rams. It is an alternate because the market has moved a full point away from it, from 7.5 to 6.5, and the 1.7 points of room rest on a rough Friday baseline.",
-     "ref": [
-      1,
-      2
-     ]
-    }
-   ]
   }
- }
 }

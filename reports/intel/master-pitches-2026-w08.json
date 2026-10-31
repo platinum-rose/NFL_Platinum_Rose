@@ -1,59 +1,209 @@
 {
- "schema": "master_pitches_v1",
- "season": 2026,
- "week": 8,
- "built_at": "2026-10-30T15:50:00-07:00",
- "note": "The Pitch and The Pushback for every Platinum Rose straight-bet recommendation. Keys are GAME|Side or GAME|Total and must match digest section C.",
- "picks": {
-  "MIN@DET|Side": {
-   "pick": "MIN +3.5 (BKR +3 +102)",
-   "pitch": [
-    {
-     "text": "The number: Friday's blend makes Detroit only a 0.4-point favorite, so +3.5 carries a 3.1-point edge and protects the key number 3. The simulator has Minnesota covering 58.1% at +3.5 (Friday snapshot, not a fresh run). Bookmaker's Thursday board had MIN +3 at +102; the consensus +3.5 is the better number.",
-     "ref": [
-      1
-     ]
+  "schema": "master_pitches_v1",
+  "season": 2026,
+  "week": 8,
+  "built_at": "2026-10-30T23:50:26-07:00",
+  "note": "Friday review build; four B totals only. Replaces afternoon MIN spread elevation. All proposals, no execution.",
+  "picks": {
+    "ARI@DAL|Total": {
+      "game": "ARI@DAL",
+      "pick": "Under 54.5 (-108)",
+      "pitch": [
+        {
+          "text": "The Friday BKR number is Under 54.5 at-108, against a synthesis fair total 52.5. The refreshed margin simulator gives 56.05% under with no total push, versus 51.92% breakeven; keep the recommendation only to 53.5 at-110 and pass at 53.",
+          "ref": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Arizona uses 27.2 seconds per play and 6.3 plays per drive, and its red-zone touchdown rate is 43%. A patched offensive line and Jacoby Brissett's 6.8 a DOT favor long short-passing drives that end in field goals. The saved pace-neutral estimate 51.4 fits a Dallas 27-20 to 30-23 type win.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "Betting Pros published Under 52.5, which leaves two more points at the saved 54.5. Ron Torbert's 64-44-1 under record and the 43% over rate on late-season 53+ totals support the direction, although overlapping trend samples do not count as independent forecasts.",
+          "ref": [
+            1
+          ]
+        }
+      ],
+      "pushback": [
+        {
+          "text": "The strongest opposing case is defensive weakness: Dallas allows 0.140 EPA/play(#32), Arizona 0.102(#28), and Dallas's offense is#5 with a 74%red-zone touchdown rate. If Arizona protects well enough for McBride to sustain drives and Dallas finishes possessions,31-27 defeats this under.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The total rose from the opener-file 53 to 54.5 despite 64%under tickets, so there is market evidence against us even without a named full-game over pick. George Pickens, Hjalte Froholdt and Arizona secondary designations remain meaningful; an inactive changes both offenses' paths rather than guaranteeing an under.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The AN primer's 49.5 opener conflicts with the archived 53.0, and the packet lacks a roof/weather confirmation. The 2-point total adjustment is judgment capped at 2.0, not an independent model discovery; the review uses the saved Friday snapshot and still requires Sunday availability and a current price.",
+          "ref": [
+            1,
+            2
+          ]
+        }
+      ],
+      "sources": {
+        "1": "Saved Friday matchup synthesis: reports/intel/games/2026-w08-game-ARI_at_DAL-sides.md, completed 2026-10-30 late Friday PT. Contains attributed expert references and explicit counter-case.",
+        "2": "Refreshed same-input Friday quant: reports/intel/w08-model/fair-lines-w08-synth.json; BKR capture data/generated/props/bookmaker-live-2026-10-31-week8.json, captured 2026-10-31T01:50-01:52Z; no new market capture."
+      }
     },
-    {
-     "text": "The matchup: Minnesota is 6-0, first in SRS (8.5) and in net points (+8.5 a game), while Detroit is 4-2 at a 1.7 SRS. Kyler Murray gets a Lions secondary rated high-vulnerability with safety Kerby Joseph out, which is where Justin Jefferson, Jordan Addison and T.J. Hockenson line up. Minnesota's only Friday designation is safety Jay Ward (questionable).",
-     "ref": [
-      1,
-      2
-     ]
+    "BAL@BUF|Total": {
+      "game": "BAL@BUF",
+      "pick": "Over 55 (-101)",
+      "pitch": [
+        {
+          "text": "Over 55 at-101 needs 50.25% on decisive outcomes. The refreshed simulator has 51.52%over,45.45%under and 3.03%push, or 53.13%over excluding pushes, around a fair total 56. This is a modest B read at 55;55.5 drops to C and 56 is a pass.",
+          "ref": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Buffalo has the#1 offense by EPA/play(0.204) and the#31 defense(0.128), while Baltimore's defense ranks#22. Bills games average 61.3 combined points, and Buffalo allows 2.76 points per drive. Lamar Jackson's Friday clearance restores a credible scoring exchange against a thin Bills secondary.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The saved AN split puts 83%of total money on the Over against about 50-51%of bets. Betting Pros published Over 53.5; Warren Sharp's Bills team-total Over 28.5 is related support rather than a separate full-game prediction. Reports of sharp Over purchases at 52.5 and 53.5 show the direction and the earlier price.",
+          "ref": [
+            1
+          ]
+        }
+      ],
+      "pushback": [
+        {
+          "text": "The best under case starts with how much has already moved: the saved opener is 53.5 and the primer says 51.5, while the current offer is 55. Buying after the sharp action leaves less margin, and late-season 53+totals in the cited sample went 33-44-1 to the Over.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "Jackson is returning after three missed games and may run less following the high-ankle sprain. A Buffalo under-center/run-heavy script, limited receiving options or red-zone rushing control can shorten possessions; Baltimore's last two combined totals were 23 and 48.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "Dalton Kincaid, DJ Moore, Spencer Brown and other Bills designations remain unresolved, and Roquan Smith's final Friday designation was not confirmed in the packet. The Buffalo coach name conflict and two opener values are excluded from the thesis; the narrow simulation cushion cannot absorb a bad new injury or a worse 56 price.",
+          "ref": [
+            1,
+            2
+          ]
+        }
+      ],
+      "sources": {
+        "1": "Saved Friday matchup synthesis: reports/intel/games/2026-w08-game-BAL_at_BUF-sides.md, completed 2026-10-30 late Friday PT. Contains attributed expert references and explicit counter-case.",
+        "2": "Refreshed same-input Friday quant: reports/intel/w08-model/fair-lines-w08-synth.json; BKR capture data/generated/props/bookmaker-live-2026-10-31-week8.json, captured 2026-10-31T01:50-01:52Z; no new market capture."
+      }
     },
-    {
-     "text": "Who agrees: Sharp or Square takes MIN +3.5, and Even Money uses Minnesota as a teaser leg. Spread money is close to even (49% of money on Minnesota against 58% of bets), so there is no sharp flag on either side.",
-     "ref": [
-      2
-     ]
+    "IND@JAX|Total": {
+      "game": "IND@JAX",
+      "pick": "Under 46 (-103)",
+      "pitch": [
+        {
+          "text": "Under 46 at-103 is the saved BKR offer, against the synthesis fair 44.5. The refreshed simulation gives 53.03%under with 3.02%push, or 54.68%under excluding pushes, compared with 50.74%breakeven at-103. Keep it to 45.5 at-110 and pass at 45.",
+          "ref": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "Indianapolis has a#26 offense(-0.056 EPA/play),4.51 yards per play and 12 giveaways. Losing Quenton Nelson reduces protection against a Jacksonville front generating 29.7%pressure; Jacksonville's-31.1%rush DVOA and 33.9%run success allowed can force an inefficient Colts passing game.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "Betting Pros has Under 46.5, and Seth Woolcock's Colts team-total Under 18.5 supports the Indianapolis scoring constraint without counting as the same full-game bet. The saved wind and divisional-under systems fit the direction. A Jacksonville lead built on its run game gives a 24-27 to 13-17 scoring path.",
+          "ref": [
+            1
+          ]
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Jacksonville scores 30.8 points per game at home under the cited Coen/Lawrence sample, and the Colts lost DeForest Buckner as well as Nelson. That defensive downgrade and Indianapolis's 12 giveaways can create short fields and 30+Jaguars points without long drives.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "A garbage-time Indianapolis touchdown is a direct threat to 46: the prior 34-31 Houston game shows Jacksonville can enter a shootout. The under has no decisive money split behind it, with 54%of tickets and 52%of money on the under, so this is a matchup case rather than a sharp-money call.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The opener records disagree at 46.5 versus 48.5, and weather sources disagree about how much rain and wind to expect. Jacksonville FTN tables run through W 6 after the bye. Sunday clear/calm conditions trim confidence, while Taylor/Meyers availability or a materially different 45-or-lower total requires a fresh decision.",
+          "ref": [
+            1,
+            2
+          ]
+        }
+      ],
+      "sources": {
+        "1": "Saved Friday matchup synthesis: reports/intel/games/2026-w08-game-IND_at_JAX-sides.md, completed 2026-10-30 late Friday PT. Contains attributed expert references and explicit counter-case.",
+        "2": "Refreshed same-input Friday quant: reports/intel/w08-model/fair-lines-w08-synth.json; BKR capture data/generated/props/bookmaker-live-2026-10-31-week8.json, captured 2026-10-31T01:50-01:52Z; no new market capture."
+      }
+    },
+    "NE@MIA|Total": {
+      "game": "NE@MIA",
+      "pick": "Under 43.5 (-111)",
+      "pitch": [
+        {
+          "text": "Under 43.5 at-111 needs 52.61%, against the refreshed simulator's 56.04%under and a fair total 41.5. The recommendation is playable to 42.5 at-115 and passes at 42; two points of Friday judgment is already the soft cap and should not be increased casually.",
+          "ref": [
+            1,
+            2
+          ]
+        },
+        {
+          "text": "The saved Friday forecast has about 20 mph sustained wind,38 km/h gusts and 80%rain probability. Miami plays only 56.5 snaps per game at 29.5 seconds per play, while New England's offense is far better passing(+38.0%FTN DVOA)than rushing(-16.3%). A weather-limited pass-first favorite against a slow opponent supports fewer sustained scoring drives.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The total moved from 44.5 in the opener file to 43.5 against about 77%over bets and money. Hochuli's 60-44-2 under sample and the cited 1297-1122-32 wind system support the mechanism; no named full-game under recommendation was found, so those trends are context rather than expert consensus.",
+          "ref": [
+            1
+          ]
+        }
+      ],
+      "pushback": [
+        {
+          "text": "Miami's defense ranks#30 by EPA/play allowed(0.119), and New England has already scored 45 against Las Vegas. Drake Maye can create efficient drives if Miami's rain arrives in short bursts; the saved Patriots team total 25.5 alone accounts for almost 60%of 43.5.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "Wet-field turnovers by Maye or Malik Willis can produce easy points instead of suppressing offense. The cited Vrabel AFC East sample is 12-3 to the over, and PFT's 31-20 projection opposes the low-scoring path, although it is an editorial score prediction rather than a priced total bet.",
+          "ref": [
+            1
+          ]
+        },
+        {
+          "text": "The wind forecast is about 38 hours before kickoff and drives most of this edge: under 12 mph sustained Sunday morning cuts the total adjustment to-1.0 and confidence to C. A.J.Brown and Tre Veyon Henderson remain questionable, the availability feed has misclassification caveats, and Miami FTN is through W 6; refresh those inputs before any execution.",
+          "ref": [
+            1,
+            2
+          ]
+        }
+      ],
+      "sources": {
+        "1": "Saved Friday matchup synthesis: reports/intel/games/2026-w08-game-NE_at_MIA-sides.md, completed 2026-10-30 late Friday PT. Contains attributed expert references and explicit counter-case.",
+        "2": "Refreshed same-input Friday quant: reports/intel/w08-model/fair-lines-w08-synth.json; BKR capture data/generated/props/bookmaker-live-2026-10-31-week8.json, captured 2026-10-31T01:50-01:52Z; no new market capture."
+      }
     }
-   ],
-   "pushback": [
-    {
-     "text": "Detroit's path: Jared Goff at home with Amon-Ra St. Brown and Jahmyr Gibbs, neither carrying a Friday designation after practicing in full Thursday. A Gibbs-led early lead turns this into a one-touchdown Lions win, and the market has priced Detroit as the better team despite the records.",
-     "ref": [
-      2
-     ]
-    },
-    {
-     "text": "Who disagrees: Action Network, BettingPros and Even Money all list Lions -3. The line moved from the Action Network open of 3 to 3.5 toward Detroit, and 51% of spread money sits on Detroit with 42% of bets, a nine-point lean that is short of a flag but points the other way.",
-     "ref": [
-      2
-     ]
-    },
-    {
-     "text": "Limits: the edge comes from an SRS baseline built on six or seven games per team; it ignores schedule strength and injuries, so the 58.1% is a rough Friday figure, not high confidence. Thursday's Bookmaker parlay 740984963 also carries Detroit's moneyline, so this single partly offsets it.",
-     "ref": [
-      1,
-      3
-     ]
-    }
-   ],
-   "sources": {
-    "1": "Friday 10/30 fair-line blend and simulator: reports/intel/w08-model/fair-lines-w08.json (AN consensus Fri ~3:40 PM PT moved 35% toward SRS baseline; margin-simulator.mjs) and digest scratch/w08-synthesis-digest-sat.md.",
-    "2": "Friday 10/30 market and news write-up: reports/intel/master-intel-narratives-2026-w08.md (AN splits Fri ~3:40 PM PT, AN openers Sun 10/25 5 PM PT, ESPN Friday injury designations, BKR Thu 10/29 4 PM PT board).",
-    "3": "Live ticket 740984963: reports/bets/2026-w08-card.md section 5."
-   }
   }
- }
 }

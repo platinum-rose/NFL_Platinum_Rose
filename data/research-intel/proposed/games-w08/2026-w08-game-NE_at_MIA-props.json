@@ -1,0 +1,403 @@
+{
+  "game": "NE@MIA",
+  "pass": "props",
+  "generated_at": "2026-10-31T06:40:00Z",
+  "packet_built_at": "2026-10-31T06:09:18.504339+00:00",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Ollie Gordon II (MIA) rushing yards OVER",
+      "line": 61.5,
+      "price": -115,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "B",
+      "fair_line": "66 (median)",
+      "edge_pts": 4.5,
+      "playable_to": "63.5 -120; pass at 64.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "100/88/103 rush yds in last 3 games; 25 carries W7",
+        "FTN 5.0 YPC, rush DVOA +30%",
+        "Wind/rain + slow MIA tempo favour run volume (sides script NE by 4-10)",
+        "Brandon Anderson (AN) over 58.5 \u2014 now 61.5 (+3)"
+      ],
+      "counter_case": "NE leads by 14+ early and MIA abandons the run; NE run D is middling (DVOA -6.8%), not 27th"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Malik Willis (MIA) completions UNDER",
+      "line": 16.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "B",
+      "fair_line": "15 (median)",
+      "edge_pts": 1.5,
+      "playable_to": "u16.5 to -125; pass at u15.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Completions 15/14/20/9/15/14 \u2014 under 5 of 6",
+        "Wind ~20 mph + 80% rain; MIA run-first, 56.5 plays/g",
+        "NE pressure 32% vs MIA 9.6% sack rate, OT Proctor OUT",
+        "Chris Welsh (BettingPros) u16.5"
+      ],
+      "counter_case": "Trailing script pushes Willis to 27-36 attempts (W1, W3)"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Malik Willis (MIA) rushing yards OVER",
+      "line": 33.5,
+      "price": -108,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "B",
+      "fair_line": "38 (median)",
+      "edge_pts": 4.5,
+      "playable_to": "35.5; pass at 36.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "39/6/56/11/74/37 \u2014 over 4 of 6",
+        "Pressure + wind push scrambles; rush TD in 3 of 6 starts",
+        "Correlates positively with completions UNDER"
+      ],
+      "counter_case": "NE spy/contain or wet surface; 2-carry games (W2, W4)"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Drake Maye (NE) rushing yards OVER",
+      "line": 23.5,
+      "price": -102,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "26 (median)",
+      "edge_pts": 2.5,
+      "playable_to": "24.5; pass at 25.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Over in 5 of 7 (47/17/18/54/25/24/26)",
+        "Welsh 5-star o21.5 (proj 27.1); Cody Brown 15+ alt",
+        "Wind encourages scrambles"
+      ],
+      "counter_case": "Last three cleared by <=2.5 yds; lead script = RB clock-killing + kneels"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Hunter Henry (NE) receiving yards OVER",
+      "line": 44.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "47 (median)",
+      "edge_pts": 2.5,
+      "playable_to": "46.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "62/44/48/71 last four; 7/7 for 71 W7",
+        "MIA two-high match zone soft to TE/seam; S Harrison IR",
+        "Short-area target in wind; B if A.J. Brown OUT"
+      ],
+      "counter_case": "Wind lowers NE pass rate; full-strength Brown takes targets"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Ollie Gordon II (MIA) carries OVER (alternative to rush yds \u2014 do not stack)",
+      "line": 15.5,
+      "price": 105,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "17 (median)",
+      "edge_pts": 1.5,
+      "playable_to": "o15.5 to -115",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "18 and 25 carries last two games",
+        "Volume-only expression of the run script"
+      ],
+      "counter_case": "Blowout script; Achane status unverified"
+    },
+    {
+      "market": "atd",
+      "selection": "Ollie Gordon II anytime TD",
+      "line": null,
+      "price": 120,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "B",
+      "fair_line": "~+110 (48%)",
+      "edge_pts": null,
+      "playable_to": "to +105",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Rush TD in each of last 4 games played",
+        "MIA 7 rush TD vs 4 pass TD",
+        "DKP reference +133"
+      ],
+      "counter_case": "MIA team total 17.5 = ~2 TDs; Willis vultures"
+    },
+    {
+      "market": "atd",
+      "selection": "Malik Willis anytime TD",
+      "line": null,
+      "price": 219,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+200",
+      "edge_pts": null,
+      "playable_to": "to +200",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Rush TD in 3 of 6 starts",
+        "DKP +223"
+      ],
+      "counter_case": "Low MIA scoring; Gordon owns goal line"
+    },
+    {
+      "market": "atd",
+      "selection": "Rhamondre Stevenson anytime TD",
+      "line": null,
+      "price": -145,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~-110",
+      "edge_pts": null,
+      "playable_to": "-120 (better if Henderson OUT)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Primary NE RB; 3 TD in 7 games",
+        "NE team total 25.5"
+      ],
+      "counter_case": "Price short vs DKP -122 and 43% TD rate"
+    },
+    {
+      "market": "atd",
+      "selection": "Hunter Henry anytime TD",
+      "line": null,
+      "price": 130,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+190",
+      "edge_pts": null,
+      "playable_to": "+170",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "2 of last 3; MIA 4th-most TE TDs (Prop Guru); Welsh ATD"
+      ],
+      "counter_case": "BKR +130 well short of DKP +203"
+    },
+    {
+      "market": "atd",
+      "selection": "DeMario Douglas anytime TD",
+      "line": null,
+      "price": 185,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+250",
+      "edge_pts": null,
+      "playable_to": "+240 (better if Brown OUT)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "3 TDs W5-W6; slot vs match zone"
+      ],
+      "counter_case": "Low recent volume (4 tgt W7)"
+    },
+    {
+      "market": "first_td",
+      "selection": "Ollie Gordon II first TD",
+      "line": null,
+      "price": 691,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+525",
+      "edge_pts": null,
+      "playable_to": "+600",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "MIA first-TD share ~40% x ~40% Gordon share of MIA TDs",
+        "DKP +733"
+      ],
+      "counter_case": "NE likelier to score first (fav -7, Vrabel 24-8 1H ATS div)"
+    },
+    {
+      "market": "first_td",
+      "selection": "Rhamondre Stevenson first TD",
+      "line": null,
+      "price": 427,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+550",
+      "edge_pts": null,
+      "playable_to": "+500 (fair if Henderson OUT)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Likeliest single first scorer"
+      ],
+      "counter_case": "Short price"
+    },
+    {
+      "market": "first_td",
+      "selection": "Malik Willis first TD",
+      "line": null,
+      "price": 910,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+1100",
+      "edge_pts": null,
+      "playable_to": "+1000",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "QB rush TDs"
+      ],
+      "counter_case": "Slightly short"
+    },
+    {
+      "market": "first_td",
+      "selection": "DeMario Douglas first TD",
+      "line": null,
+      "price": 868,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:20.577Z",
+      "tier": "C",
+      "fair_line": "~+1000",
+      "edge_pts": null,
+      "playable_to": "+1000",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NE",
+      "pool_confidence": 11,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Brown-out boost"
+      ],
+      "counter_case": "Thin volume"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": null,
+    "total_adj": null,
+    "reasons": [
+      "Props have no calibrated model; game context inherited from sides pass (margin +0.5, total -2.0 home-positive vs BKR +7/43.5)"
+    ]
+  },
+  "sim_runs": [
+    {
+      "note": "No props simulation; sides sim (MIA +7/43.5, adj +0.5/-2.0): MIA cover 51.5%, Under 56.0% \u2014 see 2026-w08-game-NE_at_MIA-sides.json"
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-props.json (NE@MIA packet, built 2026-10-31T06:09Z)",
+    "data/generated/props/bookmaker-live-2026-10-31-patriots-at-dolphins.json (capturedAt 2026-10-31T01:52:20Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-28-patriots-at-dolphins.json (reference only, 2026-10-29T03:20Z)",
+    "reports/intel/games/2026-w08-game-NE_at_MIA-sides.md",
+    "data/research-intel/proposed/games-w08/2026-w08-game-NE_at_MIA-sides.json",
+    "data/vault-seed/nflverse/player_stats_weekly.csv (2026 W1-W7, mtime 10/27)",
+    "data/generated/player-usage-trends-2026.json (through W7)",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (MIA through W6)",
+    "data/generated/team-dossiers/2026-w08/NE.md, MIA.md",
+    "packet youtube_picks_approved (Welsh, Anderson, Vetri, Cody Brown, Koerner), pick_signals (Prop Guru), props_intel_articles (Cohen)"
+  ],
+  "ambiguities": [
+    "BetOnline Sunday player props not posted (22-row board); re-run Sat ~2 PM PT",
+    "No BKR rows for A.J. Brown yds, NE RB rush yds, Doubs, Hollins",
+    "De'Von Achane status unverified (no BKR row, no usage since W3)",
+    "Friday official injury reports not confirmed via web search",
+    "Anderson cites NE run D 27th; FTN shows rush DVOA -6.8% (middling)",
+    "Projections are hand-built medians, not model output"
+  ],
+  "delta_checklist": [
+    "A.J. Brown inactive (~11:55 AM PT) -> Henry yds to B; Henry/Douglas up ATD list",
+    "Henderson OUT -> Stevenson ATD B-, FTD +427 fair",
+    "Achane active -> Gordon to C; pass rush yds above 63.5",
+    "Wind <12 mph Sunday AM -> Willis completions to C",
+    "Gordon playable to 63.5 -120; Willis cmp u16.5 to -125; Willis rush to 35.5; Maye rush to 24.5; Henry yds to 46.5",
+    "Spread NE -8.5 or more -> downgrade Gordon/Willis props one tier"
+  ],
+  "gate_notes": [
+    "missing_inputs: BetOnline player-prop board thin \u2014 BKR used exclusively; no cap needed",
+    "roster_vet PASS (8.5 h); roles from qb_operator_notes/availability/nflverse/FTN only",
+    "Kickoff not passed \u2014 forward picks; roster gate not rerun",
+    "No QB INT legs (BKR SGP rule); no tickets/stakes",
+    "Web search for Friday final injury reports returned no fetchable 2026 page"
+  ]
+}

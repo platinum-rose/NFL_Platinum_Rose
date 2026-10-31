@@ -1,172 +1,205 @@
-# Master Intel narratives, 2026 Week 8
+# Master Intel narratives, 2026 Week 8 — Friday review edition
 
-Friday 10/30 build (about 3:45 PM PT), written after the Friday official injury designations. Lines: Action Network consensus read about 3:40 PM PT Friday, with Bookmaker's Thursday 4 PM PT board where the book differs. Betting splits: Action Network, Friday about 3:40 PM PT. Fair lines come from the Friday blend in `reports/intel/w08-model/fair-lines-w08.json` (market moved 35% toward an SRS baseline); that baseline does not see injuries, and each block says where that matters. Rewrite on Saturday night after the Bookmaker prop capture and again after Sunday inactives. CAR@GB (TNF) is final, GB 27–19.
+Rewritten from all 13 completed Friday sides and props syntheses after 11:30 PM PT on October 30. Bookmaker prices are the saved Friday 6:50–6:52 PM PT capture dated 2026-10-31 in UTC; Action Network splits were captured about 7:06 PM PT Friday. These are review snapshots, not verified current offers. Each game's evidence is in `reports/intel/games/2026-w08-game-<AWAY>_at_<HOME>-sides.md` and the corresponding `-props.md`, preserving the underlying dossier, article, transcript, injury and simulator references.
+
+Projected scores express the corrected synthesis fair margin and total in `reports/intel/w08-model/fair-lines-w08-synth.json`, rounded to a tenth. They are illustrative centers, not calibrated exact-score forecasts. The earlier SRS-only DET -0.4 and CIN -15 baselines are superseded. CAR@GB is FINAL, GB 27–19, and supplies no new recommendation. The four elevated straight recommendations are ARI@DAL Under, BAL@BUF Over, IND@JAX Under and NE@MIA Under. All other selections remain leans or proposed templates. Friday status conflicts require the Saturday refresh and inactives check.
 
 ## TEN@CIN
-projection: CIN 30, TEN 16
+projection: CIN 29, TEN 17
 
 ### Game script
-Joe Burrow gets a Tennessee defense that was thinned by a midseason trade, but the bigger problem is the Titans' offense. Cam Ward is down Carnell Tate and Tyjae Spears, and Calvin Ridley is questionable, which leaves Wan'Dale Robinson, Elic Ayomanor and Tony Pollard to move the ball. Cincinnati's offense runs through Ja'Marr Chase (anytime TD -126 on Thursday's Bookmaker board) and Chase Brown (-177), with Tee Higgins at even money. Cincinnati is 4-2 with an 8.2 SRS, third in the league; Tennessee is 1-6 at -9.8. The path is a two-score Bengals lead by halftime and a Titans offense that settles for field goals. 30–16 covers the 12.5 by a point and a half.
+Joe Burrow faces a Tennessee defense ranked 23rd in EPA allowed after trading away its leading interior defender. Cincinnati's 0.223 EPA per dropback and 37.4% passing DVOA give Ja'Marr Chase and Tee Higgins a route to an early lead. Cam Ward's offense ranks 31st in EPA and loses Carnell Tate and Tyjae Spears; Tennessee also lists punter Tommy Townsend out. Chase Brown can then shorten the second half. The corrected fair center is CIN -12.25 with 46.5 points, clearing BKR -11.5 but leaving little room for its -113 price.
 
 ### Why the card leans this way
-The model and the market agree on Cincinnati, but the market got there first: the Action Network open was CIN -10 and the line is now -12.5 after Tate was ruled out. BettingPros backs CIN at -10 and -10.5; Even Money's Titans +10 is a teaser-style leg. Splits: 67% of bets and 74% of money on CIN, no sharp gap. The fair line is CIN -15.0 (57.2% to cover at -12.5), but that is a lean, not a recommendation, because the price already moved 2.5 points. The real value is the SuperContest's frozen CIN -10.5. The live Bookmaker weekend parlays carry Chase anytime TD and Burrow 2+ passing TDs (-386). Projected total 46 sits at the 46.5 line.
+Steve Makinen backs CIN -11.5. Sean Koerner's TEN +10.5 and Dave Tuley's TEN +10.5 oppose it, but their numbers predate the Simmons trade; Koerner projected CIN -9.7. Action Network gives CIN 67% of spread bets and 74% of money, a modest seven-point gap. The card passes the current sportsbook spread and total. The Dashboard AI takes frozen CIN -10.5 instead: the saved adjusted contest simulation gave 55.1% cover probability. Higgins receiving and Mike Gesicki scoring remain props-pass leans.
 
 ### What breaks it
-Double-digit favorites give up backdoor touchdowns. If Ridley plays and Ward hits two explosive plays against a Bengals secondary missing Kyle Dugger, a 27–17 game misses the number. A run-heavy script built on Chase Brown also shortens the game.
+A late Ward touchdown can turn comfortable control into a failed double-digit cover. Calvin Ridley's questionable status changes Tennessee's ability to create that backdoor. Cincinnati's second-half clock management limits its winning margin. Friday team-page designation columns were incomplete, CIN's FTN tables stop at Week 6, and total-opener sources disagree between 47 and 48.5. None justifies restoring the rejected CIN -15 baseline.
 
-## IND@JAX
-projection: JAX 29, IND 18
+## ARI@DAL
+projection: DAL 30, ARI 23
 
 ### Game script
-Trevor Lawrence faces an Indianapolis secondary rated high-vulnerability this week, with cornerback Justin Walley out. That favors Brian Thomas Jr. and Parker Washington (anytime TD +100 at Bookmaker), with Jakobi Meyers questionable. Bhayshul Tuten (-130 to score) carries the run game. Daniel Jones has Josh Downs and Keenan Allen but loses return man Anthony Gould. Jacksonville is 4-2 with an 8.4 SRS, second in the league; Indianapolis is 2-5 at -4.1. Expect Jacksonville to lead throughout and lean on Tuten late. 29–18 covers the 10 by one.
+Dallas's fifth-ranked EPA offense can move the ball through CeeDee Lamb and Javonte Williams against Arizona's 28th-ranked EPA defense. Williams ran for 155 yards on 25 carries last week. Jacoby Brissett answers with short passing: his 6.8-yard average target depth and 4.6% explosive-pass rate favor long possessions. Arizona's patched offensive line and 43% red-zone touchdown rate create field-goal endings. That supports a 52.5 fair total against BKR 54.5, despite Dallas's last-ranked EPA defense. The projected Dallas margin is about 6.5 against -7.
 
 ### Why the card leans this way
-Fair JAX -11.4 against -10 is a 1.4-point edge, just under the bar, so it is a lean. BettingPros has Jacksonville -7.5 from earlier in the week and the Under 46.5. Warren Sharp and Action Network both like Tuten's rushing yards over 60.5, and Action Network adds Parker Washington receiving yards. Splits: 55% of bets and 65% of money on JAX (a 10-point gap, short of a big-money flag). The open was JAX -7.5, so the line has already moved 2.5 toward Jacksonville. The weekend parlays carry Tuten anytime TD and the Under 47.5. Projected total 47 is a half-point over 46.5.
+Under 54.5 -108 is an elevated $20 single. The refreshed adjusted simulator puts the Under at 56.1%; playable to 53.5 -110, pass at 53. BettingPros backed Under 52.5, a worse number. No named direct full-game Over was captured; Brandon Anderson's Lamb receiving Over supplies a player-specific opposing script. Steve Fezzik and Kendra Middleton supported DAL -6.5; Chad Millman and Simon Hunter preferred ARI +7, one shared-show cluster. Dallas spread bets/money are balanced at 46%/47%, while 90% of its moneyline tickets carry only 28% of money. The Arizona upset case remains a lean.
 
 ### What breaks it
-Ten points is a lot for a team that relies on one back. If Meyers sits and Indianapolis keeps Lawrence in third-and-long, Jones can hang around with Downs underneath, and a 24–17 finish misses. A Lawrence turnover in plus territory swings it.
-
-## CLE@PIT
-projection: PIT 21, CLE 17
-
-### Game script
-This is the slate's lowest total (39.5) for a reason. Aaron Rodgers works the short game to Jaylen Warren (anytime TD -109) and DK Metcalf, while Deshaun Watson leans on Quinshon Judkins (+121) and Jerry Jeudy. Pittsburgh's secondary is thin, with Doneiko Slaughter and Brandin Echols both out, which is Cleveland's best lever through Denzel Boston and Jeudy. Pittsburgh is 5-2 with a 3.8 SRS; Cleveland is 5-2 too, but its point differential is negative (-1.9 a game). A field-goal game decided in the fourth quarter, Pittsburgh by four, lands a half-point past the 3.5.
-
-### Why the card leans this way
-The experts and the model disagree. Even Money, BettingPros and Sharp or Square all take CLE +3.5; the model's fair PIT -4.6 says Pittsburgh. That split keeps the side a lean on Cleveland for the experts' sake and a pass for the card. Even Money and BettingPros also take the Under 39.5. Splits: 75% of bets and 78% of money on the Over, no gap, and the total has held at 39.5 since the open. The weekend parlays carry PIT ML and the Under 40.5. Projected total 38 is under.
-
-### What breaks it
-Pittsburgh's missing corners. If Watson connects on two downfield shots, Cleveland wins outright and the Under dies with it. A Rodgers interception returned for points flips the margin by a touchdown.
+Two bottom-five defenses can concede explosive scores, and Dallas's 74% red-zone touchdown rate threatens the Under. George Pickens remains status-dependent. KaVontae Turpin's posted BKR markets must be excluded because the Friday source lists him out. The total rose despite Under-heavy tickets, an opposing movement. The opener file says 53 while the primer says 49.5; use the file as baseline.
 
 ## BAL@BUF
-projection: BUF 28, BAL 26
+projection: BUF 29, BAL 27
 
 ### Game script
-The best quarterback matchup of the day and the highest total (54.5). Lamar Jackson is a full go, and Josh Allen gets a Baltimore secondary rated high-vulnerability with safety Jaylinn Hawkins out. Buffalo's receivers are the question: DJ Moore and Dalton Kincaid are questionable and Spencer Brown, the right tackle, is too. Zay Flowers is Baltimore's main target against a medium-tier Bills secondary. Expect trading touchdowns, with Allen's legs (Action Network likes his 9.5 rushing attempts) and Jackson's (25.5 rushing yards) doing the extra work. A 28–26 Bills win: Baltimore covers +3.
+Lamar Jackson's return gives Baltimore a way to trade drives with Josh Allen. Buffalo ranks first in offensive EPA and 31st on defense; Baltimore is eighth and 22nd. Bills games average 61.3 combined points, with Buffalo scoring 3.13 points per drive and allowing 2.76. Zay Flowers' receiving workload and James Cook's rushing role express that script. Buffalo's bye supplies a late-game rest advantage, but its depleted secondary makes separation difficult. The corrected fair center is BUF -2.5 and 56 points, close to the saved BKR spread of three.
 
 ### Why the card leans this way
-This is where the market and the model split hardest. Warren Sharp, Sharp or Square, Even Money and BettingPros (twice) all take BAL +3.5; one BettingPros row has BUF -3.5. The splits back the experts: 63% of spread money on Baltimore with only 44% of bets, a big-money flag, and the line fell from the 3.5 open to 3. The model's fair BUF -4.0 disagrees, so it stays a lean (BAL +3) and the SuperContest's BAL +3.5 is the place to take it. The projection disagrees with the model on purpose: it moves toward Baltimore for the two Bills questionables and the money. The Over drew 84% of money on 49% of bets, and BettingPros has Over 53.5; projected total 54 is at the number. The weekend parlays carry BUF ML on one ticket and the Over 53 on the other.
+Over 55 -101 is an elevated $20 single: playable at 55 -110, C at 55.5, pass at 56. The refreshed simulation gives 53.1% Over excluding pushes, versus 51.5% raw wins with about 3.0% pushes. BettingPros backed Over 53.5; Warren Sharp's Bills team-total Over 28.5 supports Buffalo scoring. No named direct full-game Under was captured. Around 50–51% of Over bets carry 83% of money. Stuckey, Steve Fezzik, Simon Hunter and Chad Millman favored BAL, mostly +3.5; Matt Perrault backed BUF -3.5 and Seth Woolcock BUF -3. The AI takes BAL +3.5, preserving the hook lost at BKR. Buffalo spread tickets/money are 57%/38–39%.
 
 ### What breaks it
-Moore and Kincaid both playing removes the Bills' discount. If Allen controls the clock with his legs, Buffalo wins by a touchdown and the Baltimore case fails.
+Jackson returning from three missed games could mean rust or reduced rushing, and Buffalo can run clock after leading. Dalton Kincaid, DJ Moore and Roquan Smith require renewed checks. Buffalo FTN tables are one week old because of the bye. The total opener is 53.5 in the file versus 51.5 in the primer; today's 55 is a worse number than the experts' earlier Over.
 
-## MIN@DET
-projection: DET 24, MIN 23
+## CLE@PIT
+projection: PIT 21, CLE 18
 
 ### Game script
-Minnesota is 6-0 and first in SRS (8.5) and net points (+8.5 a game), yet a 3.5-point underdog in Detroit. Kyler Murray gets a Lions secondary rated high-vulnerability without safety Kerby Joseph, with Justin Jefferson, Jordan Addison and T.J. Hockenson the receivers on that matchup. Jared Goff has Amon-Ra St. Brown and Jahmyr Gibbs, neither carrying a Friday designation, against a Minnesota defense with only safety Jay Ward questionable. Detroit is 4-2 at a 1.7 SRS. The likely path is a one-score game in the fourth quarter, with Minnesota's passing game matching Detroit's. A 24–23 Lions win: Minnesota covers by two and a half.
+Deshaun Watson and Aaron Rodgers lead offenses ranked 20th and 27th in EPA against top-13 defenses. Cleveland's 58–13 first-quarter deficit this season points toward another early Pittsburgh lead, followed by a Browns recovery through pressure and a weakened Steelers corner group. Cleveland sacked Rodgers five times in its 27–24 Week 4 win. The fair center is PIT -2.5 and 38.5 points, leaving Cleveland inside saved +3.5. Jaylen Warren's receiving workload is a props-pass lean, fitting short outlets against pressure without requiring Pittsburgh to dominate.
 
 ### Why the card leans this way
-This is the week's one card recommendation: MIN +3.5. Fair is DET -0.4 against -3.5, a 3.1-point edge, and the simulator has Minnesota covering 58.1%. Independent support: Sharp or Square on MIN +3.5, and Even Money uses Minnesota as a teaser leg. On the other side, Action Network, BettingPros and Even Money list Lions -3. Splits: 42% of bets and 51% of money on Detroit, a nine-point gap, short of a flag. The line moved from the 3 open to 3.5. Bookmaker's Thursday board had MIN +3 at +102; take +3.5 wherever it is posted. The card's Single is MIN +3.5; note that Thursday's Bookmaker weekend parlay 740984963 carries DET ML, which this single partly hedges. Projected total 47 is a point over 46.
+This is a SuperContest choice, not an elevated sportsbook single. Matt Perrault, Andrew Erickson, Chad Millman, Steve Fezzik and Dave Tuley supported CLE +3.5. Repeat audio and YouTube versions count once per expert. Sean Koerner opposes them with PIT -3.5 and a -3.7 projection; Pittsburgh's long home-series advantage and Rodgers revenge history support the countercase. BKR still offers +3.5 but charges -113 rather than the earlier -110. Cleveland spread bets/money are 52%/49%, with no sharp gap. The hook matters: a three-point Pittsburgh win falls inside the contest selection. Under voices obtained 39.5; at 38.5 that value is gone, and the card passes the total.
 
 ### What breaks it
-The half-point toward Detroit is real money, even if small. If Gibbs breaks the game open early, Detroit wins by a touchdown. A Murray turnover in Lions territory is the other way to lose by four or more.
+Cleveland's 9.6% sack rate allowed can create turnovers before its defense settles. Questionable tackle Tytus Howard matters against T.J. Watt; his absence weakens the Browns' recovery path. Pittsburgh is missing Doneiko Slaughter and Brandin Echols, but the Friday injury-page check was incomplete and the feed carries review flags. The international-return angle is only a ten-game sample. A low total does not protect a dog whose offense repeatedly supplies short fields.
+
+## IND@JAX
+projection: JAX 28, IND 17
+
+### Game script
+Trevor Lawrence returns from the bye against an Indianapolis team that traded its starting guard and leading defensive tackle. Jacksonville can establish Bhayshul Tuten and play-action while Daniel Jones works behind a diminished line. The Colts rank 26th in offensive EPA and gain 4.51 yards per play; Jacksonville's run defense has -31.1% DVOA and allows 33.9% success. Jonathan Taylor faces resistance without the offense's best guard. The fair center is JAX -10.5 and 44.5 points, with a late Colts touchdown the main route back inside a large spread.
+
+### Why the card leans this way
+Under 46 -103 is an elevated $20 single. The refreshed simulator gives 54.7% Under excluding pushes, 53.0% raw wins with approximately 3.0% pushes. BettingPros backed Under 46.5; Seth Woolcock backed Colts team-total Under 18.5, and no direct named Over was captured. Brandon Anderson and Brandon Kravitz obtained JAX -7.5, which is gone. Dave Tuley and Sean Koerner backed IND +10. JAX spread bets/money are 56%/64%; Under bets/money are 54%/52%, neither a sharp gap. The card passes the sportsbook side; JAX -9.5 is the third AI alternate. Tyler Warren receptions and Taylor rushing Under remain props-pass leans, with cross-game tickets awaiting BEO prices.
+
+### What breaks it
+The Nelson/Buckner departures can create short fields as well as slow Colts drives. Jacksonville reaching the mid-30s would damage the Under even if Taylor struggles. Jakobi Meyers' questionable status can redistribute targets to Parker Washington. Forecast sources disagree about rain. The total opener is 46.5 in the saved file versus 48.5 in the primer, and JAX's FTN tables end at Week 6 because of the bye. Recheck before Sunday.
 
 ## ATL@TB
 projection: TB 23, ATL 20
 
 ### Game script
-Tampa Bay is without Emeka Egbuka, which narrows Baker Mayfield's targets to Chris Godwin, Cade Otton and the run game through Bucky Irving (anytime TD -130 at Bookmaker). Michael Penix has Drake London (+146 to score) and Kyle Pitts, but Atlanta's offense lives on Bijan Robinson, priced -249 to score; Brian Robinson Jr. is out, so the carries concentrate. Both teams have a positive SRS (TB 3.7, ATL 2.9) despite records of 2-5 and 3-4. Expect a grinding game in which both run games, Bijan Robinson's and Irving's, eat clock. The Friday forecast for Tampa is a 45% chance of rain with 21 km/h wind (Open-Meteo). Tampa by three, a half-point past 2.5.
+Michael Penix Jr. faces Tampa Bay's third-ranked EPA defense and a 42% blitz rate. Atlanta prefers the run, but Tampa Bay allows -0.163 EPA per rush with a 25% stuff rate. That forces dropbacks from an offense with -1.10 passing EPA under pressure. Baker Mayfield's offense is also inefficient, 28th in overall EPA, and loses Emeka Egbuka. Bucky Irving's 24-carry, 106-yard, two-touchdown Week 7 line offers a route to Tampa Bay control. Fair TB -3 and 42.5 points suggests a slow division game; Bijan Robinson's rushing Under is a props-pass lean.
 
 ### Why the card leans this way
-The side is a coin flip: fair TB -2.4 against -2.5. Action Network and Sharp or Square take TB -2.5; BettingPros takes ATL +1.5. The total is the more interesting market. 70% of bets are on the Over, but 52% of money is on the Under, a big-money flag, and the total fell from the 45 open to 43.5. Action Network and Even Money both take the Under 45.5; BettingPros has the Over 45. The model leans Over (fair 44.7), so the Under stays a lean, not a recommendation. Projected total 43 is a half-point under. The weekend parlays carry Irving anytime TD and the Under 46.
+Under 43.5 -112 stays C-level, outside the four elevated singles. Brandon Anderson and Steve Fezzik obtained Under 45.5; two points of cushion are gone. BettingPros' Over 45 and PFT's 27–20 forecast supply the opposing scoring case. Anderson, Stuckey, Simon Hunter and Sean Koerner support Tampa Bay, while Steve Makinen backed ATL +2.5. Action Network shows ATL 58% of spread tickets/62% of money despite movement toward TB. Over tickets/money are 70%/47%, a 23-point gap toward Under money. That supports the lean without replacing a sufficient price edge. No AI slot is used here.
 
 ### What breaks it
-Egbuka's absence could push Mayfield into more aggressive throws to Godwin, and a shootout breaks both the Under and the margin. A Penix interception or a Bijan Robinson long run swings the side.
-
-## ARI@DAL
-projection: DAL 31, ARI 23
-
-### Game script
-Dak Prescott gets an Arizona defense missing defensive tackle Walter Nolen III, with CeeDee Lamb (Action Network has his receiving yards over 78.5) the focal point; George Pickens is questionable and KaVontae Turpin is out. Jacoby Brissett throws to Trey McBride and Michael Wilson into a medium-tier Dallas secondary. Dallas is 3-4 at a -0.8 SRS; Arizona is 2-5 at -9.7, near the bottom of the league. The total is 54.5, the second-highest on the slate. Dallas leads by two scores in the third quarter and Arizona scores late. 31–23 covers the 7 by one.
-
-### Why the card leans this way
-Fair DAL -8.2 against -7 is 1.2 points, below the bar, so this is a lean at most. Even Money has DAL -6.5; Sharp or Square takes ARI +6.5; BettingPros has the Under 52.5. The splits carry a warning: 90% of moneyline bets are on Dallas, but 73% of moneyline money is on Arizona, a large big-money flag on the underdog. Spread splits are flat (45% bets, 47% money on Dallas). The line moved from the 6.5 open to 7. The SuperContest number, DAL -6.5, sits under the key number, which is why it makes the AI five. The weekend parlay carries DAL ML. Projected total 54 is a half-point under.
-
-### What breaks it
-The Arizona moneyline money. If Brissett protects the ball and McBride wins his matchup, a 27–24 finish is easy to imagine. Pickens sitting would make it harder for Dallas to pull away.
+Both Week 7 wins benefited from plus-four turnover margins; repeating that volatility creates easy scores. Luke Goedeke's questionable status matters to Mayfield's protection. Atlanta receiver-role notes were incomplete, so no WR1 assumption enters the narrative. The earlier expert Under prices differ from today's 43.5; moving to 43 removes the lean. Opposing side money also differs between AN and BetMGM, so no market-wide consensus is claimed.
 
 ## LV@NYJ
-projection: NYJ 23, LV 22
+projection: NYJ 24, LV 22
 
 ### Game script
-Kirk Cousins has two real weapons, Ashton Jeanty (anytime TD +100 at Bookmaker) and Brock Bowers (+107), against a Jets defense missing T'Vondre Sweat and Joseph Ossai and possibly David Bailey (doubtful). Geno Smith throws to Garrett Wilson (+166 to score), with Breece Hall questionable. Both teams are below average by SRS (NYJ -1.9, LV -2.4). Neither secondary is a clear mismatch. This is a field-goal game in either direction; the Jets by one is the median.
+Geno Smith's short passing attacks a Raiders defense allowing 3.25 points per drive and 6.5 yards per play over four weeks. Kirk Cousins answers through volume because Las Vegas has -0.255 rushing EPA and only 30.4% rushing success. Jets edge and interior absences reduce his resistance. Red-zone finishing is the brake: New York converts only 45% of its trips into touchdowns. Fair NYJ -1.75 and 45.5 points provides a narrow advantage over saved -1, insufficient for elevation. Brock Bowers receiving and Ashton Jeanty's receiving/rushing split remain props-pass ideas.
 
 ### Why the card leans this way
-There is no edge: fair NYJ -1.7 against -1.5. Action Network takes the Raiders +1.5, Sharp or Square the Jets -1.5, and BettingPros the Under 44.5. Splits: 82% of bets and 82% of money are on Las Vegas, a one-sided public game with no sharp gap, and the line has not moved from the 1.5 open. The card passes. Projected total 45 is a half-point under 45.5. Pools: NYJ 4 in the duma, the coin-flip slot.
+The card passes all game markets and assigns no AI slot. Stuckey and John Jastremski supported NYJ -1.5; Chad Millman described a sharp flip toward New York, and Sean Koerner found a small Jets edge. Brandon Anderson backed LV +1.5; Zachary Cohen preferred Raiders +105. BettingPros' Under 44.5 is now a point higher, but the synthesis still finds no sufficient full-game edge. AN has LV spread bets/money both at 82%, so no size-versus-ticket gap. BetMGM reported 66% of money on Jets -1.5. One book's pool cannot represent the entire market.
 
 ### What breaks it
-Hall's status is the swing. If he is inactive, the Jets' offense is Wilson or nothing, and Las Vegas wins by a field goal behind Jeanty.
+Breece Hall is questionable. Bowers had no designation on the cited official Friday report, though ongoing monitoring remains necessary. Jets edge David Bailey is DOUBTFUL, not confirmed out; Joseph Ossai and T'Vondre Sweat are listed out. A surprise Bailey return improves the pass rush. The packet lacked Jets availability and needed the team-report supplement. Opening spread and moneyline snapshots came from different times and do not establish a clean simultaneous opener.
 
 ## LAC@LAR
-projection: LAR 27, LAC 19
+projection: LAR 25, LAC 19
 
 ### Game script
-The Chargers are 0-6 with the league's worst SRS (-10.1), and their secondary is missing Derwin James Jr. and Deane Leonard. That makes this the slate's clearest passing mismatch: Matthew Stafford to Puka Nacua, rated high-vulnerability for LAC. Justin Herbert's best matchup is Ladd McConkey, but the Rams' secondary rates low-vulnerability even with Trent McDuffie questionable. Expect the Rams to build a lead through Nacua and Los Angeles to chase. 27–19 covers the 6.5.
+Matthew Stafford can use Puka Nacua and a run-heavy attack against a Chargers defense missing Derwin James and Deane Leonard. The Rams convert 69% of red-zone trips into touchdowns; Justin Herbert leads the league's worst EPA offense, -0.202 per play and 15 points per game. The compensating factor is the depleted Rams front: Myles Garrett, Kobie Turner and Poona Ford are unavailable in the saved sources. The Chargers return from their bye with a credible late-score route. Fair LAR -5.5 and 44 points supports a narrow Chargers cover, not an upset prediction.
 
 ### Why the card leans this way
-Fair LAR -8.2 against -6.5 is a 1.7-point edge (54.6% to cover), but it does not clear the bar. No named expert backs the Rams' side; Even Money has the Under 45.5 and 44.5. More important, the market moved the wrong way: 70% of spread bets are on the Rams, yet the line fell from the 7.5 open to 6.5. That is reverse line movement against the Rams, the serious contrary evidence the bar screens out. Lean only. The weekend parlays carry LAR ML and the Over 43. Projected total 46 is a half-point over.
+The AI proposes LAC +6.5. Steve Makinen supports the Chargers; Koerner's +6.4 projection is essentially neutral. Stuckey's Chargers moneyline parlay is a different market. Jason Radowitz and MacMillan back LAR -6.5. The spread moved from -7.5 through seven to -6.5 while 69% of bets but 56% of money favor LAR, a 13-point relative-money gap toward LAC. The card leaves +6.5 -109 and Under 45 -109 as C leans. Blake Corum's rushing Over is a props-pass candidate, not an elevated single. The saved contest simulation gives LAC just 52.7% cover probability.
 
 ### What breaks it
-Whoever has been backing the Chargers at 7.5. A Herbert-led backdoor score in the fourth quarter makes 27–21 a non-cover.
-
-## NE@MIA
-projection: NE 25, MIA 17
-
-### Game script
-Drake Maye's top receiver, A.J. Brown, is questionable with a knee flare-up, and TreVeyon Henderson is questionable with an illness, which puts Rhamondre Stevenson in line for the bulk of the carries. Miami is 1-5 with a -6.1 SRS and is down left tackle Kadyn Proctor. Malik Willis throws to Malik Washington, and Action Network likes Ollie Gordon's rushing yards over 58.5. New England is 4-3 at a 5.8 SRS. With or without Brown, the Patriots' pass rush against a backup left tackle is the edge. The Friday forecast for Miami at kickoff is an 80% chance of rain with 32 km/h wind gusting to 38 (Open-Meteo, to be refreshed Sunday), which favors the run game and a lower score. 25–17 covers by one.
-
-### Why the card leans this way
-The model and the experts disagree. Fair NE -8.2 says the Patriots; BettingPros, Sharp or Square and Even Money all take MIA +7.5. Splits: 74% of bets and 75% of money on New England, no gap; the line moved from the 7.5 open to 7. The side stays a lean on Miami for the experts and a pass for the card. The weekend parlays carry NE ML and Stevenson anytime TD. Projected total 42 is under 43.5, and the rain and wind forecast points the same way.
-
-### What breaks it
-Brown's status. If he sits and Henderson does too, New England's offense loses its two most explosive pieces, and 20–17 is very possible. Willis' legs extend drives against a Patriots defense with Carlton Davis III questionable.
+The Chargers have not covered all season, and their 9.5% sack rate allowed can turn an ordinary deficit into a two-score result. James' absence opens the middle for Stafford. Trent McDuffie conflicts between an OUT operator note and a questionable/improving feed; retain both scenarios. The Rams dossier's Melbourne venue is erroneous: the slate puts this game in Los Angeles. Total references at 43.5, 45.5 and 48 refer to different snapshots.
 
 ## KC@DEN
-projection: KC 20, DEN 19
+projection: KC 21, DEN 19
 
 ### Game script
-Patrick Mahomes faces a Denver defense with Zach Allen questionable and safety Talanoa Hufanga out; the KC offense works through Travis Kelce and Xavier Worthy. Bo Nix plays without running back RJ Harvey, which pushes Jonah Coleman into a bigger role (Warren Sharp and Action Network both like his receiving yards), while Jaylen Waddle and left tackle Garett Bolles are questionable. Kansas City is 5-1 at a 3.8 SRS; Denver is 5-2 at 0.8. A low-scoring division game: Kansas City by one.
+Patrick Mahomes and Bo Nix face top-eight EPA defenses, and Denver's 29.1% three-and-out rate points toward field position. Kansas City gains 36.9 yards per drive against Denver's 24.5. With RJ Harvey out, Denver needs J.K. Dobbins and its other backs to keep it on schedule; Kansas City can use Kenneth Walker III and Rashee Rice to avoid long passing downs. Fair KC -1.4 and 39.7 points is only 0.4 point beyond saved -1, while today's 40.5 has absorbed much of the earlier Under argument.
 
 ### Why the card leans this way
-No side edge: fair KC -1.5 equals the market. The experts lean Denver: Sharp or Square and Even Money take DEN +1.5, BettingPros DEN +2, and 57% of spread money sits on Denver with 48% of bets. The total is the better story. 77% of bets are on the Over, yet the total fell from the 42 open to 40.5. That is reverse line movement toward the Under, and Even Money (Under 41.5) and BettingPros (Under 42.5) agree. The model's fair 40.6 shows no edge, so the Under is a lean, not a recommendation. Projected total 39. The weekend parlay carries the Under 42.
+There is no elevated side, total or AI choice. Steve Makinen preferred KC -1.5, now a better number. Evan Abrams, Steve Fezzik, Simon Hunter and Sean Koerner obtained DEN +1.5/+2, no longer the same bets at +1. BettingPros and Even Money obtained Under 42.5/41.5. Caesars' sharp Under 41.5 supports direction without creating a fresh 40.5 edge. Kansas City's -113 moneyline remains C only. The props pass favors Nix rushing/completions Unders and Walker rushing, conditional on the status conflicts. Denver has 48% of spread bets and 58% of money, a ten-point gap toward DEN; the total fell against 77% Over tickets and 73% of money. Repeat appearances by one analyst are one opinion.
 
 ### What breaks it
-If Waddle and Bolles both play, Denver's offense has its full shape, and a 24–21 game kills the Under. A Mahomes scramble touchdown changes everything in a game this tight.
+Denver's rush can reproduce Kansas City's 213-yard struggle at Seattle, but secondary absences can create explosives. The official Friday report cited in the synthesis lists L'Jarius Sneed, Mansoor Delane, Zach Allen and Brandon Jones QUESTIONABLE; older operator notes incorrectly make all four OUT. Jaylen Waddle and Garett Bolles also need checks. AN's 58% of money on Denver differs from BetMGM's 81% on KC: these are separate pools, not reconciled consensus. Resolve the questionable players before upgrading any lean.
+
+## MIN@DET
+projection: DET 24, MIN 21
+
+### Game script
+Jared Goff's fourth-ranked EPA offense faces Minnesota's first-ranked EPA defense, while Kyler Murray's 29th-ranked offense gets Detroit's 29th-ranked defense. Minnesota's slow 30.8-second pace and pressure provide the close-game path. Goff's passing EPA falls from +0.467 clean to -0.310 under pressure, but quick slot and seam throws to Amon-Ra St. Brown can beat the rush. Fair DET -2.7 and 45 points replaces the earlier DET -0.4 baseline. It projects a margin near saved BKR three, not a large Minnesota advantage.
+
+### Why the card leans this way
+MIN +3 +102 stays C, and +3.5 is an AI alternate. Simon Hunter, Chad Millman and Dave Tuley favored MIN +3.5. Brandon Anderson, Jason Radowitz, Kendra Middleton and Sean Koerner favored Detroit; Koerner projected -3.8. Minnesota has 59% of spread bets while Detroit gets 51% of spread money: the ten-point relative-money gap favors Detroit. The saved game simulation puts +3 at 46.7% wins with 8.3% pushes, making +102 thin value. Paying -118/-120 for +3.5 was negative in that view. St. Brown receptions Over and Justin Jefferson receptions Under remain props-pass leans.
+
+### What breaks it
+Minnesota ranks last in early-down offensive success, and its plus-seven turnover margin may regress. If Goff beats pressure immediately, Detroit can lead beyond Murray's recovery range. Kerby Joseph's absence helps MIN, but Detroit's moneyline move and opposing experts matter. FTN tables run through Week 6; a duplicated Radowitz row also had a wrong-game tag. Do not restore the earlier Minnesota single graded B or its rejected adjustment beyond the hard cap. The free contest hook is a different proposition from buying it expensively.
+
+## NE@MIA
+projection: NE 24, MIA 18
+
+### Game script
+Drake Maye's efficient passing offense faces a weak Miami defense, but Friday's saved forecast calls for about 20 mph sustained wind and an 80% rain chance. New England's +38.0% passing DVOA contrasts with -16.3% rushing DVOA, making difficult throwing conditions material. A.J. Brown is questionable after missing Thursday and Friday practice. Malik Willis can use the run and short throws to shorten possessions; Miami runs only 56.5 plays per game. Fair NE -6.5 and 41.5 points supports a lower-scoring game, with Ollie Gordon II rushing and Willis completions/rushing as separate props-pass leans.
+
+### Why the card leans this way
+Under 43.5 -111 is an elevated $20 single, playable to 42.5 -115, pass at 42. The refreshed simulation gives 56.0% Under. Weather drives that estimate, not a validated player-prop model. No named expert supplied a direct full-game total pick. Sean Koerner, Simon Hunter and Chad Millman's shared-show coverage prefer Miami's spread; earlier +7.5 picks lost the hook. PFT's 31–20 forecast argues for scoring. NE bets/money are 75%/76% and Over 77%/77%, yet both markets moved toward Miami/Under. The card passes MIA +7 -117; +7 is an AI alternate without sportsbook juice.
+
+### What breaks it
+Below about 12 mph sustained wind, the Under loses its B rating. Miami's 30th-ranked EPA defense can yield fast scores, while wet-field turnovers supply short fields. Brown, TreVeyon Henderson and Miami's line require checks. The per-game web search failed to verify current Friday team designations, so the saved ESPN/Rotowire reports carry that limitation. Miami FTN tables are one week old. Recheck the forecast before treating this Friday view as a Sunday recommendation.
 
 ## PHI@WAS
-projection: WAS 23, PHI 18
+projection: WAS 24, PHI 19
 
 ### Game script
-Philadelphia's injury list is the story: DeVonta Smith, Dontayvion Wicks and Britain Covey are out at receiver, cornerback Jonathan Jones is out, and linebacker Jihaad Campbell is out. Jalen Hurts is left with Makai Lemon and Saquon Barkley, against a Washington defense missing Javon Kinlaw. Jayden Daniels throws to Stefon Diggs, the top target against a medium-tier Philadelphia secondary. Both teams have losing records and nearly identical SRS (WAS -7.7, PHI -7.4). Philadelphia runs Barkley and shortens the game; Washington wins by five.
+Tanner McKee starts with Jalen Hurts on IR and DeVonta Smith and Dontayvion Wicks unavailable. Makai Lemon carries an expanded receiving role; Saquon Barkley can attack Washington's weakened interior. Jayden Daniels returns from the bye against Philadelphia's 27th-ranked EPA defense, while Washington's defense ranks 25th. Fair WAS -5 and 42 points sits above saved 40.5 but short of Washington's six-point sportsbook spread. Philadelphia's short week against Washington's 13-day rest advantage remains a substantial upset obstacle.
 
 ### Why the card leans this way
-The line moved from WAS -3.5 at the open to -6, almost all of it on the injury news. The SRS baseline (fair WAS -4.3) cannot see those injuries, so PHI +6 stays a lean. Action Network takes the Eagles +6; Even Money uses them as a teaser leg at +4.5; BettingPros takes WAS -3.5 from earlier. Spread splits are close (53% of bets, 61% of money on Washington), but the moneyline is lopsided: 83% of moneyline bets are on Washington while 68% of the money is on Philadelphia, a big-money flag on the underdog. The Over drew 83% of bets and 89% of money, yet the total slipped from 41 to 40.5. Both weekend parlays use the WSH ML as the night-game cap; the hedge tables show the PHI side. Projected total 41 is a half-point over.
+Over 40.5 -106 and PHI moneyline +216 stay C, neither elevated. Brandon Anderson, Steve Makinen and Dave Tuley back PHI +6; Sean Koerner's +4.3 projection supports the older +5.5. Doug Kezirian and Andrew Erickson back WAS -5.5. Washington spread bets/money are 53%/61%; its moneyline has 83% of tickets but only 33% of money, a large relative gap toward PHI. Meanwhile, 88% of total money backs Over despite a half-point fall. The card's Washington night cap is a template hedge anchor, not a value single. Chig Okonkwo receptions, Lemon receptions and McKee completions are props-pass ideas.
 
 ### What breaks it
-For the Washington cap: the Philadelphia moneyline money. If Barkley controls the game and Hurts avoids turnovers, Philadelphia wins outright. For PHI +6: three missing receivers can mean a 20–10 game.
+McKee's depleted receivers can stall against even a weak defense, and PHI has failed to cover every second half this season. Barkley being unavailable removes the main Over/upset mechanism. Daron Payne is questionable in team/operator material but likely headed to IR in ESPN's report; retain the conflict. Chris Welsh's PHI moneyline required Smith playing and is excluded. The referee assignment is unconfirmed. The primer's 46.5 total opener conflicts with the saved opener file's 41; the file is used.
 
 ## CHI@SEA
-projection: SEA 24, CHI 22
+projection: SEA 23, CHI 21
 
 ### Game script
-Monday night. Caleb Williams brings Rome Odunze and Luther Burden III against a medium-tier Seattle secondary, with Colston Loveland and Kyle Monangai questionable, and Chicago adds Jeffery Simmons on the defensive line. Seattle's injury report is long: left tackle Charles Cross is doubtful, Rashid Shaheed and Zach Charbonnet are questionable, and Drake Thomas and Leonard Williams headline a questionable defensive group. Sam Darnold throws to Jaxon Smith-Njigba and Cooper Kupp. Chicago is 5-2 with a 6.8 SRS, fourth in the league; Seattle is 4-3 at 4.6. A close game, Seattle by two.
+Seattle's second-ranked EPA defense and 36% pressure rate constrain Caleb Williams, but Sam Darnold's offense ranks 24th with weak rushing and 12 giveaways in six FTN games. Chicago's offense has +25.4% passing DVOA, 72 plays per game and long possession time. Its vulnerable pass defense gives Jaxon Smith-Njigba a route to target volume even if Seattle cannot run. Fair SEA -2 and 44.5 points suggests a close game beneath saved 46. The prior 6–3 meeting is context, not a literal forecast.
 
 ### Why the card leans this way
-Fair SEA -1.7 against -3 is a 1.3-point edge on Chicago, below the bar. The experts split two and two: Action Network and Even Money take CHI +3.5; Sharp or Square takes SEA -3 and Warren Sharp takes Seattle and Darnold's passing yards over 232.5. Splits: 60% of spread bets on Chicago but 50% of money on Seattle, no flag; the total drew 79% of the money on the Over. The line has not moved from the -3 open. Lean CHI +3, and CHI +3 is a SuperContest alternate. Projected total 46 is a half-point under.
+CHI +3 is the fifth AI proposal; +3 +103 and Under 46 -106 remain C sportsbook leans. Brandon Anderson, Steve Fezzik and Lock & Cash obtained Chicago +3.5, whose hook is gone. Doug Kezirian, Joe Gibbs and Simon Hunter favored Seattle; Zachary Cohen obtained SEA -2.5 -115. Koerner's three-point projection is neutral. Chicago gets 60% of spread bets and 51% of money, a nine-point relative tilt toward Seattle. The total fell from 47 despite 79% Over money, opposing the public direction. Caleb passing Under and Smith-Njigba receptions Over remain props-pass leans, not elevated singles.
 
 ### What breaks it
-Cross. If Seattle's left tackle plays, Darnold has time and Seattle wins by a touchdown. Monday's injury report is the last check.
+Seattle's defense can create a turnover-driven gap its ordinary offense could not generate. Charles Cross' absence and new Quenton Nelson's integration affect protection; new Jeffery Simmons' Chicago snap role is also unknown. MNF final injury designations were unavailable Friday. The Jadarian Price operator/return-to-practice conflict and unsupported suspension tag, which is excluded remain gaps. A Monday protection change requires a fresh synthesis. This is the weakest of the AI five, not an attempt to fill a strong-value slot.
 
 ## TICKETS
-- Single · MIN@DET Minnesota +3.5: the week's only Platinum Rose recommendation. Minnesota is 6-0 and our blend makes this close to a pick'em, so getting 3.5 points is the value. Take +3.5 where it's posted; +3 at plus money is fine.
-- BKR Weekend Parlay 740983886 (SNF cap): placed Thursday, the TNF leg won. It needs all ten Sunday legs, including the Washington moneyline on Sunday night, which is a hedge anchor, not a pick we need to win. A long shot that pays about $1,266 on $10.
-- BKR Weekend Parlay 740984963 (SNF cap): placed Thursday, the TNF leg won. Nine Sunday legs plus the Washington moneyline. It carries Detroit's moneyline, which runs against the Minnesota single. Pays about $1,056 on $10.
+- Single ARI@DAL Under 54.5: A proposed $20 B single at saved BKR -108, with a 52.5 fair total and 56.1% saved Under estimate. Brissett's short passing, Arizona's line injuries and field-goal red zone support fewer points. Two weak defenses and the rising total oppose it. Playable to 53.5 -110; pass at 53. This is not a newly placed wager.
+- Single BAL@BUF Over 55: A proposed $20 B single at saved BKR -101. Two top-eight offenses face depleted defenses, and 83% of total money backs the Over on about half the tickets. Refreshed probability is 53.1% excluding pushes, 51.5% raw with 3.0% pushes. Jackson's first game back and Buffalo receiving statuses limit conviction. Playable at 55 -110; C at 55.5; pass at 56.
+- Single IND@JAX Under 46: A proposed $20 B single at saved BKR -103. The Colts' depleted line and Jacksonville's -31.1% run-defense DVOA support a 44.5 fair total. Refreshed probability is 54.7% excluding pushes, 53.0% raw with 3.0% pushes. Short fields and Jacksonville scoring 30-plus are the failure path. Playable to 45.5 -110; pass at 45.
+- Single NE@MIA Under 43.5: A proposed $20 B single at saved BKR -111. The 41.5 fair total depends heavily on roughly 20 mph sustained wind, rain and Miami's slow pace. Brown's questionable status lowers the passing ceiling. Below 12 mph wind this loses its B rating. Playable to 42.5 -115; pass at 42. Friday forecasts must be refreshed.
+- Morning Parlay (optional SNF-cap template): Three morning B totals combine with Rams moneyline and Washington as the last Sunday resolver. The two moneyline favorites are C template connectors at negative-value prices, not elevated recommendations. Every leg must win; the reference product is not a captured combination offer. It duplicates singles exposure and existing Rams/Washington positions. Use only as an alternative construction, with hedge cash assessed near SNF.
+- Afternoon Parlay (optional SNF-cap template): The Arizona Under and Baltimore Over join the weather-dependent Miami Under, C-lean Kansas City moneyline and Washington's SNF cap. The Kansas City and Washington legs lower the ticket's quality; removing them is reasonable. Every leg must win, and the product estimate is not a live quote. This overlaps the singles and the other parlay, so proposed stakes are alternatives rather than additive commitments.
+- Dog ML Round Robin (by 2s): Five road-underdog moneylines (ARI +252, PHI +216, CLE +162, BAL +140, CHI +140) combine across ten two-team parlays at $2 each ($20 total). Any two outright upsets return roughly $12–$22, covering or profiting on the stake, while three upsets return around $55–$80. All five are C-tier outright upset leans rather than elevated singles, and the Philadelphia and Chicago legs remain sensitive to weekend injury designations.
+- Master Round Robin (8 legs by 4s): The four elevated B-tier totals (ARI@DAL Under 54.5, BAL@BUF Over 55, IND@JAX Under 46, NE@MIA Under 43.5) pair with four distinct-game side leans (BAL +3, CLE +3.5, LAC +6.5, CHI +3) across 70 four-leg combos at $1 each ($70 total). Because BAL@BUF appears in both the total and spread pool, verify whether the book accepts or excludes the correlated same-game four-ways, or substitute MIN +3 (+102) to keep all eight legs in distinct games.
+- 7a Morning Props (BEO template): Ward passing Under, Warren receiving Over and Taylor rushing Under span three early games, with Okonkwo receptions as the final SNF leg. The mechanisms are Tennessee's depleted receiving corps, Cleveland pressure/checkdowns and Jacksonville's run defense. Each leg must hit. BKR prices are references only: BetOnline has not supplied current lines or a combination quote, and the late Okonkwo leg is shared with other optional stacks.
+- 7b Afternoon Props (BEO template): Corum rushing, Willis completions Under and Nix rushing Under span the afternoon, then Okonkwo receptions resolves at SNF. The Rams' run preference, Miami weather and Nix's limited recent rushing are the distinct arguments. Corum's share and the wind forecast can change before Sunday. This is a four-leg, all-or-nothing alternative with unverified BEO terms, not a priced sportsbook ticket.
+- 7d Hybrid 8-leg (BEO template): Four early-game props, three afternoon props and one SNF prop supply eight separate game exposures. Ward passing Under, Warren receiving, St. Brown receptions and Cousins passing join Corum rushing, Willis completions Under, Nix rushing Under and Okonkwo receptions. Eight legs create substantial failure risk even when each has a role-based argument. The product price is BKR arithmetic, not BEO availability or a calibrated combined win chance.
+- 7e Anytime TD 7-leg (BEO template): Williams, Allen, Washington, Gesicki, Jones, Gordon and White each represent a different game. The proposal diversifies teams while retaining noisy touchdown-allocation risk; all seven must score. Williams is the only reference price shorter than -200, with no leg below -350. An Allen touchdown fits the Buffalo Over while one Williams/Gordon score can still fit their game Unders. C overall, $10 template only, pending a real BEO combination quote.
+- 8a First TD 3-leg (BEO template): Javonte Williams, Jahmyr Gibbs and Kyren Williams must each score their own game's first touchdown. First-score allocation is much less stable than anytime scoring, so this is a C lottery rather than three high-confidence positions. Corum's share threatens Kyren, and Arizona scoring first threatens Javonte. The three prices are BKR references; BEO must post and accept every leg. Any different first scorer loses that leg.
+- 8b 2+ TD 3-leg (BEO template): Javonte Williams, Josh Allen and Mike Gesicki each need at least two touchdowns. Their saved BKR td_2_plus rows provide price references, with no validated multiple-score probability. Gesicki's five touchdown games do not establish how often he scores twice. This C moonshot is an alternative to the seven-leg anytime ticket, not additional independent exposure. BEO terms remain unquoted and every leg must win.
+- Core 8-Leg (BEO template): Ward passing Under, Taylor rushing Under, Warren receiving, Jackson passing touchdowns, St. Brown receptions, Willis completions Under, Nix rushing Under and Okonkwo receptions span eight games. The selection is qualitatively B for role and matchup evidence; it is not ranked by a validated probability model. SNF resolves last. All eight must hit, and this overlaps the window and hybrid templates. Verify BEO prices before choosing one construction.
+- Perfect Lottery 13-leg (BEO template): One prop from every remaining game creates a slate-wide C lottery, including Monday's Smith-Njigba receptions. Arizona's Wilson receiving Under is C; the rest are qualitative B candidates, not thirteen measured edges. The Monday leg means an SNF result does not finish this ticket. Every leg must hit, BEO pricing is absent, and the large BKR product return is arithmetic only. The smaller core/window stacks are alternatives, not companion purchases.
 
 ## SUPERCONTEST
-- CIN: Dashboard AI proposal, A. The contest gives CIN -10.5 while the market is -12.5 after Carnell Tate was ruled out; our fair line is -15.
-- JAX: Dashboard AI proposal, B-. Contest -9.5 against a market of -10 and a fair -11.4; Indianapolis is without Justin Walley.
-- MIN: Dashboard AI proposal, B. The week's only Platinum Rose side; fair DET -0.4 against the contest's 3.5.
-- DAL: Dashboard AI proposal, C+. Contest -6.5 sits under the 7 the market now shows; heavy Arizona-side money is the counterpoint.
-- BAL: Dashboard AI proposal, C+. Four named experts and big spread money on Baltimore; the contest's +3.5 beats the market's +3. Our model disagrees, which is why it is fifth.
-- Alternates: CHI +3, PHI +5.5, LAR -6.5.
+- CIN: Dashboard AI CIN -10.5. Corrected fair CIN -12.25; saved adjusted contest cover estimate 55.1%. Steve Makinen's support meets opposing Koerner/Tuley positions predating the Simmons trade. A late Tennessee score is the failure path.
+- BAL: Dashboard AI BAL +3.5. Corrected fair BUF -2.5 preserves the key three that BKR +3 lacks. Stuckey/Fezzik support BAL; Perrault opposes at BUF -3.5. Buffalo's rest advantage limits conviction.
+- CLE: Dashboard AI CLE +3.5. Corrected fair PIT -2.5 keeps the hook meaningful. Perrault, Erickson and Millman oppose Koerner's PIT -3.5. Cleveland protection and Howard's questionable status can overturn the pressure advantage.
+- LAC: Dashboard AI LAC +6.5. Corrected fair LAR -5.5 and depleted Rams front support a close loss. Makinen supports LAC; Radowitz/MacMillan prefer LAR. Saved 52.7% cover is modest; McDuffie's status is unresolved.
+- CHI: Dashboard AI CHI +3. Corrected fair SEA -2 cannot restore the +3.5 obtained by Anderson/Fezzik. Kezirian/Hunter back Seattle. Seattle's defense and Monday uncertainty make this the weakest of the five.
+- MIN: Alternate MIN +3.5. Corrected fair spread DET -2.7 gives +0.8 points of cushion on the key 3.5 hook; if Detroit's secondary remains depleted, Minnesota stays inside a field goal.
+- MIA: Alternate MIA +7. Corrected fair spread NE -6.5 gives +0.5 points of cushion on the key 7; rainy, windy conditions and Miami's slow pace (56.5 plays/g) compress the scoring margin.
+- JAX: Alternate JAX -9.5. Corrected fair spread JAX -10.5 (+1.0 pt value vs market -10.0) off the bye against an Indianapolis line missing Quenton Nelson and DeForest Buckner.
+- Alternates: MIN +3.5, MIA +7, JAX -9.5. Corrected fair spreads are DET -2.7, NE -6.5 and JAX -10.5. Detroit has opposing expert/money support; Miami depends on weather/status checks; Tuley/Koerner prefer Indianapolis at their cited numbers. These are fallbacks, not extra selections or Andy and Amanda's official card.
+
+## GAPS
+- Friday snapshots: BKR captured around 6:50–6:52 PM PT; AN splits around 7:06 PM PT. These are not verified current offers. Saturday data and Sunday inactives remain necessary before execution.
+- Friday BEO Sunday player-prop coverage is thin/stale. Cross-game stacks, including 7e Anytime TD and 8a First TD, are proposed BetOnline templates with labeled BKR reference prices. BKR props are same-game only. BEO combo prices and availability remain unverified.
+- DraftKings Predictions is stale and requires Andy's manual login. Contract figures are reference probabilities before fees, not sportsbook offers.
+- ARI@DAL Under: both defenses rank bottom-five by EPA; the total rose against Under-heavy tickets. The opener is 53 in the file versus 49.5 in the primer. Pickens' status is pending; exclude Turpin, listed OUT despite posted BKR props. An off-topic PFT score is excluded.
+- BAL@BUF Over: Jackson's return/rushing uncertainty, Buffalo receiver and Roquan Smith designations, and one-week-old Buffalo FTN tables limit the case. The opener is 53.5 in the file versus 51.5 in the primer. A malformed 235-yard Flowers extraction is excluded. Refreshed Over probability at 55 is 53.1% excluding pushes, 51.5% raw with 3.0% pushes.
+- IND@JAX Under: rain forecasts conflict; JAX FTN stops at Week 6; Meyers is questionable; the opener is 46.5 in the file versus 48.5 in the primer. Nelson/Buckner trades can create short fields. Refreshed Under probability at 46 is 54.7% excluding pushes, 53.0% raw with 3.0% pushes.
+- NE@MIA Under: its B rating depends on the roughly 20 mph Friday wind forecast; below 12 mph sustained downgrades it. Brown/Henderson need checks. Current Friday team-report pages were unverified by the per-game search; MIA FTN stops at Week 6.
+- SuperContest status risks: Howard questionable; McDuffie OUT-versus-Q conflict; MNF final designations pending and post-trade snaps unknown. KC/DEN official QUESTIONABLE supersedes older OUT notes for Sneed, Delane, Allen and Brandon Jones. David Bailey is DOUBTFUL, not confirmed OUT.
+- PHI@WAS leans/night cap: Payne Q/likely-IR conflict, referee unconfirmed, WAS FTN through Week 6. Welsh's PHI selection required Smith active and is excluded. Barkley's absence removes the Over/upset case.
+- Non-comparable intel is excluded: CIN -2.5 international lookahead; Jaleel McLaughlin receiving row tagged CLE@PIT; John Ewing season totals tagged as game picks; duplicate audio/YouTube opinions; obsolete Week 7 articles. Lamb's 100+ receiving label has a touchdown-combo rationale, and Josh Allen's 1.5 threshold describes 2+ touchdowns rather than anytime; neither ambiguous label is used as a clean prop citation.
+- Preferred-expert gate coverage 33 of 37 means a name/channel was found, not 33 complete attributable Sunday cards. Ben Solak and Adam Burke have metadata/snippets only; Ross Tucker has show-level rows without resolved individual attribution; Jeremiah/Brooks rows describe the finalized GB game or an ATL division future; John Ewing is public/season market context. Wilson, Fitzmaurice, Madden and Feng have no attributable Week 8 NFL betting card in the reviewed corpus.
+- Most cleaned YouTube rows retain extraction summaries and timestamps but no verbatim pick quote. They are labeled as such, not universally provenance-verified. Show-level Jets +1.5 conflicts with named Friday video -1.5; a TB -2.5 pull attribution to Anderson conflicts with named video identifying Matt Moore. The expert narrative preserves these limitations.
+- Image/chart numerical extraction and Cody Brown's parlay remain undelivered. No missing figures were invented.

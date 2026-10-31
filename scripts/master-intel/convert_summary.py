@@ -18,6 +18,10 @@ except ImportError:
     WD_ALIGN_VERTICAL = type('WD_ALIGN_VERTICAL', (), {'CENTER': 1})
     parse_xml = lambda x: None
     nsdecls = lambda x: ''
+try:
+    from sc_layout import SC4_CSS, SC4_JS
+except Exception:
+    SC4_CSS = SC4_JS = ''
 
 CITE_CSS = r'''
 .glance-group-label{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}.glance-group-label span{font-weight:400}
@@ -2326,6 +2330,7 @@ def generate_html(md_path, html_path):
 
   {MT_CSS}
   {CITE_CSS}
+  {SC4_CSS}
 
   /* F-mi-dark: phone width */
   @media (max-width: 640px) {{
@@ -2905,6 +2910,7 @@ function initScTabs() {{
 }}
 
 {MT_JS}
+{SC4_JS}
 window.addEventListener('DOMContentLoaded', () => {{
   initScTabs();
   initMasterTabs();

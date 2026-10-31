@@ -295,7 +295,7 @@ def pick_postmortem(week, pick, review_row=None):
         'postmortem': game_recap,
         'game_review': game_review,
         'review_notes': review_notes,
-        'expert_sources_available': int(week) in (2, 3, 4, 5, 6),
+        'expert_sources_available': int(week) in (2, 3, 4, 5, 6, 7),
     }
 
 

@@ -15,7 +15,7 @@ News flags:
 - PHI: WR DeVonta Smith OUT, WR Dontayvion Wicks OUT, LB Jihaad Campbell OUT, WR/RS Britain Covey OUT, CB Jonathan Jones OUT; CB Jakorian Bennett Q.
 - WAS: WR Terry McLaurin IR (patella); DT Javon Kinlaw OUT; TE John Bates Q, WR Treylon Burks Q, DT Jer'Zhan Newton Q, DT Daron Payne Q.
 - NE: WR A.J. Brown Q (knee; missed Thu+Fri — game-time); RB TreVeyon Henderson Q (illness).
-- NYJ: RB Breece Hall Q (quad), DE David Bailey OUT, DT T'Vondre Sweat OUT. | JAX: WR Jakobi Meyers Q (missed Fri).
+- NYJ: RB Breece Hall Q (quad), DE David Bailey DOUBTFUL (groin), DT T'Vondre Sweat OUT. Bailey corrected against the Jets' official Friday notebook: https://www.newyorkjets.com/news/notebook-tvondre-sweat-out-rookie-david-bailey-doubtful-against-raiders-on-sunday-10-30-2026 . | JAX: WR Jakobi Meyers Q (missed Fri).
 - LAC: S Derwin James OUT, DB Deane Leonard OUT, G Kayode Awosika OUT, WR Brenen Thompson OUT. | LAR: CB Trent McDuffie OUT, C Coleman Shelton OUT; TE Colby Parkinson Q, WR Jordan Whittington Q.
 - KC: CB Mansoor Delane QUESTIONABLE, CB L'Jarius Sneed QUESTIONABLE per the official chiefs.com Friday report (CORRECTED 11:45 PM; RotoWire summary had them out). | BUF: S C.J. Gardner-Johnson OUT (suspension); WR DJ Moore Q, TE Dalton Kincaid Q (expected to play).
 - BAL: G Vega Ioane OUT, S Jaylinn Hawkins OUT. | TEN: RB Tyjae Spears OUT, WR Carnell Tate OUT; WR Calvin Ridley Q (expected to play).

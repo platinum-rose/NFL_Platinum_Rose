@@ -1,0 +1,74 @@
+{
+  "schema": "expert_report_review_v1",
+  "week": 8,
+  "season": 2026,
+  "source": "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "source_sha256": "6a23678be01d7510cda03296e92d909ab75ced0ac569f9e5abbddeec034a2942",
+  "reviewed_at": "2026-10-31T06:50:44.578951+00:00",
+  "excluded": [
+    {
+      "index": 36,
+      "speaker": "Brandon Anderson",
+      "pick": "CeeDee Lamb o100 player_receiving_yds",
+      "game": "ARI@DAL",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=281s",
+      "reason": "Combination includes a touchdown absent from the market label."
+    },
+    {
+      "index": 42,
+      "speaker": "Brandon Anderson",
+      "pick": "Jaleel McLaughlin o8.5 player_receiving_yds",
+      "game": "CLE@PIT",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=1074s",
+      "reason": "Tagged CLE@PIT, but rationale describes Denver against Kansas City."
+    },
+    {
+      "index": 43,
+      "speaker": "Brandon Anderson",
+      "pick": "Jaleel McLaughlin o15 player_receiving_yds",
+      "game": "CLE@PIT",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=1118s",
+      "reason": "Tagged CLE@PIT, but rationale identifies the Denver running back."
+    },
+    {
+      "index": 44,
+      "speaker": "Brandon Anderson",
+      "pick": "Jaleel McLaughlin o20 player_receiving_yds",
+      "game": "CLE@PIT",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=1121s",
+      "reason": "Tagged CLE@PIT, but rationale describes the same conflicting Denver matchup."
+    },
+    {
+      "index": 53,
+      "speaker": "Brandon Anderson",
+      "pick": "Josh Allen 1.5 anytime_touchdown",
+      "game": "BAL@BUF",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=2566s",
+      "reason": "Threshold 1.5 means multiple touchdowns, not the labeled anytime touchdown."
+    },
+    {
+      "index": 58,
+      "speaker": "Brandon Anderson",
+      "pick": "Zay Flowers o100 player_receiving_yds",
+      "game": "BAL@BUF",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=3021s",
+      "reason": "Implausible 235 yards per game claim requires original-source correction."
+    },
+    {
+      "index": 64,
+      "speaker": "Brandon Anderson",
+      "pick": "CIN -2.5",
+      "game": "TEN@CIN",
+      "timestamp_url": "https://www.youtube.com/watch?v=KCgsLsa-a2w&t=3543s",
+      "reason": "Explicit international-game lookahead; not Week 8 TEN@CIN."
+    },
+    {
+      "index": 80,
+      "speaker": "Warren Sharp",
+      "pick": "Jonah Coleman o8.5 receiving_yards",
+      "game": "KC@DEN",
+      "timestamp_url": "https://www.youtube.com/watch?v=Uk93_ggoK8M&t=2216s",
+      "reason": "Player spelling and team identities conflict between retained sources."
+    }
+  ]
+}

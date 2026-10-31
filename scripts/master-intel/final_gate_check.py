@@ -292,7 +292,7 @@ out = dict(schema='final_gate_check_v1', season=S, week=W, stage=STAGE, run_at=N
 with open(base + '.json', 'w', encoding='utf-8') as f: json.dump(out, f, indent=1)
 icon = {'PASS': '✅', 'WARN': '⚠️', 'FAIL': '❌'}
 L = [f'# Final Gate Check — {S} Week {W} — {STAGE.title()} run', '',
-     f'Run {NOW.astimezone(PT).strftime("%a %b %-d, %-I:%M %p PT")} · games to play: {REM} · BKR capture date: {BKR_DATE}', '',
+     f'Run {NOW.astimezone(PT).strftime("%a %b %d, %I:%M %p PT").replace(" 0", " ")} · games to play: {REM} · BKR capture date: {BKR_DATE}', '',
      f'## Verdict: **{verdict}** — {len(req_fail)} required failure(s), {len(warn)} advisory warning(s)', '',
      ('All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md` with STAGE=' + STAGE + '.') if verdict == 'GREEN'
      else 'Do NOT start the synthesis/report run. Fix the ❌ REQUIRED rows below (top first), then re-run this check.', '']

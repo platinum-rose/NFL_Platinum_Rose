@@ -82,7 +82,8 @@ python3 scripts/master-intel/check_sc_report.py   # SuperContest format gate: FA
 ```
 - build.py runs the strict roster gate itself; BLOCK = fix names in source files (never `--allow-roster-issues` without Andy).
 - Gaps section lists every ADVISORY gate warning and every synthesis Ambiguity that affected a rec.
-- Client editions: the **Week 7 editions are the starting template** for both client reports (Andy, 2026-10-30). Build the client copies from that format; any client-specific trims need Andy's spec.
+- SuperContest layout: **v4, locked 2026-10-31**, frozen reference `docs/reference/supercontest-report-locked-w08.html`. It supersedes the Week 7 template. Build it only through build.py + sc_layout.py; never hand-edit the output.
+- Client editions: the **Week 7 editions are the starting template** for the Master client report, and the v4 SuperContest report above for the SuperContest client copy (Andy, 2026-10-30 / 2026-10-31). Build the client copies from that format; any client-specific trims need Andy's spec.
 - PDF: device has no Chromium → stage the html, run `scripts/master-intel/export_pdf.py` in the cloud container, commit the pdf back to `dist/`.
 
 ## Step 8 — QA (runbook §6) and summary

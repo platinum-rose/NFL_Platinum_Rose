@@ -3,145 +3,185 @@
  "season": 2026,
  "week": 8,
  "stage": "friday",
- "run_at": "2026-10-30T23:13:37.731432-07:00",
+ "run_at": "2026-10-30T23:49:20.626484-07:00",
  "verdict": "GREEN",
  "games_remaining": 13,
  "bkr_capture_date": "2026-10-31",
  "expert_coverage": {
   "found": {
    "Warren Sharp": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)",
     "pull:expert",
     "youtube"
    ],
    "Sean Koerner": [
     "2026-w08-chrome-article-picks.json",
+    "expert-narratives-2026-w08.md",
     "pull:Action Network"
    ],
    "Stuckey": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Doug Kezirian": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Brandon Anderson": [
+    "expert-narratives-2026-w08.md",
     "pull:Action Network",
     "pull:expert",
     "youtube"
    ],
+   "Collin Wilson": [
+    "expert-narratives-2026-w08.md"
+   ],
    "Evan Abrams": [
     "2026-w08-primer-intel.json",
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Chad Millman": [
+    "expert-narratives-2026-w08.md",
     "pull:expert",
     "youtube"
    ],
    "Simon Hunter": [
+    "expert-narratives-2026-w08.md",
     "pull:expert",
     "youtube"
    ],
    "Matt Perrault": [
+    "expert-narratives-2026-w08.md",
     "pull:expert",
     "youtube"
    ],
    "Andrew Erickson": [
+    "expert-narratives-2026-w08.md",
     "pull:BettingPros",
     "youtube"
    ],
    "Mike Maher": [
     "bettingpros-articles-2026-w08.md",
+    "expert-narratives-2026-w08.md",
     "pull:BettingPros"
    ],
    "Jason Radowitz": [
     "bettingpros-articles-2026-w08.md",
+    "expert-narratives-2026-w08.md",
     "pull:BettingPros"
    ],
    "Steve Fezzik": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Sharp or Square (hosts)": [
+    "expert-narratives-2026-w08.md",
     "pull:expert",
     "youtube"
    ],
    "Even Money (hosts)": [
+    "expert-narratives-2026-w08.md",
     "pull:expert"
    ],
    "Ross Tucker": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Rich Hribar": [
+    "expert-narratives-2026-w08.md",
     "pull:expert",
     "youtube"
    ],
    "Ben Solak": [
+    "expert-narratives-2026-w08.md",
     "pull:ESPN NFL"
    ],
    "Scott Bogman": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Kendra Middleton": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Chris Welsh": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Seth Woolcock": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
    "Brandon Kravitz": [
+    "expert-narratives-2026-w08.md",
     "youtube"
    ],
+   "Pat Fitzmaurice": [
+    "expert-narratives-2026-w08.md"
+   ],
+   "Joe Madden": [
+    "expert-narratives-2026-w08.md"
+   ],
    "Daniel Jeremiah & Bucky Brooks": [
+    "expert-narratives-2026-w08.md",
     "pull:ESPN NFL",
     "pull:expert"
    ],
    "Adam Burke": [
+    "expert-narratives-2026-w08.md",
     "pull:VSiN"
    ],
    "John Ewing": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)"
    ],
+   "Ed Feng": [
+    "expert-narratives-2026-w08.md"
+   ],
    "Sal Vetri": [
+    "expert-narratives-2026-w08.md",
     "grok",
     "pull:Twitter/X Bookmarks (Grok thread capture)",
     "pull:Twitter/X Bookmarks (Personal)",
     "twitter-video-picks-2026-w08.json"
    ],
    "Cody Brown": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)",
     "twitter-video-picks-2026-w08.json"
    ],
    "Joe Holka": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)"
    ],
    "Lock & Cash": [
+    "expert-narratives-2026-w08.md",
     "grok",
     "pull:Twitter/X Bookmarks (Grok thread capture)",
     "twitter-video-picks-2026-w08.json"
    ],
    "The Prop Dealer": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)",
     "pull:Twitter/X Bookmarks (Personal) (linked article)"
    ],
    "The Prop Guru": [
+    "expert-narratives-2026-w08.md",
     "grok",
     "pull:Twitter/X Bookmarks (Grok thread capture)",
     "pull:Twitter/X Bookmarks (Personal)"
    ],
    "Marc Gartenberg": [
+    "expert-narratives-2026-w08.md",
     "pull:Twitter/X Bookmarks (Personal)"
    ]
   },
-  "missing": [
-   "Collin Wilson",
-   "Pat Fitzmaurice",
-   "Joe Madden",
-   "Ed Feng"
-  ]
+  "missing": []
  },
  "required_failures": 0,
- "warnings": 6,
+ "warnings": 5,
  "checks": [
   {
    "id": "A1",
@@ -167,7 +207,7 @@
    "title": "Roster gate (ESPN 2026, strict)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "status=PASS, roster age 8.5h, blocking=0",
+   "detail": "status=PASS, roster age 10.0h, blocking=0",
    "fix": ""
   },
   {
@@ -176,7 +216,7 @@
    "title": "Bookmaker capture (SGP props + game lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 4.3h old (limit 30h); games=13 (need 13)",
+   "detail": "data/generated/props\\bookmaker-live-2026-10-31-week8.json \u2014 4.9h old (limit 30h); games=13 (need 13)",
    "fix": ""
   },
   {
@@ -203,7 +243,7 @@
    "title": "Master Intel pull (signals, expert picks, articles, splits)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/master-intel/w08-pull.json \u2014 0.5h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94",
+   "detail": "data/generated/master-intel/w08-pull.json \u2014 1.1h old (limit 30h); pulled_at=2026-10-31T05:43:38.506Z, signals=223, expert=94",
    "fix": ""
   },
   {
@@ -212,7 +252,7 @@
    "title": "Betting splits (Action Network)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (4.1h; limit 30h)",
+   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (4.7h; limit 30h)",
    "fix": ""
   },
   {
@@ -221,7 +261,7 @@
    "title": "BetOnline player props (prop stacks, props pass)",
    "level": "ADVISORY",
    "status": "WARN",
-   "detail": "data/generated/props/betonline-live-2026-10-29-week8.json; rows=522; age=31.0h",
+   "detail": "data/generated/props\\betonline-live-2026-10-29-week8.json; rows=522; age=31.6h",
    "fix": "npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon)."
   },
   {
@@ -230,7 +270,7 @@
    "title": "DraftKings Predictions props",
    "level": "ADVISORY",
    "status": "WARN",
-   "detail": "data/generated/props/dk-predictions-2026-10-17-titans-at-colts.json",
+   "detail": "data/generated/props\\dk-predictions-2026-10-17-titans-at-colts.json",
    "fix": "npm run props:dkp:launch (log in) \u2192 npm run props:dkp:cron \u2192 npm run props:dkp:defense"
   },
   {
@@ -239,7 +279,7 @@
    "title": "Prediction markets + coherence",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 8.2h old (limit 36h)",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 8.8h old (limit 36h)",
    "fix": ""
   },
   {
@@ -257,7 +297,7 @@
    "title": "Player availability / injury report",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/player-availability/latest.json \u2014 6.7h old (limit 24h)",
+   "detail": "data/player-availability/latest.json \u2014 7.3h old (limit 24h)",
    "fix": ""
   },
   {
@@ -266,7 +306,7 @@
    "title": "Projected starters",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 8.2h old (limit 30h)",
+   "detail": "data/projected-starters/2026\\projected-starters-2026-10-30.json \u2014 8.8h old (limit 30h)",
    "fix": ""
   },
   {
@@ -275,7 +315,7 @@
    "title": "Weather / venue",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 5.2h old (limit 48h)",
+   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 5.8h old (limit 48h)",
    "fix": ""
   },
   {
@@ -284,7 +324,7 @@
    "title": "Team power ratings / SRS (fair lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 54.7h old (limit 192h)",
+   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 55.3h old (limit 192h)",
    "fix": ""
   },
   {
@@ -302,7 +342,7 @@
    "title": "FTN Stats IQ weekly context",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (8h)",
+   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (9h)",
    "fix": "FTN refresh (weekly only)."
   },
   {
@@ -346,7 +386,7 @@
    "group": "Expert & media intel",
    "title": "Per-expert narrative summaries",
    "level": "ADVISORY",
-   "status": "WARN",
+   "status": "PASS",
    "detail": "reports/intel/expert-narratives-2026-w08.md",
    "fix": "Written during the stage run (step 6)."
   },
@@ -374,7 +414,7 @@
    "title": "Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (15.8h)",
+   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (16.4h)",
    "fix": ""
   },
   {
@@ -383,7 +423,7 @@
    "title": "Twitter/X bookmark intel (text)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (1.6h)",
+   "detail": "107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (2.2h)",
    "fix": ""
   },
   {
@@ -401,7 +441,7 @@
    "title": "Preferred-expert final cards (coverage)",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "roster status=confirmed; 33/37 experts with a Week 8 card found; missing: none; excused (no card published): Collin Wilson, Ed Feng, Joe Madden, Pat Fitzmaurice",
+   "detail": "roster status=confirmed; 37/37 experts with a Week 8 card found; missing: none",
    "fix": ""
   },
   {
