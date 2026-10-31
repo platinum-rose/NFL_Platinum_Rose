@@ -1,34 +1,58 @@
-# PHI @ WAS — Week 8 game synthesis, pass `sides`
+# PHI @ WAS — Week 8 game synthesis, pass `sides` (Saturday re-run)
 
-As-of: Fri 2026-10-30 ~11:25 PM PT (2026-10-31T06:24Z) · Kickoff: Sun 11/1 5:20 PM PT (SNF, outdoors, Northwest Stadium) · Inactives ~3:50 PM PT Sun · Packet built 2026-10-31T06:09Z · roster_vet: PASS (roster age 8.5h, 2 UNVERIFIED league-wide)
+As-of: Sat 2026-10-31 ~3:30 PM PT (22:30Z) · Kickoff: Sun 11/1 5:20 PM PT (SNF, outdoors, Northwest Stadium) · Inactives ~3:50 PM PT Sun · Packet built 2026-10-31T21:55Z · roster_vet: PASS (roster age 0.3h, 14 UNVERIFIED league-wide) · Friday version: `reports/intel/games/_friday-w08/2026-w08-game-PHI_at_WAS-sides.md`
 
 ## Recommendation box
 
-- **SPREAD: PASS (lean PHI +6 @ BKR -113)** | PASS | fair WAS -5.0 | edge 1.0 pt on PHI | playable to PHI +6 -110 or any +6.5 (tier C); pass at +6 -113 or worse and at +5.5. The sim gives PHI +6 a 52.8% cover chance (pushes excluded) against 53.05% breakeven at -113, so the price takes the edge.
-- **TOTAL: OVER 40.5 @ BKR -106** | C | fair 42.0 | edge +1.5 | playable to 41 (-110); pass at 41.5.
-- **MONEYLINE/SU: PHI ML +216 @ BKR (small)** | C | fair WAS -195 / PHI +195 (PHI 33.9% excl. tie) | edge ~2.3 pp vs 31.6% breakeven | playable to PHI +205; pass below +200. **Straight-up winner: WAS** (sim 66%). WAS ML -251 is a pass (implied 71.5% vs 66%).
-- **SuperContest (WAS -5.5):** lean PHI +5.5 (51.4% sim), **not a candidate**: 0.5-pt edge.
-- **Pool:** BUK BUK SU = **WAS**; confidence **6 / 16** (backup-QB dog with sharp ML money against it, so keep it low).
-- Card fit: Over is `parlay_leg_ok` = y (independent of the side). WAS ML as the SNF moneyline cap: likely SU side, but a negative-value leg at -251; better capped with the Over. Nothing here is `standalone_preferred`.
+- **SPREAD: PHI +6 @ BKR -107** | **C** (was PASS Friday) | fair WAS -5.0 | edge 1.0 pt | sim PHI cover 52.8% (excl. push) vs 51.7% breakeven at -107 | playable to +6 -110 or any +6.5; pass at +5.5 or at +6 -113 or worse.
+- **TOTAL: OVER 40.5 @ BKR -108** | C | fair 42.0 | edge +1.5 | sim 54.5% vs 51.9% breakeven | playable to 41 (-110); pass at 41.5.
+- **MONEYLINE/SU: PHI ML +232 @ BKR (small)** | C | fair PHI +195 / WAS -195 (PHI 33.9% excl. tie) | edge ~3.8 pp vs 30.1% breakeven | playable to +205; pass below +200. **Straight-up winner: WAS** (sim 66%). WAS ML -271 (73.0% implied) is a pass.
+- **SuperContest (WAS -5.5):** lean PHI +5.5 (sim 51.4%), **not a candidate**: 0.5-pt edge at the contest number.
+- **Pool:** BUK BUK SU = **WAS**; confidence **6 / 16**.
+- Card fit: Over `parlay_leg_ok` = y. PHI +6 `parlay_leg_ok` = n (price-sensitive 1-pt edge). PHI ML = small standalone only. Nothing is `standalone_preferred`. PHI +6 and PHI ML are the same thesis; do not stack them as independent edges.
+
+## Changes vs Friday
+
+1. **BKR spread price moved toward PHI:** PHI +6 -113 → **-107**; WAS -6 -103 → -109 [Source: bookmaker-gamelines-2026-10-31-week8.raw.txt, Sat 2:26 PM PT; per-game board `bookmaker-live-2026-10-31-eagles-at-commanders.json` capturedAt 21:28Z matches]. Friday's playable-to was "+6 -110 or better = C", so the spread moves **PASS → C**.
+2. **ML:** PHI +216 → **+232**, WAS -251 → -271. The PHI ML edge grows from ~2.3 to ~3.8 pp; it stays C.
+3. **Total:** still 40.5; Over -106 → -108, Under -110 → -108. BetOnline shows 40 flat (-110/-110, Sat 21:33Z). Over stays C.
+4. **Splits (AN 2:23 PM PT):** ML WAS 83% bets / **43% money** (Friday 33% money). The PHI-ML large-ticket gap narrowed from 50 to 40 pts; it is still a flag. Spread 52% / 61% WAS (gap 9, under the flag). Over 81% / 87%.
+5. **Daron Payne confirmed out for the season** (Jones fracture; ESPN/Schefter, Sat 15:46Z). Friday treated him as "likely out", so this firms up the Over and PHI's run game but adds no new points.
+6. **PHI official Friday report has no Questionables.** Only Campbell, Covey, J. Jones, D. Smith and Wicks are OUT; Barkley is "set to be available". Jalen Carter is not listed, so the feed's "Q" for him is stale and PHI's front is intact [Source: philadelphiaeagles.com, 10/30 3:51 PM].
+7. **`qb_operator_notes` is empty in the Saturday packet** (Friday had Andy-confirmed notes). McKee is confirmed by projected_starters, the AN primer (`away_qb: Tanner McKee`, backup) and eagles.com.
+8. **New Saturday intel for this game is thin:**
+   - No new side or total picks for PHI@WAS came from Saturday podcast or YouTube episodes.
+   - The BettingPros Saturday refresh has no PHI@WAS items.
+   - New X bookmarks are a teaser leg (Lock & Cash, WAS PK; not comparable) and McKee pass-yards overs (Cody Brown; these belong to the props pass).
+   - VSiN (Zachary Cohen) SNF preview: no extractable pick.
+   - Newly cited: Radowitz (BettingPros confidence pool) has PHI SU at 4/14.
+9. Simulator inputs and adjustments are unchanged (margin -1.0, total +1.5), so the probabilities match Friday's. Only the prices changed.
 
 ## Game script
 
-Washington comes off its bye with 13 days of rest. Philadelphia plays on a short week after Monday's 38-21 home loss to Dallas [Source: news_notes, ESPN 2026-10-27]. Tanner McKee starts for PHI (Hurts on IR) without WRs DeVonta Smith or Dontayvion Wicks, so rookie Makai Lemon is the top WR for the second straight week [Source: qb_operator_notes; news_notes Rotowire 2026-10-30 22:33Z]. Saquon Barkley has no designation after limited work Friday [Source: news_notes ESPN 2026-10-30 20:24Z]. Expect PHI to lean on Barkley against a thin WAS interior: Kinlaw OUT, Payne Q/likely out, Newton Q. Washington's offense with Daniels should move the ball against a PHI defense ranked #27 in EPA. Both defenses are bottom-eight by EPA (PHI def 0.086, WAS def 0.080 [Source: team dossiers 2026-w08, nflverse through W7]). The likely game is WAS by about a field goal to a touchdown, at a pace that scores more than 40.
+Washington comes off a bye (13 days of rest). PHI is on a short week after Monday's 38-21 home loss to Dallas. McKee starts without DeVonta Smith or Wicks, so rookie Makai Lemon is the top WR for the second straight week [Source: news_notes Rotowire 10/30 22:33Z].
+
+PHI's path is Barkley plus short passing to Goedert against an interior that has lost Payne for the season and Kinlaw (likely out per Quinn). WAS with Daniels (full practice all week) should move the ball against a PHI defense ranked #27 by EPA. Both defenses are bottom-eight by EPA. The modal result is WAS by 3-7 in a game that scores in the low 40s.
 
 ## QB / availability
 
-- PHI: Hurts IR, **McKee starts** (W7: 23/35, 211 yds, 1 TD, 1 INT). Smith, Wicks, LB Jihaad Campbell, Britain Covey and CB Jonathan Jones are OUT; CB Jakorian Bennett is Q. Safeties Andre' Sam and Tucker Large are on IR [Source: qb_operator_notes; secondary_matchups].
-- WAS: **Jayden Daniels has no designation** (elbow; full practice all week). Terry McLaurin is on IR and DT Javon Kinlaw is OUT. TE John Bates, WR Treylon Burks, DT Jer'Zhan Newton and DT Daron Payne are Q [Source: qb_operator_notes].
-- **Payne conflict:** operator notes and commanders.com list him Q. ESPN reported Fri 00:01Z a "significant foot injury in practice Friday that likely will land him on IR", and the availability feed shows OUT. Treat him as **likely out**, which supports the Over and PHI's run game a little.
-- If Barkley is a surprise inactive, PHI's offense loses its only proven playmaker. Drop the Over to PASS and the PHI ML to PASS. If Daniels is somehow limited, the side flips toward PHI.
+- **PHI:** Hurts IR; **McKee starts**. OUT: Smith, Wicks, Campbell, Covey, CB Jonathan Jones. Safeties Andre' Sam and Tucker Large are IR. Barkley has no designation.
+- **WAS:** **Daniels no designation** (full practice, left elbow). McLaurin IR, Payne out for the season, Kinlaw likely out. Practice status: Burks and Bates DNP; Newton and Omenihu limited. commanders.com rendered no Friday designations.
+- **If Barkley is a surprise inactive:** pass the Over and the PHI ML, and cut PHI +6 to PASS.
+- **If Daniels is limited or out (not expected):** the side flips hard to PHI and the Over goes to PASS.
+- Inactives come out ~3:50 PM PT Sunday.
 
 ## Market
 
-- AN open (Sun 10/25 5:00 PM PT): WAS -3.5 (-114), total 41, ML WAS -190 / PHI +160. BKR now (Fri 6:52 PM PT; prop-board file rows match, capturedAt 2026-10-31T01:52Z): **WAS -6 -103 / PHI +6 -113, o/u 40.5 (-106/-110), ML -251/+216**. That is a **2.5-pt move toward WAS**, past 4 and 5 but short of 7. The total is down 0.5.
-- The AN primer header lists `total_open` 46.5 against the 41.0 in the openers file; see Ambiguity.
+- AN open (Sun 10/25 5:00 PM PT): WAS -3.5 (-114), total 41, ML -190/+160.
+- BKR now (Sat 2:26 PM PT): WAS -6 -109 / PHI +6 -107, 40.5 -108/-108, ML -271/+232. That is **2.5 pts of movement to WAS** through 4 and 5 (short of 7). The total is down 0.5. Friday-to-Saturday, the BKR juice drifted toward PHI.
 - BKR -6 vs SuperContest -5.5: the contest gives WAS backers half a point.
-- Splits (AN, 7:06 PM PT): spread WAS 53% bets / 61% money (8-pt gap, below the sharp flag). **ML: WAS 83% bets but only 33% money, so 67% of ML money is on PHI against 17% of bets. That 50-pt gap is a sharp/large-ticket flag on the PHI ML.** Total: Over 83% bets / 88% money, yet the number ticked *down*, a mild reverse move against the Over.
-- Other flags: Caesars reported sharp action on **Commanders -5.5** (@PatrickE_Vegas, 10/29). BetMGM shows 72% of money on WAS -6 (@johnewing, 10/30).
+- BKR derivatives: 1H WAS -3.5 (-114), 1H total 20. Team totals PHI 16.5 (o -119), WAS 23.5. The PHI team-total Over is juiced, which leans with the Over.
+- Sharp flags:
+  - The PHI ML money gap (57% of money on 17% of tickets) is still flagged.
+  - Caesars reported sharp action on WAS -5.5 (10/29).
+  - BetMGM shows 72% of money on WAS -6 (10/30).
+  - Over 87% money with no upward move is a mild reverse-line signal against the Over.
 
 ## Quantitative
 
@@ -37,18 +61,17 @@ Washington comes off its bye with 13 days of rest. Philadelphia plays on a short
 | SRS / model rank | -7.39 / #28 | -7.66 / #27 |
 | Off EPA/play | -0.107 (#30) | -0.007 (#16) |
 | Def EPA/play allowed | 0.086 (#27) | 0.080 (#25) |
-| PPG for/against | 18.1 / 25.0 | 22.0 / 28.7 |
-| TO margin | -3 | +6 |
-| Avg game total (season) | 43.1 | 50.7 |
+| PPG for / against | 18.1 / 25.0 | 22.0 / 28.7 |
+| Season avg game total | 43.1 | 50.7 |
 
-[Source: power_ratings; team dossiers 2026-w08 (game logs, nflverse through W7)]
+[Source: power_ratings; team dossiers 2026-w08 (nflverse through W7), as tabulated Friday]
 
-- Power ratings call this a pick'em on a neutral field, about WAS -1.5 to -2 with home field. Both SRS figures are skewed: PHI's includes 5 Hurts starts, and WAS played about 2 games without Daniels (FTN shows Daniels GP 4). EPA/play favors WAS by about 0.1 per play net, worth roughly 3-4 pts after regression. Add rest and the WR depletion and I land at **WAS -5**.
-- FTN PHI pass protection: 6.8% sack rate and 35% pressure. WAS's pass rush is already thinned by the DT injuries.
-- Secondary matchups: PHI's coverage has medium vulnerability with slot, seam and TE-middle boosts for WAS (Diggs opportunity 4.8). WAS's coverage has low vulnerability vs PHI. Coach names in that file are ignored per gate rule 7.
-- Prediction markets give context only: PHI median 6 wins, WAS 6.5.
+- Power ratings make this about WAS -1.5 to -2 with home field. Both SRS figures are distorted: Hurts started 5 PHI games, and WAS played about 2 without Daniels.
+- The EPA gap, the rest edge and PHI's WR losses take my number to **WAS -5**.
+- Secondary matchups: PHI coverage is medium vulnerability, with slot, seam and TE boosts for Diggs (opportunity score 4.8). WAS coverage is low vulnerability.
+- Prediction markets (context only): PHI median 6 wins, WAS 6.5.
 
-Simulator (`margin-simulator.mjs`, calibration 2018-2025, selftest PASS):
+Simulator (`margin-simulator.mjs`, calibration 2018-2025, selftest PASS, re-run Sat):
 
 | Run | home line / total | adj (margin, total) | PHI cover* | Over | WAS win (excl tie) |
 |---|---|---|---|---|---|
@@ -59,52 +82,76 @@ Simulator (`margin-simulator.mjs`, calibration 2018-2025, selftest PASS):
 
 *PHI cover excludes pushes.
 
-**Adjustments.** Margin -1.0, within the soft cap:
-- (a) Koerner's projection is PHI +4.3 vs +5.5, an independent model that sits 1.2-1.7 below market [Source: youtube_picks_approved, Koerner AN PRO 10/28].
-- (b) Market overshoot. The line moved 2.5 pts after one blowout loss into a slate where 6+ pt favorites are 8-21-3 ATS and division dogs 23-10 ATS [Source: an_primer SLATE trend, 2026-10-30].
-- Netted against: the WAS rest edge (rest-advantage favorites 15-3-1 ATS) and sharp action on WAS -5.5 at Caesars.
+**Margin adjustment, -1.0:**
+- Koerner's independent projection is PHI +4.3.
+- The market overshot by 2.5 pts after one blowout, on a slate where 6+ pt favorites are 8-21-3 ATS and division dogs 23-10 ATS [an_primer SLATE, Abrams 10/30].
+- Netted against: the WAS rest edge (rest-advantage favorites 15-3-1 ATS) and the Caesars sharp action on WAS.
 
-Total +1.5:
-- (a) The season game-total averages (43.1 / 50.7) both clear 40.5.
-- (b) Both defenses are bottom-8 by EPA, and WAS is missing 2-3 interior DL.
-- (c) Coach trends in this matchup: Quinn is 8-1 to the Over vs the NFC East; Sirianni is 7-1 to the Over vs WAS [Source: an_primer, Abrams 2026-10-30].
-- Netted against: PHI's depleted WR room under McKee, and the total slipping against 88% Over money.
+**Total adjustment, +1.5:**
+- Both season game-total averages are above 40.5.
+- Both defenses are bottom-8 by EPA, and WAS is missing 2-3 interior DL.
+- Matchup coach trends: Quinn is 8-1 to the Over vs the NFC East; Sirianni is 7-1 to the Over vs WAS.
+- Netted against: PHI's WR depletion and the reverse line movement.
 
 ## Experts / podcasts / articles (this matchup, Week 8 only)
 
-- **PHI side:** Brandon Anderson (AN, +6; same pick on his show and in the expert pull, counted as one opinion), Steve Makinen (VSiN, +6), Dave Tuley (VSiN, +6), Sean Koerner (PHI +5.5, ATS confidence #2 of 26), Even Money (+4.5; stale line). On the PHI ML: Scott Bogman (BettingPros, +228). Chris Welsh's +228 ML was **conditional on DeVonta Smith playing**; Smith is OUT, so it is dropped. Bet Labs systems on PHI: Great Condition Div Road Dogs (388-297-20), Business Trip Off Loss on Road, Fade Big Line Moves. WAS is 2-9 ATS vs backup QBs over five seasons.
-- **WAS side:** Doug Kezirian (AN, -5.5; two AN videos, counted as one opinion), Andrew Erickson (BettingPros, -5.5), BettingPros staff (-3.5; priced at the old line, so the edge is gone at -6), PFT (WAS 24-21; margin 3, total 45, which also supports the Over). Supporting trends: Sirianni is 2-6 SU/ATS with a backup QB and 3-8 ATS as a 3+ dog, and PHI is 0-7 2H ATS and 1-9 ATS in its last 10 vs the NFC. Bet Labs: Team off Bye vs Same Div (ML).
-- **Dropped:** all Week 7 DAL@PHI pieces in pick_signals and article_notes (prior week).
-- **Takeaway:** experts lean PHI ATS, but the original bettors' leads were at +6 or worse for the price. Repriced to -113, the edge is thin.
+- **PHI ATS/ML:**
+  - Brandon Anderson (AN, +6; show and expert pull counted as one opinion)
+  - Steve Makinen (VSiN, +6)
+  - Dave Tuley (VSiN, +6)
+  - Sean Koerner (+5.5, ATS confidence #2/26)
+  - Even Money (+4.5, stale)
+  - Scott Bogman (BettingPros, PHI ML +228)
+  - Radowitz (PHI SU, 4/14)
+  - Chris Welsh's ML +228 was conditional on Smith playing; Smith is OUT, so it is dropped.
+- **WAS:**
+  - Doug Kezirian (AN, -5.5; two videos counted as one opinion)
+  - Andrew Erickson (BettingPros, -5.5)
+  - BettingPros staff (-3.5; priced at the stale line)
+  - PFT (WAS 24-21; margin 3 and total 45, which also supports the Over)
+  - Lock & Cash (WAS PK teaser leg; not comparable)
+- **Repricing:** all the WAS spread picks were made at -5.5 or better. At -6 they lose their half-point, and Erickson's rest argument is already in the price. The PHI +6 picks are at today's number, now at a better price than Friday.
+- Dropped: all Week 7 DAL@PHI items in pick_signals and article_notes.
 
 ## Counter-cases
 
-- **PHI +6 (lean):** WAS has 13 days of rest against a team on a short week, and rest-advantage favorites are 15-3-1 ATS. PHI's 2H collapse (0-7 2H ATS) and an offense ranked #30 by EPA without its top two WRs can produce a 10+ point loss. Sharp action came in on WAS -5.5.
-- **Over 40.5:** PHI averages 18 ppg and has had team totals of 14 and 17 recently. The book's PHI team total is 16.5. Teams in their game after facing Dallas are 17-5 to the 1H Under. Money is 88% on the Over and the line still fell.
-- **PHI ML:** PHI is 1-10 SU when Sirianni's team closes as more than a 3-pt dog. A McKee-led team winning outright needs turnovers, and PHI is -3 in turnover margin.
+- **PHI +6:**
+  - WAS has a 13-vs-short-week rest edge, and rest-advantage favorites are 15-3-1 ATS.
+  - PHI is 0-7 2H ATS and #30 in offensive EPA without its top two WRs.
+  - Sirianni is 2-6 SU/ATS with a backup QB and 3-8 ATS as a 3+ dog.
+  - Sharp action took WAS -5.5. A 10+ point WAS win is very plausible.
+- **Over 40.5:**
+  - PHI averages 18 ppg and its team total is only 16.5.
+  - Teams after facing Dallas are 17-5 to the 1H Under.
+  - The total has not risen despite 87% of the money on the Over.
+  - BetOnline is dealing 40, so the market may be drifting down.
+- **PHI ML:** PHI is 1-10 SU as a 3+ dog under Sirianni and -3 in turnover margin. The ML money gap also narrowed overnight.
 
 ## Ambiguity / missing data
 
 - `missing_inputs` is empty.
-- AN primer `total_open` 46.5 vs openers file 41.0. The 46.5 is likely a pre-Hurts or look-ahead number. I used 41.0 as the "AN open".
-- Daron Payne: Q (operator notes, team site) vs likely IR (ESPN).
-- PFT reported the NFL flexed referee Alex Moore's crew out of prime time, yet the AN primer still lists Moore. The crew is unconfirmed.
-- WAS FTN data is stale by one week (through W6, bye). The availability feed has known misclassification bugs.
+- `qb_operator_notes` is empty this run (Friday had them).
+- The availability feed shows Hurts IR with `published_at` 2026-11-01T04:20Z, which is in the future and points to a feed timestamp bug. Jalen Carter shows Q there, but he is not on the official report.
+- The AN primer `total_open` of 46.5 conflicts with the openers file's 41.0; I used 41.0.
+- The AN primer public% block (ML 67% PHI money) is Friday-vintage; the pull splits (Sat 21:23Z) supersede it.
+- WAS final game designations did not render on commanders.com, so Burks, Bates and Newton remain unconfirmed.
+- The referee crew is unconfirmed: PFT reports Alex Moore's crew was moved out of prime time, but the AN primer lists Moore.
 
 ## Pre-kickoff delta checklist
 
-1. Inactives (~3:50 PM PT Sun): if Barkley is out, pass the Over and the PHI ML. If Payne or Newton are active, trim the Over.
-2. If the spread reaches +6.5, upgrade PHI to C. If it drops to +5.5 or the price is -115 or worse, stay PASS.
-3. Over is playable to 41; pass at 41.5 or higher.
-4. PHI ML: pass below +200. If it reaches +230 or better, keep C and consider a small stake.
-5. A Daniels downgrade (none expected) flips the side.
+1. Inactives (~3:50 PM PT): if Barkley is out, pass the Over and the PHI ML and drop PHI +6 to PASS. If Newton plays and is effective, trim the Over a little.
+2. Spread: +6.5 anywhere upgrades PHI to C+/B-. If it drops to +5.5 or the price is -113 or worse, go back to PASS.
+3. Over: playable to 41; pass at 41.5 or higher. If BKR moves to 40, the edge grows to about 2 pts (still C, given the reverse line movement).
+4. PHI ML: pass below +200.
+5. Any Daniels downgrade flips the side to PHI and passes the Over.
 
 ## Gate notes
 
-- roster_vet PASS (8.5h old).
+- roster_vet PASS (0.3h old).
 - No missing inputs.
 - Kickoff has not passed.
-- QB facts come from qb_operator_notes (Andy-confirmed).
-- Ran one web search for final injury reports. The commanders.com report page (no Friday designations rendered) has a "Daron Payne questionable" headline. A Bleeding Green Nation "final injury report" result turned out to be a prior-season Week 16 article and was discarded.
-- Ignored coach names in secondary_matchups (gate rule 7).
-- BKR prop-board game_lines rows (capturedAt 2026-10-31T01:52Z) match the paste, so no newer number was available.
+- `qb_operator_notes` is empty, so QB facts come from projected_starters, the AN primer and eagles.com (both QBs consistent).
+- Ran one web search for the final injury reports. eagles.com (10/30) had a full PHI report with zero Q. commanders.com rendered no Friday designations (practice participation only), so WAS non-QB statuses beyond Payne and Kinlaw remain unverified.
+- Ignored coach names in secondary_matchups (rule 7).
+- The BKR per-game board (21:28Z) matches the 2:26 PM PT paste, so no newer number was available.
+- No other game's files were read.

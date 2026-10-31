@@ -1,89 +1,102 @@
-# MIN @ DET — Week 8 2026 — pass: sides
+# MIN @ DET — Week 8 2026 — pass: sides (Saturday re-run)
 
-As of Fri 2026-10-30 11:25 PM PT (2026-10-31T06:24Z) · Kickoff Sun 11/1 10:00 AM PT (Ford Field, dome) · Packet built 2026-10-31T06:09Z (`scratch/w08-game-synthesis-queue-sides.json`) · roster_vet PASS (age 8.5h, 2 UNVERIFIED league-wide)
+As of Sat 2026-10-31 ~3:20 PM PT · Kickoff Sun 11/1 10:00 AM PT (Ford Field, dome) · Packet built 2026-10-31T21:55Z (`scratch/w08-game-synthesis-queue-sides.json`) · roster_vet PASS (age 0.3h, 14 UNVERIFIED league-wide, none in this game's picks) · Friday version: `reports/intel/games/_friday-w08/2026-w08-game-MIN_at_DET-sides.md`
 
 ## Recommendation box
 
 | Market | Pick @ BKR line/price | Tier | Fair | Edge | Playable to |
 |---|---|---|---|---|---|
-| SPREAD | **MIN +3 (+102)** BKR 6:50 PM PT | C | DET -2.7 | 0.3 pt (MIN) + plus-money at the key number | +3 at -103 or better; **+3.5 only at -109 or better — PASS at +3.5 -118/-120**; pass at +2.5 |
-| TOTAL | PASS (lean Under 46) | PASS | 45.0 | 1.0 pt Under | Under 46 at -105 or better, or Under 46.5 at -110 or better |
-| MONEYLINE / SU | PASS (MIN +162 is about break-even) | PASS | DET 58% / MIN 38% | none | MIN +175 or better |
-| SuperContest | **MIN +3.5** (contest line DET -3.5) | C | — | 0.8 pt, crosses the 3 | yes |
-| Pool | SU **DET**, confidence 4/16 | — | DET 58% | — | — |
+| SPREAD | **MIN +3 (+105)** BKR Sat 2:26 PM PT | C | DET -2.7 | 0.3 pt + plus-money at the 3 (sim EV +3.9%) | +3 at -103 or better; +3.5 only at -109 or better (PASS at BOL +3.5 -120); PASS at +2.5 |
+| TOTAL | PASS (lean Under 45.5) | PASS | 45.0 | 0.5 pt Under (sim EV -1.2% at -109) | Under 46.5 at -110 or better, or Under 46 at -105 or better |
+| MONEYLINE / SU | PASS (MIN +167 slightly +EV on the sim but rests on a 0.3-pt view) | PASS | DET 59% / MIN 38% (tie 2%) | ~1.7 pp | MIN +175 or better → C |
+| SuperContest | **MIN +3.5** (contest line DET -3.5) | C | DET -2.7 | 0.8 pt, crosses the 3 | yes (sim 52.1%) |
+| Pool | SU **DET**, confidence 4/16 | — | DET 59% | — | — |
 
-**Price sensitivity (+3.5 vs +3):** at BKR, **MIN +3 +102 is the better ticket than MIN +3.5 -118 (AN consensus) or -120 (BetOnline).** With my view applied, the simulator gives +3: 46.7% win, 8.3% push, 45.1% loss → EV +2.5% at +102. For +3.5: 52.1% win → EV -3.7% at -118. Paying 16-22 cents for the hook is more than the hook is worth here [sim runs below]. The +3.5 is only worth it as a free half-point, i.e. the SuperContest line.
+The +3 at +105 is now the best ticket on the board for this side: it beats BetOnline +3.5 -120 by the simulator (EV +3.9% vs about -3.7%). [Source: `data/generated/props/bookmaker-live-2026-10-31-vikings-at-lions.json` capturedAt 2026-10-31T21:26:44Z; `data/generated/props/betonline-live-2026-10-31-vikings-at-lions.json` 21:32Z]
+
+## Changes vs Friday
+
+| Item | Friday (10/30 6:50 PM PT) | Saturday (10/31 2:26 PM PT) | Effect |
+|---|---|---|---|
+| BKR spread | MIN +3 +102 / DET -3 -119 | MIN +3 **+105** / DET -3 **-121** | Same pick, better price; EV +2.5% → +3.9%; tier stays C |
+| BKR total | 46 (o +101 / u -117) | **45.5** (o -107 / u -109) | Under edge shrinks 1.0 → 0.5 pt; stays PASS |
+| BKR ML | MIN +162 / DET -178 | MIN **+167** / DET **-184** | Moved further toward DET; still under the +175 trigger; PASS |
+| AN spread splits | DET 41% bets / 51% money (+10, sharp flag DET) | DET 39% bets / **46%** money (**+7**) | DET sharp flag drops below the 10-pt threshold; money still leans DET relative to tickets |
+| AN ML splits | DET 68% bets / 73% money | DET 68% / **61%** money (MIN ML money +7 over bets) | Mild money on the MIN ML |
+| New experts | — | Travis Pulver MIN +3 (+100) / ML (+142); Dan Servodidio DET ML in a parlay with Hockenson ATD; Sal Vetri Goff u274.5 (best bet) | 1 new MIN side, 1 new DET ML; net neutral |
+| Availability | Final Friday report | Unchanged (re-verified vikings.com 10/30 report) | No change |
+| Margin view | DET by 2.7 | DET by 2.7 | Unchanged; total view 45.0 unchanged |
 
 ## Game script
-Detroit's #4 EPA offense (0.142/play, 30.7 PPG, 6.3 plays per drive) faces Minnesota's #1 defense (-0.193 EPA/play, 12.3 PPG allowed, 71% blitz rate, 39% pressure rate). Minnesota's #29 offense (-0.093 EPA/play, 1.86 pts/drive, #32 early-down success rate) faces Detroit's #29 defense (0.116 EPA/play, 52% conversions allowed) [Source: team dossiers 2026-w08 MIN.md/DET.md, built 2026-10-31T01:01Z; Sharp Football tweet 10/27 in news_notes]. The likely script: Minnesota grinds the clock (60.7 plays/game, 30.8 sec/play) and stays close through turnovers (TO margin +7) and pressure on Goff. Goff is +0.467 EPA/dropback when clean and -0.310 under pressure [FTN via DET dossier, through W6]. Detroit's chances rest on beating the blitz with quick throws to the slot and middle, where the secondary-matchup file flags inside-seam and slot weaknesses on MIN [secondary_matchups, 2026-10-30T22:00Z]. A one-score game in the 23-20 range is the modal outcome. The simulator puts 15.6% of results on exactly 3 points.
+Unchanged from Friday: Detroit's #4 EPA offense (30.7 PPG) faces Minnesota's #1 defense (12.3 PPG allowed, ~70% blitz rate), and Minnesota's #29 offense (#32 early-down success rate) faces Detroit's #29 defense [Source: team dossiers `data/generated/team-dossiers/2026-w08/{MIN,DET}.md`, built 2026-10-31T01:01Z, not rebuilt Saturday; Sharp Football tweet 10/27 in news_notes]. Minnesota slows the game down, wins the turnover margin and gets pressure on Goff (+0.467 EPA/dropback clean vs -0.310 under pressure [FTN via DET dossier]). Detroit answers with quick throws to the slot and middle [secondary_matchups 10/30 22:00Z]. The modal outcome is a one-score game around 24-21. The simulator puts 15.6% of results on exactly 3.
 
 ## QB / availability
-- QBs: **Kyler Murray** (MIN, named starter, no designation) and **Jared Goff** (DET) [qb_operator_notes / scratch/w08-qb-confirmations-1030.md].
-- Final Friday report [Source: vikings.com "Lions injury report Week 8 2026", 10/30 1:00 PM]:
-  - **DET:** S **Kerby Joseph OUT** (knee); CB **Roger McCreary Questionable** (foot, limited). No designation, full practice Friday: St. Brown (ankle), Gibbs (shoulder) and CB Rakestraw (ankle). CB Avonte Maddox and S Thomas Harper are on IR [secondary_matchups].
-  - **MIN:** S **Jay Ward Questionable** (knee, limited). No designation: RB Aaron Jones (knee; will split work with Jordan Mason [Rotowire 10/30]), LT Christian Darrisaw (DNP Friday, listed as rest), RT O'Neill, G Huber. S Jamal Adams is on IR.
-- If McCreary is out, DET's secondary is down three regulars plus Joseph, so MIN gets a small boost (+0.2). If Darrisaw is a surprise inactive against Hutchinson, downgrade MIN about 0.5 and the +3 pick drops to a pass.
-- Inactives are released Sun ~8:30 AM PT.
+- QBs: **Kyler Murray** (MIN) and **Jared Goff** (DET), per the packet's an_primer and projected starters (Sat 21:45Z). No QB news.
+- **Final report** [Source: vikings.com "Lions injury report Week 8 2026", dated 10/30, re-fetched Sat]:
+  - DET: S **Kerby Joseph OUT** (knee); CB **Roger McCreary Questionable** (foot). St. Brown (ankle) and Gibbs (shoulder) were DNP Wednesday and full Thursday and Friday, with no designation. CB Avonte Maddox and S Thomas Harper are on IR [secondary_matchups].
+  - MIN: S **Jay Ward Questionable** (knee). LT **Christian Darrisaw** DNP Friday (rest), no designation. RB Aaron Jones (knee) is full Friday and expected to play, splitting work with Jordan Mason [Rotowire 10/30]. S Jamal Adams is on IR.
+- If McCreary is out, that is a small MIN boost (+0.2). If Darrisaw is a surprise inactive, take 0.5 off MIN and the +3 becomes a PASS. Inactives come out Sun ~8:30 AM PT.
+- Sal Vetri's claim that St. Brown is "playing through an ankle injury" is accurate history but outdated: St. Brown was full Thursday and Friday.
 
 ## Market
-- **Spread:** AN open DET -3 (-103) on 10/25 → BKR DET -3 -119 / MIN +3 +102 (10/30 6:50 PM PT; the paste and the prop board `bookmaker-live-2026-10-31-vikings-at-lions.json`, capturedAt 01:50Z, agree, so there is no newer BKR number). AN consensus is MIN +3.5 -118 (7:06 PM PT) and BetOnline is MIN +3.5 -120 (10/29). The move is roughly a quarter to half a point toward DET. The SuperContest line DET -3.5 is half a point better for MIN than BKR.
-- **ML:** opened MIN +135 / DET -162 → BKR MIN +162 / DET -178. That is a clear move toward Detroit.
-- **Total:** opened 46.5 at AN (the primer shows a 47 open) → 46 at BKR (o +101 / u -117) and 45.5 consensus. The juice points toward the Under.
-- **Splits (AN, 10/31 02:06Z):** spread bets 59% MIN, but money 51% DET. That is a **+10 money-over-bets gap on DET, so the sharp flag points toward Detroit.** ML: DET 68% of bets, 73% of money. Total: 49/50 even. BetMGM: 74% of money on DET -3.5 [johnewing 10/30].
+- **Spread:** AN open DET -3 (-103), Sun 10/25 → BKR DET -3 -121 / MIN +3 +105. The paste (2:26 PM PT) and the per-game BKR board (21:26:44Z) match. BetOnline DET -3.5 +100 / MIN +3.5 -120. The juice keeps drifting toward DET at -3, but BKR still won't move to -3.5. The SuperContest line (-3.5) is half a point better for MIN than BKR.
+- **ML:** opened MIN +135 / DET -162 → MIN +167 / DET -184. A steady move toward DET (+32 cents on MIN since the open).
+- **Total:** AN open 46.5 (the primer shows a 47 open) → 45.5 (o -107 / u -109). The Under move has happened; the value on the Under is mostly gone.
+- **Splits** (AN, 10/31 21:23Z): spread MIN 61% of bets / 54% of money, DET 39% / 46%. The DET money edge is +7, **below the 10-point sharp flag**. ML: DET 68% of bets / 61% of money. Total: over 53/52, neutral. Conflict: BetMGM had 74% of money on DET -3.5 [johnewing 10/30], and a 10/31 X post says one tracker shows 96% of money on DET [realedgenetwork]. AN is the auditable feed, so I use AN.
 
 ## Quantitative
-- **Power ratings** [team-power-ratings-2026.json, 10/28]: MIN SRS 8.46 (#1) vs DET 1.67 (#14). I am **not using SRS directly.** MIN has played the easiest schedule to date [SharpFootball 10/27], is 4-0 in one-score games and has +1.34 Pythag luck. The market win-total implied rank (#4 vs #9) narrows the gap. The baseline card's SRS-only adjustment (-3.08) breached the 3.0 hard cap and is rejected.
-- **Prediction markets** (context only): MIN division 40% vs DET 24%. Win-total medians 11.75 vs 11.19.
-- **FTN** (through W6, a week stale): DET defense DVOA +8.5% with a 27.6% blitz rate. MIN defense DVOA -24.0%, with a league-low 1.7% pass-TD rate (3 pass TDs allowed) [SharpFootball 10/30].
-- **Adjustments** (home-positive, my view minus the market):
+- Power ratings [team-power-ratings-2026.json 10/28]: MIN SRS 8.46 (#1) vs DET 1.67 (#14). I discount the SRS gap for the easiest schedule to date, a 4-0 record in one-score games and turnover luck. ESPN (Schatz, 10/31) ranks the 2026 Vikings among the weakest 6-0 teams ever by DVOA. Market win-total ranks are #4 vs #9.
+- Prediction markets (context only): MIN division 40% vs DET 24%.
+- **Adjustments** (home-positive; carried from Friday and re-checked against the Saturday inputs):
 
 | Driver | Pts | Source |
 |---|---|---|
-| DET secondary depletion (Joseph OUT, Maddox/Harper IR, McCreary Q) | -0.4 | vikings.com 10/30; secondary_matchups (DET tier "high", severity 6.3) |
-| MIN blitz/pressure vs Goff's pressure split | -0.3 | FTN via dossiers |
-| Division road dog situational (23-10 ATS in 2026; Bet Labs "Great Condition Div Road Dogs" 388-297-20) | -0.2 | an_primer (Evan Abrams 10/30) |
-| MIN offensive weakness + easiest SOS + TO regression; Koerner proj -3.8; sharp money/ML move to DET | +0.6 | dossiers; youtube_picks_approved (Koerner); splits |
-| **Net margin_adj** | **-0.3 at -3 (-0.8 at -3.5)** | within the 2.0 soft cap |
-| Total: MIN pace/TOP and league-low TD rate allowed vs DET games averaging 58.2 combined and the Joseph absence | **-1.0** | dossiers; Sharp Football worksheet 10/28 |
+| DET secondary depletion (Joseph OUT, Maddox/Harper IR, McCreary Q) | -0.4 | vikings.com 10/30; secondary_matchups (tier high, 6.3) |
+| MIN blitz vs Goff's pressure split | -0.3 | FTN via dossiers |
+| Division road dog situation (23-10 ATS; Bet Labs systems) | -0.2 | an_primer |
+| MIN offense weakness / SOS / turnover regression; Koerner -3.8; ML move to DET (the sharp spread flag has eased) | +0.6 | dossiers; youtube_picks_approved; splits |
+| **Net margin_adj** | **-0.3 at -3 / -0.8 at -3.5** | within the soft cap |
+| Total: MIN pace and the league-low pass-TD rate it allows vs DET scoring and the Joseph absence | **-0.5 vs 45.5** (view 45.0) | dossiers; Sharp worksheet 10/28 |
 
-- **Simulator** (`scripts/intel/margin-simulator.mjs`, selftest PASS):
+- **Simulator** (`scripts/intel/margin-simulator.mjs`, selftest PASS, Sat run):
 
 | Run | MIN cover | push | DET cover | Over/Under | DET win |
 |---|---|---|---|---|---|
-| -3 / 46 baseline | 45.9% | 8.3% | 45.9% | 48.5/48.5 | 60.1% |
-| -3 / 46, adj -0.3 / -1.0 | **46.7%** | 8.3% | 45.1% | 45.5/**51.5** | 59.4% |
-| -3.5 / 46 baseline | 50.0% | 0 | 50.0% | — | 64.1% |
-| -3.5 / 46, adj -0.8 / -1.0 (contest) | **52.1%** | 0 | 47.9% | 45.5/51.5 | 62.1% |
+| -3 / 45.5 baseline | 45.9% | 8.3% | 45.9% | 50.0/50.0 | 60.1% |
+| -3 / 45.5, adj -0.3 / -0.5 | **46.7%** | 8.3% | 45.1% | 48.5/**51.5** | 59.4% |
+| -3.5 / 45.5 baseline | 50.0% | 0 | 50.0% | — | 64.1% |
+| -3.5 / 45.5, adj -0.8 / -0.5 (contest) | **52.1%** | 0 | 47.9% | 48.5/51.5 | 62.1% |
 
 ## Expert / podcast / article agreement
-- **MIN side (all at +3.5):** Simon Hunter (Sharp or Square; 3 episodes plus the article are ONE opinion), Chad Millman (Sharp or Square, "betting the number with the hook"; the Discord community pick is excluded), and Dave Tuley (VSiN best bet). Doug Kezirian has MIN ML as a parlay leg. Fezzik and Even Money have MIN 1Q +0.5 (not comparable).
-- **DET side:** Brandon Anderson (AN article + Brandon's Playground = one opinion, -3 -110), BettingPros/Jason Radowitz (-3 -112, 10/27), ESPN early picks (-3), Kendra Middleton (-3.5), **Sean Koerner (-3.5, proj -3.8, ATS confidence 8/26)**, Even Money (-3) and PFT (27-13).
-- Count: 3 MIN vs 6 DET. Most DET picks were priced at -3 -110/-112 and are now -3 -119, a worse price than they recommended.
-- **Trends that cut against each other:** Goff is 5-0 SU / 4-0-1 ATS vs Murray. Undefeated teams that are 3+ point dogs this late are 0-4 SU. Murray is 4-22 1H ATS in division games. On the other side, the Lions are 0-8 ATS after a SU win, have a Miami road game on deck (15-28 ATS), and preseason contenders are 12-25-1 ATS vs non-contenders [an_primer].
+- **MIN side:** Simon Hunter (Sharp or Square; several episodes and the article count as ONE opinion, +3.5). Chad Millman (+3.5; the Discord community pick is excluded). Dave Tuley (VSiN best bet, +3.5). **New Sat: Travis Pulver (BettingPros, MIN +3 +100 / ML +142, 10/31). His ML price is stale; it is +167 now, which is better for him.** Doug Kezirian has MIN ML as a parlay leg. Fezzik and Even Money have MIN 1Q +0.5 (not comparable).
+- **DET side:** Brandon Anderson (-3 -110; article and video are one opinion), Jason Radowitz (-3 -112), ESPN early picks (-3), Kendra Middleton (-3.5), **Sean Koerner (-3.5, projection -3.8)**, Even Money (-3), PFT (27-13). **New Sat: Dan Servodidio, DET ML (-170) in a parlay with T.J. Hockenson ATD.** Hockenson is **MIN** [roster-map-latest.json and espn-full-rosters-latest.json], so the parlay pairs a DET win with a Vikings TE score. That is a correlation-hedged parlay, not a strong DET side opinion.
+- Props with side or total implications: Sal Vetri Goff u274.5 (X, best bet) and Trent Conner Goff u0.5 INT (both lean low DET passing). Phil Wood has Goff 2+ INT +429. These go to the props pass and are not counted here.
+- Count: 4 MIN vs 7 DET (plus a DET ML parlay leg). Most DET tickets were bought at -110/-112, and DET now costs -121.
 
 ## Counter-case
-- **MIN +3:** Detroit's offense is the best unit on the field, and Goff (14 TD / 0 INT) is the kind of poised passer who makes a 70% blitz pay. Minnesota scores 20.8 PPG against the league's easiest schedule, so its 6-0 record carries a lot of luck (one-score games, turnovers). Sharp money and the ML move both lean Detroit, and Koerner's number (-3.8) would make DET -3 a small play.
-- **Under (pass):** Kerby Joseph's absence opens deep and middle routes for Jefferson, Addison and Hockenson. Detroit games average 58 points, and either defense allowing a short field could push this past 46.
-- **ML (pass):** the market has already moved 27 cents toward DET. My 38% for MIN is at break-even.
+- **MIN +3:** Goff (14 TD / 0 INT) is the kind of QB who punishes a 70% blitz. Minnesota's 6-0 record rests on a soft schedule and close-game luck. The ML has moved 32 cents toward DET since the open. Goff is 5-0 SU / 4-0-1 ATS vs Murray, and undefeated 3+ point dogs this late in a season are 0-4 SU.
+- **Under (pass):** Joseph's absence opens deep and middle routes (DET allows 188 WR yards per game per xEP 10/31), and DET games average 58 combined points.
+- **ML (pass):** at +167, the edge exists only if the 0.3-pt view holds. The market's direction is against MIN.
 
 ## Ambiguity / missing data
-- The packet's `weather` field is null; Ford Field is a dome, so weather is moot.
-- Both dossiers mark availability as "missing". I used the packet availability feed plus the vikings.com Friday report.
-- The secondary_matchups coverage note names a stale DET defensive coach; ignored.
-- article_selections tags the Radowitz Lions -3 as teams [DET, LAC] (tag artifact) and lists it twice.
-- The BetOnline file has no per-row capturedAt (file-level 10/29 23:10Z).
-- FTN data runs only through W6.
-- A web-search hit (SI.com "four players questionable") was a 2025 article and was dropped.
+- The `weather` field is null; Ford Field is a dome.
+- The packet lists Jay Ward as a CB; the official report lists him as a S.
+- Splits conflict: AN 46% DET money vs BetMGM 74% and one tracker's 96%.
+- Dossiers and FTN were not rebuilt Saturday (01:01Z / through W6).
+- article_selections tags Radowitz with [DET, LAC] and lists the pick twice.
+- YouTube pick rows carry no publish dates, so I could not separate Saturday episodes from earlier ones. No new sides opinion appears beyond the Friday list.
+- Several web-search results were 2025 Lions-Vikings pages and were ignored.
 
 ## Pre-kickoff delta checklist
-1. BKR MIN +3 juice moves to -104 or worse → PASS. BKR shows +3.5 at -109 or better → switch to +3.5 (tier C→B is possible at +3.5 -105).
-2. Line moves to DET -2.5 → PASS the side. DET -4 → re-run; probably still MIN at that point.
-3. Sun ~8:30 AM PT inactives: McCreary out → small MIN boost. Darrisaw or O'Neill inactive → MIN downgrade, PASS. Any surprise from St. Brown or Gibbs → MIN up.
-4. Total: 46.5 or higher at -110 → Under becomes playable (C). 45 or lower → stays PASS.
-5. MIN ML reaches +175 or better → MIN ML becomes playable (C).
+1. BKR MIN +3 drops to -104 or worse → PASS. BKR posts +3.5 at -109 or better → take +3.5.
+2. DET -2.5 → PASS the side. DET -4 → re-run.
+3. Inactives Sun ~8:30 AM PT: McCreary out → small MIN boost. Darrisaw or O'Neill inactive → PASS. A St. Brown or Gibbs surprise → MIN up.
+4. Total 46.5 at -110 or better → Under is playable at C.
+5. MIN ML +175 or better → playable at C.
 
 ## Gate notes
-- missing_inputs: none. roster_vet PASS (8.5h). Kickoff not passed.
-- Roster rerun not performed (shared file). QB status comes from qb_operator_notes.
-- Price gate: the BKR paste (6:52 PM PT) and the prop-board game rows (01:50Z) match, so there is no newer BKR number.
-- Hard-cap issue from the baseline card (SRS-only -3.08) is noted and rejected. This run's |margin_adj| is 0.3/0.8 and |total_adj| is 1.0, both within the soft cap.
+- missing_inputs: none. roster_vet PASS (0.3h). Kickoff not passed.
+- The roster gate was not rerun (shared file). Hockenson's team was verified from the roster files.
+- Price gate: the BKR paste (2:26 PM PT) and the board rows (21:26:44Z) match; no newer BKR number.
+- Adjustments are within the soft cap (|0.3|/|0.8| margin, |0.5| total).
+- One web check of the injury report: vikings.com 10/30 report confirmed; no change.

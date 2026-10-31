@@ -1,73 +1,84 @@
-# 2026 W08 — LAC @ LAR — game synthesis, pass `sides`
+# 2026 W08 — LAC @ LAR — game synthesis, pass `sides` (Saturday re-run)
 
-As-of: Fri 2026-10-30 ~11:25 PM PT · Kickoff: Sun 11/1 1:05 PM PT (SoFi; inactives ~11:35 AM PT) · Packet built 2026-10-31T06:09:16Z (`scratch/w08-game-synthesis-queue-sides.json`) · roster_vet: PASS (roster 8.5 h old, 2 UNVERIFIED league-wide) · missing_inputs: none
+As-of: Sat 2026-10-31 ~3:30 PM PT · Kickoff: Sun 11/1 1:05 PM PT (SoFi; inactives ~11:35 AM PT) · Packet built 2026-10-31T21:55:40Z (`scratch/w08-game-synthesis-queue-sides.json`) · roster_vet: PASS (0.3 h, 14 UNVERIFIED league-wide) · missing_inputs: none · Friday version: `reports/intel/games/_friday-w08/2026-w08-game-LAC_at_LAR-sides.md`
 
 ## Recommendation box
 
 | Market | Pick @ BKR | Tier | Fair | Edge | Playable to |
 |---|---|---|---|---|---|
-| SPREAD | **LAC +6.5 -109** | C | LAR -5.5 | 1.0 pt | +6.5 at -112 or better; **+7 upgrades to B**; pass at +6 |
-| TOTAL | **Under 45 -109** | C | 44.0 | 1.0 pt | 45 at -110; pass at 44.5; 45.5+ firms up |
-| MONEYLINE / SU | **PASS** (LAC +232 ≈ fair; Rams SU) | PASS | LAR ~-205 / LAC +205 (≈67/33) | ~1.5% win prob | LAC ML only at +250 or better |
-| SuperContest | **LAC +6.5** (contest line LAR -6.5): sim 52.7% cover, no juice → candidate **Y** | C | | | |
-| Pool | SU **Rams**; confidence **7 of 16** (sim LAR win 67–71%) | | | | |
+| SPREAD | **PASS at BKR** (lean LAC +6.5 -113) | PASS (was C) | LAR -5.5 | 1.0 pt, but at -113 the sim's 52.7% is below the 53.1% break-even | LAC +6.5 at -110 or better = C; +7 at any price to -115 = B |
+| TOTAL | **Under 45 +101** | C | 44.5 | 0.5 pt (+~3.5% EV on the +101 price) | 45 to -105; pass at 45 -110 or at 44.5; 45.5 at -110 or better firms it |
+| MONEYLINE / SU | **PASS** (LAC +233; Rams SU) | PASS | LAR ~-205 / LAC ~+205 | LAC ~32.8% (excl tie) vs 30.0% implied, which I discount (see below) | LAC ML only at +250 or better |
+| SuperContest | **LAC +6.5** (contest line LAR -6.5, no juice): sim 52.7% → candidate **Y**, but it's the thinnest kind of Y | C | | | |
+| Pool | SU **Rams**; confidence **7 of 16** (sim LAR win 68%) | | | | |
 
-Card fit: `parlay_leg_ok` n for both picks (thin edges add vig, don't stack them); `standalone_preferred` n (the edge isn't big enough). Sources: BKR lines [data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt, Fri 6:52 PM PT; same numbers on the per-game board data/generated/props/bookmaker-live-2026-10-31-chargers-at-rams.json capturedAt 2026-10-31T01:51:58Z].
+Card fit: `parlay_leg_ok` = n for every market (thin edges plus vig). `standalone_preferred` = n. Prices come from BKR game-lines paste Sat 2:26 PM PT [`data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt`] and match the per-game board [`data/generated/props/bookmaker-live-2026-10-31-chargers-at-rams.json`, capturedAt 2026-10-31T21:28:02Z]: LAC +6.5 -113 / LAR -6.5 -103 / o45 -118 / u45 +101 / ML +233/-272.
+
+## Changes vs Friday
+
+1. **BKR spread price moved against LAC:** LAC +6.5 -109 → **-113** (LAR -107 → -103). That passes Friday's playable-to line (-112), so the BKR spread drops **C → PASS**. The SuperContest call doesn't change because the contest line has no juice.
+2. **Total:** Under 45 -109 → **+101**, Over 45 → -118. BetOnline now shows **45.5** -110/-110 [`betonline-live-2026-10-31-chargers-at-rams.json`, 21:32Z]. AN splits: over money 73% → **80%** against 69% of bets, an 11-pt gap and a **new sharp flag on the OVER**. I cut total_adj from -1.0 to **-0.5**. The under stays C only because of the plus price.
+3. **Spread splits:** LAR money 56% → 59% (bets still 69%). The LAC money-vs-bets gap narrowed from 13 to **10**. That's still a sharp flag on LAC, but weaker.
+4. **Injuries (official Fri report):** C Coleman Shelton went from listed **OUT** on Friday to **Questionable** (DNP/DNP/Limited). CB Trent McDuffie is **Questionable** (limited all week), which settles Friday's OUT-vs-Q conflict in favour of Q. Both lean slightly toward the Rams if they play.
+5. **New signals:** VSiN's Matt Youmans and Wes Reynolds both have LAC +6.5 (captured Sat 14:54Z). Lock & Cash lists Chargers +240 as an upset pick and "avoid Rams" in teasers (X, 10/30, pulled Sat). No new Saturday YouTube or BettingPros rows exist for this game, and the article file still has only Koerner.
+6. ML +232 → +233, still a pass. BKR team totals are unchanged (LAR 26.5 / LAC 19.5 o-116). New 1H line: LAR -3.5 / 22.
 
 ## Game script
-The Rams should control it on early downs: LAR offense EPA/play +0.058 (#10), 2.19 pts/drive, RZ TD 69%. LAC runs the league's worst offense: EPA/play -0.202 (#32), 15.0 PPG, 1.25 pts/drive, 9.5% sack rate, 12 giveaways [team dossiers 2026-w08 LAC.md/LAR.md; FTN team context]. LAC's defense is real (EPA/play -0.047, #7), but it is missing elite S Derwin James. The likely flow is the Rams up 7–10 by halftime, then a slow second half with the Rams leaning on the run (ESPN/Barshop 10/28: "Rams leaning on the run game" with Davante Adams out after hamstring surgery). The question is whether LAC gets one late score to land inside the number. Herbert has 16 closes as a west-coast underdog; 13 were losses, and only one of those was by 10+ points (exactly 10) [an_primer, Abrams 10/30]. That fits a "lose by 3–6" range.
+The Rams should control early downs. LAR's offense is #10 in EPA/play at +0.058. LAC's is #32 at -0.202, scoring 15.0 PPG with a 9.5% sack rate and 12 giveaways [team dossiers 2026-w08 via Friday report]. LAC's defense is good (#7 EPA/play), but it's without S Derwin James (OUT). The likely shape is the Rams up 7–10 at halftime, then running the ball without Davante Adams (IR) in a slow second half. Over 16 closes as a west-coast underdog, Herbert's teams lost 13 times, and only one of those losses was by 10+ points [an_primer, Abrams 10/30]. That "close-loss" profile is the main case for LAC.
 
 ## QB / availability
-- QBs: Herbert (LAC) and Stafford (LAR) start; no QB has a designation [qb_operator_notes; scratch/w08-qb-confirmations-1030.md, Fri 9:25 PM PT, which says it was web-checked by Claude, not Andy].
-- LAC OUT: S Derwin James, DB Deane Leonard, G Kayode Awosika, WR Brenen Thompson. Questionable: CB Donte Jackson (hamstring, limited Thu) and CB Rodney Shelley. WR Ladd McConkey (concussion) is off the report and will play (Rotowire/Athletic 10/30). WR Tre' Harris has no designation [availability feed 10/30].
-- LAR: C Coleman Shelton OUT. TE Colby Parkinson Q (ribs), WR Jordan Whittington Q (back), LS Joe Cardona doubtful. WR Davante Adams is out (surgery). DE Myles Garrett won't return in W8 (ESPN/Rotowire 10/28). DE Kobie Turner and DT Poona Ford are on IR (SI/MacMillan 10/27). The packet flags `defensive_front cluster_risk=true` for LAR.
-- **CB Trent McDuffie conflict:** operator notes say OUT, but the availability feed (Caplan/SI 10/30) says Q (groin, "improving"). He was inactive W6–W7. *If McDuffie is out*, LAC's slot/underneath passing gets a small boost, which helps LAC +6.5 and slightly hurts the under. *If he plays*, nothing in the picks changes. My Friday web search turned up only a Monday SI report (Q) and no final Rams report, so the conflict is still open.
-- Ignore "Aaron Donald UNKNOWN" in the LAR feed (known misclassification). The LAR dossier's venue line ("Melbourne Cricket Ground") is a schedule-file bug. Slate and BKR both put this game at 1:05 PM PT in LA.
+- Herbert and Stafford start; no QB designations [packet an_primer; projected_starters].
+- **LAC Out:** S James, DB Leonard, G Awosika, WR B. Thompson. **Questionable:** CB Donte Jackson and CB Rodney Shelley (hamstrings, limited all week). McConkey, Tre' Harris and Mack are off the report [chargers.com Week 8 injury report, 10/30]. The availability feed lists TE Njoku on IR. That dates to September (fibula; DraftSharks 9/21), so it isn't new, and the projected-starters "known" list is stale.
+- **LAR:** LS Cardona Doubtful. CB McDuffie, TE Parkinson (rib, DNP all week), WR Whittington (back) and C Shelton (hip) are Questionable. Garrett, Turner, Ford, Keir Thomas, Adams and Ferguson are on IR, and the packet flags `defensive_front cluster_risk=true` [packet availability; chargers.com report; sportbusy/ESPN 10/31]. The feed also shows K Blake Grupe on IR, which I couldn't verify; I'm treating it as unverified.
+- **If** Shelton plays → small LAR offensive bump (about 0.3 pt toward LAR). **If** McDuffie sits → small LAC slot bump. **If** Donte Jackson and Shelley both sit → LAC CB depth is very thin, which favours the over and LAR. Inactives come out ~11:35 AM PT.
 
 ## Market
-- AN open (Sun 10/25 5:00 PM PT): LAR -7.5 / 45.5 / ML -372/+283. BKR now: LAR -6.5 -107 / 45 / ML -271/+232. **The spread moved 1 point toward LAC and through the 7.** The total dropped 0.5. AN's primer shows total_open 48 at another book, and Caesars reported sharp Over 43.5 on 10/29 (@PatrickE_Vegas, news_notes). The total has been bet both ways and is now centred at 44.5–45 (BetOnline 44.5 -115/-105 on 10/29; DK 44.5 on 10/27).
-- Splits (AN, 7:06 PM PT): spread LAR 69% bets / 56% money → **LAC has 31% of bets but 44% of money, a 13-pt gap = sharp flag on LAC**. ML is 96/96 Rams (no signal). Total: Over 68% bets / 73% money (5-pt gap, no flag; public-over lean).
-- BKR vs SuperContest: both at 6.5, so no gap.
-- Kalshi/Polymarket are context only: LAC median 4.85 wins, LAR 10.05 [prediction_markets].
+- AN open (Sun 10/25): LAR -7.5 / 45.5 / ML -372/+283. BKR now: -6.5 / 45 / -272/+233. The spread moved 1 pt through the 7 toward LAC, and the juice is still pushing that way (LAC -113). That suggests a +6 is closer than a +7. The total has gone 45.5 → 45 at BKR, but the 45.5 at BetOnline and the -118 over juice show upward pressure.
+- AN splits (Sat 2:23 PM PT): spread LAR 69% bets / 59% money → **LAC +10 gap (sharp flag)**. Total: over 69% bets / 80% money → **OVER +11 gap (sharp flag)**. ML 96/96 Rams (no signal).
+- BKR and contest line are both -6.5, so there's no gap. Kalshi/Polymarket context: LAC median 4.85 wins, LAR 10.05.
 
 ## Quantitative
-- Power: LAR SRS -0.37 (#17), LAC -10.1 (#32). On SRS alone LAR is about -10, plus a near-zero home edge (shared stadium). Market-implied ranks are closer (LAC #29 / LAR #14). The power gap is the strongest argument against LAC, and it rests on 6 LAC games with 0-3 in one-score games and Pythag 1.36 expected wins [power_ratings].
-- FTN: LAR rush D DVOA -20.7% and pass-rush pressure 30.0%. But the rush numbers were built with Garrett/Turner/Ford, who are now out. LAC pass protection: 38.9% pressure, 21 sacks. **The Rams' depleted front is the main matchup lever toward LAC staying close.**
-- Secondary: LAR offense vs LAC is tier **high** (James out, severity 5.63), with boosts for TE middle, slot, and deep passes. LAC offense vs LAR is low [secondary_matchups; I ignored the coach names there per the rule].
-- Simulator (`scripts/intel/margin-simulator.mjs`, selftest PASS, calibration 2018-2025):
+- Power: LAR SRS -0.37 (#17), LAC -10.1 (#32). On SRS alone LAR would be about -10. The market-implied ranks are closer (#14 vs #29) [power_ratings].
+- FTN: the Rams' rush-D and pressure numbers were built with Garrett, Turner and Ford. LAC's pass protection allows 38.9% pressure, so the Rams' depleted front is the main reason LAC can hang around [FTN context via Friday read; weekly file, no refresh].
+- Secondary: LAR offense vs LAC rates **high** (James out, severity 5.63, boosts to TE-middle, slot and deep routes). LAC offense vs LAR rates low.
+- Simulator (`margin-simulator.mjs`, selftest PASS, calibration 2018-2025, BKR = contest line -6.5, total 45):
 
-| Run | home line / total | margin_adj / total_adj | LAC cover | LAR cover | Over | Under (excl push) | LAR win |
-|---|---|---|---|---|---|---|---|
-| Baseline | -6.5 / 45 | 0 / 0 | 50.0% | 50.0% | 50.0% | 50.0% | 70.6% |
-| Adjusted (BKR = SC line) | -6.5 / 45 | **-1.0 / -1.0** | **52.7%** | 47.3% | 46.9% | **53.1%** | 68.3% |
-| Sensitivity | -6 / 44.5 | -0.5 / -0.5 | 51.4% (excl push) | | 48.5% | 51.5% | |
+| Run | margin / total adj | LAC cover | Over (excl push) | Under (excl push) | LAR win |
+|---|---|---|---|---|---|
+| Baseline | 0 / 0 | 50.0% | 50.0% | 50.0% | 70.6% |
+| **Chosen** | **-1.0 / -0.5** | **52.7%** | 48.4% | **51.6%** | 68.3% |
+| Friday view | -1.0 / -1.0 | 52.7% | 46.9% | 53.1% | 68.3% |
+| Softer | -0.5 / -0.5 | 51.4% | 48.4% | 51.6% | 69.4% |
 
-Adjustment reasons. **margin -1.0:** (a) LAC off a bye vs a team on normal rest; rest-advantage teams are 22-8-1 ATS this season, and winless teams off a bye are 30-11 ATS [an_primer]; (b) the Rams have lost Garrett, Turner and Ford, the core of the pass rush they would use against LAC's #32 protection [news_notes; SI 10/27]; (c) 13-pt sharp money gap on LAC plus the move off 7.5; (d) 6+ point favorites are 8-21-3 ATS this year. Offsetting: a -10 power gap, and James is out. **total -1.0:** (a) McVay is 30-12 to the Under as a home favorite since 2020, missing the total by 5.0 PPG [an_primer]; (b) points-for/against blend gives LAR ~24.7 + LAC ~18.9 ≈ 43.6, and the BKR team totals add to 46 (26.5/19.5); (c) LAC's drives are slow (27.5 s/play) and the Rams run-heavy without Adams. Offsetting: Caesars sharp Over 43.5 and James out.
+**Why margin -1.0:** LAC comes off a bye against a team on normal rest. Rest-advantage teams are 22-8-1 ATS this season, and winless teams off a bye are 30-11 ATS. The Rams are without three DL starters. LAC still has the money-vs-bets gap, and 6+ point favourites are 8-21-3 ATS. Offsetting that: the -10 SRS gap, James out, and Shelton possibly back. **Why total -0.5 (was -1.0):** McVay is 30-12 to the Under as a home favourite and the PF/PA blend is ~43.6. Against that, the new 11-pt sharp over flag, the over juice and BetOnline at 45.5 each take back half of Friday's adjustment.
 
 ## Expert / podcast / article split
-- **LAC +6.5:** Steve Makinen (VSiN best bet), Stuckey (Action Network YouTube; LAC ML parlay leg, bye/health), Sean Koerner (AN PRO, ATS confidence #13/26: projection +6.4 vs +6.5, so essentially no edge). AN Bet Labs systems: "winless teams on road wk5+" 64-40, "Business Trip off loss on road".
-- **LAR -6.5:** Jason Radowitz (-6.5 -112), Iain MacMillan (SI, -6.5), BettingPros early bets (-6.5 -112), PFT (30-13 Rams). Steve Krebs: Rams ML -290 (tier 3). I dropped the BettingPros "Rams -5.5" because it comes from a Week 9 lookahead URL, and the Radowitz "Lions -3" row because it was tagged to LAC but is the wrong game.
-- **Total:** Under from Steve Fezzik (Ross Tucker show, under parlay leg), Even Money (u45.5, u44.5 — priced at a better number than today's 45). Over from Caesars sharp action at 43.5. The parlay legs are not full-game best bets; I count them as soft.
+- **LAC:** Steve Makinen, Matt Youmans and Wes Reynolds (all VSiN, LAC +6.5). Stuckey (AN YouTube, LAC ML parlay leg). Lock & Cash (LAC +240 upset). Koerner (AN PRO, +6.4 projection vs +6.5, about no edge). Bet Labs systems: winless road teams wk5+ (64-40), and Business Trip.
+- **LAR:** Jason Radowitz (-6.5 -112), BettingPros early bets (-6.5 -112), PFT (30-13), Steve Krebs (ML -290). Dropped: BettingPros "Rams -5.5" (it's a Week 9 lookahead URL) and Radowitz "Lions -3" (wrong game).
+- **Total:** Under from Fezzik (parlay leg, u45.5) and Even Money (u45.5/u44.5, at better numbers than now). Over from Caesars sharp action at 43.5 (10/29) and Saturday's AN over-money gap. The three VSiN pieces are one outlet but three separate handicappers. They are still public-facing and likely part of why the LAC side got bet down.
 
 ## Counter-cases
-- **LAC +6.5:** LAC hasn't covered all year (0-5-1) and has scored under 24 in every game. Its offense is historically bad, and McDaniel's role as play-caller is under review. James out opens the middle for Stafford. A two-score Rams lead, Stafford at 14-7 ATS as a favorite, and SRS all point to -10. A 7 or 10-point Rams win is very plausible.
-- **Under 45:** LAC's defense is down two DBs. LAC gives the ball away 2+ times a game, which hands the Rams short fields. Sharps bet over at 43.5, and the Rams scored 34/35 in two of their last three wins. One defensive or return TD clears 45.
-- **ML pass:** LAC +232 needs about a 30% win rate; the sim says about 32%. That gap is too small for a 0-6 team.
+- **LAC side:** LAC is 0-5-1 ATS with sub-24 points every game, and McDaniel is on the hot seat. James out opens the middle for Stafford, and Stafford is 14-7 ATS as a favourite. SRS says -10. A 7- or 10-point Rams win is the single most likely outcome bucket.
+- **Under 45:** Sharp money is now on the over. LAC's DB room is depleted, LAC turns it over and hands the Rams short fields, and one defensive or return TD clears 45.
+- **ML pass:** The sim's LAC ~33% (excl tie) relies on a margin view of mine that the -113 juice market only partly confirms. For a 0-6 team I'm not betting +233 on a model gap below 3%.
 
 ## Ambiguity / missing data
-McDuffie status (OUT vs Q). No final Friday Rams report found online. The total opener differs by source (45.5 AN file vs 48 primer vs 43.5 Caesars). The dossier venue is wrong (Melbourne). LAC FTN tables are 1 week stale (through W6, but LAC was on bye). The LAR Q tags on the availability feed are unverified. qb_operator_notes is labelled "web-checked by Claude, not Andy-confirmed".
+- Shelton, McDuffie, Parkinson and Whittington are all game-time Qs.
+- Grupe (K) IR in the feed is unverified.
+- Total openers differ by source (45.5 AN vs 48 primer).
+- The LAR dossier venue says "Melbourne", which is a known schedule bug.
+- The YouTube file status is `pending_andy_review`, but the packet lists these rows as approved.
+- BKR prop-board times match the paste, so nothing newer exists.
 
 ## Pre-kickoff delta checklist
-1. LAC +7 appears at BKR → upgrade the spread to B. If the line drops to +6 or lower → pass the spread and keep LAC +6.5 as a SuperContest-only pick.
-2. Total 45.5+ → under firms up. 44.5 or lower → pass.
-3. Inactives at 11:35 AM PT: McDuffie active = no change. Donte Jackson inactive = LAC CB depth thins, so trim the under. Parkinson/Whittington out = slight Rams pass-volume downgrade, which helps the under.
-4. Any LAC play-caller change or McConkey setback → re-evaluate the LAC side.
-5. Sharp-split reversal (LAR money ≥ 70%) → drop the spread to PASS.
+1. BKR LAC +6.5 at -110 or better → spread becomes C. +7 → B. +6 → pass everywhere except as a SuperContest hold.
+2. Total 45.5 at ≤-110 → under firms to C+. Under 45 at -105 or worse → pass. 44.5 → pass.
+3. Inactives (~11:35 AM PT): Shelton active → no change to the pass. D. Jackson and Shelley both out → drop the under. McDuffie out → LAC lean strengthens slightly.
+4. LAR money on the spread ≥ 70%, or over money ≥ 85% → drop the lean or the under.
+5. Any LAC play-caller or McConkey news → re-evaluate.
 
 ## Gate notes
-- missing_inputs: none. roster_vet PASS (8.5 h).
-- Kickoff hasn't passed; this is a forward pick.
-- Availability feed issues: McDuffie Q vs operator OUT; "Aaron Donald UNKNOWN" is a misclassification; Byron Young, Landman and D. Johnson are UNKNOWN status.
-- Dossier venue bug (LAR "Melbourne Cricket Ground") and LAC dossier availability marked "missing". The secondary-matchup coach names (Minter/Shula) were ignored per rule 7.
-- Weather null: indoor (SoFi), not relevant.
-- I did one Friday injury web search for each team; no final Rams report was found.
+- missing_inputs: none. roster_vet PASS (0.3 h). This is a forward pick; kickoff hasn't passed.
+- My one web search for the injury report found the official chargers.com Week 8 report (Fri 10/30, both teams) and an ESPN-fed Rams page (10/31). Neither has inactives yet.
+- Availability feed issues: Aaron Donald / Byron Young / Puka Nacua "UNKNOWN" are rest (NIR) entries, not injuries. The Njoku IR entry is old news (September). The projected-starters LAC list is stale.
+- The secondary-matchup coach names were ignored per rule 7. Weather is null and moot (SoFi has a fixed canopy roof).

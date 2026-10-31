@@ -1,95 +1,89 @@
-# CHI @ SEA — Week 8 game synthesis, pass `sides` (Monday Night Football)
+# CHI @ SEA — Week 8 game synthesis, pass `sides` (Monday Night Football) — Saturday re-run
 
-As-of: Fri 2026-10-30 ~11:25 PM PT · Kickoff: Mon 11/2 5:15 PM PT (2026-11-03T01:15Z) · Inactives ~3:45 PM PT Mon · Packet built_at 2026-10-31T06:09:16Z · roster_vet PASS (roster age 8.5h, 2 UNVERIFIED slate-wide)
+As-of: Sat 2026-10-31 ~3:25 PM PT · Kickoff: Mon 11/2 5:15 PM PT (2026-11-03T01:15Z) · Inactives ~3:45 PM PT Mon · Packet built_at 2026-10-31T21:55:40Z · roster_vet PASS (roster age 0.3h, 14 UNVERIFIED slate-wide)
 
 ## Recommendation box
 
 | Market | Pick @ BKR | Tier | Fair | Edge | Playable-to |
 |---|---|---|---|---|---|
-| SPREAD | **CHI +3 +103** | C (B at +3.5) | SEA -2.0 | ~1.0 pt (1.25 vs juice-adjusted -3.2) | +3 at -112 or better; **pass at +2.5** |
-| TOTAL | **UNDER 46 -106** | C | 44.5 | 1.5 pts | to 45 -110; pass at 44.5 |
-| MONEYLINE / SU | CHI ML +156 lean only — **PASS as a bet**; SU winner **SEA** | PASS | CHI ~+144 | ~1-2% | revisit at CHI +165 or better |
-| SuperContest | CHI +3 (contest line SEA -3) — candidate, secondary tier | C | | | |
-| Pool | BUK BUK SU: **SEA**; confidence **4/16** (coin-flip-plus) | | | | |
+| SPREAD | **CHI +3 +102** | C (B at +3.5) | SEA -2.25 | ~0.75 pt | +3 at -110 or better; **pass at +2.5** |
+| TOTAL | **UNDER 46 -106** (BetOnline u46.5 -110 is the better number if executable) | C | 45.0 | 1.0 pt (1.5 vs BOL 46.5) | to 45.5 -110; pass at 45 |
+| MONEYLINE / SU | **PASS** (CHI +154 = model ~39%); SU winner **SEA** | PASS | CHI ~+154 | ~0 | reconsider CHI at +170 |
+| SuperContest | **CHI +3** (contest SEA -3 = BKR) — keep in the AI five as the low-confidence slot | C | | | drop for any B-tier alternative |
+| Pool | BUK BUK SU: **SEA**; confidence **4/16** | | | | |
 
-Card fit: spread `parlay_leg_ok=n` (8.3% push mass on 3; keep standalone/contest); under `parlay_leg_ok=y` (C-tier, low correlation with CHI +3 only mildly positive); `standalone_preferred=n` (edges are thin).
+Card fit: spread `parlay_leg_ok=n` (8.3% push on 3); under `parlay_leg_ok=y` (thin, C); `standalone_preferred=n` (no large edge).
+
+## Changes vs Friday
+
+1. **BKR (2:26 PM PT Sat)**: CHI +3 +102 / SEA -3 -118 (Fri +103/-119); o46 -110 / u46 -106 (unchanged); ML CHI +154 / SEA -176 (Fri +156/-178). Board file 21:28:46Z matches; team totals still CHI 21.5 / SEA 24.5; 1H SEA -1.5 -117, 23. Effectively no move. [Source: data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt; bookmaker-live-2026-10-31-bears-at-seahawks.json 2026-10-31T21:28Z]
+2. **BetOnline (21:33Z)** shows CHI +3 -105 and **total 46.5** (-110 both) — a half point the under can use. [Source: betonline-live-2026-10-31-bears-at-seahawks.json]
+3. **Splits (AN 2:23 PM PT)**: spread SEA 40% bets / 47% money (+7, Fri +9 — no flag); ML CHI 25% bets / 47% money (+22 gap persists — sharp flag on CHI ML); total over 71% bets / **83% money** (Fri 70/79) with the number pinned at 46 → reverse-line pressure toward the under strengthened. [Source: packet splits 2026-10-31T21:23Z]
+4. **Availability (Sat)**: WR **Rashid Shaheed ruled OUT** (Fri: Q); RB **Zach Charbonnet no designation — will play**; RB Jadarian Price no designation but **remains on IR** (not yet activated); TE **Colston Loveland cleared**; RB **Kyle Monangai OUT** (Ben Johnson, Sat). [Source: news_notes Rotowire 2026-10-31T16:55Z–20:53Z]
+5. **Friday operator notes are gone from this packet** (`qb_operator_notes` empty): Cross OUT and Drake Thomas OUT were operator-confirmed Friday; no Saturday confirmation. ESPN still lists Cross **Doubtful** (high ankle) — carried as "expected out."
+6. **New expert/podcast picks (all SEA side or over)**: Evan Abrams SEA -3 -115 and Doug Kezirian SEA -3 -115 (AN Bears-Seahawks best bets; Kezirian already counted Friday = one opinion); Scott Bogman SEA -3.5 -110 and Chris Welsh Over 46.5 (BettingPros MNF preview); Matt Youmans VSiN best bet SEA -3. New CHI-side: Lock & Cash CHI ML +140 (X bookmark, same handle as their +3.5 = one opinion).
+7. **Quenton Nelson** trade to SEA verified in packet (ESPN/PFF 10/27; PFT 10/29: starts at LG Monday).
+8. **Net effect**: margin view trimmed -1.0 → **-0.75** (Shaheed out helps CHI; Charbonnet's return and a broader SEA expert consensus offset); total view trimmed -1.5 → **-1.0** (market refused to drop below 46 despite Shaheed news; BOL actually 46.5). Picks unchanged in direction, both still C.
 
 ## Game script
 
-Seattle's defense is the best unit on the field: 3.96 YPP allowed, EPA/play def -0.134 (#2), FTN defense DVOA -21.1%, run-D DVOA -28.6%, 36% pressure rate [Source: data/generated/team-dossiers/2026-w08/SEA.md, FTN generated 2026-10-30T22:00Z]. Seattle's offense is the weak link: EPA/play -0.048 (#24), rush EPA/att -0.261 (DVOA -24.6%), 12 giveaways in 6 FTN games. Chicago is the opposite shape: competent offense (pass DVOA 25.4%, CPOE 4.5%, 72 plays/g, 33.9 min TOP) with a leaky pass defense (6.10 YPP allowed, EPA/DB allowed +0.036) [Source: CHI.md]. Most likely script: a grinding, field-position game in which Seattle's offense must throw (Darnold) against a Bears secondary that allows the most yards per attempt [Source: expert_picks_pull Rich Hribar 2026-10-30], while Seattle's defense keeps Caleb Williams in the low 20s. Last meeting under the same QB/HC pairing was a 6-3 game [Source: an_primer W8_custom_1792774054278]. Margin centre ~SEA by 2, total ~44-45.
+Seattle's defense is the best unit on the field (3.96 YPP allowed, EPA/play def -0.134, FTN def DVOA -21.1%, 36% pressure); its offense is the weak link (EPA/play -0.048, rush EPA/att -0.261, 12 giveaways) [Source: data/generated/team-dossiers/2026-w08/SEA.md, built 2026-10-31T01:01Z — unchanged since Friday]. Chicago: efficient pass offense (pass DVOA 25.4%, 72 plays/g) with a leaky pass defense (6.10 YPP allowed) [Source: CHI.md]. Without Shaheed, Seattle loses its vertical speed outlet; Charbonnet back gives them a better between-the-tackles option behind Nelson, which shortens the game. Expected: a field-position game, SEA by ~2, total ~45.
 
 ## QB / availability
 
-QBs confirmed: Caleb Williams (CHI) vs Sam Darnold (SEA) [Source: qb_operator_notes, scratch/w08-qb-confirmations-1030.md].
-- **SEA LT Charles Cross OUT (ankle)** and **LB Drake Thomas OUT** [Source: qb_operator_notes]. Cross matters most: Darnold's EPA/DB under pressure is -0.729 vs +0.341 clean (FTN pressure table) [Source: SEA.md]. Offsetting: **G Quenton Nelson** acquired 10/27 and will start at LG Monday [Source: news_notes PFT 2026-10-29T19:28Z].
-- **CHI adds DT Jeffery Simmons** (trade 10/29) and DE Montez Sweat is back from suspension [Source: news_notes ESPN 2026-10-29T15:01Z; Rotowire 2026-10-24]. Simmons' snap share after five days in the building is unknown.
-- CHI: TE Cole Kmet IR; RB Kyle Monangai Q (DNP Friday, thumb/toe); TE Colston Loveland Q (limited Fri, neck); CB Beanie Bishop Jr. suspension flag (needs review) [Source: qb_operator_notes; availability feed 2026-10-30/31].
-- SEA: RB Zach Charbonnet Q (limited Fri, knee — possible season debut post-ACL); WR Rashid Shaheed Q (DNP Thu, knee); DT Byron Murphy II Q; RB Jadarian Price listed IR by operator note but designated to return 10/29 and **full Friday** [Source: news_notes Rotowire 2026-10-30T23:25Z] — could be activated.
-- Web check: Seahawks.com Monday update (10/26) confirms Cross ankle, Shaheed knee, Charbonnet/Price both possible returns; no final designations yet — **for a Monday game the final report is released Saturday**, so the Friday statuses above are practice-based, not final.
-- Scenarios: *If Shaheed is OUT*, SEA's explosive-pass outlet shrinks → strengthens under and CHI +3. *If Simmons is active and plays 30+ snaps* vs a backup LT, CHI's pressure edge grows. *If Cross were surprisingly active*, trim the CHI lean to a pass at +3.
+QBs: Caleb Williams vs Sam Darnold [Source: an_primer, home_qb_backup/away_qb_backup false]. Coaches Ben Johnson / Mike Macdonald (primer; ignore the stale coach name in `secondary_matchups`).
+- SEA: Shaheed OUT; LT Charles Cross Doubtful/expected out (ESPN, Oct 26 entry); Charbonnet in; Price on IR; Drake Thomas, Byron Murphy II statuses unconfirmed (feed "UNKNOWN"). Nelson starts LG.
+- CHI: Monangai OUT; Loveland cleared; DT Jeffery Simmons (traded 10/29) and DE Montez Sweat available; CB Beanie Bishop Jr. "SUSPENSION" (FantasyPros, needs review); LB D'Marco Jackson and CB Malik Muhammad II Q.
+- Scenarios: *If Cross is surprisingly active*, drop CHI +3 to PASS. *If Price is activated Monday*, marginal SEA run upgrade, no change. *If Simmons plays 30+ snaps vs a backup LT*, CHI pressure edge grows.
 
 ## Market
 
-- BKR current: CHI +3 +103 / SEA -3 -119; o46 -110 / u46 -106; ML CHI +156 / SEA -178 [Source: data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt, captured Fri 6:52 PM PT]; per-game BKR board at the same capture (2026-10-31T01:52:39Z) matches exactly; team totals CHI 21.5 / SEA 24.5 [Source: data/generated/props/bookmaker-live-2026-10-31-bears-at-seahawks.json].
-- AN open (Sun 10/25 5:00 PM PT): SEA -3 -113, total 47, ML CHI +140 / SEA -169 [Source: packet market.an_opener]. Movement: spread flat on 3 but juice moved 6 cents toward SEA; +3.5 was widely available midweek (every +3.5 expert pick below) and is gone; ML moved toward SEA (+140 → +156); **total down 1 (47 → 46; AN primer shows 47.5 → 46.5)**.
-- SuperContest locked line SEA -3 = BKR number; no gap [Source: data/supercontest/week-08-lines.json, 2026-10-29T16:07Z].
-- Splits (AN, 2026-10-31T02:06Z): spread CHI 60% bets / 51% money (SEA money 49% vs 40% bets, +9 — just under the sharp threshold); **ML: SEA 75% bets but only 53% money → CHI ML gets 47% of money on 25% of tickets (+22 gap) — sharp-money flag on CHI ML**; total over 70% bets / 79% money, yet the total fell 1-1.5 pts → **reverse line movement toward the under**. BetMGM: 71% of money on SEA -3 [Source: news_notes John Ewing 2026-10-30].
+AN open (Sun 10/25): SEA -3 -113, 47, ML CHI +140 → now SEA -3 -118, 46, CHI +154: juice and ML toward SEA, total down 1 against 83% over money. SuperContest SEA -3 = BKR — no gap [Source: data/supercontest/week-08-lines.json 2026-10-29T16:07Z]. BetMGM: 71% of money on SEA -3 (Ewing, 10/30).
 
 ## Quantitative
 
-- Power: CHI SRS 6.77 (#4) vs SEA 4.57 (#7); net PPG SEA 6.1 vs CHI 5.3; composite z 1.070 vs 1.073 — dead even. Neutral-field ≈ pick'em, + home field ~1.5-2 → SEA -1.5 to -2 [Source: packet power_ratings, through W7].
-- Prediction markets: both teams implied median 11.4 wins; no game-level contracts; context only [Source: packet prediction_markets].
-- Rest: CHI played TNF W7 (11 days rest) vs SEA SNF W7 (8 days); league-wide, rest-advantage teams are 22-8-1 ATS this season [Source: an_primer slate trend]. SEA is on its 3rd straight primetime game and 5th straight opponent with a 9+ preseason win total (5-14 ATS historical spot) [Source: an_primer].
-- Secondary: SEA match-zone, aggressive pressure; SEA CB Julian Neal and S Bud Clark IR; vulnerability tier medium [Source: data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json].
-- Weather: 9.5°C, 1% precip, wind <1 km/h — immaterial [Source: packet weather].
+Power: CHI SRS 6.77 (#4) vs SEA 4.57 (#7); composite z 1.070 vs 1.073 → neutral pick'em, fair ≈ SEA -2 with HFA [Source: packet power_ratings]. Prediction markets: both median 11.4 wins, context only. Rest: CHI 11 days vs SEA 8; rest-advantage teams 22-8-1 ATS; SEA 3rd straight primetime, 5th straight strong opponent [Source: an_primer]. Weather immaterial (9.5°C, calm).
 
-Simulator (calibration 2018-2025, sha 0ea35592…):
+Simulator (cal 2018-2025, sha 0ea35592…), BKR line = contest line:
 
-| Run | home-line | total | margin-adj | total-adj | CHI cover / push | SEA cover | Over / Under | SEA win |
-|---|---|---|---|---|---|---|---|---|
-| Baseline | -3 | 46 | 0 | 0 | 45.9% / 8.3% | 45.9% | 48.5 / 48.5 | 60.1% |
-| Adjusted (BKR = contest line) | -3 | 46 | -1.0 | -1.5 | **48.5% / 8.3%** (52.9% ex-push) | 43.2% | 44.0 / **53.0** | 57.6% (CHI 40.0%, tie 2.4%) |
-| Price check | -2.5 | 46 | -0.5 | -1.5 | 51.3% | 48.7% | — | 54.8% |
+| Run | margin-adj | total-adj | CHI cover / push | CHI ex-push | Over / Under | SEA win |
+|---|---|---|---|---|---|---|
+| Baseline -3 / 46 | 0 | 0 | 45.9% / 8.3% | 50.0% | 48.5 / 48.5 | 60.1% |
+| **Saturday adjusted -3 / 46** | -0.75 | -1.0 | **47.8% / 8.3%** | **52.1%** | 45.5 / **51.5** (53.1% ex-push) | 58.2% (CHI 39.4%) |
+| Friday view (ref) | -1.0 | -1.5 | 48.5% / 8.3% | 52.9% | 44.0 / 53.0 | 57.6% |
+| Price check -2.5 | -0.25 | -1.0 | 50.7% | — | — | 55.4% |
+| BOL total 46.5 (view 45) | -0.75 | -1.5 | — | — | 45.5 / **54.5** | — |
 
-Adjustments (home-positive): margin **-1.0** = rest edge (+0.5 CHI; primer rest trend), Cross OUT vs CHI's added pass rush, partly offset by Nelson (+0.5 CHI net), ratings parity implies SEA -2 not -3.2. Total **-1.5** = elite SEA defense + SEA rush-offense inefficiency (EPA/att -0.261), reverse line movement 47→46 against 79% over money, prior meeting 6-3. Both within the 2.0 soft cap. At +2.5 the CHI side is 51.3% vs 52.4% break-even → pass.
+Adjustments: margin -0.75 = rest edge (+0.5 CHI), Cross out + Shaheed out net of Nelson/Charbonnet (+0.25 CHI). Total -1.0 = elite SEA D, SEA rush inefficiency + Charbonnet clock, no Shaheed explosives, RLM. Break-evens: CHI +3 +102 → 49.5% ex-push (52.1% = small edge); u46 -106 → 51.5% ex-push (53.1%); u46.5 -110 → 52.4% (54.5%). At +2.5 CHI is 50.7% vs 52.4% → pass.
 
 ## Expert / podcast / article agreement
 
-- **CHI side:** Brandon Anderson (+3.5; also a Four-Square parlay leg — one opinion across pipelines), Even Money (+3.5, two entries = one opinion; 11 days prep), Steve Fezzik (+3.5), Lock & Cash (+3.5, best bet, expects outright win), ESPN betting staff (Bears +3 -105), Tuley (Bears +9 teaser — not comparable). Koerner projects exactly +3 (0.0% edge, ATS confidence #14). Brandon Kravitz (Bears SB 14/1 after Simmons) is a futures signal only. Note: four of these were priced at +3.5 and have lost the hook.
-- **SEA side:** Doug Kezirian (-3; Macdonald limits explosives), Joe Gibbs (SEA, line not stated; ref Shawn Smith home teams 29-10-1 ATS), Simon/Sharp or Square (-3), Zachary Cohen/VSiN (-2.5 -115), PFT (SEA 20-14 SU). Primer: Darnold 8-0 SU in home night starts since leaving NYJ.
-- **Total:** no expert total on the full game; PFT 20-14 (34) implies under; Caleb Williams road overs 8-2-1 is the over argument; John Ewing CHI "O 10.5" pick_signal is a non-comparable market — ignored.
+- **CHI**: Brandon Anderson (+3.5, also parlay leg = one), Even Money (+3.5), Steve Fezzik (+3.5), Lock & Cash (+3.5 best bet + ML +140 = one), ESPN betting (+3 -105), Tuley (+9 teaser, non-comparable). Koerner projects exactly +3 (0.0%). Four CHI picks were at +3.5 and lost the hook.
+- **SEA**: Kezirian (-3, two videos = one), Abrams (-3 -115, new), Bogman (-3.5, new; his "rookie QB" rationale is factually wrong — Williams is not a rookie — discounted), Youmans VSiN (-3 best bet, new), Joe Gibbs (line not stated; Shawn Smith home ATS 29-10-1), Simon (-3), Zachary Cohen (-2.5), PFT (20-14 SU).
+- **Total**: Welsh Over 46.5 (new); Hribar Darnold o232.5 pass yds is an over-adjacent argument (Bears allow most YPA); PFT 20-14 implies under.
+Net: SEA has the larger and growing expert count; CHI has the sharper money signal (ML +22) and the rest/situational spots.
 
 ## Counter-case
 
-- **CHI +3:** Seattle's defense (#2 EPA) is the best unit in the game and Darnold has been unbeatable at home at night; Shawn Smith home-team ATS trend; juice to -119 says the market wants SEA -3.5; Simmons may be a part-timer; Ben Johnson's teams have been strong primetime but he is 2-7 1H in division — irrelevant here, and his 14-2-1 non-division ATS is a small sample. A 7-point SEA win via one defensive TD is entirely plausible.
-- **Under 46:** CHI runs 72 plays/g and Caleb's road games have gone over by 12.3 PPG; Seattle's 12 giveaways can create short fields; public money is heavy on the over and two of SEA's games went 61+.
-- **SEA SU:** the model makes CHI 40% outright; the sharp ML money on CHI says it could be closer to 43-45%.
+- **CHI +3**: SEA's defense is elite and Darnold is 8-0 SU in home night starts since leaving the Jets; Shawn Smith home trend; Saturday's new expert content leaned SEA; juice at -118 says the market wants -3.5. One defensive score loses this.
+- **Under 46**: Williams road overs 8-2-1 (+12.3 PPG); Bears allow most YPA → Darnold volume; 83% of money on the over; SEA giveaways create short fields.
+- **SEA SU**: sharp ML money says CHI may be 42-45% outright.
 
 ## Ambiguity / missing data
 
-- `missing_inputs[]` empty. Final (Saturday) injury designations not yet published for this MNF game.
-- Jadarian Price: operator says IR, Rotowire says designated to return + full Friday. Drake Thomas: operator OUT vs feed "limited Thursday" — operator note used.
-- Simmons/Nelson role and snap counts after mid-week trades: unknown.
-- Beanie Bishop Jr. "SUSPENSION" from FantasyPros feed (needs_human_review) — unverified.
-- Projected-starters coverage is thin (manual/estimated); dossier availability sections empty.
-- Primer "double-digit preseason win total" trend not applied: CHI's preseason total is not in the packet.
+`missing_inputs[]` empty. Cross final status not confirmed Saturday (ESPN page stale, Oct 26). Drake Thomas, Byron Murphy II statuses unknown. Bishop suspension unverified. Simmons/Nelson snap shares unknown. Dossiers unchanged since Friday 01:01Z (availability section empty). Saturday BKR prop menu thin (no player props posted).
 
 ## Pre-kickoff delta checklist
 
-1. Saturday final injury report: Cross (expected OUT), Shaheed, Charbonnet, Monangai, Loveland, Murphy II. Cross active → drop CHI to pass.
-2. Spread: CHI +3.5 appears → upgrade to B and SC primary; SEA -2.5 → pass the side.
-3. SEA juice past -125 on -3 → recheck (market heading to 3.5; wait for the hook).
-4. Total: 45 or lower → under becomes pass at 44.5; 47 → upgrade under to B.
-5. Monday inactives ~3:45 PM PT: Simmons active/role; Jadarian Price activated from IR.
-6. CHI ML at +165+ with sharp ML split persisting → reconsider ML at C.
+1. Cross active → CHI side to PASS. 2. CHI +3.5 appears → B + SC primary; SEA -2.5 → pass side. 3. SEA -3 juice past -125 → wait for +3.5. 4. Total 45 → under pass; 47 → under B; take 46.5 wherever offered. 5. Monday inactives 3:45 PM PT: Simmons role, Price activation. 6. CHI ML +170+ with sharp ML split → ML C.
 
 ## Gate notes
 
-- Roster vet: PASS (age 8.5h). No props in this pass, so UNVERIFIED players do not affect picks.
-- Kickoff not passed (Mon 5:15 PM PT).
-- Operator notes vs feed conflicts (Price IR, Drake Thomas) — operator notes preferred, flagged.
-- Final injury designations: one web search done; Seahawks.com 10/26 update only; MNF final report publishes Saturday.
-- Secondary-matchups coach names ignored per rule; dossier coaching (Ben Johnson, Mike Macdonald) used.
-- Prop-board game rows are the same capture as the paste (01:52:39Z) — no newer BKR number available.
+- roster_vet PASS (0.3h). No props here.
+- Kickoff not passed.
+- `qb_operator_notes` empty in Saturday packet (Friday had Cross/Drake Thomas OUT) — flagged; ESPN Doubtful used for Cross.
+- Final injury check: two web searches + one ESPN fetch; no official Saturday report text found; Saturday status from packet Rotowire notes.
+- Secondary-matchups coach/role notes (Eberflus, "rookie" Odunze) ignored as stale.
+- SC line equals BKR, so the contest run is the same as the BKR run.
 
-Sources: [Seahawks.com injury plan 10/26](https://www.seahawks.com/news/this-week-s-plan-for-rb-jadarian-price-zach-charbonnet-and-other-seahawks-injury-updates); [TSN — Cross high ankle sprain](https://www.tsn.ca/nfl/article/source-seahawks-lt-cross-has-high-ankle-sprain-likely-to-miss-time-n1-50288850/).
+Sources: [ESPN Seahawks injuries](https://insider.espn.com/nfl/team/injuries/_/name/sea); [Seahawks.com injury plan 10/26](https://www.seahawks.com/news/this-week-s-plan-for-rb-jadarian-price-zach-charbonnet-and-other-seahawks-injury-updates); [Sun-Times Bears practice report 10/27](https://chicago.suntimes.com/bears/2026/10/27/bears-practice-report-kyle-monangai-zavier-scott-seahawks-walk-through).

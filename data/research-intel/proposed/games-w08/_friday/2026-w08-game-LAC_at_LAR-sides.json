@@ -1,0 +1,159 @@
+{
+ "game": "LAC@LAR",
+ "pass": "sides",
+ "generated_at": "2026-10-31T06:24:54Z",
+ "packet_built_at": "2026-10-31T06:09:16Z",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "LAC +6.5",
+   "line": 6.5,
+   "price": -109,
+   "tier": "C",
+   "fair_line": "LAR -5.5",
+   "edge_pts": 1.0,
+   "playable_to": "+6.5 at -112 or better; +7 upgrades to B; pass at +6",
+   "model_prob": 0.527,
+   "supercontest_candidate": true,
+   "reasons": [
+    "Sharp flag: LAC 31% bets / 44% money (13-pt gap), AN splits 2026-10-31T02:06Z",
+    "Line moved off AN open LAR -7.5 to -6.5 through 7",
+    "LAC off bye vs LAR normal rest; rest-advantage teams 22-8-1 ATS, winless teams off bye 30-11 ATS (an_primer, Abrams 10/30)",
+    "LAR pass rush gutted (Garrett out, Turner/Ford IR) vs LAC #32 pass pro",
+    "6+ pt favorites 8-21-3 ATS in 2026",
+    "Herbert as west-coast dog: 1 of 13 losses by 10+",
+    "Makinen (VSiN) LAC +6.5; Koerner proj +6.4"
+   ],
+   "counter_case": "LAC 0-5-1 ATS, worst offense in NFL (EPA -0.202), Derwin James out; SRS gap ~10 pts; Stafford 14-7 ATS as favorite; Radowitz/MacMillan/BettingPros/PFT on Rams.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:58Z",
+   "straight_up_winner": "LAR",
+   "pool_confidence": 7,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false
+  },
+  {
+   "market": "total",
+   "selection": "Under 45",
+   "line": 45,
+   "price": -109,
+   "tier": "C",
+   "fair_line": "44.0",
+   "edge_pts": 1.0,
+   "playable_to": "45 at -110; pass at 44.5; 45.5+ firms",
+   "model_prob": 0.531,
+   "supercontest_candidate": false,
+   "reasons": [
+    "McVay 30-12 Under as home favorite since 2020, -5.0 PPG vs total (an_primer)",
+    "PF/PA blend ~43.6; LAC 1.25 pts/drive",
+    "Rams run-leaning without Adams; LAC slow pace",
+    "Fezzik and Even Money under (soft: parlay legs / better numbers)"
+   ],
+   "counter_case": "Caesars sharp Over 43.5 (10/29); public money 73% over; LAC DB losses (James, Leonard) and LAC 2+ giveaways/game give short fields; non-offensive TD risk.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:58Z",
+   "straight_up_winner": "LAR",
+   "pool_confidence": 7,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (Rams SU)",
+   "line": null,
+   "price": null,
+   "tier": "PASS",
+   "fair_line": "LAR ~-205 / LAC ~+205",
+   "edge_pts": null,
+   "playable_to": "LAC ML only at +250 or better",
+   "model_prob": 0.317,
+   "supercontest_candidate": false,
+   "reasons": [
+    "BKR LAC +232 (30.1% breakeven) vs sim LAC win ~31.7% - too thin",
+    "Stuckey LAC ML parlay leg noted; Krebs Rams ML -290"
+   ],
+   "counter_case": "LAC bye/health + depleted Rams front could produce outright upset; 0-6 team variance cuts both ways.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:58Z",
+   "straight_up_winner": "LAR",
+   "pool_confidence": 7,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -1.0,
+  "total_adj": -1.0,
+  "reasons": [
+   "margin -1.0 (home-positive): LAC bye/rest edge + winless-off-bye system (an_primer); LAR DL out (Garrett/Turner/Ford; news_notes, SI 10/27); 13-pt sharp money gap + move off 7.5; 6+ fav 8-21-3 ATS; offset by -10 SRS gap and James OUT",
+   "total -1.0: McVay home-fav Under 30-12 (an_primer); PF/PA blend 43.6; Rams run-lean w/o Adams; offset by Caesars sharp Over 43.5, James OUT"
+  ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line -6.5 --total 45",
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.5,
+   "home_win": 0.706
+  },
+  {
+   "args": "--home-line -6.5 --total 45 --margin-adj -1.0 --total-adj -1.0",
+   "note": "BKR line == SuperContest line",
+   "home_cover": 0.4727,
+   "away_cover": 0.5273,
+   "over_excl_push": 0.4687,
+   "under_excl_push": 0.5313,
+   "home_win": 0.6825
+  },
+  {
+   "args": "--home-line -6 --total 44.5 --margin-adj -0.5 --total-adj -0.5",
+   "note": "price sensitivity",
+   "away_cover_excl_push": 0.514,
+   "under_excl_push": 0.515
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (packet LAC@LAR, built 2026-10-31T06:09:16Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-chargers-at-rams.json (2026-10-31T01:51:58Z)",
+  "data/generated/props/betonline-live-2026-10-29-chargers-at-rams.json (2026-10-29T23:10:56Z)",
+  "data/odds/actionnetwork-openers-2026-w08.json",
+  "data/supercontest/week-08-lines.json",
+  "data/intel/extracted/2026-w08-primer-intel.json",
+  "data/generated/team-dossiers/2026-w08/LAC.md",
+  "data/generated/team-dossiers/2026-w08/LAR.md",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+  "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+  "scratch/w08-qb-confirmations-1030.md",
+  "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "https://www.si.com/betting/chargers-vs-rams-prediction-odds-spread-injuries-trends-for-nfl-week-8-2026 (10/27)"
+ ],
+ "ambiguities": [
+  "Trent McDuffie: operator notes OUT vs availability feed Q (Caplan/SI 10/30); no final Rams Friday report found",
+  "Total opener differs by source: AN file 45.5, primer total_open 48, Caesars 43.5",
+  "LAR dossier venue shows Melbourne Cricket Ground (schedule bug); game is LA 1:05 PM PT",
+  "qb_operator_notes file labeled web-checked by Claude, not Andy-confirmed",
+  "Availability feed: Aaron Donald UNKNOWN misclassification; several LAR DL UNKNOWN",
+  "BettingPros 'Rams -5.5' from a Week 9 lookahead URL and Radowitz 'Lions -3' mis-tagged to LAC were dropped"
+ ],
+ "delta_checklist": [
+  "BKR LAC +7 -> upgrade spread to B; <= +6 -> pass spread (keep SC LAC +6.5)",
+  "Total 45.5+ -> under firms; 44.5 or lower -> pass",
+  "Inactives ~11:35 AM PT Sun: McDuffie, Donte Jackson, Parkinson, Whittington",
+  "LAC play-caller change or McConkey setback -> re-evaluate LAC side",
+  "Splits reverse to LAR money >= 70% -> spread PASS"
+ ],
+ "gate_notes": [
+  "missing_inputs: none",
+  "roster_vet PASS (age 8.5h)",
+  "Kickoff not passed - forward picks",
+  "McDuffie status conflict (OUT vs Q)",
+  "Dossier venue bug (LAR: Melbourne); LAC dossier availability 'missing'",
+  "secondary_matchups coach names ignored per rule 7",
+  "weather null - indoor SoFi",
+  "Friday injury web search done for both teams; final Rams report not located"
+ ]
+}

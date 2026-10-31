@@ -1,0 +1,168 @@
+{
+ "episode_id": "youtube-ngSrdXI5QvY",
+ "status": "extracted",
+ "transcript_source": "youtube_auto_captions",
+ "show": "BettingPros",
+ "channel": "BettingPros",
+ "title": "NFL Week 8 Monday Night Football Betting Preview (Sides & Props)",
+ "url": "https://www.youtube.com/watch?v=ngSrdXI5QvY",
+ "published_date": "2026-10-31",
+ "week": 8,
+ "transcript_summary": "Chris Welsh and Scott Bogman preview Monday Night Football between the Bears and Seahawks, breaking down sides, totals, player props, and a Same Game Parlay.",
+ "coverage_check": {
+  "video_duration_seconds": 696,
+  "last_analyzed_timestamp": 696,
+  "reached_end_of_video": true
+ },
+ "speaker_segments": [
+  {
+   "start": 0.0,
+   "end": 121.0,
+   "speaker": "Chris Welsh",
+   "text": "Intro and matchup overview for Bears at Seahawks."
+  },
+  {
+   "start": 121.0,
+   "end": 175.0,
+   "speaker": "Scott Bogman",
+   "text": "Backing Seahawks -3.5 at home, noting Mike Macdonald defense and home environment."
+  },
+  {
+   "start": 175.0,
+   "end": 240.0,
+   "speaker": "Chris Welsh",
+   "text": "Leaning Over 46.5 total points; predicting a 24-23 game."
+  },
+  {
+   "start": 240.0,
+   "end": 350.0,
+   "speaker": "Scott Bogman",
+   "text": "Caleb Williams over 20.5 completions (+104)."
+  },
+  {
+   "start": 350.0,
+   "end": 440.0,
+   "speaker": "Chris Welsh",
+   "text": "Colston Loveland over 4.5 receptions (+115)."
+  },
+  {
+   "start": 440.0,
+   "end": 520.0,
+   "speaker": "Scott Bogman",
+   "text": "Sam Darnold over 0.5 interceptions (-105)."
+  },
+  {
+   "start": 520.0,
+   "end": 600.0,
+   "speaker": "Chris Welsh",
+   "text": "Caleb Williams under 21.5 rushing yards (-110)."
+  },
+  {
+   "start": 600.0,
+   "end": 696.0,
+   "speaker": "Chris Welsh",
+   "text": "Same Game Parlay summary and final score predictions (Bogman: SEA 28-23; Welsh: SEA 24-23)."
+  }
+ ],
+ "extracted_picks": [
+  {
+   "team": "SEA",
+   "player": null,
+   "market": "spread",
+   "side": "SEA",
+   "line": -3.5,
+   "price": -110,
+   "week": 8,
+   "speaker": "Scott Bogman",
+   "source_timestamp": 121,
+   "rationale": "Macdonald defense at home against a rookie QB on Monday Night Football."
+  },
+  {
+   "team": null,
+   "player": null,
+   "game": "CHI@SEA",
+   "market": "total",
+   "side": "OVER",
+   "line": 46.5,
+   "price": -110,
+   "week": 8,
+   "speaker": "Chris Welsh",
+   "source_timestamp": 175,
+   "rationale": "Believes both offenses have enough playmaking to push past 46.5 points."
+  },
+  {
+   "team": null,
+   "player": "Caleb Williams",
+   "market": "completions",
+   "side": "OVER",
+   "line": 20.5,
+   "price": 104,
+   "week": 8,
+   "speaker": "Scott Bogman",
+   "source_timestamp": 295,
+   "rationale": "Bears will trail and be forced into heavy dropback passing volume."
+  },
+  {
+   "team": null,
+   "player": "Colston Loveland",
+   "market": "receptions",
+   "side": "OVER",
+   "line": 4.5,
+   "price": 115,
+   "week": 8,
+   "speaker": "Chris Welsh",
+   "source_timestamp": 366,
+   "rationale": "Loveland's role expanding in the Bears offense with heavy target volume underneath."
+  },
+  {
+   "team": null,
+   "player": "Sam Darnold",
+   "market": "interceptions",
+   "side": "OVER",
+   "line": 0.5,
+   "price": -105,
+   "week": 8,
+   "speaker": "Scott Bogman",
+   "source_timestamp": 442,
+   "rationale": "Bears defense generates takeaways and Darnold remains turnover-prone under pressure."
+  },
+  {
+   "team": null,
+   "player": "Caleb Williams",
+   "market": "rush_yds",
+   "side": "UNDER",
+   "line": 21.5,
+   "price": -110,
+   "week": 8,
+   "speaker": "Chris Welsh",
+   "source_timestamp": 539,
+   "rationale": "Seahawks pass rush contains scramble lanes and limits QB ground yardage."
+  }
+ ],
+ "analysis_notes": [],
+ "quote_timestamps": [
+  {
+   "topic": "Seahawks Spread Pick",
+   "timestamp": 121,
+   "speaker": "Scott Bogman",
+   "quote": "I'm going to take Seattle minus three and a half."
+  },
+  {
+   "topic": "Total Over Pick",
+   "timestamp": 175,
+   "speaker": "Chris Welsh",
+   "quote": "I lean to the over at 46.5."
+  }
+ ],
+ "uncertainty_flags": [],
+ "coverage_assessment": {
+  "last_covered_timestamp": 696,
+  "self_reported_reached_end": true,
+  "duration_used_for_check": 696,
+  "segment_start_seconds": null,
+  "segment_end_seconds": null,
+  "suspected_incomplete": false,
+  "reason": null,
+  "coverage_ratio": 1
+ }
+}

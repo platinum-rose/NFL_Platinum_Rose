@@ -1,176 +1,196 @@
 {
-  "game": "CHI@SEA",
-  "pass": "sides",
-  "generated_at": "2026-10-31T06:25:17Z",
-  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
-  "recommendations": [
-    {
-      "market": "spread",
-      "selection": "CHI +3",
-      "line": 3,
-      "price": 103,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:52:39.790Z",
-      "tier": "C",
-      "fair_line": "SEA -2.0",
-      "edge_pts": 1.0,
-      "playable_to": "+3 at -112 or better; pass at +2.5; B at +3.5",
-      "model_prob": {
-        "cover": 0.4849,
-        "push": 0.0827,
-        "cover_excl_push": 0.5286,
-        "baseline_cover": 0.4587
-      },
-      "supercontest_candidate": true,
-      "straight_up_winner": "SEA",
-      "pool_confidence": 4,
-      "parlay_leg_ok": false,
-      "standalone_preferred": false,
-      "reasons": [
-        "Ratings parity: composite z CHI 1.070 vs SEA 1.073; CHI SRS #4 vs SEA #7 -> fair SEA -2 with HFA (power_ratings through W7)",
-        "Rest edge: CHI 11 days (TNF W7) vs SEA 8 (SNF W7); rest-advantage teams 22-8-1 ATS in 2026 (an_primer)",
-        "SEA LT Charles Cross OUT vs CHI pass rush adding Simmons + Sweat; Darnold EPA/DB -0.729 under pressure (qb_operator_notes; FTN via SEA.md)",
-        "Sharp ML flag: CHI ML 47% money on 25% bets (AN splits 2026-10-31T02:06Z)",
-        "SEA 5th straight 9+ win-total opponent spot 5-14 ATS; contender-vs-non-contender 12-25-1 ATS (an_primer)"
-      ],
-      "counter_case": "SEA defense #2 EPA and Darnold 8-0 SU in home night starts since NYJ; ref Shawn Smith home teams 29-10-1 ATS; SEA -3 juice -119 shows market leaning to 3.5; Nelson upgrade; Simmons role unknown."
-    },
-    {
-      "market": "total",
-      "selection": "UNDER 46",
-      "line": 46,
-      "price": -106,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:52:39.790Z",
-      "tier": "C",
-      "fair_line": "44.5",
-      "edge_pts": 1.5,
-      "playable_to": "to 45 -110; pass at 44.5; B at 47",
-      "model_prob": {
-        "under": 0.5303,
-        "over": 0.4395,
-        "push": 0.0302,
-        "baseline_under": 0.4848
-      },
-      "supercontest_candidate": false,
-      "straight_up_winner": "SEA",
-      "pool_confidence": 4,
-      "parlay_leg_ok": true,
-      "standalone_preferred": false,
-      "reasons": [
-        "Reverse line movement: AN open 47 (primer 47.5) -> BKR 46 despite 70% bets / 79% money on over",
-        "SEA defense 3.96 YPP allowed, 17.9 PPG; SEA rush offense EPA/att -0.261 (SEA.md)",
-        "Prior Caleb vs Macdonald meeting 6-3 (an_primer); PFT projects 20-14",
-        "Cross OUT degrades SEA offense; weather immaterial"
-      ],
-      "counter_case": "CHI 72 plays/g; Caleb Williams road overs 8-2-1 (+12.3 PPG); CHI pass D allows most YPA (Hribar); SEA 12 giveaways can create short fields; SEA games 64/61/53 earlier."
-    },
-    {
-      "market": "moneyline",
-      "selection": "PASS (lean CHI +156); SU winner SEA",
-      "line": null,
-      "price": 156,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:52:39.790Z",
-      "tier": "PASS",
-      "fair_line": "CHI ~+144 / SEA ~-144",
-      "edge_pts": null,
-      "playable_to": "reconsider CHI at +165 or better",
-      "model_prob": {
-        "chi_win": 0.4005,
-        "sea_win": 0.5756,
-        "tie": 0.0239
-      },
-      "supercontest_candidate": false,
-      "straight_up_winner": "SEA",
-      "pool_confidence": 4,
-      "parlay_leg_ok": false,
-      "standalone_preferred": false,
-      "reasons": [
-        "Model CHI 40% outright vs 39% implied at +156 (no-vig ~38%): edge too thin for a bet",
-        "Sharp ML money on CHI is the only strong signal",
-        "SEA remains the more likely SU winner for BUK BUK/confidence pools"
-      ],
-      "counter_case": "If sharp ML money is right CHI is 43-45% and +156 is a clear bet; conversely Darnold's home night record argues SEA -178 is fair."
-    }
-  ],
-  "adjustments": {
-    "margin_adj": -1.0,
-    "total_adj": -1.5,
-    "reasons": [
-      "margin -1.0 (home-positive): CHI rest edge +0.5 (an_primer rest trend); Cross OUT vs CHI added pass rush net of Nelson +0.5; ratings parity -> fair SEA -2 vs market ~-3.2",
-      "total -1.5: elite SEA defense + weak SEA rush offense (SEA.md); RLM 47->46 against 79% over money (AN splits); prior meeting 6-3"
-    ]
+ "game": "CHI@SEA",
+ "pass": "sides",
+ "generated_at": "2026-10-31T22:30:00Z",
+ "packet_built_at": "2026-10-31T21:55:40Z",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "CHI +3",
+   "line": 3,
+   "price": 102,
+   "tier": "C",
+   "fair_line": "SEA -2.25",
+   "edge_pts": 0.75,
+   "playable_to": "+3 at -110 or better; pass at +2.5; B at +3.5",
+   "model_prob": {
+    "cover": 0.4783,
+    "push": 0.0827,
+    "cover_excl_push": 0.5214,
+    "baseline_cover": 0.4587,
+    "break_even_excl_push": 0.495
+   },
+   "supercontest_candidate": true,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Rest edge 11 vs 8 days; rest-advantage teams 22-8-1 ATS (an_primer)",
+    "SEA LT Cross doubtful/expected out; WR Shaheed ruled OUT Sat",
+    "Ratings parity: composite z 1.070 vs 1.073 -> fair SEA ~-2",
+    "ML split CHI 25% bets / 47% money (+22) sharp flag"
+   ],
+   "counter_case": "Elite SEA defense, Darnold 8-0 SU home night starts since NYJ, Shawn Smith home ATS trend, Saturday expert content leaned SEA, -118 juice points toward -3.5.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:28:46Z",
+   "straight_up_winner": "SEA",
+   "pool_confidence": 4
   },
-  "sim_runs": [
-    {
-      "args": "--home-line -3 --total 46",
-      "home_cover": 0.4587,
-      "away_cover": 0.4587,
-      "push": 0.0827,
-      "over": 0.4848,
-      "under": 0.4848,
-      "home_win": 0.6013
-    },
-    {
-      "args": "--home-line -3 --total 46 --margin-adj -1.0 --total-adj -1.5",
-      "note": "BKR line == SuperContest line",
-      "home_cover": 0.4325,
-      "away_cover": 0.4849,
-      "push": 0.0827,
-      "over": 0.4395,
-      "under": 0.5303,
-      "home_win": 0.5756,
-      "tie": 0.0239
-    },
-    {
-      "args": "--home-line -2.5 --total 46 --margin-adj -0.5 --total-adj -1.5",
-      "note": "price check",
-      "home_cover": 0.4869,
-      "away_cover": 0.5131,
-      "push": 0.0,
-      "home_win": 0.5477
-    }
-  ],
-  "sources": [
-    "scratch/w08-game-synthesis-queue-sides.json (packet CHI@SEA, built 2026-10-31T06:09Z)",
-    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
-    "data/generated/props/bookmaker-live-2026-10-31-bears-at-seahawks.json (2026-10-31T01:52:39Z)",
-    "data/odds/actionnetwork-openers-2026-w08.json (AN open Sun 10/25 5:00 PM PT)",
-    "data/supercontest/week-08-lines.json (2026-10-29T16:07Z)",
-    "data/generated/team-dossiers/2026-w08/CHI.md",
-    "data/generated/team-dossiers/2026-w08/SEA.md",
-    "data/generated/team-profiles/team-power-ratings-2026.json",
-    "data/intel/extracted/2026-w08-primer-intel.json",
-    "data/podcasts/youtube-extracted-picks-2026-w08.json",
-    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
-    "scratch/w08-qb-confirmations-1030.md (qb_operator_notes)",
-    "https://www.seahawks.com/news/this-week-s-plan-for-rb-jadarian-price-zach-charbonnet-and-other-seahawks-injury-updates",
-    "scripts/intel/margin-simulator.mjs (calibration sha 0ea35592)"
-  ],
-  "ambiguities": [
-    "Final (Saturday) injury designations for MNF not yet published",
-    "Jadarian Price: operator IR vs Rotowire designated-to-return + full Friday",
-    "Drake Thomas: operator OUT vs feed limited Thursday",
-    "Simmons/Nelson snap shares after mid-week trades unknown",
-    "Beanie Bishop Jr. suspension flag unverified (FantasyPros, needs_human_review)",
-    "CHI preseason win total not in packet; double-digit-WT trend not applied"
-  ],
-  "delta_checklist": [
-    "Sat final report: Cross active -> pass the CHI side",
-    "CHI +3.5 appears -> upgrade spread to B and SC primary",
-    "SEA -2.5 -> pass the side",
-    "SEA -3 juice beyond -125 -> wait for +3.5",
-    "Total 45 or lower -> under to pass at 44.5; total 47 -> under to B",
-    "Mon inactives ~3:45 PM PT: Simmons role, Price activation, Shaheed status (Shaheed OUT strengthens under/CHI)",
-    "CHI ML +165+ with sharp ML split persisting -> ML to C"
-  ],
-  "gate_notes": [
-    "roster_vet PASS, age 8.5h",
-    "missing_inputs empty",
-    "kickoff not passed",
-    "operator vs feed conflicts flagged (Price, Drake Thomas); operator notes preferred",
-    "one web search for injury report done; MNF final designations publish Saturday",
-    "no newer BKR game-line row than the 6:52 PM PT paste"
+  {
+   "market": "total",
+   "selection": "UNDER 46",
+   "line": 46,
+   "price": -106,
+   "tier": "C",
+   "fair_line": "45.0",
+   "edge_pts": 1.0,
+   "playable_to": "to 45.5 -110; pass at 45; B at 47; BetOnline u46.5 -110 preferred if executable",
+   "model_prob": {
+    "under": 0.5152,
+    "over": 0.4545,
+    "push": 0.0303,
+    "under_excl_push": 0.5313,
+    "baseline_under": 0.4848,
+    "bol_46_5_under": 0.5454
+   },
+   "supercontest_candidate": false,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "reasons": [
+    "Total 47->46 against 83% over money (RLM)",
+    "SEA rush EPA/att -0.261 + Charbonnet back = clock",
+    "Shaheed OUT removes SEA explosive outlet",
+    "Prior meeting 6-3"
+   ],
+   "counter_case": "Williams road overs 8-2-1 (+12.3 PPG); Bears allow most YPA (Hribar); public/over money heavy; SEA giveaways create short fields; Welsh Over 46.5.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:28:46Z",
+   "straight_up_winner": "SEA",
+   "pool_confidence": 4
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU winner SEA)",
+   "line": null,
+   "price": 154,
+   "tier": "PASS",
+   "fair_line": "CHI ~+154 / SEA ~-154",
+   "edge_pts": null,
+   "playable_to": "reconsider CHI at +170 or better",
+   "model_prob": {
+    "chi_win": 0.3941,
+    "sea_win": 0.5821,
+    "tie": 0.0238
+   },
+   "supercontest_candidate": false,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Model CHI 39.4% equals +154 implied 39.4%",
+    "Sharp ML money on CHI noted but not priced"
+   ],
+   "counter_case": "CHI ML could be 42-45% if sharp ML split is right.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:28:46Z",
+   "straight_up_winner": "SEA",
+   "pool_confidence": 4
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.75,
+  "total_adj": -1.0,
+  "reasons": [
+   "margin -0.75 (home-positive): rest +0.5 CHI; Cross out + Shaheed out net of Nelson/Charbonnet +0.25 CHI",
+   "total -1.0: elite SEA D, SEA rush inefficiency + Charbonnet clock, no Shaheed, RLM vs 83% over money"
   ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line -3 --total 46",
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "push": 0.0827,
+   "over": 0.4848,
+   "under": 0.4848,
+   "home_win": 0.6013
+  },
+  {
+   "args": "--home-line -3 --total 46 --margin-adj -0.75 --total-adj -1.0",
+   "note": "BKR line == SuperContest line; Saturday view",
+   "home_cover": 0.439,
+   "away_cover": 0.4783,
+   "push": 0.0827,
+   "over": 0.4545,
+   "under": 0.5152,
+   "home_win": 0.5821,
+   "tie": 0.0238
+  },
+  {
+   "args": "--home-line -3 --total 46 --margin-adj -1.0 --total-adj -1.5",
+   "note": "Friday view reference",
+   "home_cover": 0.4325,
+   "away_cover": 0.4849,
+   "over": 0.4395,
+   "under": 0.5303,
+   "home_win": 0.5756
+  },
+  {
+   "args": "--home-line -2.5 --total 46 --margin-adj -0.25 --total-adj -1.0",
+   "note": "price check",
+   "home_cover": 0.4934,
+   "away_cover": 0.5066,
+   "home_win": 0.5542
+  },
+  {
+   "args": "--home-line -3 --total 46.5 --margin-adj -0.75 --total-adj -1.5",
+   "note": "BetOnline 46.5",
+   "under": 0.5454,
+   "over": 0.4546
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (built 2026-10-31T21:55:40Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat 2:26 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-bears-at-seahawks.json (2026-10-31T21:28:46Z)",
+  "data/generated/props/betonline-live-2026-10-31-bears-at-seahawks.json (2026-10-31T21:33Z)",
+  "data/supercontest/week-08-lines.json",
+  "data/generated/team-dossiers/2026-w08/{CHI,SEA}.md",
+  "packet splits (AN 2026-10-31T21:23Z)",
+  "packet news_notes (Rotowire Sat)",
+  "https://insider.espn.com/nfl/team/injuries/_/name/sea",
+  "reports/intel/games/_friday-w08/2026-w08-game-CHI_at_SEA-sides.md"
+ ],
+ "ambiguities": [
+  "Cross final status unconfirmed Saturday (ESPN Doubtful, Oct 26 entry); operator notes absent from Saturday packet",
+  "Drake Thomas, Byron Murphy II status unknown",
+  "Beanie Bishop Jr. suspension unverified",
+  "Simmons/Nelson snap shares unknown",
+  "Bogman rationale calls Williams a rookie (wrong) - discounted",
+  "Dossiers unchanged since Fri 01:01Z"
+ ],
+ "delta_checklist": [
+  "Cross active -> CHI side PASS",
+  "CHI +3.5 -> B and SC primary; SEA -2.5 -> pass side",
+  "SEA -3 juice past -125 -> wait for +3.5",
+  "Total 45 -> under pass; 47 -> under B; take 46.5 where offered",
+  "Mon inactives 3:45 PM PT: Simmons role, Price activation",
+  "CHI ML +170+ with sharp split -> ML C"
+ ],
+ "gate_notes": [
+  "roster_vet PASS 0.3h",
+  "kickoff not passed",
+  "qb_operator_notes empty in Saturday packet (Friday had Cross/Drake Thomas OUT)",
+  "no official Saturday injury report text found via web; Rotowire packet notes used",
+  "secondary_matchups stale coach/role notes ignored",
+  "SC line == BKR line"
+ ],
+ "changes_vs_friday": [
+  "BKR: CHI +3 +103->+102, SEA -119->-118, ML +156/-178 -> +154/-176; total 46 unchanged",
+  "BetOnline posts 46.5 (-110) and CHI +3 -105",
+  "Splits: spread SEA money edge +9 -> +7 (no flag); CHI ML 25%/47% (+22) sharp flag persists; over money 79% -> 83% with total pinned at 46",
+  "Shaheed Q -> OUT; Charbonnet Q -> no designation (plays); Monangai Q -> OUT; Loveland Q -> cleared; Price still IR",
+  "qb_operator_notes dropped from packet; Cross carried as Doubtful/expected out (ESPN)",
+  "New picks: Abrams SEA -3, Bogman SEA -3.5, Youmans SEA -3 best bet, Welsh Over 46.5, Lock & Cash CHI ML +140",
+  "Nelson trade verified in packet; starts LG",
+  "margin_adj -1.0 -> -0.75; total_adj -1.5 -> -1.0; picks unchanged (CHI +3 C, Under 46 C, ML PASS, SU SEA 4/16); SC CHI +3 kept as low-confidence slot"
+ ]
 }

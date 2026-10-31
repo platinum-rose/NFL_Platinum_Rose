@@ -1,161 +1,169 @@
 {
- "game": "ARI@DAL",
- "pass": "sides",
- "generated_at": "2026-10-31T06:25:00Z",
- "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
- "recommendations": [
-  {
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:50:49.719Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "DAL",
-   "pool_confidence": 10,
-   "market": "spread",
-   "selection": "PASS (lean ARI +7)",
-   "line": 7,
-   "price": -116,
-   "tier": "PASS",
-   "fair_line": "DAL -6.4",
-   "edge_pts": 0.6,
-   "playable_to": "ARI +7 at -105 or better, or +7.5; pass at +7 -110 or worse and at +6.5",
-   "model_prob": 0.5175,
-   "parlay_leg_ok": false,
-   "standalone_preferred": false,
-   "reasons": [
-    "Sim ARI cover 51.8% excl push at margin_adj -0.6 vs 53.7% breakeven at -116",
-    "Koerner projection DAL -6.3 (AN PRO 10/28)",
-    "DAL short week off MNF; rest-advantage teams 22-8-1 ATS (AN primer)",
-    "6+ pt favorites 8-21-3 ATS; DAL 0-5 ATS last five as 6+ fav (Abrams)",
-    "Offset: ARI OL decimated (P. Johnson IR, Adams IR, Gaines OUT, Froholdt Q); DAL #5 offense EPA"
-   ],
-   "counter_case": "DAL #5 offense vs ARI #28 defense with raw SRS gap ~DAL -10; ARI patched OL could collapse; DAL won by 17 at PHI."
+  "game": "ARI@DAL",
+  "pass": "sides",
+  "generated_at": "2026-10-31T22:30:00Z",
+  "packet_built_at": "2026-10-31T21:55:40.405785+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (lean ARI +7)",
+      "line": 7,
+      "price": -116,
+      "tier": "PASS",
+      "fair_line": "DAL -6.4",
+      "edge_pts": 0.6,
+      "playable_to": "ARI +7 at -105 or better, or +7.5; BetOnline +7 -112 still a pass; pass at +6.5",
+      "model_prob": 0.5175,
+      "parlay_leg_ok": false,
+      "reasons": [
+        "Sim ARI cover 51.8% excl push vs 53.7% breakeven at -116 (52.8% at BOL -112)",
+        "Koerner proj DAL -6.3; rest edge to ARI; 6+ fav 8-21-3 ATS",
+        "New Sat: VSiN Youmans ARI +7; spread splits drifted to 43/43 DAL"
+      ],
+      "counter_case": "DAL #5 offense, won by 17 at PHI, raw SRS ~DAL -10; ARI patched OL could collapse",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:04Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "standalone_preferred": false
+    },
+    {
+      "market": "total",
+      "selection": "UNDER",
+      "line": 54.5,
+      "price": -108,
+      "tier": "B",
+      "fair_line": "52.5",
+      "edge_pts": 2.0,
+      "playable_to": "under 53.5 -110; pass at 53",
+      "model_prob": 0.5605,
+      "parlay_leg_ok": true,
+      "reasons": [
+        "Pace-neutral 51-52.5",
+        "Torbert games 64-44-1 under; 53+ totals Week 7 on 43% over",
+        "ARI FG-heavy red zone (43% TD) behind patched OL",
+        "Sat splits: over money fell 41%->40%, no sharp over flag"
+      ],
+      "counter_case": "Both pass defenses bottom-5, DAL most plays/possession, total rose 1.5 vs under tickets, BKR team totals sum 54; Love return + McBride volume could make it 31-27",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:04Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "standalone_preferred": false
+    },
+    {
+      "market": "moneyline",
+      "selection": "ARI ML (thin value lean); SU winner DAL",
+      "line": null,
+      "price": 252,
+      "tier": "C",
+      "fair_line": "ARI +239 / DAL -239",
+      "edge_pts": null,
+      "playable_to": "ARI +240 or longer",
+      "model_prob": 0.2948,
+      "parlay_leg_ok": false,
+      "reasons": [
+        "Sim ARI win 29.5% vs 28.4% breakeven",
+        "AN ML split 90% bets / 34% money DAL = sharp flag on ARI ML (gap 56, was 62 Fri)"
+      ],
+      "counter_case": "Brissett 0-25 when opponent scores 21+; DAL implied 30.5",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:04Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "standalone_preferred": false
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.6,
+    "total_adj": -2.0,
+    "reasons": [
+      "margin: Koerner proj DAL -6.3; DAL 6 days rest off MNF vs ARI 7; partially offset by ARI OL injuries (unchanged from Friday)",
+      "total: pace-neutral 51-52.5; Torbert under trend; 53+ late-season over 43%; ARI OL injuries/FG-heavy RZ (unchanged from Friday)"
+    ]
   },
-  {
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:50:49.719Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "DAL",
-   "pool_confidence": 10,
-   "market": "total",
-   "selection": "UNDER",
-   "line": 54.5,
-   "price": -108,
-   "tier": "B",
-   "fair_line": "52.5",
-   "edge_pts": 2.0,
-   "playable_to": "under 53.5 -110; pass at 53",
-   "model_prob": 0.5605,
-   "parlay_leg_ok": true,
-   "standalone_preferred": true,
-   "reasons": [
-    "Pace-neutral scoring estimate 51.4; season game totals avg DAL 52.7 / ARI 50.0",
-    "Ref Ron Torbert 64-44-1 Under since 2020 (AN primer)",
-    "Bet Labs 'Beware of Rising Totals' Under 86-65-1 at 54.5",
-    "Totals 53+ from Week 7 on: over 33-44-1 (43%)",
-    "ARI OL injuries + 43% RZ TD rate -> FGs; BettingPros Under 52.5 now 2 pts better"
-   ],
-   "counter_case": "Both defenses bottom-5 EPA/pass DVOA; DAL most plays per possession; total moved 53->54.5 against 64% under tickets (reverse movement)."
-  },
-  {
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:50:49.719Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "DAL",
-   "pool_confidence": 10,
-   "market": "moneyline",
-   "selection": "ARI ML (thin value lean); SU winner DAL",
-   "line": null,
-   "price": 252,
-   "tier": "C",
-   "fair_line": "ARI +239 / DAL -239",
-   "edge_pts": null,
-   "playable_to": "ARI +240 or longer",
-   "model_prob": 0.2948,
-   "parlay_leg_ok": false,
-   "standalone_preferred": false,
-   "reasons": [
-    "Sim DAL win 70.5% excl tie -> ARI 29.5% vs 28.4% breakeven at +252",
-    "Sharp flag: DAL ML 90% bets / 28% money",
-    "DAL lost 3 straight outright as 6+ home fav (Abrams)"
-   ],
-   "counter_case": "Brissett 0-25 when opponent scores 21+; DAL team total 30.5."
-  }
- ],
- "adjustments": {
-  "margin_adj": -0.6,
-  "total_adj": -2.0,
-  "reasons": [
-   "margin: Koerner proj DAL -6.3; DAL 6 days rest off MNF vs ARI 7; partially offset by ARI OL injuries",
-   "total: pace-neutral estimate 51-52.5; Torbert under trend; 53+ late-season over 43%; ARI OL injuries/FG-heavy RZ"
+  "sim_runs": [
+    {
+      "args": "--home-line -7 --total 54.5",
+      "home_cover_excl_push": 0.5,
+      "away_cover_excl_push": 0.5,
+      "side_push": 0.0555,
+      "over": 0.5,
+      "under": 0.5,
+      "home_win_excl_tie": 0.719
+    },
+    {
+      "args": "--home-line -7 --total 54.5 --margin-adj -0.6 --total-adj -2.0",
+      "home_cover_excl_push": 0.4825,
+      "away_cover_excl_push": 0.5175,
+      "side_push": 0.0557,
+      "over": 0.4395,
+      "under": 0.5605,
+      "home_win_excl_tie": 0.7052
+    },
+    {
+      "args": "--home-line -6.5 --total 54.5 --margin-adj -0.1 --total-adj -2.0 (SuperContest)",
+      "home_cover_excl_push": 0.4973,
+      "away_cover_excl_push": 0.5027,
+      "side_push": 0.0,
+      "home_win_excl_tie": 0.6932
+    }
+  ],
+  "changes_vs_friday": [
+    "BKR unchanged to the cent (Sat 2:26 PM PT capture = Fri 6:52 PM PT): ARI +7 -116 / DAL -7 +100, o/u 54.5 -108, ML +252/-297; possible stale capture, verify live",
+    "New BetOnline reference 21:32Z: ARI +7 -112, DAL -7 -108, u54.5 -107, ML +249/-305 (best +7 price; still a pass)",
+    "AN splits: spread DAL 46/47 -> 43/43; total over 36/41 -> 40/40 (over-money edge gone); ML DAL 90/28 -> 90/34 (ARI ML sharp flag persists, gap 56)",
+    "New ARI voices: VSiN Matt Youmans Cardinals +7; Pat Fitzmaurice (BettingPros YT) caution on DAL -6.5; no new DAL side picks",
+    "New Sat X bookmarks are props only (McBride 7+ rec/ATD, Lamb 60+, Dak o224.5 pass, Pickens o39.5) - mild over-lean chatter, not comparable to full-game total",
+    "BettingPros Saturday refresh: no ARI@DAL rows",
+    "Injuries: no Saturday change found - Pickens still Q (shoulder/hamstring, feed P(play) 0.92), Froholdt still Q; roof still undecided",
+    "Recommendations unchanged: spread PASS (lean ARI), Under 54.5 B, ARI ML C, SU DAL 10/16, SuperContest no"
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (built 2026-10-31T21:55:40Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat 2:26 PM PT)",
+    "data/generated/props/bookmaker-live-2026-10-31-cardinals-at-cowboys.json (2026-10-31T21:27:04Z)",
+    "data/generated/props/betonline-live-2026-10-31-cardinals-at-cowboys.json (2026-10-31T21:32:17Z)",
+    "data/generated/master-intel/w08-pull.json (pulled 2026-10-31T21:54:46Z; splits 21:23Z)",
+    "data/odds/actionnetwork-openers-2026-w08.json",
+    "data/supercontest/week-08-lines.json",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "data/intel/extracted/2026-w08-chrome-article-picks.json",
+    "reports/intel/bettingpros-articles-2026-w08.md",
+    "data/player-availability/latest.json",
+    "data/generated/team-dossiers/2026-w08/{ARI,DAL}.md",
+    "reports/intel/games/_friday-w08/2026-w08-game-ARI_at_DAL-sides.md",
+    "https://www.espn.com/nfl/team/injuries/_/name/dal",
+    "https://www.espn.com/nfl/team/injuries/_/name/ari"
+  ],
+  "ambiguities": [
+    "weather null - retractable roof, decision not public",
+    "AN primer total_open 49.5 vs opener file 53.0 (file used)",
+    "ESPN ARI injury page lags Friday finals (Nolen/Gaines shown Q, packet 10/30 says OUT)",
+    "Froholdt absent from availability feed",
+    "BKR prices identical Fri->Sat (possible stale capture)",
+    "DAL projected starters list only QB/RB"
+  ],
+  "delta_checklist": [
+    "BKR ARI +7 -105 or better / any +7.5 -> ARI C",
+    "DAL -6.5 -> pass side",
+    "Total 55.5+ -> upgrade under; 53 or lower -> pass under",
+    "Pickens inactive (~8:30 AM PT) -> fair ~DAL -5.5, ARI +7 C, keep under",
+    "Froholdt/Melton/Wingard inactive -> more DAL/under",
+    "Roof open -> no change",
+    "ARI ML +240 or shorter -> drop C"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS 0.3h; 14 UNVERIFIED league-wide, none for this game",
+    "kickoff not passed",
+    "availability feed misclassification caveat",
+    "one web search: no Saturday injury news; ESPN team pages fetched directly (ARI page lags)",
+    "weather null (roof)",
+    "secondary_matchups coach names (Zimmer, Gannon) ignored",
+    "BKR unchanged since Friday - possible stale capture"
   ]
- },
- "sim_runs": [
-  {
-   "args": "--home-line -7 --total 54.5",
-   "home_cover_excl_push": 0.5,
-   "away_cover_excl_push": 0.5,
-   "side_push": 0.0555,
-   "over": 0.5,
-   "under": 0.5,
-   "home_win_excl_tie": 0.719
-  },
-  {
-   "args": "--home-line -7 --total 54.5 --margin-adj -0.6 --total-adj -2.0",
-   "home_cover_excl_push": 0.4825,
-   "away_cover_excl_push": 0.5175,
-   "side_push": 0.0557,
-   "over": 0.4395,
-   "under": 0.5605,
-   "home_win_excl_tie": 0.7052
-  },
-  {
-   "args": "--home-line -6.5 --total 54.5 --margin-adj -0.1 --total-adj -2.0 (SuperContest)",
-   "home_cover_excl_push": 0.4973,
-   "away_cover_excl_push": 0.5027,
-   "side_push": 0.0,
-   "home_win_excl_tie": 0.6932
-  }
- ],
- "sources": [
-  "scratch/w08-game-synthesis-queue-sides.json (built 2026-10-31T06:09:16Z)",
-  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
-  "data/generated/props/bookmaker-live-2026-10-31-cardinals-at-cowboys.json (capturedAt 2026-10-31T01:50:49.719Z)",
-  "data/odds/actionnetwork-openers-2026-w08.json",
-  "data/supercontest/week-08-lines.json",
-  "data/intel/extracted/2026-w08-primer-intel.json (AN primer, Evan Abrams)",
-  "data/podcasts/youtube-extracted-picks-2026-w08.json",
-  "data/generated/team-dossiers/2026-w08/ARI.md",
-  "data/generated/team-dossiers/2026-w08/DAL.md",
-  "data/generated/team-profiles/team-power-ratings-2026.json",
-  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
-  "packet.splits (Action Network 2026-10-31T02:06:35Z)",
-  "https://www.espn.com/nfl/team/injuries/_/name/ari (fetched 2026-10-30)",
-  "https://www.espn.com.au/nfl/injuries/_/dallas-cowboys (fetched 2026-10-30)",
-  "scripts/intel/margin-simulator.mjs (selftest PASS)"
- ],
- "ambiguities": [
-  "AN primer total_open 49.5 vs opener file 53.0",
-  "packet weather null; AT&T Stadium retractable roof",
-  "Ewing DAL O8.5/ARI O5.5 are season win totals - dropped",
-  "PFT ARI 23-20 (total 43) likely parse mismatch",
-  "Dossier HC Gannon vs news/primer LaFleur",
-  "Week-7 DAL@PHI items in pick_signals/article_notes dropped",
-  "Web search returned prior-season injury pages; ESPN live pages used"
- ],
- "delta_checklist": [
-  "ARI +7 at -105 or better / +7.5 -> spread C on ARI",
-  "Line to DAL -6.5 -> pass side",
-  "Total 55.5+ -> under upgrade; 53 or lower -> pass under",
-  "Pickens inactive (8:30 AM PT) -> fair ~DAL -5.5, lean ARI +7",
-  "Froholdt/Melton/Wingard inactive -> more DAL + under",
-  "ARI ML shorter than +240 -> drop C lean"
- ],
- "gate_notes": [
-  "missing_inputs empty",
-  "roster_vet PASS (8.5h); 2 UNVERIFIED league-wide; no props in this pass",
-  "kickoff not passed",
-  "availability feed misclassification caveat; ESPN Friday pages used",
-  "web search stale (2025); direct ESPN fetch used",
-  "secondary_matchups coach names ignored"
- ]
 }

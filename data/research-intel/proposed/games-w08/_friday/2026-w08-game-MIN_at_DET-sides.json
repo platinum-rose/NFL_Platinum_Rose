@@ -1,0 +1,211 @@
+{
+ "game": "MIN@DET",
+ "pass": "sides",
+ "generated_at": "2026-10-31T06:30:00Z",
+ "packet_built_at": "2026-10-31T06:09:16Z",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "MIN +3",
+   "line": 3,
+   "price": 102,
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:50:29.530Z",
+   "tier": "C",
+   "fair_line": "DET -2.7",
+   "edge_pts": 0.3,
+   "playable_to": "MIN +3 at -103 or better; MIN +3.5 only at -109 or better (PASS at +3.5 -118 AN / -120 BOL); pass at +2.5",
+   "model_prob": {
+    "away_cover": 0.4665,
+    "push": 0.0827,
+    "home_cover": 0.4508,
+    "ev_at_price": 0.025,
+    "line_run": "-3/46 adj -0.3/-1.0"
+   },
+   "supercontest_candidate": false,
+   "straight_up_winner": "DET",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "DET secondary: Kerby Joseph OUT, McCreary Q, Maddox/Harper IR [vikings.com 10/30; secondary_matchups]",
+    "MIN 71% blitz/39% pressure vs Goff EPA/DB -0.310 under pressure [FTN via dossiers]",
+    "Division road dogs 23-10 ATS 2026; Bet Labs Great Condition Div Road Dogs 388-297-20 [an_primer]",
+    "+3 at +102 is plus-money on the key number; sim EV +2.5% vs -3.7% for +3.5 -118"
+   ],
+   "counter_case": "DET offense #4 EPA vs a MIN offense #29 that has played the easiest SOS; MIN 6-0 is luck-heavy (4-0 one-score, +7 TO). Sharp money +10 on DET, ML moved +135 to +162, Koerner proj DET -3.8, Goff 5-0 SU vs Murray."
+  },
+  {
+   "market": "spread",
+   "selection": "MIN +3.5 (SuperContest)",
+   "line": 3.5,
+   "price": null,
+   "book": "SuperContest",
+   "captured_at": "2026-10-29T16:07:07Z",
+   "tier": "C",
+   "fair_line": "DET -2.7",
+   "edge_pts": 0.8,
+   "playable_to": "contest line only; would be MIN +3.5 -109 or better at a book",
+   "model_prob": {
+    "away_cover": 0.5213,
+    "push": 0.0,
+    "line_run": "-3.5/46 adj -0.8/-1.0"
+   },
+   "supercontest_candidate": true,
+   "straight_up_winner": "DET",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Contest line is a free half point through the 3 vs BKR -3",
+    "Same view as the BKR side: fair DET -2.7"
+   ],
+   "counter_case": "Same as the BKR side. Also, MIN is about 67% popular in ATS contests [Tuley VSiN], so there is little differentiation vs the field."
+  },
+  {
+   "market": "total",
+   "selection": "PASS (lean Under 46)",
+   "line": 46,
+   "price": -117,
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:50:29.530Z",
+   "tier": "PASS",
+   "fair_line": "45.0",
+   "edge_pts": 1.0,
+   "playable_to": "Under 46 at -105 or better, or Under 46.5 at -110 or better",
+   "model_prob": {
+    "under": 0.5152,
+    "push": 0.0303,
+    "over": 0.4545,
+    "ev_under_at_-117": -0.014
+   },
+   "supercontest_candidate": false,
+   "straight_up_winner": "DET",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "MIN slow pace (60.7 plays, 30.8 sec/play) and league-low 1.7% pass-TD rate allowed",
+    "Total moved 46.5/47 to 46/45.5; -117 juice already prices the under"
+   ],
+   "counter_case": "Kerby Joseph OUT opens deep and middle routes; DET games average 58.2 combined points [Sharp Football worksheet]."
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU DET)",
+   "line": null,
+   "price": 162,
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:50:29.530Z",
+   "tier": "PASS",
+   "fair_line": "DET 58% / MIN 38%",
+   "edge_pts": 0.0,
+   "playable_to": "MIN +175 or better",
+   "model_prob": {
+    "away_win": 0.383,
+    "home_win": 0.594,
+    "tie": 0.024
+   },
+   "supercontest_candidate": false,
+   "straight_up_winner": "DET",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "MIN +162 break-even 38.2% vs sim 38.3%",
+    "ML already moved +135 to +162"
+   ],
+   "counter_case": "MIN 41-5 SU under O'Connell when not losing the TO battle [an_primer]; Kezirian MIN ML."
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.3,
+  "margin_adj_vs_contest_line": -0.8,
+  "total_adj": -1.0,
+  "view": "DET by 2.7, total 45.0",
+  "reasons": [
+   "-0.4 DET secondary depletion (Joseph OUT, Maddox/Harper IR, McCreary Q)",
+   "-0.3 MIN pressure vs Goff pressure split",
+   "-0.2 division road dog situational (Bet Labs systems, 23-10 ATS)",
+   "+0.6 MIN offense #29 EPA / easiest SOS / TO regression; Koerner -3.8; sharp money and ML move to DET",
+   "Total -1.0: MIN pace/TOP and league-low TD rate allowed, partly offset by DET scoring and the Joseph absence",
+   "Baseline-card SRS-only -3.08 (above the hard cap) rejected"
+  ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line -3 --total 46",
+   "away_cover": 0.4587,
+   "push": 0.0827,
+   "home_cover": 0.4587,
+   "over": 0.4848,
+   "under": 0.4848,
+   "home_win": 0.6013
+  },
+  {
+   "args": "--home-line -3 --total 46 --margin-adj -0.3 --total-adj -1.0",
+   "away_cover": 0.4665,
+   "push": 0.0827,
+   "home_cover": 0.4508,
+   "over": 0.4545,
+   "under": 0.5152,
+   "home_win": 0.5936
+  },
+  {
+   "args": "--home-line -3.5 --total 46",
+   "away_cover": 0.5,
+   "push": 0.0,
+   "home_cover": 0.5,
+   "home_win": 0.6406
+  },
+  {
+   "args": "--home-line -3.5 --total 46 --margin-adj -0.8 --total-adj -1.0",
+   "away_cover": 0.5213,
+   "push": 0.0,
+   "home_cover": 0.4787,
+   "over": 0.4545,
+   "under": 0.5152,
+   "home_win": 0.6206
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (MIN@DET packet, 2026-10-31T06:09Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (6:52 PM PT 10/30)",
+  "data/generated/props/bookmaker-live-2026-10-31-vikings-at-lions.json (2026-10-31T01:50:29Z)",
+  "data/generated/props/betonline-live-2026-10-29-vikings-at-lions.json (2026-10-29T23:10Z)",
+  "data/odds/actionnetwork-openers-2026-w08.json",
+  "data/supercontest/week-08-lines.json",
+  "data/generated/team-dossiers/2026-w08/MIN.md",
+  "data/generated/team-dossiers/2026-w08/DET.md",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+  "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams AN primer)",
+  "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "scratch/w08-qb-confirmations-1030.md",
+  "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season (10/30)"
+ ],
+ "ambiguities": [
+  "weather null (Ford Field dome, moot)",
+  "dossier availability sections missing",
+  "secondary_matchups coverage note has a stale DET coach name (ignored)",
+  "article_selections Radowitz Lions -3 tagged [DET,LAC] and duplicated",
+  "BetOnline rows lack per-row capturedAt",
+  "FTN through W6 only",
+  "SI.com 2025 injury article surfaced by search and dropped"
+ ],
+ "delta_checklist": [
+  "BKR MIN +3 to -104 or worse: PASS; +3.5 at -109 or better: switch to +3.5",
+  "DET -2.5: PASS side; DET -4: re-run",
+  "Sun ~8:30 AM PT inactives: McCreary out MIN+, Darrisaw/O'Neill out PASS, St. Brown/Gibbs surprise MIN+",
+  "Total 46.5+ at -110: Under C; 45 or lower: PASS",
+  "MIN ML +175 or better: C"
+ ],
+ "gate_notes": [
+  "missing_inputs empty",
+  "roster_vet PASS 8.5h (2 UNVERIFIED league-wide); roster gate not rerun",
+  "kickoff not passed",
+  "BKR paste and prop-board game rows agree (no newer BKR)",
+  "baseline card SRS-only adj -3.08 exceeded the hard cap; rejected",
+  "secondary_matchups stale coach name ignored"
+ ]
+}

@@ -43,8 +43,8 @@ export const MARKET_PATTERNS = [
   ['longest_rec', /\blongest reception$/i],
   ['first_td', /\bto score 1st touchdown\??$/i],
   ['kicking_points', /\bkicking points$/i],
-  ['atd_1_plus', /\b(?:score a|scoring a) touchdown\??$/i],
-  ['fantasy_points', /\bfantasy points(?:\s*\(.*\)|\s+std\..*)?$/i],
+  ['atd_1_plus', /\b(?:(?:score a|scoring a) touchdown\??|to score touchdown in the game\??)$/i], // 'X to Score Touchdown in the Game' (Yes/No) seen 2026-10-31
+  ['fantasy_points', /\bfantasy points(?:\s*\(.*\)?|\s+std\..*)?$/i], // title can be cut before ')' (2026-10-31)
 ];
 
 const SPECIAL_SUBTYPES = [

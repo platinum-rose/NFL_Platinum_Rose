@@ -55,6 +55,16 @@ for f in sorted(glob.glob(os.path.join(STG, 'youtube-*.json'))):
     if vid in excl: continue
     d = json.load(open(f, encoding='utf-8'))
     if d.get('status') != 'extracted': continue
+    # Week filter (2026-10-31): staging holds every week's episodes; only this week's may feed the digest.
+    # Staging week must match; with no week field, published_date must fall within 8 days before the slate.
+    swk = d.get('week')
+    if swk is not None and int(swk) != a.week: continue
+    if swk is None:
+        pub = str(d.get('published_date') or '')[:10]
+        first = min(str(g.get('kickoff_utc') or g.get('gameday') or '9999')[:10] for g in sched) if sched else ''
+        try:
+            if not pub or (datetime.date.fromisoformat(first) - datetime.date.fromisoformat(pub)).days > 8: continue
+        except ValueError: continue
     rows = d.get('picks') or d.get('extracted_picks') or []
     if not rows: continue
     show = f"{d.get('channel') or d.get('show')} — {d.get('title')}"

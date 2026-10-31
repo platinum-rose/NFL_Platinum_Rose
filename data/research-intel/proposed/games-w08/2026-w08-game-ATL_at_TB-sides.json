@@ -1,162 +1,166 @@
 {
- "game": "ATL@TB",
- "pass": "sides",
- "generated_at": "2026-10-31T06:30:00Z",
- "packet_built_at": "2026-10-31T06:09:16Z",
- "recommendations": [
-  {
-   "market": "spread",
-   "selection": "PASS (lean TB -2.5)",
-   "line": -2.5,
-   "price": -108,
-   "tier": "PASS",
-   "fair_line": -3.0,
-   "edge_pts": 0.5,
-   "playable_to": "TB C at -2.5 -103 or better / -2 -110; pass at -3; ATL only +3.5+",
-   "model_prob": 0.513,
-   "parlay_leg_ok": false,
-   "standalone_preferred": false,
-   "reasons": [
-    "Fair TB -3.0 from SRS/EPA/DVOA + 1.5 HFA; Koerner proj -2.6",
-    "TB run D (DVOA -21.5%) vs ATL run-centric offense",
-    "TB Pythag delta -1.79 / market rank 22 vs model 12",
-    "Sim 51.3% < 51.9% breakeven at -108",
-    "Line moved TB -1.5 -> -2.5 against 62% ATL money"
-   ],
-   "counter_case": "ATL trend stack (TB 1-11 ATS home, Mayfield 13-27-1 home fav, NFC South favs 16-34-1, div dogs 23-10), ML money 72% ATL, Egbuka OUT and Goedeke Q limit TB offense.",
-   "book": "Bookmaker",
-   "captured_at": "2026-10-31T01:52:00Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "TB",
-   "pool_confidence": 5
+  "game": "ATL@TB",
+  "pass": "sides",
+  "generated_at": "2026-10-31T22:26:45Z",
+  "packet_built_at": "2026-10-31T21:55:40Z",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (lean TB -2.5)",
+      "line": -2.5,
+      "price": -108,
+      "tier": "PASS",
+      "fair_line": -3.0,
+      "edge_pts": 0.5,
+      "playable_to": "TB C at -2.5 -103 or better / -2 -110; pass at -3; ATL only +3.5 or better",
+      "model_prob": 0.5131,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Fair TB -3.0 (SRS/DVOA/EPA + HFA); Koerner -2.6",
+        "TB run D vs ATL run-heavy O",
+        "Sim 51.3% < 51.9% breakeven at -108",
+        "Expert majority TB (Anderson, Stuckey, Moore, Hunter, Koerner) vs trend stack ATL"
+      ],
+      "counter_case": "Trend stack + 73% ML money on ATL; TB without Egbuka and maybe RT Goedeke; division dogs 23-10 ATS.",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:13.229Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "TB",
+      "pool_confidence": 5
+    },
+    {
+      "market": "total",
+      "selection": "UNDER 43.5",
+      "line": 43.5,
+      "price": -112,
+      "tier": "C",
+      "fair_line": 42.5,
+      "edge_pts": 1.0,
+      "playable_to": "43.5 -115 or 44 any; pass at 43 or lower",
+      "model_prob": 0.5303,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Wind 13 mph g18, 45% precip; Bet Labs wind system + AN PRO High Winds system (overlapping, counted once)",
+        "Both offenses bottom-10 EPA; TB #3 defense",
+        "Sharp flag: Over 73% bets / 53% money",
+        "Sim 53.0% vs 52.8% breakeven -> thin"
+      ],
+      "counter_case": "ATL 7-0 1Q over, 6-1 1H over; turnover-driven short fields; expert unders were priced at 45.5.",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:13.229Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "TB",
+      "pool_confidence": 5
+    },
+    {
+      "market": "moneyline",
+      "selection": "PASS (SU TB)",
+      "line": null,
+      "price": -135,
+      "tier": "PASS",
+      "fair_line": "TB -140",
+      "edge_pts": 0.0,
+      "playable_to": "TB ML -125 or better",
+      "model_prob": 0.5736,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Sim TB win 57.4% vs 57.4% breakeven at -135",
+        "Wes Reynolds TB ML was at -126 (9 cents better)"
+      ],
+      "counter_case": "TB Pythag underrating (-1.79) could make -135 cheap; ATL ML money 73%.",
+      "book": "BKR",
+      "captured_at": "2026-10-31T21:27:13.229Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "TB",
+      "pool_confidence": 5
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 0.5,
+    "total_adj": -1.0,
+    "reasons": [
+      "margin +0.5: TB run D vs ATL run-centric O; TB Pythag/one-score underrating; net of Egbuka OUT, Goedeke Q",
+      "total -1.0: wind/rain + wind systems (-0.5); both offenses bottom-10 EPA vs TB #3 D (-0.5); under money not added (already priced by 45->43.5)"
+    ]
   },
-  {
-   "market": "total",
-   "selection": "UNDER 43.5",
-   "line": 43.5,
-   "price": -112,
-   "tier": "C",
-   "fair_line": 42.5,
-   "edge_pts": 1.0,
-   "playable_to": "43.5 -115 or 44 any; pass at 43 or lower",
-   "model_prob": 0.53,
-   "parlay_leg_ok": true,
-   "standalone_preferred": false,
-   "reasons": [
-    "Wind ~13 mph gusts 18, 45% precip; Bet Labs Med-High Wind Under system",
-    "ATL off EPA #23, TB off #28, TB def #3",
-    "AN splits: over 70% bets / 47% money (23-pt sharp gap to Under)",
-    "Experts Anderson, Fezzik/Even Money on Under (priced at 45.5)"
-   ],
-   "counter_case": "Season scoring ATL 49.1 / TB 44.7 combined PPG; ATL 7-0 1Q over and 6-1 1H over; 1.5-pt move already priced the sharp under; -112 juice leaves only ~0.2 pts of EV.",
-   "book": "Bookmaker",
-   "captured_at": "2026-10-31T01:52:00Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "TB",
-   "pool_confidence": 5
-  },
-  {
-   "market": "moneyline",
-   "selection": "PASS (SU TB)",
-   "line": null,
-   "price": -135,
-   "tier": "PASS",
-   "fair_line": "TB -140",
-   "edge_pts": 0.0,
-   "playable_to": "TB ML -125 or better",
-   "model_prob": 0.574,
-   "parlay_leg_ok": false,
-   "standalone_preferred": false,
-   "reasons": [
-    "Sim TB win 57.4% = -135 breakeven",
-    "Money 72% on ATL ML (24-pt gap) conflicts"
-   ],
-   "counter_case": "If TB underrating (1-5 one-score) is real, -135 is cheap; ATL ML money suggests the opposite.",
-   "book": "Bookmaker",
-   "captured_at": "2026-10-31T01:52:00Z",
-   "supercontest_candidate": false,
-   "straight_up_winner": "TB",
-   "pool_confidence": 5
-  }
- ],
- "adjustments": {
-  "margin_adj": 0.5,
-  "total_adj": -1.0,
-  "reasons": [
-   "margin +0.5: TB run D vs ATL run-heavy offense (FTN); TB one-score/Pythag underrating; offset by Egbuka OUT, Goedeke Q, TB home-fav ATS history",
-   "total -1.0: wind/rain + Bet Labs wind system (-0.5); both offenses bottom-10 EPA, TB def #3 (-0.5); sharp under money not added (already priced by 45->43.5 move)"
+  "sim_runs": [
+    {
+      "name": "B",
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_line": -2.5,
+      "total": 43.5,
+      "home_cover": 0.5,
+      "over": 0.5,
+      "under": 0.5,
+      "home_win": 0.5607
+    },
+    {
+      "name": "A",
+      "margin_adj": 0.5,
+      "total_adj": -1.0,
+      "home_line": -2.5,
+      "total": 43.5,
+      "home_cover": 0.5131,
+      "over": 0.4697,
+      "under": 0.5303,
+      "home_win": 0.5736
+    },
+    {
+      "name": "S",
+      "margin_adj": 1.0,
+      "total_adj": -2.0,
+      "home_line": -2.5,
+      "total": 43.5,
+      "home_cover": 0.5262,
+      "over": 0.4396,
+      "under": 0.5604,
+      "home_win": 0.5865
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (ATL@TB packet, built 2026-10-31T21:55Z)",
+    "data/generated/props/bookmaker-live-2026-10-31-falcons-at-buccaneers.json (2026-10-31T21:27Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat 2:26 PM PT)",
+    "data/odds/actionnetwork-openers-2026-w08.json",
+    "data/supercontest/week-08-lines.json",
+    "data/generated/master-intel/w08-pull.json splits (2026-10-31T21:23Z)",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "reports/intel/games/_friday-w08/2026-w08-game-ATL_at_TB-sides.md",
+    "https://www.si.com/betting/falcons-vs-buccaneers-prediction-odds-spread-injuries-trends-for-nfl-week-8-2026 (10/27)"
+  ],
+  "ambiguities": [
+    "Final Friday injury designations not re-pulled; Goedeke/Winfield unresolved in Sat feed",
+    "Weather file not refreshed since Fri 01:02Z",
+    "Dossier HC Raheem Morris vs AN primer/team site Kevin Stefanski -> Stefanski used",
+    "FantasyPros availability rows need human review"
+  ],
+  "delta_checklist": [
+    "Goedeke inactive -> spread lean to flat PASS; Under slightly up",
+    "BKR TB -3 -> hard pass TB; ATL +3 -110 or better -> re-evaluate ATL",
+    "Total <=43 -> Under PASS; 44+ -> Under toward B",
+    "Game-day storms/sustained 15+ mph wind -> Under B; calm/dry -> Under PASS",
+    "TB ML -125 or better -> ML C"
+  ],
+  "gate_notes": [
+    "missing_inputs: none",
+    "roster_vet PASS (0.3h)",
+    "kickoff not passed",
+    "qb_operator_notes empty; QBs from an_primer + Friday confirmations",
+    "injury web check partial (Bucs 10/30 report page failed to load)",
+    "weather input stale vs Saturday"
+  ],
+  "changes_vs_friday": [
+    "Picks/tiers unchanged: spread PASS lean TB, Under 43.5 C, ML PASS, SU TB 5/16, SC not candidate",
+    "BKR unchanged Fri 6:52 PM -> Sat 2:26 PM PT (TB -2.5 -108, 43.5 o-104/u-112, ML +118/-135)",
+    "Splits: spread ATL 59/64 (was 58/62); total Over 73% bets/53% money, gap 20 (was 23); ML ATL 49/73, gap 24 unchanged",
+    "New: AN PRO High Winds system Under 43.5 (thunderstorm risk), overlaps Bet Labs wind system -> confirmation, not added",
+    "New: VSiN Wes Reynolds TB ML -126 (BKR -135 worse) -> ML stays PASS",
+    "New prop-only: Phil Wood Mayfield 300+ +680, Conner Pitts o3.5 rec, Vetri Bijan o79.5 rush, Cody Brown alt legs",
+    "Availability: Divine Deablo now OUT (was Q)",
+    "Weather input unchanged (not refreshed)"
   ]
- },
- "sim_runs": [
-  {
-   "home_line": -2.5,
-   "total": 43.5,
-   "margin_adj": 0,
-   "total_adj": 0,
-   "home_cover": 0.5,
-   "over": 0.5,
-   "home_win": 0.561,
-   "tie": 0.024
-  },
-  {
-   "home_line": -2.5,
-   "total": 43.5,
-   "margin_adj": 0.5,
-   "total_adj": -1.0,
-   "home_cover": 0.513,
-   "under": 0.53,
-   "home_win": 0.574,
-   "tie": 0.024,
-   "note": "adopted; SuperContest line identical (-2.5)"
-  },
-  {
-   "home_line": -2.5,
-   "total": 43.5,
-   "margin_adj": 1.0,
-   "total_adj": -1.5,
-   "home_cover": 0.526,
-   "under": 0.545,
-   "home_win": 0.587,
-   "note": "stress"
-  }
- ],
- "sources": [
-  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
-  "data/generated/props/bookmaker-live-2026-10-31-falcons-at-buccaneers.json (2026-10-31T01:51Z)",
-  "data/odds/actionnetwork-openers-2026-w08.json (AN open 10/25 5 PM PT)",
-  "data/supercontest/week-08-lines.json (10/29)",
-  "packet.splits (AN 2026-10-31T02:06Z)",
-  "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams 10/30)",
-  "data/generated/team-dossiers/2026-w08/ATL.md, TB.md",
-  "data/generated/team-profiles/team-power-ratings-2026.json",
-  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
-  "data/research-intel/review/2026-w08-weather-venue.json",
-  "data/podcasts/youtube-extracted-picks-2026-w08.json",
-  "scratch/w08-qb-confirmations-1030.md",
-  "https://www.buccaneers.com/news/buccaneers-falcons-injury-report-oct-28-week-8-2026",
-  "https://www.atlantafalcons.com/news/falcons-depth-chart-released-for-week-8-rematch-vs-buccaneers (stale 2024 page; HC video title only)",
-  "https://www.newstribune.com/news/2026/aug/14/falcons-defensive-end-james-pearce-jr-suspended-eight-games/"
- ],
- "ambiguities": [
-  "Dossier lists ATL HC Raheem Morris (historical_context_only) vs AN primer/Falcons site Kevin Stefanski; Stefanski used",
-  "Drake London absent from packet; WR1 status unverified",
-  "AN primer total open 45.5 vs AN openers file 45.0",
-  "ATL 'International Series on deck' slate trend tag; W9 venue unverified",
-  "Splits conflict: AN 62% money ATL spread vs BetMGM 66% money TB"
- ],
- "delta_checklist": [
-  "Goedeke inactive (8:30 AM PT): TB -0.5, under +",
-  "BKR TB -3: hard pass TB; TB -2/-2.5 at -103 or better: TB C",
-  "Total 44+: Under to B; 43 or lower: Under PASS",
-  "Game-day wind 15+ mph sustained or rain: under confirmed; calm/dry: under PASS",
-  "Zaccheaus/Deablo/Gainwell inactive: minor, no side change"
- ],
- "gate_notes": [
-  "missing_inputs empty",
-  "roster_vet PASS 8.5h, 2 UNVERIFIED slate-wide",
-  "Kickoff not passed",
-  "Dossier coaching stale (Morris vs Stefanski); secondary_matchups coach names ignored",
-  "availability feed bugs: web-verified Egbuka OUT, Gainwell/Goedeke Q, Pearce 8-game suspension; ATL FantasyPros Q rows (07:00Z) unconfirmed",
-  "Falcons depth-chart URL returned 2024 page; disregarded"
- ]
 }

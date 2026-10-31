@@ -1,106 +1,112 @@
-# ATL @ TB — Week 8 game synthesis, pass `sides`
+# ATL @ TB — Week 8 game synthesis, pass `sides` (Saturday re-run)
 
-As of: Fri 2026-10-30 ~11:25 PM PT (2026-10-31T06:23Z) · Kickoff: Sun 11/1 10:00 AM PT (inactives ~8:30 AM PT) · Packet built 2026-10-31T06:09Z · roster_vet: PASS (roster 8.5 h old, 2 UNVERIFIED slate-wide) · Venue: Raymond James Stadium, outdoors, grass
+As of: Sat 2026-10-31 ~3:15 PM PT · Kickoff: Sun 11/1 10:00 AM PT (inactives ~8:30 AM PT) · Packet built 2026-10-31T21:55Z · roster_vet: PASS (roster 0.3 h old; 14 UNVERIFIED slate-wide) · Raymond James Stadium, outdoors
 
 ## Recommendation box
 
 | Market | Call | Tier | Fair | Edge | Playable-to |
 |---|---|---|---|---|---|
-| SPREAD | **PASS. Lean TB -2.5 -108 (BKR)** | PASS (lean TB) | TB -3.0 | +0.5 pts vs BKR | Becomes TB C at -2.5 -103 or better, or -2 -110. Pass at -3. ATL only at +3.5 or better |
-| TOTAL | **UNDER 43.5 -112 (BKR)** | C | 42.5 | 1.0 pt | Playable to 43.5 -115 or 44 any price. Pass at 43 or lower |
-| MONEYLINE / SU | **PASS (ML)**. SU winner TB | PASS | TB about -140 | about 0 | TB ML playable at -125 or better |
-| SuperContest | TB -2.5 (contest line = BKR) is a lean only. **Not a candidate** (sim 51.3%) | n | | | |
-| Pool | SU **TB**, confidence **5/16** (low) | | | | |
+| SPREAD | **PASS — lean TB -2.5 -108 (BKR)** | PASS (lean TB) | TB -3.0 | +0.5 pt | TB becomes C at -2.5 -103 or better, or -2 -110; pass at -3. ATL only at +3.5 or better |
+| TOTAL | **UNDER 43.5 -112 (BKR)** | C | 42.5 | 1.0 pt | Playable to 43.5 -115 or 44 at any price; pass at 43 or lower |
+| MONEYLINE / SU | **PASS (ML)**; SU winner **TB** | PASS | TB about -140 | about 0 | TB ML at -125 or better |
+| SuperContest | TB -2.5 (contest line = BKR) is a lean only, **not a candidate** (sim 51.3%) | n | | | |
+| Pool | SU **TB**, confidence **5/16** | | | | |
 
-Prices are from the BKR capture of Fri 6:52 PM PT [Source: data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt]. The per-game BKR board (capturedAt 2026-10-31T01:51Z, 6:51 PM PT) has identical rows, so there is no newer number [Source: prop_boards.bookmaker].
+Prices are from the BKR per-game board, capturedAt 2026-10-31T21:27Z (2:27 PM PT). That matches the 2:26 PM PT game-lines paste exactly: ATL +2.5 -108 / TB -2.5 -108, o43.5 -104 / u43.5 -112, ML ATL +118 / TB -135. BKR team totals are ATL 20.5 and TB 22.5, which implies 43 [Source: data/generated/props/bookmaker-live-2026-10-31-falcons-at-buccaneers.json; bookmaker-gamelines-2026-10-31-week8.raw.txt].
+
+## Changes vs Friday
+
+Friday's run was Fri 11:25 PM PT, on packet 06:09Z [Source: reports/intel/games/_friday-w08/2026-w08-game-ATL_at_TB-sides.md].
+1. **Picks and tiers: unchanged.** The spread is still a PASS with a TB lean, the Under 43.5 -112 is still C, the ML is still a PASS, SU TB at 5/16, and the contest line is still not a candidate. The simulator inputs and outputs are identical.
+2. **BKR: unchanged.** The Fri 6:52 PM capture and the Sat 2:26 PM capture show the same spread, total, ML and prices.
+3. **Splits (AN, Sat 2:23 PM PT):**
+   - Spread: ATL 59% of bets / 64% of money (Fri 58/62). The gap is still under 10, so no flag.
+   - Total: Over 73% of bets / 53% of money. The under-money gap narrowed from 23 to **20 pts** and is still a sharp-under flag.
+   - ML: ATL 49% of bets / 73% of money. The gap is unchanged at 24 pts toward ATL ML.
+   [Source: packet splits, captured 2026-10-31T21:23Z]
+4. **New total signal: the Action Network PRO "High Winds" system (Under 43.5).** It is a system, not an expert. Its basis is avg wind 10+ mph (58% historical under), thunderstorm risk and a dome team playing outdoors [Source: youtube_picks_approved, AN PRO/Kolodziej, updated 10/31 1:33 PM PT]. It overlaps the Bet Labs "Med to High Wind" system already counted in Friday's -0.5 weather adjustment, so it is **not** added again. It confirms the weather read but does not raise the tier.
+5. **New side signal:** VSiN Wes Reynolds, Buccaneers ML at -126 [Source: pick_signals, captured 10/31 14:54Z]. At BKR -135 that pick is 9 cents worse than his price, so it does not move the ML off PASS.
+6. **New prop-only items (not used for sides):** Phil Wood (BettingPros) Mayfield 300+ pass yds +680, Trent Conner Pitts o3.5 rec (PrizePicks), Sal Vetri Bijan o79.5 rush, and Cody Brown alt legs (Bijan 60+, Irving 40+).
+7. **Availability:** LB Divine Deablo is now listed **OUT** (Friday: Q). The packet still shows WR Egbuka OUT for TB, Gainwell Q, and Brian Robinson Jr. OUT. Goedeke is not in the Saturday feed at all, so his status is unresolved. Deablo out is a small negative for ATL's run fit vs Irving. It is not worth a rating move.
+8. **Weather input is unchanged** (Open-Meteo file mtime 10/31 01:02Z, not refreshed).
 
 ## Game script
 
-This is a low-explosive divisional game between two of the league's weaker offenses. ATL ranks #23 in EPA/play on offense and TB ranks #28 [Source: dossiers ATL.md/TB.md, nflverse thru W7]. ATL leans on the run (48.6% rush rate, rushing DVOA +4.9%) and runs into TB's elite run defense (rush DVOA -21.5%, EPA/att -0.163, stuff rate 25%) [Source: FTN via dossiers, 7-game rows]. That pushes ATL into Penix dropbacks against a blitz-heavy Bowles defense: TB blitzes 42% of the time and has the #3 EPA defense. ATL's protection collapses under pressure (EPA/DB -1.10 when pressured) [Source: FTN pass-protection]. TB's pass offense is poor (EPA/DB -0.152, sack rate 8.7%) and loses WR Emeka Egbuka (OUT). RT Luke Goedeke is Questionable (calf, DNP Wed/Thu). Expect TB to lean on Bucky Irving (24-106-2 in W7) and grind. Most likely outcome: a 20-17/23-17 TB-type game. Both teams' W7 wins were inflated by +4 turnover margins (ATL 4.7 YPP vs SF's 6.2, "fluke win of the week" per @lockandcash; TB 43-13 vs CAR) [Source: dossiers game logs; news_notes].
+This is a low-explosive divisional game. ATL is #23 and TB #28 in offensive EPA/play [Source: team dossiers ATL.md/TB.md, via Friday report]. ATL's run-first attack (Bijan Robinson with ~80% snaps while Brian Robinson Jr. is out) runs into TB's top-5 DVOA run and pass defense [Source: Stuckey, AN video t=1017s]. That pushes Penix into dropbacks against a blitz-heavy Bowles scheme [Source: secondary_matchups coverage_scheme]. Without Egbuka, TB leans on Bucky Irving and Godwin in the slot vs ATL's quarters/match zone. The modal outcome is TB by a field goal in the low 40s. Winds of 13 mph gusting 18, with a 45% chance of precip, suppress the deep game [Source: packet weather].
 
 ## QB / availability
 
-- QBs: Michael Penix Jr. (ATL) vs Baker Mayfield (TB), both confirmed [Source: qb_operator_notes, scratch/w08-qb-confirmations-1030.md]. Mayfield (right thumb) was a full participant Wednesday with no designation [Source: buccaneers.com Oct 28 injury report].
-- ATL: RB Brian Robinson Jr. OUT (hamstring), so Bijan Robinson gets 80%+ of snaps. WR Olamide Zaccheaus Q (shoulder), LB Divine Deablo Q (forearm). The feed also lists Ebukam, Snowden, Bowman Jr. and Avieon Terrell as Q (FantasyPros, needs review). CBs A.J. Terrell and C.J. Henderson carry no designation. DE James Pearce Jr. is serving an 8-game suspension (announced Aug 14), so he is out and already baked into the season stats [Source: availability; web: newstribune.com 2026-08-14].
-- TB: WR Emeka Egbuka OUT (foot). RB Kenny Gainwell Q (expected to play). **RT Luke Goedeke Q (calf, DNP Wed/Thu)** [Source: availability; buccaneers.com Oct 30 headline].
-- If Goedeke is out, TB's 8.7% sack rate faces a 24.9% ATL blitz rate. That shaves ~0.5 off TB and strengthens the under. If he's in, the lean on TB stands.
+- QBs: Michael Penix Jr. (ATL) vs Baker Mayfield (TB), with no backup flag on either side [Source: an_primer.game]. Mayfield's status shows UNKNOWN in FantasyPros, a known feed artifact. Friday confirmed he was a full participant with no designation.
+- ATL: Brian Robinson Jr. OUT, Deablo OUT and Billy Bowman Jr. OUT. Zaccheaus, Ebukam, Snowden, Beaux Collins and Avieon Terrell are Q. James Pearce Jr. is suspended. CB C.J. Henderson has no designation [Source: availability; ESPN via secondary_matchups 10/30 21:23Z].
+- TB: Egbuka OUT (foot) and Gainwell Q (hip) [Source: Rotowire 10/30]. **RT Luke Goedeke was Q on Friday's report (calf, DNP Wed/Thu)** [Source: Friday report, buccaneers.com 10/30]. If Goedeke is out, take ~0.5 off TB and add a little to the under. TB's lean would then drop to a flat pass. If he is in, the lean on TB stands. The flip trigger is TB inactives at ~8:30 AM PT.
+- Web check (this run): I could not get a fresh final report. SI's 10/27 preview lists Zaccheaus, Deablo, B. Robinson Jr., A. Terrell and Bowman (ATL), and Egbuka, Winfield Jr. and Goedeke (TB). The Bucs' Oct 30 report page did not load.
 
 ## Market
 
-- AN open (Sun 10/25 5 PM PT): TB -1.5 -110, total 45.0, ML TB -125/ATL +104. BKR now: TB -2.5 -108, total 43.5, ML -135/+118. The line moved **1 pt toward TB** and the total dropped **1.5 pts**. The AN primer lists the total open at 45.5, but the AN openers file (45.0) is the baseline [Source: market.an_opener; an_primer.game].
-- The SuperContest line is TB -2.5, the same as BKR (0 gap) [Source: data/supercontest/week-08-lines.json, 10/29].
-- Splits (AN, 7:06 PM PT):
-  - Spread: ATL 58% of bets and 62% of money. No flag (4 pts). The line still moved toward TB, which is reverse line movement against ATL money. Simon Hunter cites "respected sharp money on TB".
-  - Total: Over 70% of bets but only 47% of money. **23-pt gap, so the sharp money is on the UNDER**.
-  - ML: ATL 48% of bets, 72% of money. **24-pt gap, so the money is on ATL ML** [Source: splits; an_primer.public].
-- BetMGM conflicts: 66% of money there is on TB -2.5 [Source: news_notes, @johnewing 10/30]. The side markets are split, but the total signal is clean.
+- **AN open** (Sun 10/25 5 PM PT): TB -1.5 -110, total 45.0, ML -125/+104. BKR now: TB -2.5, total 43.5, ML -135/+118. That is **1 pt toward TB** and the total **down 1.5**. TB moved up with 59–64% of tickets and money on ATL, which is mild reverse movement.
+- SuperContest: TB -2.5, the same as BKR (0 gap) [Source: data/supercontest/week-08-lines.json].
+- Splits are in "Changes vs Friday". The sharp flag is on the **Under** (73% of bets vs 53% of money). Money also leans to **ATL ML** (24-pt gap), which contradicts the spread movement.
 
 ## Quantitative
 
-- Power: SRS TB 3.69 (#10) vs ATL 2.86 (#12). Net PPG TB +1.6 vs ATL -0.3. Pythag TB .542 vs ATL .493. Model rank TB 12 / ATL 15 [Source: power_ratings].
-- Market-implied ranks are TB 22 and ATL 19. TB's z-delta of -1.17 means the market rates TB below its results. TB is 1-5 in one-score games with a Pythag delta of -1.79 (most unlucky in the league) [Source: TB.md].
-- FTN DVOA: TB off -9.1 / def -16.2 (net +7.1). ATL off -3.9 / def -8.6 (net +4.7).
-- Neutral-field estimates: TB +1 to +2.5 from DVOA/EPA, +0.8 from SRS. Adding ~1.5 HFA gives a **fair TB -3.0** (range -2.3 to -3.8). Koerner projects -2.6 [Source: youtube_picks_approved, Koerner PRO].
-- Secondary matchups: TB secondary is on "watch" (CB Josh Hayes IR), which slightly helps ATL slot targets. ATL secondary is on "watch" (Henderson playing), with a slot/TE-middle lean for Chris Godwin Jr. and Cade Otton [Source: secondary_matchups].
-- Weather (Open-Meteo): 25 °C, wind 21 km/h (~13 mph), gusts 29 km/h (~18 mph), 45% chance of precip, 0.8 mm. Rated review_required. The Bet Labs "Med to High Wind" Under system (1297-1122-32) applies [Source: weather; an_primer systems].
-
-Simulator (calibration 2018-2025, sdMargin 12.77, sdTotal 13.13), home line -2.5, total 43.5:
+- SRS TB 3.69 (#10) vs ATL 2.86 (#12). Net PPG +1.6 vs -0.3, Pythag .542 vs .493, model rank 12 vs 15. The market ranks TB 22nd (z-delta -1.17), so it underrates TB vs results [Source: power_ratings]. Prediction markets show TB with a 7.18 median win total (context only).
+- Fair TB -3.0 (range -2.3 to -3.8). Koerner projects -2.6 [Source: Koerner PRO, 10/28].
+- Simulator (2018–2025 calibration, sdMargin 12.77, sdTotal 13.13), home -2.5, total 43.5:
 
 | Run | margin_adj | total_adj | TB cover | ATL cover | Over | Under | TB win |
 |---|---|---|---|---|---|---|---|
-| Baseline | 0 | 0 | 50.0% | 50.0% | 50.0% | 50.0% | 56.1% (tie 2.4%) |
+| Baseline | 0 | 0 | 50.0% | 50.0% | 50.0% | 50.0% | 56.1% |
 | **Adopted** | **+0.5** | **-1.0** | **51.3%** | 48.7% | 47.0% | **53.0%** | 57.4% |
-| Stress | +1.0 | -1.5 | 52.6% | 47.4% | 45.5% | 54.5% | 58.7% |
+| Stress | +1.0 | -2.0 | 52.6% | 47.4% | 44.0% | 56.0% | 58.7% |
 
-Breakevens are 51.9% at -108, 52.8% at -112 and 57.4% at -135. The adopted TB cover (51.3%) is **below** breakeven at -108, so the spread is a PASS. The under clears breakeven by only 0.2 pts, so it stays tier C. The ML is at breakeven, so it's a pass. The SuperContest line equals BKR, so the same 51.3% applies and it is too thin.
-
-Adjustments (under the 2.0 soft cap):
-- margin +0.5: TB run defense vs ATL's run-centric offense (FTN), TB one-score/Pythag underrating (dossier/power), and model-vs-market rank gap. Partly offset by Egbuka OUT, Goedeke Q and the TB home-favorite ATS history.
-- total -1.0: wind/rain forecast plus Bet Labs wind system (-0.5), and both offenses bottom-10 in EPA plus TB #3 defense (-0.5). The sharp under money is not added because the 1.5-pt move already prices it.
+- Breakevens are 51.9% at -108, 52.8% at -112 and 57.4% at -135:
+  - TB cover (51.3%) is below breakeven, so PASS.
+  - The Under clears by about 0.2 pts, so tier C.
+  - The ML sits at breakeven.
+  - The contest line equals BKR, so the same 51.3% applies.
+- Adjustments: margin +0.5 for TB run defense vs ATL's run-heavy offense and TB's Pythag/one-score underrating, net of Egbuka OUT and Goedeke Q. Total -1.0 for wind/rain plus wind systems (-0.5) and both offenses in the bottom 10 in EPA vs TB's #3 defense (-0.5). Under money is not added, because the 45 → 43.5 move already prices it.
 
 ## Expert / podcast / article agreement
 
-- **TB -2.5:** Brandon Anderson (Action Network; one opinion across the pull and YouTube), Stuckey (AN video), Matt Moore (AN), Simon Hunter (Sharp or Square; two mentions on one show = one opinion), Sean Koerner (ATS confidence #11/26, only a 0.7% edge). PFT projects TB 27-20 (SU/ML).
-- **ATL:** Steve Makinen (VSiN best bet, +2.5). BettingPros (+1.5, 10/28) is stale: the line moved 1 pt against them and they would be at +2.5 now. Teasers are not comparable to the full-game number: Tuley (VSiN) ATL +8.5 and Stuckey's ATL teaser leg.
-- **UNDER:** Brandon Anderson (Under 45.5) and Steve Fezzik/Even Money (Ross Tucker show, Under 45.5, 3-team parlay leg; one opinion). Both were priced at 45.5, so **2 pts of that value is gone** at 43.5.
-- **OVER:** BettingPros at 45 (stale). PFT's projected 47.
-- The Action Network primer trends lean ATL:
+- **TB -2.5:** Brandon Anderson (AN), Stuckey (AN), Matt Moore (AN), Simon Hunter (Sharp or Square; 2 mentions = 1 opinion), and Koerner (#11 of 26, 0.7% edge). **TB ML/SU:** Wes Reynolds (VSiN, -126, new) and PFT (TB 27-20).
+- **ATL:** Steve Makinen (VSiN best bet, +2.5). BettingPros took +1.5 on 10/28, a stale price now 1 pt better. Teaser legs are not comparable to the full-game number: Tuley ATL +8.5 and Stuckey's ATL teaser. @lockandcash says to avoid ATL in teasers.
+- **UNDER:** Brandon Anderson (u45.5), Fezzik/Even Money (u45.5, parlay leg) and AN PRO High Winds (u43.5, system, new). Both expert unders were priced at 45.5, so 2 pts of their value is gone.
+- **OVER:** BettingPros (45, stale) and PFT's implied 47.
+- AN primer trends lean ATL:
   - TB 1-11 ATS at home since 2025.
   - Mayfield 13-27-1 ATS as a home favorite.
   - NFC South favorites 16-34-1 ATS.
-  - Division dogs 23-10 ATS in 2026.
-  - "30-40 rule" fade (21-32-1).
+  - Division dogs 23-10 ATS.
+  - 30-40 rule fade.
   - Bowles 5-12 ATS off a 10+ point win.
-  - Pro-TB counterweight: Stefanski 5-11 ATS as a divisional road dog. Bet Labs systems exist on both sides [Source: an_primer, Evan Abrams 10/30].
+  - Pro-TB counterweight: Stefanski 5-11 ATS as a divisional road dog [Source: an_primer, Evan Abrams 10/30].
 
 ## Counter-cases
 
-- **Lean TB:** Trend stacking is overwhelmingly ATL, and ML money is 72% on ATL. TB is without its WR1 (Egbuka) and possibly its RT. Its pass offense (EPA/DB -0.152) may not produce enough to win by 3. ATL won 2 of its 3 road games.
-- **Under:** Seasonal scoring runs higher, at ATL 49.1 and TB 44.7 combined points per game. ATL is 7-0 to the 1Q over and 6-1 to the 1H over [an_primer], so an early ATL script and turnovers (12 ATL giveaways) can blow through 43.5 even in wind.
-- **ML pass:** If the TB underrating is real (Pythag delta -1.79), -135 is cheap.
+- **Lean TB:** The trend stack and ML money (73%) are on ATL. TB is without Egbuka and possibly its RT, and its pass offense (EPA/DB -0.152) may not win by 3. Divisional dogs are 23-10 ATS this season.
+- **Under:** ATL is 7-0 to the 1Q over and 6-1 to the 1H over. Combined season scoring averages are ATL 49.1 and TB 44.7. Turnovers inflated both W7 wins, and a short-field script clears 43.5 easily.
+- **ML pass:** If TB's Pythag underrating (-1.79) is real, -135 is cheap.
 
 ## Ambiguity / missing data
 
-- Head coach conflict: the dossier lists ATL HC Raheem Morris, but its coaching block is historical_context_only. The AN primer and the Falcons site (Week 8 Stefanski media availability) say **Kevin Stefanski**, so I used Stefanski. Coach-specific trends are low weight.
-- ATL WR room: the packet does not mention Drake London, and the web depth-chart page fetched was from 2024 (stale). WR1 status is unverified. This doesn't move the sides read.
-- An AN slate trend tags ATL with an "International Series on deck" spot. ATL's Week 9 venue is unverified.
-- missing_inputs is empty. article_selections and props_intel_articles are empty.
+- Final Friday designations could not be re-pulled this run. Goedeke and Winfield Jr. are unresolved in the Saturday feed.
+- The weather file was not refreshed after Friday 6:02 PM PT, and the thunderstorm risk comes only from the AN PRO system blurb.
+- Coach naming: the dossier lists Raheem Morris (historical block). The AN primer and the Falcons site say **Kevin Stefanski**, and this report uses Stefanski. Ignore coach names in secondary_matchups.
+- FantasyPros rows carry needs_human_review (e.g., Mayfield UNKNOWN).
 
 ## Pre-kickoff delta checklist
 
-1. Goedeke inactive (8:30 AM PT): margin -0.5, keep the spread PASS, under adds +0.5 confidence.
-2. TB moves to -3 at BKR: hard pass on TB, ATL +3 becomes a look (C) only with Goedeke out. TB -2 or -2.5 at -103 or better: TB becomes tier C.
-3. Total moves to 44+: Under upgrades to B. Total moves to 43 or lower: Under becomes a PASS.
-4. Game-day wind of 15+ mph sustained or steady rain: Under confirms. Calm and dry: Under drops to PASS.
-5. Zaccheaus/Deablo inactive: minor. Gainwell inactive: Irving's volume goes up, no side change.
+- Goedeke inactive: spread lean → flat PASS, and the Under gains a little.
+- TB -3 at BKR: hard pass on TB. ATL +3 -110 or better: re-evaluate ATL to PASS/C.
+- Total ≤43: drop the Under to PASS. Total 44+: the Under upgrades toward B.
+- Game-day radar shows thunderstorms or sustained wind of 15+ mph: Under to B. Calm and dry: Under to PASS.
+- TB ML -125 or better: ML to C.
 
 ## Gate notes
 
-- missing_inputs: none. roster_vet PASS (8.5 h).
+- missing_inputs[]: none.
+- roster_vet: PASS (0.3 h). Applies to props only; no props were picked on this pass.
 - Kickoff has not passed, so this is a forward pick.
-- Dossier coaching is stale (Morris vs Stefanski), resolved with the AN primer and Falcons site. Coach names in secondary_matchups (e.g. Jimmy Lake) were ignored per rule.
-- player-availability/latest.json has known bugs. Verified on the web:
-  - Egbuka OUT; Gainwell and Goedeke Q (buccaneers.com).
-  - Pearce's 8-game suspension (Aug 2026 reports).
-  - The ATL "Q" rows dated 07:00Z from FantasyPros are not confirmed by the team site.
-- The Falcons depth-chart URL returned a 2024 page and was disregarded.
+- QB facts come from an_primer and Friday's confirmations (qb_operator_notes is empty).
+- The final injury report web check was partial (see Ambiguity).
+- The weather input is stale relative to Saturday.

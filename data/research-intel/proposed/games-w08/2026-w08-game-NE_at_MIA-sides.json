@@ -1,203 +1,269 @@
 {
-  "game": "NE@MIA",
-  "pass": "sides",
-  "generated_at": "2026-10-31T06:24:44.273180+00:00",
-  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
-  "recommendations": [
-    {
-      "market": "spread",
-      "selection": "PASS at BKR price (lean MIA +7)",
-      "line": 7,
-      "price": -117,
-      "book": "Bookmaker (BKR)",
-      "captured_at": "2026-10-31T01:52:20.577Z",
-      "tier": "PASS",
-      "fair_line": "NE -6.5",
-      "edge_pts": 0.5,
-      "playable_to": "MIA +7 at -110 or better, or any MIA +7.5 (tier C); pass at +7 -115 or worse / +6.5",
-      "model_prob": 0.5146,
-      "supercontest_candidate": false,
-      "straight_up_winner": "NE",
-      "pool_confidence": 11,
-      "parlay_leg_ok": false,
-      "standalone_preferred": false,
-      "reasons": [
-        "Line moved NE -7.5 to -7 with MIA +7 juiced to -117 against 75-76% NE bets/money (reverse line movement)",
-        "Sean Koerner AN PRO MIA +7 ATS confidence #3/26 (proj +6.5)",
-        "Division dogs 23-10 ATS, 6+ pt favorites 8-21-3 ATS, Hochuli favorites 43-60-2 ATS (Evan Abrams primer)",
-        "A.J. Brown Q, missed Thu+Fri; ~20 mph wind compresses pass-first favorite's margin",
-        "Model 51.5% excl push vs 53.9% break-even at -117: no edge at BKR price"
-      ],
-      "counter_case": "NE has 10 days rest vs 7; Vrabel 5-0 SU/ATS with NE off a SU loss; Maye 16-0 SU as 3+ fav; raw SRS gap implies ~NE -9 at MIA."
-    },
-    {
-      "market": "spread",
-      "selection": "MIA +7 (SuperContest)",
-      "line": 7,
-      "price": null,
-      "book": "Westgate SuperContest (contest line)",
-      "captured_at": "2026-10-29T16:07:07.000Z",
-      "tier": "C",
-      "fair_line": "NE -6.5",
-      "edge_pts": 0.5,
-      "playable_to": "contest line locked at NE -7",
-      "model_prob": 0.5146,
-      "supercontest_candidate": true,
-      "straight_up_winner": "NE",
-      "pool_confidence": 11,
-      "parlay_leg_ok": false,
-      "standalone_preferred": false,
-      "reasons": [
-        "Same view as the BKR side with no -117 juice",
-        "Expert lean on MIA (Koerner, BettingPros, Sharp or Square, Even Money, Anderson)"
-      ],
-      "counter_case": "NE rest edge and Vrabel off-loss record; a 10-point NE win clears easily."
-    },
-    {
-      "market": "total",
-      "selection": "UNDER 43.5",
-      "line": 43.5,
-      "price": -111,
-      "book": "Bookmaker (BKR)",
-      "captured_at": "2026-10-31T01:52:20.577Z",
-      "tier": "B",
-      "fair_line": 41.5,
-      "edge_pts": 2.0,
-      "playable_to": "to 42.5 -115; pass at 42 or lower",
-      "model_prob": 0.5604,
-      "supercontest_candidate": false,
-      "straight_up_winner": "NE",
-      "pool_confidence": 11,
-      "parlay_leg_ok": true,
-      "standalone_preferred": true,
-      "reasons": [
-        "Open-Meteo: ~20 mph sustained wind (32 km/h, gusts 38), 80% rain at kickoff, open-air stadium",
-        "Bet Labs Med-to-High Wind Under system 1297-1122-32",
-        "Hochuli games 60-44-2 to under since 2020",
-        "Total fell 44.5 (AN open) to 43.5 against 77% over bets/money",
-        "NE pass-first (EPA/DB 0.228, rush EPA -0.173), A.J. Brown Q; MIA slow tempo 56.5 plays/g"
-      ],
-      "counter_case": "Vrabel 12-3 to over vs AFC East; MIA defense #30 EPA; wind forecast can ease; wet-field turnovers create short fields; PFT projects 51."
-    },
-    {
-      "market": "moneyline",
-      "selection": "PASS (SU winner NE)",
-      "line": null,
-      "price": -324,
-      "book": "Bookmaker (BKR)",
-      "captured_at": "2026-10-31T01:52:20.577Z",
-      "tier": "PASS",
-      "fair_line": "NE ~-270 (73%)",
-      "edge_pts": null,
-      "playable_to": "NE ML only at -260 or better (e.g. -250); MIA ML only at +320 or better",
-      "model_prob": 0.7279,
-      "supercontest_candidate": false,
-      "straight_up_winner": "NE",
-      "pool_confidence": 11,
-      "parlay_leg_ok": false,
-      "standalone_preferred": false,
-      "reasons": [
-        "Model NE win 72.8% vs -324 implied 76.4%; MIA +273 implied 26.8% vs model 27.2% (no edge)",
-        "Pool: NE SU, confidence 11/16 (9 if Brown out and wind holds)"
-      ],
-      "counter_case": "Maye 16-0 SU as 3+ point favorite argues NE win probability above the model."
-    }
-  ],
-  "adjustments": {
-    "margin_adj": 0.5,
-    "total_adj": -2.0,
-    "reasons": [
-      "margin +0.5 (home-positive, toward MIA): A.J. Brown Q (missed Thu+Fri), ~20 mph wind compresses pass-first favorite margin, reverse line movement vs 76% NE money",
-      "total -2.0 (soft cap): ~20 mph wind + 80% rain (Open-Meteo), Bet Labs wind-under system, Hochuli under trend, MIA slow tempo, Brown Q"
-    ]
+ "game": "NE@MIA",
+ "pass": "sides",
+ "generated_at": "2026-10-31T22:35:00Z",
+ "packet_built_at": "2026-10-31T21:55:40Z",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "PASS at BKR price (lean MIA +7)",
+   "line": 7,
+   "price": -117,
+   "book": "BKR",
+   "captured_at": "2026-10-31T21:28:24Z",
+   "tier": "PASS",
+   "fair_line": "NE -6",
+   "edge_pts": 1.0,
+   "playable_to": "MIA +7 at -110 or better, or any MIA +7.5 (tier C); pass at +7 -115 or worse / +6.5",
+   "model_prob": 0.5292,
+   "supercontest_candidate": false,
+   "straight_up_winner": "NE",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "View +1.0 toward MIA: Brown, Henderson, T Bryant OUT (patriots.com 10/31)",
+    "Reverse line movement: open NE -7.5 -> -7 vs 76% NE bets/money",
+    "Koerner MIA +7 (ATS conf #3); 6+ pt favs 8-21-3 ATS; div dogs 23-10 ATS",
+    "52.9% < 53.9% break-even at -117 -> no play at BKR"
+   ],
+   "counter_case": "NE rest edge and Vrabel 5-0 SU/ATS off a loss with NE; Maye 16-0 SU as 3+ pt fav; market held -7 after Brown news, implying little rated value lost."
   },
-  "sim_runs": [
-    {
-      "label": "selftest",
-      "result": "all self-tests passed"
-    },
-    {
-      "label": "baseline",
-      "home_line": 7,
-      "total": 43.5,
-      "margin_adj": 0,
-      "total_adj": 0,
-      "mia_cover_excl_push": 0.5,
-      "side_push": 0.0555,
-      "over_excl_push": 0.5,
-      "mia_win_excl_tie": 0.261
-    },
-    {
-      "label": "adjusted_view_bkr_and_supercontest",
-      "home_line": 7,
-      "total": 43.5,
-      "margin_adj": 0.5,
-      "total_adj": -2.0,
-      "mia_cover_excl_push": 0.5146,
-      "side_push": 0.0557,
-      "over_excl_push": 0.4396,
-      "under_excl_push": 0.5604,
-      "mia_win_excl_tie": 0.2721
-    },
-    {
-      "label": "sensitivity",
-      "home_line": 7,
-      "total": 43.5,
-      "margin_adj": 1.0,
-      "total_adj": -1.0,
-      "mia_cover_excl_push": 0.5292,
-      "over_excl_push": 0.4697,
-      "mia_win_excl_tie": 0.2833
-    },
-    {
-      "label": "at_7.5",
-      "home_line": 7.5,
-      "total": 43.5,
-      "margin_adj": 0,
-      "total_adj": -2.0,
-      "mia_cover_excl_push": 0.5,
-      "side_push": 0,
-      "under_excl_push": 0.5604,
-      "mia_win_excl_tie": 0.2397
-    }
-  ],
-  "sources": [
-    "scratch/w08-game-synthesis-queue-sides.json (packet NE@MIA, built 2026-10-31T06:09Z)",
-    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
-    "data/generated/props/bookmaker-live-2026-10-31-patriots-at-dolphins.json (2026-10-31T01:52Z)",
-    "data/odds/actionnetwork-openers-2026-w08.json",
-    "data/supercontest/week-08-lines.json",
-    "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams, AN primer)",
-    "data/research-intel/review/2026-w08-weather-venue.json",
-    "data/generated/team-dossiers/2026-w08/NE.md",
-    "data/generated/team-dossiers/2026-w08/MIA.md",
-    "data/generated/team-profiles/team-power-ratings-2026.json",
-    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
-    "data/player-availability/latest.json",
-    "scratch/w08-qb-confirmations-1030.md",
-    "data/podcasts/youtube-extracted-picks-2026-w08.json",
-    "scripts/intel/margin-simulator.mjs"
-  ],
-  "ambiguities": [
-    "Friday official injury reports not web-verified (search returned 2023 pages); designations from packet ESPN/Rotowire feed with known misclassification bugs",
-    "AN total open 44.5 (openers file) vs 45 (primer)",
-    "Weather forecast ~38h pre-kickoff; wind is the main under driver",
-    "MIA FTN stale one week (through W6)",
-    "TreVeyon Henderson illness unresolved"
-  ],
-  "delta_checklist": [
-    "Sunday AM wind <12 mph sustained: total adj to -1.0, under to C or PASS below 43",
-    "A.J. Brown inactive (~11:55 AM PT): keep under; if BKR moves to NE -6.5, MIA lean disappears",
-    "Under at 42 or lower: pass; MIA +7.5 or +7 at -110 or better: MIA playable at C",
-    "Check Henderson, Carlton Davis III, Christian Elliss and any MIA OL loss beyond Kadyn Proctor",
-    "SuperContest MIA +7 stays low-slot unless Brown is fully healthy"
-  ],
-  "gate_notes": [
-    "missing_inputs: none",
-    "roster_vet PASS (8.5h)",
-    "kickoff not passed: forward pick",
-    "web injury search returned only 2023 reports; relied on packet feed",
-    "stale coach names in secondary_matchups ignored (dossiers: Vrabel, Hafley)",
-    "roster gate not rerun"
+  {
+   "market": "spread",
+   "selection": "MIA +7 (SuperContest)",
+   "line": 7,
+   "price": null,
+   "book": "BKR",
+   "captured_at": "2026-10-31T21:28:24Z",
+   "tier": "C",
+   "fair_line": "NE -6",
+   "edge_pts": 1.0,
+   "playable_to": "contest line locked at NE -7",
+   "model_prob": 0.5292,
+   "supercontest_candidate": true,
+   "straight_up_winner": "NE",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "No-juice contest line equals BKR number; 52.9% vs 50% contest break-even",
+    "Brown/Henderson OUT trims NE margin; wind compresses margin"
+   ],
+   "counter_case": "Raw SRS gap ~9 pts at MIA; NE bounce-back/rest trends."
+  },
+  {
+   "market": "total",
+   "selection": "UNDER 43.5",
+   "line": 43.5,
+   "price": -111,
+   "book": "BKR",
+   "captured_at": "2026-10-31T21:28:24Z",
+   "tier": "B",
+   "fair_line": 41.5,
+   "edge_pts": 2.0,
+   "playable_to": "to 42.5 -115; pass at 42 or lower",
+   "model_prob": 0.5604,
+   "supercontest_candidate": false,
+   "straight_up_winner": "NE",
+   "pool_confidence": 9,
+   "parlay_leg_ok": true,
+   "standalone_preferred": true,
+   "reasons": [
+    "~20 mph wind / 80% rain forecast (Open-Meteo, Fri)",
+    "AN PRO High Winds system flags Under 43.5 (Sat 1:33 PM PT) - system, not expert",
+    "Total dropped 44.5/45 -> 43.5 vs 78% over tickets; over money 74% < tickets",
+    "Hochuli games 60-44-2 Under since 2020; MIA slow tempo; NE without Brown/Henderson"
+   ],
+   "counter_case": "Wind forecast may ease (stale Fri forecast); MIA defense #30 EPA; wet-field turnovers create short fields; Vrabel 12-3 Over vs AFC East; PFT projects 51."
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU winner NE)",
+   "line": null,
+   "price": -340,
+   "book": "BKR",
+   "captured_at": "2026-10-31T21:28:24Z",
+   "tier": "PASS",
+   "fair_line": "NE ~-253 (71.7%)",
+   "edge_pts": null,
+   "playable_to": "NE ML only at -250 or better; MIA ML at +300 or better (tier C)",
+   "model_prob": 0.7167,
+   "supercontest_candidate": false,
+   "straight_up_winner": "NE",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "NE -340 overpriced vs model 71.7%",
+    "MIA +286 needs 25.9% vs model 28.3%, but sim baseline already 1 pt above market no-vig (25.1%) -> too model-dependent"
+   ],
+   "counter_case": "MIA upset path: wind, low possessions, NE thinner receiving corps; or NE blowout if Maye solves zone."
+  }
+ ],
+ "adjustments": {
+  "margin_adj": 1.0,
+  "total_adj": -2.0,
+  "reasons": [
+   "margin +1.0 (home-positive, toward MIA): Brown OUT, Henderson OUT, T Marcus Bryant OUT (official Sat report), wind compresses pass-first favorite, RLM vs 76% NE money",
+   "total -2.0 (soft cap): ~20 mph wind + 80% rain (Fri Open-Meteo), AN PRO High Winds system (Sat), Hochuli under trend, MIA slow tempo, NE thinner target tree"
   ]
+ },
+ "sim_runs": [
+  {
+   "label": "selftest",
+   "result": "all self-tests passed"
+  },
+  {
+   "label": "baseline",
+   "home_line": 7,
+   "total": 43.5,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "mia_cover_excl_push": 0.5,
+   "side_push": 0.0555,
+   "over_excl_push": 0.5,
+   "mia_win_excl_tie": 0.261
+  },
+  {
+   "label": "adjusted_view_bkr_and_supercontest",
+   "home_line": 7,
+   "total": 43.5,
+   "margin_adj": 1.0,
+   "total_adj": -2.0,
+   "mia_cover_excl_push": 0.5292,
+   "side_push": 0.0557,
+   "over_excl_push": 0.4396,
+   "under_excl_push": 0.5604,
+   "mia_win_excl_tie": 0.2833
+  },
+  {
+   "label": "friday_view_reference",
+   "home_line": 7,
+   "total": 43.5,
+   "margin_adj": 0.5,
+   "total_adj": -2.0,
+   "mia_cover_excl_push": 0.5146,
+   "under_excl_push": 0.5604,
+   "mia_win_excl_tie": 0.2721
+  },
+  {
+   "label": "sensitivity",
+   "home_line": 7,
+   "total": 43.5,
+   "margin_adj": 1.5,
+   "total_adj": -1.0,
+   "mia_cover_excl_push": 0.5436,
+   "under_excl_push": 0.5303,
+   "mia_win_excl_tie": 0.2948
+  },
+  {
+   "label": "at_7.5",
+   "home_line": 7.5,
+   "total": 43.5,
+   "margin_adj": 1.0,
+   "total_adj": -2.0,
+   "mia_cover_excl_push": 0.5279,
+   "side_push": 0,
+   "under_excl_push": 0.5604,
+   "mia_win_excl_tie": 0.2611
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (packet NE@MIA, built 2026-10-31T21:55:40Z)",
+  "data/generated/props/bookmaker-live-2026-10-31-patriots-at-dolphins.json (capturedAt 2026-10-31T21:28:24Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat ~2:26 PM PT)",
+  "packet splits (Action Network, 2026-10-31T21:23:37Z)",
+  "packet an_primer (Evan Abrams, 2026-10-30)",
+  "packet weather / data/research-intel/review/2026-w08-weather-venue.json (2026-10-31T01:02:35Z)",
+  "data/intel/extracted/2026-w08-chrome-article-picks.json",
+  "reports/intel/bettingpros-articles-2026-w08.md (Saturday refresh)",
+  "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "https://www.patriots.com/news/week-8-injury-report-patriots-at-dolphins-x9227 (Sat 10/31 report)",
+  "scripts/intel/margin-simulator.mjs (calibration sha 0ea35592)",
+  "reports/intel/games/_friday-w08/2026-w08-game-NE_at_MIA-sides.md"
+ ],
+ "ambiguities": [
+  "Weather forecast ~44h old; device could not refresh Open-Meteo",
+  "No MIA Saturday injury section; Friday designations used",
+  "AN total open 44.5 (openers) vs 45 (primer)",
+  "qb_operator_notes empty in rebuild; QBs from AN primer/projected_starters (match Friday confirmations)",
+  "S_CharlesNFL 'career ending'/trade tweet unverified - excluded"
+ ],
+ "delta_checklist": [
+  "Sunday wind <12 mph sustained -> total adj -1.0, Under to C, pass at 43; 20+ mph -> keep B, pool conf 8",
+  "MIA +7.5 or +7 at -110 or better -> MIA side C",
+  "Under at 42.5 or lower -> pass at 42",
+  "MIA ML +300 or better -> C",
+  "Inactives ~11:55 AM PT: Davis III, Elliss (NE); Brents, Taylor (MIA); any extra MIA OL loss"
+ ],
+ "gate_notes": [
+  "missing_inputs: none",
+  "roster_vet PASS (0.3h); 14 UNVERIFIED league-wide, none cited",
+  "kickoff not passed: forward picks",
+  "official injury search succeeded (patriots.com 10/31): NE OUT Brown, Henderson, T Marcus Bryant; Q Davis III, Elliss; MIA (Fri) OUT Proctor, Q Brents, Taylor",
+  "stale coach names in secondary_matchups ignored",
+  "weather input stale (Fri 01:02Z); device Open-Meteo curl failed",
+  "roster gate not rerun; no commits; no Supabase writes"
+ ],
+ "changes_vs_friday": [
+  {
+   "item": "availability",
+   "friday": "A.J. Brown Q, TreVeyon Henderson Q",
+   "saturday": "Brown OUT, Henderson OUT, T Marcus Bryant OUT (new); Davis III/Elliss still Q",
+   "source": "patriots.com 10/31 report; ESPN 17:42Z"
+  },
+  {
+   "item": "margin_adj",
+   "friday": 0.5,
+   "saturday": 1.0
+  },
+  {
+   "item": "fair_spread",
+   "friday": "NE -6.5",
+   "saturday": "NE -6"
+  },
+  {
+   "item": "bkr_spread_total",
+   "friday": "NE -7 +101 / MIA +7 -117; 43.5 o-105/u-111",
+   "saturday": "unchanged (captured 2:26-2:28 PM PT, after news)"
+  },
+  {
+   "item": "bkr_moneyline",
+   "friday": "NE -324 / MIA +273",
+   "saturday": "NE -340 / MIA +286"
+  },
+  {
+   "item": "splits",
+   "friday": "spread NE 75b/76m; over 77b/77m",
+   "saturday": "spread NE 76b/76m; over 78b/74m (money lags tickets 4 pts)"
+  },
+  {
+   "item": "new_total_signal",
+   "saturday": "AN PRO High Winds system flags Under 43.5 (Sat 1:33 PM PT) - system, not expert"
+  },
+  {
+   "item": "new_side_signals",
+   "saturday": "Servodidio NE ML + Henry ATD parlay +208; teaser NE -1 (Lock & Cash X; Wes Reynolds VSiN); Sal Vetri Brown o59.5 void"
+  },
+  {
+   "item": "sim",
+   "friday": "MIA cover 51.5%, under 56.0%, MIA win 27.2%",
+   "saturday": "MIA cover 52.9%, under 56.0%, MIA win 28.3%"
+  },
+  {
+   "item": "tiers",
+   "friday": "Spread PASS (lean MIA); Under B; ML PASS; SC MIA +7 C",
+   "saturday": "unchanged"
+  },
+  {
+   "item": "pool_confidence",
+   "friday": 11,
+   "saturday": 9
+  },
+  {
+   "item": "excluded",
+   "saturday": "Unverified 'career ending'/trade-talk tweet not used"
+  }
+ ]
 }

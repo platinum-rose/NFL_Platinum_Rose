@@ -30,3 +30,33 @@ Sunday legs: LAR ML; DET TT U31; NE ML; TEN/CIN U47. (Our card: CIN -12.5 lean; 
 ## News verified while reading (web, 2026-10-30)
 - Lamar Jackson (ankle): Rapoport (via SI, 2026-10-28) — expected to play vs BUF, "as close to 100 percent as he has been"; not yet official at that time. Narratives already say "full go" — keep, but confirm on Friday/Saturday injury report.
 - Colts traded G Quenton Nelson to the Seahawks (AP source, 2026-10-27; reported return 2 draft picks); one report also lists DeForest Buckner in the selloff — unverified here. Not yet reflected in the IND@JAX or CHI@SEA narratives.
+
+## Saturday refresh (captured 2026-10-31 ~3:05 PM PT, Claude in Chrome, read-only)
+New since Friday's capture (publish times as listed by BettingPros, Oct 31 morning). Mike Maher's column was not modified after Oct 30 (parlays section never filled). Player teams NOT asserted; roster gate decides.
+
+### 4. Travis Pulver — "NFL Week 8 Picks & Predictions: Underdog Bets"
+URL: https://www.bettingpros.com/articles/nfl-week-8-picks-predictions-underdog-bets-2026/
+- BAL@BUF: Ravens ML (+142) / Ravens +3 (-108)
+- MIN@DET: Vikings ML (+142) / Vikings +3 (+100)
+- LV@NYJ: Raiders ML (+102)
+
+### 5. Phil Wood — "NFL Week 8 Sleepers & Longshot Bets"
+URL: https://www.bettingpros.com/articles/nfl-week-8-picks-sleepers-longshot-bets-2026/
+- Jared Goff 2+ interceptions (+429) — MIN@DET
+- Baker Mayfield 300+ passing yards (+680) — ATL@TB
+- Kenneth Walker III 140+ rushing yards (+575) — KC@DEN (game per BKR menu)
+
+### 6. Trent Conner — "NFL Week 8 First Touchdown Scorer Picks & Predictions"
+URL: https://www.bettingpros.com/articles/nfl-week-8-first-touchdown-scorers-picks-predictions-2026/
+- Ja'Kobi Lane first TD (+2800, BetMGM) — BAL@BUF (BAL tied-most 7.9 first-quarter points per game; Lamar back; Lane 5 red-zone targets in 3 games)
+- Jahmyr Gibbs first TD (+325, theScore Bet) — MIN@DET
+- Travis Kelce first TD (+1200, theScore Bet) — KC@DEN
+
+### 7. Trent Conner — "NFL Week 8 PrizePicks Player Predictions (Sunday)"
+URL: https://www.bettingpros.com/articles/nfl-week-8-prizepicks-player-predictions-sunday-2026/
+DFS pick'em (no sportsbook price): Kyle Pitts more than 3.5 receptions (ATL@TB); Jared Goff less than 0.5 interceptions (MIN@DET; opposes Wood's 2+ INT longshot); Jahmyr Gibbs less than 4.5 receptions (MIN@DET).
+
+### 8. Dan Servodidio — "NFL Week 8 Anytime TD Scorer & Win Parlays"
+URL: https://www.bettingpros.com/articles/nfl-week-8-anytime-td-scorers-win-parlays-2026/
+- +208: Patriots ML (-325) + Hunter Henry anytime TD (+150) — NE@MIA
+- +525: Lions ML (-170) + T.J. Hockenson anytime TD (+250) — MIN@DET (article pairs Hockenson with the Lions ML; verify his team via roster gate)

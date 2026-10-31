@@ -1,0 +1,793 @@
+[
+ {
+  "game": "ARI@DAL",
+  "bkr_home_line": -7.0,
+  "bkr_total": 54.5,
+  "margin_adj": -0.6,
+  "total_adj": -2.0,
+  "fair_home_line": -6.4,
+  "fair_total": 52.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin: Koerner proj DAL -6.3; DAL 6 days rest off MNF vs ARI 7; partially offset by ARI OL injuries",
+   "total: pace-neutral estimate 51-52.5; Torbert under trend; 53+ late-season over 43%; ARI OL injuries/FG-heavy RZ"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -7,
+    "total": 54.5,
+    "marginAdj": -0.6,
+    "totalAdj": -2
+   },
+   "home_cover": 0.45560846726748383,
+   "away_cover": 0.4887150510961841,
+   "side_push": 0.05567648163633358,
+   "home_cover_excl_push": 0.48247074059636486,
+   "away_cover_excl_push": 0.5175292594036351,
+   "over": 0.4394619379900101,
+   "under": 0.5605380620099897,
+   "total_push": 0,
+   "over_excl_push": 0.4394619379900102,
+   "under_excl_push": 0.5605380620099898,
+   "home_win": 0.7154413064989574,
+   "home_win_excl_tie": 0.7051806906169754,
+   "tie": 0.02052123176396403,
+   "center_shift": {
+    "margin": 2.194208712333384,
+    "total": -0.00023011751498458466
+   },
+   "distribution": {
+    "mean_margin": 7.503454884135483,
+    "median_margin": 7,
+    "mean_total": 52.50128465806257,
+    "median_total": 53
+   },
+   "exact_margin_pct": {
+    "m3": 0.13689828361773113,
+    "m7": 0.08489980836878969
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "ATL@TB",
+  "bkr_home_line": -2.5,
+  "bkr_total": 43.5,
+  "margin_adj": 0.5,
+  "total_adj": -1.0,
+  "fair_home_line": -3.0,
+  "fair_total": 42.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin +0.5: TB run D vs ATL run-heavy offense (FTN); TB one-score/Pythag underrating; offset by Egbuka OUT, Goedeke Q, TB home-fav ATS history",
+   "total -1.0: wind/rain + Bet Labs wind system (-0.5); both offenses bottom-10 EPA, TB def #3 (-0.5); sharp under money not added (already priced by 45->43.5 move)"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -2.5,
+    "total": 43.5,
+    "marginAdj": 0.5,
+    "totalAdj": -1
+   },
+   "home_cover": 0.513119241354736,
+   "away_cover": 0.48688075864526426,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5131192413547359,
+   "away_cover_excl_push": 0.48688075864526414,
+   "over": 0.46968820251055443,
+   "under": 0.5303117974894453,
+   "total_push": 0,
+   "over_excl_push": 0.46968820251055454,
+   "under_excl_push": 0.5303117974894455,
+   "home_win": 0.5736492251978236,
+   "home_win_excl_tie": 0.5616972456782249,
+   "tie": 0.02390395903919733,
+   "center_shift": {
+    "margin": -0.17908297512588267,
+    "total": -0.006622413300657826
+   },
+   "distribution": {
+    "mean_margin": 2.412780898815629,
+    "median_margin": 3,
+    "mean_total": 42.5179614338407,
+    "median_total": 43
+   },
+   "exact_margin_pct": {
+    "m3": 0.15811860620282453,
+    "m7": 0.09449840567455095
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "BAL@BUF",
+  "bkr_home_line": -3.0,
+  "bkr_total": 55.0,
+  "margin_adj": -0.5,
+  "total_adj": 1.0,
+  "fair_home_line": -2.5,
+  "fair_total": 56.0,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin -0.5 (home-positive): Lamar return + BUF secondary depletion (CJGJ out, 2 CB IR, nickel Q) + sharp spread money on BAL, partly offset by BUF bye rest edge and BAL G Ioane out",
+   "total +1.0: top-8 offenses vs #31/#22 EPA defenses, BUF games 61.3 avg combined, sharp Over money, depleted BUF secondary; trimmed for Lamar rushing dip and late-season high-total regression",
+   "SuperContest run: view BUF -2.5 expressed vs -3.5 line = margin_adj -1.0 (within soft cap 2.0)"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -3,
+    "total": 55,
+    "marginAdj": -0.5,
+    "totalAdj": 1
+   },
+   "home_cover": 0.4455166744586843,
+   "away_cover": 0.47175545827544196,
+   "side_push": 0.0827278672658733,
+   "home_cover_excl_push": 0.4856973830990879,
+   "away_cover_excl_push": 0.5143026169009122,
+   "over": 0.5151891357215661,
+   "under": 0.4545172488474263,
+   "total_push": 0.030293615431007476,
+   "over_excl_push": 0.5312836379339231,
+   "under_excl_push": 0.4687163620660769,
+   "home_win": 0.5885031524244974,
+   "home_win_excl_tie": 0.5766489773874935,
+   "tie": 0.023708350074007574,
+   "center_shift": {
+    "margin": 0.8973694019970686,
+    "total": -0.00019458838528763067
+   },
+   "distribution": {
+    "mean_margin": 2.9092782218897435,
+    "median_margin": 3,
+    "mean_total": 56.000303780348624,
+    "median_total": 56
+   },
+   "exact_margin_pct": {
+    "m3": 0.15689710571800664,
+    "m7": 0.09396046087677073
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "CHI@SEA",
+  "bkr_home_line": -3.0,
+  "bkr_total": 46.0,
+  "margin_adj": -1.0,
+  "total_adj": -1.5,
+  "fair_home_line": -2.0,
+  "fair_total": 44.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin -1.0 (home-positive): CHI rest edge +0.5 (an_primer rest trend); Cross OUT vs CHI added pass rush net of Nelson +0.5; ratings parity -> fair SEA -2 vs market ~-3.2",
+   "total -1.5: elite SEA defense + weak SEA rush offense (SEA.md); RLM 47->46 against 79% over money (AN splits); prior meeting 6-3"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -3,
+    "total": 46,
+    "marginAdj": -1,
+    "totalAdj": -1.5
+   },
+   "home_cover": 0.43246548739274626,
+   "away_cover": 0.484874397113637,
+   "side_push": 0.08266011549361764,
+   "home_cover_excl_push": 0.4714343011755715,
+   "away_cover_excl_push": 0.5285656988244285,
+   "over": 0.4394925255205267,
+   "under": 0.5303154572231623,
+   "total_push": 0.030192017256310974,
+   "over_excl_push": 0.4531747864944935,
+   "under_excl_push": 0.5468252135055065,
+   "home_win": 0.5756248356744862,
+   "home_win_excl_tie": 0.5636848216120218,
+   "tie": 0.023880028124928673,
+   "center_shift": {
+    "margin": 0.8973694019970686,
+    "total": -0.00327243390031029
+   },
+   "distribution": {
+    "mean_margin": 2.4785314190304812,
+    "median_margin": 3,
+    "mean_total": 44.51146678885379,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.15796922532928886,
+    "m7": 0.0944327011985903
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "CLE@PIT",
+  "bkr_home_line": -3.5,
+  "bkr_total": 38.5,
+  "margin_adj": -1.0,
+  "total_adj": 0.0,
+  "fair_home_line": -2.5,
+  "fair_total": 38.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "-0.5 PIT International-return no-bye spot (an_primer W8_custom_1793204745771)",
+   "-0.5 CLE pressure/man vs Rodgers (SharpFootball 2026-10-30; FTN pressure splits)",
+   "-0.25 PIT CB depth: 2 OUT + IR + PUP (availability 2026-10-30)",
+   "+0.25 offset: PIT power/DVOA edge, CLE pass pro 9.6% sack rate, CLE 1Q struggles, Howard Q",
+   "total 0.0: RLM under offset by season game-total averages, W4 51 pts, PIT CB absences, team totals sum 39"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -3.5,
+    "total": 38.5,
+    "marginAdj": -1,
+    "totalAdj": 0
+   },
+   "home_cover": 0.47342417311917573,
+   "away_cover": 0.5265758268808242,
+   "side_push": 0,
+   "home_cover_excl_push": 0.4734241731191758,
+   "away_cover_excl_push": 0.5265758268808243,
+   "over": 0.5000000000000002,
+   "under": 0.4999999999999998,
+   "total_push": 0,
+   "over_excl_push": 0.5000000000000002,
+   "under_excl_push": 0.4999999999999998,
+   "home_win": 0.61550420647665,
+   "home_win_excl_tie": 0.6038744070172288,
+   "tie": 0.023259598918842387,
+   "center_shift": {
+    "margin": 1.9567059200176407,
+    "total": -0.024589985276268322
+   },
+   "distribution": {
+    "mean_margin": 3.8268228954100425,
+    "median_margin": 3,
+    "mean_total": 38.5393843241117,
+    "median_total": 39
+   },
+   "exact_margin_pct": {
+    "m3": 0.1540920464050351,
+    "m7": 0.09271870734210952
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "IND@JAX",
+  "bkr_home_line": -10.0,
+  "bkr_total": 46.0,
+  "margin_adj": 0.5,
+  "total_adj": -1.5,
+  "fair_home_line": -10.5,
+  "fair_total": 44.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin +0.5 (home-positive) vs BKR -10: fair JAX -10.5 = 50%-regressed SRS gap (~9.5) + ~1 pt for 10/27 Nelson/Buckner trades; +1.0 vs SC -9.5 (same view)",
+   "total -1.5: IND offense bottom-7 YPP + OL downgrade vs elite JAX run D; wind/rain risk; JAX home 1H-under profile; Bet Labs under systems"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -10,
+    "total": 46,
+    "marginAdj": 0.5,
+    "totalAdj": -1.5
+   },
+   "home_cover": 0.5018462549283648,
+   "away_cover": 0.4729861565162899,
+   "side_push": 0.025167588555345847,
+   "home_cover_excl_push": 0.5148025948220708,
+   "away_cover_excl_push": 0.4851974051779292,
+   "over": 0.4394925255205267,
+   "under": 0.5303154572231623,
+   "total_push": 0.030192017256310974,
+   "over_excl_push": 0.4531747864944935,
+   "under_excl_push": 0.5468252135055065,
+   "home_win": 0.805357095005007,
+   "home_win_excl_tie": 0.7971103208398564,
+   "tie": 0.01649354833030107,
+   "center_shift": {
+    "margin": 2.3879934420858904,
+    "total": -0.00327243390031029
+   },
+   "distribution": {
+    "mean_margin": 11.533441905135085,
+    "median_margin": 11,
+    "mean_total": 44.51146678885379,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.11133470728224155,
+    "m7": 0.07256191167851561
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "KC@DEN",
+  "bkr_home_line": 1.0,
+  "bkr_total": 40.5,
+  "margin_adj": -0.4,
+  "total_adj": -0.8,
+  "fair_home_line": 1.4,
+  "fair_total": 39.7,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin -0.4 (KC): power-rating/EPA gap, DEN one-score luck, DEN Hufanga/Harvey out; offset by sharp DEN money and DEN home form",
+   "total -0.8: Caesars sharp under + RLM vs 77% over tickets, two top-8 defenses, DEN 29% 3&O; offset by DEN secondary injuries, Rice return, mild weather"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": 1,
+    "total": 40.5,
+    "marginAdj": -0.4,
+    "totalAdj": -0.8
+   },
+   "home_cover": 0.4773295650853684,
+   "away_cover": 0.4983172573178401,
+   "side_push": 0.024353177596791762,
+   "home_cover_excl_push": 0.4892442163749507,
+   "away_cover_excl_push": 0.5107557836250494,
+   "over": 0.4757805096516888,
+   "under": 0.5242194903483111,
+   "total_push": 0,
+   "over_excl_push": 0.4757805096516889,
+   "under_excl_push": 0.5242194903483112,
+   "home_win": 0.46520689845177793,
+   "home_win_excl_tie": 0.45308423181818747,
+   "tie": 0.024245333267180917,
+   "center_shift": {
+    "margin": 0.07244201072101814,
+    "total": -0.014779983334445745
+   },
+   "distribution": {
+    "mean_margin": -1.1331381241712641,
+    "median_margin": -1,
+    "mean_total": 39.73365699410425,
+    "median_total": 40
+   },
+   "exact_margin_pct": {
+    "m3": 0.1602478354074124,
+    "m7": 0.09543232081658261
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "LAC@LAR",
+  "bkr_home_line": -6.5,
+  "bkr_total": 45.0,
+  "margin_adj": -1.0,
+  "total_adj": -1.0,
+  "fair_home_line": -5.5,
+  "fair_total": 44.0,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin -1.0 (home-positive): LAC bye/rest edge + winless-off-bye system (an_primer); LAR DL out (Garrett/Turner/Ford; news_notes, SI 10/27); 13-pt sharp money gap + move off 7.5; 6+ fav 8-21-3 ATS; offset by -10 SRS gap and James OUT",
+   "total -1.0: McVay home-fav Under 30-12 (an_primer); PF/PA blend 43.6; Rams run-lean w/o Adams; offset by Caesars sharp Over 43.5, James OUT"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -6.5,
+    "total": 45,
+    "marginAdj": -1,
+    "totalAdj": -1
+   },
+   "home_cover": 0.47270515227588733,
+   "away_cover": 0.5272948477241127,
+   "side_push": 0,
+   "home_cover_excl_push": 0.47270515227588733,
+   "away_cover_excl_push": 0.5272948477241127,
+   "over": 0.45454364737489833,
+   "under": 0.5151531777867735,
+   "total_push": 0.030303174838327722,
+   "over_excl_push": 0.4687482062232337,
+   "under_excl_push": 0.5312517937767663,
+   "home_win": 0.6825441759387383,
+   "home_win_excl_tie": 0.6717368618184257,
+   "tie": 0.02161462824062518,
+   "center_shift": {
+    "margin": 1.6826915161204292,
+    "total": -0.004357213093971524
+   },
+   "distribution": {
+    "mean_margin": 6.22946919195126,
+    "median_margin": 5,
+    "mean_total": 44.01243041571956,
+    "median_total": 44
+   },
+   "exact_margin_pct": {
+    "m3": 0.14378033245766772,
+    "m7": 0.08807336212231924
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "LV@NYJ",
+  "bkr_home_line": -1.0,
+  "bkr_total": 45.5,
+  "margin_adj": 0.75,
+  "total_adj": 0.0,
+  "fair_home_line": -1.75,
+  "fair_total": 45.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "+0.5 Koerner projection NYJ -2 vs -1.5 and EPA/FTN defensive gap (LV def EPA/play 0.061 #24 vs NYJ -0.006 #14)",
+   "+0.5 LV 4-week defensive collapse (3.25 pts/drive allowed) and east-coast travel spot (road teams crossing 2+ TZ 6-13 ATS)",
+   "-0.25 NYJ edge depletion: Ossai OUT, Bailey DOUBTFUL, Sweat OUT",
+   "total 0: LV high-scoring profile offsets NYJ slow pace / poor RZ finishing"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -1,
+    "total": 45.5,
+    "marginAdj": 0.75,
+    "totalAdj": 0
+   },
+   "home_cover": 0.5075037075028629,
+   "away_cover": 0.4681560751275157,
+   "side_push": 0.024340217369621456,
+   "home_cover_excl_push": 0.5201646276068006,
+   "away_cover_excl_push": 0.47983537239319946,
+   "over": 0.5,
+   "under": 0.49999999999999994,
+   "total_push": 0,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.49999999999999994,
+   "home_win": 0.5439374609342119,
+   "home_win_excl_tie": 0.5318439248724843,
+   "tie": 0.024187072123455187,
+   "center_shift": {
+    "margin": -0.07244201072101147,
+    "total": -0.0037758413662096757
+   },
+   "distribution": {
+    "mean_margin": 1.432386229748919,
+    "median_margin": 2,
+    "mean_total": 45.50754463802188,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.15988465281200784,
+    "m7": 0.09527339796022166
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "MIN@DET",
+  "bkr_home_line": -3.0,
+  "bkr_total": 46.0,
+  "margin_adj": -0.3,
+  "total_adj": -1.0,
+  "fair_home_line": -2.7,
+  "fair_total": 45.0,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "-0.4 DET secondary depletion (Joseph OUT, Maddox/Harper IR, McCreary Q)",
+   "-0.3 MIN pressure vs Goff pressure split",
+   "-0.2 division road dog situational (Bet Labs systems, 23-10 ATS)",
+   "+0.6 MIN offense #29 EPA / easiest SOS / TO regression; Koerner -3.8; sharp money and ML move to DET",
+   "Total -1.0: MIN pace/TOP and league-low TD rate allowed, partly offset by DET scoring and the Joseph absence",
+   "Baseline-card SRS-only -3.08 (above the hard cap) rejected"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -3,
+    "total": 46,
+    "marginAdj": -0.3,
+    "totalAdj": -1
+   },
+   "home_cover": 0.45076085656779474,
+   "away_cover": 0.46651098699376353,
+   "side_push": 0.08272815643844196,
+   "home_cover_excl_push": 0.49141468773051256,
+   "away_cover_excl_push": 0.5085853122694874,
+   "over": 0.4545374074316581,
+   "under": 0.5151618261370405,
+   "total_push": 0.030300766431301432,
+   "over_excl_push": 0.4687406070837698,
+   "under_excl_push": 0.5312593929162301,
+   "home_win": 0.5936322716733263,
+   "home_win_excl_tie": 0.5818160799792627,
+   "tie": 0.023632383388127277,
+   "center_shift": {
+    "margin": 0.8973694019970686,
+    "total": -0.00327243390031029
+   },
+   "distribution": {
+    "mean_margin": 3.0819638682230868,
+    "median_margin": 3,
+    "mean_total": 45.00965327272846,
+    "median_total": 45
+   },
+   "exact_margin_pct": {
+    "m3": 0.15642245827702,
+    "m7": 0.09375100196890225
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "NE@MIA",
+  "bkr_home_line": 7.0,
+  "bkr_total": 43.5,
+  "margin_adj": 0.5,
+  "total_adj": -2.0,
+  "fair_home_line": 6.5,
+  "fair_total": 41.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin +0.5 (home-positive, toward MIA): A.J. Brown Q (missed Thu+Fri), ~20 mph wind compresses pass-first favorite margin, reverse line movement vs 76% NE money",
+   "total -2.0 (soft cap): ~20 mph wind + 80% rain (Open-Meteo), Bet Labs wind-under system, Hochuli under trend, MIA slow tempo, Brown Q"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": 7,
+    "total": 43.5,
+    "marginAdj": 0.5,
+    "totalAdj": -2
+   },
+   "home_cover": 0.48596970239860865,
+   "away_cover": 0.4583701963795315,
+   "side_push": 0.05566010122185905,
+   "home_cover_excl_push": 0.5146131207919878,
+   "away_cover_excl_push": 0.4853868792080121,
+   "over": 0.43956140503262175,
+   "under": 0.5604385949673781,
+   "total_push": 0,
+   "over_excl_push": 0.4395614050326218,
+   "under_excl_push": 0.5604385949673782,
+   "home_win": 0.28228360919412515,
+   "home_win_excl_tie": 0.2720644069077939,
+   "tie": 0.020438404572662546,
+   "center_shift": {
+    "margin": -2.1942087123333947,
+    "total": -0.006622413300657826
+   },
+   "distribution": {
+    "mean_margin": -7.594597264440248,
+    "median_margin": -7,
+    "mean_total": 41.52483993330927,
+    "median_total": 42
+   },
+   "exact_margin_pct": {
+    "m3": 0.13637600285036208,
+    "m7": 0.08465653578424302
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "PHI@WAS",
+  "bkr_home_line": -6.0,
+  "bkr_total": 40.5,
+  "margin_adj": -1.0,
+  "total_adj": 1.5,
+  "fair_home_line": -5.0,
+  "fair_total": 42.0,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "margin -1.0 (home-positive): Koerner independent projection +4.3 vs market; market overshoot 2.5 pts off one blowout into 6+ fav 8-21-3 ATS / div dog 23-10 ATS slate; netted vs WAS rest edge and Caesars sharp WAS -5.5",
+   "SC run margin -0.5 vs -5.5 (same view WAS -5)",
+   "total +1.5: season game-total avgs 43.1/50.7, both defenses bottom-8 EPA, WAS DT injuries, coach Over trends in matchup; netted vs PHI WR depletion and slight RLM"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -6,
+    "total": 40.5,
+    "marginAdj": -1,
+    "totalAdj": 1.5
+   },
+   "home_cover": 0.4604700173306322,
+   "away_cover": 0.5148032140394146,
+   "side_push": 0.024726768629953988,
+   "home_cover_excl_push": 0.4721446283148487,
+   "away_cover_excl_push": 0.5278553716851513,
+   "over": 0.5453681023263816,
+   "under": 0.45463189767361806,
+   "total_push": 0,
+   "over_excl_push": 0.5453681023263818,
+   "under_excl_push": 0.4546318976736183,
+   "home_win": 0.6717380480849551,
+   "home_win_excl_tie": 0.6607720667050404,
+   "tie": 0.021931962759829376,
+   "center_shift": {
+    "margin": 1.7313781895434652,
+    "total": -0.014779983334445745
+   },
+   "distribution": {
+    "mean_margin": 5.8267952670803185,
+    "median_margin": 5,
+    "mean_total": 42.0131073579612,
+    "median_total": 42
+   },
+   "exact_margin_pct": {
+    "m3": 0.1457734202936753,
+    "m7": 0.08898132600132914
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ },
+ {
+  "game": "TEN@CIN",
+  "bkr_home_line": -11.5,
+  "bkr_total": 46.0,
+  "margin_adj": 0.75,
+  "total_adj": 0.5,
+  "fair_home_line": -12.25,
+  "fair_total": 46.5,
+  "over_soft_cap": [],
+  "adj_reasons": [
+   "+0.75 margin vs -11.5 (+1.75 vs contest -10.5): Simmons trade [news_notes ESPN 2026-10-29], TEN P Townsend OUT [availability ESPN 2026-10-30], Tate/Spears OUT [qb_operator_notes] offset by big-favorite ATS, Burrow big-fav ATS, Brad Allen home-fav trends [an_primer 2026-10-30]",
+   "+0.5 total: TEN punter out and weakened TEN front, offset by TEN offense 14.6 PPG and CIN clock-burn script"
+  ],
+  "sim": {
+   "inputs": {
+    "homeLine": -11.5,
+    "total": 46,
+    "marginAdj": 0.75,
+    "totalAdj": 0.5
+   },
+   "home_cover": 0.5219707055425135,
+   "away_cover": 0.47802929445748715,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5219707055425131,
+   "away_cover_excl_push": 0.4780292944574868,
+   "over": 0.49998650738465145,
+   "under": 0.4696486218338017,
+   "total_push": 0.03036487078154697,
+   "over_excl_push": 0.5156439698999472,
+   "under_excl_push": 0.48435603010005285,
+   "home_win": 0.8336251686491344,
+   "home_win_excl_tie": 0.8261839816797462,
+   "tie": 0.014882373938776438,
+   "center_shift": {
+    "margin": 2.1987032498145647,
+    "total": -0.00327243390031029
+   },
+   "distribution": {
+    "mean_margin": 13.05956273392608,
+    "median_margin": 12,
+    "mean_total": 46.50536982852288,
+    "median_total": 46
+   },
+   "exact_margin_pct": {
+    "m3": 0.10100521947047253,
+    "m7": 0.0673070862744541
+   },
+   "calibration": {
+    "sdMargin": 12.772,
+    "latent_sigma_margin": 13.65927820366725,
+    "sdTotal": 13.128,
+    "era": "2018-2025",
+    "sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "key_weights": {
+     "3": 3.3845819483590485,
+     "7": 2.241308823639945
+    }
+   }
+  }
+ }
+]

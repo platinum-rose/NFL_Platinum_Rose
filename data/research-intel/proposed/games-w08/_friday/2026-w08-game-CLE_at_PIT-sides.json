@@ -1,0 +1,182 @@
+{
+  "game": "CLE@PIT",
+  "generated_at": "2026-10-31T06:25:00Z",
+  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "supercontest_candidate": true,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 5,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "spread",
+      "selection": "CLE +3.5",
+      "line": 3.5,
+      "price": -113,
+      "tier": "C",
+      "fair_line": "PIT -2.5",
+      "edge_pts": 1.0,
+      "playable_to": "CLE +3.5 at -110 or better; pass at +3 or at +3.5 -115 or worse (at -113 sim is ~break-even 52.7% vs 53.05%)",
+      "model_prob": 0.5266,
+      "reasons": [
+        "PIT off Paris International game without bye: such teams 1-9 ATS since 2025 [an_primer W8_custom_1793204745771]",
+        "CLE man/pressure vs Rodgers: CLE 71% man, 42% pressure, 5 sacks in W4; Rodgers EPA/DB -0.601 under pressure [news_notes SharpFootball 2026-10-30; FTN via dossiers]",
+        "PIT CB depth: Slaughter OUT, Echols OUT, Mukuamu IR, Kent PUP [availability 2026-10-30]",
+        "Division dogs 23-10 ATS in 2026; Bet Labs Great Condition Div Road Dogs system on CLE [an_primer]",
+        "Market win totals near-equal (CLE 9.53, PIT 10.22) [prediction_markets]"
+      ],
+      "counter_case": "Heavy public/tout consensus on CLE already priced (-113); PIT better SRS/DVOA; Steelers 22-1 SU home vs CLE since 2004; Rodgers 39-25-1 ATS QB revenge; CLE 25 sacks allowed and OT Tytus Howard Q (concussion); CLE outscored 58-13 in 1Q; Koerner projects PIT -3.7."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 5,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "total",
+      "selection": "PASS",
+      "line": 38.5,
+      "price": null,
+      "tier": "PASS",
+      "fair_line": "38.5-39",
+      "edge_pts": 0.0,
+      "playable_to": "Under C-lean at 39.5+; over C-lean at 37.5 or lower",
+      "model_prob": 0.5,
+      "reasons": [
+        "Reverse line movement 39.5->38.5 against 75%/78% over bets/money (under signal)",
+        "Offset: CLE/PIT game totals average 39.9/41.6, W4 meeting 51 pts, PIT CBs depleted, BKR team totals sum 39"
+      ],
+      "counter_case": "Under: RLM plus two bottom-12 EPA offenses and three tout unders. Over: thin PIT secondary and CLE's 491-yd W7."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:51:46.729Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 5,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "moneyline",
+      "selection": "PASS",
+      "line": null,
+      "price": null,
+      "tier": "PASS",
+      "fair_line": "PIT -152 / CLE +152 (excl. tie)",
+      "edge_pts": null,
+      "playable_to": "CLE ML at +175 or better",
+      "model_prob": 0.3962,
+      "reasons": [
+        "Sim CLE win ~39.6% excl. tie vs +163 break-even 38.0%; too thin given tie risk and Howard Q"
+      ],
+      "counter_case": "At the -1.5 view CLE ML is ~+1.7 pts of value; CLE won the W4 meeting outright."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -1.0,
+    "total_adj": 0.0,
+    "reasons": [
+      "-0.5 PIT International-return no-bye spot (an_primer W8_custom_1793204745771)",
+      "-0.5 CLE pressure/man vs Rodgers (SharpFootball 2026-10-30; FTN pressure splits)",
+      "-0.25 PIT CB depth: 2 OUT + IR + PUP (availability 2026-10-30)",
+      "+0.25 offset: PIT power/DVOA edge, CLE pass pro 9.6% sack rate, CLE 1Q struggles, Howard Q",
+      "total 0.0: RLM under offset by season game-total averages, W4 51 pts, PIT CB absences, team totals sum 39"
+    ]
+  },
+  "sim_runs": [
+    {
+      "args": "--home-line -3.5 --total 38.5",
+      "away_cover": 0.5,
+      "home_cover": 0.5,
+      "over": 0.5,
+      "home_win": 0.6406,
+      "tie": 0.0227
+    },
+    {
+      "args": "--home-line -3.5 --total 38.5 --margin-adj -1.0",
+      "away_cover": 0.5266,
+      "home_cover": 0.4734,
+      "over": 0.5,
+      "home_win": 0.6155,
+      "tie": 0.0233
+    },
+    {
+      "args": "--home-line -3.5 --total 38.5 --margin-adj -1.5",
+      "away_cover": 0.5398,
+      "home_cover": 0.4602,
+      "home_win": 0.6028,
+      "tie": 0.0235
+    },
+    {
+      "args": "--home-line -3.5 --total 38.5 --margin-adj -1.0 --total-adj 0.5",
+      "over": 0.5151,
+      "under": 0.4849
+    },
+    {
+      "args": "--home-line -3.5 --total 38.5 --margin-adj -1.0 --total-adj -0.5",
+      "over": 0.4849,
+      "under": 0.5151
+    },
+    {
+      "args": "--home-line -3 --total 38.5 --margin-adj -0.5",
+      "away_cover": 0.4718,
+      "home_cover": 0.4455,
+      "side_push": 0.0827,
+      "away_cover_excl_push": 0.5143,
+      "home_win": 0.5885
+    },
+    {
+      "note": "SuperContest line PIT -3.5 equals BKR; contest run identical to margin -1.0 row"
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (built 2026-10-31T06:09:16Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
+    "data/generated/props/bookmaker-live-2026-10-31-browns-at-steelers.json (2026-10-31T01:51:46Z)",
+    "data/generated/props/betonline-live-2026-10-29-browns-at-steelers.json (2026-10-29T23:10:52Z)",
+    "data/odds/actionnetwork-openers-2026-w08.json (AN open 2026-10-26T04:12Z)",
+    "data/supercontest/week-08-lines.json (2026-10-29)",
+    "data/generated/team-dossiers/2026-w08/CLE.md",
+    "data/generated/team-dossiers/2026-w08/PIT.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/prediction-markets/cross-market-coherence-latest.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+    "data/intel/extracted/2026-w08-primer-intel.json",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "scratch/w08-qb-confirmations-1030.md",
+    "packet.splits Action Network 2026-10-31T02:06:35Z",
+    "packet.news_notes (PFT, SharpFootball, BetMGM via Ewing/Fawkes 2026-10-30)",
+    "scripts/intel/margin-simulator.mjs (selftest PASS)"
+  ],
+  "ambiguities": [
+    "Friday official injury report not directly verified (web search returned no current-week page; PFT link blocked); used packet PFT 10/30 headline + availability feed",
+    "qb_operator_notes source file is labeled web-checked by Claude, not Andy-confirmed",
+    "availability feed needs_human_review throughout; dossier ESPN availability missing",
+    "article_selections and props_intel_articles empty; Hribar worksheet paywalled",
+    "International-return trend is a 10-game sample"
+  ],
+  "delta_checklist": [
+    "PIT -3 any price -> spread PASS (contest unaffected at -3.5)",
+    "CLE +3.5 at -115 or worse -> betting PASS, keep SuperContest",
+    "CLE +4 appears -> upgrade spread to B",
+    "Tytus Howard OUT at 8:30 AM PT inactives -> margin_adj -0.75; bet only at -110 or better",
+    "Jared Verse / Myles Harden scratched or T.J. Watt out -> re-run",
+    "Total 39.5 -> under C lean; 37.5 or lower -> over C lean",
+    "CLE ML +175 or better -> CLE ML C"
+  ],
+  "gate_notes": [
+    "missing_inputs: none",
+    "roster_vet PASS (age 8.5h)",
+    "kickoff not passed",
+    "Friday injury web check inconclusive; packet statuses used",
+    "qb_operator_notes not Andy-confirmed per source header",
+    "secondary_matchups stale coach/player names (Tomlin/Austin, Schwartz, Fitzpatrick) ignored; dossiers name Monken/McCarthy",
+    "Brandon Anderson McLaughlin rationale references Chiefs/Denver (misattribution) - props item, unused",
+    "Duplicate opinions collapsed: Even Money x2, Perrault x2, Millman x2, BettingPros/Erickson",
+    "Report runs ~1800 words incl. tables (spec 900-1600)"
+  ],
+  "pass": "sides"
+}

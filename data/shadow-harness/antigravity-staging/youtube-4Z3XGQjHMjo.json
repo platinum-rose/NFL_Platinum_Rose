@@ -1,0 +1,95 @@
+{
+ "episode_id": "youtube-4Z3XGQjHMjo",
+ "status": "extracted",
+ "transcript_source": "youtube_auto_captions",
+ "show": "The Action Network: Sports Betting Picks & Tips",
+ "channel": "The Action Network: Sports Betting Picks & Tips",
+ "title": "Bears vs Seahawks Anytime Touchdown Parlay | Monday Night Football",
+ "url": "https://www.youtube.com/watch?v=4Z3XGQjHMjo",
+ "published_date": "2026-10-31",
+ "week": 8,
+ "transcript_summary": "Action Network crew constructs a 3-leg anytime touchdown parlay for Bears at Seahawks on Monday Night Football (20-to-1 at DraftKings): JSN, AJ Barner, and Colston Loveland.",
+ "coverage_check": {
+  "video_duration_seconds": 70,
+  "last_analyzed_timestamp": 70,
+  "reached_end_of_video": true
+ },
+ "speaker_segments": [
+  {
+   "start": 0.0,
+   "end": 20.0,
+   "speaker": "Gilles Gallant",
+   "text": "Anchor leg: Jaxon Smith-Njigba anytime touchdown."
+  },
+  {
+   "start": 20.0,
+   "end": 35.0,
+   "speaker": "Grant Neuffer",
+   "text": "Leg 2: AJ Barner anytime touchdown (+225)."
+  },
+  {
+   "start": 35.0,
+   "end": 70.0,
+   "speaker": "Sean Koerner",
+   "text": "Leg 3: Colston Loveland anytime touchdown (+215); 20-to-1 parlay."
+  }
+ ],
+ "extracted_picks": [
+  {
+   "team": null,
+   "player": "Jaxon Smith-Njigba",
+   "market": "anytime_td",
+   "side": "OVER",
+   "line": 0.5,
+   "price": null,
+   "week": 8,
+   "speaker": "Gilles Gallant",
+   "source_timestamp": 3,
+   "rationale": "Anchor leg of MNF TD parlay; primary target in Seahawks passing offense."
+  },
+  {
+   "team": null,
+   "player": "AJ Barner",
+   "market": "anytime_td",
+   "side": "OVER",
+   "line": 0.5,
+   "price": 225,
+   "week": 8,
+   "speaker": "Grant Neuffer",
+   "source_timestamp": 20,
+   "rationale": "Heavy red zone involvement and tush push role; overdue for receiving touchdown."
+  },
+  {
+   "team": null,
+   "player": "Colston Loveland",
+   "market": "anytime_td",
+   "side": "OVER",
+   "line": 0.5,
+   "price": 215,
+   "week": 8,
+   "speaker": "Sean Koerner",
+   "source_timestamp": 35,
+   "rationale": "Expanded role with Kmet out for season; high target share in red zone."
+  }
+ ],
+ "analysis_notes": [],
+ "quote_timestamps": [
+  {
+   "topic": "MNF TD Parlay",
+   "timestamp": 67,
+   "speaker": "Gilles Gallant",
+   "quote": "That comes out to 20 to one at DraftKings for those three touchdown scorers."
+  }
+ ],
+ "uncertainty_flags": [],
+ "coverage_assessment": {
+  "last_covered_timestamp": 70,
+  "self_reported_reached_end": true,
+  "duration_used_for_check": 70,
+  "segment_start_seconds": null,
+  "segment_end_seconds": null,
+  "suspected_incomplete": false,
+  "reason": null,
+  "coverage_ratio": 1
+ }
+}

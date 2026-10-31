@@ -1,85 +1,91 @@
-# NE @ MIA — Week 8 game synthesis, pass `sides`
+# NE @ MIA — Week 8 game synthesis, pass `sides` (Saturday re-run)
 
-- As of: Fri 2026-10-30 ~11:25 PM PT (2026-10-31 06:25 UTC)
-- Kickoff: Sun 11/1 1:25 PM PT (2026-11-01 21:25 UTC), Hard Rock Stadium (outdoor, grass). Inactives at about 11:55 AM PT Sunday.
-- Packet built: 2026-10-31T06:09:16Z (queue `scratch/w08-game-synthesis-queue-sides.json`) · roster_vet: **PASS** (roster age 8.5 h) · missing_inputs: none
+- As of: Sat 2026-10-31 ~3:30 PM PT (22:30 UTC)
+- Kickoff: Sun 11/1 1:25 PM PT (21:25 UTC), Hard Rock Stadium (outdoor). Inactives about 11:55 AM PT Sunday.
+- Packet built: 2026-10-31T21:55:40Z (`scratch/w08-game-synthesis-queue-sides.json`) · roster_vet: **PASS** (roster age 0.3 h; 14 UNVERIFIED league-wide, none cited here) · missing_inputs: none
+- Friday baseline: `reports/intel/games/_friday-w08/2026-w08-game-NE_at_MIA-sides.md` (as of Fri ~11:25 PM PT)
 
 ## Recommendation box
 
 | Market | Pick @ BKR | Tier | Fair | Edge | Playable to |
 |---|---|---|---|---|---|
-| SPREAD | **PASS at MIA +7 -117** (lean MIA) | C lean / PASS at this price | NE -6.5 | 0.5 pt to MIA | MIA +7 at -110 or better, or any +7.5. Pass at +7 -115 or worse, or +6.5 |
+| SPREAD | **PASS at MIA +7 -117** (lean MIA) | PASS (C lean) | NE -6 | 1.0 pt to MIA | MIA +7 at -110 or better, or any +7.5 (C). Pass at +7 -115 or worse, or +6.5 |
 | TOTAL | **UNDER 43.5 -111** | **B** | 41.5 | 2.0 pts | to 42.5 -115. Pass at 42 or lower |
-| MONEYLINE / SU | PASS (NE -324 / MIA +273). SU winner **NE** | PASS | NE about 73% (fair about -270) | none: NE price is too short, MIA +273 is at fair | — |
-| SuperContest | **MIA +7** (contest line NE -7) | C | NE -6.5 | 0.5 pt | candidate = yes, low-confidence slot |
-| Pool | SU: **NE** · confidence **11/16** | — | — | — | drops to 9 if A.J. Brown is out and the wind holds |
+| MONEYLINE / SU | PASS (NE -340 / MIA +286). SU winner **NE** | PASS | NE ~71.7% (fair ~-253) | NE overpriced. MIA +286 is about 2 pts above break-even on the model, which is too thin | MIA ML only at +300 or better (C) |
+| SuperContest | **MIA +7** (contest line NE -7) | C | NE -6 | 1.0 pt | candidate = yes, mid/low slot |
+| Pool | SU: **NE** · confidence **9/16** (was 11) | — | — | — | drop to 8 if Sunday wind holds 20+ mph |
 
-[Source: market.bkr_current_line_text + data/generated/props/bookmaker-live-2026-10-31-patriots-at-dolphins.json, capturedAt 2026-10-31T01:52:20Z = Fri 6:52 PM PT. The prop-board game rows match the paste exactly, and nothing newer exists.]
+[Source: data/generated/props/bookmaker-live-2026-10-31-patriots-at-dolphins.json capturedAt 2026-10-31T21:28:24Z (Sat 2:28 PM PT), which matches bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat ~2:26 PM PT). Both were captured after the Brown/Henderson news.]
+
+## Changes vs Friday
+1. **Availability (official):** patriots.com's Saturday 10/31 report lists **WR A.J. Brown OUT** (ankle/knee), **RB TreVeyon Henderson OUT** (illness) and **T Marcus Bryant OUT** (ankle; new to this report). On Friday Brown and Henderson were both Questionable. CB Carlton Davis III (neck) and LB Christian Elliss (chest) remain Q [Source: patriots.com/news/week-8-injury-report-patriots-at-dolphins-x9227, fetched Sat; news_notes ESPN 17:42Z, Rotowire 17:07Z/17:10Z]. The "career ending"/trade-talk tweet (S_CharlesNFL 10/30) is **unverified and not used**.
+2. **Margin adjustment +0.5 → +1.0 (toward MIA).** Fair line NE -6.5 → **NE -6**.
+3. **BKR price:** the spread and total did not move (NE -7 +101 / MIA +7 -117; 43.5 o-105/u-111). The 1H (NE -3.5 -113, 22) and team totals (NE 25.5, MIA 17.5) also held. The **ML moved toward NE**: -324/+273 → **-340/+286**. The market absorbed the Brown news with no move in the spread.
+4. **Splits (AN, 21:23Z):** spread NE 76% bets / 76% money (Friday 75/76). Over 78% bets / **74% money** (Friday 77/77). The over money now runs 4 pts below over tickets: not a sharp flag, but it leans under.
+5. **New total signal:** the Action Network PRO "High Winds" system flags **Under 43.5** (Kolodziej article, updated Sat 1:33 PM PT; avg wind 10+ mph, 58% historical; thunderstorm risk). This is a system, not an expert.
+6. **New article/X rows:** Dan Servodidio (BettingPros, 10/31) parlays NE ML (-325) with Hunter Henry ATD at +208. Lock & Cash (X, captured Sat 21:51Z) and Wes Reynolds (VSiN) both teaser **NE -1**. Sal Vetri's A.J. Brown o59.5 rec yds is **void** (Brown is out). The 9 Saturday podcast episodes produced no new NE@MIA side or total picks; their game picks are props, for the props pass.
+7. **Simulator:** MIA cover 51.5% → 52.9% (still below the 53.9% break-even at -117). Under unchanged at 56.0%. MIA win 27.2% → 28.3%.
+8. **Recommendation tiers are unchanged.** Pool confidence 11 → 9 (Friday's stated trigger: Brown out).
+9. **Weather input was not refreshed:** the packet still carries the Fri 01:02Z Open-Meteo file, and a fresh pull from the device failed (no network to open-meteo). The AN PRO system on Saturday afternoon is the only newer wind corroboration.
 
 ## Game script
-New England has 10 days of rest after its Thursday Week 7 loss in Chicago (24-30). Miami is on normal rest after its first win, 28-25 at the Jets [Source: news_notes PFT 10/26-10/28; dossiers]. The forecast is about 20 mph sustained wind (32 km/h, gusts 38 km/h), an 80% chance of rain and 27°C at kickoff [Source: packet weather, Open-Meteo, data/research-intel/review/2026-w08-weather-venue.json]. That hurts New England more, because its offense runs through the pass: EPA/dropback 0.228 and FTN pass DVOA +38.0%, against EPA/rush -0.173 and rush DVOA -16.3% [Source: NE dossier FTN through W7]. The likely script is NE moving the ball in the air early and building a one-score or two-score lead while wind and rain shorten its drives. Miami leans on the run (its rush offense is its best unit and NE's run defense is mediocre) and plays slowly: 56.5 plays/game and 29.5 seconds/play [Source: MIA dossier FTN tempo]. Many outcomes land NE by 4-10 with a total in the high 30s to low 40s.
+NE comes in with 10 days of rest after its TNF loss in Chicago. MIA is on normal rest after its first win [Source: an_primer Abrams trends; dossiers]. The NE offense now has no Brown (27% target share since his return, per Sal Vetri's tweet) and no RB2 Henderson, and it has lost a tackle (Bryant). The passing game shifts toward DeMario Douglas, Efton Chism III and Hunter Henry, who are all matched against MIA's two-high match-zone weaknesses (slot, seam, TE middle) [Source: secondary_matchups sec_8bdb0b27c5de8324]. A narrower set of targets in forecast wind (32 km/h ≈ 20 mph, gusts 38 km/h, 80% rain [Source: packet weather, Fri forecast]) points to a lower-possession, field-position game. MIA plays slowly and leans on the run (Ollie Gordon has 88+ rush yds in 3 straight games [Source: expert_picks_pull Anderson]). Most likely outcome: NE by 3-10, total in the high 30s to low 40s.
 
 ## QB / availability
-- QBs confirmed by Andy: **Drake Maye (NE)** and **Malik Willis (MIA)** [Source: qb_operator_notes, scratch/w08-qb-confirmations-1030.md].
-- **NE WR A.J. Brown is Questionable** (knee and ankle). He missed practice Thursday and Friday and is a game-time decision [Source: qb_operator_notes; ESPN 10/30 17:57Z; Rotowire 10/30]. **If Brown is out**, NE loses a 27% target-share receiver (Sal Vetri's tweet) and the passing ceiling falls further in the wind. That supports the under and trims the NE margin by about 0.5 pt (already in the view). **If Brown is in**, he is likely limited, so the picks hold.
-- NE RB TreVeyon Henderson is Q (illness), LB Christian Elliss is Q, and CB Carlton Davis III is Q [Source: availability ESPN injuries API 10/30].
-- MIA: OT Kadyn Proctor is OUT, which hurts a pass protection that already allows a 9.6% sack rate. CB JuJu Brents and CB Reese Taylor are Q. WR Malik Washington and TE Greg Dulcich have no designation [Source: availability 10/30].
-- The one web search for Friday's official reports returned only 2023 pages (patriots.com and atozsports Week 8 2023). These designations therefore come from the packet's 10/30 ESPN/Rotowire feed, which is flagged for misclassification bugs.
+- QBs per the packet: **Drake Maye (NE)** and **Malik Willis (MIA)**. Neither is flagged as a backup [Source: an_primer.game; projected_starters]. qb_operator_notes is empty in this rebuild; Friday's Andy confirmations named the same QBs.
+- NE OUT: Brown, Henderson, T Marcus Bryant. NE Q: CB Davis III, LB Elliss [Source: patriots.com Sat report].
+- MIA (Friday report; no Saturday section): G/T Kadyn Proctor OUT (concussion), CB JuJu Brents Q, CB Reese Taylor Q [Source: patriots.com page, MIA Fri 10/30 section].
+- **If Davis/Elliss sit**, MIA's offense gets a small bump (+0.25 toward MIA, which does not change a tier). **If Brents or Taylor sit**, NE's slot/TE targets gain, which slightly cuts the under's edge.
 
 ## Market
-- **AN open**: NE -7.5 (-113 home), total 44.5 [Source: data/odds/actionnetwork-openers-2026-w08.json, open Sun 10/25 5:00 PM PT]. The AN primer lists the total open at 45 [Source: an_primer.game.total_open].
-- **BKR now**: NE -7 +101 / MIA +7 -117, total 43.5 (o -105 / u -111), ML NE -324 / MIA +273, 1H NE -3.5 / 22, team totals NE 25.5 and MIA 17.5. AN consensus is 7 / 43 [Source: an_primer.game].
-- Movement: the spread moved 0.5 pt toward MIA, and the juice now sits on MIA (+7 -117 is close to NE -6.75). The total fell 1-1.5 pts.
-- **Splits** (AN, 10/31 02:06Z): NE spread 75% of bets / 76% of money, and the over 77% / 77%. No money-vs-bets gap of 10+ points, so there is no formal sharp flag. Both the side and the total moved **against** about 76% of the public, which is reverse line movement toward MIA and the under [Source: packet splits; an_primer.public].
-- SuperContest NE -7 equals the BKR number, but the contest has no juice. MIA +7 there avoids the -117 that kills the BKR side.
+- **AN open** NE -7.5 (-113 home), 44.5 (primer says 45) → **BKR now** NE -7 / 43.5. That is 0.5 pt toward MIA and 1-1.5 pts down on the total, against about 76-78% of public tickets on NE and the over: reverse line movement on both.
+- SuperContest NE -7 equals BKR. The contest has no juice, so MIA +7 there avoids the -117.
+- Splits: no 10+ pt money/ticket gap on the side. The over shows a 4-pt ticket>money gap (leans under). The ML is 96% NE.
 
 ## Quantitative
-- Power: NE SRS +5.80 (#6), MIA -6.14 (#27). Net PPG +2.4 vs -9.8. Pythag .566 vs .247. Model rank #9 vs #30 [Source: team-power-ratings-2026.json]. Raw SRS implies about NE -10.5 at a neutral site and about -9 at MIA. NE's -7 turnover margin and MIA's 32nd-ranked strength of schedule (SharpFootball 10/27) argue for regressing that number toward the market.
-- MIA defense is weak: EPA/play allowed 0.119 (#30), defense DVOA +13.2%, and opponents convert 55.3% [Source: MIA dossier]. MIA offense: EPA/play -0.035 (#21), CPOE -6.9.
-- Secondary matchups: MIA two-high match zone is vulnerable to slot, seam and TE routes (DeMario Douglas, Hunter Henry), and S Ronnie Harrison Jr. is on IR [Source: secondary_matchups 2026-w08].
-- **Simulator** (calibration 2018-2025, sha 0ea35592; self-tests all pass). Probabilities exclude pushes.
+- Power: NE SRS +5.80 (#6) vs MIA -6.14 (#27). Model rank #9 vs #30 [Source: packet power_ratings]. Raw SRS says about NE -9 at MIA, regressed for NE's turnover luck and MIA's soft schedule (Friday analysis). Brown out removes about 1 pt from NE.
+- Prediction markets: NE median wins 10.7, MIA 3.9 (context only).
+- **Simulator** (calibration 2018-2025, sha 0ea35592; all self-tests pass; probabilities exclude pushes):
 
-| Run | home-line / total | margin-adj / total-adj | MIA cover | push | Over / Under | MIA win |
+| Run | home-line / total | margin / total adj | MIA cover | push | Over / Under | MIA win |
 |---|---|---|---|---|---|---|
 | Baseline | +7 / 43.5 | 0 / 0 | 50.0% | 5.6% | 50.0 / 50.0 | 26.1% |
-| **Adjusted (view)** | +7 / 43.5 | **+0.5 / -2.0** | **51.5%** | 5.6% | **44.0 / 56.0** | 27.2% |
-| Sensitivity | +7 / 43.5 | +1.0 / -1.0 | 52.9% | 5.6% | 47.0 / 53.0 | 28.3% |
-| At +7.5 | +7.5 / 43.5 | 0 / -2.0 | 50.0% | 0 | 44.0 / 56.0 | 24.0% |
+| **Adjusted (view; = SC line)** | +7 / 43.5 | **+1.0 / -2.0** | **52.9%** | 5.6% | **44.0 / 56.0** | 28.3% |
+| Friday view | +7 / 43.5 | +0.5 / -2.0 | 51.5% | 5.6% | 44.0 / 56.0 | 27.2% |
+| Sensitivity | +7 / 43.5 | +1.5 / -1.0 | 54.4% | 5.6% | 47.0 / 53.0 | 29.5% |
+| If +7.5 appears | +7.5 / 43.5 | +1.0 / -2.0 | 52.8% | 0 | 44.0 / 56.0 | 26.1% |
 
-The SuperContest line is the same number (MIA +7), so the adjusted run also covers the contest. Break-evens: MIA +7 -117 needs 53.9% excluding pushes, and the model gives 51.5%, so **no play at BKR**. Under -111 needs 52.6%, and the model gives 56.0%, about 3.4 points of edge.
+Break-evens: MIA +7 -117 needs 53.9%, and the view gives 52.9%, so **pass**. Under -111 needs 52.6%, and the view gives 56.0%. MIA ML +286 needs 25.9% against a model 28.3%. That edge is too dependent on the model for a pick, because the baseline already sits 1 pt above the market's no-vig 25.1%.
 
 Adjustments (home-positive):
-- margin +0.5: the A.J. Brown downgrade, about 20 mph wind compressing the margin of a pass-first favorite, and reverse line movement against 76% NE money.
-- total -2.0 (soft cap): about 20 mph sustained wind with an 80% rain chance [Open-Meteo], the Bet Labs "Med to High Wind" under system (1297-1122-32), Hochuli games 60-44-2 to the under since 2020 [an_primer], MIA's slow tempo, and Brown questionable.
+- margin +1.0: Brown OUT (confirmed), Henderson OUT, T Bryant OUT, wind compressing a pass-first favorite's margin, and reverse line movement against 76% NE money.
+- total -2.0 (soft cap): ~20 mph wind and 80% rain [Fri Open-Meteo], AN PRO High Winds under system (Sat), Hochuli games 60-44-2 to the under [an_primer], MIA's slow tempo, NE's thinner set of targets.
 
-## Expert / podcast agreement
-- **MIA side**: Sean Koerner (AN PRO, MIA +7, ATS confidence #3 of 26, projection +6.5); Brandon Anderson (AN, MIA +7.5 parlay leg; that line is no longer available); BettingPros, Sharp or Square and Even Money (all MIA +7.5, published 10/27-10/28, so 0.5 pt stale against today's +7); VSiN "Tuley's Takes" (pass; notes MIA is picked 55/45 in ATS contests). Trend support comes from Evan Abrams: 6+ point favorites are 8-21-3 ATS, division dogs 23-10 ATS, favorites with Hochuli 43-60-2 ATS, and NE 3-10-1 ATS at Miami since 2012.
-- **NE side**: PFT (NE 31-20); Steve Krebs (NE ML -370). Trend support from Abrams: Vrabel is 5-0 SU/ATS with NE off a SU loss; NE has the rest edge (rest-advantage favorites are 15-3-1 ATS); Maye is 16-0 SU and 12-4 ATS as a 3+ point favorite; and teams off their first win this late are 3-10 SU. The Bet Labs "Business Trip" system favors NE.
-- **Total**: The under view rests on weather, the wind system, the Hochuli trend and the market drop. The counter is Vrabel 12-3 to the over against the AFC East (+5.6 PPG) and PFT's 51 projected total. No named expert in the packet gives a full-game total pick.
-- Props from Anderson (Gordon rushing over 58.5) and Welsh/Prop Guru (Henry ATD) are left for the props pass.
+## Expert / podcast / article agreement
+- **MIA side:** Sean Koerner (AN PRO, MIA +7, ATS confidence #3/26, proj +6.5); Brandon Anderson (MIA +7.5 parlay leg, now stale); BettingPros, Sharp or Square and Even Money (MIA +7.5 from 10/27-10/28, 0.5 pt stale). Trends from Evan Abrams: 6+ pt favorites 8-21-3 ATS, division dogs 23-10 ATS, Hochuli favorites 43-60-2 ATS, NE 3-10-1 ATS at Miami since 2012.
+- **NE side:** PFT (31-20); Steve Krebs (NE ML -370); Servodidio (NE ML in a parlay); teaser NE -1 from Lock & Cash and Wes Reynolds (VSiN). Note that teasers are not comparable to -7. Trends from Abrams: Vrabel 5-0 SU/ATS with NE off a SU loss; Maye 16-0 SU and 12-4 ATS as a 3+ pt favorite; rest-advantage favorites 15-3-1 ATS.
+- **Total:** Under is backed by the AN PRO High Winds system, the Hochuli under trend, the market drop and the over money lagging tickets. Over is backed by Vrabel 12-3 to the over against the AFC East and PFT's projected 51. No named expert in the packet has a full-game total pick.
 
 ## Counter-case
-- **Under**: Miami's rain often comes in short bursts, and if the wind forecast eases the main reason for the under is gone. MIA's defense is #30 by EPA, and NE scored 45 against LV. Turnovers from Willis or Maye on a wet field can give short-field scores. NE's team total of 25.5 alone covers 60% of the full-game number.
-- **MIA side (lean)**: NE has the rest edge, Vrabel off a loss is 5-0 with NE, the raw power gap is about 9-10 pts, and MIA's 7.1 opponent YPP last week was against the Jets. Maye's 16-0 SU as a big favorite shows he does not lose these games, and a 10-point win covers easily.
-- **NE SU**: about 27% MIA upset probability, with wind-driven variance and a field-goal game script.
+- **Under:** Miami rain is often a short burst, and if Sunday's wind is under 12 mph the main reason is gone. MIA's defense is #30 in EPA/play allowed. Turnovers on a wet field produce short-field points. NE's team total of 25.5 already covers 59% of 43.5.
+- **MIA lean:** NE has the rest edge and a Vrabel bounce-back record. The market did not move off -7 after the Brown news, which suggests books rate Brown, at less than full health, as worth little. Maye has never lost as a 3+ pt favorite.
+- **NE SU:** about 28% MIA upset chance in a wind-driven, low-possession game.
 
 ## Ambiguity / missing data
-- Friday's official injury reports were not verified by web search (only 2023 results came back), and the availability feed is flagged as buggy.
-- The AN total open differs between sources: 44.5 in the openers file, 45 in the primer.
-- The weather forecast is from Friday night, about 38 hours before kickoff. The wind number is the main driver of the under.
-- MIA's FTN data is stale by one week (through W6). Henderson's illness status is unresolved.
+- The weather forecast is about 44 h old at the time of writing, and the device could not refresh Open-Meteo.
+- MIA has no Saturday injury section (Friday designations are used).
+- AN total open is 44.5 in the openers file vs 45 in the primer.
+- qb_operator_notes is empty in this rebuild. The QBs come from the AN primer and projected_starters, and match Friday's confirmations.
 
 ## Pre-kickoff delta checklist
-1. **Wind**: If the Sunday-morning forecast is under 12 mph sustained, cut the total adjustment to -1.0 and the under falls to C, or PASS below 43. If it is 20 mph or more, keep B.
-2. **A.J. Brown inactive** (about 11:55 AM PT): keep the under. If BKR moves to NE -6.5, the MIA lean disappears (PASS). If he is **active**, keep the under at B and leave the side as PASS.
-3. **Price**: an under of 42.5 or lower, or an over 43.5 price shorter than -120 → re-check (pass at 42). Any **MIA +7.5** → MIA becomes playable at C. MIA +7 at -110 or better → playable at C.
-4. Check Henderson (illness), Davis and Elliss, plus any late MIA OL loss beyond Proctor.
-5. SuperContest: the line is locked at NE -7, so MIA +7 stays a low-slot candidate unless Brown is ruled in at full health.
+1. **Wind (Sunday morning):** under 12 mph sustained → total adjustment -1.0, Under drops to C, and pass at 43. 20+ mph → Under stays B and pool confidence drops to 8.
+2. **Price:** MIA +7.5 or +7 at -110 or better → MIA side C. Under 42.5 or lower → pass at 42. MIA ML +300 or better → C.
+3. **Inactives (~11:55 AM PT):** Davis III, Elliss (NE), and Brents, Taylor (MIA). Any late MIA OL loss beyond Proctor shades toward NE.
+4. Ignore further "Brown career" chatter unless it comes from the team or a tier-1 reporter (no effect on this game; he is already out).
 
 ## Gate notes
-- missing_inputs: none. roster_vet: PASS (8.5 h; 2 UNVERIFIED league-wide, none cited here).
-- Kickoff has not passed, so this is a forward pick.
-- Players' teams, roles and status come only from qb_operator_notes and the availability feed. No player status was taken from memory.
-- Web injury search: the 2026 Friday reports were not found (results were from 2023). Designations rely on the packet feed, which has known misclassification bugs.
-- Stale staff names in secondary_matchups ("Jerod Mayo", "Anthony Weaver") were ignored. The dossiers say HC Vrabel and HC Hafley.
-- The roster gate was not rerun.
+- missing_inputs: none. roster_vet PASS (0.3 h). Kickoff has not passed, so these are forward picks.
+- One official injury search was made, and it was successful (patriots.com 10/31). The packet feed's OUT tags for Brown and Henderson agree with it.
+- The stale staff names in secondary_matchups ("Jerod Mayo", "Anthony Weaver") were ignored. HCs are Vrabel and Hafley per the AN primer and dossiers.
+- The weather input is stale (Friday). The device curl to Open-Meteo failed, and this is flagged rather than blocking.
+- The roster gate was not rerun. Nothing was committed and nothing was written to Supabase.

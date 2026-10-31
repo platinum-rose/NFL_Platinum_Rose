@@ -1,176 +1,204 @@
 {
   "game": "TEN@CIN",
   "pass": "sides",
-  "generated_at": "2026-10-31T06:24:31Z",
-  "packet_built_at": "2026-10-31T06:09:16Z",
+  "generated_at": "2026-10-31T22:30:00Z",
+  "packet_built_at": "2026-10-31T21:55:40Z",
   "recommendations": [
     {
-      "market": "spread",
-      "selection": "PASS (lean CIN -11.5)",
-      "line": -11.5,
-      "price": -113,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:51:35Z",
-      "tier": "PASS",
-      "fair_line": -12.25,
-      "edge_pts": 0.75,
-      "playable_to": "CIN -11.5 at -108 or better / -11 at -115; pass at -12",
-      "model_prob": 0.522,
-      "supercontest_candidate": false,
+      "book": "Bookmaker",
+      "captured_at": "2026-10-31T21:26:00Z",
       "straight_up_winner": "CIN",
       "pool_confidence": 16,
+      "market": "spread",
+      "selection": "PASS (slight lean TEN +13)",
+      "line": 13,
+      "price": -109,
+      "tier": "PASS",
+      "fair_line": -12.5,
+      "edge_pts": 0.5,
+      "playable_to": "TEN C play at +13.5 -110 or better / +14 to -120; CIN C only at -11.5 -110",
+      "model_prob": 0.5152,
+      "supercontest_candidate": false,
       "parlay_leg_ok": false,
       "standalone_preferred": false,
       "reasons": [
-        "Sim CIN cover 52.2% at -11.5 vs 53.1% breakeven at -113",
-        "Simmons trade (10/29), TEN P Townsend OUT, Tate/Spears OUT favor CIN",
-        "Offset: 6+ pt favorites 8-21-3 ATS 2026; Burrow 3-7 ATS as 7.5+ fav; Brad Allen home favs 8-17 ATS"
+        "BKR moved CIN -11.5 -> -13; fair -12.5 leaves 0.5 pt to TEN",
+        "6+ pt favorites 8-21-3 ATS 2026; Burrow 3-7 ATS closing above -7.5; Brad Allen home favs 8-17 ATS [an_primer 2026-10-30]",
+        "Pre-trade TEN cappers (Koerner +9.7 proj, Tuley +10.5) now 2.5-3 pts of cushion"
       ],
-      "counter_case": "Big-favorite ATS correction plus TEN garbage-time backdoor vs soft shell; pre-trade cappers (Koerner, Tuley) on TEN."
+      "counter_case": "TEN defense without Simmons collapses and CIN wins by 17-20 (PFT 34-17); Burrow 11-6-1 ATS vs <=25% teams."
     },
     {
+      "book": "Bookmaker",
+      "captured_at": "2026-10-31T21:26:00Z",
+      "straight_up_winner": "CIN",
+      "pool_confidence": 16,
       "market": "total",
       "selection": "PASS",
       "line": 46,
       "price": -109,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:51:35Z",
       "tier": "PASS",
-      "fair_line": 46.5,
-      "edge_pts": 0.5,
-      "playable_to": "Over C lean at 45.5 or lower; under C lean at 47.5+",
-      "model_prob": 0.5156,
+      "fair_line": 46.25,
+      "edge_pts": 0.25,
+      "playable_to": "Over C at 45 or lower; under C at 47.5+",
+      "model_prob": 0.5078,
       "supercontest_candidate": false,
-      "straight_up_winner": "CIN",
-      "pool_confidence": 16,
       "parlay_leg_ok": false,
       "standalone_preferred": false,
       "reasons": [
-        "Sim over 51.6% vs 52.2% breakeven at -109",
-        "TEN P out and weakened front push up; CIN clock-burn and TEN 14.6 PPG push down",
-        "Total moved 47/48.5 -> 46"
+        "Total unchanged 46 Fri->Sat",
+        "Over money 57% vs 50% bets (gap 7, below flag)",
+        "TEN punter out vs CIN clock-burn script offset"
       ],
-      "counter_case": "Over if CIN repeats 35-pt output; under if CIN runs clock and TEN stalls."
+      "counter_case": "Over if CIN scores 35 with TEN field position compromised; under if Brown 20+ carries and TEN 4.56 YPP stalls."
     },
     {
+      "book": "Bookmaker",
+      "captured_at": "2026-10-31T21:26:00Z",
+      "straight_up_winner": "CIN",
+      "pool_confidence": 16,
       "market": "moneyline",
       "selection": "PASS (SU winner CIN)",
       "line": null,
-      "price": -646,
-      "book": "BKR",
-      "captured_at": "2026-10-31T01:51:35Z",
+      "price": -693,
       "tier": "PASS",
       "fair_line": null,
       "edge_pts": null,
-      "playable_to": "No ML play; TEN +501 would need ~+600 given sim 17.4%",
-      "model_prob": 0.826,
+      "playable_to": "No ML play; sim ML conversion runs below market on large spreads",
+      "model_prob": 0.8273,
       "supercontest_candidate": false,
-      "straight_up_winner": "CIN",
-      "pool_confidence": 16,
       "parlay_leg_ok": true,
       "standalone_preferred": false,
       "reasons": [
-        "Sim CIN win 82.6% excl tie vs -646 implied 86.6%; sim ML conversion below market norm, low confidence",
-        "CIN ML acceptable as a low-variance parlay/SGP anchor only"
+        "-693 implies 87.4% vs sim 82.7%",
+        "TEN +533 breakeven 15.8% vs sim 17.3% but sim ML calibration low on big spreads"
       ],
-      "counter_case": "Burrow lowest SU win% (13-6) among QBs as 6+ pt favorite since 2021."
+      "counter_case": "TEN +533 right if true upset prob is ~17%+ (Burrow 13-6 SU as 6+ fav since 2021)."
     },
     {
+      "book": "SuperContest",
+      "captured_at": "2026-10-29T16:07:07Z",
+      "straight_up_winner": "CIN",
+      "pool_confidence": 16,
       "market": "spread",
       "selection": "SuperContest CIN -10.5",
       "line": -10.5,
       "price": null,
-      "book": "SuperContest",
-      "captured_at": "2026-10-29T16:07:07Z",
-      "tier": "B",
-      "fair_line": -12.25,
-      "edge_pts": 1.75,
-      "playable_to": "Contest line locked at -10.5",
-      "model_prob": 0.5508,
+      "tier": "A",
+      "fair_line": -12.5,
+      "edge_pts": 2.0,
+      "playable_to": "Contest line locked at -10.5; downgrade to B if Chase/Burrow out",
+      "model_prob": 0.5581,
       "supercontest_candidate": true,
-      "straight_up_winner": "CIN",
-      "pool_confidence": 16,
       "parlay_leg_ok": false,
       "standalone_preferred": true,
       "reasons": [
-        "Sim 55.1% cover vs contest line with +1.75 view",
-        "Market moved through contest line to BKR -11.5 / AN consensus -12.5 after Simmons trade and Tate/Spears rulings",
-        "Contest crowd on TEN (67/33 per Tuley) makes CIN the contrarian side"
+        "Fair -12.5 vs contest -10.5 = 2.0 pts",
+        "Market moved AN open -10 -> BKR -13 / BetOnline -12.5, 2-2.5 pts through contest number",
+        "CIN SRS #3 vs TEN #31; Simmons traded; Tate/Spears/P Townsend out"
       ],
-      "counter_case": "Koerner +9.7 projection; a CIN win by 10 or fewer loses at -10.5; big-favorite ATS headwinds."
+      "counter_case": "Koerner +9.7 projection right; big-favorite ATS slump and Burrow 1-3 ATS closing above -8.5 repeat; CIN wins by <=10."
     }
   ],
   "adjustments": {
-    "margin_adj": 0.75,
-    "total_adj": 0.5,
+    "margin_adj": -0.5,
+    "total_adj": 0.25,
+    "contest_margin_adj": 2.0,
     "reasons": [
-      "+0.75 margin vs -11.5 (+1.75 vs contest -10.5): Simmons trade [news_notes ESPN 2026-10-29], TEN P Townsend OUT [availability ESPN 2026-10-30], Tate/Spears OUT [qb_operator_notes] offset by big-favorite ATS, Burrow big-fav ATS, Brad Allen home-fav trends [an_primer 2026-10-30]",
-      "+0.5 total: TEN punter out and weakened TEN front, offset by TEN offense 14.6 PPG and CIN clock-burn script"
+      "View CIN -12.5: Simmons trade, TEN P out, Tate/Spears out offset by big-fav ATS, Burrow big-fav ATS, Brad Allen home-fav trends; expressed -0.5 vs BKR -13 and +2.0 vs contest -10.5",
+      "Total +0.25: TEN punter out and late over money, offset by CIN clock-burn"
     ]
   },
   "sim_runs": [
     {
-      "args": "--home-line -11.5 --total 46",
-      "home_cover": 0.5,
-      "over_excl_push": 0.5,
-      "home_win_excl_tie": 0.8125
+      "home_line": -13,
+      "total": 46,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_ex_push": 0.5,
+      "side_push": 0.0259,
+      "over_ex_push": 0.5,
+      "home_win_ex_tie": 0.836
     },
     {
-      "args": "--home-line -11.5 --total 46 --margin-adj 0.75 --total-adj 0.5",
-      "home_cover": 0.522,
-      "over_excl_push": 0.5156,
-      "home_win_excl_tie": 0.8262
+      "home_line": -13,
+      "total": 46,
+      "margin_adj": -0.5,
+      "total_adj": 0.25,
+      "home_cover_ex_push": 0.4848,
+      "away_cover_ex_push": 0.5152,
+      "over_ex_push": 0.5078,
+      "home_win_ex_tie": 0.8273
     },
     {
-      "args": "--home-line -10.5 --total 46",
-      "home_cover": 0.5,
-      "home_win_excl_tie": 0.7959
+      "home_line": -10.5,
+      "total": 46,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_ex_push": 0.5,
+      "home_win_ex_tie": 0.7959
     },
     {
-      "args": "--home-line -10.5 --total 46 --margin-adj 1.75 --total-adj 0.5",
-      "home_cover": 0.5508,
-      "over_excl_push": 0.5156,
-      "home_win_excl_tie": 0.8284
+      "home_line": -10.5,
+      "total": 46,
+      "margin_adj": 2.0,
+      "total_adj": 0.25,
+      "home_cover_ex_push": 0.5581,
+      "over_ex_push": 0.5078,
+      "home_win_ex_tie": 0.8328
+    },
+    {
+      "selftest": "PASS"
     }
   ],
   "sources": [
-    "scratch/w08-game-synthesis-queue-sides.json (TEN@CIN packet)",
     "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt",
-    "data/generated/props/bookmaker-live-2026-10-31-titans-at-bengals.json (2026-10-31T01:51:35Z)",
-    "data/generated/props/betonline-live-2026-10-29-titans-at-bengals.json",
+    "data/generated/props/bookmaker-live-2026-10-31-titans-at-bengals.json (2026-10-31T21:27:42Z)",
+    "data/generated/props/betonline-live-2026-10-31-titans-at-bengals.json (2026-10-31T21:32:37Z)",
     "data/odds/actionnetwork-openers-2026-w08.json",
     "data/supercontest/week-08-lines.json",
+    "data/generated/master-intel/w08-pull.json splits 2026-10-31T21:23:37Z",
+    "data/intel/extracted/2026-w08-primer-intel.json",
     "data/generated/team-dossiers/2026-w08/TEN.md",
     "data/generated/team-dossiers/2026-w08/CIN.md",
-    "data/intel/extracted/2026-w08-primer-intel.json",
-    "data/podcasts/youtube-extracted-picks-2026-w08.json",
-    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
     "data/generated/team-profiles/team-power-ratings-2026.json",
-    "https://www.tennesseetitans.com/news/week-8-injury-report-titans-at-bengals (updated 2026-10-29)"
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "https://www.tennesseetitans.com/news/week-8-injury-report-titans-at-bengals (updated 2026-10-30)",
+    "reports/intel/games/_friday-w08/2026-w08-game-TEN_at_CIN-sides.md"
   ],
   "ambiguities": [
-    "Friday official designations not on fetched team report; Thursday practice + packet/qb_operator_notes used",
-    "AN opener total 47 (openers file) vs 48.5 (primer)",
-    "Simulator ML conversion (81% at -11.5) below market norm",
-    "Nazeeh Johnson suspension flag unverified",
-    "Koerner/Tuley TEN picks priced pre-Simmons trade",
-    "John Ewing 'O 10.5' signal unparseable for this game; Brandon Anderson CIN -2.5 not this game's line"
+    "AN total open 47 vs primer 48.5",
+    "Simulator ML conversion below market on big spreads",
+    "Nazeeh Johnson suspension unverified",
+    "qb_operator_notes empty in Saturday packet",
+    "CIN FTN rows partly through W6"
   ],
   "delta_checklist": [
-    "CIN -11.5 at -108 or better or -11 anywhere -> spread to C play",
-    "Ridley OUT -> +0.5 CIN; consider TEN team total under 16.5 at props stage",
-    "Chase inactive or Burrow limited -> contest pick to C, pool confidence 14",
-    "Total <=45.5 -> over C lean; >=47.5 -> under C lean",
-    "CIN money-bets gap reaching 10+ -> sharp confirmation for contest side",
-    "Inactives ~8:30 AM PT Sun 11/1"
+    "TEN +13.5 -110 or +14 -> spread C on TEN",
+    "CIN back to -11.5 -> CIN C lean",
+    "Ridley inactive -> +0.5 CIN",
+    "Chase or Burrow out -> SC to B, pool 14",
+    "Total <=45 over C; >=47.5 under C",
+    "Spread money-bets gap 10+ -> sharp confirmation note",
+    "Inactives ~8:30 AM PT Sun"
   ],
   "gate_notes": [
-    "missing_inputs empty",
-    "roster_vet PASS (8.5h)",
-    "Kickoff not passed",
-    "One web search for final injury report: Friday column blank; used Thu practice + packet",
-    "Secondary-matchup coach names stale, ignored",
-    "Availability rows all needs_human_review",
-    "BKR paste and BKR prop-board game rows are the same capture; no fresher BKR price"
+    "missing_inputs none",
+    "roster_vet PASS 0.3h",
+    "Friday official designations confirmed via team site",
+    "qb_operator_notes empty; QBs from projected_starters/an_primer",
+    "stale coach names in secondary_matchups ignored",
+    "Friday main-path outputs overwritten; Friday copies preserved in _friday dirs"
+  ],
+  "changes_vs_friday": [
+    "BKR spread CIN -11.5 -113 (Fri 6:52 PM PT) -> CIN -13 -107 (Sat 2:26 PM PT); ML -646/+501 -> -693/+533; total 46 unchanged",
+    "BetOnline -11.5 -> -12.5 -107, 46.5",
+    "Spread lean flips CIN -> TEN (fair -12.25 -> -12.5 vs -13); still PASS",
+    "SuperContest CIN -10.5 upgraded B -> A (edge 2.0, market 2-2.5 pts through contest line); sim 55.1% -> 55.8%",
+    "Friday official injury designations now confirmed: Ridley FP Fri (Q), Chase no designation, Tate/Spears/Townsend/Dugger OUT",
+    "Splits: total over money 48% -> 57% (gap 3 -> 7); spread gap 7 -> 8",
+    "No new Saturday side/total expert picks for this game",
+    "Adjustments: margin +0.75 vs -11.5 -> -0.5 vs -13; total +0.5 -> +0.25"
   ]
 }

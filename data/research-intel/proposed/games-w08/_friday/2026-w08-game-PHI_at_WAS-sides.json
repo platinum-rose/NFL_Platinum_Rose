@@ -1,0 +1,162 @@
+{
+  "game": "PHI@WAS",
+  "pass": "sides",
+  "generated_at": "2026-10-31T06:26:00Z",
+  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (lean PHI +6)",
+      "line": 6,
+      "price": -113,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:30.172Z",
+      "tier": "PASS",
+      "fair_line": "WAS -5.0",
+      "edge_pts": 1.0,
+      "playable_to": "PHI +6 -110 or better / any +6.5 (tier C); pass at +6 -113 or worse and at +5.5",
+      "model_prob": 0.528,
+      "supercontest_candidate": "n",
+      "straight_up_winner": "WAS",
+      "pool_confidence": 6,
+      "parlay_leg_ok": "n - edge consumed by -113 price",
+      "standalone_preferred": "n",
+      "reasons": [
+        "Koerner projection PHI +4.3 vs +5.5 (ATS confidence #2)",
+        "Line moved 2.5 pts (AN open -3.5 -> -6) after one blowout; 6+ pt favs 8-21-3 ATS, division dogs 23-10 ATS (an_primer)",
+        "WAS 2-9 ATS vs backup QBs; three Bet Labs PHI spread systems",
+        "Makinen, Tuley, B. Anderson on PHI +6",
+        "Sim PHI +6 cover 52.8% excl push vs 53.05% breakeven at -113 -> no bet at current price"
+      ],
+      "counter_case": "WAS 13 days rest vs PHI short week (rest-advantage favs 15-3-1 ATS); PHI 0-7 2H ATS, #30 offense EPA without Smith/Wicks; sharp action on WAS -5.5 at Caesars."
+    },
+    {
+      "market": "total",
+      "selection": "Over 40.5",
+      "line": 40.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:30.172Z",
+      "tier": "C",
+      "fair_line": 42.0,
+      "edge_pts": 1.5,
+      "playable_to": "41 (-110); pass at 41.5",
+      "model_prob": 0.545,
+      "supercontest_candidate": "n",
+      "straight_up_winner": "WAS",
+      "pool_confidence": 6,
+      "parlay_leg_ok": "y - independent of the side; preferred SNF cap leg over WAS ML",
+      "standalone_preferred": "n",
+      "reasons": [
+        "Season avg game totals PHI 43.1 / WAS 50.7",
+        "Both defenses bottom-8 by EPA (PHI 0.086 #27, WAS 0.080 #25)",
+        "WAS interior DL depleted: Kinlaw OUT, Payne likely out (ESPN foot injury), Newton Q",
+        "Quinn 8-1 Over vs NFC East; Sirianni 7-1 Over vs WAS (an_primer)",
+        "PFT projection 24-21 = 45"
+      ],
+      "counter_case": "PHI 18.1 ppg, team total 16.5, no WR1/WR2 under McKee; post-Cowboys 1H unders 17-5; total ticked down vs 88% Over money (mild RLM)."
+    },
+    {
+      "market": "moneyline",
+      "selection": "PHI ML",
+      "line": null,
+      "price": 216,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:30.172Z",
+      "tier": "C",
+      "fair_line": "PHI +195 / WAS -195",
+      "edge_pts": null,
+      "playable_to": "PHI +205; pass below +200",
+      "model_prob": 0.339,
+      "supercontest_candidate": "n",
+      "straight_up_winner": "WAS",
+      "pool_confidence": 6,
+      "parlay_leg_ok": "n - longshot side; WAS ML -251 as SNF cap is the likely SU side but negative value (71.5% implied vs 66% sim)",
+      "standalone_preferred": "n",
+      "reasons": [
+        "Sim PHI win 33.9% excl tie vs 31.6% breakeven at +216",
+        "AN ML splits: 67% money on PHI vs 17% bets (50-pt sharp/large-ticket flag)",
+        "Scott Bogman (BettingPros) PHI ML +228; Welsh's conditional pick dropped (Smith OUT)"
+      ],
+      "counter_case": "Sirianni 1-10 SU when closing as >3-pt dog; McKee-led outright win needs turnovers and PHI is -3 TO margin; WAS ML -251 implies 71.5%."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -1.0,
+    "total_adj": 1.5,
+    "reasons": [
+      "margin -1.0 (home-positive): Koerner independent projection +4.3 vs market; market overshoot 2.5 pts off one blowout into 6+ fav 8-21-3 ATS / div dog 23-10 ATS slate; netted vs WAS rest edge and Caesars sharp WAS -5.5",
+      "SC run margin -0.5 vs -5.5 (same view WAS -5)",
+      "total +1.5: season game-total avgs 43.1/50.7, both defenses bottom-8 EPA, WAS DT injuries, coach Over trends in matchup; netted vs PHI WR depletion and slight RLM"
+    ]
+  },
+  "sim_runs": [
+    {
+      "args": "--home-line -6 --total 40.5",
+      "away_cover_excl_push": 0.5,
+      "side_push": 0.0247,
+      "over": 0.5,
+      "home_win_excl_tie": 0.6849
+    },
+    {
+      "args": "--home-line -6 --total 40.5 --margin-adj -1.0 --total-adj 1.5",
+      "away_cover_excl_push": 0.5279,
+      "side_push": 0.0247,
+      "over": 0.5454,
+      "home_win_excl_tie": 0.6608
+    },
+    {
+      "args": "--home-line -5.5 --total 40.5",
+      "away_cover_excl_push": 0.5,
+      "over": 0.5,
+      "home_win_excl_tie": 0.674
+    },
+    {
+      "args": "--home-line -5.5 --total 40.5 --margin-adj -0.5 --total-adj 1.5",
+      "away_cover_excl_push": 0.5136,
+      "over": 0.5454,
+      "home_win_excl_tie": 0.6619
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (PHI@WAS packet, built 2026-10-31T06:09Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 2026-10-30 6:52 PM PT)",
+    "data/generated/props/bookmaker-live-2026-10-31-eagles-at-commanders.json (capturedAt 2026-10-31T01:52:30.172Z)",
+    "data/odds/actionnetwork-openers-2026-w08.json (AN open 2026-10-26)",
+    "data/supercontest/week-08-lines.json (WAS -5.5, 2026-10-29)",
+    "data/intel/extracted/2026-w08-primer-intel.json (Abrams AN primer 2026-10-30)",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "data/generated/team-dossiers/2026-w08/PHI.md",
+    "data/generated/team-dossiers/2026-w08/WAS.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+    "scratch/w08-qb-confirmations-1030.md (via qb_operator_notes)",
+    "https://www.commanders.com/news/commanders-vs-eagles-week-8-injury-report-2026",
+    "https://www.espn.com/nfl/story/_/id/50331710/sources-commanders-daron-payne-injures-foot-practice",
+    "scripts/intel/margin-simulator.mjs (selftest PASS)"
+  ],
+  "ambiguities": [
+    "AN primer total_open 46.5 vs openers file 41.0; used 41.0 as AN open",
+    "Daron Payne Q (operator notes, team site) vs likely IR/OUT (ESPN Fri report, availability feed)",
+    "PFT: Alex Moore crew flexed out of prime time; AN primer still lists Moore",
+    "WAS FTN stale_1wk (through W6, bye)",
+    "Power ratings SRS skewed (PHI 5 Hurts starts; WAS ~2 non-Daniels games)"
+  ],
+  "delta_checklist": [
+    "Inactives ~3:50 PM PT Sun: Barkley inactive -> Over and PHI ML to PASS; Payne/Newton active -> trim Over",
+    "Spread +6.5 -> PHI C; +5.5 or -115 worse -> stay PASS",
+    "Over playable to 41; pass at 41.5+",
+    "PHI ML pass below +200; +230+ keep C",
+    "Any Daniels downgrade flips side to PHI"
+  ],
+  "gate_notes": [
+    "roster_vet PASS (8.5h)",
+    "missing_inputs empty",
+    "kickoff not passed",
+    "QB facts from qb_operator_notes (Andy-confirmed)",
+    "one web search for final injury reports; commanders.com page had no Friday designations rendered; BGN result was prior-season Week 16 article, discarded",
+    "secondary_matchups coach names ignored (rule 7)",
+    "BKR prop-board game_lines (2026-10-31T01:52Z) match paste; no newer number",
+    "report runs ~1900 words incl. tables (spec 900-1600)"
+  ]
+}

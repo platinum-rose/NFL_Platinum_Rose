@@ -1,58 +1,56 @@
 {
  "game": "BAL@BUF",
  "pass": "sides",
- "generated_at": "2026-10-31T06:25:00Z",
- "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+ "generated_at": "2026-10-31T22:28:04Z",
+ "packet_built_at": "2026-10-31T21:55:40Z",
  "recommendations": [
   {
    "market": "spread",
-   "selection": "BAL +3",
+   "selection": "PASS (lean BAL +3)",
    "line": 3,
-   "price": -105,
-   "tier": "C",
+   "price": -108,
+   "tier": "PASS",
    "fair_line": "BUF -2.5",
    "edge_pts": 0.5,
-   "playable_to": "BAL +3 at -115 or better; PASS at +2.5",
+   "playable_to": "BAL +3 becomes C at -105 or better; B at +3.5 to -120; hard pass at +2.5",
    "model_prob": 0.4718,
-   "supercontest_candidate": true,
-   "straight_up_winner": "BUF",
-   "pool_confidence": 4,
+   "supercontest_candidate": false,
    "parlay_leg_ok": false,
    "standalone_preferred": false,
    "reasons": [
-    "Lamar Jackson cleared to play (Minter, ESPN 2026-10-30T17:36Z; qb_operator_notes)",
-    "Sharp flag: BAL 61-62% of spread money on 43% of bets (AN splits 2026-10-31T02:06Z)",
-    "BUF secondary depleted: CJGJ out (suspension), CB Strong/Hancock IR, nickel Alford Q",
-    "Line moved BUF -3.5 (AN open) to -3; most expert BAL picks priced at +3.5 (Gibbs, Stuckey, Fezzik, Hunter, Millman, Makinen)",
-    "Sim adj: BAL cover 51.4% excl push vs 51.2% break-even at -105 -> thin"
+    "Fair BUF -2.5 vs -3: half-point edge, but BAL +3 -108 break-even 51.9 pct excl push > sim 51.4 pct",
+    "Sharp money on BAL (39 pct money vs 55 pct BUF bets, AN 2:23 PM PT)",
+    "Lamar return + depleted BUF secondary"
    ],
-   "counter_case": "BUF off a bye vs BAL off a 35-13 loss; rest-advantage teams 22-8-1 ATS in 2026; Lamar 3-12 ATS outdoors since 2025; BUF 3-0 SU/ATS last three home meetings vs Lamar; BAL G Ioane out; Koerner fair BUF -3.3.",
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:51:10.938Z"
+   "counter_case": "BUF off bye vs BAL off 35-13 loss; Lamar 3-12 ATS outdoors since 2025; Koerner BUF -3.3; first game back from high-ankle sprain.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:27:23Z",
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4
   },
   {
    "market": "spread",
    "selection": "BAL +3.5 (SuperContest line)",
    "line": 3.5,
    "price": null,
-   "book": "SuperContest",
-   "captured_at": "2026-10-29T16:07:07Z",
    "tier": "B",
    "fair_line": "BUF -2.5",
    "edge_pts": 1.0,
    "playable_to": "contest line locked at +3.5",
    "model_prob": 0.5266,
    "supercontest_candidate": true,
-   "straight_up_winner": "BUF",
-   "pool_confidence": 4,
    "parlay_leg_ok": false,
    "standalone_preferred": false,
    "reasons": [
-    "Contest line gives the hook over the key number 3 that BKR no longer offers",
-    "Sim at -3.5 with view expressed vs contest line: BAL cover 52.7%",
-    "Same Lamar/sharp-money/BUF-secondary reasons as BKR side"
+    "Contest line crosses key number 3 vs fair -2.5",
+    "Broad BAL expert consensus at +3.5",
+    "Sharp BAL money"
    ],
-   "counter_case": "Same as BKR side: BUF rest edge, Lamar first game back from high-ankle sprain, BUF home record vs Lamar."
+   "counter_case": "Rest edge and Lamar ankle risk; a BUF win by 4+ beats it.",
+   "book": "SuperContest",
+   "captured_at": "2026-10-29T16:07:07Z",
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4
   },
   {
    "market": "total",
@@ -65,129 +63,253 @@
    "playable_to": "B to o55 -110; C at o55.5; PASS at 56+",
    "model_prob": 0.5152,
    "supercontest_candidate": false,
-   "straight_up_winner": "BUF",
-   "pool_confidence": 4,
    "parlay_leg_ok": true,
    "standalone_preferred": false,
    "reasons": [
-    "EPA/play offense BUF #1 / BAL #8 vs defense BUF #31 / BAL #22 (dossiers, nflverse W7)",
-    "BUF games average 61.3 combined points; BUF leads in pts/drive and allows the most (Hribar worksheet)",
-    "Sharp flag: Over 83% of money on 50-51% of bets; Caesars sharp Over at 52.5/53.5",
-    "BUF secondary depleted; weather immaterial (18.5C, wind 9 km/h)",
-    "Abrams trends: BAL 13-2 Over off a loss, 5-0 Over as road dog; BUF 6-0 4Q Over",
-    "Sim adj: Over 53.1% excl push vs 50.2% break-even at -101"
+    "Top-8 EPA offenses vs #31/#22 defenses; BUF games avg 61.3",
+    "Over 56 pct bets / 82 pct money (26-pt sharp gap)",
+    "BKR shades Under -115 vs Over -101",
+    "BUF secondary thin (CJGJ out, 2 CB IR, nickel Q); BAL allows 182 WR rec yds/g"
    ],
-   "counter_case": "Move already happened (open 51.5-53.5 -> 55); totals 53+ from Week 7 on 33-44-1 Over last decade; Lamar rushing dip after ankle; BAL run D strong (rush DVOA -10.5%); BAL last two games 48 and 23 total points.",
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:51:10.938Z"
+   "counter_case": "Sharps bought 52.5-53.5 not 55; 53+ totals W7+ 33-44-1 Over over a decade; Lamar rushing capped; BUF under-center/PA tempo.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:27:23Z",
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4
   },
   {
    "market": "moneyline",
-   "selection": "PASS (BAL +143 / BUF -165)",
+   "selection": "PASS (BAL +142 / BUF -163)",
    "line": null,
    "price": null,
    "tier": "PASS",
    "fair_line": "BUF about -137 / BAL about +137",
    "edge_pts": null,
-   "playable_to": "BAL becomes tier C at +155 or better",
+   "playable_to": "BAL becomes C at +155 or better",
    "model_prob": 0.4234,
    "supercontest_candidate": false,
-   "straight_up_winner": "BUF",
-   "pool_confidence": 4,
    "parlay_leg_ok": false,
    "standalone_preferred": false,
    "reasons": [
-    "Sim adj BAL win ~42.3% excl tie vs 41.2% break-even at +143: ~1 pt edge, too thin",
-    "Pool SU pick BUF (sim 58.9% win) at low confidence"
+    "BAL +142 break-even 41.3 pct vs sim 42.3 pct excl tie: ~1pt, inside Lamar-health noise"
    ],
-   "counter_case": "If Lamar is fully healthy BAL's 3-1 / +40 Lamar-start form makes +143 short; if limited, BUF -165 is cheap.",
-   "book": "BKR",
-   "captured_at": "2026-10-31T01:51:10.938Z"
+   "counter_case": "BAL ML is +EV if Lamar is fully himself; Pulver and Lock & Cash on BAL ML.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T21:27:23Z",
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4
   }
  ],
  "adjustments": {
   "margin_adj": -0.5,
   "total_adj": 1.0,
   "reasons": [
-   "margin -0.5 (home-positive): Lamar return + BUF secondary depletion (CJGJ out, 2 CB IR, nickel Q) + sharp spread money on BAL, partly offset by BUF bye rest edge and BAL G Ioane out",
-   "total +1.0: top-8 offenses vs #31/#22 EPA defenses, BUF games 61.3 avg combined, sharp Over money, depleted BUF secondary; trimmed for Lamar rushing dip and late-season high-total regression",
-   "SuperContest run: view BUF -2.5 expressed vs -3.5 line = margin_adj -1.0 (within soft cap 2.0)"
+   "margin -0.5 (home-positive): Lamar return + BUF secondary depletion + sharp BAL money, offset by BUF bye rest and BAL G Ioane out",
+   "total +1.0: top-8 offenses vs #31/#22 EPA defenses, BUF games 61.3 avg, sharp Over money, thin BUF secondary; trimmed for Lamar rushing dip and high-total regression",
+   "SuperContest: view BUF -2.5 vs -3.5 = margin_adj -1.0 (within soft cap)"
   ]
  },
  "sim_runs": [
   {
    "args": "--home-line -3 --total 55",
-   "home_cover": 0.4587,
-   "away_cover": 0.4587,
-   "side_push": 0.0827,
-   "over": 0.4848,
-   "under": 0.4848,
-   "home_win": 0.6013
+   "result": {
+    "inputs": {
+     "homeLine": -3,
+     "total": 55,
+     "marginAdj": 0,
+     "totalAdj": 0
+    },
+    "home_cover": 0.4586500515168064,
+    "away_cover": 0.45865005151680627,
+    "side_push": 0.08269989696638803,
+    "home_cover_excl_push": 0.5000000000000001,
+    "away_cover_excl_push": 0.49999999999999994,
+    "over": 0.48480910438547414,
+    "under": 0.4848091043854738,
+    "total_push": 0.030381791229052067,
+    "over_excl_push": 0.5000000000000002,
+    "under_excl_push": 0.49999999999999983,
+    "home_win": 0.6012998504147953,
+    "home_win_excl_tie": 0.5895444885701018,
+    "tie": 0.023510723689386896,
+    "center_shift": {
+     "margin": 0.8973694019970686,
+     "total": -0.00019458838528763067
+    },
+    "distribution": {
+     "mean_margin": 3.3414460917860485,
+     "median_margin": 3,
+     "mean_total": 55.000495078918306,
+     "median_total": 55
+    },
+    "exact_margin_pct": {
+     "m3": 0.15566214551547441,
+     "m7": 0.09341491986983558
+    }
+   }
   },
   {
    "args": "--home-line -3 --total 55 --margin-adj -0.5 --total-adj 1.0",
-   "home_cover": 0.4455,
-   "away_cover": 0.4718,
-   "side_push": 0.0827,
-   "away_cover_excl_push": 0.5143,
-   "over": 0.5152,
-   "under": 0.4545,
-   "over_excl_push": 0.5313,
-   "home_win": 0.5885,
-   "tie": 0.0237
+   "result": {
+    "inputs": {
+     "homeLine": -3,
+     "total": 55,
+     "marginAdj": -0.5,
+     "totalAdj": 1
+    },
+    "home_cover": 0.4455166744586843,
+    "away_cover": 0.47175545827544196,
+    "side_push": 0.0827278672658733,
+    "home_cover_excl_push": 0.4856973830990879,
+    "away_cover_excl_push": 0.5143026169009122,
+    "over": 0.5151891357215661,
+    "under": 0.4545172488474263,
+    "total_push": 0.030293615431007476,
+    "over_excl_push": 0.5312836379339231,
+    "under_excl_push": 0.4687163620660769,
+    "home_win": 0.5885031524244974,
+    "home_win_excl_tie": 0.5766489773874935,
+    "tie": 0.023708350074007574,
+    "center_shift": {
+     "margin": 0.8973694019970686,
+     "total": -0.00019458838528763067
+    },
+    "distribution": {
+     "mean_margin": 2.9092782218897435,
+     "median_margin": 3,
+     "mean_total": 56.000303780348624,
+     "median_total": 56
+    },
+    "exact_margin_pct": {
+     "m3": 0.15689710571800664,
+     "m7": 0.09396046087677073
+    }
+   }
   },
   {
    "args": "--home-line -3.5 --total 55",
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "home_win": 0.6406
+   "result": {
+    "inputs": {
+     "homeLine": -3.5,
+     "total": 55,
+     "marginAdj": 0,
+     "totalAdj": 0
+    },
+    "home_cover": 0.4999999999999993,
+    "away_cover": 0.5000000000000004,
+    "side_push": 0,
+    "home_cover_excl_push": 0.4999999999999994,
+    "away_cover_excl_push": 0.5000000000000006,
+    "over": 0.48480910438547414,
+    "under": 0.4848091043854738,
+    "total_push": 0.030381791229052067,
+    "over_excl_push": 0.5000000000000002,
+    "under_excl_push": 0.49999999999999983,
+    "home_win": 0.6405582130054802,
+    "home_win_excl_tie": 0.6291909965420879,
+    "tie": 0.02273443292678465,
+    "center_shift": {
+     "margin": 1.9567059200176407,
+     "total": -0.00019458838528763067
+    },
+    "distribution": {
+     "mean_margin": 4.700446139781238,
+     "median_margin": 3,
+     "mean_total": 55.000495078918306,
+     "median_total": 55
+    },
+    "exact_margin_pct": {
+     "m3": 0.15080522240417846,
+     "m7": 0.09125182768754553
+    }
+   }
   },
   {
    "args": "--home-line -3.5 --total 55 --margin-adj -1.0 --total-adj 1.0",
-   "home_cover": 0.4734,
-   "away_cover": 0.5266,
-   "over": 0.5152,
-   "home_win": 0.6155
+   "result": {
+    "inputs": {
+     "homeLine": -3.5,
+     "total": 55,
+     "marginAdj": -1,
+     "totalAdj": 1
+    },
+    "home_cover": 0.47342417311917573,
+    "away_cover": 0.5265758268808242,
+    "side_push": 0,
+    "home_cover_excl_push": 0.4734241731191758,
+    "away_cover_excl_push": 0.5265758268808243,
+    "over": 0.5151891357215661,
+    "under": 0.4545172488474263,
+    "total_push": 0.030293615431007476,
+    "over_excl_push": 0.5312836379339231,
+    "under_excl_push": 0.4687163620660769,
+    "home_win": 0.61550420647665,
+    "home_win_excl_tie": 0.6038744070172288,
+    "tie": 0.023259598918842387,
+    "center_shift": {
+     "margin": 1.9567059200176407,
+     "total": -0.00019458838528763067
+    },
+    "distribution": {
+     "mean_margin": 3.8268228954100425,
+     "median_margin": 3,
+     "mean_total": 56.000303780348624,
+     "median_total": 56
+    },
+    "exact_margin_pct": {
+     "m3": 0.1540920464050351,
+     "m7": 0.09271870734210952
+    }
+   }
   }
  ],
  "sources": [
-  "scratch/w08-game-synthesis-queue-sides.json (packet BAL@BUF, built 2026-10-31T06:09Z)",
-  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (2026-10-30 6:52 PM PT)",
-  "data/generated/props/bookmaker-live-2026-10-31-ravens-at-bills.json (capturedAt 2026-10-31T01:51:10Z)",
-  "data/odds/actionnetwork-openers-2026-w08.json (AN open 2026-10-26)",
-  "data/supercontest/week-08-lines.json (2026-10-29)",
-  "data/generated/team-dossiers/2026-w08/BAL.md, BUF.md (2026-10-31T01:01Z)",
-  "data/generated/team-profiles/team-power-ratings-2026.json",
-  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
-  "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams AN primer)",
+  "scratch/w08-game-synthesis-queue-sides.json (built 2026-10-31T21:55:40Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Sat 2:26 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-ravens-at-bills.json (2026-10-31T21:27:23Z)",
+  "data/generated/master-intel/w08-pull.json splits (2026-10-31T21:23:37Z)",
+  "data/odds/actionnetwork-openers-2026-w08.json",
+  "data/supercontest/week-08-lines.json",
   "data/podcasts/youtube-extracted-picks-2026-w08.json",
-  "packet splits (Action Network 2026-10-31T02:06Z)",
-  "packet news_notes / article_notes / pick_signals",
-  "scratch/w08-qb-confirmations-1030.md via qb_operator_notes",
-  "scripts/intel/margin-simulator.mjs (selftest passed)"
+  "data/generated/team-dossiers/2026-w08/BAL.md, BUF.md",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "scripts/intel/margin-simulator.mjs (calibration sha 0ea35592)",
+  "reports/intel/games/_friday-w08/2026-w08-game-BAL_at_BUF-sides.md"
  ],
  "ambiguities": [
-  "BUF head coach: dossier says Sean McDermott; AN primer and PFT 2026-10-30 headline indicate Joe Brady - not used in thesis",
-  "Roquan Smith Friday designation not in packet (limited Thursday)",
-  "AN total open 53.5 (opener file) vs 51.5 (primer consensus)",
-  "Friday final injury report web search returned no fetchable 2026 W8 page; packet 10/30 ESPN/RotoWire/PFT items used",
-  "BUF FTN tables stale_1wk (bye)"
+  "Saturday packet lacks qb_operator_notes; availability feed shows Lamar UNKNOWN (pull: PFT/ESPN 10/30 set to start)",
+  "BUF HC conflict: dossier McDermott vs news Joe Brady",
+  "Total opener 53.5 (AN file) vs 51.5 (primer)",
+  "No usable 2026 W8 final injury report from web search; Friday designations carried",
+  "BUF FTN stale 1 week (bye)"
  ],
  "delta_checklist": [
-  "Lamar inactive (inactives ~8:30 AM PT Sun): flip to BUF -3 lean + Under lean; pass BAL in contest",
-  "BKR BAL +2.5: pass spread; BAL +3.5 at BKR: upgrade to B",
-  "Total 55.5: Over to C; 56+: pass; 54.5: Over B+",
-  "DJ Moore or Spencer Brown inactive: +0.5 BAL nudge; Moore out slight Under nudge",
-  "Dee Alford out: strengthens Over",
-  "Roquan Smith downgrade: Over/BUF nudge"
+  "Lamar inactive (8:30 AM PT): lean BUF -3 + Under; pass BAL in contest",
+  "BAL +3 at -105 or better -> spread C; +3.5 -> B; +2.5 -> hard pass",
+  "Total 55.5 -> Over C; 56+ -> PASS; 54.5 -> Over B+",
+  "DJ Moore or Spencer Brown inactive: small BAL nudge (Moore out: slight Under)",
+  "Dee Alford out: Over/BAL passing up",
+  "Roquan Smith or Kyle Hamilton downgrade: Over/BUF nudge"
  ],
  "gate_notes": [
-  "missing_inputs empty",
-  "roster_vet PASS (8.5h) - no props this pass",
+  "missing_inputs: none",
+  "roster_vet PASS age 0.3h (14 UNVERIFIED league-wide); not rerun",
   "kickoff not passed",
-  "QB status from qb_operator_notes + ESPN Friday Minter confirmation",
-  "Friday injury web search done; no usable page, packet items used",
-  "secondary_matchups stale BAL coordinator name ignored",
-  "expert dedup across expert_picks_pull and youtube_picks_approved (Gibbs, Anderson, Perrault, Sharp or Square)"
+  "qb_operator_notes absent in Saturday packet; Lamar status from pull PFT/ESPN 10/30 + Friday operator note",
+  "one injury web search: no usable 2026 W8 final report",
+  "secondary_matchups coach names ignored",
+  "dedup: Lock & Cash ML+spread one capper; AN PRO system not counted as expert"
+ ],
+ "changes_vs_friday": [
+  "Spread BKR -111/-105 -> -108/-108; BAL +3 break-even 51.2 -> 51.9 pct vs sim 51.4: spread C -> PASS (lean BAL kept)",
+  "ML +143/-165 -> +142/-163: still PASS",
+  "Total 55 unchanged (o-101/u-115): Over stays B",
+  "Splits: spread money gap on BAL ~19 -> 16 pts (55 pct bets BUF / 39 pct money); Over gap 32 -> 26 (56/82)",
+  "New BAL: Travis Pulver BAL +3 -108 / ML +142; Wes Reynolds BAL +3; AN PRO Dogs After Blowout system BAL +3 (system); Lock & Cash Ravens ML +150 (same capper)",
+  "New BUF: Matt Youmans Bills -3",
+  "New context: BAL allows 182 WR rec yds/g (X); Conner Ja'Kobi Lane FTD +2800 and Cody Brown alt legs (props pass only)",
+  "Saturday packet has no qb_operator_notes; Lamar still expected to start per PFT/ESPN 10/30",
+  "SuperContest BAL +3.5 B and pool BUF 4/16 unchanged; adjustments unchanged (-0.5 / +1.0)"
  ]
 }
