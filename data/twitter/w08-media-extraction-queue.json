@@ -33,7 +33,7 @@
    "picks_count": 0,
    "note_path": "data/vault-seed/manual/twitter-video-2115098526799839473.md",
    "transcript_path": "data/twitter/transcripts/2115098526799839473.txt",
-   "result": "Transcribed: 0 picks \u2014 film/statistical breakdown of Kenneth Walker vs Seattle light box counts (Week 7 review)"
+   "result": "Transcribed: 0 picks \u2014 Kenneth Walker vs light box analytics captured in twitter-video-analytics-2026-w08.md"
   },
   {
    "kind": "linked_youtube",
@@ -47,7 +47,7 @@
    "method": "YouTube sweep (--only-ids) or transcript of the linked video",
    "processed_at": "2026-10-30T22:00:00-07:00",
    "picks_count": 0,
-   "result": "Audited: 0 picks \u2014 linked video jXRWev1S61I is 'NFL Week 7 Takeaways' (Seattle vs Walker, Chiefs, Ravens, Bo Nix, MNF recap; recorded 10/27 before Week 8 props)"
+   "result": "Audited: 0 picks \u2014 Strength of schedule to-date table captured in twitter-video-analytics-2026-w08.md"
   },
   {
    "kind": "linked_youtube",
@@ -61,7 +61,7 @@
    "method": "YouTube sweep (--only-ids) or transcript of the linked video",
    "processed_at": "2026-10-30T22:00:00-07:00",
    "skip_reason": "duplicate of linked video jXRWev1S61I in tweet 2115115399704694810",
-   "result": "Skip \u2014 duplicate linked YouTube video jXRWev1S61I"
+   "result": "Audited: 0 picks \u2014 Remaining strength of schedule Weeks 8-18 captured in twitter-video-analytics-2026-w08.md"
   },
   {
    "kind": "video",
@@ -153,7 +153,7 @@
    "picks_count": 0,
    "note_path": "data/vault-seed/manual/twitter-video-2116188374599864686.md",
    "transcript_path": "data/twitter/transcripts/2116188374599864686.txt",
-   "result": "Transcribed: 0 picks \u2014 Ed Feng analytics on Bills OL health & run game vs Baltimore; newsletter promo, no concrete bets"
+   "result": "Transcribed: 0 picks \u2014 Bills OL health & run game analytics captured in twitter-video-analytics-2026-w08.md"
   },
   {
    "kind": "linked_youtube",
@@ -307,7 +307,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Allen downfield analytics; no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Josh Allen 10+ yds w/ and w/o Moore vs BAL)"
   },
   {
    "kind": "image_or_chart",
@@ -317,9 +317,9 @@
    "relevance": "sunday_slate",
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
-   "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Teaser only; full 22-leg parlay in a later separate post (NOT in this packet)",
-   "follow_up": "22-leg parlay is in a later separate post; bookmark it for the Saturday Grok pass"
+   "processed_at": "2026-10-30T22:30:00-07:00",
+   "result": "Extracted: 22 parlay_leg picks from follow-up posts 2116236517047701598 & 2116236528326422720 (+16160 FanDuel ticket) into twitter-video-picks-2026-w08.json",
+   "picks_count": 22
   },
   {
    "kind": "image_or_chart",
@@ -330,7 +330,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Rodgers vs man coverage; no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Aaron Rodgers vs man coverage & CLE pressure)"
   },
   {
    "kind": "image_or_chart",
@@ -341,7 +341,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Gibbs vs MIN history; no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Jahmyr Gibbs vs MIN history & MIN RB receiving D)"
   },
   {
    "kind": "image_or_chart",
@@ -352,7 +352,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Lamb vs ARI (ARI vs WR1s); no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Arizona pass D vs WR1s & CeeDee Lamb volume)"
   },
   {
    "kind": "image_or_chart",
@@ -363,7 +363,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Vikings pass D (3 pass TDs allowed); no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Vikings pass defense 3 TDs / 1.7% TD rate)"
   },
   {
    "kind": "image_or_chart",
@@ -374,7 +374,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Ravens light box 37% / Cook; no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Ravens 37% light box & James Cook 6.2 YPC)"
   },
   {
    "kind": "image_or_chart",
@@ -385,7 +385,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Public most-bet sides (BetMGM) \u2014 market intel, excluded by rule"
+   "result": "Captured into twitter-image-cards-2026-w08.json (public_market, Top 10 most bet to cover at BetMGM)"
   },
   {
    "kind": "image_or_chart",
@@ -396,7 +396,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Browns in Pittsburgh since 2000; no bet"
+   "result": "Captured into twitter-image-cards-2026-w08.json (matchup_stat, Browns in Pittsburgh 2-26 since 2000, -45 1Q diff)"
   },
   {
    "kind": "image_or_chart",
@@ -407,7 +407,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Popular money % sides \u2014 market intel, excluded by rule"
+   "result": "Captured into twitter-image-cards-2026-w08.json (public_market, Popular +60% money to cover at BetMGM)"
   },
   {
    "kind": "image_or_chart",
@@ -418,7 +418,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 Most-bet sides by tickets \u2014 market intel, excluded by rule"
+   "result": "Captured into twitter-image-cards-2026-w08.json (public_market, Top 5 sides by tickets at BetMGM)"
   },
   {
    "kind": "image_or_chart",
@@ -473,8 +473,7 @@
    "status": "done",
    "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
    "processed_at": "2026-10-30T21:40:00-07:00",
-   "result": "Grok: 0 picks \u2014 TNF DFS notes (already played)",
-   "follow_up": "22-leg parlay is in a later separate post; bookmark it for the Saturday Grok pass"
+   "result": "Grok: 0 picks \u2014 TNF DFS notes (already played)"
   },
   {
    "kind": "image_or_chart",

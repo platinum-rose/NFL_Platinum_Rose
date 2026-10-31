@@ -1,15 +1,17 @@
 {
   "schema": "defensive_boards_v1",
   "week": 8,
-  "generatedAt": "2026-10-30T05:36:22.321Z",
+  "generatedAt": "2026-10-30T18:43:56.612Z",
   "games": [
-    "CAR@GB"
+    "CAR@GB",
+    "CHI@SEA"
   ],
   "byMarket": {
     "BEO:pass_int": 6,
     "BEO:tackles_assists": 70,
     "BEO:sacks": 16,
-    "BEO:def_int": 16
+    "BEO:def_int": 16,
+    "DKP:sacks": 5
   },
   "offers": [
     {
@@ -1631,6 +1633,81 @@
       "week": 8,
       "file": "betonline-sgp-2026-10-29-car-at-gb.json",
       "implied": 0.05
+    },
+    {
+      "book": "DKP",
+      "source": "dkp_event_feed",
+      "game": "CHI@SEA",
+      "capturedAt": "2026-10-30T14:35:26.254Z",
+      "market": "sacks",
+      "player": "Jeffery Simmons",
+      "team": "CHI",
+      "threshold": 1,
+      "line": 0.5,
+      "american": 117,
+      "week": 8,
+      "file": "draftkings-predictions-defense-2026-10-30-chi-at-sea.json",
+      "implied": 0.4608
+    },
+    {
+      "book": "DKP",
+      "source": "dkp_event_feed",
+      "game": "CHI@SEA",
+      "capturedAt": "2026-10-30T14:35:26.254Z",
+      "market": "sacks",
+      "player": "Jeffery Simmons",
+      "team": "CHI",
+      "threshold": 2,
+      "line": 1.5,
+      "american": 614,
+      "week": 8,
+      "file": "draftkings-predictions-defense-2026-10-30-chi-at-sea.json",
+      "implied": 0.1401
+    },
+    {
+      "book": "DKP",
+      "source": "dkp_event_feed",
+      "game": "CHI@SEA",
+      "capturedAt": "2026-10-30T14:35:26.254Z",
+      "market": "sacks",
+      "player": "Jeffery Simmons",
+      "team": "CHI",
+      "threshold": 3,
+      "line": 2.5,
+      "american": 1900,
+      "week": 8,
+      "file": "draftkings-predictions-defense-2026-10-30-chi-at-sea.json",
+      "implied": 0.05
+    },
+    {
+      "book": "DKP",
+      "source": "dkp_event_feed",
+      "game": "CHI@SEA",
+      "capturedAt": "2026-10-30T14:35:26.254Z",
+      "market": "sacks",
+      "player": "Jeffery Simmons",
+      "team": "CHI",
+      "threshold": 4,
+      "line": 3.5,
+      "american": 2400,
+      "week": 8,
+      "file": "draftkings-predictions-defense-2026-10-30-chi-at-sea.json",
+      "implied": 0.04
+    },
+    {
+      "book": "DKP",
+      "source": "dkp_event_feed",
+      "game": "CHI@SEA",
+      "capturedAt": "2026-10-30T14:35:26.254Z",
+      "market": "sacks",
+      "player": "Jeffery Simmons",
+      "team": "CHI",
+      "threshold": 5,
+      "line": 4.5,
+      "american": 2400,
+      "week": 8,
+      "file": "draftkings-predictions-defense-2026-10-30-chi-at-sea.json",
+      "implied": 0.04
     }
   ]
 }

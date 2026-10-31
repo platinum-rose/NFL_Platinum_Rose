@@ -1,6 +1,6 @@
 # Defensive props research — 2026 through Week 7
 
-Generated 2026-10-30T05:35:04.928Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
+Generated 2026-10-30T18:43:59.227Z. Source: ESPN game summaries (107 completed games). Tackles+assists = ESPN "TOT". Players listed need 3+ games.
 
 ## How to read this
 - **Hit rate N+** = share of games the player reached N or more tackles+assists. Compare with the prop price's implied probability.
@@ -79,7 +79,7 @@ Gated on the ESPN roster (2026-10-29T15:40:31.105239+00:00) and player availabil
 | CLE @ PIT | Jalen Ramsey (PIT) | CB | 6.29 | 8.67 | 7 | 0.85 | 1.04 | **6** | 68% | 58% | 48% | 48% | 39% | 14% |  |
 | ATL @ TB | Xavier Watts (ATL) | S | 6.29 | 6.67 | 7 | 0.94 | 1 | **6** | 68% | 58% | 48% | 48% | 29% | 14% |  |
 
-## Priced defensive offers (70 matched)
+## Priced defensive offers (71 matched)
 
 Model probability: calibrated prior hit rate at the threshold (T+A) or the backtested sack map (1+ sack). **Edge** = model − implied. Small samples: treat as a screen, and check role and injury news. Rungs priced under 25% implied went 3 for 81 in the first graded boards.
 
@@ -98,7 +98,6 @@ Model probability: calibrated prior hit rate at the threshold (T+A) or the backt
 | BEO | CAR @ GB | Evan Williams (GB) | T+A 7+ | -157 | 61% | 67% | +6 pts | 0.097 | -2.5 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BEO | CAR @ GB | Keisean Nixon (GB) | T+A 5+ | -157 | 61% | 67% | +6 pts | 0.097 | -1.3 |  |
 | BEO | CAR @ GB | Bobby Okereke (CAR) | T+A 8+ | +158 | 39% | 44% | +5 pts | 0.135 | 0.5 |  |
-| BEO | CAR @ GB | Xavier McKinney (GB) | T+A 5+ | -124 | 55% | 39% | -16 pts | -0.295 | -0.2 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BEO | CAR @ GB | Devin Lloyd (CAR) | T+A 6+ | -209 | 68% | 50% | -18 pts | -0.261 | -2 |  |
 | BEO | CAR @ GB | Javon Bullard (GB) | T+A 4+ | -345 | 78% | 58% | -19 pts | -0.252 | -2.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BEO | CAR @ GB | Isaiah McDuffie (GB) | T+A 10+ | +144 | 41% | 20% | -21 pts | -0.512 | 2.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
@@ -111,6 +110,7 @@ Model probability: calibrated prior hit rate at the threshold (T+A) or the backt
 | BEO | CAR @ GB | Xavier McKinney (GB) | T+A 4+ | -271 | 73% | 48% | -25 pts | -0.343 | -1.2 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 7+ | +185 | 35% | 10% | -25 pts | -0.715 | 2.8 |  |
 | BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 5+ | -148 | 60% | 32% | -28 pts | -0.464 | 0.8 |  |
+| DKP | CHI @ SEA | Jeffery Simmons (CHI) | Sacks 1+ | +117 | 46% | 18% | -28 pts | -0.609 |  |  |
 | BEO | CAR @ GB | Isaiah McDuffie (GB) | T+A 8+ | -213 | 68% | 39% | -29 pts | -0.427 | 0.1 | Edgerrin Cooper (LB 7.5, played 57% of his games); Zaire Franklin (LB 6.83, played 86% of his games) |
 | BEO | CAR @ GB | Tre'von Moehrig (CAR) | T+A 6+ | +116 | 46% | 10% | -36 pts | -0.784 | 1.8 |  |
 

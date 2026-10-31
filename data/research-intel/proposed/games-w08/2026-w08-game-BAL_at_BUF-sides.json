@@ -1,0 +1,193 @@
+{
+ "game": "BAL@BUF",
+ "pass": "sides",
+ "generated_at": "2026-10-31T06:25:00Z",
+ "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "BAL +3",
+   "line": 3,
+   "price": -105,
+   "tier": "C",
+   "fair_line": "BUF -2.5",
+   "edge_pts": 0.5,
+   "playable_to": "BAL +3 at -115 or better; PASS at +2.5",
+   "model_prob": 0.4718,
+   "supercontest_candidate": true,
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Lamar Jackson cleared to play (Minter, ESPN 2026-10-30T17:36Z; qb_operator_notes)",
+    "Sharp flag: BAL 61-62% of spread money on 43% of bets (AN splits 2026-10-31T02:06Z)",
+    "BUF secondary depleted: CJGJ out (suspension), CB Strong/Hancock IR, nickel Alford Q",
+    "Line moved BUF -3.5 (AN open) to -3; most expert BAL picks priced at +3.5 (Gibbs, Stuckey, Fezzik, Hunter, Millman, Makinen)",
+    "Sim adj: BAL cover 51.4% excl push vs 51.2% break-even at -105 -> thin"
+   ],
+   "counter_case": "BUF off a bye vs BAL off a 35-13 loss; rest-advantage teams 22-8-1 ATS in 2026; Lamar 3-12 ATS outdoors since 2025; BUF 3-0 SU/ATS last three home meetings vs Lamar; BAL G Ioane out; Koerner fair BUF -3.3.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:10.938Z"
+  },
+  {
+   "market": "spread",
+   "selection": "BAL +3.5 (SuperContest line)",
+   "line": 3.5,
+   "price": null,
+   "book": "SuperContest",
+   "captured_at": "2026-10-29T16:07:07Z",
+   "tier": "B",
+   "fair_line": "BUF -2.5",
+   "edge_pts": 1.0,
+   "playable_to": "contest line locked at +3.5",
+   "model_prob": 0.5266,
+   "supercontest_candidate": true,
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Contest line gives the hook over the key number 3 that BKR no longer offers",
+    "Sim at -3.5 with view expressed vs contest line: BAL cover 52.7%",
+    "Same Lamar/sharp-money/BUF-secondary reasons as BKR side"
+   ],
+   "counter_case": "Same as BKR side: BUF rest edge, Lamar first game back from high-ankle sprain, BUF home record vs Lamar."
+  },
+  {
+   "market": "total",
+   "selection": "Over 55",
+   "line": 55,
+   "price": -101,
+   "tier": "B",
+   "fair_line": "56",
+   "edge_pts": 1.0,
+   "playable_to": "B to o55 -110; C at o55.5; PASS at 56+",
+   "model_prob": 0.5152,
+   "supercontest_candidate": false,
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "reasons": [
+    "EPA/play offense BUF #1 / BAL #8 vs defense BUF #31 / BAL #22 (dossiers, nflverse W7)",
+    "BUF games average 61.3 combined points; BUF leads in pts/drive and allows the most (Hribar worksheet)",
+    "Sharp flag: Over 83% of money on 50-51% of bets; Caesars sharp Over at 52.5/53.5",
+    "BUF secondary depleted; weather immaterial (18.5C, wind 9 km/h)",
+    "Abrams trends: BAL 13-2 Over off a loss, 5-0 Over as road dog; BUF 6-0 4Q Over",
+    "Sim adj: Over 53.1% excl push vs 50.2% break-even at -101"
+   ],
+   "counter_case": "Move already happened (open 51.5-53.5 -> 55); totals 53+ from Week 7 on 33-44-1 Over last decade; Lamar rushing dip after ankle; BAL run D strong (rush DVOA -10.5%); BAL last two games 48 and 23 total points.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:10.938Z"
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (BAL +143 / BUF -165)",
+   "line": null,
+   "price": null,
+   "tier": "PASS",
+   "fair_line": "BUF about -137 / BAL about +137",
+   "edge_pts": null,
+   "playable_to": "BAL becomes tier C at +155 or better",
+   "model_prob": 0.4234,
+   "supercontest_candidate": false,
+   "straight_up_winner": "BUF",
+   "pool_confidence": 4,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim adj BAL win ~42.3% excl tie vs 41.2% break-even at +143: ~1 pt edge, too thin",
+    "Pool SU pick BUF (sim 58.9% win) at low confidence"
+   ],
+   "counter_case": "If Lamar is fully healthy BAL's 3-1 / +40 Lamar-start form makes +143 short; if limited, BUF -165 is cheap.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:10.938Z"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.5,
+  "total_adj": 1.0,
+  "reasons": [
+   "margin -0.5 (home-positive): Lamar return + BUF secondary depletion (CJGJ out, 2 CB IR, nickel Q) + sharp spread money on BAL, partly offset by BUF bye rest edge and BAL G Ioane out",
+   "total +1.0: top-8 offenses vs #31/#22 EPA defenses, BUF games 61.3 avg combined, sharp Over money, depleted BUF secondary; trimmed for Lamar rushing dip and late-season high-total regression",
+   "SuperContest run: view BUF -2.5 expressed vs -3.5 line = margin_adj -1.0 (within soft cap 2.0)"
+  ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line -3 --total 55",
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.4848,
+   "under": 0.4848,
+   "home_win": 0.6013
+  },
+  {
+   "args": "--home-line -3 --total 55 --margin-adj -0.5 --total-adj 1.0",
+   "home_cover": 0.4455,
+   "away_cover": 0.4718,
+   "side_push": 0.0827,
+   "away_cover_excl_push": 0.5143,
+   "over": 0.5152,
+   "under": 0.4545,
+   "over_excl_push": 0.5313,
+   "home_win": 0.5885,
+   "tie": 0.0237
+  },
+  {
+   "args": "--home-line -3.5 --total 55",
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "home_win": 0.6406
+  },
+  {
+   "args": "--home-line -3.5 --total 55 --margin-adj -1.0 --total-adj 1.0",
+   "home_cover": 0.4734,
+   "away_cover": 0.5266,
+   "over": 0.5152,
+   "home_win": 0.6155
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (packet BAL@BUF, built 2026-10-31T06:09Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (2026-10-30 6:52 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-ravens-at-bills.json (capturedAt 2026-10-31T01:51:10Z)",
+  "data/odds/actionnetwork-openers-2026-w08.json (AN open 2026-10-26)",
+  "data/supercontest/week-08-lines.json (2026-10-29)",
+  "data/generated/team-dossiers/2026-w08/BAL.md, BUF.md (2026-10-31T01:01Z)",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+  "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams AN primer)",
+  "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "packet splits (Action Network 2026-10-31T02:06Z)",
+  "packet news_notes / article_notes / pick_signals",
+  "scratch/w08-qb-confirmations-1030.md via qb_operator_notes",
+  "scripts/intel/margin-simulator.mjs (selftest passed)"
+ ],
+ "ambiguities": [
+  "BUF head coach: dossier says Sean McDermott; AN primer and PFT 2026-10-30 headline indicate Joe Brady - not used in thesis",
+  "Roquan Smith Friday designation not in packet (limited Thursday)",
+  "AN total open 53.5 (opener file) vs 51.5 (primer consensus)",
+  "Friday final injury report web search returned no fetchable 2026 W8 page; packet 10/30 ESPN/RotoWire/PFT items used",
+  "BUF FTN tables stale_1wk (bye)"
+ ],
+ "delta_checklist": [
+  "Lamar inactive (inactives ~8:30 AM PT Sun): flip to BUF -3 lean + Under lean; pass BAL in contest",
+  "BKR BAL +2.5: pass spread; BAL +3.5 at BKR: upgrade to B",
+  "Total 55.5: Over to C; 56+: pass; 54.5: Over B+",
+  "DJ Moore or Spencer Brown inactive: +0.5 BAL nudge; Moore out slight Under nudge",
+  "Dee Alford out: strengthens Over",
+  "Roquan Smith downgrade: Over/BUF nudge"
+ ],
+ "gate_notes": [
+  "missing_inputs empty",
+  "roster_vet PASS (8.5h) - no props this pass",
+  "kickoff not passed",
+  "QB status from qb_operator_notes + ESPN Friday Minter confirmation",
+  "Friday injury web search done; no usable page, packet items used",
+  "secondary_matchups stale BAL coordinator name ignored",
+  "expert dedup across expert_picks_pull and youtube_picks_approved (Gibbs, Anderson, Perrault, Sharp or Square)"
+ ]
+}

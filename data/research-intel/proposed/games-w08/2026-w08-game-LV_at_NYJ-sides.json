@@ -1,0 +1,170 @@
+{
+  "game": "LV@NYJ",
+  "pass": "sides",
+  "generated_at": "2026-10-31T06:22:20Z",
+  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:00Z (Fri 10/30 ~6:52 PM PT paste; BKR board 2026-10-31T01:50:37Z identical)",
+      "market": "spread",
+      "selection": "PASS (lean NYJ -1)",
+      "line": -1,
+      "price": -115,
+      "tier": "PASS",
+      "fair_line": -1.75,
+      "edge_pts": 0.75,
+      "playable_to": "NYJ -1 at -108 or better / NYJ pk; pass at -1 -115 and at -1.5",
+      "model_prob": 0.52,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NYJ",
+      "pool_confidence": 4,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Fair NYJ -1.75: equal power ratings (SRS -2.42 vs -1.90) + home field; Koerner proj NYJ -2",
+        "LV defense allowing league-high 3.25 pts/drive, 6.5 YPP last 4 weeks (Hribar worksheet 10/28)",
+        "LV crossing 3 time zones for 1 PM ET; 2-14 SU last 16 out east (AN primer)",
+        "Adjusted sim NYJ cover 52.0% excl push < 53.5% break-even at -115 -> PASS on price",
+        "Offset: NYJ EDGE Ossai OUT, Bailey DOUBTFUL, DL Sweat OUT (raiders.com 10/30)"
+      ],
+      "counter_case": "LV 5-2 ATS, scoring 33 pts over implied totals; Jets 1-3 as favorites under Glenn, 4-17-3 in 1H; NYJ sack rate 8.7% vs LV pressure 36.7%; Bet Labs systems and Brandon Anderson on LV."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:00Z (Fri 10/30 ~6:52 PM PT paste; BKR board 2026-10-31T01:50:37Z identical)",
+      "market": "total",
+      "selection": "PASS",
+      "line": 45.5,
+      "price": null,
+      "tier": "PASS",
+      "fair_line": 45.75,
+      "edge_pts": 0.25,
+      "playable_to": "Under only at 47+; over only at 44 or lower",
+      "model_prob": 0.5,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "LV games avg 54.3 total pts vs NYJ 41.0; blend ~47.6 but NYJ slow pace (58.6 plays/gm) and 45% RZ TD (31st)",
+        "Team totals LV 22.5 + NYJ 23.5 = 46 consistent with 45.5",
+        "Over 69% bets / 78% money, total moved 44.5 -> 45.5; no sharp flag; weather immaterial"
+      ],
+      "counter_case": "Over: every LV game 40+, LV defense leaking, Jets pass rush depleted. Under: Geno Smith 16-6 1H under, BettingPros under 44.5 now a better number, PFT 24-17."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:00Z (Fri 10/30 ~6:52 PM PT paste; BKR board 2026-10-31T01:50:37Z identical)",
+      "market": "moneyline",
+      "selection": "PASS (SU winner NYJ)",
+      "line": null,
+      "price": -131,
+      "tier": "PASS",
+      "fair_line": -122,
+      "edge_pts": null,
+      "playable_to": "NYJ ML -120 or better",
+      "model_prob": 0.544,
+      "supercontest_candidate": false,
+      "straight_up_winner": "NYJ",
+      "pool_confidence": 4,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Adjusted sim NYJ win 54.4% (53.2% excl tie) vs -131 break-even 56.7%",
+        "LV +115 needs 46.5%; sim LV ~45.6%"
+      ],
+      "counter_case": "LV ML backed by Cohen (VSiN, +105 then, +115 now) and PFT 24-17 Raiders."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 0.75,
+    "total_adj": 0,
+    "reasons": [
+      "+0.5 Koerner projection NYJ -2 vs -1.5 and EPA/FTN defensive gap (LV def EPA/play 0.061 #24 vs NYJ -0.006 #14)",
+      "+0.5 LV 4-week defensive collapse (3.25 pts/drive allowed) and east-coast travel spot (road teams crossing 2+ TZ 6-13 ATS)",
+      "-0.25 NYJ edge depletion: Ossai OUT, Bailey DOUBTFUL, Sweat OUT",
+      "total 0: LV high-scoring profile offsets NYJ slow pace / poor RZ finishing"
+    ]
+  },
+  "sim_runs": [
+    {
+      "home_line": -1,
+      "total": 45.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5,
+      "side_push": 0.0244,
+      "home_win": 0.5243,
+      "over": 0.5
+    },
+    {
+      "home_line": -1,
+      "total": 45.5,
+      "margin_adj": 0.75,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5202,
+      "side_push": 0.0243,
+      "home_win": 0.5439,
+      "over": 0.5
+    },
+    {
+      "home_line": -1.5,
+      "total": 45.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5,
+      "side_push": 0,
+      "home_win": 0.5365,
+      "over": 0.5
+    },
+    {
+      "home_line": -1.5,
+      "total": 45.5,
+      "margin_adj": 0.25,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5066,
+      "side_push": 0,
+      "home_win": 0.543,
+      "over": 0.5
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (packet LV@NYJ, built 2026-10-31T06:09Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (10/30 6:52 PM PT)",
+    "data/generated/props/bookmaker-live-2026-10-31-raiders-at-jets.json (capturedAt 2026-10-31T01:50:37Z)",
+    "data/odds/actionnetwork-openers-2026-w08.json (via packet market.an_opener)",
+    "data/supercontest/week-08-lines.json (NYJ -1.5, 2026-10-29)",
+    "data/generated/team-dossiers/2026-w08/LV.md",
+    "data/generated/team-dossiers/2026-w08/NYJ.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/intel/extracted/2026-w08-primer-intel.json",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "scratch/w08-qb-confirmations-1030.md",
+    "https://www.raiders.com/news/las-vegas-raiders-new-york-jets-week-8-injury-report (2026-10-30 12:56 PM)",
+    "scripts/intel/margin-simulator.mjs (selftest PASS)"
+  ],
+  "ambiguities": [
+    "AN primer total_open 41.5 vs AN opener 44.5",
+    "AN ML opener had LV -103 while spread opener NYJ -1.5; Millman pull row says 'Jets +1.5 home dog' (lookahead line likely LV fav, flipped)",
+    "Public split conflict: AN 82% LV vs BetMGM 66% money on Jets -1.5",
+    "NYJ packet availability null; filled by raiders.com web check",
+    "QB notes are Claude web-checked, not Andy-confirmed"
+  ],
+  "delta_checklist": [
+    "NYJ -1 at -108 or better or pk -> tier C NYJ; NYJ -1.5+ -> hard pass",
+    "NYJ ML -120 or better -> tier C ML",
+    "Breece Hall inactive: no change; Bailey active +0.25 NYJ; Powers-Johnson out +0.25 NYJ",
+    "Total 47+ -> consider under; 44 or lower -> consider over",
+    "Inactives ~8:30 AM PT Sun 11/1"
+  ],
+  "gate_notes": [
+    "missing_inputs: none",
+    "roster_vet PASS (8.5h)",
+    "kickoff not passed",
+    "packet availability.NYJ null -> official Friday report web-checked (raiders.com)",
+    "secondary_matchups coach names stale (ignored); LV dossier HC typo 'Kubliak'",
+    "qb_operator_notes source labeled not Andy-confirmed"
+  ]
+}

@@ -1,6 +1,6 @@
 # Expert Dossier: Ben Solak
 
-Generated: 2026-10-23T15:30:51.133Z
+Generated: 2026-10-31T01:01:21.044Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 

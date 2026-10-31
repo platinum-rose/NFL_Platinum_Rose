@@ -1,0 +1,424 @@
+{
+  "game": "MIN@DET",
+  "generated_at": "2026-10-31T06:40:00Z",
+  "packet_built_at": "2026-10-31T06:09:18Z",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Amon-Ra St. Brown Over 7.5 receptions",
+      "line": 7.5,
+      "price": 119,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "B",
+      "fair_line": "8.3 rec (fair ~-125 at 7.5)",
+      "edge_pts": 0.8,
+      "playable_to": "Over 7.5 at +100 or better; PASS at 8.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y - best standalone/2-leg anchor; uncorrelated with MIN legs",
+      "standalone_preferred": false,
+      "reasons": [
+        "68 targets / 46 rec in 6 games (11.3 tgt/g); 8+ rec in 4 of 6 [pbp play_by_play_2026.csv.gz thru W8 file]",
+        "MIN blitz 71% (FTN thru W6) -> quick slot/middle answers are the sides-pass script for DET to win [sides report]",
+        "Ankle: full practice Thu/Fri, no designation [vikings.com final report 10/30]",
+        "Best price is the Total Receptions row +119 (alt ladder +115)"
+      ],
+      "counter_case": "MIN pass D allows -8.5% CPOE and 60.7% catchable-ball rate; Gibbs-heavy script (43 RZ opps) can cap DET dropbacks; 4 and 6 catches in two of six games."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Justin Jefferson Under 5.5 receptions",
+      "line": 5.5,
+      "price": 119,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "B",
+      "fair_line": "5.5 at ~-120 (proj 4.7 rec)",
+      "edge_pts": 0.8,
+      "playable_to": "Under 5.5 at -105 or better; PASS at Under 4.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y - pairs with St. Brown Over (opposite teams, low correlation)",
+      "standalone_preferred": false,
+      "reasons": [
+        "23 rec in 5 games (4.6/g); under 5.5 in 3 of 5, Murray-era 2/6/4 [pbp]",
+        "MIN low pass volume: 27-41 att by Murray, neutral pass rate 0.501, 30.8 sec/play [MIN dossier]",
+        "Targets spread: Hockenson 32 tgt vs Jefferson 31 [pbp]",
+        "Sides script = MIN grinds clock in one-score game, not a catch-up script"
+      ],
+      "counter_case": "DET secondary is down Kerby Joseph (OUT) plus Maddox/Harper on IR and McCreary Q; DET allows 313 pass yd/g and 16 pass TD. If DET goes up two scores, Murray force-feeds Jefferson."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jared Goff Under 257.5 passing yards",
+      "line": 257.5,
+      "price": -108,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": "245.5",
+      "edge_pts": 12.0,
+      "playable_to": "Under 257.5 at -115 or better / Under 250.5 at -110; PASS at 249.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n with Goff TD Under in one SGP (stacked same exposure); y otherwise",
+      "standalone_preferred": false,
+      "reasons": [
+        "MIN pass D: 1,085 pass yd allowed in 6 (181/g), last three games 85/96/108 gross [FTN overview via dossier; pbp]",
+        "Goff -0.310 EPA/DB under pressure vs +0.467 clean; MIN 39% pressure, 71% blitz [FTN via dossiers]",
+        "Sal Vetri (X @salbets_) Under 274.5 -110: same side, BKR is 17 yds worse than his number",
+        "Gibbs 29 carries in W7 -> run-heavy script consistent with sides lean Under 46"
+      ],
+      "counter_case": "Goff averaged 298 and cleared 269 in 4 of 6; MIN has played the easiest schedule; DET beats blitz with quick completions (St. Brown Over is the same thesis but completions != yards)."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jared Goff Under 1.5 passing TDs",
+      "line": 1.5,
+      "price": 103,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": "~52% Under (fair -108)",
+      "edge_pts": 0.0,
+      "playable_to": "Under 1.5 at +100 or better",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n (correlated with Goff yds Under; pick one for any SGP)",
+      "standalone_preferred": false,
+      "reasons": [
+        "MIN allowed 3 pass TDs in 6 games (league-low pass-TD rate 1.7%) [dossier; SharpFootball 10/30 news_notes]",
+        "DET red-zone usage skews to Gibbs: 43 RZ opps vs St. Brown 16, LaPorta 10 [pbp]",
+        "Implied DET total ~24 (BKR TT 24.5 u-119) = ~2.5-3 TDs with Gibbs taking the biggest share"
+      ],
+      "counter_case": "Goff has 2+ pass TDs in 5 of 6 (14 TD / 0 INT); DET has allowed TDs to every TE; a short field from a MIN turnover flips it."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Kyler Murray Over 4.5 rush attempts",
+      "line": 4.5,
+      "price": 110,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": "~52% Over (fair -108)",
+      "edge_pts": 0.0,
+      "playable_to": "Over 4.5 at -115 or better; PASS at 5.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (small)",
+      "standalone_preferred": false,
+      "reasons": [
+        "Murray rush attempts 6/10/5 in W4/W5/W7 (incl. scrambles) [pbp]",
+        "DET 32% pressure, 21 sacks; MIN sack rate allowed 0.099 -> escape scrambles",
+        "Rush yds 16/51/39 in same games"
+      ],
+      "counter_case": "W3 had zero Murray rushes in pbp; MIN may limit QB runs in a division road game; the Total Carries row is +110, alt ladder +106."
+    },
+    {
+      "market": "atd",
+      "selection": "Jahmyr Gibbs anytime TD",
+      "line": 0.5,
+      "price": -371,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "Anchor: 9 TDs in 6 g, 43 RZ opps; DK Predictions ref 72% vs BKR 78.8% - anchor not value"
+      ],
+      "counter_case": "MIN allowed 3 rush TD all season; Gibbs 2.5 YPC vs MIN last season (SharpFootball)"
+    },
+    {
+      "market": "atd",
+      "selection": "Aaron Jones anytime TD",
+      "line": 0.5,
+      "price": 181,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "14 RZ opps (team-high); cleared, no designation; BKR 35.6% vs DK Predictions ref ~48% (+108) - best price gap on the board"
+      ],
+      "counter_case": "Co-lead with Mason; knee (8 carries W7); Mason +170 is the hedge"
+    },
+    {
+      "market": "atd",
+      "selection": "T.J. Hockenson anytime TD",
+      "line": 0.5,
+      "price": 235,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "Erickson + Woolcock (BettingPros) at +260 -> BKR +235, 25 cents worse; 7 RZ opps; claim DET allowed 10 TE rec TDs (expert, unverified); Joseph OUT"
+      ],
+      "counter_case": "Only 2 TD in 6 g; MIN offense 6 pass TD all year"
+    },
+    {
+      "market": "atd",
+      "selection": "Amon-Ra St. Brown anytime TD",
+      "line": 0.5,
+      "price": 118,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "5 TD, 16 RZ opps; volume leg"
+      ],
+      "counter_case": "Gibbs takes RZ work; MIN allowed 3 pass TDs"
+    },
+    {
+      "market": "atd",
+      "selection": "Justin Jefferson anytime TD",
+      "line": 0.5,
+      "price": 143,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "3 TD (team high), DET secondary depleted"
+      ],
+      "counter_case": "Conflicts mildly with Jefferson Under 5.5 rec (TD on low volume is possible)"
+    },
+    {
+      "market": "atd",
+      "selection": "Sam LaPorta anytime TD",
+      "line": 0.5,
+      "price": 219,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "3 TD, 10 RZ opps"
+      ],
+      "counter_case": "1 rec W7; MIN TE defense strong context only"
+    },
+    {
+      "market": "atd",
+      "selection": "Jameson Williams anytime TD",
+      "line": 0.5,
+      "price": 189,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "7e ATD 7-leg candidate list (not standalone)",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "y (7e ATD leg)",
+      "standalone_preferred": false,
+      "reasons": [
+        "4 TD on 23 rec (explosive)"
+      ],
+      "counter_case": "Low RZ usage (7)"
+    },
+    {
+      "market": "first_td",
+      "selection": "Jahmyr Gibbs first TD",
+      "line": null,
+      "price": 372,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "B",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "8a First-TD candidate",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n (lottery)",
+      "standalone_preferred": false,
+      "reasons": [
+        "DK Predictions ref +285 (26%) vs BKR +372 (21.2%); DET ~55% to score first x Gibbs ~45% of DET TDs ~= 24%"
+      ],
+      "counter_case": "MIN usually elects to receive (Fezzik); MIN D allowed 1 TD/g"
+    },
+    {
+      "market": "first_td",
+      "selection": "Aaron Jones first TD",
+      "line": null,
+      "price": 660,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "8a First-TD candidate",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n (lottery)",
+      "standalone_preferred": false,
+      "reasons": [
+        "If MIN receives and scores first drive, Jones is the RZ back; DK ref +614"
+      ],
+      "counter_case": "Split with Mason (+691)"
+    },
+    {
+      "market": "first_td",
+      "selection": "Amon-Ra St. Brown first TD",
+      "line": null,
+      "price": 719,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "8a First-TD candidate",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n (lottery)",
+      "standalone_preferred": false,
+      "reasons": [
+        "DET second TD source; DK ref +669"
+      ],
+      "counter_case": "Gibbs dominates RZ"
+    },
+    {
+      "market": "first_td",
+      "selection": "T.J. Hockenson first TD",
+      "line": null,
+      "price": 1083,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:29.530Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": "8a First-TD candidate",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": "n (lottery)",
+      "standalone_preferred": false,
+      "reasons": [
+        "Long shot, top MIN RZ target"
+      ],
+      "counter_case": "DK ref +1329 - BKR is shorter"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": null,
+    "total_adj": null,
+    "reasons": [
+      "Props pass: no simulator adjustment; game script taken from sides pass (DET by 2.7, total 45.0; DET ~24, MIN ~21)"
+    ]
+  },
+  "sim_runs": [
+    {
+      "note": "No calibrated joint model for props; sides-pass sim (MIN +3 46.7%/push 8.3%, Under 46 51.5%) used only as game-script context",
+      "source": "reports/intel/games/2026-w08-game-MIN_at_DET-sides.md"
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-props.json (built 2026-10-31T06:09Z)",
+    "data/generated/props/bookmaker-live-2026-10-31-vikings-at-lions.json (capturedAt 2026-10-31T01:50:29Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-28-vikings-at-lions.json (reference only, 2026-10-29T03:20Z)",
+    "data/generated/props/betonline-live-2026-10-29-vikings-at-lions.json (no player props)",
+    "data/nflverse/2026/play_by_play_2026.csv.gz",
+    "data/generated/team-dossiers/2026-w08/MIN.md, DET.md",
+    "reports/intel/games/2026-w08-game-MIN_at_DET-sides.md",
+    "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season (10/30 1:00 PM)",
+    "packet youtube_picks_approved, an_primer, news_notes"
+  ],
+  "ambiguities": [
+    "BetOnline player props not posted (32 rows, no player markets) - re-run Sat ~2 PM PT",
+    "Gibbs rush/rec/carries are over-only ladders - no Under row, so no Gibbs Under pick",
+    "Hockenson \"10 TE TDs allowed\" claim (Woolcock) not verified in pbp scope used",
+    "Welsh pick staging tagged Murray as ARI; qb_operator_notes and roster map say MIN",
+    "pbp passing_yards for MIN D is gross (sacks excluded) and includes W1 387 vs GB",
+    "FTN through W6 only",
+    "MIN backfield split Jones/Mason uncertain"
+  ],
+  "delta_checklist": [
+    "Sun ~8:30 AM PT inactives: St. Brown or Gibbs surprise -> void their legs; Darrisaw/O'Neill out -> raise Murray carries/pressure, lower MIN ATD",
+    "McCreary OUT -> trim Jefferson Under 5.5 to C",
+    "BKR St. Brown 7.5 moves to -125 or 8.5 -> PASS",
+    "Jefferson Under 5.5 drops below -105 -> PASS",
+    "Goff yds to 249.5 or lower -> PASS",
+    "Jones ruled limited/ceded to Mason in reports -> swap ATD to Mason +170",
+    "BetOnline Sat 2 PM board: compare St. Brown/Jefferson rec lines"
+  ],
+  "gate_notes": [
+    "missing_inputs: betonline player-prop board thin/missing (32 rows) - BKR only executable",
+    "roster_vet PASS (roster age 8.5h, 2 UNVERIFIED league-wide); not rerun",
+    "Kickoff Sun 11/1 10:00 AM PT not passed; inactives ~8:30 AM PT",
+    "Final injury report checked (vikings.com 10/30): DET S Kerby Joseph OUT, CB McCreary Q; MIN S Jay Ward Q; no designation for St. Brown, Gibbs, Jones, Hockenson, Jefferson, LaPorta, J. Williams",
+    "props_intel_articles empty",
+    "No QB INT legs offered (per session rule)",
+    "DraftKings Predictions reference only; Cody Brown 22-leg alt legs not comparable"
+  ],
+  "pass": "props"
+}

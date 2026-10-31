@@ -2,12 +2,12 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-28T22:00:03.327Z",
+    "generated_at": "2026-10-30T22:00:02.643Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
     "player_count": 164,
     "manual_row_count": 151,
     "eligible_manual_row_count": 151,
-    "estimated_row_count": 16,
+    "estimated_row_count": 15,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 206,
     "human_review_rejected_count": 0,
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-28T22:00:01.184Z",
+        "generated_at": "2026-10-30T22:00:00.757Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -952,42 +952,6 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
-          "id": "starter_5d077324137b6777",
-          "team": "ARI",
-          "team_nick": "Cardinals",
-          "player_name": "Evan Hull",
-          "position": "RB",
-          "unit": "offense",
-          "role": "backup",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.9,
-          "source_count": 3,
-          "sources": [
-            {
-              "source": "ari-depth-chart-2026-10-27.json",
-              "source_type": "manual_depth_chart",
-              "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
-              "published_at": "2026-10-27T21:21:00Z",
-              "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB4; signed from practice squad 10/24. Tuesday's estimated RB row for ARI is superseded by this chart."
-            },
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-24T20:37:00.000Z",
-              "evidence": "The Cardinals signed Hull from the practice squad to the active roster Saturday, Tyler Drake of ArizonaSports.com reports."
-            }
-          ],
-          "evidence_tags": [
-            "manual_projection",
-            "manual_all_position_depth_chart",
-            "roster_signal"
-          ],
-          "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
-        },
-        {
           "id": "starter_59a00466c510515c",
           "team": "ARI",
           "team_nick": "Cardinals",
@@ -1099,6 +1063,34 @@
             "independent_depth_chart_review"
           ],
           "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_5d077324137b6777",
+          "team": "ARI",
+          "team_nick": "Cardinals",
+          "player_name": "Evan Hull",
+          "position": "RB",
+          "unit": "offense",
+          "role": "backup",
+          "starter_confidence": 0.15,
+          "roster_confidence": 0.9,
+          "source_count": 2,
+          "sources": [
+            {
+              "source": "ari-depth-chart-2026-10-27.json",
+              "source_type": "manual_depth_chart",
+              "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
+              "published_at": "2026-10-27T21:21:00Z",
+              "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB4; signed from practice squad 10/24. Tuesday's estimated RB row for ARI is superseded by this chart."
+            }
+          ],
+          "evidence_tags": [
+            "manual_projection",
+            "manual_all_position_depth_chart"
+          ],
+          "impact_bucket": "rb_major",
           "needs_human_review": true,
           "confidence_basis": "manual_depth_chart"
         },
@@ -1446,6 +1438,7 @@
         "Kalif Raymond WR"
       ],
       "estimated": [
+        "Coby Bryant S",
         "Zavier Scott RB"
       ],
       "missing": [
@@ -1479,6 +1472,33 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_fea953e4657af61b",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Coby Bryant",
+          "position": "S",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-28T23:52:00.000Z",
+              "evidence": "Coach Ben Johnson said Wednesday that Bryant (knee) will start running again in the \"near future,\" Courtney Cronin of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         },
         {
           "id": "starter_81677cf4c2f68d25",
@@ -1549,6 +1569,7 @@
         "Chase Brown RB"
       ],
       "estimated": [
+        "Jordan Battle S",
         "Cam Grandy TE"
       ],
       "missing": [
@@ -1614,6 +1635,33 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
+          "id": "starter_cf9781b5354b03a0",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Jordan Battle",
+          "position": "S",
+          "unit": "defense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "FantasyPros injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://api.fantasypros.com/public/v2/json/nfl/injuries",
+              "published_at": null,
+              "evidence": "Jordan Battle UNKNOWN"
+            }
+          ],
+          "evidence_tags": [
+            "competition"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
           "id": "starter_8d81966043f50c27",
           "team": "CIN",
           "team_nick": "Bengals",
@@ -1650,9 +1698,7 @@
       "known": [
         "Quinshon Judkins RB"
       ],
-      "estimated": [
-        "Shedeur Sanders QB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1684,35 +1730,6 @@
           "impact_bucket": "rb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
-        },
-        {
-          "id": "starter_c6668209d8734710",
-          "team": "CLE",
-          "team_nick": "Browns",
-          "player_name": "Shedeur Sanders",
-          "position": "QB",
-          "unit": "offense",
-          "role": "competition_or_rotation",
-          "starter_confidence": 0.5,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-25T16:01:00.000Z",
-              "evidence": "Sanders is active as the Browns' backup quarterback for Sunday's game against the Titans."
-            }
-          ],
-          "evidence_tags": [
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
@@ -2353,9 +2370,7 @@
         "Patrick Mahomes QB",
         "Kenneth Walker III RB"
       ],
-      "estimated": [
-        "Jaydn Ott RB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2417,33 +2432,6 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
-        },
-        {
-          "id": "starter_ec0af0609457fedf",
-          "team": "KC",
-          "team_nick": "Chiefs",
-          "player_name": "Jaydn Ott",
-          "position": "RB",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-24T17:58:00.000Z",
-              "evidence": "The Chiefs signed Ott from the practice squad to the active roster Saturday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2636,9 +2624,7 @@
       "known": [
         "Matthew Stafford QB"
       ],
-      "estimated": [
-        "Eric Kendricks LB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2670,33 +2656,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_c8b8bc78662aa4fe",
-          "team": "LAR",
-          "team_nick": "Rams",
-          "player_name": "Eric Kendricks",
-          "position": "LB",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-24T23:41:00.000Z",
-              "evidence": "The Rams elevated Kendricks from the practice squad to the active roster Saturday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -4246,9 +4205,7 @@
       "known": [
         "Emanuel Wilson RB"
       ],
-      "estimated": [
-        "Jalen Milroe QB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -4280,34 +4237,6 @@
           "impact_bucket": "rb_major",
           "needs_human_review": true,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_dbc4c30f05468c9d",
-          "team": "SEA",
-          "team_nick": "Seahawks",
-          "player_name": "Jalen Milroe",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-25T23:05:00.000Z",
-              "evidence": "Milroe is active and operating as the Seahawks' primary backup quarterback for Sunday night's matchup with Kansas City."
-            }
-          ],
-          "evidence_tags": [
-            "primary_role",
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -5311,6 +5240,7 @@
         "Gunnar Helm TE"
       ],
       "estimated": [
+        "Jonah Laulu DT",
         "Timmy Horne DT"
       ],
       "missing": [
@@ -5376,6 +5306,33 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
+          "id": "starter_a3ceffa6b24bb9a2",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Jonah Laulu",
+          "position": "DT",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-29T00:34:00.000Z",
+              "evidence": "The Titans claimed Laulu off waivers from the Raiders on Wednesday, Jim Wyatt of the Titans' official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_front_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
           "id": "starter_b0cb012ab616d0dd",
           "team": "TEN",
           "team_nick": "Titans",
@@ -5413,7 +5370,9 @@
         "Jayden Daniels QB",
         "Jacory Croskey-Merritt RB"
       ],
-      "estimated": [],
+      "estimated": [
+        "Van Jefferson WR"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -5475,6 +5434,33 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_c61645bb068b0dd9",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Van Jefferson",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-28T23:33:00.000Z",
+              "evidence": "The Commanders signed Jefferson to the active roster Wednesday, Zach Selby of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -5663,9 +5649,9 @@
       "position": "RB",
       "unit": "offense",
       "role": "backup",
-      "starter_confidence": 0.42,
+      "starter_confidence": 0.15,
       "roster_confidence": 0.9,
-      "source_count": 3,
+      "source_count": 2,
       "sources": [
         {
           "source": "ari-depth-chart-2026-10-27.json",
@@ -5673,19 +5659,11 @@
           "source_url": "https://www.ourlads.com/nfldepthcharts/depthchart/ARZ",
           "published_at": "2026-10-27T21:21:00Z",
           "evidence": "Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB4; signed from practice squad 10/24. Tuesday's estimated RB row for ARI is superseded by this chart."
-        },
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-24T20:37:00.000Z",
-          "evidence": "The Cardinals signed Hull from the practice squad to the active roster Saturday, Tyler Drake of ArizonaSports.com reports."
         }
       ],
       "evidence_tags": [
         "manual_projection",
-        "manual_all_position_depth_chart",
-        "roster_signal"
+        "manual_all_position_depth_chart"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": true,
@@ -9822,6 +9800,114 @@
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
+      "id": "starter_cf9781b5354b03a0",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Jordan Battle",
+      "position": "S",
+      "unit": "defense",
+      "role": "competition_or_rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "FantasyPros injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://api.fantasypros.com/public/v2/json/nfl/injuries",
+          "published_at": null,
+          "evidence": "Jordan Battle UNKNOWN"
+        }
+      ],
+      "evidence_tags": [
+        "competition"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_a3ceffa6b24bb9a2",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Jonah Laulu",
+      "position": "DT",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-29T00:34:00.000Z",
+          "evidence": "The Titans claimed Laulu off waivers from the Raiders on Wednesday, Jim Wyatt of the Titans' official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_fea953e4657af61b",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "Coby Bryant",
+      "position": "S",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-28T23:52:00.000Z",
+          "evidence": "Coach Ben Johnson said Wednesday that Bryant (knee) will start running again in the \"near future,\" Courtney Cronin of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_c61645bb068b0dd9",
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "player_name": "Van Jefferson",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-28T23:33:00.000Z",
+          "evidence": "The Commanders signed Jefferson to the active roster Wednesday, Zach Selby of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
       "id": "starter_e798e41c3bff736c",
       "team": "PHI",
       "team_nick": "Eagles",
@@ -9959,90 +10045,6 @@
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
-      "id": "starter_dbc4c30f05468c9d",
-      "team": "SEA",
-      "team_nick": "Seahawks",
-      "player_name": "Jalen Milroe",
-      "position": "QB",
-      "unit": "offense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-25T23:05:00.000Z",
-          "evidence": "Milroe is active and operating as the Seahawks' primary backup quarterback for Sunday night's matchup with Kansas City."
-        }
-      ],
-      "evidence_tags": [
-        "primary_role",
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_c6668209d8734710",
-      "team": "CLE",
-      "team_nick": "Browns",
-      "player_name": "Shedeur Sanders",
-      "position": "QB",
-      "unit": "offense",
-      "role": "competition_or_rotation",
-      "starter_confidence": 0.5,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-25T16:01:00.000Z",
-          "evidence": "Sanders is active as the Browns' backup quarterback for Sunday's game against the Titans."
-        }
-      ],
-      "evidence_tags": [
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
-    },
-    {
-      "id": "starter_c8b8bc78662aa4fe",
-      "team": "LAR",
-      "team_nick": "Rams",
-      "player_name": "Eric Kendricks",
-      "position": "LB",
-      "unit": "defense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-24T23:41:00.000Z",
-          "evidence": "The Rams elevated Kendricks from the practice squad to the active roster Saturday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_e595392775525a39",
       "team": "DEN",
       "team_nick": "Broncos",
@@ -10093,33 +10095,6 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_front_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_ec0af0609457fedf",
-      "team": "KC",
-      "team_nick": "Chiefs",
-      "player_name": "Jaydn Ott",
-      "position": "RB",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-24T17:58:00.000Z",
-          "evidence": "The Chiefs signed Ott from the practice squad to the active roster Saturday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
     },

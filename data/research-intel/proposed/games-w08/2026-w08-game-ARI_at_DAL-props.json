@@ -1,0 +1,384 @@
+{
+  "game": "ARI@DAL",
+  "generated_at": "2026-10-31T06:33:00Z",
+  "packet_built_at": "2026-10-31T06:09:18Z",
+  "recommendations": [
+    {
+      "market": "player_prop",
+      "selection": "Trey McBride OVER 7.5 receptions",
+      "line": 7.5,
+      "price": -114,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "B",
+      "fair_line": "~8.4 rec",
+      "edge_pts": null,
+      "playable_to": "7.5 at -125; pass at 8.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "11.1 tgt/g, 8.4 rec/g, 8+ rec in 5/7 games, 93-97% snaps (nflverse pbp/snaps thru W7)",
+        "ARI trailing script (sides pass DAL by ~7) -> 40+ Brissett attempts",
+        "Patched ARI OL -> quick game; Brissett aDOT 6.8"
+      ],
+      "counter_case": "Love return restores RB checkdowns; Higgins more TE snaps with Reiman OUT; 2/7 games landed exactly 7."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jacoby Brissett OVER 23.5 completions",
+      "line": 23.5,
+      "price": -116,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~26",
+      "edge_pts": null,
+      "playable_to": "23.5 at -125; pass at 24.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Over in 5/7; 35+ att in 6/7 incl 48 in W7",
+        "65.6% comp rate x ~40 att",
+        "Sal Vetri Brissett volume angle (o249.5 pass yds) supports volume"
+      ],
+      "counter_case": "Multi-INT game or early pull; W2 17 / W4 21 completions floor. Correlated with McBride o7.5 - pick one for parlays."
+    },
+    {
+      "market": "atd",
+      "selection": "Javonte Williams anytime TD",
+      "line": null,
+      "price": -267,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "B",
+      "fair_line": "~75-78% (judgment)",
+      "edge_pts": null,
+      "playable_to": "-300",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "TD in 7/7 games (9 TDs)",
+        "20 of DAL's 24 inside-10 carries",
+        "DAL team total 30.5 (BKR)",
+        "Sal Bets 2+ TD angle"
+      ],
+      "counter_case": "Air TDs to Lamb/Pickens; Goodson 10 carries W7; heavy price (DK ref 68% vs BKR 72.8%)."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Michael Wilson UNDER 57.5 receiving yards",
+      "line": 57.5,
+      "price": -104,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~52",
+      "edge_pts": null,
+      "playable_to": "under 54.5; pass below",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Under in 5/7, median 55",
+        "Ribs (no designation)",
+        "Fits UNDER 54.5 sides thesis"
+      ],
+      "counter_case": "DAL worst pass DVOA (40.9%); 45+ ARI attempts gives volume; 89/95 yds in W3-W4."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jeremiyah Love UNDER 40.5 rushing yards",
+      "line": 40.5,
+      "price": 101,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~36",
+      "edge_pts": null,
+      "playable_to": "under 36.5; pass at 35.5",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "First game back from 2-game ankle absence",
+        "45-49% snaps pre-injury; committee with Allgeier/Knight",
+        "Trailing script; G Gaines OUT"
+      ],
+      "counter_case": "DAL allows 145.7 rush yds/g; 13 carries at pre-injury rate clears 40."
+    },
+    {
+      "market": "player_prop",
+      "selection": "Ryan Flournoy OVER 3.5 receptions (alt row)",
+      "line": 3.5,
+      "price": 103,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~4",
+      "edge_pts": null,
+      "playable_to": "3.5 at -115",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Over in 4/7; 78-87% snaps",
+        "Turpin OUT",
+        "Upgrade to B if Pickens inactive"
+      ],
+      "counter_case": "Pickens full go -> Flournoy had 2 catches in 2/7 games."
+    },
+    {
+      "market": "atd",
+      "selection": "CeeDee Lamb anytime TD (7e leg 2)",
+      "line": null,
+      "price": -145,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~57% (judgment)",
+      "edge_pts": null,
+      "playable_to": "-160",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "6 TDs, 14 RZ targets",
+        "Prop Guru: 36.1% RZ tgt share, ARI allows 1.4 WR TD/g"
+      ],
+      "counter_case": "BKR richer than DK ref (53%)."
+    },
+    {
+      "market": "atd",
+      "selection": "Trey McBride anytime TD (7e leg 3)",
+      "line": null,
+      "price": -126,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": "~53% (judgment)",
+      "edge_pts": null,
+      "playable_to": "-135",
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "17 RZ targets (team high), 4 TDs"
+      ],
+      "counter_case": "ARI 43% RZ TD rate -> FGs."
+    },
+    {
+      "market": "atd",
+      "selection": "7e ladder legs 4-7: Jake Ferguson +199, Michael Wilson +180, Jeremiyah Love +150, George Pickens +100 (only if active; else Ryan Flournoy +247)",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Andy standing request: always give 7e ATD candidates"
+      ],
+      "counter_case": "Long ladder compounds BKR vig; Love/Pickens availability risk."
+    },
+    {
+      "market": "first_td",
+      "selection": "8a First-TD: Javonte Williams +424; CeeDee Lamb +629; Trey McBride +823; longshot Jeremiyah Love +868",
+      "line": null,
+      "price": 424,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "C",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "JW scored DAL's first TD in 2 of 3 games DAL scored first",
+        "Opponents scored first TD in 4/7 DAL games; ESPN Archer 10/30: DAL league-high opening-possession TDs allowed"
+      ],
+      "counter_case": "First-TD markets are high-variance; no model."
+    },
+    {
+      "market": "player_prop",
+      "selection": "CeeDee Lamb OVER 82.5 rec yds",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "PASS",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Anderson took 78.5; line now 82.5; median 74, over in 3/7"
+      ],
+      "counter_case": "n/a"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Jacoby Brissett OVER 257.5 pass yds",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "PASS",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Vetri took 249.5; projection 245-260"
+      ],
+      "counter_case": "n/a"
+    },
+    {
+      "market": "player_prop",
+      "selection": "Javonte Williams rush yds 77.5",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "PASS",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "over in 2/7; W7 25-155 priced in; thin ARI front cuts both ways"
+      ],
+      "counter_case": "n/a"
+    },
+    {
+      "market": "player_prop",
+      "selection": "George Pickens props",
+      "line": null,
+      "price": null,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:50:49.719Z",
+      "tier": "PASS",
+      "fair_line": null,
+      "edge_pts": null,
+      "playable_to": null,
+      "model_prob": null,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DAL",
+      "pool_confidence": 10,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Q shoulder/hamstring, 60% snaps W7"
+      ],
+      "counter_case": "n/a"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.6,
+    "total_adj": -2.0,
+    "reasons": [
+      "Inherited from sides pass for game-script consistency (fair DAL -6.4, total 52.5); props carry no model probabilities"
+    ]
+  },
+  "sim_runs": [
+    {
+      "run": "selftest",
+      "result": "all self-tests passed"
+    },
+    {
+      "run": "script-consistency",
+      "home_line": -7,
+      "total": 54.5,
+      "margin_adj": -0.6,
+      "total_adj": -2.0,
+      "note": "same as sides pass; not used to price props"
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-props.json (built 2026-10-31T06:09:18Z)",
+    "data/generated/props/bookmaker-live-2026-10-31-cardinals-at-cowboys.json (2026-10-31T01:50:49Z)",
+    "data/generated/props/bookmaker-live-2026-10-29-cardinals-at-cowboys.json (2026-10-29T23:00:54Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-28-cardinals-at-cowboys.json (reference only, 2026-10-29T03:20:25Z)",
+    "data/generated/props/betonline-live-2026-10-29-cardinals-at-cowboys.json (no player props)",
+    "data/nflverse/2026/play_by_play_2026.csv.gz + snap_counts_2026.csv (thru W7)",
+    "reports/intel/games/2026-w08-game-ARI_at_DAL-sides.md",
+    "packet youtube_picks_approved / expert_picks_pull / pick_signals / an_primer / news_notes"
+  ],
+  "ambiguities": [
+    "BetOnline player props not posted (26 game rows only)",
+    "Pickens Q is the main swing for DAL pass-catcher props",
+    "BKR board still lists Turpin (OUT) - may not be injury-refreshed",
+    "PBP receiving yards may differ by 1-2 from official box"
+  ],
+  "delta_checklist": [
+    "Pickens inactive -> Flournoy o3.5 to B; swap Pickens for Flournoy +247 in 7e",
+    "Love inactive/limited -> Love under resolves; Allgeier ATD +315 alternate",
+    "McBride rec to 8.5 -> pass",
+    "Brissett completions to 24.5 -> pass",
+    "Wilson yds <=54.5 / Love yds <=35.5 -> pass",
+    "Re-pull BetOnline Sat ~2 PM PT"
+  ],
+  "gate_notes": [
+    "roster_vet PASS 8.5h",
+    "kickoff not passed",
+    "missing_inputs: BOL props thin -> BKR only",
+    "final-injury web search returned stale pages; used sides-pass ESPN fetch 10/30 + packet Rotowire",
+    "availability feed misclassification caveat noted",
+    "no calibrated prop model; tiers are judgment"
+  ],
+  "pass": "props"
+}

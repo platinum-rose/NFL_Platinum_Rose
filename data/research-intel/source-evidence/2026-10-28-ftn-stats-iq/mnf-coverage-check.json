@@ -1,0 +1,29 @@
+{
+  "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+  "observed_at": "2026-10-28T08:45:34.859434+00:00",
+  "game_id": "401873009",
+  "week": 7,
+  "competition_date": "2026-10-27T00:15Z",
+  "status": {
+    "type": {
+      "id": "3",
+      "name": "STATUS_FINAL",
+      "state": "post",
+      "completed": true,
+      "description": "Final",
+      "detail": "Final",
+      "shortDetail": "Final"
+    },
+    "isTBDFlex": false
+  },
+  "teams": [
+    {
+      "team": "PHI",
+      "score": "21"
+    },
+    {
+      "team": "DAL",
+      "score": "38"
+    }
+  ]
+}

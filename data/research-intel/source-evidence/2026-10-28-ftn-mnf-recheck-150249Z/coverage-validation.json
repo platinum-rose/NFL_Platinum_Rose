@@ -1,0 +1,2700 @@
+{
+  "schema": "ftn_weekly_coverage_validation_v1",
+  "checked_at": "2026-10-28T15:11:00.656Z",
+  "preparation_week": 8,
+  "intended_statistics_through_week": 7,
+  "status": "pass_week7_game_counts",
+  "team_count": 32,
+  "matching_team_count": 32,
+  "team_gp_checks": 384,
+  "teams_with_gaps": [],
+  "mnf_scoring_checks": [
+    {
+      "team": "DAL",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 27,
+      "defense_ppg": 25.7,
+      "expected_ppg": 27,
+      "expected_allowed_ppg": 25.7,
+      "gp_matches": true
+    },
+    {
+      "team": "PHI",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 18.1,
+      "defense_ppg": 25,
+      "expected_ppg": 18.1,
+      "expected_allowed_ppg": 25,
+      "gp_matches": true
+    }
+  ],
+  "checks": [
+    {
+      "team": "ARI",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 19.4,
+      "defense_ppg": 28.9,
+      "expected_ppg": 20.3,
+      "expected_allowed_ppg": 29.7,
+      "gp_matches": true
+    },
+    {
+      "team": "ATL",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 21.9,
+      "defense_ppg": 22.1,
+      "expected_ppg": 24.4,
+      "expected_allowed_ppg": 24.7,
+      "gp_matches": true
+    },
+    {
+      "team": "BAL",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 23.3,
+      "defense_ppg": 23,
+      "expected_ppg": 24.1,
+      "expected_allowed_ppg": 23.9,
+      "gp_matches": true
+    },
+    {
+      "team": "BUF",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 32.8,
+      "defense_ppg": 28.5,
+      "expected_ppg": 32.8,
+      "expected_allowed_ppg": 28.5,
+      "gp_matches": true
+    },
+    {
+      "team": "CAR",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 24.8,
+      "defense_ppg": 25.3,
+      "expected_ppg": 26.5,
+      "expected_allowed_ppg": 27.7,
+      "gp_matches": true
+    },
+    {
+      "team": "CHI",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 25.7,
+      "defense_ppg": 20.4,
+      "expected_ppg": 25.7,
+      "expected_allowed_ppg": 20.4,
+      "gp_matches": true
+    },
+    {
+      "team": "CIN",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 25.2,
+      "defense_ppg": 18.3,
+      "expected_ppg": 27.2,
+      "expected_allowed_ppg": 20.3,
+      "gp_matches": true
+    },
+    {
+      "team": "CLE",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 19,
+      "defense_ppg": 20.9,
+      "expected_ppg": 19,
+      "expected_allowed_ppg": 20.9,
+      "gp_matches": true
+    },
+    {
+      "team": "DAL",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 27,
+      "defense_ppg": 25.7,
+      "expected_ppg": 27,
+      "expected_allowed_ppg": 25.7,
+      "gp_matches": true
+    },
+    {
+      "team": "DEN",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 19.7,
+      "defense_ppg": 19.3,
+      "expected_ppg": 20.6,
+      "expected_allowed_ppg": 20.1,
+      "gp_matches": true
+    },
+    {
+      "team": "DET",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 30.7,
+      "defense_ppg": 27.5,
+      "expected_ppg": 30.7,
+      "expected_allowed_ppg": 27.5,
+      "gp_matches": true
+    },
+    {
+      "team": "GB",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 20.6,
+      "defense_ppg": 20.7,
+      "expected_ppg": 20.6,
+      "expected_allowed_ppg": 20.7,
+      "gp_matches": true
+    },
+    {
+      "team": "HOU",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 23.6,
+      "defense_ppg": 24.3,
+      "expected_ppg": 23.6,
+      "expected_allowed_ppg": 24.3,
+      "gp_matches": true
+    },
+    {
+      "team": "IND",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 21.1,
+      "defense_ppg": 24.9,
+      "expected_ppg": 22,
+      "expected_allowed_ppg": 25.7,
+      "gp_matches": true
+    },
+    {
+      "team": "JAX",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 25.7,
+      "defense_ppg": 17.3,
+      "expected_ppg": 25.7,
+      "expected_allowed_ppg": 17.3,
+      "gp_matches": true
+    },
+    {
+      "team": "KC",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 23.8,
+      "defense_ppg": 17.2,
+      "expected_ppg": 23.8,
+      "expected_allowed_ppg": 17.2,
+      "gp_matches": true
+    },
+    {
+      "team": "LAC",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 15,
+      "defense_ppg": 24.8,
+      "expected_ppg": 15,
+      "expected_allowed_ppg": 25.2,
+      "gp_matches": true
+    },
+    {
+      "team": "LAR",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 23.4,
+      "defense_ppg": 21.9,
+      "expected_ppg": 24.3,
+      "expected_allowed_ppg": 22.7,
+      "gp_matches": true
+    },
+    {
+      "team": "LV",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 25.9,
+      "defense_ppg": 28.1,
+      "expected_ppg": 26.1,
+      "expected_allowed_ppg": 28.1,
+      "gp_matches": true
+    },
+    {
+      "team": "MIA",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 16.3,
+      "defense_ppg": 26.2,
+      "expected_ppg": 16.3,
+      "expected_allowed_ppg": 26.2,
+      "gp_matches": true
+    },
+    {
+      "team": "MIN",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 18.8,
+      "defense_ppg": 12.3,
+      "expected_ppg": 20.8,
+      "expected_allowed_ppg": 12.3,
+      "gp_matches": true
+    },
+    {
+      "team": "NE",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 22,
+      "defense_ppg": 19.6,
+      "expected_ppg": 22.9,
+      "expected_allowed_ppg": 20.4,
+      "gp_matches": true
+    },
+    {
+      "team": "NO",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 22.3,
+      "defense_ppg": 26.9,
+      "expected_ppg": 23.1,
+      "expected_allowed_ppg": 27.7,
+      "gp_matches": true
+    },
+    {
+      "team": "NYG",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 22.4,
+      "defense_ppg": 22.1,
+      "expected_ppg": 23.3,
+      "expected_allowed_ppg": 23,
+      "gp_matches": true
+    },
+    {
+      "team": "NYJ",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 19.6,
+      "defense_ppg": 21.4,
+      "expected_ppg": 19.6,
+      "expected_allowed_ppg": 21.4,
+      "gp_matches": true
+    },
+    {
+      "team": "PHI",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 18.1,
+      "defense_ppg": 25,
+      "expected_ppg": 18.1,
+      "expected_allowed_ppg": 25,
+      "gp_matches": true
+    },
+    {
+      "team": "PIT",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 20.1,
+      "defense_ppg": 18,
+      "expected_ppg": 21.9,
+      "expected_allowed_ppg": 19.7,
+      "gp_matches": true
+    },
+    {
+      "team": "SEA",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 22.3,
+      "defense_ppg": 16.1,
+      "expected_ppg": 24,
+      "expected_allowed_ppg": 17.9,
+      "gp_matches": true
+    },
+    {
+      "team": "SF",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 27.3,
+      "defense_ppg": 19,
+      "expected_ppg": 28.1,
+      "expected_allowed_ppg": 19.9,
+      "gp_matches": true
+    },
+    {
+      "team": "TB",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 21.1,
+      "defense_ppg": 18.4,
+      "expected_ppg": 23.1,
+      "expected_allowed_ppg": 21.6,
+      "gp_matches": true
+    },
+    {
+      "team": "TEN",
+      "expected_gp": 7,
+      "offense_gp": 7,
+      "defense_gp": 7,
+      "offense_ppg": 14.6,
+      "defense_ppg": 21.4,
+      "expected_ppg": 15.4,
+      "expected_allowed_ppg": 22.3,
+      "gp_matches": true
+    },
+    {
+      "team": "WAS",
+      "expected_gp": 6,
+      "offense_gp": 6,
+      "defense_gp": 6,
+      "offense_ppg": 21,
+      "defense_ppg": 27.7,
+      "expected_ppg": 22,
+      "expected_allowed_ppg": 28.7,
+      "gp_matches": true
+    }
+  ],
+  "validation_limits": [
+    "Games played counts do not independently validate every FTN metric.",
+    "Full weekly synthesis, practice availability and publication have separate gates."
+  ],
+  "overview_gp_checks": 64,
+  "team_table_checks": [
+    {
+      "team": "ARI",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ARI",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "ATL",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BAL",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "BUF",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "BUF",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CAR",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CHI",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CHI",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CIN",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CIN",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "CLE",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "CLE",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DAL",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DEN",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "DET",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "DET",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "GB",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "GB",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "HOU",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "IND",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "JAX",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "JAX",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "KC",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAC",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "LAR",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LAR",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "LV",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "MIA",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIA",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "MIN",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "NE",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NE",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NO",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYG",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "NYJ",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PHI",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "PIT",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SEA",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "SF",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TB",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-defense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-defense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-defense/pass-rush",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-defense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-defense/rush-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/efficiency",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/overview",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/pass-protection",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/passing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/rushing-analytics",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/tempo",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "TEN",
+      "table": "team-offense/tendencies",
+      "gp": 7,
+      "expected_gp": 7
+    },
+    {
+      "team": "WAS",
+      "table": "team-defense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-defense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-defense/pass-rush",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-defense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-defense/rush-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/efficiency",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/overview",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/pass-protection",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/passing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/rushing-analytics",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/tempo",
+      "gp": 6,
+      "expected_gp": 6
+    },
+    {
+      "team": "WAS",
+      "table": "team-offense/tendencies",
+      "gp": 6,
+      "expected_gp": 6
+    }
+  ]
+}

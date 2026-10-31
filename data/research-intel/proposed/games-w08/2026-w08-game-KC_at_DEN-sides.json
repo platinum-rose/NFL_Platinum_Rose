@@ -1,0 +1,162 @@
+{
+  "game": "KC@DEN",
+  "pass": "sides",
+  "generated_at": "2026-10-31T06:26:00Z",
+  "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (lean KC -1)",
+      "line": -1,
+      "price": -107,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:11.011Z",
+      "tier": "PASS",
+      "fair_line": "KC -1.4",
+      "edge_pts": 0.4,
+      "playable_to": "KC -1 -110; DEN tier C only at +2.5 or better",
+      "model_prob": 0.511,
+      "supercontest_candidate": false,
+      "straight_up_winner": "KC",
+      "pool_confidence": 3,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Power ratings/EPA favor KC (SRS 3.77 vs 0.81; off EPA #7 vs #25); DEN 4-0 one-score, Pythag delta +1.41",
+        "Sim KC cover 51.1% excl push < 51.7% break-even at -107",
+        "Sharp money flag on DEN (58% money/48% bets) and line moved KC -1.5 -> -1 against KC ticket majority",
+        "Most touts on DEN (Abrams, Fezzik, Hunter, Koerner, Even Money, BettingPros, PFT); Makinen on KC"
+      ],
+      "counter_case": "Home division dog 23-10 ATS in 2026, Mahomes 0-4 ATS in Denver since 2021 and 0-9 ATS in November since 2024, sharp money on DEN, KC offense 3 pts / 213 yds at SEA."
+    },
+    {
+      "market": "total",
+      "selection": "PASS (lean UNDER 40.5)",
+      "line": 40.5,
+      "price": -110,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:11.011Z",
+      "tier": "PASS",
+      "fair_line": "39.7",
+      "edge_pts": 0.8,
+      "playable_to": "UNDER tier C at 41 -110, tier B at 41.5+; full pass at 39.5",
+      "model_prob": 0.524,
+      "supercontest_candidate": false,
+      "straight_up_winner": "KC",
+      "pool_confidence": 3,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Caesars sharp action Under 41.5; total fell 42/42.5 -> 40.5 vs 77% over tickets (RLM)",
+        "AN primer: Payton 7-0 under vs Reid; KC 17-4 under vs AFC West; KC 10-0 under off loss; DEN 4-0 under w/ Blakeman",
+        "Both defenses top-8 EPA; DEN 3&O 29.1%, 24.5 yds/drive",
+        "Sim under 52.4% = break-even at -110; move already crossed 41"
+      ],
+      "counter_case": "DEN secondary depleted (Hufanga out, B. Jones Q), Rice returns, mild altitude weather; under value already priced out."
+    },
+    {
+      "market": "moneyline",
+      "selection": "KC",
+      "line": null,
+      "price": -113,
+      "book": "BKR",
+      "captured_at": "2026-10-31T01:52:11.011Z",
+      "tier": "C",
+      "fair_line": "KC -121",
+      "edge_pts": null,
+      "playable_to": "-115; pass at -120 or worse",
+      "model_prob": 0.547,
+      "supercontest_candidate": false,
+      "straight_up_winner": "KC",
+      "pool_confidence": 3,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Sim KC win 54.7% excl tie vs 53.1% break-even (+1.6 pp)",
+        "KC model rank #5 vs DEN #16; Week 1 KC 31-10",
+        "Mahomes 6-0 SU in road division games as dog/<=3.5 fav; Bet Labs Business Trip system on KC",
+        "DEN injuries: Harvey, Hufanga OUT; Allen, B. Jones Q"
+      ],
+      "counter_case": "Sharp ML money on DEN (44% money / 33% bets); DEN 3-0 home, 17 of last 19 at home; Nix 23-2 SU when allowing <=20; KC CBs Sneed/Delane Q (operator notes: OUT)."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.4,
+    "total_adj": -0.8,
+    "reasons": [
+      "margin -0.4 (KC): power-rating/EPA gap, DEN one-score luck, DEN Hufanga/Harvey out; offset by sharp DEN money and DEN home form",
+      "total -0.8: Caesars sharp under + RLM vs 77% over tickets, two top-8 defenses, DEN 29% 3&O; offset by DEN secondary injuries, Rice return, mild weather"
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "baseline_bkr",
+      "home_line": 1,
+      "total": 40.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5,
+      "away_cover_excl_push": 0.5,
+      "under": 0.5,
+      "home_win_excl_tie": 0.4635
+    },
+    {
+      "label": "adjusted_bkr",
+      "home_line": 1,
+      "total": 40.5,
+      "margin_adj": -0.4,
+      "total_adj": -0.8,
+      "home_cover_excl_push": 0.4892,
+      "away_cover_excl_push": 0.5108,
+      "under": 0.5242,
+      "home_win_excl_tie": 0.4531
+    },
+    {
+      "label": "supercontest",
+      "home_line": 1,
+      "note": "contest line KC -1 equals BKR line; identical to adjusted_bkr",
+      "away_cover_excl_push": 0.5108
+    }
+  ],
+  "sources": [
+    "scratch/w08-game-synthesis-queue-sides.json (KC@DEN packet)",
+    "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (10/30 6:52 PM PT)",
+    "data/generated/props/bookmaker-live-2026-10-31-chiefs-at-broncos.json",
+    "data/generated/props/betonline-live-2026-10-29-chiefs-at-broncos.json",
+    "data/odds/actionnetwork-openers-2026-w08.json",
+    "data/supercontest/week-08-lines.json",
+    "data/intel/extracted/2026-w08-primer-intel.json",
+    "data/podcasts/youtube-extracted-picks-2026-w08.json",
+    "data/generated/team-dossiers/2026-w08/KC.md",
+    "data/generated/team-dossiers/2026-w08/DEN.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+    "scratch/w08-qb-confirmations-1030.md",
+    "https://www.chiefs.com/news/week-8-injury-report-chiefs-vs-broncos-2026 (Fri 10/30)",
+    "scripts/intel/margin-simulator.mjs"
+  ],
+  "ambiguities": [
+    "Operator notes list Delane, Sneed, Allen, B. Jones OUT; official chiefs.com Friday report lists all four Questionable",
+    "Dossier availability missing; secondary_matchups shows no KC secondary absences",
+    "AN opener total 42.0 (file) vs 42.5 (primer)",
+    "BetMGM 81% money on KC vs AN 58% money on DEN",
+    "No BKR capture newer than 6:52 PM PT 10/30"
+  ],
+  "delta_checklist": [
+    "Inactives 11:55 AM PT Sun: DEN Allen AND B. Jones out -> ML KC C+, spread KC -1 tier C",
+    "Both KC CBs out AND Waddle active -> ML KC to PASS",
+    "Total 41+ -> UNDER C; 41.5+ -> UNDER B; <=39.5 full pass",
+    "DEN +2.5 or better -> DEN tier C",
+    "KC ML -120 or worse -> PASS",
+    "Bolles out -> small under/KC bump"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS (8.5h)",
+    "kickoff not passed",
+    "Injury designation conflict operator vs official Friday report; both scenarios presented",
+    "FTN in dossiers stale_1wk (through W6)",
+    "Win-total tweet pick_signals (Ewing O 11.5) excluded as not this game",
+    "Coach names in secondary_matchups notes ignored per rule 7"
+  ]
+}

@@ -1,0 +1,1442 @@
+{
+  "schema": "ftn_stats_iq_browser_capture_v1",
+  "season": 2026,
+  "season_type": "REG",
+  "preparation_week": 8,
+  "intended_statistics_through_week": 7,
+  "status": "promoted_local_context",
+  "required_table_count": 36,
+  "required_specs": [
+    "passing/overview",
+    "passing/efficiency",
+    "passing/analytics",
+    "passing/pressure",
+    "passing/air-yards",
+    "rushing/overview",
+    "rushing/efficiency",
+    "rushing/analytics",
+    "rushing/usage",
+    "receiving/overview",
+    "receiving/efficiency",
+    "receiving/analytics",
+    "receiving/usage",
+    "receiving/air-yards",
+    "coverage/overview",
+    "coverage/analytics",
+    "coverage/air-yards",
+    "pass-rush/overview",
+    "pass-rush/analytics",
+    "rush-defense/overview",
+    "rush-defense/efficiency",
+    "rush-defense/defensive-personnel",
+    "pass-protection/overview",
+    "pass-protection/analytics",
+    "team-offense/overview",
+    "team-offense/efficiency",
+    "team-offense/tempo",
+    "team-offense/passing-analytics",
+    "team-offense/rushing-analytics",
+    "team-offense/tendencies",
+    "team-offense/pass-protection",
+    "team-defense/overview",
+    "team-defense/efficiency",
+    "team-defense/passing-analytics",
+    "team-defense/rush-analytics",
+    "team-defense/pass-rush"
+  ],
+  "tables": [
+    {
+      "spec": "team-offense/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/overview",
+      "file": "stats-iq-team-offense-overview.csv",
+      "sha256": "be5fb360628a5f83491503dc4c02459cc1cc99c9a7eb0a406b11113c179807a3",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "YD/PLY",
+        "PT/GM",
+        "FD%",
+        "TO",
+        "DPBK%",
+        "YD",
+        "TD",
+        "INT",
+        "RUSH%",
+        "YD",
+        "TD"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:02:49.095695+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all"
+      }
+    },
+    {
+      "spec": "team-defense/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-defense/overview",
+      "file": "stats-iq-team-defense-overview.csv",
+      "sha256": "0a67ce6c49c9130425442652af974add542cc540ef6fdca597e3271ee2afa5cc",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "YD/PLY",
+        "PT/GM",
+        "FD%",
+        "TO",
+        "DPBK%",
+        "YD",
+        "TD",
+        "INT",
+        "RUSH%",
+        "YD",
+        "TD"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-defense-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:03:32.256444+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all"
+      }
+    },
+    {
+      "spec": "team-defense/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-defense/efficiency",
+      "file": "stats-iq-team-defense-efficiency.csv",
+      "sha256": "b6b98f11b82ebfe31af113fba968bb38fa471d6af193504489f2ffa9bf667133",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/PLY",
+        "DVOA",
+        "SUCC%",
+        "EXP%",
+        "CONV%",
+        "TO",
+        "TO%",
+        "3&O",
+        "MTKL%",
+        "PEN%",
+        "PENY"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-defense-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:05:14.975531+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-defense/passing-analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-defense/passing-analytics",
+      "file": "stats-iq-team-defense-passing-analytics.csv",
+      "sha256": "86ab084e06e1a7f8ff6cce9555360cf4a932e32d6a4e6e59f82922ebb0a228b8",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/DB",
+        "SUCC%",
+        "DVOA",
+        "CPOE",
+        "CBALL%",
+        "EXP%",
+        "INTW%",
+        "TGHT%",
+        "OPEN%",
+        "TA%",
+        "DROP%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-defense-passing-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:05:18.714022+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-defense/rush-analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-defense/rush-analytics",
+      "file": "stats-iq-team-defense-rush-analytics.csv",
+      "sha256": "8596c2def0e22f53cb6b2e086b2f886ee1da51f4f999f70cedd4ab61381769f1",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/ATT",
+        "SUCC%",
+        "DVOA",
+        "aRYOE",
+        "EXP%",
+        "STF%",
+        "YBCO",
+        "YACO"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-defense-rush-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:05:21.958915+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-defense/pass-rush",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-defense/pass-rush",
+      "file": "stats-iq-team-defense-pass-rush.csv",
+      "sha256": "2438bfe3d06c39ade1cbc0a9b502e64e17485f1192e60c0f0299b7494ab2bb44",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "DPBK",
+        "SK",
+        "SK%",
+        "QBH%",
+        "PRESS",
+        "PRESS%",
+        "QPRESS%",
+        "TTPR",
+        "DISR%",
+        "BLZ%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-defense-pass-rush (2).csv",
+      "source_capture_at": "2026-10-28T15:05:23.259070+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/efficiency",
+      "file": "stats-iq-team-offense-efficiency.csv",
+      "sha256": "385e657db823b2dd362e4d74174f64ec41d981b6b090739356984572fd13a18a",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/PLY",
+        "DVOA",
+        "SUCC%",
+        "EXP%",
+        "CONV%",
+        "TO",
+        "TO%",
+        "PENY",
+        "PEN%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:06:22.175378+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/tempo",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/tempo",
+      "file": "stats-iq-team-offense-tempo.csv",
+      "sha256": "6f7057a3714005ff68a936fbe8cc7e6eff6b2a15df9e85cfd5e0daf6c8d1655f",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "PLY/GM",
+        "TOP",
+        "DRV/GM",
+        "SEC/PLY",
+        "PLY/DRV",
+        "YD/DRV",
+        "SEC/DRV",
+        "3&O",
+        "SCD%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-tempo (2).csv",
+      "source_capture_at": "2026-10-28T15:06:24.936197+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/passing-analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/passing-analytics",
+      "file": "stats-iq-team-offense-passing-analytics.csv",
+      "sha256": "3a7b316424b93ddce18de5879b10375dc0b093ea19a9e2c75834c56b3623913c",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/DB",
+        "SUCC%",
+        "DVOA",
+        "CPOE",
+        "CBALL%",
+        "EXP%",
+        "INTW%",
+        "HLT%",
+        "TA%",
+        "DROP%",
+        "aDOT",
+        "aYAC"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-passing-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:06:28.660526+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/rushing-analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/rushing-analytics",
+      "file": "stats-iq-team-offense-rushing-analytics.csv",
+      "sha256": "bcb02266587c8dacaef41ac9086ade92ada0e37b70d48d131a142a97576d5d90",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "EPA/ATT",
+        "SUCC%",
+        "DVOA",
+        "aRYOE",
+        "EXP%",
+        "STF%",
+        "aYBCO",
+        "aYACO",
+        "CRT%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-rushing-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:06:31.218914+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/tendencies",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/tendencies",
+      "file": "stats-iq-team-offense-tendencies.csv",
+      "sha256": "b6cbca62f5b4cfae7bf6e57f5ff95c1dd05ee5bf226a8d159aab49b2fe4e0a2f",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "DPBK%",
+        "RUSH%",
+        "SHG%",
+        "NH%",
+        "MOT%",
+        "PA%",
+        "IZ%",
+        "OZ%",
+        "MD%",
+        "PWR%",
+        "CTR%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-tendencies (2).csv",
+      "source_capture_at": "2026-10-28T15:06:35.750619+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "team-offense/pass-protection",
+      "source_url": "https://stats.ftnfantasy.com/stats/team-offense/pass-protection",
+      "file": "stats-iq-team-offense-pass-protection.csv",
+      "sha256": "7743ceab59b7b9e8a21f4e94656504d3016d809b0b328d08d797dc8b5a3b2400",
+      "row_count": 32,
+      "headers": [
+        "Team",
+        "GP",
+        "SK",
+        "SK%",
+        "QBSK%",
+        "QBH%",
+        "PRESS%",
+        "UPRES%",
+        "BLITZ%",
+        "TTPR",
+        "TTT",
+        "EPA/DB",
+        "DVOA",
+        "SUCC%",
+        "EPA/DB",
+        "DVOA",
+        "SUCC%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-team-offense-pass-protection (2).csv",
+      "source_capture_at": "2026-10-28T15:06:39.383755+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "not applicable"
+      }
+    },
+    {
+      "spec": "passing/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/passing/overview",
+      "file": "stats-iq-passing-overview.csv",
+      "sha256": "7e15d73a8fc7cde1b7b8162b472fde9887056fd57834253bd2251ea868318f25",
+      "row_count": 33,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "ATT",
+        "COMP",
+        "COMP%",
+        "YD",
+        "YD/ATT",
+        "TD",
+        "INT",
+        "FUML"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-passing-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:07:09.482258+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "passing/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/passing/efficiency",
+      "file": "stats-iq-passing-efficiency.csv",
+      "sha256": "991e61747290d96c8ef07f2c6d7894bc49bf1c7a775d65f36a68228da81efd31",
+      "row_count": 33,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "CBALL%",
+        "INTW%",
+        "HLT%",
+        "EXP%",
+        "DROP%",
+        "TA%",
+        "TD%",
+        "INT%",
+        "SK%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-passing-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:07:13.207888+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "passing/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/passing/analytics",
+      "file": "stats-iq-passing-analytics.csv",
+      "sha256": "34ef1ffad059e944519962038e61d7fd31e44e57a3af5f36e244955caa8fb375",
+      "row_count": 33,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "EPA",
+        "EPA/DB",
+        "SUCC%",
+        "ACOMP%",
+        "DVOA",
+        "DYAR",
+        "xCOMP",
+        "CPOE",
+        "aYDOE"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-passing-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:07:15.203048+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "passing/pressure",
+      "source_url": "https://stats.ftnfantasy.com/stats/passing/pressure",
+      "file": "stats-iq-passing-pressure.csv",
+      "sha256": "8d0ce0ead830101eac637fa51aeca1694c60b94caa36a721a6a92e01d5e3b33f",
+      "row_count": 33,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "SK",
+        "SK%",
+        "QBSK%",
+        "AVSK%",
+        "QBH%",
+        "TTPR",
+        "TTT",
+        "RATE",
+        "EPA/DB",
+        "DVOA",
+        "RATE",
+        "EPA/DB",
+        "DVOA"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-passing-pressure (2).csv",
+      "source_capture_at": "2026-10-28T15:07:17.947956+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "passing/air-yards",
+      "source_url": "https://stats.ftnfantasy.com/stats/passing/air-yards",
+      "file": "stats-iq-passing-air-yards.csv",
+      "sha256": "95a40ba0410f4da3dd9457a3e1cde36f277704b47d8be2b935a18a1534d2feb5",
+      "row_count": 33,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "aDOT",
+        "AIR",
+        "cAIR",
+        "cAIR%",
+        "PRYD",
+        "PRYD%",
+        "dAIR"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-passing-air-yards (2).csv",
+      "source_capture_at": "2026-10-28T15:07:20.464623+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rushing/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/rushing/overview",
+      "file": "stats-iq-rushing-overview.csv",
+      "sha256": "a9cee4160b8ad2ff5350c9dc7081b9ee491a26526d550fa1cb2740d7a334d95f",
+      "row_count": 42,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "ATT",
+        "YD",
+        "YD/ATT",
+        "TD",
+        "FUML"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rushing-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:07:34.148681+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rushing/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/rushing/efficiency",
+      "file": "stats-iq-rushing-efficiency.csv",
+      "sha256": "85c8eb207ae08fd4adb8f12f88ee45ff1f629dfab72814814ebcfcf21daec4fd",
+      "row_count": 42,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "SUCC%",
+        "YBCO",
+        "YACO",
+        "AVT%",
+        "CRT%",
+        "EXP%",
+        "STF%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rushing-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:07:36.701276+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rushing/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/rushing/analytics",
+      "file": "stats-iq-rushing-analytics.csv",
+      "sha256": "da072f7b8e278c2591896e11ef2afc8fe5453bbacb06863e3ceba0cdb68398ab",
+      "row_count": 42,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "EPA",
+        "EPA/ATT",
+        "DVOA",
+        "DYAR",
+        "xYD",
+        "YDOE",
+        "aYDOE",
+        "CRT%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rushing-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:07:38.432012+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rushing/usage",
+      "source_url": "https://stats.ftnfantasy.com/stats/rushing/usage",
+      "file": "stats-iq-rushing-usage.csv",
+      "sha256": "b76975b3fabf1b214264a6e9ffa22a0d742fa56c752e7cf404c734c205110618",
+      "row_count": 42,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "SNP",
+        "SNP%",
+        "ATT",
+        "ATT%",
+        "TCH",
+        "TCH%",
+        "OPP",
+        "OPP%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rushing-usage (2).csv",
+      "source_capture_at": "2026-10-28T15:07:43.028710+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "receiving/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/receiving/overview",
+      "file": "stats-iq-receiving-overview.csv",
+      "sha256": "8e90217d6ec4fe89985c8bf006e65e32ba60f15cfc0769794b69bd9828f8294e",
+      "row_count": 136,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "TGT",
+        "REC",
+        "YD",
+        "TD",
+        "YD/TGT",
+        "YD/REC",
+        "YAC",
+        "FUML"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-receiving-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:07:56.992865+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "receiving/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/receiving/efficiency",
+      "file": "stats-iq-receiving-efficiency.csv",
+      "sha256": "e5a42b717d345861eb8f79c4bfe87bf51eb4869a2caa5d98ec4722bd5d1a6482",
+      "row_count": 136,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "RTE",
+        "YPRR",
+        "TPRR",
+        "EXP%",
+        "CBALL%",
+        "CNTGT%",
+        "CNREC%",
+        "DROP",
+        "DROP%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-receiving-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:08:00.703089+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "receiving/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/receiving/analytics",
+      "file": "stats-iq-receiving-analytics.csv",
+      "sha256": "e357705c260cb7d7b7152a94d7e0ef8cf3393e0731fba204aca15edef0ff600f",
+      "row_count": 136,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "EPA",
+        "EPA/RTE",
+        "EPA/TGT",
+        "DVOA",
+        "DYAR",
+        "SEP%",
+        "xCOMP",
+        "CPOE",
+        "YDOE",
+        "aYDOE"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-receiving-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:08:03.709297+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "receiving/usage",
+      "source_url": "https://stats.ftnfantasy.com/stats/receiving/usage",
+      "file": "stats-iq-receiving-usage.csv",
+      "sha256": "203959cb7e17d1de293b22573af6ae7bdfb0b6476bc0be9c3cbebeb92e7e75d4",
+      "row_count": 136,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "SNP",
+        "SNP%",
+        "TGT",
+        "TGT%",
+        "TGT/RTE",
+        "RTE",
+        "RTE%",
+        "FREAD",
+        "FREAD%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-receiving-usage (2).csv",
+      "source_capture_at": "2026-10-28T15:08:10.058718+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "receiving/air-yards",
+      "source_url": "https://stats.ftnfantasy.com/stats/receiving/air-yards",
+      "file": "stats-iq-receiving-air-yards.csv",
+      "sha256": "94080a3a74df0a7c1e9eda999932577c54581d6f02475490e99d2ddafa1da0a1",
+      "row_count": 136,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "AIR",
+        "AIR%",
+        "aDOT",
+        "RACR",
+        "WOPR",
+        "cAIR",
+        "cAIR%",
+        "PRYD",
+        "PRYD%",
+        "dAIR",
+        "dAIR%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-receiving-air-yards (2).csv",
+      "source_capture_at": "2026-10-28T15:08:13.001681+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "coverage/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/coverage/overview",
+      "file": "stats-iq-coverage-overview.csv",
+      "sha256": "535e75867c3e0d90e879fb6e321791715059038b3351303f8b9578068d79477f",
+      "row_count": 297,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "RTE",
+        "TGT",
+        "TGT%",
+        "REC",
+        "YD",
+        "TD",
+        "YD/REC",
+        "YAC",
+        "REC%",
+        "PD",
+        "INT"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-coverage-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:08:30.053140+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "coverage/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/coverage/analytics",
+      "file": "stats-iq-coverage-analytics.csv",
+      "sha256": "4111373d60d576ea6cef507dd9ebedd9510fdc9017c0da68f8f19d6ebf2977f0",
+      "row_count": 297,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "TGT",
+        "CBALL%",
+        "INTW",
+        "INTW%",
+        "EPA/TGT",
+        "tDVOA",
+        "DVOA",
+        "SUCC%",
+        "LOCK%",
+        "CPOE",
+        "aYDOE"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-coverage-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:08:34.815115+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "coverage/air-yards",
+      "source_url": "https://stats.ftnfantasy.com/stats/coverage/air-yards",
+      "file": "stats-iq-coverage-air-yards.csv",
+      "sha256": "15f9fba44f36d19e306996c9d7be9d7eecbc7ac3111a442c7e0c74c72d9b3e66",
+      "row_count": 297,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "AIR",
+        "aDOT",
+        "cAIR",
+        "cAIR%",
+        "pAIR",
+        "pAIR%",
+        "dAIR",
+        "dAIR%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-coverage-air-yards (2).csv",
+      "source_capture_at": "2026-10-28T15:08:39.150904+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "pass-rush/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/pass-rush/overview",
+      "file": "stats-iq-pass-rush-overview.csv",
+      "sha256": "db8df8fd34aa97e2b4c0c83f91196b9ca610746c7a513ff812a54e5c4017ec1c",
+      "row_count": 233,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "SK",
+        "SK%",
+        "BP"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-pass-rush-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:09:02.587748+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "pass-rush/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/pass-rush/analytics",
+      "file": "stats-iq-pass-rush-analytics.csv",
+      "sha256": "93c337a7ef4a35f1f228308d06dacafa4803fc50f4970dba6677e804ee4a158f",
+      "row_count": 233,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "PRESS",
+        "PRESS%",
+        "TTPR",
+        "QPRESS",
+        "QPRESS%",
+        "DISR",
+        "DISR%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-pass-rush-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:09:05.216747+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rush-defense/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/rush-defense/overview",
+      "file": "stats-iq-rush-defense-overview.csv",
+      "sha256": "d2dd984d6e517c641c66b71711a4ba64c094e47c787a999f0ba79e58f96ba3db",
+      "row_count": 528,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "RSNP",
+        "RTKL",
+        "ASTKL",
+        "YD/ATT",
+        "STF",
+        "STF%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rush-defense-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:09:19.212165+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rush-defense/efficiency",
+      "source_url": "https://stats.ftnfantasy.com/stats/rush-defense/efficiency",
+      "file": "stats-iq-rush-defense-efficiency.csv",
+      "sha256": "9f7659d0a6dbf6e6bdb98fb4b54a555357b3a0e88573fab98c3cf9d7ca8616ab",
+      "row_count": 528,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "MTKL",
+        "MTKL%",
+        "YACO",
+        "SHED",
+        "SHED%",
+        "DISC",
+        "DISC%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rush-defense-efficiency (2).csv",
+      "source_capture_at": "2026-10-28T15:09:22.984708+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "rush-defense/defensive-personnel",
+      "source_url": "https://stats.ftnfantasy.com/stats/rush-defense/defensive-personnel",
+      "file": "stats-iq-rush-defense-defensive-personnel.csv",
+      "sha256": "80f81d561c8aa546b34df7044381ec95e1df9f9fbf74d8158d7aa9422494c998",
+      "row_count": 528,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "RATE",
+        "YD/ATT",
+        "STF%",
+        "RATE",
+        "YD/ATT",
+        "STF%",
+        "RATE",
+        "YD/ATT",
+        "STF%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-rush-defense-defensive-personnel (2).csv",
+      "source_capture_at": "2026-10-28T15:09:25.050386+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "pass-protection/overview",
+      "source_url": "https://stats.ftnfantasy.com/stats/pass-protection/overview",
+      "file": "stats-iq-pass-protection-overview.csv",
+      "sha256": "36227a4eb4e5e1a988ab3d1df946c55d93d53e1f9f20d230b1dd3594a9a4c168",
+      "row_count": 168,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "SKA",
+        "SKA%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-pass-protection-overview (2).csv",
+      "source_capture_at": "2026-10-28T15:09:40.005886+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    },
+    {
+      "spec": "pass-protection/analytics",
+      "source_url": "https://stats.ftnfantasy.com/stats/pass-protection/analytics",
+      "file": "stats-iq-pass-protection-analytics.csv",
+      "sha256": "dc8aee2353245a5f3823f1c739023d5a7e5f6cc465cb4fe54466fc8bfef443fc",
+      "row_count": 168,
+      "headers": [
+        "Player",
+        "Team",
+        "Position",
+        "GP",
+        "DPBK",
+        "PRESS",
+        "PRESS%",
+        "TTPR",
+        "QPRESS",
+        "QPRESS%"
+      ],
+      "browser_download_path": "C:/Users/andre/Downloads/stats-iq-pass-protection-analytics (2).csv",
+      "source_capture_at": "2026-10-28T15:09:42.621505+00:00",
+      "visible_filters": {
+        "season": 2026,
+        "season_type": "REG",
+        "weeks": "all",
+        "teams": "all",
+        "opponents": "all",
+        "positions": "all"
+      }
+    }
+  ],
+  "capture_started_at": "2026-10-28T15:02:49.095695+00:00",
+  "latest_context_preserved": {
+    "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "week": 7,
+    "generated_at": "2026-10-24T01:18:51.346Z",
+    "sha256": "7ac400c076935226545751de79d7400fb1d4b87749dcb78ed3356f320d26b348",
+    "backup": "data/research-intel/source-evidence/2026-10-28-ftn-mnf-recheck-150249Z/prior-canonical-context.json"
+  },
+  "external_mutations": false,
+  "paid_api_or_model_calls": false,
+  "captured_table_count": 36,
+  "capture_status": "complete",
+  "validation": {
+    "table_count": 36,
+    "record_count": 4674,
+    "schema_matches": 36,
+    "malformed_rows": 0,
+    "raw_hashes_verified": true,
+    "team_tables_with_32_distinct_teams": 12,
+    "content_changed_tables": 36,
+    "row_deltas": [
+      {
+        "spec": "team-offense/overview",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-defense/overview",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-defense/efficiency",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-defense/passing-analytics",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-defense/rush-analytics",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-defense/pass-rush",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/efficiency",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/tempo",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/passing-analytics",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/rushing-analytics",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/tendencies",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "team-offense/pass-protection",
+        "rows": 32,
+        "previous_rows": 32,
+        "content_changed": true
+      },
+      {
+        "spec": "passing/overview",
+        "rows": 33,
+        "previous_rows": 33,
+        "content_changed": true
+      },
+      {
+        "spec": "passing/efficiency",
+        "rows": 33,
+        "previous_rows": 33,
+        "content_changed": true
+      },
+      {
+        "spec": "passing/analytics",
+        "rows": 33,
+        "previous_rows": 33,
+        "content_changed": true
+      },
+      {
+        "spec": "passing/pressure",
+        "rows": 33,
+        "previous_rows": 33,
+        "content_changed": true
+      },
+      {
+        "spec": "passing/air-yards",
+        "rows": 33,
+        "previous_rows": 33,
+        "content_changed": true
+      },
+      {
+        "spec": "rushing/overview",
+        "rows": 42,
+        "previous_rows": 42,
+        "content_changed": true
+      },
+      {
+        "spec": "rushing/efficiency",
+        "rows": 42,
+        "previous_rows": 42,
+        "content_changed": true
+      },
+      {
+        "spec": "rushing/analytics",
+        "rows": 42,
+        "previous_rows": 42,
+        "content_changed": true
+      },
+      {
+        "spec": "rushing/usage",
+        "rows": 42,
+        "previous_rows": 42,
+        "content_changed": true
+      },
+      {
+        "spec": "receiving/overview",
+        "rows": 136,
+        "previous_rows": 136,
+        "content_changed": true
+      },
+      {
+        "spec": "receiving/efficiency",
+        "rows": 136,
+        "previous_rows": 136,
+        "content_changed": true
+      },
+      {
+        "spec": "receiving/analytics",
+        "rows": 136,
+        "previous_rows": 136,
+        "content_changed": true
+      },
+      {
+        "spec": "receiving/usage",
+        "rows": 136,
+        "previous_rows": 136,
+        "content_changed": true
+      },
+      {
+        "spec": "receiving/air-yards",
+        "rows": 136,
+        "previous_rows": 136,
+        "content_changed": true
+      },
+      {
+        "spec": "coverage/overview",
+        "rows": 297,
+        "previous_rows": 298,
+        "content_changed": true
+      },
+      {
+        "spec": "coverage/analytics",
+        "rows": 297,
+        "previous_rows": 298,
+        "content_changed": true
+      },
+      {
+        "spec": "coverage/air-yards",
+        "rows": 297,
+        "previous_rows": 298,
+        "content_changed": true
+      },
+      {
+        "spec": "pass-rush/overview",
+        "rows": 233,
+        "previous_rows": 233,
+        "content_changed": true
+      },
+      {
+        "spec": "pass-rush/analytics",
+        "rows": 233,
+        "previous_rows": 233,
+        "content_changed": true
+      },
+      {
+        "spec": "rush-defense/overview",
+        "rows": 528,
+        "previous_rows": 529,
+        "content_changed": true
+      },
+      {
+        "spec": "rush-defense/efficiency",
+        "rows": 528,
+        "previous_rows": 529,
+        "content_changed": true
+      },
+      {
+        "spec": "rush-defense/defensive-personnel",
+        "rows": 528,
+        "previous_rows": 529,
+        "content_changed": true
+      },
+      {
+        "spec": "pass-protection/overview",
+        "rows": 168,
+        "previous_rows": 169,
+        "content_changed": true
+      },
+      {
+        "spec": "pass-protection/analytics",
+        "rows": 168,
+        "previous_rows": 169,
+        "content_changed": true
+      }
+    ],
+    "mapped_team_count": 32,
+    "unmapped_record_count": 0,
+    "team_gp_checks": 384,
+    "matching_team_count": 32,
+    "team_table_count": 12
+  },
+  "statistics_coverage_status": "pass_week7_game_counts",
+  "source_capture_started_at": "2026-10-28T15:02:49.095Z",
+  "source_capture_completed_at": "2026-10-28T15:09:42.621Z",
+  "review_context": {
+    "path": "data/research-intel/review/ftn-stats-iq-week08-2026-10-28-mnf-complete.json",
+    "sha256": "9d1e5ca2603ea752e2391c99161f007eb71bb15b79f1743af648313c7ad18ebd",
+    "week": 8,
+    "status": "available_context_only"
+  },
+  "coverage_validation_path": "data/research-intel/source-evidence/2026-10-28-ftn-mnf-recheck-150249Z/coverage-validation.json",
+  "completed_at": "2026-10-28T15:11:00.684Z",
+  "canonical_latest_updated": true,
+  "independent_validation": {
+    "status": "pass",
+    "scope": "raw exports, context, schemas, hashes, all 12 team-table GP checks and preserved prior state"
+  },
+  "promotion": {
+    "at": "2026-10-28T15:13:07.679Z",
+    "target": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "before_sha256": "7ac400c076935226545751de79d7400fb1d4b87749dcb78ed3356f320d26b348",
+    "after_sha256": "9d1e5ca2603ea752e2391c99161f007eb71bb15b79f1743af648313c7ad18ebd",
+    "byte_identical_to_review_context": true,
+    "scope": "local research context only"
+  }
+}

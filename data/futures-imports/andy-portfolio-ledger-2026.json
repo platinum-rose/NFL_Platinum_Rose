@@ -2,8 +2,8 @@
  "schema_version": "1.0",
  "season": 2026,
  "as_of": "2026-10-22",
- "last_updated": "2026-10-29",
- "last_update_note": "2026-10-29: added BetOnline ticket 1009963278 (three exactas) and recorded the two promo balances used. Older positions not re-reconciled against the account.",
+ "last_updated": "2026-10-30",
+ "last_update_note": "2026-10-30: added $17.01 BetOnline VIP Reloads (4 Weekly Cash Boosts, Weeks 39-42) as available promo/free-money futures funding. 2026-10-29: added BetOnline ticket 1009963278 (three exactas) and recorded the two promo balances used. Older positions not re-reconciled against the account.",
  "units": {
   "futures_usd": 20,
   "in_season_usd": 10
@@ -75,6 +75,53 @@
    "applied_to": [
     "sea_buf_exacta_1009963278"
    ]
+  },
+  {
+   "id": "beo-vip-reloads-2026-10-30",
+   "amount_usd": 17.01,
+   "funding_type": "promo_cash_free_money",
+   "status": "available",
+   "source": "Andy-reported BetOnline VIP Reloads (Bonus / Marketing) credited 2026-10-30",
+   "eligible_use": "futures_portfolio",
+   "note": "VIP Reloads, same as cash with no restrictions; may be transferred to any book to place futures wagers. Promo balance was $0 before this credit.",
+   "components": [
+    {
+     "transaction_id": "1010448103",
+     "datetime": "2026-10-30T18:25:00-07:00",
+     "type": "Bonus",
+     "product": "Marketing",
+     "description": "Weekly Cash Boost Week 39, 2026",
+     "amount_usd": 5.25
+    },
+    {
+     "transaction_id": "1010448043",
+     "datetime": "2026-10-30T18:24:00-07:00",
+     "type": "Bonus",
+     "product": "Marketing",
+     "description": "Weekly Cash Boost Week 40, 2026",
+     "amount_usd": 3.88
+    },
+    {
+     "transaction_id": "1010447877",
+     "datetime": "2026-10-30T18:24:00-07:00",
+     "type": "Bonus",
+     "product": "Marketing",
+     "description": "Weekly Cash Boost Week 41, 2026",
+     "amount_usd": 4.6
+    },
+    {
+     "transaction_id": "1010447826",
+     "datetime": "2026-10-30T18:23:00-07:00",
+     "type": "Bonus",
+     "product": "Marketing",
+     "description": "Weekly Cash Boost Week 42, 2026",
+     "amount_usd": 3.28
+    }
+   ],
+   "deployed_usd": 0.0,
+   "remaining_usd": 17.01,
+   "deployed_at": null,
+   "applied_to": []
   }
  ],
  "positions": [
@@ -665,8 +712,16 @@
   "availability_confirmed_at": "2026-10-28T20:45:00-07:00",
   "eligible_as_required_hedge_resource": true,
   "current_equity_usd": 1070.36,
-  "confirmed_rules": ["Two-spot tickets: one side + one total only; no two sides or two totals (Andy, 2026-10-28 21:40 PT). Each two-spot ticket carries at most one hedge side; fill its total before conference weekend."],
-  "pending_rule_checks": ["side and total from the same game allowed", "whether an open spot may be left unfilled", "exact expiry per ticket", "maximum payout", "whether futures can fill a spot"],
+  "confirmed_rules": [
+   "Two-spot tickets: one side + one total only; no two sides or two totals (Andy, 2026-10-28 21:40 PT). Each two-spot ticket carries at most one hedge side; fill its total before conference weekend."
+  ],
+  "pending_rule_checks": [
+   "side and total from the same game allowed",
+   "whether an open spot may be left unfilled",
+   "exact expiry per ticket",
+   "maximum payout",
+   "whether futures can fill a spot"
+  ],
   "summary": {
    "total_tickets": 6,
    "total_open_slots": 11,

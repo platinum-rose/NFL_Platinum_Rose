@@ -1,0 +1,162 @@
+{
+ "game": "ATL@TB",
+ "pass": "sides",
+ "generated_at": "2026-10-31T06:30:00Z",
+ "packet_built_at": "2026-10-31T06:09:16Z",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "PASS (lean TB -2.5)",
+   "line": -2.5,
+   "price": -108,
+   "tier": "PASS",
+   "fair_line": -3.0,
+   "edge_pts": 0.5,
+   "playable_to": "TB C at -2.5 -103 or better / -2 -110; pass at -3; ATL only +3.5+",
+   "model_prob": 0.513,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Fair TB -3.0 from SRS/EPA/DVOA + 1.5 HFA; Koerner proj -2.6",
+    "TB run D (DVOA -21.5%) vs ATL run-centric offense",
+    "TB Pythag delta -1.79 / market rank 22 vs model 12",
+    "Sim 51.3% < 51.9% breakeven at -108",
+    "Line moved TB -1.5 -> -2.5 against 62% ATL money"
+   ],
+   "counter_case": "ATL trend stack (TB 1-11 ATS home, Mayfield 13-27-1 home fav, NFC South favs 16-34-1, div dogs 23-10), ML money 72% ATL, Egbuka OUT and Goedeke Q limit TB offense.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T01:52:00Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "TB",
+   "pool_confidence": 5
+  },
+  {
+   "market": "total",
+   "selection": "UNDER 43.5",
+   "line": 43.5,
+   "price": -112,
+   "tier": "C",
+   "fair_line": 42.5,
+   "edge_pts": 1.0,
+   "playable_to": "43.5 -115 or 44 any; pass at 43 or lower",
+   "model_prob": 0.53,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "reasons": [
+    "Wind ~13 mph gusts 18, 45% precip; Bet Labs Med-High Wind Under system",
+    "ATL off EPA #23, TB off #28, TB def #3",
+    "AN splits: over 70% bets / 47% money (23-pt sharp gap to Under)",
+    "Experts Anderson, Fezzik/Even Money on Under (priced at 45.5)"
+   ],
+   "counter_case": "Season scoring ATL 49.1 / TB 44.7 combined PPG; ATL 7-0 1Q over and 6-1 1H over; 1.5-pt move already priced the sharp under; -112 juice leaves only ~0.2 pts of EV.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T01:52:00Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "TB",
+   "pool_confidence": 5
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU TB)",
+   "line": null,
+   "price": -135,
+   "tier": "PASS",
+   "fair_line": "TB -140",
+   "edge_pts": 0.0,
+   "playable_to": "TB ML -125 or better",
+   "model_prob": 0.574,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim TB win 57.4% = -135 breakeven",
+    "Money 72% on ATL ML (24-pt gap) conflicts"
+   ],
+   "counter_case": "If TB underrating (1-5 one-score) is real, -135 is cheap; ATL ML money suggests the opposite.",
+   "book": "Bookmaker",
+   "captured_at": "2026-10-31T01:52:00Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "TB",
+   "pool_confidence": 5
+  }
+ ],
+ "adjustments": {
+  "margin_adj": 0.5,
+  "total_adj": -1.0,
+  "reasons": [
+   "margin +0.5: TB run D vs ATL run-heavy offense (FTN); TB one-score/Pythag underrating; offset by Egbuka OUT, Goedeke Q, TB home-fav ATS history",
+   "total -1.0: wind/rain + Bet Labs wind system (-0.5); both offenses bottom-10 EPA, TB def #3 (-0.5); sharp under money not added (already priced by 45->43.5 move)"
+  ]
+ },
+ "sim_runs": [
+  {
+   "home_line": -2.5,
+   "total": 43.5,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "home_cover": 0.5,
+   "over": 0.5,
+   "home_win": 0.561,
+   "tie": 0.024
+  },
+  {
+   "home_line": -2.5,
+   "total": 43.5,
+   "margin_adj": 0.5,
+   "total_adj": -1.0,
+   "home_cover": 0.513,
+   "under": 0.53,
+   "home_win": 0.574,
+   "tie": 0.024,
+   "note": "adopted; SuperContest line identical (-2.5)"
+  },
+  {
+   "home_line": -2.5,
+   "total": 43.5,
+   "margin_adj": 1.0,
+   "total_adj": -1.5,
+   "home_cover": 0.526,
+   "under": 0.545,
+   "home_win": 0.587,
+   "note": "stress"
+  }
+ ],
+ "sources": [
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (Fri 6:52 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-falcons-at-buccaneers.json (2026-10-31T01:51Z)",
+  "data/odds/actionnetwork-openers-2026-w08.json (AN open 10/25 5 PM PT)",
+  "data/supercontest/week-08-lines.json (10/29)",
+  "packet.splits (AN 2026-10-31T02:06Z)",
+  "data/intel/extracted/2026-w08-primer-intel.json (Evan Abrams 10/30)",
+  "data/generated/team-dossiers/2026-w08/ATL.md, TB.md",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+  "data/research-intel/review/2026-w08-weather-venue.json",
+  "data/podcasts/youtube-extracted-picks-2026-w08.json",
+  "scratch/w08-qb-confirmations-1030.md",
+  "https://www.buccaneers.com/news/buccaneers-falcons-injury-report-oct-28-week-8-2026",
+  "https://www.atlantafalcons.com/news/falcons-depth-chart-released-for-week-8-rematch-vs-buccaneers (stale 2024 page; HC video title only)",
+  "https://www.newstribune.com/news/2026/aug/14/falcons-defensive-end-james-pearce-jr-suspended-eight-games/"
+ ],
+ "ambiguities": [
+  "Dossier lists ATL HC Raheem Morris (historical_context_only) vs AN primer/Falcons site Kevin Stefanski; Stefanski used",
+  "Drake London absent from packet; WR1 status unverified",
+  "AN primer total open 45.5 vs AN openers file 45.0",
+  "ATL 'International Series on deck' slate trend tag; W9 venue unverified",
+  "Splits conflict: AN 62% money ATL spread vs BetMGM 66% money TB"
+ ],
+ "delta_checklist": [
+  "Goedeke inactive (8:30 AM PT): TB -0.5, under +",
+  "BKR TB -3: hard pass TB; TB -2/-2.5 at -103 or better: TB C",
+  "Total 44+: Under to B; 43 or lower: Under PASS",
+  "Game-day wind 15+ mph sustained or rain: under confirmed; calm/dry: under PASS",
+  "Zaccheaus/Deablo/Gainwell inactive: minor, no side change"
+ ],
+ "gate_notes": [
+  "missing_inputs empty",
+  "roster_vet PASS 8.5h, 2 UNVERIFIED slate-wide",
+  "Kickoff not passed",
+  "Dossier coaching stale (Morris vs Stefanski); secondary_matchups coach names ignored",
+  "availability feed bugs: web-verified Egbuka OUT, Gainwell/Goedeke Q, Pearce 8-game suspension; ATL FantasyPros Q rows (07:00Z) unconfirmed",
+  "Falcons depth-chart URL returned 2024 page; disregarded"
+ ]
+}

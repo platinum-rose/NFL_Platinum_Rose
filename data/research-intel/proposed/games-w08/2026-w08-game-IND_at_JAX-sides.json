@@ -1,0 +1,160 @@
+{
+ "game": "IND@JAX",
+ "pass": "sides",
+ "generated_at": "2026-10-31T06:25:00Z",
+ "packet_built_at": "2026-10-31T06:09:16.720038+00:00",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "PASS (lean JAX)",
+   "line": -10,
+   "price": -103,
+   "tier": "PASS",
+   "fair_line": -10.5,
+   "edge_pts": 0.5,
+   "playable_to": "JAX -9.5 -110 or better (C); pass at -10",
+   "model_prob": 0.5018,
+   "supercontest_candidate": false,
+   "straight_up_winner": "JAX",
+   "pool_confidence": 14,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Fair JAX -10.5 from regressed SRS gap (+8.41 vs -4.13) plus ~1 pt for Nelson/Buckner trades [power_ratings; qb_operator_notes]",
+    "Sim at BKR -10 w/ +0.5 adj: JAX cover 50.2% vs 50.7% break-even at -103",
+    "Line moved AN open -7.5 -> -10 after 10/27 trades; JAX-side experts all priced at -7.5",
+    "SuperContest -9.5: sim 52.9% cover (+1.0 adj) - lean only, not a candidate"
+   ],
+   "counter_case": "IND side: Tuley best bet IND +10, Koerner IND +10 (proj +9.5), division dogs 23-10 ATS, 6+ pt favs 8-21-3 ATS, ref Adrian Hill home favs 0-12 ATS / Lawrence 0-6 ATS; JAX side: 18-3-1 ATS vs IND since 2015, off bye, Coen/Lawrence 9-2 ATS home.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:25.560Z"
+  },
+  {
+   "market": "total",
+   "selection": "UNDER",
+   "line": 46,
+   "price": -103,
+   "tier": "B",
+   "fair_line": 44.5,
+   "edge_pts": 1.5,
+   "playable_to": "u45.5 -110; pass at 45 or lower",
+   "model_prob": 0.5303,
+   "supercontest_candidate": false,
+   "straight_up_winner": "JAX",
+   "pool_confidence": 14,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "reasons": [
+    "IND offense 4.51 YPP, EPA/play #26, 12 giveaways, lost G Quenton Nelson; faces JAX run D DVOA -31.1% [dossiers; FTN]",
+    "Weather: 13 mph wind / 21 mph gusts, 39% precip (Open-Meteo); 10/28 Fantasy4Casts 71% rain/24 mph gusts",
+    "Bet Labs under systems: Med-High Wind Games 1297-1122-32; Divisional Unders High Total 393-292-7 [an_primer]",
+    "JAX 19-7 1H under at home last four seasons [an_primer]",
+    "BettingPros Under 46.5; Woolcock IND TT u18.5; PFT projected 24-9 (33 total)",
+    "Sim (total -1.5): under 53.0% (54.7% ex-push) vs 50.7% break-even at -103"
+   ],
+   "counter_case": "JAX scores 30.8 PPG at home under Coen/Lawrence; IND turnovers create short fields; IND D minus Buckner and slot CB Walley; garbage-time IND TD; JAX played 34-31 vs HOU in W6.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:25.560Z"
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU winner JAX)",
+   "line": null,
+   "price": -519,
+   "tier": "PASS",
+   "fair_line": -393,
+   "edge_pts": null,
+   "playable_to": "none (JAX fair ~79.7%; -519 implies 83.8%)",
+   "model_prob": 0.7971,
+   "supercontest_candidate": false,
+   "straight_up_winner": "JAX",
+   "pool_confidence": 14,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim JAX win (ex-tie) 79.7% at adjusted margin vs 83.8% implied at -519; IND +417 (19.3%) vs ~20.3% fair is too thin",
+    "BUK BUK SU: JAX; confidence 14/16"
+   ],
+   "counter_case": "Upset path needs IND turnover luck (3 takeaways in 7 games) or a JAX letdown off the bye; Lawrence 0-6 ATS with ref Hill.",
+   "book": "BKR",
+   "captured_at": "2026-10-31T01:51:25.560Z"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": 0.5,
+  "total_adj": -1.5,
+  "reasons": [
+   "margin +0.5 (home-positive) vs BKR -10: fair JAX -10.5 = 50%-regressed SRS gap (~9.5) + ~1 pt for 10/27 Nelson/Buckner trades; +1.0 vs SC -9.5 (same view)",
+   "total -1.5: IND offense bottom-7 YPP + OL downgrade vs elite JAX run D; wind/rain risk; JAX home 1H-under profile; Bet Labs under systems"
+  ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line -10 --total 46",
+   "home_cover": 0.4874,
+   "away_cover": 0.4874,
+   "push": 0.0253,
+   "over": 0.4848,
+   "under": 0.4848,
+   "home_win": 0.7958
+  },
+  {
+   "args": "--home-line -10 --total 46 --margin-adj 0.5 --total-adj -1.5",
+   "home_cover": 0.5018,
+   "away_cover": 0.473,
+   "push": 0.0252,
+   "over": 0.4395,
+   "under": 0.5303,
+   "under_excl_push": 0.5468,
+   "home_win_excl_tie": 0.7971
+  },
+  {
+   "args": "--home-line -9.5 --total 46",
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "push": 0.0,
+   "home_win": 0.7871
+  },
+  {
+   "args": "--home-line -9.5 --total 46 --margin-adj 1.0 --total-adj -1.5",
+   "home_cover": 0.5288,
+   "away_cover": 0.4712,
+   "push": 0.0,
+   "under": 0.5303,
+   "home_win_excl_tie": 0.7983
+  }
+ ],
+ "sources": [
+  "scratch/w08-game-synthesis-queue-sides.json (packet IND@JAX, built 2026-10-31T06:09Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt (BKR paste Fri 6:52 PM PT)",
+  "data/generated/props/bookmaker-live-2026-10-31-colts-at-jaguars.json (capturedAt 2026-10-31T01:51:25Z)",
+  "packet market.an_opener (AN open 2026-10-26T00:59Z) and supercontest_line (2026-10-29T16:07Z)",
+  "packet splits (Action Network 2026-10-31T02:06Z); an_primer (Evan Abrams, published 2026-10-30T15:19Z / systems 2026-10-31T04:34Z)",
+  "data/generated/team-dossiers/2026-w08/IND.md; data/generated/team-dossiers/2026-w08/JAX.md (built 2026-10-31T01:01Z)",
+  "packet power_ratings, prediction_markets, secondary_matchups, weather, availability, qb_operator_notes",
+  "packet expert_picks_pull, youtube_picks_approved, pick_signals, news_notes",
+  "scripts/intel/margin-simulator.mjs (selftest PASS; calibration 2018-2025)"
+ ],
+ "ambiguities": [
+  "AN primer lists total_open 48.5 vs packet an_opener total 46.5; report uses 46.5",
+  "Weather: Open-Meteo 39%/0 mm vs Fantasy4Casts 10/28 71% rain/24 mph gusts",
+  "Final Friday injury reports not web-verified (search returned no 2026 W8 pages); relied on qb_operator_notes/availability",
+  "Jonathan Taylor trade speculation (deadline Nov 10); he and Steichen deny a request",
+  "John Ewing 'IND O6.5 / JAX O11.5' pick_signals are season win totals, excluded from game-total consensus"
+ ],
+ "delta_checklist": [
+  "BKR JAX -9.5 -> JAX side playable at C (also SC line); -10.5+ stays pass",
+  "Total <=45 -> under PASS; >=46.5 -> under strengthens (still B)",
+  "J. Taylor traded/inactive -> fair JAX -12 / total ~43; under to B+/A-",
+  "Inactives ~8:30 AM PT Sun (PST after DST end): Meyers out = no change",
+  "Sunday forecast sustained 15+ mph wind or rain keeps under; calm/clear trims under to C"
+ ],
+ "gate_notes": [
+  "missing_inputs empty - no caps",
+  "roster_vet PASS (8.5 h)",
+  "Kickoff not passed - forward picks",
+  "One web search for Friday injury reports returned only prior-season pages; designations from qb_operator_notes + availability feed",
+  "secondary_matchups coach names ignored per rule 7; HCs per dossiers: Steichen (IND), Coen (JAX)",
+  "AN total-open conflict 48.5 vs 46.5 logged"
+ ]
+}

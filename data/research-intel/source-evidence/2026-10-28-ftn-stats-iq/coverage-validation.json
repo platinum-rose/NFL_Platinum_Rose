@@ -1,0 +1,352 @@
+{
+  "schema": "ftn_weekly_coverage_validation_v1",
+  "checked_at": "2026-10-28T08:46:52.714Z",
+  "preparation_week": 8,
+  "intended_statistics_through_week": 7,
+  "status": "hold_incomplete_week7",
+  "team_count": 32,
+  "matching_team_count": 30,
+  "teams_with_gaps": [
+    {
+      "team": "DAL",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "25.2",
+      "expected_points_per_game_through_week7": 27,
+      "gp_matches": false
+    },
+    {
+      "team": "PHI",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "17.7",
+      "expected_points_per_game_through_week7": 18.1,
+      "gp_matches": false
+    }
+  ],
+  "checks": [
+    {
+      "team": "ARI",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "19.4",
+      "expected_points_per_game_through_week7": 20.3,
+      "gp_matches": true
+    },
+    {
+      "team": "ATL",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "21.9",
+      "expected_points_per_game_through_week7": 24.4,
+      "gp_matches": true
+    },
+    {
+      "team": "BAL",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "23.3",
+      "expected_points_per_game_through_week7": 24.1,
+      "gp_matches": true
+    },
+    {
+      "team": "BUF",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "32.8",
+      "expected_points_per_game_through_week7": 32.8,
+      "gp_matches": true
+    },
+    {
+      "team": "CAR",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "24.8",
+      "expected_points_per_game_through_week7": 26.5,
+      "gp_matches": true
+    },
+    {
+      "team": "CHI",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "25.7",
+      "expected_points_per_game_through_week7": 25.7,
+      "gp_matches": true
+    },
+    {
+      "team": "CIN",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "25.2",
+      "expected_points_per_game_through_week7": 27.2,
+      "gp_matches": true
+    },
+    {
+      "team": "CLE",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "19.0",
+      "expected_points_per_game_through_week7": 19,
+      "gp_matches": true
+    },
+    {
+      "team": "DAL",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "25.2",
+      "expected_points_per_game_through_week7": 27,
+      "gp_matches": false
+    },
+    {
+      "team": "DEN",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "19.7",
+      "expected_points_per_game_through_week7": 20.6,
+      "gp_matches": true
+    },
+    {
+      "team": "DET",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "30.7",
+      "expected_points_per_game_through_week7": 30.7,
+      "gp_matches": true
+    },
+    {
+      "team": "GB",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "20.6",
+      "expected_points_per_game_through_week7": 20.6,
+      "gp_matches": true
+    },
+    {
+      "team": "HOU",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "23.6",
+      "expected_points_per_game_through_week7": 23.6,
+      "gp_matches": true
+    },
+    {
+      "team": "IND",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "21.1",
+      "expected_points_per_game_through_week7": 22,
+      "gp_matches": true
+    },
+    {
+      "team": "JAX",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "25.7",
+      "expected_points_per_game_through_week7": 25.7,
+      "gp_matches": true
+    },
+    {
+      "team": "KC",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "23.8",
+      "expected_points_per_game_through_week7": 23.8,
+      "gp_matches": true
+    },
+    {
+      "team": "LAC",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "15.0",
+      "expected_points_per_game_through_week7": 15,
+      "gp_matches": true
+    },
+    {
+      "team": "LAR",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "23.4",
+      "expected_points_per_game_through_week7": 24.3,
+      "gp_matches": true
+    },
+    {
+      "team": "LV",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "25.9",
+      "expected_points_per_game_through_week7": 26.1,
+      "gp_matches": true
+    },
+    {
+      "team": "MIA",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "16.3",
+      "expected_points_per_game_through_week7": 16.3,
+      "gp_matches": true
+    },
+    {
+      "team": "MIN",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "18.8",
+      "expected_points_per_game_through_week7": 20.8,
+      "gp_matches": true
+    },
+    {
+      "team": "NE",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "22.0",
+      "expected_points_per_game_through_week7": 22.9,
+      "gp_matches": true
+    },
+    {
+      "team": "NO",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "22.3",
+      "expected_points_per_game_through_week7": 23.1,
+      "gp_matches": true
+    },
+    {
+      "team": "NYG",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "22.4",
+      "expected_points_per_game_through_week7": 23.3,
+      "gp_matches": true
+    },
+    {
+      "team": "NYJ",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "19.6",
+      "expected_points_per_game_through_week7": 19.6,
+      "gp_matches": true
+    },
+    {
+      "team": "PHI",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "17.7",
+      "expected_points_per_game_through_week7": 18.1,
+      "gp_matches": false
+    },
+    {
+      "team": "PIT",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "20.1",
+      "expected_points_per_game_through_week7": 21.9,
+      "gp_matches": true
+    },
+    {
+      "team": "SEA",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "22.3",
+      "expected_points_per_game_through_week7": 24,
+      "gp_matches": true
+    },
+    {
+      "team": "SF",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "27.3",
+      "expected_points_per_game_through_week7": 28.1,
+      "gp_matches": true
+    },
+    {
+      "team": "TB",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "21.1",
+      "expected_points_per_game_through_week7": 23.1,
+      "gp_matches": true
+    },
+    {
+      "team": "TEN",
+      "expected_completed_games": 7,
+      "ftn_offense_gp": 7,
+      "ftn_defense_gp": 7,
+      "ftn_points_per_game": "14.6",
+      "expected_points_per_game_through_week7": 15.4,
+      "gp_matches": true
+    },
+    {
+      "team": "WAS",
+      "expected_completed_games": 6,
+      "ftn_offense_gp": 6,
+      "ftn_defense_gp": 6,
+      "ftn_points_per_game": "21.0",
+      "expected_points_per_game_through_week7": 22,
+      "gp_matches": true
+    }
+  ],
+  "confirmed_missing_game": {
+    "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+    "observed_at": "2026-10-28T08:45:34.859434+00:00",
+    "game_id": "401873009",
+    "week": 7,
+    "competition_date": "2026-10-27T00:15Z",
+    "status": {
+      "type": {
+        "id": "3",
+        "name": "STATUS_FINAL",
+        "state": "post",
+        "completed": true,
+        "description": "Final",
+        "detail": "Final",
+        "shortDetail": "Final"
+      },
+      "isTBDFlex": false
+    },
+    "teams": [
+      {
+        "team": "PHI",
+        "score": "21"
+      },
+      {
+        "team": "DAL",
+        "score": "38"
+      }
+    ]
+  },
+  "validation_limits": [
+    "Games-played counts test coverage; they do not independently verify every FTN metric.",
+    "No missing source statistics were calculated into or substituted for the FTN export values."
+  ]
+}
