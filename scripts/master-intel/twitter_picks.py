@@ -28,6 +28,13 @@ TEAM = {'NYJ': 'new york jets', 'BAL': 'baltimore ravens', 'CHI': 'chicago bears
 
 def merge(yt, root, season, ww):
     """Mutates and returns yt (dict with picks/dropped). Adds twitter picks with source_pipeline twitter_video."""
+    # 2026-10-30: also merge picks read from articles through Chrome (same schema)
+    ap = os.path.join(root, f'data/intel/extracted/{season}-w{ww}-chrome-article-picks.json')
+    if os.path.exists(ap):
+        art = json.load(open(ap, encoding='utf-8'))
+        yt = yt or {}; yt.setdefault('picks', []); yt.setdefault('dropped', [])
+        yt['picks'].extend(art.get('picks', []))
+        yt.setdefault('sources_merged', []).append(dict(path=ap, added=len(art.get('picks', [])), status=art.get('status')))
     p = os.path.join(root, f'data/twitter/twitter-video-picks-{season}-w{ww}.json')
     if not os.path.exists(p):
         return yt
