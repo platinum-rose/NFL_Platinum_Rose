@@ -1,0 +1,284 @@
+{
+ "schema": "final_gate_check_v1",
+ "season": 2026,
+ "week": 8,
+ "stage": "friday",
+ "run_at": "2026-10-30T21:02:45.243624-07:00",
+ "verdict": "RED",
+ "games_remaining": 13,
+ "bkr_capture_date": "2026-10-31",
+ "required_failures": 4,
+ "warnings": 5,
+ "checks": [
+  {
+   "id": "A1",
+   "group": "Analysis layer",
+   "title": "Week slate confirmed",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "14 games, 13 still to play; operator_confirmed=True",
+   "fix": ""
+  },
+  {
+   "id": "A2",
+   "group": "Analysis layer",
+   "title": "Team dossiers",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/team-dossiers/2026-w08: 35 team files",
+   "fix": ""
+  },
+  {
+   "id": "A3",
+   "group": "Analysis layer",
+   "title": "Roster gate (ESPN 2026, strict)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "status=PASS, roster age 6.5h, blocking=0",
+   "fix": ""
+  },
+  {
+   "id": "L1",
+   "group": "Lines & markets",
+   "title": "Bookmaker capture (SGP props + game lines)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 2.1h old (limit 30h); games=13 (need 13)",
+   "fix": ""
+  },
+  {
+   "id": "L2",
+   "group": "Lines & markets",
+   "title": "BKR game-lines file for the synthesis queue",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/props/bookmaker-gamelines-2026-10-31-week8.raw.txt",
+   "fix": ""
+  },
+  {
+   "id": "L3",
+   "group": "Lines & markets",
+   "title": "Action Network openers (line-move baseline)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/odds/actionnetwork-openers-2026-w08.json",
+   "fix": ""
+  },
+  {
+   "id": "L4",
+   "group": "Lines & markets",
+   "title": "Master Intel pull (signals, expert picks, articles, splits)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/master-intel/w08-pull.json \u2014 1.9h old (limit 30h); pulled_at=2026-10-30T22:34:51.847Z, signals=214, expert=94",
+   "fix": ""
+  },
+  {
+   "id": "L5",
+   "group": "Lines & markets",
+   "title": "Betting splits (Action Network)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (1.9h; limit 30h)",
+   "fix": ""
+  },
+  {
+   "id": "L6",
+   "group": "Lines & markets",
+   "title": "BetOnline player props (prop stacks, props pass)",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "data/generated/props/betonline-live-2026-10-29-week8.json; rows=522; age=28.9h",
+   "fix": "npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon)."
+  },
+  {
+   "id": "L7",
+   "group": "Lines & markets",
+   "title": "DraftKings Predictions props",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "data/generated/props/dk-predictions-2026-10-17-titans-at-colts.json",
+   "fix": "npm run props:dkp:launch (log in) \u2192 npm run props:dkp:cron \u2192 npm run props:dkp:defense"
+  },
+  {
+   "id": "L8",
+   "group": "Lines & markets",
+   "title": "Prediction markets + coherence",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 6.0h old (limit 36h)",
+   "fix": ""
+  },
+  {
+   "id": "L9",
+   "group": "Lines & markets",
+   "title": "SuperContest contest lines",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/supercontest/week-08-lines.json",
+   "fix": ""
+  },
+  {
+   "id": "I1",
+   "group": "Rosters & injuries",
+   "title": "Player availability / injury report",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/player-availability/latest.json \u2014 4.5h old (limit 24h)",
+   "fix": ""
+  },
+  {
+   "id": "I2",
+   "group": "Rosters & injuries",
+   "title": "Projected starters",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 6.0h old (limit 30h)",
+   "fix": ""
+  },
+  {
+   "id": "I3",
+   "group": "Rosters & injuries",
+   "title": "Weather / venue",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 3.0h old (limit 48h)",
+   "fix": ""
+  },
+  {
+   "id": "Q1",
+   "group": "Analytics",
+   "title": "Team power ratings / SRS (fair lines)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 52.5h old (limit 192h)",
+   "fix": ""
+  },
+  {
+   "id": "Q2",
+   "group": "Analytics",
+   "title": "Secondary matchup vulnerability",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/secondary-matchups/secondary-matchup-vulnerability-2026-w08.json",
+   "fix": ""
+  },
+  {
+   "id": "Q3",
+   "group": "Analytics",
+   "title": "FTN Stats IQ weekly context",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (6h)",
+   "fix": "FTN refresh (weekly only)."
+  },
+  {
+   "id": "Q4",
+   "group": "Analytics",
+   "title": "Fair-line model + simulator inputs",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "reports/intel/w08-model/fair-lines-w08.json",
+   "fix": "Re-run fair_lines.py on current lines (stage run does this)."
+  },
+  {
+   "id": "E1",
+   "group": "Expert & media intel",
+   "title": "YouTube / podcast picks (Gemini, cleaned)",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "missing: data/podcasts/youtube-extracted-picks-2026-w08.json",
+   "fix": "Sweep \u2192 Gemini extraction (Andy terminal) \u2192 clean to the picks file (runbook \u00a74)."
+  },
+  {
+   "id": "E2",
+   "group": "Expert & media intel",
+   "title": "Grok X-thread extraction (every week)",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "0 CSV in data/vault-seed/manual/grok-week08-threads",
+   "fix": "Paste data/research-intel/grok-thread-prompt-latest.md into Grok \u2192 save CSV there \u2192 node scripts/load-external-intel-picks.mjs --dry-run, then --replace."
+  },
+  {
+   "id": "E3",
+   "group": "Expert & media intel",
+   "title": "BettingPros article intel",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "reports/intel/bettingpros-articles-2026-w08.md",
+   "fix": "Read the week's BettingPros NFL articles (Claude in Chrome)."
+  },
+  {
+   "id": "E4",
+   "group": "Expert & media intel",
+   "title": "Per-expert narrative summaries",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "reports/intel/expert-narratives-2026-w08.md",
+   "fix": "Written during the stage run (step 6)."
+  },
+  {
+   "id": "E5",
+   "group": "Expert & media intel",
+   "title": "Article feed health",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "Action Network: Response is not a parseable RSS/Atom feed; Gemini Audio Diarization: Gemini file upload (start) failed: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fix": "Cover failed feeds by browser pulls."
+  },
+  {
+   "id": "S1",
+   "group": "Synthesis queues",
+   "title": "Sides synthesis queue",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "scratch/w08-game-synthesis-queue-sides.json: 13 packets; missing=none",
+   "fix": ""
+  },
+  {
+   "id": "S2",
+   "group": "Synthesis queues",
+   "title": "Props synthesis queue",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "scratch/w08-game-synthesis-queue-props.json: 13 packets; missing={\"LV@NYJ\": [\"betonline player-prop board thin/missing (26 rows)\"], \"ARI@DAL\": [\"betonline player-prop board thin/missing (26 rows)\"], \"ATL@TB\": [\"betonline player-prop board thin/missing (32 rows)\"], \"CLE@PIT\": [\"betonline player-prop board thin/missing (22 rows)\"], \"IND@JAX\": [\"betonline player-pro",
+   "fix": ""
+  },
+  {
+   "id": "M-news_flags_resolved",
+   "group": "Manual confirmations",
+   "title": "news flags resolved",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "Trades, QB changes, pulled markets, late news checked by live search and reflected in packets/narratives",
+   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+  },
+  {
+   "id": "M-qb_status_confirmed",
+   "group": "Manual confirmations",
+   "title": "qb status confirmed",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "Every starting QB confirmed (team sites / insiders)",
+   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+  },
+  {
+   "id": "M-final_injury_reports_checked",
+   "group": "Manual confirmations",
+   "title": "final injury reports checked",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "Friday's official designations (Out/Doubtful/Questionable) checked for every game",
+   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+  },
+  {
+   "id": "M-supercontest_report_reviewed",
+   "group": "Manual confirmations",
+   "title": "supercontest report reviewed",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "Andy has the Friday SC Intel report (the official five is NOT a prerequisite for either report)",
+   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+  }
+ ]
+}

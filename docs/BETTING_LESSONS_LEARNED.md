@@ -224,6 +224,12 @@ Source: ESPN summary feed for event 401872995. These figures are not yet checked
 
 ---
 
+## Process note — 2026-10-30: BEO Super Bowl exactas can vanish before TNF (Andy)
+
+In Week 8 the BetOnline Super Bowl exact-matchup lines were already gone by **Thursday morning**, earlier than the usual "released Tue–Thu, gone at TNF kickoff" pattern. There is no guarantee exactas stay up until TNF kickoff.
+
+**Rule (this season and next):** strike on exactas as soon as BEO posts them (from Tuesday). Don't hold an exacta plan for Thursday morning. Free-money balances earmarked for exactas should be deployed the day the lines appear.
+
 ## Template for future entries
 
 ```

@@ -8,6 +8,15 @@
 > **Guardrails.** Everything here is read-only. No bet placement, no bet-slip clicks, no Supabase writes (the pull is SELECT-only), no `git add -A`.
 > Sportsbook pages are real-money accounts. Read the rendered page only. DK Predictions and Kalshi prices are contract percentages, not sportsbook odds; never swap one for the other without a fee/spread check.
 
+## 0. Weekly cadence and the Final Gate Check (since 2026-10-30)
+
+The reports are built twice a week, each time only after the Final Gate Check is GREEN:
+
+1. **Friday** — `python3 scripts/master-intel/final_gate_check.py --week <N> --stage friday` → GREEN → run `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md` with STAGE=friday (full build of Master Intel + SuperContest Intel).
+2. **Late Saturday** — same check with `--stage saturday` (tighter freshness; BEO Sunday props, weather and final injury designations required) → GREEN → STAGE=saturday (delta re-synthesis, full rebuild; Friday outputs snapshotted to `dist/nfl_week<N>_master_packet_friday/`).
+
+The gate writes `reports/intel/gates/w<NN>-final-gate-<stage>.md`/`.json` and exits 1 on any REQUIRED failure. Manual confirmations (news flags, QB status, final injury reports) are recorded in `data/generated/master-intel/w<NN>-gate-manual.json`. YouTube/podcast picks and the Grok X-thread extraction are REQUIRED every week. The SuperContest official five is never a prerequisite: the SC report comes first.
+
 ## 1. Pipeline at a glance
 
 | Step | Command / action | Produces | Required? |
