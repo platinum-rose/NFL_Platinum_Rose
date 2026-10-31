@@ -1,0 +1,8 @@
+{
+  "schema": "podcast_host_map_v1",
+  "note": "Fallback attribution for podcast picks with no per-pick speaker. Only single-host shows get a fixed host; multi-host shows stay show-level unless a speaker is found (diarization or a matching YouTube pick). Edit freely.",
+  "rules": [
+    {"feed": "Action Network", "title_regex": "Betting Playground", "host": "Brandon Anderson"},
+    {"feed": "Daniel Jeremiah & Bucky Brooks", "title_regex": ".", "host": "Daniel Jeremiah & Bucky Brooks"}
+  ]
+}

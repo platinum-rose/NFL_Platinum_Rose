@@ -221,7 +221,7 @@ for x in pull.get('expert') or []: corpus.append(('pull:expert', json.dumps(x)))
 for x in sig: corpus.append((f'pull:{x.get("source")}', json.dumps(x)))
 for x in ytj.get('picks') or []: corpus.append(('youtube', json.dumps(x)))
 for f in grok: corpus.append(('grok', open(f, encoding='utf-8', errors='ignore').read()))
-for f in glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json') + [bp, en]:
+for f in glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json') + [bp, en, f'data/intel/extracted/{S}-w{WW}-primer-intel.json']:
     if os.path.exists(f): corpus.append((os.path.basename(f), open(f, encoding='utf-8', errors='ignore').read()))
 found, missing = {}, []
 for e in exps:
