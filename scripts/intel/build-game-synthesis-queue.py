@@ -57,6 +57,11 @@ openers = use('an_openers', f'data/odds/actionnetwork-openers-{S}-w{WW}.json') o
 sc = use('supercontest_lines', f'data/supercontest/week-{WW}-lines.json') or {}
 wx = use('weather', f'data/research-intel/review/{S}-w{WW}-weather-venue.json') or {}
 yt = use('youtube_picks', f'data/podcasts/youtube-extracted-picks-{S}-w{WW}.json') or {}
+try:  # 2026-10-30: Twitter/X video picks (Antigravity) ride the YouTube-picks path; dupes of Grok rows dropped
+    import sys as _sys; _sys.path.insert(0, os.path.join(ROOT, 'scripts', 'master-intel')) if 'ROOT' in globals() else _sys.path.insert(0, 'scripts/master-intel')
+    import twitter_picks as _tp; yt = _tp.merge(yt, ROOT if 'ROOT' in globals() else '.', S, WW)
+except Exception as _e:
+    print('twitter picks merge skipped:', _e)
 sec = use('secondary', f'data/secondary-matchups/secondary-matchup-vulnerability-{S}-w{WW}.json') or {}
 pr = use('power_ratings', 'data/generated/team-profiles/team-power-ratings-2026.json') or {}
 av = use('availability', 'data/player-availability/latest.json') or {}

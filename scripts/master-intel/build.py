@@ -602,6 +602,10 @@ def main():
     beo_source, beo = market_captures.beo_rows(W, D)
     if not beo: gaps.append(f'No parsed BEO boards (data/generated/props/beo-w{WW}.json).')
     yt = J(f'data/podcasts/youtube-extracted-picks-2026-w{WW}.json', {}) or {}
+    try:  # 2026-10-30: merge Twitter/X video picks (same schema); duplicates of Grok rows dropped
+        import twitter_picks as _tp; yt = _tp.merge(yt, str(ROOT), a.season, WW)
+    except Exception as _e:
+        gaps.append(f'Twitter video picks not merged: {_e}')
     if not yt: gaps.append('No cleaned YouTube pick digest this week.')
     # W7+ YouTube files use a flat schema (team/player/market/side/line/price); normalize to the pick/raw shape used below
     for _p in (yt.get('picks', []) if yt else []):

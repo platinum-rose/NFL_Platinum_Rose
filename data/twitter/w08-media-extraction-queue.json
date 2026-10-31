@@ -9,10 +9,12 @@
  ],
  "note": "scripts/process-twitter-video-queue.py (Antigravity request 2026-10-23) was never built: videos need a manual or new automated pass. Gate requires every sunday_slate item to be done or explicitly skipped (with reason) by the Saturday run.",
  "counts": {
-  "video:pending": 4,
-  "linked_youtube:pending": 2,
+  "video:pending": 0,
+  "linked_youtube:pending": 0,
+  "video:done": 4,
+  "linked_youtube:done": 1,
   "video:skip": 2,
-  "linked_youtube:skip": 3,
+  "linked_youtube:skip": 4,
   "thread_text:done": 12,
   "image_or_chart:done": 18
  },
@@ -25,8 +27,13 @@
    "duration_s": 138,
    "context": "[1/2] Vs Kenneth Walker weeks 1-6:\n\ndefenses used 8+ box defenders 48% of rushes\nWalker still gained 6.3 YPC (#1 in NFL)\n\nSeattle?\n\nused 8+ box defenders 21% of",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks"
+   "status": "done",
+   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "picks_count": 0,
+   "note_path": "data/vault-seed/manual/twitter-video-2115098526799839473.md",
+   "transcript_path": "data/twitter/transcripts/2115098526799839473.txt",
+   "result": "Transcribed: 0 picks \u2014 film/statistical breakdown of Kenneth Walker vs Seattle light box counts (Week 7 review)"
   },
   {
    "kind": "linked_youtube",
@@ -36,8 +43,11 @@
    "duration_s": 0,
    "context": "[1/2] NFL strength of schedule to-date\n\nthru 7 weeks, easiest schedules of opponents:\n\n1. Vikings\n2. Ravens\n3. Giants\n4. Jets\n5. 49ers\n\nhardest:\n\n32. Dolphins\n3",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "YouTube sweep (--only-ids) or transcript of the linked video"
+   "status": "done",
+   "method": "YouTube sweep (--only-ids) or transcript of the linked video",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "picks_count": 0,
+   "result": "Audited: 0 picks \u2014 linked video jXRWev1S61I is 'NFL Week 7 Takeaways' (Seattle vs Walker, Chiefs, Ravens, Bo Nix, MNF recap; recorded 10/27 before Week 8 props)"
   },
   {
    "kind": "linked_youtube",
@@ -47,8 +57,11 @@
    "duration_s": 0,
    "context": "[1/2] Remaining NFL Strength of Schedule\n\nWeeks 8-18 (rest of season)\n\nEasiest:\n\n1. Jaguars\n2. Bengals\n3. Texans\n4. Cowboys\n5. Bucs\n\nHardest:\n\n32. Ravens\n31. St",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "YouTube sweep (--only-ids) or transcript of the linked video"
+   "status": "skip",
+   "method": "YouTube sweep (--only-ids) or transcript of the linked video",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "skip_reason": "duplicate of linked video jXRWev1S61I in tweet 2115115399704694810",
+   "result": "Skip \u2014 duplicate linked YouTube video jXRWev1S61I"
   },
   {
    "kind": "video",
@@ -69,8 +82,13 @@
    "duration_s": 146,
    "context": "The Way Too Early 5 Best NFL Bets for Week 8: https://t.co/8N0oIdrS0B",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks"
+   "status": "done",
+   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "picks_count": 4,
+   "note_path": "data/vault-seed/manual/twitter-video-2115481971044331576.md",
+   "transcript_path": "data/twitter/transcripts/2115481971044331576.txt",
+   "result": "Transcribed: 4 picks extracted (Bijan o79.5 rush, A.J. Brown o59.5 rec, Brissett o249.5 pass, Goff u274.5 pass; Ollie Gordon dropped due to contradictory side/clip cutoff)"
   },
   {
    "kind": "video",
@@ -102,8 +120,13 @@
    "duration_s": 1839,
    "context": "[1/2] \ud83c\udfafNFL Week 8 Best Bets Show!\n\nI got 1 ugly favorite, 2 live dogs, and some market info on every game!\n\nCHAPTERS \n00:00 - INTRO \n02:20 - IND VS JAX \n04:40 -",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks"
+   "status": "done",
+   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "picks_count": 3,
+   "note_path": "data/vault-seed/manual/twitter-video-2116170932544798882.md",
+   "transcript_path": "data/twitter/transcripts/2116170932544798882.txt",
+   "result": "Transcribed: 3 picks extracted \u2014 Week 8 Best Bets: NYJ ML (-120), BAL +3.5, CHI +3.5"
   },
   {
    "kind": "linked_youtube",
@@ -124,8 +147,13 @@
    "duration_s": 323,
    "context": "[1/2] The most remarkable thing about the Buffalo Bills, and it's not Josh Allen. They have been an NFL outlier since the beginning of 2023 in one area, and the",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks"
+   "status": "done",
+   "method": "audio transcription (single speaker = account) -> pick extraction; schema = youtube-extracted-picks",
+   "processed_at": "2026-10-30T22:00:00-07:00",
+   "picks_count": 0,
+   "note_path": "data/vault-seed/manual/twitter-video-2116188374599864686.md",
+   "transcript_path": "data/twitter/transcripts/2116188374599864686.txt",
+   "result": "Transcribed: 0 picks \u2014 Ed Feng analytics on Bills OL health & run game vs Baltimore; newsletter promo, no concrete bets"
   },
   {
    "kind": "linked_youtube",
