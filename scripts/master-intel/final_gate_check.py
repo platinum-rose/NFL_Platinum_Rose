@@ -177,6 +177,67 @@ fh = [f for f in (pull.get('feed_health') or []) if f.get('last_status') != 'ava
 add('E5', 'Expert & media intel', 'Article feed health', 'ADVISORY', 'PASS' if not fh else 'WARN',
     'all feeds available' if not fh else '; '.join(f"{f['source']}: {f.get('last_reason')}" for f in fh), 'Cover failed feeds by browser pulls.')
 
+# ---------- podcast / article / twitter intel + preferred-expert final cards ----------
+pg = pull.get('podcast_gemini_summary') or {}
+pod_n = pull.get('podcast_transcripts_processed') or 0
+pod_ok = pod_n > 0 and ((pg.get('picks') or 0) > 0 or yt_ok)
+add('E6', 'Expert & media intel', 'Podcast intel (audio transcripts + promoted picks)', 'REQUIRED', 'PASS' if pod_ok else 'FAIL',
+    f'transcripts processed={pod_n}; promoted episodes={pg.get("promoted_episodes")}, picks={pg.get("picks")}; YouTube picks file={"yes" if yt_ok else "no"}',
+    '' if pod_ok else 'Run the podcast transcript pipeline / promotion; YouTube picks (E1) count toward this.')
+sig = pull.get('signals') or []
+art = [x for x in sig if 'Twitter' not in (x.get('source') or '')]
+tw = [x for x in sig if 'Twitter' in (x.get('source') or '')]
+def newest_ts(rows):
+    ts = max((r.get('captured_at') or '' for r in rows), default='')
+    try: return ts, (NOW - dt.datetime.fromisoformat(ts.replace('Z', '+00:00'))).total_seconds() / 3600
+    except Exception: return ts, 1e9
+ats, aage = newest_ts(art)
+art_ok = len(art) >= 20 and aage <= maxage('pull')
+add('E7', 'Expert & media intel', 'Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)', 'REQUIRED', 'PASS' if art_ok else 'FAIL',
+    f'{len(art)} article signals; sources={dict(__import__("collections").Counter(x.get("source") for x in art))}; newest {ats} ({aage:.1f}h)' if aage < 1e8 else f'{len(art)} article signals',
+    '' if art_ok else f'Refresh article ingest, then NODE_USE_ENV_PROXY=1 node scripts/master-intel/pull.mjs --week {W}')
+tts, tage = newest_ts(tw)
+tw_ok = len(tw) > 0 and tage <= maxage('injuries')
+add('E8', 'Expert & media intel', 'Twitter/X bookmark intel (text)', 'REQUIRED', 'PASS' if tw_ok else 'FAIL',
+    f'{len(tw)} bookmark signals; newest {tts} ({tage:.1f}h)' if tage < 1e8 else f'{len(tw)} bookmark signals',
+    '' if tw_ok else 'node scripts/twitter-bookmarks-cron.js (bookmark sync), then re-pull.')
+mq_p = f'data/twitter/w{WW}-media-extraction-queue.json'
+mq = J(mq_p, {}) or {}
+pend = [i for i in (mq.get('items') or []) if i.get('status') == 'pending' and i.get('relevance') == 'sunday_slate']
+lvl = 'REQUIRED' if STAGE == 'saturday' else 'ADVISORY'
+if not mq:
+    add('E9', 'Expert & media intel', 'Twitter media queue (videos / images / threads)', 'REQUIRED', 'FAIL', f'missing: {mq_p}',
+        'Build the week queue from data/research-intel/twitter-video-queue.json + the Grok thread packet.')
+else:
+    from collections import Counter as _C
+    add('E9', 'Expert & media intel', 'Twitter media queue (videos / images / threads) processed', lvl,
+        'PASS' if not pend else ('FAIL' if lvl == 'REQUIRED' else 'WARN'),
+        f'{mq_p}: {len(pend)} Sunday-slate items still pending ({dict(_C(i["kind"] for i in pend))})',
+        '' if not pend else 'Process each item (video transcription, Grok threads, image capture) or mark it skipped with a reason.')
+ros = J('data/expert-tracking/preferred-experts-2026.json', {}) or {}
+exps = [e for e in (ros.get('experts') or []) if e.get('active', True)]
+corpus = []
+for x in pull.get('expert') or []: corpus.append(('pull:expert', json.dumps(x)))
+for x in sig: corpus.append((f'pull:{x.get("source")}', json.dumps(x)))
+for x in ytj.get('picks') or []: corpus.append(('youtube', json.dumps(x)))
+for f in grok: corpus.append(('grok', open(f, encoding='utf-8', errors='ignore').read()))
+for f in glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json') + [bp, en]:
+    if os.path.exists(f): corpus.append((os.path.basename(f), open(f, encoding='utf-8', errors='ignore').read()))
+found, missing = {}, []
+for e in exps:
+    al = [a.lower() for a in (e.get('aliases') or []) + [e['name']]]
+    hits = sorted({src for src, txt in corpus if any(a in txt.lower() for a in al)})
+    (found.__setitem__(e['name'], hits) if hits else missing.append(e['name']))
+excused = set((man_pre := (J(f'data/generated/master-intel/w{WW}-gate-manual.json', {}) or {})).get('experts_no_card', {}).get('names', []))
+unexcused = [m for m in missing if m not in excused]
+confirmed = ros.get('status') == 'confirmed'
+lvl = 'REQUIRED' if STAGE == 'saturday' else 'ADVISORY'
+ok = bool(exps) and confirmed and not unexcused
+add('E10', 'Expert & media intel', 'Preferred-expert final cards (coverage)', lvl, 'PASS' if ok else ('FAIL' if lvl == 'REQUIRED' else 'WARN'),
+    f'roster status={ros.get("status")}; {len(found)}/{len(exps)} experts with a Week {W} card found; missing: {", ".join(unexcused) or "none"}' + (f'; excused (no card published): {", ".join(sorted(excused & set(missing)))}' if excused & set(missing) else ''),
+    '' if ok else ('Andy confirms data/expert-tracking/preferred-experts-2026.json (status "confirmed"). ' if not confirmed else '') + 'Find each missing expert\'s card (article / podcast / YouTube / X) and ingest it, or list them under "experts_no_card": {"names": [...], "note": ...} in the gate-manual file after checking.')
+EXPERT_COVERAGE = dict(found=found, missing=missing)
+
 # ---------- synthesis queues ----------
 for cid, pss, lvl in (('S1', 'sides', 'REQUIRED'), ('S2', 'props', 'REQUIRED' if STAGE == 'saturday' else 'ADVISORY')):
     qp = f'scratch/w{WW}-game-synthesis-queue-{pss}.json'
@@ -184,7 +245,7 @@ for cid, pss, lvl in (('S1', 'sides', 'REQUIRED'), ('S2', 'props', 'REQUIRED' if
     pk = q.get('packets') or []
     pk = pk if isinstance(pk, list) else list(pk.values())
     miss = {p.get('matchup'): p.get('missing_inputs') for p in pk if p.get('missing_inputs')}
-    newer_inputs = [x for x in (bkr, pull_p, yt, *(grok[-1:] if grok else [])) if x and os.path.exists(x) and os.path.exists(qp) and os.path.getmtime(x) > os.path.getmtime(qp)]
+    newer_inputs = [x for x in (bkr, pull_p, yt, *(grok[-1:] if grok else []), *glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json')) if x and os.path.exists(x) and os.path.exists(qp) and os.path.getmtime(x) > os.path.getmtime(qp)]
     good = os.path.exists(qp) and len(pk) >= REM and not newer_inputs and (not miss or lvl == 'ADVISORY')
     add(cid, 'Synthesis queues', f'{pss.title()} synthesis queue', lvl, 'PASS' if good else ('FAIL' if lvl == 'REQUIRED' else 'WARN'),
         (f'{qp}: {len(pk)} packets; missing={json.dumps(miss)[:300] if miss else "none"}' + (f'; STALE vs newer inputs: {", ".join(os.path.basename(x) for x in newer_inputs)}' if newer_inputs else ''))
@@ -227,7 +288,7 @@ verdict = 'GREEN' if not req_fail else 'RED'
 os.makedirs('reports/intel/gates', exist_ok=True)
 base = f'reports/intel/gates/w{WW}-final-gate-{STAGE}'
 out = dict(schema='final_gate_check_v1', season=S, week=W, stage=STAGE, run_at=NOW.astimezone(PT).isoformat(), verdict=verdict,
-           games_remaining=REM, bkr_capture_date=BKR_DATE, required_failures=len(req_fail), warnings=len(warn), checks=results)
+           games_remaining=REM, bkr_capture_date=BKR_DATE, expert_coverage=EXPERT_COVERAGE, required_failures=len(req_fail), warnings=len(warn), checks=results)
 with open(base + '.json', 'w', encoding='utf-8') as f: json.dump(out, f, indent=1)
 icon = {'PASS': '✅', 'WARN': '⚠️', 'FAIL': '❌'}
 L = [f'# Final Gate Check — {S} Week {W} — {STAGE.title()} run', '',
@@ -242,6 +303,10 @@ for r in results:
     if r['group'] != grp:
         grp = r['group']; L += ['', f'## {grp}', '', '| # | Check | Level | Status | Detail | Fix |', '|---|---|---|---|---|---|']
     L.append(f'| {r["id"]} | {r["title"]} | {r["level"]} | {icon[r["status"]]} {r["status"]} | {r["detail"].replace("|", "/")} | {r["fix"].replace("|", "/")} |')
+L += ['', f'## Preferred-expert cards — Week {W}', '', '| Expert | Card found in |', '|---|---|'] + [f'| {n} | {", ".join(h)} |' for n, h in sorted(EXPERT_COVERAGE['found'].items())] + [f'| {n} | ❌ not found |' for n in EXPERT_COVERAGE['missing']]
+mqi = (J(f'data/twitter/w{WW}-media-extraction-queue.json', {}) or {}).get('items') or []
+if mqi:
+    L += ['', '## Twitter media queue (Sunday-slate items)', '', '| Kind | Author | Status | Tweet | Method |', '|---|---|---|---|---|'] + [f'| {i["kind"]} | {i["author"]} | {i["status"]} | {i["tweet_url"]} | {i["method"][:70]} |' for i in mqi if i.get('relevance') == 'sunday_slate']
 if pre:
     L += ['', '## Preflight freshness table (`weekly-synthesis-preflight.mjs`)', '', '```', pre.strip(), '```']
 with open(base + '.md', 'w', encoding='utf-8') as f: f.write('\n'.join(L) + '\n')

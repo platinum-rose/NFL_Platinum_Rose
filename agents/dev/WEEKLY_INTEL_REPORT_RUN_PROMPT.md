@@ -68,6 +68,8 @@ Re-run `reports/intel/w<WW>-model/fair_lines.py` (copy the prior week's script i
 
 ## Step 6 — Narratives, experts, SuperContest
 - Rewrite `reports/intel/master-intel-narratives-<season>-w<WW>.md` from the syntheses (game script / why the card leans / what breaks it), plus `## TICKETS` and `## SUPERCONTEST`.
+- **Preferred-expert final cards:** one block per expert in `data/expert-tracking/preferred-experts-2026.json` (the gate's E10 coverage table says where each card was found: article, podcast, YouTube, Grok/X, Twitter video). Attribute picks to the individual expert, not the outlet. Experts with no published card are listed as such (gate-manual `experts_no_card`).
+- Twitter media (`data/twitter/w<WW>-media-extraction-queue.json`): video picks, image/chart stat cards (matchup analytics, not picks) and Grok thread picks feed the expert section and the game packets.
 - `reports/intel/expert-narratives-<season>-w<WW>.md`: per-expert picks + reasoning; verify each expert/article against the actual matchup; same pick from the same show via audio + YouTube = one opinion.
 - SuperContest pitches (AI five, spread-only, Pitch/Pushback) → `reports/intel/supercontest-pitches-<season>-w<WW>.json`. If `data/supercontest/locked-card-week-<WEEK>.json` exists, the official five is shown alongside; never required.
 

@@ -3,12 +3,96 @@
  "season": 2026,
  "week": 8,
  "stage": "friday",
- "run_at": "2026-10-30T21:02:45.243624-07:00",
+ "run_at": "2026-10-30T21:07:46.553186-07:00",
  "verdict": "RED",
  "games_remaining": 13,
  "bkr_capture_date": "2026-10-31",
- "required_failures": 4,
- "warnings": 5,
+ "expert_coverage": {
+  "found": {
+   "Warren Sharp": [
+    "pull:Twitter/X Bookmarks (Personal)",
+    "pull:expert"
+   ],
+   "Sean Koerner": [
+    "pull:Action Network"
+   ],
+   "Brandon Anderson": [
+    "pull:Action Network"
+   ],
+   "Andrew Erickson": [
+    "pull:BettingPros"
+   ],
+   "Mike Maher": [
+    "bettingpros-articles-2026-w08.md",
+    "pull:BettingPros"
+   ],
+   "Jason Radowitz": [
+    "bettingpros-articles-2026-w08.md",
+    "pull:BettingPros"
+   ],
+   "Sharp or Square (hosts)": [
+    "pull:expert"
+   ],
+   "Even Money (hosts)": [
+    "pull:expert"
+   ],
+   "Ben Solak": [
+    "pull:ESPN NFL"
+   ],
+   "Daniel Jeremiah & Bucky Brooks": [
+    "pull:ESPN NFL",
+    "pull:expert"
+   ],
+   "Adam Burke": [
+    "pull:VSiN"
+   ],
+   "John Ewing": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ],
+   "Sal Vetri": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ],
+   "Cody Brown": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ],
+   "Joe Holka": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ],
+   "The Prop Dealer": [
+    "pull:Twitter/X Bookmarks (Personal)",
+    "pull:Twitter/X Bookmarks (Personal) (linked article)"
+   ],
+   "The Prop Guru": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ],
+   "Marc Gartenberg": [
+    "pull:Twitter/X Bookmarks (Personal)"
+   ]
+  },
+  "missing": [
+   "Stuckey",
+   "Doug Kezirian",
+   "Collin Wilson",
+   "Evan Abrams",
+   "Chad Millman",
+   "Simon Hunter",
+   "Matt Perrault",
+   "Steve Fezzik",
+   "Ross Tucker",
+   "Rich Hribar",
+   "Scott Bogman",
+   "Kendra Middleton",
+   "Chris Welsh",
+   "Seth Woolcock",
+   "Brandon Kravitz",
+   "Pat Fitzmaurice",
+   "Joe Madden",
+   "Ed Feng",
+   "Lock & Cash"
+  ]
+ },
+ "required_failures": 5,
+ "warnings": 7,
  "checks": [
   {
    "id": "A1",
@@ -34,7 +118,7 @@
    "title": "Roster gate (ESPN 2026, strict)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "status=PASS, roster age 6.5h, blocking=0",
+   "detail": "status=PASS, roster age 7.3h, blocking=0",
    "fix": ""
   },
   {
@@ -43,7 +127,7 @@
    "title": "Bookmaker capture (SGP props + game lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 2.1h old (limit 30h); games=13 (need 13)",
+   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 2.2h old (limit 30h); games=13 (need 13)",
    "fix": ""
   },
   {
@@ -70,7 +154,7 @@
    "title": "Master Intel pull (signals, expert picks, articles, splits)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/master-intel/w08-pull.json \u2014 1.9h old (limit 30h); pulled_at=2026-10-30T22:34:51.847Z, signals=214, expert=94",
+   "detail": "data/generated/master-intel/w08-pull.json \u2014 2.0h old (limit 30h); pulled_at=2026-10-30T22:34:51.847Z, signals=214, expert=94",
    "fix": ""
   },
   {
@@ -79,7 +163,7 @@
    "title": "Betting splits (Action Network)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (1.9h; limit 30h)",
+   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (2.0h; limit 30h)",
    "fix": ""
   },
   {
@@ -106,7 +190,7 @@
    "title": "Prediction markets + coherence",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 6.0h old (limit 36h)",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 6.1h old (limit 36h)",
    "fix": ""
   },
   {
@@ -124,7 +208,7 @@
    "title": "Player availability / injury report",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/player-availability/latest.json \u2014 4.5h old (limit 24h)",
+   "detail": "data/player-availability/latest.json \u2014 4.6h old (limit 24h)",
    "fix": ""
   },
   {
@@ -133,7 +217,7 @@
    "title": "Projected starters",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 6.0h old (limit 30h)",
+   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 6.1h old (limit 30h)",
    "fix": ""
   },
   {
@@ -142,7 +226,7 @@
    "title": "Weather / venue",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 3.0h old (limit 48h)",
+   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 3.1h old (limit 48h)",
    "fix": ""
   },
   {
@@ -151,7 +235,7 @@
    "title": "Team power ratings / SRS (fair lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 52.5h old (limit 192h)",
+   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 52.6h old (limit 192h)",
    "fix": ""
   },
   {
@@ -225,6 +309,51 @@
    "status": "WARN",
    "detail": "Action Network: Response is not a parseable RSS/Atom feed; Gemini Audio Diarization: Gemini file upload (start) failed: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
    "fix": "Cover failed feeds by browser pulls."
+  },
+  {
+   "id": "E6",
+   "group": "Expert & media intel",
+   "title": "Podcast intel (audio transcripts + promoted picks)",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "transcripts processed=14; promoted episodes=0, picks=0; YouTube picks file=no",
+   "fix": "Run the podcast transcript pipeline / promotion; YouTube picks (E1) count toward this."
+  },
+  {
+   "id": "E7",
+   "group": "Expert & media intel",
+   "title": "Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (13.7h)",
+   "fix": ""
+  },
+  {
+   "id": "E8",
+   "group": "Expert & media intel",
+   "title": "Twitter/X bookmark intel (text)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "98 bookmark signals; newest 2026-10-30T19:27:35.729542+00:00 (8.7h)",
+   "fix": ""
+  },
+  {
+   "id": "E9",
+   "group": "Expert & media intel",
+   "title": "Twitter media queue (videos / images / threads) processed",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "data/twitter/w08-media-extraction-queue.json: 36 Sunday-slate items still pending ({'video': 4, 'linked_youtube': 2, 'thread_text': 12, 'image_or_chart': 18})",
+   "fix": "Process each item (video transcription, Grok threads, image capture) or mark it skipped with a reason."
+  },
+  {
+   "id": "E10",
+   "group": "Expert & media intel",
+   "title": "Preferred-expert final cards (coverage)",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "roster status=draft_pending_andy; 18/37 experts with a Week 8 card found; missing: Stuckey, Doug Kezirian, Collin Wilson, Evan Abrams, Chad Millman, Simon Hunter, Matt Perrault, Steve Fezzik, Ross Tucker, Rich Hribar, Scott Bogman, Kendra Middleton, Chris Welsh, Seth Woolcock, Brandon Kravitz, Pat Fitzmaurice, Joe Madden, Ed Feng, Lock & Cash",
+   "fix": "Andy confirms data/expert-tracking/preferred-experts-2026.json (status \"confirmed\"). Find each missing expert's card (article / podcast / YouTube / X) and ingest it, or list them under \"experts_no_card\": {\"names\": [...], \"note\": ...} in the gate-manual file after checking."
   },
   {
    "id": "S1",
