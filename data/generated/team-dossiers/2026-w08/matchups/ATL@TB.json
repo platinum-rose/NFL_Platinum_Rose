@@ -1,0 +1,253 @@
+{
+  "schema": "team_dossier_matchup_v1",
+  "target_week": 8,
+  "away": "ATL",
+  "home": "TB",
+  "kickoff_pt": "Sun 11/1 10:00",
+  "market_data_included": false,
+  "dossier_refs": {
+    "away": "ATL.json",
+    "home": "TB.json"
+  },
+  "side_by_side": {
+    "away": {
+      "off_epa_per_play": -0.0413,
+      "def_epa_per_play": -0.0039,
+      "ppg": 24.429,
+      "papg": 24.714,
+      "ypp": 5.571,
+      "opp_ypp": 5.186,
+      "srs": 2.859,
+      "turnover_margin": -3,
+      "record": "3-4-0"
+    },
+    "home": {
+      "off_epa_per_play": -0.0773,
+      "def_epa_per_play": -0.1156,
+      "ppg": 23.143,
+      "papg": 21.571,
+      "ypp": 4.8,
+      "opp_ypp": 5.043,
+      "srs": 3.692,
+      "turnover_margin": 1,
+      "record": "2-5-0"
+    }
+  },
+  "unit_vs_unit": {
+    "away_offense_vs_home_defense": {
+      "away_off_epa": -0.0413,
+      "home_def_epa": -0.1156,
+      "away_ypp": 5.571,
+      "home_opp_ypp": 5.043,
+      "away_ppg": 24.429,
+      "home_papg": 21.571
+    },
+    "home_offense_vs_away_defense": {
+      "home_off_epa": -0.0773,
+      "away_def_epa": -0.0039,
+      "home_ypp": 4.8,
+      "away_opp_ypp": 5.186,
+      "home_ppg": 23.143,
+      "away_papg": 24.714
+    },
+    "note": "EPA sign convention per nflverse: lower defensive EPA/play is better. Values side by side only; no projection."
+  },
+  "shared_opponents_so_far": [
+    "CAR",
+    "GB",
+    "PIT"
+  ],
+  "availability": {
+    "status": "partial",
+    "roster_gate": "passed",
+    "as_of": {
+      "espn_status": null,
+      "availability_events": "2026-10-30T23:30:01.685Z",
+      "impact_digest": "2026-10-22T14:39:29.587Z",
+      "projected_starters": "2026-10-30T22:00:02.643Z",
+      "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+    },
+    "away": {
+      "qb": null,
+      "out_ir": [],
+      "questionable_doubtful": [],
+      "operator_reported": [],
+      "ol_risk": null,
+      "dl_risk": null
+    },
+    "home": {
+      "qb": null,
+      "out_ir": [],
+      "questionable_doubtful": [],
+      "operator_reported": [],
+      "ol_risk": null,
+      "dl_risk": null
+    }
+  },
+  "freshness": {
+    "away": {
+      "standing": {
+        "status": "current",
+        "through_week": 7
+      },
+      "game_log": {
+        "status": "current",
+        "through_week": 7,
+        "byes": []
+      },
+      "season_profile_espn": {
+        "status": "current",
+        "through_week": 7
+      },
+      "efficiency_nflverse": {
+        "status": "current",
+        "through_week": 7,
+        "null_fields": [
+          "analytic.dropback_success_rate",
+          "analytic.success_rate",
+          "analytic.explosive_play_rate",
+          "analytic.explosive_pass_rate",
+          "analytic.explosive_run_rate",
+          "analytic.pressure_rate_allowed",
+          "analytic.pressure_rate_generated",
+          "analytic.early_down_pass_rate",
+          "analytic.shotgun_rate",
+          "analytic.no_huddle_rate",
+          "analytic.play_action_rate",
+          "analytic.motion_rate",
+          "regression.fumble_recovery_pct",
+          "regression.takeaway_margin",
+          "regression.rz_td_pct_off",
+          "regression.rz_td_pct_def",
+          "regression.third_down_over_expected"
+        ]
+      },
+      "ftn": {
+        "status": "current",
+        "through_week": 7
+      },
+      "power": {
+        "status": "current",
+        "through_week": 7
+      },
+      "scheme_context": {
+        "status": "historical_context_only",
+        "caveats": [
+          "coaching snapshot stale after 2026-11-11T23:29:37.439Z",
+          "secondary-matchup source week 8"
+        ]
+      },
+      "availability": {
+        "status": "missing",
+        "through_week": null,
+        "as_of": {
+          "espn_status": null,
+          "availability_events": "2026-10-30T23:30:01.685Z",
+          "impact_digest": "2026-10-22T14:39:29.587Z",
+          "projected_starters": "2026-10-30T22:00:02.643Z",
+          "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "no ESPN status data for ATL"
+        ]
+      },
+      "priors": {
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
+      }
+    },
+    "home": {
+      "standing": {
+        "status": "current",
+        "through_week": 7
+      },
+      "game_log": {
+        "status": "current",
+        "through_week": 7,
+        "byes": []
+      },
+      "season_profile_espn": {
+        "status": "current",
+        "through_week": 7
+      },
+      "efficiency_nflverse": {
+        "status": "current",
+        "through_week": 7,
+        "null_fields": [
+          "analytic.dropback_success_rate",
+          "analytic.success_rate",
+          "analytic.explosive_play_rate",
+          "analytic.explosive_pass_rate",
+          "analytic.explosive_run_rate",
+          "analytic.pressure_rate_allowed",
+          "analytic.pressure_rate_generated",
+          "analytic.early_down_pass_rate",
+          "analytic.shotgun_rate",
+          "analytic.no_huddle_rate",
+          "analytic.play_action_rate",
+          "analytic.motion_rate",
+          "regression.fumble_recovery_pct",
+          "regression.takeaway_margin",
+          "regression.rz_td_pct_off",
+          "regression.rz_td_pct_def",
+          "regression.third_down_over_expected"
+        ]
+      },
+      "ftn": {
+        "status": "current",
+        "through_week": 7
+      },
+      "power": {
+        "status": "current",
+        "through_week": 7
+      },
+      "scheme_context": {
+        "status": "historical_context_only",
+        "caveats": [
+          "coaching snapshot stale after 2026-11-11T23:29:37.439Z",
+          "secondary-matchup source week 8"
+        ]
+      },
+      "availability": {
+        "status": "missing",
+        "through_week": null,
+        "as_of": {
+          "espn_status": null,
+          "availability_events": "2026-10-30T23:30:01.685Z",
+          "impact_digest": "2026-10-22T14:39:29.587Z",
+          "projected_starters": "2026-10-30T22:00:02.643Z",
+          "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "no ESPN status data for TB"
+        ]
+      },
+      "priors": {
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2190 @@
+{
+  "schema": "team_dossier_v1",
+  "team": "KC",
+  "season": 2026,
+  "target_week": 8,
+  "completed_weeks": 7,
+  "built_at": "2026-10-31T01:01:13.489Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "8c0734d",
+  "market_data_included": false,
+  "sources": [
+    {
+      "id": "standings",
+      "path": "data/generated/team-profiles/team-standings-2026-w07.json",
+      "generated_at": "2026-10-28T23:29:45.054571Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "5af79a7e8fb154a711fe424725ba7f7af2005c034a1b9faf17cdcfdf7f85df4a",
+      "use_policy": "record/PF/PA only; ATS/OU fields in source are ignored (market data)"
+    },
+    {
+      "id": "analytic",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "c9750f90c78e25ae2018cf1c3464b9b76319bbb17e8ba506b5325ad7c8480562",
+      "use_policy": "nflverse-derived efficiency; separate signal, not a projection"
+    },
+    {
+      "id": "regression",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "162890c8babeb15b0060f70e422cd07b7cfb2fef63d998a5e29f41087672b224",
+      "use_policy": "nflverse-derived Pythagorean/one-score context; separate signal"
+    },
+    {
+      "id": "coaching",
+      "path": "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "historical_context_only",
+      "through_week": 7,
+      "sha256": "66f28c5c949c4e08595672cccbbe67dd43c0cc58ff7a411c50ce397b110637cc",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim"
+    },
+    {
+      "id": "power",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "44af1c1df3033d0eeb363328d73a11f712aa4bf293ed7614fef9d660a00c3477",
+      "use_policy": "separate signal, not a projection; market-implied fields excluded"
+    },
+    {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-30T22:00:06.875Z",
+      "status": "see_tables",
+      "through_week": null,
+      "sha256": "68481e2322e05f051a4e44e2e35d8c333ec96ae9e19f732f671f833761546cd2",
+      "use_policy": "statistical context only; numeric team source of record"
+    },
+    {
+      "id": "secondary",
+      "path": "data/secondary-matchups/latest.json",
+      "generated_at": "2026-10-30T22:00:02.797Z",
+      "status": "current",
+      "through_week": 8,
+      "sha256": "6ace05b40641ad1e8f436594e8efb3c174e3485cf42f78d695e22a931645b33f",
+      "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
+    },
+    {
+      "id": "schedules",
+      "path": "data/vault-seed/nflverse/schedules.csv",
+      "generated_at": null,
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "3b4b74787c645d3953860b9d68803fe8832748aef3140586ddbc1d3199c32ac3",
+      "use_policy": "venue/roof/surface only; June odds columns and week-6 pairings are NOT used"
+    },
+    {
+      "id": "slate",
+      "path": "data/generated/team-dossiers/w08-slate.json",
+      "generated_at": "2026-10-31T01:01:09Z",
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "db28e3d52c0c75aa99ab11a53c4fe5cb84c2111ffe37833b36599dd483fa174c",
+      "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
+    },
+    {
+      "id": "espn_w1",
+      "path": "reports/analysis/season/claude/out/week-01-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 1,
+      "sha256": "cd24e6786146706fdec3dd1f8bf29fedc85448440354d16317341ca3859873e2",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w2",
+      "path": "reports/analysis/season/claude/out/week-02-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 2,
+      "sha256": "7a8a963719def5391d7dc611725aab8da208f6f7c3815933405c2bb9cfc90448",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w3",
+      "path": "reports/analysis/season/claude/out/week-03-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 3,
+      "sha256": "c093c8481f365d05540d8c8dcf68ff992e6b4d5996075829bb01b923ec0b084c",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w4",
+      "path": "reports/analysis/season/claude/out/week-04-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 4,
+      "sha256": "134f4065b18bd269a0973605c60935cc99c5d043dd5f049c7f47cd7705d8027a",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w5",
+      "path": "reports/analysis/season/claude/out/week-05-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 5,
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w6",
+      "path": "reports/analysis/season/claude/out/week-06-teams.json",
+      "generated_at": null,
+      "status": "stale_1wk",
+      "through_week": 6,
+      "sha256": "148933bb4340419405a09ba2140177ded83e7e5f7b6bc58ba6666eb33c2d7f5f",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w7",
+      "path": "reports/analysis/season/claude/out/week-07-teams.json",
+      "generated_at": null,
+      "status": "current",
+      "through_week": 7,
+      "sha256": "42e6675fe392a5f3ff8ea8b105f0c795c105e47af290cf0de77d918737e2ab0d",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    }
+  ],
+  "identity": {
+    "code": "KC",
+    "nickname": "Chiefs",
+    "full_name": "Kansas City Chiefs",
+    "conference": "AFC",
+    "division": "AFC West",
+    "head_coach": "Andy Reid",
+    "offensive_coordinator": null,
+    "defensive_coordinator": null,
+    "stadium": "GEHA Field at Arrowhead Stadium",
+    "roof": "outdoors",
+    "surface": "grass",
+    "target_week_game": {
+      "week": 8,
+      "opponent": "DEN",
+      "home_away": "away",
+      "kickoff_pt": "Sun 11/1 13:25"
+    },
+    "bye_weeks_played": [
+      5
+    ]
+  },
+  "standing": {
+    "team": "KC",
+    "conference": "AFC",
+    "division": "West",
+    "games": 6,
+    "record": "5-1-0",
+    "win_pct": 0.833,
+    "pf": 143,
+    "pa": 103,
+    "diff": 40,
+    "home": "3-0-0",
+    "away": "2-1-0",
+    "division_record": "3-0-0",
+    "conference_record": "5-0-0",
+    "streak": "L1",
+    "last5": [
+      "W2 W 33-30 vs IND",
+      "W3 W 24-10 @ MIA",
+      "W4 W 30-27 @ LV",
+      "W6 W 22-6 vs LAC",
+      "W7 L 3-20 @ SEA"
+    ],
+    "weeks_played": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "byes": [
+      5
+    ],
+    "division_rank": 1,
+    "conference_rank": 1,
+    "espn_check": {
+      "record": "5-1-0",
+      "pf": 143,
+      "pa": 103,
+      "as_of": "2026-10-26T00:20Z",
+      "match": true
+    }
+  },
+  "game_log": [
+    {
+      "week": 1,
+      "opponent": "DEN",
+      "home_away": "home",
+      "result": "W",
+      "pts": 31,
+      "opp_pts": 10,
+      "margin": 21,
+      "plays": 67,
+      "yards": 392,
+      "ypp": 5.9,
+      "opp_yards": 176,
+      "opp_ypp": 3.7,
+      "pass_yds": 172,
+      "rush_yds": 220,
+      "rush_att": 38,
+      "cmp_att": "15/27",
+      "first_downs": 19,
+      "third_down": "9-17",
+      "third_pct": 0.529,
+      "red_zone": "3-5",
+      "rz_td_pct": 0.6,
+      "sacks_taken": 2,
+      "sacks_made": 3,
+      "giveaways": 1,
+      "takeaways": 2,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "7-60",
+      "top": "33:42",
+      "drives": 12,
+      "pts_per_drive": 2.58,
+      "three_and_outs": 1,
+      "avg_start_own": 31.8,
+      "event_id": "401872931",
+      "date_utc": "2026-09-15T00:15Z"
+    },
+    {
+      "week": 2,
+      "opponent": "IND",
+      "home_away": "home",
+      "result": "W",
+      "pts": 33,
+      "opp_pts": 30,
+      "margin": 3,
+      "plays": 78,
+      "yards": 523,
+      "ypp": 6.7,
+      "opp_yards": 329,
+      "opp_ypp": 5.2,
+      "pass_yds": 371,
+      "rush_yds": 152,
+      "rush_att": 29,
+      "cmp_att": "32/47",
+      "first_downs": 29,
+      "third_down": "5-13",
+      "third_pct": 0.385,
+      "red_zone": "3-5",
+      "rz_td_pct": 0.6,
+      "sacks_taken": 2,
+      "sacks_made": 0,
+      "giveaways": 0,
+      "takeaways": 1,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "8-86",
+      "top": "37:00",
+      "drives": 11,
+      "pts_per_drive": 3,
+      "three_and_outs": 1,
+      "avg_start_own": 30.5,
+      "event_id": "401872945",
+      "date_utc": "2026-09-21T00:20Z"
+    },
+    {
+      "week": 3,
+      "opponent": "MIA",
+      "home_away": "away",
+      "result": "W",
+      "pts": 24,
+      "opp_pts": 10,
+      "margin": 14,
+      "plays": 49,
+      "yards": 334,
+      "ypp": 6.8,
+      "opp_yards": 329,
+      "opp_ypp": 4.9,
+      "pass_yds": 246,
+      "rush_yds": 88,
+      "rush_att": 25,
+      "cmp_att": "20/24",
+      "first_downs": 18,
+      "third_down": "3-7",
+      "third_pct": 0.429,
+      "red_zone": "3-5",
+      "rz_td_pct": 0.6,
+      "sacks_taken": 0,
+      "sacks_made": 0,
+      "giveaways": 1,
+      "takeaways": 2,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "8-50",
+      "top": "25:39",
+      "drives": 9,
+      "pts_per_drive": 2.67,
+      "three_and_outs": 0,
+      "avg_start_own": 34.2,
+      "event_id": "401872952",
+      "date_utc": "2026-09-27T17:00Z"
+    },
+    {
+      "week": 4,
+      "opponent": "LV",
+      "home_away": "away",
+      "result": "W",
+      "pts": 30,
+      "opp_pts": 27,
+      "margin": 3,
+      "plays": 58,
+      "yards": 399,
+      "ypp": 6.9,
+      "opp_yards": 437,
+      "opp_ypp": 5.6,
+      "pass_yds": 210,
+      "rush_yds": 189,
+      "rush_att": 26,
+      "cmp_att": "15/30",
+      "first_downs": 18,
+      "third_down": "5-13",
+      "third_pct": 0.385,
+      "red_zone": "3-4",
+      "rz_td_pct": 0.75,
+      "sacks_taken": 2,
+      "sacks_made": 0,
+      "giveaways": 0,
+      "takeaways": 2,
+      "to_margin": 2,
+      "def_td": 0,
+      "penalties": "8-59",
+      "top": "24:18",
+      "drives": 12,
+      "pts_per_drive": 2.5,
+      "three_and_outs": 3,
+      "avg_start_own": 33.2,
+      "event_id": "401872976",
+      "date_utc": "2026-10-04T20:25Z"
+    },
+    {
+      "week": 5,
+      "bye": true
+    },
+    {
+      "week": 6,
+      "opponent": "LAC",
+      "home_away": "home",
+      "result": "W",
+      "pts": 22,
+      "opp_pts": 6,
+      "margin": 16,
+      "plays": 57,
+      "yards": 422,
+      "ypp": 7.4,
+      "opp_yards": 259,
+      "opp_ypp": 4.1,
+      "pass_yds": 272,
+      "rush_yds": 150,
+      "rush_att": 27,
+      "cmp_att": "23/30",
+      "first_downs": 22,
+      "third_down": "3-10",
+      "third_pct": 0.3,
+      "red_zone": "1-4",
+      "rz_td_pct": 0.25,
+      "sacks_taken": 0,
+      "sacks_made": 4,
+      "giveaways": 2,
+      "takeaways": 2,
+      "to_margin": 0,
+      "def_td": 0,
+      "penalties": "8-89",
+      "top": "30:26",
+      "drives": 11,
+      "pts_per_drive": 2,
+      "three_and_outs": 1,
+      "avg_start_own": 32.9,
+      "event_id": "401873006",
+      "date_utc": "2026-10-18T20:25Z"
+    },
+    {
+      "week": 7,
+      "opponent": "SEA",
+      "home_away": "away",
+      "result": "L",
+      "pts": 3,
+      "opp_pts": 20,
+      "margin": -17,
+      "plays": 50,
+      "yards": 213,
+      "ypp": 4.3,
+      "opp_yards": 410,
+      "opp_ypp": 5.9,
+      "pass_yds": 163,
+      "rush_yds": 50,
+      "rush_att": 16,
+      "cmp_att": "19/33",
+      "first_downs": 11,
+      "third_down": "3-11",
+      "third_pct": 0.273,
+      "red_zone": "0-0",
+      "rz_td_pct": null,
+      "sacks_taken": 1,
+      "sacks_made": 0,
+      "giveaways": 1,
+      "takeaways": 1,
+      "to_margin": 0,
+      "def_td": 0,
+      "penalties": "2-15",
+      "top": "24:09",
+      "drives": 8,
+      "pts_per_drive": 0.38,
+      "three_and_outs": 1,
+      "avg_start_own": 31.1,
+      "event_id": "401873022",
+      "date_utc": "2026-10-26T00:20Z"
+    }
+  ],
+  "season_profile_espn": {
+    "games": 6,
+    "ppg": 23.833,
+    "papg": 17.167,
+    "yards_pg": 380.5,
+    "opp_yards_pg": 323.333,
+    "plays_pg": 59.833,
+    "ypp": 6.333,
+    "opp_ypp": 4.9,
+    "pass_yds_pg": 239,
+    "rush_yds_pg": 141.5,
+    "third_down_pct": 0.394,
+    "red_zone_att_pg": 3.83,
+    "red_zone_td_pct": 0.565,
+    "sacks_taken_pg": 1.167,
+    "sacks_made_pg": 1.167,
+    "giveaways": 5,
+    "takeaways": 10,
+    "turnover_margin": 5,
+    "pts_per_drive": 2.188,
+    "three_and_outs_pg": 1.167,
+    "note": "Aggregated from game_log rows (ESPN). red_zone_td_pct here is red-zone trips converted to TD per ESPN box score; no opponent split."
+  },
+  "efficiency_nflverse": {
+    "analytic": {
+      "games_played": 6,
+      "off_epa_per_play": 0.1049,
+      "def_epa_per_play": -0.0482,
+      "off_epa_rank": 7,
+      "def_epa_rank": 6,
+      "epa_per_dropback": 0.1137,
+      "qb_epa_per_dropback": 0.1137,
+      "dropback_success_rate": null,
+      "success_rate": null,
+      "cpoe": 0.2251,
+      "explosive_play_rate": null,
+      "explosive_pass_rate": null,
+      "explosive_run_rate": null,
+      "pressure_rate_allowed": null,
+      "pressure_rate_generated": null,
+      "sack_rate_allowed": 0.0354,
+      "sack_rate_generated": 0.0364,
+      "neutral_pass_rate": 0.5515,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. FTN charting join unavailable this run -- motion/play-action/no-huddle fell back to null along with the other charting-dependent fields.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/team_stats.csv",
+        "source_file_mtime": "2026-10-28T23:29:37.983Z",
+        "team_abbr": "KC",
+        "offensive_dropbacks": 198,
+        "offensive_plays": 359,
+        "defensive_dropbacks": 220,
+        "defensive_plays": 387,
+        "ftn_charting": {}
+      }
+    },
+    "regression": {
+      "games_played": 6,
+      "record": "5-1",
+      "actual_wins": 5,
+      "points_for": 143,
+      "points_against": 103,
+      "point_differential": 40,
+      "pythag_win_pct": 0.6852,
+      "pythag_wins": 4.11,
+      "pythag_win_delta": 0.89,
+      "pythag_win_delta_rank": 8,
+      "one_score_record": {
+        "wins": 2,
+        "losses": 0,
+        "ties": 0,
+        "games": 2,
+        "win_pct": 1
+      },
+      "fumble_recovery_pct": null,
+      "takeaway_margin": null,
+      "rz_td_pct_off": null,
+      "rz_td_pct_def": null,
+      "third_down_over_expected": null,
+      "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/games.csv",
+        "source_file_mtime": "2026-10-28T23:29:37.981Z",
+        "team_abbr": "KC",
+        "pythag_exponent": 2.37,
+        "one_score_margin": 8
+      }
+    },
+    "unavailable_in_source": [
+      "analytic.dropback_success_rate",
+      "analytic.success_rate",
+      "analytic.explosive_play_rate",
+      "analytic.explosive_pass_rate",
+      "analytic.explosive_run_rate",
+      "analytic.pressure_rate_allowed",
+      "analytic.pressure_rate_generated",
+      "analytic.early_down_pass_rate",
+      "analytic.shotgun_rate",
+      "analytic.no_huddle_rate",
+      "analytic.play_action_rate",
+      "analytic.motion_rate",
+      "regression.fumble_recovery_pct",
+      "regression.takeaway_margin",
+      "regression.rz_td_pct_off",
+      "regression.rz_td_pct_def",
+      "regression.third_down_over_expected"
+    ]
+  },
+  "ftn": {
+    "source": {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-30T22:00:06.875Z"
+    },
+    "through_week": 6,
+    "status": "stale_1wk",
+    "use_policy": "statistical context only; numeric team source of record",
+    "team_tables": {
+      "team-defense/efficiency (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/PLY": "-0.051",
+          "DVOA": "-2.2%",
+          "SUCC%": "40.1%",
+          "EXP%": "7.8%",
+          "CONV%": "43.4%",
+          "TO": "8",
+          "TO%": "2.1%",
+          "3&O": "11.3%",
+          "MTKL%": "9.3%",
+          "PEN%": "6.2%",
+          "PENY": "36.3"
+        }
+      },
+      "team-defense/efficiency (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/PLY": "-0.051",
+          "DVOA": "-2.2%",
+          "SUCC%": "40.1%",
+          "EXP%": "7.8%",
+          "CONV%": "43.4%",
+          "TO": "8",
+          "TO%": "2.1%",
+          "3&O": "11.3%",
+          "MTKL%": "9.3%",
+          "PEN%": "6.2%",
+          "PENY": "36.3"
+        }
+      },
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/PLY": "-0.096",
+          "DVOA": "-8.5%",
+          "SUCC%": "38.4%",
+          "EXP%": "7.2%",
+          "CONV%": "37.8%",
+          "TO": "7",
+          "TO%": "2.2%",
+          "3&O": "11.1%",
+          "MTKL%": "7.9%",
+          "PEN%": "7.5%",
+          "PENY": "43.6"
+        }
+      },
+      "team-defense/overview (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "YD/PLY": "5.1",
+          "PT/GM": "17.2",
+          "FD%": "27.4%",
+          "TO": "8",
+          "DPBK%": "60.5%",
+          "YD": "1,377",
+          "TD": "5",
+          "INT": "6",
+          "RUSH%": "39.5%",
+          "YD__2": "597",
+          "TD__2": "4"
+        }
+      },
+      "team-defense/overview (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "YD/PLY": "5.1",
+          "PT/GM": "17.2",
+          "FD%": "27.4%",
+          "TO": "8",
+          "DPBK%": "60.5%",
+          "YD": "1,377",
+          "TD": "5",
+          "INT": "6",
+          "RUSH%": "39.5%",
+          "YD__2": "597",
+          "TD__2": "4"
+        }
+      },
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "YD/PLY": "4.9",
+          "PT/GM": "16.6",
+          "FD%": "25.8%",
+          "TO": "7",
+          "DPBK%": "64.2%",
+          "YD": "1,120",
+          "TD": "4",
+          "INT": "5",
+          "RUSH%": "35.8%",
+          "YD__2": "444",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/pass-rush (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "DPBK": "234",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBH%": "12.8%",
+          "PRESS": "86",
+          "PRESS%": "36.8%",
+          "QPRESS%": "52.3%",
+          "TTPR": "2.53",
+          "DISR%": "5.1%",
+          "BLZ%": "26.5%"
+        }
+      },
+      "team-defense/pass-rush (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "DPBK": "234",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBH%": "12.8%",
+          "PRESS": "86",
+          "PRESS%": "36.8%",
+          "QPRESS%": "52.3%",
+          "TTPR": "2.53",
+          "DISR%": "5.1%",
+          "BLZ%": "26.5%"
+        }
+      },
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "DPBK": "204",
+          "SK": "7",
+          "SK%": "3.4%",
+          "QBH%": "13.7%",
+          "PRESS": "79",
+          "PRESS%": "38.7%",
+          "QPRESS%": "50.6%",
+          "TTPR": "2.51",
+          "DISR%": "5.9%",
+          "BLZ%": "26.5%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/DB": "0.001",
+          "SUCC%": "44.0%",
+          "DVOA": "14.0%",
+          "CPOE": "0.81%",
+          "CBALL%": "69.0%",
+          "EXP%": "12.1%",
+          "INTW%": "3.3%",
+          "TGHT%": "31.5%",
+          "OPEN%": "66.7%",
+          "TA%": "3.3%",
+          "DROP%": "2.8%"
+        }
+      },
+      "team-defense/passing-analytics (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/DB": "0.001",
+          "SUCC%": "44.0%",
+          "DVOA": "14.0%",
+          "CPOE": "0.82%",
+          "CBALL%": "69.0%",
+          "EXP%": "12.1%",
+          "INTW%": "3.3%",
+          "TGHT%": "31.5%",
+          "OPEN%": "66.7%",
+          "TA%": "3.3%",
+          "DROP%": "2.8%"
+        }
+      },
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/DB": "-0.074",
+          "SUCC%": "42.2%",
+          "DVOA": "5.4%",
+          "CPOE": "-0.66%",
+          "CBALL%": "68.6%",
+          "EXP%": "10.7%",
+          "INTW%": "3.2%",
+          "TGHT%": "30.3%",
+          "OPEN%": "67.6%",
+          "TA%": "2.7%",
+          "DROP%": "3.2%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/ATT": "-0.132",
+          "SUCC%": "34.0%",
+          "DVOA": "-19.2%",
+          "aRYOE": "",
+          "EXP%": "7.2%",
+          "STF%": "20.3%",
+          "YBCO": "0.73",
+          "YACO": "1.75"
+        }
+      },
+      "team-defense/rush-analytics (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/ATT": "-0.132",
+          "SUCC%": "34.0%",
+          "DVOA": "-19.2%",
+          "aRYOE": "",
+          "EXP%": "7.2%",
+          "STF%": "20.3%",
+          "YBCO": "0.73",
+          "YACO": "1.75"
+        }
+      },
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/ATT": "-0.136",
+          "SUCC%": "31.6%",
+          "DVOA": "-24.5%",
+          "aRYOE": "",
+          "EXP%": "7.9%",
+          "STF%": "21.9%",
+          "YBCO": "0.75",
+          "YACO": "1.63"
+        }
+      },
+      "team-offense/efficiency (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/PLY": "0.105",
+          "DVOA": "18.9%",
+          "SUCC%": "46.7%",
+          "EXP%": "10.8%",
+          "CONV%": "42.2%",
+          "TO": "4",
+          "TO%": "1.11%",
+          "PENY": "25.2",
+          "PEN%": "5.00%"
+        }
+      },
+      "team-offense/efficiency (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/PLY": "0.105",
+          "DVOA": "18.9%",
+          "SUCC%": "46.7%",
+          "EXP%": "10.8%",
+          "CONV%": "42.2%",
+          "TO": "4",
+          "TO%": "1.11%",
+          "PENY": "25.2",
+          "PEN%": "5.00%"
+        }
+      },
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/PLY": "0.138",
+          "DVOA": "23.1%",
+          "SUCC%": "48.4%",
+          "EXP%": "12.6%",
+          "CONV%": "43.5%",
+          "TO": "3",
+          "TO%": "0.97%",
+          "PENY": "27.2",
+          "PEN%": "5.16%"
+        }
+      },
+      "team-offense/overview (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "YD/PLY": "6.5",
+          "PT/GM": "23.8",
+          "FD%": "30.8%",
+          "TO": "4",
+          "DPBK%": "58.6%",
+          "YD": "1,474",
+          "TD": "9",
+          "INT": "4",
+          "RUSH%": "41.4%",
+          "YD__2": "849",
+          "TD__2": "7"
+        }
+      },
+      "team-offense/overview (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "YD/PLY": "6.5",
+          "PT/GM": "23.8",
+          "FD%": "30.8%",
+          "TO": "4",
+          "DPBK%": "58.6%",
+          "YD": "1,474",
+          "TD": "9",
+          "INT": "4",
+          "RUSH%": "41.4%",
+          "YD__2": "849",
+          "TD__2": "7"
+        }
+      },
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "YD/PLY": "6.8",
+          "PT/GM": "28.0",
+          "FD%": "32.3%",
+          "TO": "3",
+          "DPBK%": "56.5%",
+          "YD": "1,309",
+          "TD": "9",
+          "INT": "3",
+          "RUSH%": "43.5%",
+          "YD__2": "799",
+          "TD__2": "7"
+        }
+      },
+      "team-offense/pass-protection (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "SK": "7",
+          "SK%": "3.3%",
+          "QBSK%": "14.3%",
+          "QBH%": "14.7%",
+          "PRESS%": "30.8%",
+          "UPRES%": "30.0%",
+          "BLITZ%": "27.0%",
+          "TTPR": "2.39",
+          "TTT": "2.48",
+          "EPA/DB": "-0.115",
+          "DVOA": "-54.1%",
+          "SUCC%": "32.3%",
+          "EPA/DB__2": "0.239",
+          "DVOA__2": "32.0%",
+          "SUCC%__2": "56.2%"
+        }
+      },
+      "team-offense/pass-protection (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "SK": "7",
+          "SK%": "3.3%",
+          "QBSK%": "14.3%",
+          "QBH%": "14.7%",
+          "PRESS%": "30.8%",
+          "UPRES%": "30.0%",
+          "BLITZ%": "27.0%",
+          "TTPR": "2.39",
+          "TTT": "2.48",
+          "EPA/DB": "-0.115",
+          "DVOA": "-54.1%",
+          "SUCC%": "32.3%",
+          "EPA/DB__2": "0.239",
+          "DVOA__2": "32.0%",
+          "SUCC%__2": "56.2%"
+        }
+      },
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "SK": "6",
+          "SK%": "3.4%",
+          "QBSK%": "0.0%",
+          "QBH%": "13.7%",
+          "PRESS%": "29.1%",
+          "UPRES%": "24.1%",
+          "BLITZ%": "27.4%",
+          "TTPR": "2.40",
+          "TTT": "2.41",
+          "EPA/DB": "-0.012",
+          "DVOA": "-34.8%",
+          "SUCC%": "35.3%",
+          "EPA/DB__2": "0.259",
+          "DVOA__2": "33.2%",
+          "SUCC%__2": "56.5%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/DB": "0.130",
+          "SUCC%": "48.8%",
+          "DVOA": "30.6%",
+          "CPOE": "-3.5%",
+          "CBALL%": "70.8%",
+          "EXP%": "12.9%",
+          "INTW%": "2.6%",
+          "HLT%": "1.6%",
+          "TA%": "6.8%",
+          "DROP%": "3.1%",
+          "aDOT": "6.0",
+          "aYAC": "7.5"
+        }
+      },
+      "team-offense/passing-analytics (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/DB": "0.130",
+          "SUCC%": "48.8%",
+          "DVOA": "30.6%",
+          "CPOE": "-3.4%",
+          "CBALL%": "70.8%",
+          "EXP%": "12.9%",
+          "INTW%": "2.6%",
+          "HLT%": "1.6%",
+          "TA%": "6.8%",
+          "DROP%": "3.1%",
+          "aDOT": "6.0",
+          "aYAC": "7.5"
+        }
+      },
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/DB": "0.180",
+          "SUCC%": "50.3%",
+          "DVOA": "37.2%",
+          "CPOE": "-1.0%",
+          "CBALL%": "72.3%",
+          "EXP%": "15.2%",
+          "INTW%": "2.5%",
+          "HLT%": "1.9%",
+          "TA%": "7.5%",
+          "DROP%": "2.5%",
+          "aDOT": "6.3",
+          "aYAC": "7.6"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/ATT": "0.069",
+          "SUCC%": "43.6%",
+          "DVOA": "6.1%",
+          "aRYOE": "",
+          "EXP%": "14.1%",
+          "STF%": "20.1%",
+          "aYBCO": "1.42",
+          "aYACO": "2.96",
+          "CRT%": "56.5%"
+        }
+      },
+      "team-offense/rushing-analytics (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "EPA/ATT": "0.069",
+          "SUCC%": "43.6%",
+          "DVOA": "6.1%",
+          "aRYOE": "",
+          "EXP%": "14.1%",
+          "STF%": "20.1%",
+          "aYBCO": "1.42",
+          "aYACO": "2.96",
+          "CRT%": "56.5%"
+        }
+      },
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "EPA/ATT": "0.084",
+          "SUCC%": "45.9%",
+          "DVOA": "8.6%",
+          "aRYOE": "",
+          "EXP%": "15.6%",
+          "STF%": "20.7%",
+          "aYBCO": "1.47",
+          "aYACO": "3.17",
+          "CRT%": "57.5%"
+        }
+      },
+      "team-offense/tempo (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "PLY/GM": "60.0",
+          "TOP": "28.26",
+          "DRV/GM": "10.5",
+          "SEC/PLY": "28.3",
+          "PLY/DRV": "5.7",
+          "YD/DRV": "36.9",
+          "SEC/DRV": "161",
+          "3&O": "11.1%",
+          "SCD%": "42.9%"
+        }
+      },
+      "team-offense/tempo (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "PLY/GM": "60.0",
+          "TOP": "28.26",
+          "DRV/GM": "10.5",
+          "SEC/PLY": "28.3",
+          "PLY/DRV": "5.7",
+          "YD/DRV": "36.9",
+          "SEC/DRV": "161",
+          "3&O": "11.1%",
+          "SCD%": "42.9%"
+        }
+      },
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "PLY/GM": "62.0",
+          "TOP": "29.35",
+          "DRV/GM": "11.0",
+          "SEC/PLY": "28.4",
+          "PLY/DRV": "5.6",
+          "YD/DRV": "38.3",
+          "SEC/DRV": "160",
+          "3&O": "10.9%",
+          "SCD%": "47.3%"
+        }
+      },
+      "team-offense/tendencies (1)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "DPBK%": "58.6%",
+          "RUSH%": "41.4%",
+          "SHG%": "57.5%",
+          "NH%": "0.3%",
+          "MOT%": "57.2%",
+          "PA%": "31.3%",
+          "IZ%": "30.2%",
+          "OZ%": "26.2%",
+          "MD%": "16.1%",
+          "PWR%": "12.8%",
+          "CTR%": "4.0%"
+        }
+      },
+      "team-offense/tendencies (2)": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "6",
+          "DPBK%": "58.6%",
+          "RUSH%": "41.4%",
+          "SHG%": "57.5%",
+          "NH%": "0.3%",
+          "MOT%": "57.2%",
+          "PA%": "31.3%",
+          "IZ%": "30.2%",
+          "OZ%": "26.2%",
+          "MD%": "16.1%",
+          "PWR%": "12.8%",
+          "CTR%": "4.0%"
+        }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Kansas City Chiefs",
+          "GP": "5",
+          "DPBK%": "56.5%",
+          "RUSH%": "43.5%",
+          "SHG%": "56.5%",
+          "NH%": "0.3%",
+          "MOT%": "58.1%",
+          "PA%": "34.9%",
+          "IZ%": "28.9%",
+          "OZ%": "25.9%",
+          "MD%": "17.8%",
+          "PWR%": "12.6%",
+          "CTR%": "3.7%"
+        }
+      }
+    },
+    "qb1": {
+      "player": "Patrick Mahomes",
+      "position": "QB",
+      "tables": {
+        "passing/air-yards (1)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "aDOT": "6.0",
+          "AIR": "1,155",
+          "cAIR": "674",
+          "cAIR%": "58.4%",
+          "PRYD": "481",
+          "PRYD%": "41.6%",
+          "dAIR": "25"
+        },
+        "passing/air-yards (2)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "aDOT": "6.0",
+          "AIR": "1,155",
+          "cAIR": "674",
+          "cAIR%": "58.4%",
+          "PRYD": "481",
+          "PRYD%": "41.6%",
+          "dAIR": "25"
+        },
+        "passing/air-yards": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "5",
+          "aDOT": "6.3",
+          "AIR": "999",
+          "cAIR": "628",
+          "cAIR%": "62.9%",
+          "PRYD": "371",
+          "PRYD%": "37.1%",
+          "dAIR": "4"
+        },
+        "passing/analytics (1)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "EPA": "27.4",
+          "EPA/DB": "0.130",
+          "SUCC%": "48.8%",
+          "ACOMP%": "72.6%",
+          "DVOA": "10.1%",
+          "DYAR": "268",
+          "xCOMP": "68.0%",
+          "CPOE": "-3.5%",
+          "aYDOE": "0.721"
+        },
+        "passing/analytics (2)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "EPA": "27.4",
+          "EPA/DB": "0.130",
+          "SUCC%": "48.8%",
+          "ACOMP%": "72.6%",
+          "DVOA": "10.1%",
+          "DYAR": "268",
+          "xCOMP": "68.0%",
+          "CPOE": "-3.4%",
+          "aYDOE": "0.734"
+        },
+        "passing/analytics": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "5",
+          "EPA": "31.5",
+          "EPA/DB": "0.180",
+          "SUCC%": "50.3%",
+          "ACOMP%": "74.1%",
+          "DVOA": "17.6%",
+          "DYAR": "304",
+          "xCOMP": "67.0%",
+          "CPOE": "-1.0%",
+          "aYDOE": "1.128"
+        },
+        "passing/efficiency (1)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "CBALL%": "70.8%",
+          "INTW%": "2.6%",
+          "HLT%": "1.6%",
+          "EXP%": "8.3%",
+          "DROP%": "3.1%",
+          "TA%": "6.8%",
+          "TD%": "4.7%",
+          "INT%": "2.1%",
+          "SK%": "3.3%"
+        },
+        "passing/efficiency (2)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "CBALL%": "70.8%",
+          "INTW%": "2.6%",
+          "HLT%": "1.6%",
+          "EXP%": "8.3%",
+          "DROP%": "3.1%",
+          "TA%": "6.8%",
+          "TD%": "4.7%",
+          "INT%": "2.1%",
+          "SK%": "3.3%"
+        },
+        "passing/efficiency": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "5",
+          "CBALL%": "72.3%",
+          "INTW%": "2.5%",
+          "HLT%": "1.9%",
+          "EXP%": "10.1%",
+          "DROP%": "2.5%",
+          "TA%": "7.5%",
+          "TD%": "5.7%",
+          "INT%": "1.9%",
+          "SK%": "3.4%"
+        },
+        "passing/overview (1)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "DPBK": "211",
+          "ATT": "192",
+          "COMP": "124",
+          "COMP%": "64.6%",
+          "YD": "1,474",
+          "YD/ATT": "7.7",
+          "TD": "9",
+          "INT": "4",
+          "FUML": "0"
+        },
+        "passing/overview (2)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "DPBK": "211",
+          "ATT": "192",
+          "COMP": "124",
+          "COMP%": "64.6%",
+          "YD": "1,474",
+          "YD/ATT": "7.7",
+          "TD": "9",
+          "INT": "4",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "175",
+          "ATT": "159",
+          "COMP": "105",
+          "COMP%": "66.0%",
+          "YD": "1,309",
+          "YD/ATT": "8.2",
+          "TD": "9",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "SK": "7",
+          "SK%": "3.3%",
+          "QBSK%": "14.3%",
+          "AVSK%": "3.8%",
+          "QBH%": "14.7%",
+          "TTPR": "2.39",
+          "TTT": "2.48",
+          "RATE": "30.8%",
+          "EPA/DB": "-0.115",
+          "DVOA": "-54.1%",
+          "RATE__2": "69.2%",
+          "EPA/DB__2": "0.239",
+          "DVOA__2": "32.0%"
+        },
+        "passing/pressure (2)": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "6",
+          "SK": "7",
+          "SK%": "3.3%",
+          "QBSK%": "14.3%",
+          "AVSK%": "3.8%",
+          "QBH%": "14.7%",
+          "TTPR": "2.39",
+          "TTT": "2.48",
+          "RATE": "30.8%",
+          "EPA/DB": "-0.115",
+          "DVOA": "-54.1%",
+          "RATE__2": "69.2%",
+          "EPA/DB__2": "0.239",
+          "DVOA__2": "32.0%"
+        },
+        "passing/pressure": {
+          "Player": "Patrick Mahomes",
+          "Team": "Kansas City Chiefs",
+          "Position": "QB",
+          "GP": "5",
+          "SK": "6",
+          "SK%": "3.4%",
+          "QBSK%": "0.0%",
+          "AVSK%": "2.3%",
+          "QBH%": "13.7%",
+          "TTPR": "2.40",
+          "TTT": "2.41",
+          "RATE": "29.1%",
+          "EPA/DB": "-0.012",
+          "DVOA": "-34.8%",
+          "RATE__2": "70.9%",
+          "EPA/DB__2": "0.259",
+          "DVOA__2": "33.2%"
+        }
+      }
+    },
+    "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
+    "gp_by_table": {
+      "passing/air-yards (1)": 6,
+      "passing/air-yards (2)": 6,
+      "passing/air-yards": 5,
+      "passing/analytics (1)": 6,
+      "passing/analytics (2)": 6,
+      "passing/analytics": 5,
+      "passing/efficiency (1)": 6,
+      "passing/efficiency (2)": 6,
+      "passing/efficiency": 5,
+      "passing/overview (1)": 6,
+      "passing/overview (2)": 6,
+      "passing/overview": 5,
+      "passing/pressure (1)": 6,
+      "passing/pressure (2)": 6,
+      "passing/pressure": 5,
+      "team-defense/efficiency (1)": 6,
+      "team-defense/efficiency (2)": 6,
+      "team-defense/efficiency": 5,
+      "team-defense/overview (1)": 6,
+      "team-defense/overview (2)": 6,
+      "team-defense/overview": 5,
+      "team-defense/pass-rush (1)": 6,
+      "team-defense/pass-rush (2)": 6,
+      "team-defense/pass-rush": 5,
+      "team-defense/passing-analytics (1)": 6,
+      "team-defense/passing-analytics (2)": 6,
+      "team-defense/passing-analytics": 5,
+      "team-defense/rush-analytics (1)": 6,
+      "team-defense/rush-analytics (2)": 6,
+      "team-defense/rush-analytics": 5,
+      "team-offense/efficiency (1)": 6,
+      "team-offense/efficiency (2)": 6,
+      "team-offense/efficiency": 5,
+      "team-offense/overview (1)": 6,
+      "team-offense/overview (2)": 6,
+      "team-offense/overview": 5,
+      "team-offense/pass-protection (1)": 6,
+      "team-offense/pass-protection (2)": 6,
+      "team-offense/pass-protection": 5,
+      "team-offense/passing-analytics (1)": 6,
+      "team-offense/passing-analytics (2)": 6,
+      "team-offense/passing-analytics": 5,
+      "team-offense/rushing-analytics (1)": 6,
+      "team-offense/rushing-analytics (2)": 6,
+      "team-offense/rushing-analytics": 5,
+      "team-offense/tempo (1)": 6,
+      "team-offense/tempo (2)": 6,
+      "team-offense/tempo": 5,
+      "team-offense/tendencies (1)": 6,
+      "team-offense/tendencies (2)": 6,
+      "team-offense/tendencies": 5
+    }
+  },
+  "power": {
+    "games_played": 6,
+    "record": "5-1",
+    "srs": 3.767,
+    "net_points_per_game": 6.667,
+    "pythag_win_pct": 0.6852,
+    "model_composite_z": 1.0973,
+    "model_rank": 5,
+    "srs_rank": 9,
+    "net_ppg_rank": 5,
+    "pythag_rank": 4,
+    "excluded": [
+      "market_implied_win_total",
+      "market_implied_rank",
+      "delta (market data)"
+    ]
+  },
+  "scheme_context": {
+    "coaching": {
+      "label": "historical_context_only",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim",
+      "stale_after": "2026-11-11T23:29:37.439Z",
+      "fields": {
+        "head_coach": "Andy Reid",
+        "offensive_coordinator": null,
+        "defensive_coordinator": null,
+        "sample_start": "2026-09-14",
+        "sample_end": "2026-10-25",
+        "games_sample": 6,
+        "coordinator_continuity": null,
+        "fourth_down_aggression_rate": null,
+        "fourth_down_aggression_tier": null,
+        "neutral_pass_rate": 0.5515,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": null,
+        "play_action_rate": null,
+        "motion_rate": null,
+        "rpo_rate": null,
+        "pace_seconds_per_play": null,
+        "red_zone_pass_rate": null,
+        "two_minute_aggression_tier": null,
+        "ats_by_role": {
+          "overall": {
+            "wins": 3,
+            "losses": 2,
+            "pushes": 0
+          },
+          "home": {
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          },
+          "away": {
+            "wins": 1,
+            "losses": 1,
+            "pushes": 0
+          },
+          "favorite": {
+            "wins": 0,
+            "losses": 0,
+            "pushes": 0
+          },
+          "underdog": {
+            "wins": 3,
+            "losses": 2,
+            "pushes": 0
+          },
+          "division": {
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "trend_notes": "All-situation pass tendency is middle (0.5515). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+        "stale_after": "2026-11-11T23:29:37.439Z",
+        "raw": {
+          "source_files": [
+            "data/vault-seed/nflverse/games.csv",
+            "data/vault-seed/nflverse/team_stats.csv"
+          ],
+          "source_file_mtimes": {
+            "games": "2026-10-28T23:29:37.981Z",
+            "team_stats": "2026-10-28T23:29:37.983Z"
+          },
+          "offensive_dropbacks": 198,
+          "offensive_plays": 359
+        }
+      }
+    },
+    "secondary_matchup": {
+      "label": "manual_review_capped",
+      "source_week": 8,
+      "status": "current",
+      "entries": [
+        {
+          "id": "sec_a89640c992c0fd13",
+          "season": 2026,
+          "week": 8,
+          "game_id": "nfl_2026_2_w08_KC_at_DEN",
+          "kickoff_utc": "2026-11-01T21:25:00.000Z",
+          "offense_team": "KC",
+          "offense_team_nick": "Chiefs",
+          "defense_team": "DEN",
+          "defense_team_nick": "Broncos",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "man_heavy",
+              "single_high",
+              "blitz_heavy"
+            ],
+            "primary_coverage_family": "man_match",
+            "pressure_profile": "blitz_heavy",
+            "confidence": 0.8,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Vance Joseph heavy blitz and man press around Patrick Surtain II shadow assignments."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Talanoa Hufanga",
+              "team": "DEN",
+              "position": "S",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "out",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API",
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-30T20:49:00.000Z",
+              "role": "box_safety",
+              "side": "middle",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "te_middle"
+              ],
+              "weakness_tags": [
+                "te_middle_boost",
+                "middle_field_boost"
+              ],
+              "severity_score": 2.7,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Pat Surtain II",
+              "team": "DEN",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Surtain (ankle) was a full practice participant Wednesday, Aric DiLalla of the Broncos' official site reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-28T22:42:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "severity_score": 0.83,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "hot_read_boost",
+            "middle_field_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "te_middle_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Rashee Rice",
+              "team": "KC",
+              "roles": [
+                "slot",
+                "alpha_x"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "underneath",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "opportunity_score": 6,
+              "notes": "KC YAC Target Leader.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Travis Kelce",
+              "team": "KC",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "intermediate",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "middle_field_boost",
+                "alpha_wr_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "KC All-Pro Future HOF TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Xavier Worthy",
+              "team": "KC",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 3.6,
+              "notes": "KC 4.21 Speed 1st Rounder.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Jalen Royals",
+              "team": "KC",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "KC WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 3.53,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.9,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_a788f40a6032986a",
+          "season": 2026,
+          "week": 8,
+          "game_id": "nfl_2026_2_w08_KC_at_DEN",
+          "kickoff_utc": "2026-11-01T21:25:00.000Z",
+          "offense_team": "DEN",
+          "offense_team_nick": "Broncos",
+          "defense_team": "KC",
+          "defense_team_nick": "Chiefs",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "blitz_heavy",
+              "two_high"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "aggressive",
+            "confidence": 0.85,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
+          },
+          "secondary_absences": [],
+          "weakness_tags": [
+            "hot_read_boost",
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Evan Engram",
+              "team": "DEN",
+              "roles": [
+                "te_middle",
+                "slot"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "underneath",
+                "slot"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost",
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "JAX High Volume TE. [moved from JAX per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Troy Franklin",
+              "team": "DEN",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "DEN WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Marvin Mims Jr.",
+              "team": "DEN",
+              "roles": [
+                "field_stretcher",
+                "slot"
+              ],
+              "target_share_tier": "rotational",
+              "route_area_tags": [
+                "deep",
+                "slot"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost",
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "DEN Speed Threat.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Jaylen Waddle",
+              "team": "DEN",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "deep",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.5,
+              "notes": "MIA Elite Speed WR2. [moved from MIA per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.71,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        }
+      ],
+      "note": "Entries pertain to the source week, not the target week."
+    }
+  },
+  "availability": {
+    "status": "missing",
+    "roster_gate": "passed",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w08-roster-vet.json",
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-30T20:44:40.706430+00:00",
+      "roster_age_h_at_vet": 4.3,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": null,
+      "availability_events": "2026-10-30T23:30:01.685Z",
+      "impact_digest": "2026-10-22T14:39:29.587Z",
+      "projected_starters": "2026-10-30T22:00:02.643Z",
+      "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+    },
+    "caveats": [
+      "no ESPN status data for KC"
+    ]
+  },
+  "priors": {
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0314,
+        "def_epa_per_play": -0.0281,
+        "off_epa_rank": 13,
+        "def_epa_rank": 12,
+        "epa_per_dropback": 0.0394,
+        "qb_epa_per_dropback": 0.0394,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": -0.9613,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0745,
+        "sack_rate_generated": 0.0643,
+        "neutral_pass_rate": 0.5947,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.0237,
+        "play_action_rate": 0.0808,
+        "motion_rate": 0.3988,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 631,
+          "offensive_plays": 1061,
+          "defensive_dropbacks": 544,
+          "defensive_plays": 992,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1349,
+            "ftn_charted_plays_defense": 1284,
+            "screen_rate": 0.0474,
+            "rpo_rate": 0.1149,
+            "trick_play_rate": 0.0007,
+            "qb_out_of_pocket_rate": 0.1446,
+            "interception_worthy_rate": 0.0148,
+            "throw_away_rate": 0.0245,
+            "drop_rate_of_catchable_targets": 0.0612,
+            "contested_catch_rate_of_catchable_targets": 0.0518,
+            "created_reception_rate_of_catchable_targets": 0.0259,
+            "blitz_rate_faced": 0.1342,
+            "blitz_rate_generated": 0.1854,
+            "avg_pass_rushers_generated": 2.1324,
+            "avg_defenders_in_box_faced": 4.9766
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "6-11",
+        "actual_wins": 6,
+        "points_for": 362,
+        "points_against": 328,
+        "point_differential": 34,
+        "pythag_win_pct": 0.5582,
+        "pythag_wins": 9.49,
+        "pythag_win_delta": -3.49,
+        "pythag_win_delta_rank": 32,
+        "one_score_record": {
+          "wins": 1,
+          "losses": 9,
+          "ties": 0,
+          "games": 10,
+          "win_pct": 0.1
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "6-11",
+        "power_rating": {
+          "srs": 1.73,
+          "net_points_per_game": 2,
+          "pythag_win_pct": 0.5582,
+          "model_composite_z": 0.3433,
+          "model_rank": 12,
+          "srs_rank": 13,
+          "net_ppg_rank": 12,
+          "pythag_rank": 12
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 5.6,
+        "overall_dvoa_rank": 15,
+        "offensive_dvoa": 5.4,
+        "offensive_dvoa_rank": 12,
+        "defensive_dvoa": -0.4,
+        "defensive_dvoa_rank": 16,
+        "special_teams_dvoa": -0.1,
+        "special_teams_dvoa_rank": 19,
+        "weighted_dvoa": -5.4,
+        "weighted_dvoa_rank": 19,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 15,
+            "total_dvoa": 5.6,
+            "wei_dvoa": -5.4,
+            "wei_rk": 19,
+            "w_l": "6-11",
+            "off_dvoa": 5.4,
+            "off_rk": 12,
+            "def_dvoa": -0.4,
+            "def_rk": 16,
+            "st_dvoa": -0.1,
+            "st_rk": 19
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [
+        {
+          "signal_type": "scheme",
+          "topic": "Speed & Motion Reps",
+          "player": "Xavier Worthy",
+          "summary": "Used heavily in pre-snap motion; Patrick Mahomes connecting on deep post routes.",
+          "confidence": 0.92,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "ok"
+        }
+      ],
+      "withheld_roster_changed": [
+        {
+          "signal_type": "depth_chart",
+          "topic": "First-Team Backfield",
+          "player": "Isiah Pacheco",
+          "summary": "Taking primary first-team snaps; Clyde Edwards-Helaire backing up.",
+          "confidence": 0.9,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "on_other_team:DET",
+          "withheld_reason": "camp note names a player who is not on this team per the roster snapshot (trade/release since July 31)"
+        }
+      ]
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 4,
+          "score_overall": 0.6,
+          "run_block_z": -0.35,
+          "pass_block_z": 0.89,
+          "run_defense_z": 0.78,
+          "pass_rush_z": 1.06,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 22,
+          "score_overall": -0.07,
+          "run_block_z": 0.42,
+          "pass_block_z": -0.24,
+          "run_defense_z": -0.16,
+          "pass_rush_z": -0.29,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
+  },
+  "data_quality": {
+    "standing": {
+      "status": "current",
+      "through_week": 7
+    },
+    "game_log": {
+      "status": "current",
+      "through_week": 7,
+      "byes": [
+        5
+      ]
+    },
+    "season_profile_espn": {
+      "status": "current",
+      "through_week": 7
+    },
+    "efficiency_nflverse": {
+      "status": "current",
+      "through_week": 7,
+      "null_fields": [
+        "analytic.dropback_success_rate",
+        "analytic.success_rate",
+        "analytic.explosive_play_rate",
+        "analytic.explosive_pass_rate",
+        "analytic.explosive_run_rate",
+        "analytic.pressure_rate_allowed",
+        "analytic.pressure_rate_generated",
+        "analytic.early_down_pass_rate",
+        "analytic.shotgun_rate",
+        "analytic.no_huddle_rate",
+        "analytic.play_action_rate",
+        "analytic.motion_rate",
+        "regression.fumble_recovery_pct",
+        "regression.takeaway_margin",
+        "regression.rz_td_pct_off",
+        "regression.rz_td_pct_def",
+        "regression.third_down_over_expected"
+      ]
+    },
+    "ftn": {
+      "status": "stale_1wk",
+      "through_week": 6
+    },
+    "power": {
+      "status": "current",
+      "through_week": 7
+    },
+    "scheme_context": {
+      "status": "historical_context_only",
+      "caveats": [
+        "coaching snapshot stale after 2026-11-11T23:29:37.439Z",
+        "secondary-matchup source week 8"
+      ]
+    },
+    "availability": {
+      "status": "missing",
+      "through_week": null,
+      "as_of": {
+        "espn_status": null,
+        "availability_events": "2026-10-30T23:30:01.685Z",
+        "impact_digest": "2026-10-22T14:39:29.587Z",
+        "projected_starters": "2026-10-30T22:00:02.643Z",
+        "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+      },
+      "roster_gate": "passed",
+      "null_fields": [],
+      "caveats": [
+        "no ESPN status data for KC"
+      ]
+    },
+    "priors": {
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
+    }
+  }
+}

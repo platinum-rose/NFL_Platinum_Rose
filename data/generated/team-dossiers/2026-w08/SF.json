@@ -1,0 +1,1866 @@
+{
+  "schema": "team_dossier_v1",
+  "team": "SF",
+  "season": 2026,
+  "target_week": 8,
+  "completed_weeks": 7,
+  "built_at": "2026-10-31T01:01:13.799Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "8c0734d",
+  "market_data_included": false,
+  "sources": [
+    {
+      "id": "standings",
+      "path": "data/generated/team-profiles/team-standings-2026-w07.json",
+      "generated_at": "2026-10-28T23:29:45.054571Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "5af79a7e8fb154a711fe424725ba7f7af2005c034a1b9faf17cdcfdf7f85df4a",
+      "use_policy": "record/PF/PA only; ATS/OU fields in source are ignored (market data)"
+    },
+    {
+      "id": "analytic",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "c9750f90c78e25ae2018cf1c3464b9b76319bbb17e8ba506b5325ad7c8480562",
+      "use_policy": "nflverse-derived efficiency; separate signal, not a projection"
+    },
+    {
+      "id": "regression",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "162890c8babeb15b0060f70e422cd07b7cfb2fef63d998a5e29f41087672b224",
+      "use_policy": "nflverse-derived Pythagorean/one-score context; separate signal"
+    },
+    {
+      "id": "coaching",
+      "path": "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w7.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "historical_context_only",
+      "through_week": 7,
+      "sha256": "66f28c5c949c4e08595672cccbbe67dd43c0cc58ff7a411c50ce397b110637cc",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim"
+    },
+    {
+      "id": "power",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "generated_at": "2026-10-28T23:29:37.439Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "44af1c1df3033d0eeb363328d73a11f712aa4bf293ed7614fef9d660a00c3477",
+      "use_policy": "separate signal, not a projection; market-implied fields excluded"
+    },
+    {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-30T22:00:06.875Z",
+      "status": "see_tables",
+      "through_week": null,
+      "sha256": "68481e2322e05f051a4e44e2e35d8c333ec96ae9e19f732f671f833761546cd2",
+      "use_policy": "statistical context only; numeric team source of record"
+    },
+    {
+      "id": "secondary",
+      "path": "data/secondary-matchups/latest.json",
+      "generated_at": "2026-10-30T22:00:02.797Z",
+      "status": "current",
+      "through_week": 8,
+      "sha256": "6ace05b40641ad1e8f436594e8efb3c174e3485cf42f78d695e22a931645b33f",
+      "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
+    },
+    {
+      "id": "schedules",
+      "path": "data/vault-seed/nflverse/schedules.csv",
+      "generated_at": null,
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "3b4b74787c645d3953860b9d68803fe8832748aef3140586ddbc1d3199c32ac3",
+      "use_policy": "venue/roof/surface only; June odds columns and week-6 pairings are NOT used"
+    },
+    {
+      "id": "slate",
+      "path": "data/generated/team-dossiers/w08-slate.json",
+      "generated_at": "2026-10-31T01:01:09Z",
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "db28e3d52c0c75aa99ab11a53c4fe5cb84c2111ffe37833b36599dd483fa174c",
+      "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
+    },
+    {
+      "id": "espn_w1",
+      "path": "reports/analysis/season/claude/out/week-01-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 1,
+      "sha256": "cd24e6786146706fdec3dd1f8bf29fedc85448440354d16317341ca3859873e2",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w2",
+      "path": "reports/analysis/season/claude/out/week-02-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 2,
+      "sha256": "7a8a963719def5391d7dc611725aab8da208f6f7c3815933405c2bb9cfc90448",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w3",
+      "path": "reports/analysis/season/claude/out/week-03-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 3,
+      "sha256": "c093c8481f365d05540d8c8dcf68ff992e6b4d5996075829bb01b923ec0b084c",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w4",
+      "path": "reports/analysis/season/claude/out/week-04-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 4,
+      "sha256": "134f4065b18bd269a0973605c60935cc99c5d043dd5f049c7f47cd7705d8027a",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w5",
+      "path": "reports/analysis/season/claude/out/week-05-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 5,
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w6",
+      "path": "reports/analysis/season/claude/out/week-06-teams.json",
+      "generated_at": null,
+      "status": "stale_1wk",
+      "through_week": 6,
+      "sha256": "148933bb4340419405a09ba2140177ded83e7e5f7b6bc58ba6666eb33c2d7f5f",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w7",
+      "path": "reports/analysis/season/claude/out/week-07-teams.json",
+      "generated_at": null,
+      "status": "current",
+      "through_week": 7,
+      "sha256": "42e6675fe392a5f3ff8ea8b105f0c795c105e47af290cf0de77d918737e2ab0d",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    }
+  ],
+  "identity": {
+    "code": "SF",
+    "nickname": "49ers",
+    "full_name": "San Francisco 49ers",
+    "conference": "NFC",
+    "division": "NFC West",
+    "head_coach": "Kyle Shanahan",
+    "offensive_coordinator": null,
+    "defensive_coordinator": null,
+    "stadium": "Levi's Stadium",
+    "roof": "outdoors",
+    "surface": "grass",
+    "target_week_game": {
+      "week": 8,
+      "bye": true
+    },
+    "bye_weeks_played": []
+  },
+  "standing": {
+    "team": "SF",
+    "conference": "NFC",
+    "division": "West",
+    "games": 7,
+    "record": "6-1-0",
+    "win_pct": 0.857,
+    "pf": 197,
+    "pa": 139,
+    "diff": 58,
+    "home": "4-0-0",
+    "away": "2-1-0",
+    "division_record": "3-0-0",
+    "conference_record": "4-1-0",
+    "streak": "L1",
+    "last5": [
+      "W3 W 36-30 vs ARI",
+      "W4 W 24-14 vs DEN",
+      "W5 W 32-29 @ SEA",
+      "W6 W 23-17 vs WSH",
+      "W7 L 20-29 @ ATL"
+    ],
+    "weeks_played": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "byes": [],
+    "division_rank": 1,
+    "conference_rank": 2,
+    "espn_check": {
+      "record": "6-1-0",
+      "pf": 197,
+      "pa": 139,
+      "as_of": "2026-10-26T00:20Z",
+      "match": true
+    }
+  },
+  "game_log": [
+    {
+      "week": 1,
+      "opponent": "LAR",
+      "home_away": "away",
+      "result": "W",
+      "pts": 27,
+      "opp_pts": 7,
+      "margin": 20,
+      "plays": 64,
+      "yards": 379,
+      "ypp": 5.9,
+      "opp_yards": 290,
+      "opp_ypp": 5.1,
+      "pass_yds": 205,
+      "rush_yds": 174,
+      "rush_att": 30,
+      "cmp_att": "25/34",
+      "first_downs": 23,
+      "third_down": "7-12",
+      "third_pct": 0.583,
+      "red_zone": "2-3",
+      "rz_td_pct": 0.667,
+      "sacks_taken": 0,
+      "sacks_made": 0,
+      "giveaways": 1,
+      "takeaways": 2,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "2-21",
+      "top": "33:50",
+      "drives": 9,
+      "pts_per_drive": 3,
+      "three_and_outs": 1,
+      "avg_start_own": 26.2,
+      "event_id": "401872657",
+      "date_utc": "2026-09-11T00:35Z"
+    },
+    {
+      "week": 2,
+      "opponent": "MIA",
+      "home_away": "home",
+      "result": "W",
+      "pts": 35,
+      "opp_pts": 13,
+      "margin": 22,
+      "plays": 49,
+      "yards": 382,
+      "ypp": 7.8,
+      "opp_yards": 284,
+      "opp_ypp": 5.1,
+      "pass_yds": 287,
+      "rush_yds": 95,
+      "rush_att": 27,
+      "cmp_att": "20/22",
+      "first_downs": 23,
+      "third_down": "5-7",
+      "third_pct": 0.714,
+      "red_zone": "5-5",
+      "rz_td_pct": 1,
+      "sacks_taken": 0,
+      "sacks_made": 4,
+      "giveaways": 0,
+      "takeaways": 0,
+      "to_margin": 0,
+      "def_td": 0,
+      "penalties": "7-78",
+      "top": "29:47",
+      "drives": 8,
+      "pts_per_drive": 4.38,
+      "three_and_outs": 1,
+      "avg_start_own": 35.1,
+      "event_id": "401872942",
+      "date_utc": "2026-09-20T20:25Z"
+    },
+    {
+      "week": 3,
+      "opponent": "ARI",
+      "home_away": "home",
+      "result": "W",
+      "pts": 36,
+      "opp_pts": 30,
+      "margin": 6,
+      "plays": 50,
+      "yards": 437,
+      "ypp": 8.7,
+      "opp_yards": 365,
+      "opp_ypp": 4.5,
+      "pass_yds": 297,
+      "rush_yds": 140,
+      "rush_att": 23,
+      "cmp_att": "15/27",
+      "first_downs": 23,
+      "third_down": "5-8",
+      "third_pct": 0.625,
+      "red_zone": "2-2",
+      "rz_td_pct": 1,
+      "sacks_taken": 0,
+      "sacks_made": 2,
+      "giveaways": 1,
+      "takeaways": 0,
+      "to_margin": -1,
+      "def_td": 0,
+      "penalties": "7-69",
+      "top": "21:16",
+      "drives": 10,
+      "pts_per_drive": 3.6,
+      "three_and_outs": 2,
+      "avg_start_own": 29.2,
+      "event_id": "401872958",
+      "date_utc": "2026-09-27T20:05Z"
+    },
+    {
+      "week": 4,
+      "opponent": "DEN",
+      "home_away": "home",
+      "result": "W",
+      "pts": 24,
+      "opp_pts": 14,
+      "margin": 10,
+      "plays": 65,
+      "yards": 358,
+      "ypp": 5.5,
+      "opp_yards": 296,
+      "opp_ypp": 4.6,
+      "pass_yds": 218,
+      "rush_yds": 140,
+      "rush_att": 35,
+      "cmp_att": "19/30",
+      "first_downs": 20,
+      "third_down": "6-13",
+      "third_pct": 0.462,
+      "red_zone": "2-3",
+      "rz_td_pct": 0.667,
+      "sacks_taken": 0,
+      "sacks_made": 0,
+      "giveaways": 0,
+      "takeaways": 1,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "1-5",
+      "top": "29:07",
+      "drives": 11,
+      "pts_per_drive": 2.18,
+      "three_and_outs": 3,
+      "avg_start_own": 27.9,
+      "event_id": "401872975",
+      "date_utc": "2026-10-04T20:25Z"
+    },
+    {
+      "week": 5,
+      "opponent": "SEA",
+      "home_away": "away",
+      "result": "W",
+      "pts": 32,
+      "opp_pts": 29,
+      "margin": 3,
+      "plays": 56,
+      "yards": 269,
+      "ypp": 4.8,
+      "opp_yards": 251,
+      "opp_ypp": 4.2,
+      "pass_yds": 175,
+      "rush_yds": 94,
+      "rush_att": 24,
+      "cmp_att": "19/29",
+      "first_downs": 14,
+      "third_down": "4-12",
+      "third_pct": 0.333,
+      "red_zone": "3-3",
+      "rz_td_pct": 1,
+      "sacks_taken": 3,
+      "sacks_made": 5,
+      "giveaways": 3,
+      "takeaways": 4,
+      "to_margin": 1,
+      "def_td": 1,
+      "penalties": "8-70",
+      "top": "29:02",
+      "drives": 13,
+      "pts_per_drive": 2.46,
+      "three_and_outs": 3,
+      "avg_start_own": 43.5,
+      "event_id": "401872992",
+      "date_utc": "2026-10-11T20:25Z"
+    },
+    {
+      "week": 6,
+      "opponent": "WAS",
+      "home_away": "home",
+      "result": "W",
+      "pts": 23,
+      "opp_pts": 17,
+      "margin": 6,
+      "plays": 60,
+      "yards": 375,
+      "ypp": 6.2,
+      "opp_yards": 314,
+      "opp_ypp": 5.1,
+      "pass_yds": 249,
+      "rush_yds": 126,
+      "rush_att": 29,
+      "cmp_att": "21/29",
+      "first_downs": 20,
+      "third_down": "7-14",
+      "third_pct": 0.5,
+      "red_zone": "3-4",
+      "rz_td_pct": 0.75,
+      "sacks_taken": 2,
+      "sacks_made": 4,
+      "giveaways": 1,
+      "takeaways": 0,
+      "to_margin": -1,
+      "def_td": 0,
+      "penalties": "11-88",
+      "top": "29:45",
+      "drives": 9,
+      "pts_per_drive": 2.56,
+      "three_and_outs": 4,
+      "avg_start_own": 23.9,
+      "event_id": "401873008",
+      "date_utc": "2026-10-20T00:15Z"
+    },
+    {
+      "week": 7,
+      "opponent": "ATL",
+      "home_away": "away",
+      "result": "L",
+      "pts": 20,
+      "opp_pts": 29,
+      "margin": -9,
+      "plays": 65,
+      "yards": 400,
+      "ypp": 6.2,
+      "opp_yards": 295,
+      "opp_ypp": 4.7,
+      "pass_yds": 277,
+      "rush_yds": 123,
+      "rush_att": 23,
+      "cmp_att": "27/40",
+      "first_downs": 26,
+      "third_down": "4-10",
+      "third_pct": 0.4,
+      "red_zone": "2-2",
+      "rz_td_pct": 1,
+      "sacks_taken": 2,
+      "sacks_made": 0,
+      "giveaways": 4,
+      "takeaways": 0,
+      "to_margin": -4,
+      "def_td": 0,
+      "penalties": "7-55",
+      "top": "29:13",
+      "drives": 9,
+      "pts_per_drive": 2.22,
+      "three_and_outs": 0,
+      "avg_start_own": 32.9,
+      "event_id": "401873017",
+      "date_utc": "2026-10-25T17:00Z"
+    }
+  ],
+  "season_profile_espn": {
+    "games": 7,
+    "ppg": 28.143,
+    "papg": 19.857,
+    "yards_pg": 371.429,
+    "opp_yards_pg": 299.286,
+    "plays_pg": 58.429,
+    "ypp": 6.443,
+    "opp_ypp": 4.757,
+    "pass_yds_pg": 244,
+    "rush_yds_pg": 127.429,
+    "third_down_pct": 0.5,
+    "red_zone_att_pg": 3.14,
+    "red_zone_td_pct": 0.864,
+    "sacks_taken_pg": 1,
+    "sacks_made_pg": 2.143,
+    "giveaways": 10,
+    "takeaways": 7,
+    "turnover_margin": -3,
+    "pts_per_drive": 2.914,
+    "three_and_outs_pg": 2,
+    "note": "Aggregated from game_log rows (ESPN). red_zone_td_pct here is red-zone trips converted to TD per ESPN box score; no opponent split."
+  },
+  "efficiency_nflverse": {
+    "analytic": {
+      "games_played": 7,
+      "off_epa_per_play": 0.1939,
+      "def_epa_per_play": -0.0324,
+      "off_epa_rank": 2,
+      "def_epa_rank": 12,
+      "epa_per_dropback": 0.29,
+      "qb_epa_per_dropback": 0.29,
+      "dropback_success_rate": null,
+      "success_rate": null,
+      "cpoe": 4.2962,
+      "explosive_play_rate": null,
+      "explosive_pass_rate": null,
+      "explosive_run_rate": null,
+      "pressure_rate_allowed": null,
+      "pressure_rate_generated": null,
+      "sack_rate_allowed": 0.0321,
+      "sack_rate_generated": 0.057,
+      "neutral_pass_rate": 0.533,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. FTN charting join unavailable this run -- motion/play-action/no-huddle fell back to null along with the other charting-dependent fields.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/team_stats.csv",
+        "source_file_mtime": "2026-10-28T23:29:37.983Z",
+        "team_abbr": "SF",
+        "offensive_dropbacks": 218,
+        "offensive_plays": 409,
+        "defensive_dropbacks": 263,
+        "defensive_plays": 442,
+        "ftn_charting": {}
+      }
+    },
+    "regression": {
+      "games_played": 7,
+      "record": "6-1",
+      "actual_wins": 6,
+      "points_for": 197,
+      "points_against": 139,
+      "point_differential": 58,
+      "pythag_win_pct": 0.6956,
+      "pythag_wins": 4.87,
+      "pythag_win_delta": 1.13,
+      "pythag_win_delta_rank": 5,
+      "one_score_record": {
+        "wins": 3,
+        "losses": 0,
+        "ties": 0,
+        "games": 3,
+        "win_pct": 1
+      },
+      "fumble_recovery_pct": null,
+      "takeaway_margin": null,
+      "rz_td_pct_off": null,
+      "rz_td_pct_def": null,
+      "third_down_over_expected": null,
+      "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/games.csv",
+        "source_file_mtime": "2026-10-28T23:29:37.981Z",
+        "team_abbr": "SF",
+        "pythag_exponent": 2.37,
+        "one_score_margin": 8
+      }
+    },
+    "unavailable_in_source": [
+      "analytic.dropback_success_rate",
+      "analytic.success_rate",
+      "analytic.explosive_play_rate",
+      "analytic.explosive_pass_rate",
+      "analytic.explosive_run_rate",
+      "analytic.pressure_rate_allowed",
+      "analytic.pressure_rate_generated",
+      "analytic.early_down_pass_rate",
+      "analytic.shotgun_rate",
+      "analytic.no_huddle_rate",
+      "analytic.play_action_rate",
+      "analytic.motion_rate",
+      "regression.fumble_recovery_pct",
+      "regression.takeaway_margin",
+      "regression.rz_td_pct_off",
+      "regression.rz_td_pct_def",
+      "regression.third_down_over_expected"
+    ]
+  },
+  "ftn": {
+    "source": {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-30T22:00:06.875Z"
+    },
+    "through_week": 7,
+    "status": "current",
+    "use_policy": "statistical context only; numeric team source of record",
+    "team_tables": {
+      "team-defense/efficiency (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/PLY": "-0.045",
+          "DVOA": "-10.1%",
+          "SUCC%": "43.1%",
+          "EXP%": "4.3%",
+          "CONV%": "39.3%",
+          "TO": "5",
+          "TO%": "1.1%",
+          "3&O": "17.1%",
+          "MTKL%": "8.8%",
+          "PEN%": "4.7%",
+          "PENY": "27.4"
+        }
+      },
+      "team-defense/efficiency (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/PLY": "-0.045",
+          "DVOA": "-10.1%",
+          "SUCC%": "43.1%",
+          "EXP%": "4.3%",
+          "CONV%": "39.3%",
+          "TO": "5",
+          "TO%": "1.1%",
+          "3&O": "17.1%",
+          "MTKL%": "8.8%",
+          "PEN%": "4.7%",
+          "PENY": "27.4"
+        }
+      },
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/PLY": "-0.060",
+          "DVOA": "-15.5%",
+          "SUCC%": "42.9%",
+          "EXP%": "4.5%",
+          "CONV%": "40.0%",
+          "TO": "5",
+          "TO%": "1.3%",
+          "3&O": "15.0%",
+          "MTKL%": "7.7%",
+          "PEN%": "4.5%",
+          "PENY": "26.2"
+        }
+      },
+      "team-defense/overview (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "YD/PLY": "4.9",
+          "PT/GM": "19.0",
+          "FD%": "25.3%",
+          "TO": "5",
+          "DPBK%": "61.4%",
+          "YD": "1,567",
+          "TD": "10",
+          "INT": "3",
+          "RUSH%": "38.6%",
+          "YD__2": "625",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/overview (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "YD/PLY": "4.9",
+          "PT/GM": "19.0",
+          "FD%": "25.3%",
+          "TO": "5",
+          "DPBK%": "61.4%",
+          "YD": "1,567",
+          "TD": "10",
+          "INT": "3",
+          "RUSH%": "38.6%",
+          "YD__2": "625",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "YD/PLY": "5.0",
+          "PT/GM": "17.3",
+          "FD%": "25.0%",
+          "TO": "5",
+          "DPBK%": "62.4%",
+          "YD": "1,354",
+          "TD": "7",
+          "INT": "3",
+          "RUSH%": "37.6%",
+          "YD__2": "543",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/pass-rush (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "DPBK": "272",
+          "SK": "15",
+          "SK%": "5.5%",
+          "QBH%": "13.2%",
+          "PRESS": "76",
+          "PRESS%": "27.9%",
+          "QPRESS%": "52.6%",
+          "TTPR": "2.61",
+          "DISR%": "1.5%",
+          "BLZ%": "31.3%"
+        }
+      },
+      "team-defense/pass-rush (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "DPBK": "272",
+          "SK": "15",
+          "SK%": "5.5%",
+          "QBH%": "13.2%",
+          "PRESS": "76",
+          "PRESS%": "27.9%",
+          "QPRESS%": "52.6%",
+          "TTPR": "2.61",
+          "DISR%": "1.5%",
+          "BLZ%": "31.3%"
+        }
+      },
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "DPBK": "237",
+          "SK": "15",
+          "SK%": "6.3%",
+          "QBH%": "15.2%",
+          "PRESS": "62",
+          "PRESS%": "26.2%",
+          "QPRESS%": "43.5%",
+          "TTPR": "2.59",
+          "DISR%": "0.4%",
+          "BLZ%": "24.5%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/DB": "0.033",
+          "SUCC%": "43.4%",
+          "DVOA": "-0.4%",
+          "CPOE": "1.55%",
+          "CBALL%": "72.6%",
+          "EXP%": "8.4%",
+          "INTW%": "2.0%",
+          "TGHT%": "23.8%",
+          "OPEN%": "52.0%",
+          "TA%": "5.2%",
+          "DROP%": "3.6%"
+        }
+      },
+      "team-defense/passing-analytics (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/DB": "0.033",
+          "SUCC%": "43.4%",
+          "DVOA": "-0.4%",
+          "CPOE": "1.47%",
+          "CBALL%": "72.6%",
+          "EXP%": "8.4%",
+          "INTW%": "2.0%",
+          "TGHT%": "23.8%",
+          "OPEN%": "52.0%",
+          "TA%": "5.2%",
+          "DROP%": "3.6%"
+        }
+      },
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/DB": "0.001",
+          "SUCC%": "41.8%",
+          "DVOA": "-9.6%",
+          "CPOE": "12.75%",
+          "CBALL%": "57.5%",
+          "EXP%": "9.2%",
+          "INTW%": "2.3%",
+          "TGHT%": "19.2%",
+          "OPEN%": "43.9%",
+          "TA%": "3.7%",
+          "DROP%": "3.3%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/ATT": "-0.169",
+          "SUCC%": "42.7%",
+          "DVOA": "-22.9%",
+          "aRYOE": "",
+          "EXP%": "2.9%",
+          "STF%": "18.1%",
+          "YBCO": "1.33",
+          "YACO": "1.84"
+        }
+      },
+      "team-defense/rush-analytics (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/ATT": "-0.169",
+          "SUCC%": "42.7%",
+          "DVOA": "-22.9%",
+          "aRYOE": "",
+          "EXP%": "2.9%",
+          "STF%": "18.1%",
+          "YBCO": "1.33",
+          "YACO": "1.84"
+        }
+      },
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/ATT": "-0.162",
+          "SUCC%": "44.8%",
+          "DVOA": "-23.2%",
+          "aRYOE": "",
+          "EXP%": "2.8%",
+          "STF%": "17.5%",
+          "YBCO": "1.24",
+          "YACO": "1.92"
+        }
+      },
+      "team-offense/efficiency (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/PLY": "0.170",
+          "DVOA": "27.9%",
+          "SUCC%": "52.4%",
+          "EXP%": "12.2%",
+          "CONV%": "52.4%",
+          "TO": "6",
+          "TO%": "1.46%",
+          "PENY": "27.7",
+          "PEN%": "5.37%"
+        }
+      },
+      "team-offense/efficiency (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/PLY": "0.170",
+          "DVOA": "27.9%",
+          "SUCC%": "52.4%",
+          "EXP%": "12.2%",
+          "CONV%": "52.4%",
+          "TO": "6",
+          "TO%": "1.46%",
+          "PENY": "27.7",
+          "PEN%": "5.37%"
+        }
+      },
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/PLY": "0.201",
+          "DVOA": "34.6%",
+          "SUCC%": "51.9%",
+          "EXP%": "12.2%",
+          "CONV%": "52.9%",
+          "TO": "3",
+          "TO%": "0.87%",
+          "PENY": "29.0",
+          "PEN%": "5.51%"
+        }
+      },
+      "team-offense/overview (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "YD/PLY": "6.4",
+          "PT/GM": "27.3",
+          "FD%": "34.6%",
+          "TO": "6",
+          "DPBK%": "57.1%",
+          "YD": "1,748",
+          "TD": "15",
+          "INT": "4",
+          "RUSH%": "42.9%",
+          "YD__2": "892",
+          "TD__2": "10"
+        }
+      },
+      "team-offense/overview (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "YD/PLY": "6.4",
+          "PT/GM": "27.3",
+          "FD%": "34.6%",
+          "TO": "6",
+          "DPBK%": "57.1%",
+          "YD": "1,748",
+          "TD": "15",
+          "INT": "4",
+          "RUSH%": "42.9%",
+          "YD__2": "892",
+          "TD__2": "10"
+        }
+      },
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "YD/PLY": "6.5",
+          "PT/GM": "28.5",
+          "FD%": "34.2%",
+          "TO": "3",
+          "DPBK%": "55.7%",
+          "YD": "1,460",
+          "TD": "14",
+          "INT": "2",
+          "RUSH%": "44.3%",
+          "YD__2": "769",
+          "TD__2": "8"
+        }
+      },
+      "team-offense/pass-protection (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBSK%": "42.9%",
+          "QBH%": "11.1%",
+          "PRESS%": "22.6%",
+          "UPRES%": "22.2%",
+          "BLITZ%": "29.5%",
+          "TTPR": "2.50",
+          "TTT": "2.74",
+          "EPA/DB": "-0.242",
+          "DVOA": "-54.2%",
+          "SUCC%": "41.5%",
+          "EPA/DB__2": "0.443",
+          "DVOA__2": "52.2%",
+          "SUCC%__2": "58.0%"
+        }
+      },
+      "team-offense/pass-protection (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBSK%": "42.9%",
+          "QBH%": "11.1%",
+          "PRESS%": "22.6%",
+          "UPRES%": "22.2%",
+          "BLITZ%": "29.5%",
+          "TTPR": "2.50",
+          "TTT": "2.74",
+          "EPA/DB": "-0.242",
+          "DVOA": "-54.2%",
+          "SUCC%": "41.5%",
+          "EPA/DB__2": "0.443",
+          "DVOA__2": "52.2%",
+          "SUCC%__2": "58.0%"
+        }
+      },
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "SK": "5",
+          "SK%": "2.6%",
+          "QBSK%": "60.0%",
+          "QBH%": "12.0%",
+          "PRESS%": "21.9%",
+          "UPRES%": "28.6%",
+          "BLITZ%": "24.5%",
+          "TTPR": "2.54",
+          "TTT": "2.77",
+          "EPA/DB": "-0.100",
+          "DVOA": "-27.4%",
+          "SUCC%": "42.9%",
+          "EPA/DB__2": "0.492",
+          "DVOA__2": "57.2%",
+          "SUCC%__2": "58.0%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/DB": "0.288",
+          "SUCC%": "54.3%",
+          "DVOA": "54.5%",
+          "CPOE": "5.9%",
+          "CBALL%": "74.5%",
+          "EXP%": "16.4%",
+          "INTW%": "2.8%",
+          "HLT%": "3.8%",
+          "TA%": "2.8%",
+          "DROP%": "2.4%",
+          "aDOT": "7.8",
+          "aYAC": "4.9"
+        }
+      },
+      "team-offense/passing-analytics (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/DB": "0.288",
+          "SUCC%": "54.3%",
+          "DVOA": "54.5%",
+          "CPOE": "5.9%",
+          "CBALL%": "74.5%",
+          "EXP%": "16.4%",
+          "INTW%": "2.8%",
+          "HLT%": "3.8%",
+          "TA%": "2.8%",
+          "DROP%": "2.4%",
+          "aDOT": "7.8",
+          "aYAC": "4.9"
+        }
+      },
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/DB": "0.363",
+          "SUCC%": "54.7%",
+          "DVOA": "64.1%",
+          "CPOE": "18.3%",
+          "CBALL%": "61.6%",
+          "EXP%": "16.8%",
+          "INTW%": "2.3%",
+          "HLT%": "3.5%",
+          "TA%": "3.5%",
+          "DROP%": "2.3%",
+          "aDOT": "7.9",
+          "aYAC": "5.1"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/ATT": "0.014",
+          "SUCC%": "50.0%",
+          "DVOA": "5.9%",
+          "aRYOE": "",
+          "EXP%": "11.4%",
+          "STF%": "17.6%",
+          "aYBCO": "1.60",
+          "aYACO": "2.32",
+          "CRT%": "54.6%"
+        }
+      },
+      "team-offense/rushing-analytics (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "EPA/ATT": "0.014",
+          "SUCC%": "50.0%",
+          "DVOA": "5.9%",
+          "aRYOE": "",
+          "EXP%": "11.4%",
+          "STF%": "17.6%",
+          "aYBCO": "1.60",
+          "aYACO": "2.32",
+          "CRT%": "54.6%"
+        }
+      },
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "EPA/ATT": "-0.001",
+          "SUCC%": "48.4%",
+          "DVOA": "8.6%",
+          "aRYOE": "",
+          "EXP%": "10.5%",
+          "STF%": "17.0%",
+          "aYBCO": "1.42",
+          "aYACO": "1.95",
+          "CRT%": "47.9%"
+        }
+      },
+      "team-offense/tempo (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "PLY/GM": "58.6",
+          "TOP": "27.86",
+          "DRV/GM": "9.9",
+          "SEC/PLY": "28.5",
+          "PLY/DRV": "5.9",
+          "YD/DRV": "38.3",
+          "SEC/DRV": "170",
+          "3&O": "18.8%",
+          "SCD%": "46.4%"
+        }
+      },
+      "team-offense/tempo (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "PLY/GM": "58.6",
+          "TOP": "27.86",
+          "DRV/GM": "9.9",
+          "SEC/PLY": "28.5",
+          "PLY/DRV": "5.9",
+          "YD/DRV": "38.3",
+          "SEC/DRV": "170",
+          "3&O": "18.8%",
+          "SCD%": "46.4%"
+        }
+      },
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "PLY/GM": "57.5",
+          "TOP": "27.65",
+          "DRV/GM": "10.0",
+          "SEC/PLY": "28.8",
+          "PLY/DRV": "5.8",
+          "YD/DRV": "37.1",
+          "SEC/DRV": "166",
+          "3&O": "21.7%",
+          "SCD%": "48.3%"
+        }
+      },
+      "team-offense/tendencies (1)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "DPBK%": "57.1%",
+          "RUSH%": "42.9%",
+          "SHG%": "47.8%",
+          "NH%": "2.4%",
+          "MOT%": "74.1%",
+          "PA%": "21.4%",
+          "IZ%": "26.7%",
+          "OZ%": "32.4%",
+          "MD%": "10.8%",
+          "PWR%": "7.4%",
+          "CTR%": "1.7%"
+        }
+      },
+      "team-offense/tendencies (2)": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "7",
+          "DPBK%": "57.1%",
+          "RUSH%": "42.9%",
+          "SHG%": "47.8%",
+          "NH%": "2.4%",
+          "MOT%": "74.1%",
+          "PA%": "21.4%",
+          "IZ%": "26.7%",
+          "OZ%": "32.4%",
+          "MD%": "10.8%",
+          "PWR%": "7.4%",
+          "CTR%": "1.7%"
+        }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "San Francisco 49ers",
+          "GP": "6",
+          "DPBK%": "55.7%",
+          "RUSH%": "44.3%",
+          "SHG%": "37.4%",
+          "NH%": "2.0%",
+          "MOT%": "62.9%",
+          "PA%": "20.3%",
+          "IZ%": "25.5%",
+          "OZ%": "29.4%",
+          "MD%": "5.9%",
+          "PWR%": "3.3%",
+          "CTR%": "0.7%"
+        }
+      }
+    },
+    "qb1": {
+      "player": "Brock Purdy",
+      "position": "QB",
+      "tables": {
+        "passing/air-yards (1)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "aDOT": "7.8",
+          "AIR": "1,656",
+          "cAIR": "1,045",
+          "cAIR%": "63.1%",
+          "PRYD": "611",
+          "PRYD%": "36.9%",
+          "dAIR": "44"
+        },
+        "passing/air-yards (2)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "aDOT": "7.8",
+          "AIR": "1,656",
+          "cAIR": "1,045",
+          "cAIR%": "63.1%",
+          "PRYD": "611",
+          "PRYD%": "36.9%",
+          "dAIR": "44"
+        },
+        "passing/air-yards": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "6",
+          "aDOT": "7.9",
+          "AIR": "1,354",
+          "cAIR": "642",
+          "cAIR%": "47.4%",
+          "PRYD": "712",
+          "PRYD%": "52.6%",
+          "dAIR": "30"
+        },
+        "passing/analytics (1)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "EPA": "67.4",
+          "EPA/DB": "0.288",
+          "SUCC%": "54.3%",
+          "ACOMP%": "73.3%",
+          "DVOA": "28.1%",
+          "DYAR": "572",
+          "xCOMP": "63.0%",
+          "CPOE": "5.9%",
+          "aYDOE": "1.151"
+        },
+        "passing/analytics (2)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "EPA": "67.4",
+          "EPA/DB": "0.288",
+          "SUCC%": "54.3%",
+          "ACOMP%": "73.3%",
+          "DVOA": "28.1%",
+          "DYAR": "572",
+          "xCOMP": "62.9%",
+          "CPOE": "5.9%",
+          "aYDOE": "1.153"
+        },
+        "passing/analytics": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "6",
+          "EPA": "69.6",
+          "EPA/DB": "0.363",
+          "SUCC%": "54.7%",
+          "ACOMP%": "74.1%",
+          "DVOA": "37.8%",
+          "DYAR": "583",
+          "xCOMP": "50.9%",
+          "CPOE": "18.3%",
+          "aYDOE": "2.559"
+        },
+        "passing/efficiency (1)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "CBALL%": "74.5%",
+          "INTW%": "2.8%",
+          "HLT%": "3.8%",
+          "EXP%": "11.3%",
+          "DROP%": "2.4%",
+          "TA%": "2.8%",
+          "TD%": "7.1%",
+          "INT%": "1.9%",
+          "SK%": "3.0%"
+        },
+        "passing/efficiency (2)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "CBALL%": "74.5%",
+          "INTW%": "2.8%",
+          "HLT%": "3.8%",
+          "EXP%": "11.3%",
+          "DROP%": "2.4%",
+          "TA%": "2.8%",
+          "TD%": "7.1%",
+          "INT%": "1.9%",
+          "SK%": "3.0%"
+        },
+        "passing/efficiency": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "6",
+          "CBALL%": "61.6%",
+          "INTW%": "2.3%",
+          "HLT%": "3.5%",
+          "EXP%": "11.6%",
+          "DROP%": "2.3%",
+          "TA%": "3.5%",
+          "TD%": "8.1%",
+          "INT%": "1.2%",
+          "SK%": "2.6%"
+        },
+        "passing/overview (1)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "DPBK": "234",
+          "ATT": "212",
+          "COMP": "146",
+          "COMP%": "68.9%",
+          "YD": "1,748",
+          "YD/ATT": "8.2",
+          "TD": "15",
+          "INT": "4",
+          "FUML": "0"
+        },
+        "passing/overview (2)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "DPBK": "234",
+          "ATT": "212",
+          "COMP": "146",
+          "COMP%": "68.9%",
+          "YD": "1,748",
+          "YD/ATT": "8.2",
+          "TD": "15",
+          "INT": "4",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "6",
+          "DPBK": "192",
+          "ATT": "172",
+          "COMP": "119",
+          "COMP%": "69.2%",
+          "YD": "1,460",
+          "YD/ATT": "8.5",
+          "TD": "14",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBSK%": "42.9%",
+          "AVSK%": "3.0%",
+          "QBH%": "11.1%",
+          "TTPR": "2.50",
+          "TTT": "2.74",
+          "RATE": "22.6%",
+          "EPA/DB": "-0.242",
+          "DVOA": "-54.2%",
+          "RATE__2": "77.4%",
+          "EPA/DB__2": "0.443",
+          "DVOA__2": "52.2%"
+        },
+        "passing/pressure (2)": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "7",
+          "SK": "7",
+          "SK%": "3.0%",
+          "QBSK%": "42.9%",
+          "AVSK%": "3.0%",
+          "QBH%": "11.1%",
+          "TTPR": "2.50",
+          "TTT": "2.74",
+          "RATE": "22.6%",
+          "EPA/DB": "-0.242",
+          "DVOA": "-54.2%",
+          "RATE__2": "77.4%",
+          "EPA/DB__2": "0.443",
+          "DVOA__2": "52.2%"
+        },
+        "passing/pressure": {
+          "Player": "Brock Purdy",
+          "Team": "San Francisco 49ers",
+          "Position": "QB",
+          "GP": "6",
+          "SK": "5",
+          "SK%": "2.6%",
+          "QBSK%": "60.0%",
+          "AVSK%": "3.1%",
+          "QBH%": "12.0%",
+          "TTPR": "2.54",
+          "TTT": "2.77",
+          "RATE": "21.9%",
+          "EPA/DB": "-0.100",
+          "DVOA": "-27.4%",
+          "RATE__2": "78.1%",
+          "EPA/DB__2": "0.492",
+          "DVOA__2": "57.2%"
+        }
+      }
+    },
+    "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
+    "gp_by_table": {
+      "passing/air-yards (1)": 7,
+      "passing/air-yards (2)": 7,
+      "passing/air-yards": 6,
+      "passing/analytics (1)": 7,
+      "passing/analytics (2)": 7,
+      "passing/analytics": 6,
+      "passing/efficiency (1)": 7,
+      "passing/efficiency (2)": 7,
+      "passing/efficiency": 6,
+      "passing/overview (1)": 7,
+      "passing/overview (2)": 7,
+      "passing/overview": 6,
+      "passing/pressure (1)": 7,
+      "passing/pressure (2)": 7,
+      "passing/pressure": 6,
+      "team-defense/efficiency (1)": 7,
+      "team-defense/efficiency (2)": 7,
+      "team-defense/efficiency": 6,
+      "team-defense/overview (1)": 7,
+      "team-defense/overview (2)": 7,
+      "team-defense/overview": 6,
+      "team-defense/pass-rush (1)": 7,
+      "team-defense/pass-rush (2)": 7,
+      "team-defense/pass-rush": 6,
+      "team-defense/passing-analytics (1)": 7,
+      "team-defense/passing-analytics (2)": 7,
+      "team-defense/passing-analytics": 6,
+      "team-defense/rush-analytics (1)": 7,
+      "team-defense/rush-analytics (2)": 7,
+      "team-defense/rush-analytics": 6,
+      "team-offense/efficiency (1)": 7,
+      "team-offense/efficiency (2)": 7,
+      "team-offense/efficiency": 6,
+      "team-offense/overview (1)": 7,
+      "team-offense/overview (2)": 7,
+      "team-offense/overview": 6,
+      "team-offense/pass-protection (1)": 7,
+      "team-offense/pass-protection (2)": 7,
+      "team-offense/pass-protection": 6,
+      "team-offense/passing-analytics (1)": 7,
+      "team-offense/passing-analytics (2)": 7,
+      "team-offense/passing-analytics": 6,
+      "team-offense/rushing-analytics (1)": 7,
+      "team-offense/rushing-analytics (2)": 7,
+      "team-offense/rushing-analytics": 6,
+      "team-offense/tempo (1)": 7,
+      "team-offense/tempo (2)": 7,
+      "team-offense/tempo": 6,
+      "team-offense/tendencies (1)": 7,
+      "team-offense/tendencies (2)": 7,
+      "team-offense/tendencies": 6
+    }
+  },
+  "power": {
+    "games_played": 7,
+    "record": "6-1",
+    "srs": 6.061,
+    "net_points_per_game": 8.286,
+    "pythag_win_pct": 0.6956,
+    "model_composite_z": 1.3675,
+    "model_rank": 3,
+    "srs_rank": 5,
+    "net_ppg_rank": 3,
+    "pythag_rank": 3,
+    "excluded": [
+      "market_implied_win_total",
+      "market_implied_rank",
+      "delta (market data)"
+    ]
+  },
+  "scheme_context": {
+    "coaching": {
+      "label": "historical_context_only",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim",
+      "stale_after": "2026-11-11T23:29:37.439Z",
+      "fields": {
+        "head_coach": "Kyle Shanahan",
+        "offensive_coordinator": null,
+        "defensive_coordinator": null,
+        "sample_start": "2026-09-10",
+        "sample_end": "2026-10-25",
+        "games_sample": 7,
+        "coordinator_continuity": null,
+        "fourth_down_aggression_rate": null,
+        "fourth_down_aggression_tier": null,
+        "neutral_pass_rate": 0.533,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": null,
+        "play_action_rate": null,
+        "motion_rate": null,
+        "rpo_rate": null,
+        "pace_seconds_per_play": null,
+        "red_zone_pass_rate": null,
+        "two_minute_aggression_tier": null,
+        "ats_by_role": {
+          "overall": {
+            "wins": 4,
+            "losses": 2,
+            "pushes": 0
+          },
+          "home": {
+            "wins": 2,
+            "losses": 2,
+            "pushes": 0
+          },
+          "away": {
+            "wins": 2,
+            "losses": 0,
+            "pushes": 0
+          },
+          "favorite": {
+            "wins": 2,
+            "losses": 0,
+            "pushes": 0
+          },
+          "underdog": {
+            "wins": 2,
+            "losses": 2,
+            "pushes": 0
+          },
+          "division": {
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "trend_notes": "All-situation pass tendency is middle (0.533). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+        "stale_after": "2026-11-11T23:29:37.439Z",
+        "raw": {
+          "source_files": [
+            "data/vault-seed/nflverse/games.csv",
+            "data/vault-seed/nflverse/team_stats.csv"
+          ],
+          "source_file_mtimes": {
+            "games": "2026-10-28T23:29:37.981Z",
+            "team_stats": "2026-10-28T23:29:37.983Z"
+          },
+          "offensive_dropbacks": 218,
+          "offensive_plays": 409
+        }
+      }
+    },
+    "secondary_matchup": {
+      "label": "manual_review_capped",
+      "source_week": 8,
+      "status": "current",
+      "entries": null,
+      "note": "No team-keyed entries found in source structure; see raw file."
+    }
+  },
+  "availability": {
+    "status": "missing",
+    "roster_gate": "passed",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w08-roster-vet.json",
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-30T20:44:40.706430+00:00",
+      "roster_age_h_at_vet": 4.3,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": null,
+      "availability_events": "2026-10-30T23:30:01.685Z",
+      "impact_digest": "2026-10-22T14:39:29.587Z",
+      "projected_starters": "2026-10-30T22:00:02.643Z",
+      "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+    },
+    "caveats": [
+      "no ESPN status data for SF"
+    ]
+  },
+  "priors": {
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0818,
+        "def_epa_per_play": 0.0713,
+        "off_epa_rank": 6,
+        "def_epa_rank": 24,
+        "epa_per_dropback": 0.1781,
+        "qb_epa_per_dropback": 0.1781,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": 5.5004,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0449,
+        "sack_rate_generated": 0.0331,
+        "neutral_pass_rate": 0.5555,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.0333,
+        "play_action_rate": 0.1095,
+        "motion_rate": 0.5599,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 601,
+          "offensive_plays": 1082,
+          "defensive_dropbacks": 604,
+          "defensive_plays": 1028,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1352,
+            "ftn_charted_plays_defense": 1335,
+            "screen_rate": 0.0296,
+            "rpo_rate": 0.0052,
+            "trick_play_rate": 0.003,
+            "qb_out_of_pocket_rate": 0.0799,
+            "interception_worthy_rate": 0.017,
+            "throw_away_rate": 0.017,
+            "drop_rate_of_catchable_targets": 0.0536,
+            "contested_catch_rate_of_catchable_targets": 0.1451,
+            "created_reception_rate_of_catchable_targets": 0.0357,
+            "blitz_rate_faced": 0.1065,
+            "blitz_rate_generated": 0.1169,
+            "avg_pass_rushers_generated": 2.1296,
+            "avg_defenders_in_box_faced": 4.7955
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "12-5",
+        "actual_wins": 12,
+        "points_for": 437,
+        "points_against": 371,
+        "point_differential": 66,
+        "pythag_win_pct": 0.5958,
+        "pythag_wins": 10.13,
+        "pythag_win_delta": 1.87,
+        "pythag_win_delta_rank": 3,
+        "one_score_record": {
+          "wins": 5,
+          "losses": 1,
+          "ties": 0,
+          "games": 6,
+          "win_pct": 0.8333
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "12-5",
+        "power_rating": {
+          "srs": 5.553,
+          "net_points_per_game": 3.882,
+          "pythag_win_pct": 0.5958,
+          "model_composite_z": 0.7557,
+          "model_rank": 8,
+          "srs_rank": 5,
+          "net_ppg_rank": 9,
+          "pythag_rank": 8
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 9.9,
+        "overall_dvoa_rank": 10,
+        "offensive_dvoa": 17.5,
+        "offensive_dvoa_rank": 2,
+        "defensive_dvoa": 9,
+        "defensive_dvoa_rank": 27,
+        "special_teams_dvoa": 1.4,
+        "special_teams_dvoa_rank": 13,
+        "weighted_dvoa": 13.4,
+        "weighted_dvoa_rank": 9,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 10,
+            "total_dvoa": 9.9,
+            "wei_dvoa": 13.4,
+            "wei_rk": 9,
+            "w_l": "12-5",
+            "off_dvoa": 17.5,
+            "off_rk": 2,
+            "def_dvoa": 9,
+            "def_rk": 27,
+            "st_dvoa": 1.4,
+            "st_rk": 13
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [],
+      "withheld_roster_changed": []
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 17,
+          "score_overall": -0.08,
+          "run_block_z": 1.99,
+          "pass_block_z": -0.06,
+          "run_defense_z": -1.04,
+          "pass_rush_z": -1.2,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 8,
+          "score_overall": 0.14,
+          "run_block_z": 0.32,
+          "pass_block_z": -0.07,
+          "run_defense_z": 0.22,
+          "pass_rush_z": 0.07,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
+  },
+  "data_quality": {
+    "standing": {
+      "status": "current",
+      "through_week": 7
+    },
+    "game_log": {
+      "status": "current",
+      "through_week": 7,
+      "byes": []
+    },
+    "season_profile_espn": {
+      "status": "current",
+      "through_week": 7
+    },
+    "efficiency_nflverse": {
+      "status": "current",
+      "through_week": 7,
+      "null_fields": [
+        "analytic.dropback_success_rate",
+        "analytic.success_rate",
+        "analytic.explosive_play_rate",
+        "analytic.explosive_pass_rate",
+        "analytic.explosive_run_rate",
+        "analytic.pressure_rate_allowed",
+        "analytic.pressure_rate_generated",
+        "analytic.early_down_pass_rate",
+        "analytic.shotgun_rate",
+        "analytic.no_huddle_rate",
+        "analytic.play_action_rate",
+        "analytic.motion_rate",
+        "regression.fumble_recovery_pct",
+        "regression.takeaway_margin",
+        "regression.rz_td_pct_off",
+        "regression.rz_td_pct_def",
+        "regression.third_down_over_expected"
+      ]
+    },
+    "ftn": {
+      "status": "current",
+      "through_week": 7
+    },
+    "power": {
+      "status": "current",
+      "through_week": 7
+    },
+    "scheme_context": {
+      "status": "historical_context_only",
+      "caveats": [
+        "coaching snapshot stale after 2026-11-11T23:29:37.439Z",
+        "secondary-matchup source week 8"
+      ]
+    },
+    "availability": {
+      "status": "missing",
+      "through_week": null,
+      "as_of": {
+        "espn_status": null,
+        "availability_events": "2026-10-30T23:30:01.685Z",
+        "impact_digest": "2026-10-22T14:39:29.587Z",
+        "projected_starters": "2026-10-30T22:00:02.643Z",
+        "roster_snapshot": "2026-10-30T20:44:40.706430+00:00"
+      },
+      "roster_gate": "passed",
+      "null_fields": [],
+      "caveats": [
+        "no ESPN status data for SF"
+      ]
+    },
+    "priors": {
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
+    }
+  }
+}

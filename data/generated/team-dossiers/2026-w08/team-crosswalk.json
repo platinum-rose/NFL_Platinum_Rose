@@ -1,0 +1,615 @@
+{
+  "schema": "team_crosswalk_v1",
+  "canonical_note": "Canonical codes: WAS (not WSH), LAR (not LA), JAX (not JAC). Join on code only.",
+  "teams": {
+    "ARI": {
+      "code": "ARI",
+      "nickname": "Cardinals",
+      "full_name": "Arizona Cardinals",
+      "city": "Arizona",
+      "conference": "NFC",
+      "division": "NFC West",
+      "aliases": [
+        "AZ",
+        "Arizona",
+        "Arizona Cardinals",
+        "Cardinals",
+        "ari",
+        "arizona",
+        "az",
+        "cardinals",
+        "cards"
+      ],
+      "espn_slug": "ari"
+    },
+    "ATL": {
+      "code": "ATL",
+      "nickname": "Falcons",
+      "full_name": "Atlanta Falcons",
+      "city": "Atlanta",
+      "conference": "NFC",
+      "division": "NFC South",
+      "aliases": [
+        "Atlanta",
+        "Atlanta Falcons",
+        "Falcons",
+        "atl",
+        "atlanta",
+        "dirty birds",
+        "falcons"
+      ],
+      "espn_slug": "atl"
+    },
+    "BAL": {
+      "code": "BAL",
+      "nickname": "Ravens",
+      "full_name": "Baltimore Ravens",
+      "city": "Baltimore",
+      "conference": "AFC",
+      "division": "AFC North",
+      "aliases": [
+        "Baltimore",
+        "Baltimore Ravens",
+        "Ravens",
+        "bal",
+        "balt",
+        "baltimore",
+        "ravens"
+      ],
+      "espn_slug": "bal"
+    },
+    "BUF": {
+      "code": "BUF",
+      "nickname": "Bills",
+      "full_name": "Buffalo Bills",
+      "city": "Buffalo",
+      "conference": "AFC",
+      "division": "AFC East",
+      "aliases": [
+        "Bills",
+        "Buffalo",
+        "Buffalo Bills",
+        "bills",
+        "buf",
+        "buff",
+        "buffalo"
+      ],
+      "espn_slug": "buf"
+    },
+    "CAR": {
+      "code": "CAR",
+      "nickname": "Panthers",
+      "full_name": "Carolina Panthers",
+      "city": "Carolina",
+      "conference": "NFC",
+      "division": "NFC South",
+      "aliases": [
+        "Carolina",
+        "Carolina Panthers",
+        "Panthers",
+        "car",
+        "carolina",
+        "panthers"
+      ],
+      "espn_slug": "car"
+    },
+    "CHI": {
+      "code": "CHI",
+      "nickname": "Bears",
+      "full_name": "Chicago Bears",
+      "city": "Chicago",
+      "conference": "NFC",
+      "division": "NFC North",
+      "aliases": [
+        "Bears",
+        "Chicago",
+        "Chicago Bears",
+        "bears",
+        "chi",
+        "chicago"
+      ],
+      "espn_slug": "chi"
+    },
+    "CIN": {
+      "code": "CIN",
+      "nickname": "Bengals",
+      "full_name": "Cincinnati Bengals",
+      "city": "Cincinnati",
+      "conference": "AFC",
+      "division": "AFC North",
+      "aliases": [
+        "Bengals",
+        "Cincinnati",
+        "Cincinnati Bengals",
+        "bengals",
+        "cin",
+        "cincinnati",
+        "cincy"
+      ],
+      "espn_slug": "cin"
+    },
+    "CLE": {
+      "code": "CLE",
+      "nickname": "Browns",
+      "full_name": "Cleveland Browns",
+      "city": "Cleveland",
+      "conference": "AFC",
+      "division": "AFC North",
+      "aliases": [
+        "Browns",
+        "Cleveland",
+        "Cleveland Browns",
+        "browns",
+        "cle",
+        "cleveland"
+      ],
+      "espn_slug": "cle"
+    },
+    "DAL": {
+      "code": "DAL",
+      "nickname": "Cowboys",
+      "full_name": "Dallas Cowboys",
+      "city": "Dallas",
+      "conference": "NFC",
+      "division": "NFC East",
+      "aliases": [
+        "Cowboys",
+        "Dallas",
+        "Dallas Cowboys",
+        "america's team",
+        "cowboys",
+        "dal",
+        "dallas"
+      ],
+      "espn_slug": "dal"
+    },
+    "DEN": {
+      "code": "DEN",
+      "nickname": "Broncos",
+      "full_name": "Denver Broncos",
+      "city": "Denver",
+      "conference": "AFC",
+      "division": "AFC West",
+      "aliases": [
+        "Broncos",
+        "Denver",
+        "Denver Broncos",
+        "broncos",
+        "den",
+        "denver"
+      ],
+      "espn_slug": "den"
+    },
+    "DET": {
+      "code": "DET",
+      "nickname": "Lions",
+      "full_name": "Detroit Lions",
+      "city": "Detroit",
+      "conference": "NFC",
+      "division": "NFC North",
+      "aliases": [
+        "Detroit",
+        "Detroit Lions",
+        "Lions",
+        "det",
+        "detroit",
+        "lions"
+      ],
+      "espn_slug": "det"
+    },
+    "GB": {
+      "code": "GB",
+      "nickname": "Packers",
+      "full_name": "Green Bay Packers",
+      "city": "Green Bay",
+      "conference": "NFC",
+      "division": "NFC North",
+      "aliases": [
+        "GNB",
+        "Green Bay",
+        "Green Bay Packers",
+        "Packers",
+        "gb",
+        "gnb",
+        "green bay",
+        "pack",
+        "packers"
+      ],
+      "espn_slug": "gb"
+    },
+    "HOU": {
+      "code": "HOU",
+      "nickname": "Texans",
+      "full_name": "Houston Texans",
+      "city": "Houston",
+      "conference": "AFC",
+      "division": "AFC South",
+      "aliases": [
+        "Houston",
+        "Houston Texans",
+        "Texans",
+        "hou",
+        "houston",
+        "texans"
+      ],
+      "espn_slug": "hou"
+    },
+    "IND": {
+      "code": "IND",
+      "nickname": "Colts",
+      "full_name": "Indianapolis Colts",
+      "city": "Indianapolis",
+      "conference": "AFC",
+      "division": "AFC South",
+      "aliases": [
+        "Colts",
+        "Indianapolis",
+        "Indianapolis Colts",
+        "colts",
+        "ind",
+        "indianapolis",
+        "indy"
+      ],
+      "espn_slug": "ind"
+    },
+    "JAX": {
+      "code": "JAX",
+      "nickname": "Jaguars",
+      "full_name": "Jacksonville Jaguars",
+      "city": "Jacksonville",
+      "conference": "AFC",
+      "division": "AFC South",
+      "aliases": [
+        "JAC",
+        "Jacksonville",
+        "Jacksonville Jaguars",
+        "Jaguars",
+        "jac",
+        "jacksonville",
+        "jags",
+        "jaguars",
+        "jax"
+      ],
+      "espn_slug": "jax"
+    },
+    "KC": {
+      "code": "KC",
+      "nickname": "Chiefs",
+      "full_name": "Kansas City Chiefs",
+      "city": "Kansas City",
+      "conference": "AFC",
+      "division": "AFC West",
+      "aliases": [
+        "Chiefs",
+        "KAN",
+        "Kansas City",
+        "Kansas City Chiefs",
+        "chiefs",
+        "kan",
+        "kansas city",
+        "kc"
+      ],
+      "espn_slug": "kc"
+    },
+    "LV": {
+      "code": "LV",
+      "nickname": "Raiders",
+      "full_name": "Las Vegas Raiders",
+      "city": "Las Vegas",
+      "conference": "AFC",
+      "division": "AFC West",
+      "aliases": [
+        "LVR",
+        "Las Vegas",
+        "Las Vegas Raiders",
+        "OAK",
+        "Raiders",
+        "las vegas",
+        "lv",
+        "lvr",
+        "oak",
+        "oakland",
+        "raiders",
+        "vegas"
+      ],
+      "espn_slug": "lv"
+    },
+    "LAC": {
+      "code": "LAC",
+      "nickname": "Chargers",
+      "full_name": "Los Angeles Chargers",
+      "city": "Los Angeles",
+      "conference": "AFC",
+      "division": "AFC West",
+      "aliases": [
+        "Chargers",
+        "Los Angeles",
+        "Los Angeles Chargers",
+        "SD",
+        "bolts",
+        "chargers",
+        "la chargers",
+        "lac",
+        "los angeles chargers",
+        "san diego",
+        "sd"
+      ],
+      "espn_slug": "lac"
+    },
+    "LAR": {
+      "code": "LAR",
+      "nickname": "Rams",
+      "full_name": "Los Angeles Rams",
+      "city": "Los Angeles",
+      "conference": "NFC",
+      "division": "NFC West",
+      "aliases": [
+        "LA",
+        "Los Angeles",
+        "Los Angeles Rams",
+        "Rams",
+        "STL",
+        "la",
+        "la rams",
+        "lar",
+        "los angeles rams",
+        "rams",
+        "st. louis",
+        "stl"
+      ],
+      "espn_slug": "lar"
+    },
+    "MIA": {
+      "code": "MIA",
+      "nickname": "Dolphins",
+      "full_name": "Miami Dolphins",
+      "city": "Miami",
+      "conference": "AFC",
+      "division": "AFC East",
+      "aliases": [
+        "Dolphins",
+        "Miami",
+        "Miami Dolphins",
+        "dolphins",
+        "fins",
+        "mia",
+        "miami"
+      ],
+      "espn_slug": "mia"
+    },
+    "MIN": {
+      "code": "MIN",
+      "nickname": "Vikings",
+      "full_name": "Minnesota Vikings",
+      "city": "Minnesota",
+      "conference": "NFC",
+      "division": "NFC North",
+      "aliases": [
+        "Minnesota",
+        "Minnesota Vikings",
+        "Vikings",
+        "min",
+        "minnesota",
+        "minny",
+        "vikings"
+      ],
+      "espn_slug": "min"
+    },
+    "NE": {
+      "code": "NE",
+      "nickname": "Patriots",
+      "full_name": "New England Patriots",
+      "city": "New England",
+      "conference": "AFC",
+      "division": "AFC East",
+      "aliases": [
+        "NWE",
+        "New England",
+        "New England Patriots",
+        "Patriots",
+        "ne",
+        "new england",
+        "nwe",
+        "patriots",
+        "pats"
+      ],
+      "espn_slug": "ne"
+    },
+    "NO": {
+      "code": "NO",
+      "nickname": "Saints",
+      "full_name": "New Orleans Saints",
+      "city": "New Orleans",
+      "conference": "NFC",
+      "division": "NFC South",
+      "aliases": [
+        "NOR",
+        "New Orleans",
+        "New Orleans Saints",
+        "Saints",
+        "new orleans",
+        "no",
+        "nola",
+        "nor",
+        "saints"
+      ],
+      "espn_slug": "no"
+    },
+    "NYG": {
+      "code": "NYG",
+      "nickname": "Giants",
+      "full_name": "New York Giants",
+      "city": "New York",
+      "conference": "NFC",
+      "division": "NFC East",
+      "aliases": [
+        "Giants",
+        "New York",
+        "New York Giants",
+        "big blue",
+        "giants",
+        "gmen",
+        "new york giants",
+        "ny giants",
+        "nyg"
+      ],
+      "espn_slug": "nyg"
+    },
+    "NYJ": {
+      "code": "NYJ",
+      "nickname": "Jets",
+      "full_name": "New York Jets",
+      "city": "New York",
+      "conference": "AFC",
+      "division": "AFC East",
+      "aliases": [
+        "Jets",
+        "New York",
+        "New York Jets",
+        "gang green",
+        "jets",
+        "new york jets",
+        "ny jets",
+        "nyj"
+      ],
+      "espn_slug": "nyj"
+    },
+    "PHI": {
+      "code": "PHI",
+      "nickname": "Eagles",
+      "full_name": "Philadelphia Eagles",
+      "city": "Philadelphia",
+      "conference": "NFC",
+      "division": "NFC East",
+      "aliases": [
+        "Eagles",
+        "Philadelphia",
+        "Philadelphia Eagles",
+        "eagles",
+        "phi",
+        "philadelphia",
+        "philly"
+      ],
+      "espn_slug": "phi"
+    },
+    "PIT": {
+      "code": "PIT",
+      "nickname": "Steelers",
+      "full_name": "Pittsburgh Steelers",
+      "city": "Pittsburgh",
+      "conference": "AFC",
+      "division": "AFC North",
+      "aliases": [
+        "Pittsburgh",
+        "Pittsburgh Steelers",
+        "Steelers",
+        "pit",
+        "pitt",
+        "pittsburgh",
+        "steel curtain",
+        "steelers"
+      ],
+      "espn_slug": "pit"
+    },
+    "SF": {
+      "code": "SF",
+      "nickname": "49ers",
+      "full_name": "San Francisco 49ers",
+      "city": "San Francisco",
+      "conference": "NFC",
+      "division": "NFC West",
+      "aliases": [
+        "49ers",
+        "9ers",
+        "SFO",
+        "San Francisco",
+        "San Francisco 49ers",
+        "niners",
+        "san francisco",
+        "sf",
+        "sfo"
+      ],
+      "espn_slug": "sf"
+    },
+    "SEA": {
+      "code": "SEA",
+      "nickname": "Seahawks",
+      "full_name": "Seattle Seahawks",
+      "city": "Seattle",
+      "conference": "NFC",
+      "division": "NFC West",
+      "aliases": [
+        "Seahawks",
+        "Seattle",
+        "Seattle Seahawks",
+        "hawks",
+        "sea",
+        "seahawks",
+        "seattle"
+      ],
+      "espn_slug": "sea"
+    },
+    "TB": {
+      "code": "TB",
+      "nickname": "Buccaneers",
+      "full_name": "Tampa Bay Buccaneers",
+      "city": "Tampa Bay",
+      "conference": "NFC",
+      "division": "NFC South",
+      "aliases": [
+        "Buccaneers",
+        "TAM",
+        "TBB",
+        "Tampa Bay",
+        "Tampa Bay Buccaneers",
+        "buccaneers",
+        "bucs",
+        "tam",
+        "tampa",
+        "tampa bay",
+        "tb"
+      ],
+      "espn_slug": "tb"
+    },
+    "TEN": {
+      "code": "TEN",
+      "nickname": "Titans",
+      "full_name": "Tennessee Titans",
+      "city": "Tennessee",
+      "conference": "AFC",
+      "division": "AFC South",
+      "aliases": [
+        "Tennessee",
+        "Tennessee Titans",
+        "Titans",
+        "ten",
+        "tenn",
+        "tennessee",
+        "titans"
+      ],
+      "espn_slug": "ten"
+    },
+    "WAS": {
+      "code": "WAS",
+      "nickname": "Commanders",
+      "full_name": "Washington Commanders",
+      "city": "Washington",
+      "conference": "NFC",
+      "division": "NFC East",
+      "aliases": [
+        "Commanders",
+        "WSH",
+        "Washington",
+        "Washington Commanders",
+        "commanders",
+        "commies",
+        "football team",
+        "redskins",
+        "was",
+        "washington",
+        "wsh"
+      ],
+      "espn_slug": "was"
+    }
+  }
+}

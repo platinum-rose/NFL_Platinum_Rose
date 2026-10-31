@@ -1,0 +1,47 @@
+# NFL_Dashboard — Current Handoff
+
+## Pick up here — October 29, 2026
+
+**Current Claude pickup (3:55 PM PT Oct 30):** Week 8 Master Intel (multi-page site + PDF) and SuperContest Intel built from a Friday digest; one Platinum Rose rec (MIN +3.5). SC gate FAIL only on Andy inputs (post-Week-7 standings, locked five). Nothing published or archived. Builds need `$HOME/pyenv312` (Py 3.12) and `NODE_USE_ENV_PROXY=1`. Start with `handoffs/2026-10-30-1555-claude-week8-master-intel-sc-built.md`.
+
+**Current Claude pickup (3:30 PM PT Oct 30):** Next: build the Week 8 Master Intel (multi-page) and SuperContest Intel reports. FanDuel Predicts promo running on scheduled reminders (plan `reports/bets/2026-w08-fdp-promo-plan.md`); 5 FDP tickets placed, not yet logged. Branch pushed ~3:30 PM PT. Start with `handoffs/2026-10-30-1530-claude-week8-fdp-promo-master-intel-next.md`.
+
+**Current Claude pickup (1:25 PM PT Oct 30):** Friday injury re-check done (no pool slot changes; all live BKR player legs clear; Jihaad Campbell OUT → Zack Baun bump). Committed the missing `scripts/lib/atomic-file-write.js` (`c132558`). FDP promo plan and 5 scheduled reminders set; FDP ticket not yet logged. Local commits not pushed. Start with `handoffs/2026-10-30-1325-claude-week8-friday-injuries-fdp-promo.md`.
+
+**Current Claude pickup (9:30 AM PT Oct 30):** TNF graded (GB 27–19; cash −$51.02) and settled in Supabase with Andy's OK; the two BKR weekend parlays are alive. Live tracker `groups=50` bug fixed. Defensive props layer, backtests and weekly defensive-board capture built (runbook `docs/defensive-props/DEFENSIVE_BOARDS_RUNBOOK.md`). Pools re-slotted on 9:10 AM DK prices. Start with `handoffs/2026-10-30-0930-claude-week8-tnf-graded-defense-boards-pools.md`. Next: the Friday injury report re-check, weekend-card analytics, a DK defensive rerun Saturday (first run 11:09 AM Fri returned no tackles; diagnostics added in `5d527d6`), then Sunday entries. Branch pushed ~11:35 AM PT Oct 30.
+
+
+**Current Claude pickup (5:40 PM PT Oct 29):** Week 8 TNF CAR @ GB is live with 10 pending tickets: 3 DKP promo, 3 BEO, 4 BKR, including two weekend multi-game parlays with SNF WSH caps. Start with `handoffs/2026-10-29-1740-claude-week8-tnf-placed-weekend-parlays.md`. Next: grade TNF from ESPN, then the Friday/Sunday pool re-slot. Duma prize is a rolling 4-week window paid weekly. No wager, account, Supabase, paid action or publication without per-action approval. Prior pickup: `handoffs/2026-10-29-1425-claude-week8-pools-tnf-proposals.md`.
+
+Reconcile live Git, read `AGENTS.md` / `CLAUDE.md`, then use `handoffs/2026-10-29-0215-claude-futures-hedge-planning.md` for the latest futures state (hedge planner, open parlays live, Oct 29 BetOnline ticket) and `handoffs/2026-10-28-1940-codex-claude-week8-futures-tnf.md` for the TNF pickup (CAR @ GB today, 5:15 PM PT; card still HOLD); earlier TNF detail: `handoffs/2026-10-28-1819-claude-h2c2-codex-week8-tnf-parlay-prep.md`. Earlier engineering refresh audit: `reports/engineering/week8-refresh-audit-2026-10-28.md`. Tracker implementation history: `handoffs/2026-10-28-0022-codex-tracker-engineering.md`.
+
+### TNF pickup — Wednesday evening
+
+- The Week 8 Thursday cadence initially exited 1 on two Windows file-write errors. After local writer hardening (40/40 focused tests), Andy reran it at **12:46 PM PT on Oct 29**; the toolbox log confirms all three steps succeeded and the overall task completed. The saved availability snapshot has 1,149 events; props intel has 17 items. A Week 8 SuperContest sheet was checked against Westgate's official 14-game sheet. The DK/FD comparison was rebuilt, but its underlying odds remain from **Oct 28 at 2 PM PT** and are historical, not current or closing. See `reports/engineering/week8-supercontest-reconcile-2026-10-29/README.md` and `handoffs/2026-10-29-codex-thursday-cadence-repair.md`. Further Supabase, account and paid operations require Andy's per-action OK. Do not use `--live` odds.
+- FTN matchup research: `reports/engineering/week8-tnf-ftn-read-2026-10-28.md`. The local proposal draft at `reports/bets/2026-w08-card.md` contains two alternative, unmodeled scripts and is **HOLD** pending Thursday checks and actual SGP quotes. Post-write roster vet PASS, two distinct card players checked: `reports/engineering/week8-tnf-card-vet-2026-10-28-v2.json`.
+- Andy approved two paid podcast extractions; one call per episode was made. The Ross Tucker Gemini timestamps extend past the video and are unusable; an independent free local ASR transcript is retained for audio verification. Sharp or Square's source lean is supported by separately retained YouTube automatic captions. See `reports/engineering/week8-tnf-podcasts-2026-10-28/README.md`. The earlier authorized read-only promoted-podcast query was performed once; it found zero rows under its created-at filter. No Supabase writes or official-pick publication.
+- The earlier multi-lane refresh stopped when its subagents hit usage limits. Week 7 power data was partly refreshed; inspect `reports/engineering/week8-profile-refresh/` and validate before relying on every profile. Secondary matrix remains Week 7. Root restored `data/player-availability/latest.json` from the independently refreshed 4:30 PM snapshot after an interrupted, incorrectly labeled review; the rejected copy is retained under `reports/engineering/week8-refresh-run-2026-10-28/`. The availability deduper currently re-enables explicit `synthesis_eligible: false` holds; do not use that rejected filtered preview without fixing and testing the behavior.
+
+- Working branch: `claude/w5-prop-cards-2026-10-11`.
+- Last verified HEAD before the Oct 29 futures commit: `866e1f0`; that commit (which contains `handoffs/2026-10-29-0215-claude-futures-hedge-planning.md`) sits on top of it. Tracker code checkpoint: `6dca59f19c7e490b1793c8b67a16995137490379`. Extensive dirty/private/generated work remains; verify live before editing.
+- Tracker verification: **21/21 focused tests**, prior offline Chromium false-Hit reproduction and fixed reload replay, source syntax and test lint. Later broad session run: **2,046 passed / 27 failed**; not a full-suite pass. Midday work changed data/reports only; no suite repeat.
+- Schedule carry-forward tests (`371010c`) and scanner script repair (`d6ab1f0`) are committed. Tracker source now prioritizes recorded results over stale browser marks, isolates scoreboard data to the rendered week, and uses cached summaries on HTTP failure. Cadence wording now describes Supabase writes correctly.
+- Real tracker artifacts were not rebuilt or published for this fix. Scheduled Windows jobs have dirtied both tracker HTML files and the market timestamp again; preserve them. The private Yahoo access document and untracked scratch/backups remain excluded.
+
+## Next work
+
+1. M6 active checkout was inspected clean and safely fast-forwarded to `71c6b4f` earlier this session. Reinspect before any further update. New Windows captures/previews have not been transferred.
+2. ARI/MIN independent reconciliation completed with 11 role review tags; disagreements and prior human approvals remain. Details: `reports/engineering/week8-depth-chart-reconciliation-2026-10-28.json`.
+3. FTN missing-Monday-game hold is cleared: all 36 tables recaptured; canonical Week 8 context passed 384 team-game-count checks. See `reports/engineering/week8-ftn-mnf-recheck-2026-10-28.md`.
+4. Wednesday 9 AM run completed; do not rerun it or Tuesday. At approximately 1:10 PM PT, official TNF final reports and ESPN-only local previews are saved under `reports/engineering/week8-midday-2026-10-28/`. All 17 final-report entries roster-match. Canonical inputs and real tracker files were not replaced.
+5. **Readiness HOLD:** canonical secondary/prop intel remain Week 7. Andy approved one read-only article retrieval, completed at 1:23 PM PT: 189 raw records retained locally; offline review assessed 159 current-window NFL records. One narrow-parser prop match is a parlay-only source leg, not a standalone pick. See `reports/engineering/week8-article-retrieval-2026-10-28.md`. This approval is fulfilled; no database writes or paid calls occurred in that action. The existing 3 PM scheduled run refreshed availability/starters/markets, then exited 1 at Alpha on the stale secondary/props dependencies. Its FantasyPros rows also need timestamp-provenance review. Existing task settings were not changed; do not rerun the cadence.
+6. Capture remaining Wednesday practice evidence and review role/seed freshness before synthesis. TNF: CAR @ GB, October 29 at 5:15 PM Pacific. Real tracker activation still requires the roster gate, Andy's publication approval, and actual page verification. Hook wiring remains separately unverified.
+
+## Guardrails
+
+- Preserve dirty/concurrent work. No broad staging, reset, clean, stash, or unreviewed deletion. Use `git -c core.fsmonitor=false`.
+- No account, wager, portfolio/ledger, Supabase, paid API/model action, or artifact publication without Andy's per-action OK. Live schedule ingest writes Supabase; dry-run can still write local caches.
+- A passing live roster gate is required before player-named output. Saved October 27 clearance is not Wednesday PM clearance.
+- Active M6 path: `/home/andrewlrose/projects/NFL_Dashboard_w5_current`. Leave legacy checkouts and frozen backups alone.
+
+Details: `reports/engineering/live-tracker-correctness-2026-10-28.md`. Prior scope and original guardrails: `handoffs/2026-10-27-1735-claude-h2c2-codex-week8-wednesday.md`.

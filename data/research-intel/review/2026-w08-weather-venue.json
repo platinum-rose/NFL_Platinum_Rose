@@ -1,0 +1,126 @@
+{
+  "schema": "week_weather_venue_review_v1",
+  "season": 2026,
+  "week": 8,
+  "captured_at": "2026-10-31T01:02:35Z",
+  "provider": "Open-Meteo forecast API (read through the Claude built-in browser; VM/container proxy blocks the API)",
+  "status": "research_context_only_not_picks",
+  "caveats": [
+    "Forecast, not observed conditions; refresh Sunday morning.",
+    "Hour at kickoff (UTC).",
+    "Domes/covered: DET, LAR (SoFi), DAL (retractable) omitted. Lumen Field (SEA) is open-air."
+  ],
+  "materiality_thresholds": "review_required if wind>=25 km/h or gusts>=40 km/h or precip prob>=40% or precip>=1 mm or temp<=0 C",
+  "rows": [
+    {
+      "game": "TEN@CIN",
+      "venue_team": "CIN",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 18.5,
+      "precip_prob_pct": 8,
+      "precip_mm": 0.15,
+      "wind_kmh": 8.9,
+      "gust_kmh": 28.1,
+      "materiality": "none"
+    },
+    {
+      "game": "IND@JAX",
+      "venue_team": "JAX",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 25.8,
+      "precip_prob_pct": 39,
+      "precip_mm": 0,
+      "wind_kmh": 21.6,
+      "gust_kmh": 33.9,
+      "materiality": "none"
+    },
+    {
+      "game": "CLE@PIT",
+      "venue_team": "PIT",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 18.5,
+      "precip_prob_pct": 1,
+      "precip_mm": 0,
+      "wind_kmh": 6.7,
+      "gust_kmh": 15.8,
+      "materiality": "none"
+    },
+    {
+      "game": "BAL@BUF",
+      "venue_team": "BUF",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 18.5,
+      "precip_prob_pct": 0,
+      "precip_mm": 0,
+      "wind_kmh": 8.9,
+      "gust_kmh": 13.1,
+      "materiality": "none"
+    },
+    {
+      "game": "ATL@TB",
+      "venue_team": "TB",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 25.1,
+      "precip_prob_pct": 45,
+      "precip_mm": 0.8,
+      "wind_kmh": 21.2,
+      "gust_kmh": 29.4,
+      "materiality": "review_required"
+    },
+    {
+      "game": "LV@NYJ",
+      "venue_team": "NYJ",
+      "kickoff_hour_utc": "2026-11-01T18",
+      "temp_c": 15.3,
+      "precip_prob_pct": 0,
+      "precip_mm": 0,
+      "wind_kmh": 6,
+      "gust_kmh": 8.7,
+      "materiality": "none"
+    },
+    {
+      "game": "NE@MIA",
+      "venue_team": "MIA",
+      "kickoff_hour_utc": "2026-11-01T21",
+      "temp_c": 27,
+      "precip_prob_pct": 80,
+      "precip_mm": 0.5,
+      "wind_kmh": 32,
+      "gust_kmh": 37.8,
+      "materiality": "review_required"
+    },
+    {
+      "game": "KC@DEN",
+      "venue_team": "DEN",
+      "kickoff_hour_utc": "2026-11-01T21",
+      "temp_c": 18.8,
+      "precip_prob_pct": 0,
+      "precip_mm": 0,
+      "wind_kmh": 8.9,
+      "gust_kmh": 7.9,
+      "materiality": "none"
+    },
+    {
+      "game": "PHI@WAS",
+      "venue_team": "WAS",
+      "kickoff_hour_utc": "2026-11-02T01",
+      "temp_c": 11.6,
+      "precip_prob_pct": 0,
+      "precip_mm": 0,
+      "wind_kmh": 6.2,
+      "gust_kmh": 6.5,
+      "materiality": "none"
+    },
+    {
+      "game": "CHI@SEA",
+      "venue_team": "SEA",
+      "kickoff_hour_utc": "2026-11-03T01",
+      "temp_c": 9.5,
+      "precip_prob_pct": 1,
+      "precip_mm": 0,
+      "wind_kmh": 0.8,
+      "gust_kmh": 1.1,
+      "materiality": "none"
+    }
+  ]
+}

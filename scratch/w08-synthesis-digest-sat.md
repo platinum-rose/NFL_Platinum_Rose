@@ -56,6 +56,7 @@ CAR@GB is FINAL (GB 27, CAR 19). Every CAR/GB signal is dropped.
 ## F. Availability / QB flags (Friday designations)
 - OUT: DeVonta Smith, Dontayvion Wicks, Britain Covey, Jonathan Jones, Jihaad Campbell (PHI); Carnell Tate, Tyjae Spears (TEN); Emeka Egbuka (TB); Kerby Joseph (DET); Derwin James Jr., Deane Leonard (LAC); RJ Harvey, Talanoa Hufanga (DEN); Brian Robinson Jr. (ATL); Kyle Dugger (CIN); Jaylinn Hawkins (BAL); KaVontae Turpin (DAL); Kadyn Proctor (MIA).
 - QUESTIONABLE: A.J. Brown and TreVeyon Henderson (NE); Dalton Kincaid, DJ Moore, Spencer Brown (BUF); Jaylen Waddle, Zach Allen, Garett Bolles (DEN); George Pickens (DAL); Calvin Ridley (TEN); Breece Hall (NYJ); Trent McDuffie (LAR); Jakobi Meyers (JAX); Kenny Gainwell (TB); Rashid Shaheed, Zach Charbonnet (SEA); Charles Cross (SEA, doubtful); Colston Loveland, Kyle Monangai (CHI).
+- Weather (Open-Meteo, Fri 6 PM PT; `data/research-intel/review/2026-w08-weather-venue.json`): NE@MIA 80% rain, wind 32 km/h gusting 38 (review); ATL@TB 45% rain, wind 21 km/h (review). Other outdoor sites calm and dry.
 - QBs: every Sunday/Monday starter has no designation (a QB with no report entry starts).
 
 ## H. Pools
