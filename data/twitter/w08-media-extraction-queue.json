@@ -13,8 +13,8 @@
   "linked_youtube:pending": 2,
   "video:skip": 2,
   "linked_youtube:skip": 3,
-  "thread_text:pending": 12,
-  "image_or_chart:pending": 18
+  "thread_text:done": 12,
+  "image_or_chart:done": 18
  },
  "items": [
   {
@@ -144,8 +144,10 @@
    "tweet_url": "https://x.com/thepropguru_/status/2116198450706727079",
    "context": "[1/8] 6 TDs that WILL TURN $20 into $1,400",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 6 picks \u2014 Anytime TD recommendations for Week 8"
   },
   {
    "kind": "thread_text",
@@ -153,8 +155,10 @@
    "tweet_url": "https://x.com/thepowerrank/status/2116188374599864686",
    "context": "[1/2] The most remarkable thing about the Buffalo Bills, and",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Analytics podcast on Bills; no concrete bets"
   },
   {
    "kind": "thread_text",
@@ -162,8 +166,10 @@
    "tweet_url": "https://x.com/lockandcash/status/2116170932544798882",
    "context": "[1/2] \ud83c\udfafNFL Week 8 Best Bets Show!",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 2 picks \u2014 Best bets show; NYJ ML and BAL +3.5; other leans not firm"
   },
   {
    "kind": "thread_text",
@@ -171,8 +177,10 @@
    "tweet_url": "https://x.com/salbets_/status/2116152408908685541",
    "context": "[1/13] My What The F*ck Touchdown Parlay for Week 8\u2026",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 4 picks \u2014 TD parlay legs for Week 8"
   },
   {
    "kind": "thread_text",
@@ -180,8 +188,10 @@
    "tweet_url": "https://x.com/yourlinemate/status/2115896457056379177",
    "context": "[1/2] Thursday Night Football is here! \ud83c\udfc8\ud83d\udd25",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF (already played)"
   },
   {
    "kind": "thread_text",
@@ -189,8 +199,10 @@
    "tweet_url": "https://x.com/thepropdealer/status/2115880740907012550",
    "context": "[1/2] 4 players.",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF TD parlay (already played)"
   },
   {
    "kind": "thread_text",
@@ -198,8 +210,10 @@
    "tweet_url": "https://x.com/Ihartitz/status/2115845292096385146",
    "context": "[1/6] Week 8 Mismatch Manifesto charts!",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Mismatch charts / analytics only"
   },
   {
    "kind": "thread_text",
@@ -207,8 +221,10 @@
    "tweet_url": "https://x.com/RotoWireNFL/status/2115599041849335829",
    "context": "[1/2] \ud83d\udea8 Fantasy Football News Updates You Need to Know",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Injury news only"
   },
   {
    "kind": "thread_text",
@@ -216,8 +232,10 @@
    "tweet_url": "https://x.com/thejoeholkashow/status/2115586916154564787",
    "context": "[1/7] These 5 players WILL WIN your TNF parlays",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF (already played)"
   },
   {
    "kind": "thread_text",
@@ -225,8 +243,10 @@
    "tweet_url": "https://x.com/GBERGFF/status/2115228790557491425",
    "context": "[1/6] The Panthers play the Packers on Thursday Night Footba",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF (already played)"
   },
   {
    "kind": "thread_text",
@@ -234,8 +254,10 @@
    "tweet_url": "https://x.com/SportMDAnalysis/status/2114837615975473465",
    "context": "[1/9] #NFL Injury Updates",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Injury updates only"
   },
   {
    "kind": "thread_text",
@@ -243,8 +265,10 @@
    "tweet_url": "https://x.com/SportMDAnalysis/status/2114081508642185515",
    "context": "[1/5] #NFL Injury Updates",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs"
+   "status": "done",
+   "method": "Grok thread extraction (weekly prompt) -> CSV -> load-external-intel-picks.mjs",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Older injury updates"
   },
   {
    "kind": "image_or_chart",
@@ -252,8 +276,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116239965537349723",
    "context": "Josh Allen on throws 10+ yards downfield:",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Allen downfield analytics; no bet"
   },
   {
    "kind": "image_or_chart",
@@ -261,8 +287,11 @@
    "tweet_url": "https://x.com/CodyBrownBets/status/2116229412798742940",
    "context": "It\u2019s week 8, but there are still a lot of props that have ca",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Teaser only; full 22-leg parlay in a later separate post (NOT in this packet)",
+   "follow_up": "22-leg parlay is in a later separate post; bookmark it for the Saturday Grok pass"
   },
   {
    "kind": "image_or_chart",
@@ -270,8 +299,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116220840773640683",
    "context": "Aaron Rodgers sees man coverage more than any QB in the NFL",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Rodgers vs man coverage; no bet"
   },
   {
    "kind": "image_or_chart",
@@ -279,8 +310,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116206998056513957",
    "context": "Jahmyr Gibbs vs. Minnesota last season:",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Gibbs vs MIN history; no bet"
   },
   {
    "kind": "image_or_chart",
@@ -288,8 +321,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116202971499508031",
    "context": "Arizona vs. WR1s:",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Lamb vs ARI (ARI vs WR1s); no bet"
   },
   {
    "kind": "image_or_chart",
@@ -297,8 +332,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116195170144448987",
    "context": "The Vikings have allowed 3 passing TDs all season",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Vikings pass D (3 pass TDs allowed); no bet"
   },
   {
    "kind": "image_or_chart",
@@ -306,8 +343,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116176295839318041",
    "context": "The Ravens play a light box on 37% of opponent runs",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Ravens light box 37% / Cook; no bet"
   },
   {
    "kind": "image_or_chart",
@@ -315,8 +354,10 @@
    "tweet_url": "https://x.com/johnewing/status/2116175793516855486",
    "context": "Top 10 most bet (\ud83d\udcb0) NFL teams to cover in Week 8 at @BetMGM",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Public most-bet sides (BetMGM) \u2014 market intel, excluded by rule"
   },
   {
    "kind": "image_or_chart",
@@ -324,8 +365,10 @@
    "tweet_url": "https://x.com/SharpFootball/status/2116172018358038861",
    "context": "the Browns in Pittsburgh since 2000:",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Browns in Pittsburgh since 2000; no bet"
   },
   {
    "kind": "image_or_chart",
@@ -333,8 +376,10 @@
    "tweet_url": "https://x.com/johnewing/status/2116172018630459696",
    "context": "Popular (+60% of money) NFL teams to cover in Week 8 at @Bet",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Popular money % sides \u2014 market intel, excluded by rule"
   },
   {
    "kind": "image_or_chart",
@@ -342,8 +387,10 @@
    "tweet_url": "https://x.com/BFawkes22/status/2116149463773249987",
    "context": "Five most-bet Week 8 NFL sides (by total \ud83c\udf9f\ufe0f) at @BetMGM (cu",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Most-bet sides by tickets \u2014 market intel, excluded by rule"
   },
   {
    "kind": "image_or_chart",
@@ -351,8 +398,10 @@
    "tweet_url": "https://x.com/JimmySportPicks/status/2115922296552444133",
    "context": "\ud83c\udfc8 ANYTIME TD's for NFL SUNDAY!",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 ATD promo; no players listed"
   },
   {
    "kind": "image_or_chart",
@@ -360,8 +409,10 @@
    "tweet_url": "https://x.com/JimmySportPicks/status/2115922296632201330",
    "context": "\ud83c\udfc8 ANYTIME TD's for NFL SUNDAY!",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Same promo"
   },
   {
    "kind": "image_or_chart",
@@ -369,8 +420,10 @@
    "tweet_url": "https://x.com/GDAWG5000/status/2115880936130609484",
    "context": "\ud83c\udfdd\ufe0fACTION ISLAND - CAR-GB \ud83c\udfdd\ufe0f",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF SGP stream (already played)"
   },
   {
    "kind": "image_or_chart",
@@ -378,8 +431,10 @@
    "tweet_url": "https://x.com/lockandcash/status/2115867657106870639",
    "context": "Bengals projected to be the most popular pick this week",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 Survivor musing; no firm pick"
   },
   {
    "kind": "image_or_chart",
@@ -387,8 +442,11 @@
    "tweet_url": "https://x.com/cmain7/status/2115818876864958729",
    "context": "Some things that stood out to me when writing up the CAR-GB",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF DFS notes (already played)",
+   "follow_up": "22-leg parlay is in a later separate post; bookmark it for the Saturday Grok pass"
   },
   {
    "kind": "image_or_chart",
@@ -396,8 +454,10 @@
    "tweet_url": "https://x.com/salbets_/status/2115803148317270318",
    "context": "These are my 4 best bets for Thursday Night football: https:",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF (already played)"
   },
   {
    "kind": "image_or_chart",
@@ -405,8 +465,10 @@
    "tweet_url": "https://x.com/thepropdealer/status/2115628503236329931",
    "context": "Let's win $1,850 on Thursday Night Football \ud83c\udfc8",
    "relevance": "sunday_slate",
-   "status": "pending",
-   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks"
+   "status": "done",
+   "method": "Grok (reads tweet images) first; if Grok returns no data, screenshot via Claude in Chrome (needs X login) -> OCR/vision; stat cards feed matchup analytics, not picks",
+   "processed_at": "2026-10-30T21:40:00-07:00",
+   "result": "Grok: 0 picks \u2014 TNF (already played)"
   }
  ]
 }

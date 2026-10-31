@@ -3,24 +3,36 @@
  "season": 2026,
  "week": 8,
  "stage": "friday",
- "run_at": "2026-10-30T21:07:46.553186-07:00",
- "verdict": "RED",
+ "run_at": "2026-10-30T21:37:41.912491-07:00",
+ "verdict": "GREEN",
  "games_remaining": 13,
  "bkr_capture_date": "2026-10-31",
  "expert_coverage": {
   "found": {
    "Warren Sharp": [
     "pull:Twitter/X Bookmarks (Personal)",
-    "pull:expert"
+    "pull:expert",
+    "youtube"
    ],
    "Sean Koerner": [
     "pull:Action Network"
    ],
    "Brandon Anderson": [
-    "pull:Action Network"
+    "pull:Action Network",
+    "youtube"
+   ],
+   "Chad Millman": [
+    "youtube"
+   ],
+   "Simon Hunter": [
+    "youtube"
+   ],
+   "Matt Perrault": [
+    "youtube"
    ],
    "Andrew Erickson": [
-    "pull:BettingPros"
+    "pull:BettingPros",
+    "youtube"
    ],
    "Mike Maher": [
     "bettingpros-articles-2026-w08.md",
@@ -30,14 +42,30 @@
     "bettingpros-articles-2026-w08.md",
     "pull:BettingPros"
    ],
+   "Steve Fezzik": [
+    "youtube"
+   ],
    "Sharp or Square (hosts)": [
-    "pull:expert"
+    "pull:expert",
+    "youtube"
    ],
    "Even Money (hosts)": [
     "pull:expert"
    ],
+   "Ross Tucker": [
+    "youtube"
+   ],
+   "Rich Hribar": [
+    "youtube"
+   ],
    "Ben Solak": [
     "pull:ESPN NFL"
+   ],
+   "Scott Bogman": [
+    "youtube"
+   ],
+   "Chris Welsh": [
+    "youtube"
    ],
    "Daniel Jeremiah & Bucky Brooks": [
     "pull:ESPN NFL",
@@ -50,6 +78,8 @@
     "pull:Twitter/X Bookmarks (Personal)"
    ],
    "Sal Vetri": [
+    "grok",
+    "pull:Twitter/X Bookmarks (Grok thread capture)",
     "pull:Twitter/X Bookmarks (Personal)"
    ],
    "Cody Brown": [
@@ -58,11 +88,17 @@
    "Joe Holka": [
     "pull:Twitter/X Bookmarks (Personal)"
    ],
+   "Lock & Cash": [
+    "grok",
+    "pull:Twitter/X Bookmarks (Grok thread capture)"
+   ],
    "The Prop Dealer": [
     "pull:Twitter/X Bookmarks (Personal)",
     "pull:Twitter/X Bookmarks (Personal) (linked article)"
    ],
    "The Prop Guru": [
+    "grok",
+    "pull:Twitter/X Bookmarks (Grok thread capture)",
     "pull:Twitter/X Bookmarks (Personal)"
    ],
    "Marc Gartenberg": [
@@ -74,25 +110,16 @@
    "Doug Kezirian",
    "Collin Wilson",
    "Evan Abrams",
-   "Chad Millman",
-   "Simon Hunter",
-   "Matt Perrault",
-   "Steve Fezzik",
-   "Ross Tucker",
-   "Rich Hribar",
-   "Scott Bogman",
    "Kendra Middleton",
-   "Chris Welsh",
    "Seth Woolcock",
    "Brandon Kravitz",
    "Pat Fitzmaurice",
    "Joe Madden",
-   "Ed Feng",
-   "Lock & Cash"
+   "Ed Feng"
   ]
  },
- "required_failures": 5,
- "warnings": 7,
+ "required_failures": 0,
+ "warnings": 6,
  "checks": [
   {
    "id": "A1",
@@ -118,7 +145,7 @@
    "title": "Roster gate (ESPN 2026, strict)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "status=PASS, roster age 7.3h, blocking=0",
+   "detail": "status=PASS, roster age 7.4h, blocking=0",
    "fix": ""
   },
   {
@@ -127,7 +154,7 @@
    "title": "Bookmaker capture (SGP props + game lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 2.2h old (limit 30h); games=13 (need 13)",
+   "detail": "data/generated/props/bookmaker-live-2026-10-31-week8.json \u2014 2.7h old (limit 30h); games=13 (need 13)",
    "fix": ""
   },
   {
@@ -154,7 +181,7 @@
    "title": "Master Intel pull (signals, expert picks, articles, splits)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/master-intel/w08-pull.json \u2014 2.0h old (limit 30h); pulled_at=2026-10-30T22:34:51.847Z, signals=214, expert=94",
+   "detail": "data/generated/master-intel/w08-pull.json \u2014 0.0h old (limit 30h); pulled_at=2026-10-31T04:37:26.349Z, signals=223, expert=94",
    "fix": ""
   },
   {
@@ -163,7 +190,7 @@
    "title": "Betting splits (Action Network)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (2.0h; limit 30h)",
+   "detail": "14 games, newest capture 2026-10-31T02:06:35+00:00 (2.5h; limit 30h)",
    "fix": ""
   },
   {
@@ -172,7 +199,7 @@
    "title": "BetOnline player props (prop stacks, props pass)",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/generated/props/betonline-live-2026-10-29-week8.json; rows=522; age=28.9h",
+   "detail": "data/generated/props/betonline-live-2026-10-29-week8.json; rows=522; age=29.4h",
    "fix": "npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon)."
   },
   {
@@ -190,7 +217,7 @@
    "title": "Prediction markets + coherence",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 6.1h old (limit 36h)",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 6.6h old (limit 36h)",
    "fix": ""
   },
   {
@@ -208,7 +235,7 @@
    "title": "Player availability / injury report",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/player-availability/latest.json \u2014 4.6h old (limit 24h)",
+   "detail": "data/player-availability/latest.json \u2014 5.1h old (limit 24h)",
    "fix": ""
   },
   {
@@ -217,7 +244,7 @@
    "title": "Projected starters",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 6.1h old (limit 30h)",
+   "detail": "data/projected-starters/2026/projected-starters-2026-10-30.json \u2014 6.6h old (limit 30h)",
    "fix": ""
   },
   {
@@ -226,7 +253,7 @@
    "title": "Weather / venue",
    "level": "ADVISORY",
    "status": "PASS",
-   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 3.1h old (limit 48h)",
+   "detail": "data/research-intel/review/2026-w08-weather-venue.json \u2014 3.6h old (limit 48h)",
    "fix": ""
   },
   {
@@ -235,7 +262,7 @@
    "title": "Team power ratings / SRS (fair lines)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 52.6h old (limit 192h)",
+   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 53.1h old (limit 192h)",
    "fix": ""
   },
   {
@@ -253,7 +280,7 @@
    "title": "FTN Stats IQ weekly context",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (6h)",
+   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (7h)",
    "fix": "FTN refresh (weekly only)."
   },
   {
@@ -270,18 +297,18 @@
    "group": "Expert & media intel",
    "title": "YouTube / podcast picks (Gemini, cleaned)",
    "level": "REQUIRED",
-   "status": "FAIL",
-   "detail": "missing: data/podcasts/youtube-extracted-picks-2026-w08.json",
-   "fix": "Sweep \u2192 Gemini extraction (Andy terminal) \u2192 clean to the picks file (runbook \u00a74)."
+   "status": "PASS",
+   "detail": "data/podcasts/youtube-extracted-picks-2026-w08.json: 85 picks",
+   "fix": ""
   },
   {
    "id": "E2",
    "group": "Expert & media intel",
    "title": "Grok X-thread extraction (every week)",
    "level": "REQUIRED",
-   "status": "FAIL",
-   "detail": "0 CSV in data/vault-seed/manual/grok-week08-threads",
-   "fix": "Paste data/research-intel/grok-thread-prompt-latest.md into Grok \u2192 save CSV there \u2192 node scripts/load-external-intel-picks.mjs --dry-run, then --replace."
+   "status": "PASS",
+   "detail": "1 CSV in data/vault-seed/manual/grok-week08-threads (latest grok-twitter-picks-2026-10-31.csv)",
+   "fix": ""
   },
   {
    "id": "E3",
@@ -315,9 +342,9 @@
    "group": "Expert & media intel",
    "title": "Podcast intel (audio transcripts + promoted picks)",
    "level": "REQUIRED",
-   "status": "FAIL",
-   "detail": "transcripts processed=14; promoted episodes=0, picks=0; YouTube picks file=no",
-   "fix": "Run the podcast transcript pipeline / promotion; YouTube picks (E1) count toward this."
+   "status": "PASS",
+   "detail": "transcripts processed=14; promoted episodes=0, picks=0; YouTube picks file=yes",
+   "fix": ""
   },
   {
    "id": "E7",
@@ -325,7 +352,7 @@
    "title": "Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (13.7h)",
+   "detail": "116 article signals; sources={'ESPN NFL': 23, 'VSiN': 31, 'BettingPros': 22, 'Action Network': 23, 'Pro Football Talk': 14, 'Walter Football': 3}; newest 2026-10-30T14:28:13.593412+00:00 (14.2h)",
    "fix": ""
   },
   {
@@ -334,7 +361,7 @@
    "title": "Twitter/X bookmark intel (text)",
    "level": "REQUIRED",
    "status": "PASS",
-   "detail": "98 bookmark signals; newest 2026-10-30T19:27:35.729542+00:00 (8.7h)",
+   "detail": "107 bookmark signals; newest 2026-10-31T04:37:09.260796+00:00 (0.0h)",
    "fix": ""
   },
   {
@@ -343,7 +370,7 @@
    "title": "Twitter media queue (videos / images / threads) processed",
    "level": "ADVISORY",
    "status": "WARN",
-   "detail": "data/twitter/w08-media-extraction-queue.json: 36 Sunday-slate items still pending ({'video': 4, 'linked_youtube': 2, 'thread_text': 12, 'image_or_chart': 18})",
+   "detail": "data/twitter/w08-media-extraction-queue.json: 6 Sunday-slate items still pending ({'video': 4, 'linked_youtube': 2})",
    "fix": "Process each item (video transcription, Grok threads, image capture) or mark it skipped with a reason."
   },
   {
@@ -352,7 +379,7 @@
    "title": "Preferred-expert final cards (coverage)",
    "level": "ADVISORY",
    "status": "WARN",
-   "detail": "roster status=draft_pending_andy; 18/37 experts with a Week 8 card found; missing: Stuckey, Doug Kezirian, Collin Wilson, Evan Abrams, Chad Millman, Simon Hunter, Matt Perrault, Steve Fezzik, Ross Tucker, Rich Hribar, Scott Bogman, Kendra Middleton, Chris Welsh, Seth Woolcock, Brandon Kravitz, Pat Fitzmaurice, Joe Madden, Ed Feng, Lock & Cash",
+   "detail": "roster status=draft_pending_andy; 27/37 experts with a Week 8 card found; missing: Stuckey, Doug Kezirian, Collin Wilson, Evan Abrams, Kendra Middleton, Seth Woolcock, Brandon Kravitz, Pat Fitzmaurice, Joe Madden, Ed Feng",
    "fix": "Andy confirms data/expert-tracking/preferred-experts-2026.json (status \"confirmed\"). Find each missing expert's card (article / podcast / YouTube / X) and ingest it, or list them under \"experts_no_card\": {\"names\": [...], \"note\": ...} in the gate-manual file after checking."
   },
   {
@@ -378,27 +405,27 @@
    "group": "Manual confirmations",
    "title": "news flags resolved",
    "level": "REQUIRED",
-   "status": "FAIL",
-   "detail": "Trades, QB changes, pulled markets, late news checked by live search and reflected in packets/narratives",
-   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+   "status": "PASS",
+   "detail": "Trades, QB changes, pulled markets, late news checked by live search and reflected in packets/narratives \u2014 Nelson->SEA, Buckner->SF, Lamar cleared, RJ Harvey OUT (BKR props pulled), Hurts IR/McKee starts; narratives must reflect these in the stage run (step 6) \u2014 Claude (web-checked) 2026-10-30 21:25 PT",
+   "fix": ""
   },
   {
    "id": "M-qb_status_confirmed",
    "group": "Manual confirmations",
    "title": "qb status confirmed",
    "level": "REQUIRED",
-   "status": "FAIL",
-   "detail": "Every starting QB confirmed (team sites / insiders)",
-   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+   "status": "PASS",
+   "detail": "Every starting QB confirmed (team sites / insiders) \u2014 Claude (web-checked) 2026-10-30 21:25 PT",
+   "fix": ""
   },
   {
    "id": "M-final_injury_reports_checked",
    "group": "Manual confirmations",
    "title": "final injury reports checked",
    "level": "ADVISORY",
-   "status": "WARN",
-   "detail": "Friday's official designations (Out/Doubtful/Questionable) checked for every game",
-   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w08-gate-manual.json when confirmed."
+   "status": "PASS",
+   "detail": "Friday's official designations (Out/Doubtful/Questionable) checked for every game \u2014 Claude (web-checked) 2026-10-30 21:25 PT",
+   "fix": ""
   },
   {
    "id": "M-supercontest_report_reviewed",

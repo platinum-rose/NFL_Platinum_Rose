@@ -40,6 +40,8 @@ python3 scripts/master-intel/final_gate_check.py --week <WEEK> --stage <STAGE>
 - GREEN → continue. Copy the ADVISORY warnings into the report gaps (step 7).
 - Saturday only: before rebuilding, snapshot Friday's outputs: `cp -r dist/nfl_week<WEEK>_master_packet dist/nfl_week<WEEK>_master_packet_friday` (once; never overwrite an existing `_friday` copy).
 
+**Known trap:** `pull.mjs` rebuilds `w<WW>-pull.json` from Supabase, which has no browser-captured Action Network splits. After any re-pull, restore `splits` from the latest `reports/engineering/week<N>-an-browser-pull-*/raw.json` (or the pre-pull backup) before rebuilding queues; the gate's L5 check catches a missing/stale splits block.
+
 ## Step 1 — Synthesis queues (rebuild last, after every input)
 ```
 python3 scripts/intel/build-game-synthesis-queue.py --week <WEEK> --pass sides --date <BKR capture date>
