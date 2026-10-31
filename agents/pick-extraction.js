@@ -225,6 +225,22 @@ function findGame(rawAbbr1, rawAbbr2, gameLookup) {
  *   { id, game_id, source, pick_type, selection, line, edge, confidence,
  *     home, visitor, game_date, game_time, commence_time, is_home_team, result }
  */
+// Single-host shows -> host name (data/expert-tracking/podcast-host-map.json). Loaded once; missing file = no mapping.
+let HOST_MAP = null;
+function hostMap() {
+  if (HOST_MAP) return HOST_MAP;
+  try {
+    HOST_MAP = JSON.parse(fs.readFileSync(new URL('../data/expert-tracking/podcast-host-map.json', import.meta.url), 'utf8')).rules || [];
+  } catch { HOST_MAP = []; }
+  return HOST_MAP;
+}
+export function attributeExpert(pick, episode, feedName) {
+  const spk = pick?.speaker && !/^unknown/i.test(String(pick.speaker)) ? String(pick.speaker).trim() : null;
+  if (spk) return `${spk} (${feedName})`;
+  const rule = hostMap().find((r) => r.feed === feedName && new RegExp(r.title_regex, 'i').test(episode?.title || ''));
+  return rule ? `${rule.host} (${feedName})` : feedName;
+}
+
 function buildUserPick(pick, index, episode, feedName, gameLookup) {
   const abbr1      = resolveTeam(pick.team1);
   const abbr2      = resolveTeam(pick.team2);
@@ -274,8 +290,9 @@ function buildUserPick(pick, index, episode, feedName, gameLookup) {
     result:         'PENDING',
     // Store rationale in a non-schema field — pick tracker reads pick.rationale
     rationale:      rationale,
-    // context: expert name from podcast feed
-    expert:         feedName,
+    // 2026-10-30: attribute to the individual when known (Andy: "Action Network x33" hid who made each pick).
+    // Order: per-pick speaker (diarized/Gemini paths) -> single-host show map -> feed name.
+    expert:         attributeExpert(pick, episode, feedName),
     units:          pick.units ?? 1,
     created_at:     new Date().toISOString(),
     updated_at:     new Date().toISOString(),
