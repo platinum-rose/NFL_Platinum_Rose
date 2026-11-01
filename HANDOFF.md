@@ -1,10 +1,26 @@
 # NFL_Dashboard — Current Handoff
 
-## Pick up here — October 31, 2026, 8:25 PM PT (Codex → Sunday card session)
+## Pick up here — November 1, 2026: SNF Island stacks
 
-1. Reconcile live Git first; the shared checkout is intentionally dirty. Read only `handoffs/2026-10-31-2025-codex-week8-saturday-close.md` for this lane.
-2. For a Sunday-card session, then read `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md`, run its current preflight, and stop on any required stale input or roster-gate failure.
+Read only `handoffs/2026-11-01-week8-sunday-tracker-close-snf-resume.md` after
+reconciling live Git. Source checkpoint: `dff182a` on
+`claude/w5-prop-cards-2026-10-11`; the following handoff-only commit advances HEAD.
 
-Baseline commit: `95a4629` on `claude/w5-prop-cards-2026-10-11`. It contains the Week 8 expert-review reindex, Bookmaker roster aliases, and three official Alejandro-split ledger entries. The newest BEO 2+ TD ticket is ledger-only; no Supabase sync or tracker rebuild is authorized by default.
+Next: Week 8 PHI@WAS SNF Island ladder, proposals only. Kickoff in the saved
+schedule is Sunday November 1 at **5:20 PM Pacific**; reverify game state.
+Read the weekly synthesis prompt and slot 9 in `docs/NFL_WEEKLY_CARD_PROCESS.md`.
+Run the current no-fetch preflight, refresh required SNF inputs and pass a scoped
+strict roster gate before naming candidates. Closeout readiness was blocked/stale.
 
-Guardrails: no wager, account, Supabase write, paid call, publication, or push without Andy's current per-action OK; strict roster gate before player-named output; stage explicit paths only, never `git add -A`; preserve all unrelated dirty work.
+Verification: **34/34 focused JS + 4/4 Python**, production build passed.
+Full suite: **2,094/2,114**; 20 unresolved failures are listed in the dated handoff.
+
+The repo is public. Andy explicitly requested private/raw files stay local.
+Current wager/portfolio ledgers, personal generated trackers, raw account/mail/
+media captures, backups and other retained work remain dirty and unpushed.
+Reuse this checkout and preserve them; do not reset, stash or clean. Reconcile
+local official exposure and ownership before proposing SNF additions.
+
+No wagers, sportsbook accounts, paid calls, Supabase writes, publication, push or
+tracker rebuild without current per-action approval. Stage explicit reviewed
+paths only. The completed closeout approval is not standing publication approval.
