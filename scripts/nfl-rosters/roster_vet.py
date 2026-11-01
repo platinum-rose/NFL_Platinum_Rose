@@ -56,12 +56,30 @@ fx = lambda t: FIX.get(t, t) if t else t
 def norm(n):
     n = re.sub(r"[.'’]", '', (n or '').lower()); n = re.sub(r'\b(jr|sr|ii|iii|iv|v)\b', '', n)
     return re.sub(r'\s+', ' ', n).strip()
+# Bookmaker occasionally supplies a formal name, nickname, or lowercase-L Roman
+# numeral that differs from the current ESPN roster display name.  Keep this
+# deliberately small and evidence-backed; it is a name resolver, never a
+# player/team inference.
+PLAYER_ALIASES = {
+    norm('Cameron Ward'): norm('Cam Ward'),
+    norm('Ollie Gordon ll'): norm('Ollie Gordon II'),
+    norm('Marquise Brown'): norm('Hollywood Brown'),
+    norm('Reginald Virgil'): norm('Reggie Virgil'),
+    norm('Mar’Keise Irving'): norm('Bucky Irving'),
+    norm('Kenneth Gainwell'): norm('Kenny Gainwell'),
+    norm('Matthew Hibner'): norm('Matt Hibner'),
+    norm('Andrew Ogletree'): norm('Drew Ogletree'),
+    norm('Chigoziem Okonkwo'): norm('Chig Okonkwo'),
+}
+def roster_key(n):
+    key = norm(n)
+    return PLAYER_ALIASES.get(key, key)
 R = collections.defaultdict(list)            # norm full name -> [rec]
 BY_TEAM = collections.defaultdict(list)      # team -> [rec]
 for n, recs in E['players'].items():
     for r in recs:
         rec = dict(r, name=n); R[norm(n)].append(rec); BY_TEAM[r['team']].append(rec)
-teams_of = lambda n: {r['team'] for r in R.get(norm(n), [])}
+teams_of = lambda n: {r['team'] for r in R.get(roster_key(n), [])}
 NICK = {'Cardinals':'ARI','Falcons':'ATL','Ravens':'BAL','Bills':'BUF','Panthers':'CAR','Bears':'CHI','Bengals':'CIN','Browns':'CLE','Cowboys':'DAL','Broncos':'DEN','Lions':'DET','Packers':'GB','Texans':'HOU','Colts':'IND','Jaguars':'JAX','Chiefs':'KC','Raiders':'LV','Chargers':'LAC','Rams':'LAR','Dolphins':'MIA','Vikings':'MIN','Patriots':'NE','Saints':'NO','Giants':'NYG','Jets':'NYJ','Eagles':'PHI','Steelers':'PIT','49ers':'SF','Seahawks':'SEA','Buccaneers':'TB','Titans':'TEN','Commanders':'WSH'}
 def team_from_full(s):
     for k, v in NICK.items():
