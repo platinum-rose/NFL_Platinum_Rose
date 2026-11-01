@@ -1,11 +1,25 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { generateLiveTracker } from '../../scripts/generate-live-tracker.mjs';
 import { readFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
+import os from 'node:os';
 import vm from 'node:vm';
 
+// This legacy Week 1 check validates template structure, not today's roster.
+// Roster enrichment and freshness have their own fixture-based unit tests.
+vi.mock('../../scripts/lib/tracker-wagers.mjs', () => ({
+  prepareTrackerWagers: async wagers => [...wagers, {
+    id: 'fixture_live_template', week: 1, game: 'LAC @ LAR', book: 'Fixture',
+    ticket_type: 'Single', category: 'Game', status: 'PENDING',
+    stake_usd: 1, potential_payout_usd: 2, potential_profit_usd: 1,
+    legs: [{ key: 'fixture_live_template_1', game: 'LAC @ LAR', team: 'LAC', opponent: 'LAR',
+      market: 'total', selection: 'Fixture total Over 100.5', line: 100.5, status: 'PENDING' }],
+  }],
+}));
+
 describe('generate-live-tracker generator', () => {
-  const testOut = path.resolve('public/test-live-tracker.html');
+  const testOut = path.join(os.tmpdir(), `nfl-tracker-template-${process.pid}.html`);
+  afterEach(async () => { try { await unlink(testOut); } catch (e) { if (e.code !== 'ENOENT') throw e; } });
 
   it('compiles standalone live tracker HTML containing essential v4 elements and zero syntax errors', async () => {
     const res = await generateLiveTracker({ week: 1, outPaths: [testOut] });

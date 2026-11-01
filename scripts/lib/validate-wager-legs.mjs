@@ -18,6 +18,7 @@ export const GAME_LINE_MARKETS = new Set([
   'total', 'spread', 'moneyline', 'ml', 'h2h', 'team_total', 'alternate_total_points',
   'alternate_spread', 'sgp_spread', 'sgp_total', 'sgp_moneyline', 'first_half_total',
   'first_half_spread', 'game_total', 'futures', 'future', 'outright', 'prediction', 'open_slot',
+  'team_touchdowns', 'team_field_goals',
 ]);
 
 // Generic buckets the tracker cannot map to a stat.

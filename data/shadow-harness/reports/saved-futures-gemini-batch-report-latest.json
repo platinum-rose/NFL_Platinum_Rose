@@ -1,24 +1,24 @@
 {
-  "evaluated_at": "2026-10-23T15:57:04.262Z",
+  "evaluated_at": "2026-10-31T06:08:13.956Z",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
   "batch_label": "saved-futures",
-  "total_candidates_attempted": 1,
-  "total_episodes_evaluated": 1,
+  "total_candidates_attempted": 2,
+  "total_episodes_evaluated": 2,
   "total_episodes_scored": 0,
   "reprocess_required_count": 0,
   "extraction_failure_count": 0,
   "average_f1_score_pct": null,
-  "total_cost_usd": 0.016608,
-  "average_cost_usd": 0.016608,
-  "total_latency_ms": 48218,
-  "average_latency_ms": 48218,
-  "total_extracted_picks": 0,
+  "total_cost_usd": 0.028843,
+  "average_cost_usd": 0.014422,
+  "total_latency_ms": 69941,
+  "average_latency_ms": 34971,
+  "total_extracted_picks": 10,
   "reprocess_queue": [],
   "failed_extractions": [],
   "queue_runs": [
     {
-      "episode_slug": "youtube-ucD-cDqOotc",
+      "episode_slug": "youtube-W9MdDfo7bcQ",
       "show": "YouTube Discovery",
       "date": "manual",
       "priority": "manual",
@@ -29,206 +29,211 @@
       "reprocess_reason": null,
       "quality_flags": [],
       "run": {
-        "run_id": "youtube_gemini_e8e5e655400e",
+        "run_id": "youtube_gemini_2d2629fa75ab",
         "mode": "live-youtube",
         "model": "gemini-3.5-flash",
         "input_source": "youtube_video_url",
-        "youtube_url": "https://www.youtube.com/watch?v=ucD-cDqOotc",
-        "latency_ms": 48218,
-        "estimated_cost_usd": 0.016608,
-        "input_tokens": 153189,
-        "output_tokens": 3224,
-        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Greg Cosell break down key NFL matchups for the upcoming slate, focusing on offensive line cohesion, quarterback footwork, defensive pressure packages, and personnel usage. Ross closes with his recap of the Bears-Patriots Thursday night game featuring rookie QBs Caleb Williams and Drake Maye.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1662,\n    \"last_analyzed_timestamp\": 1662,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 14.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Since Bowers came back week three, the Raiders have played only 19 snaps of 11 personnel, meaning three wide receivers. 83% of their snaps since week three have had two or three tight ends on the field.\"\n    },\n    {\n      \"start\": 14.0,\n      \"end\": 27.0,\n      \"speaker\": \"Show Intro\",\n      \"text\": \"[Ross Tucker Football Podcast Intro Graphic]\"\n    },\n    {\n      \"start\": 27.0,\n      \"end\": 134.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ho ho ho, yeah it is! But it's not just any Ross Tucker Football Podcast... Finishing strong Friday from a hotel room in Chicago before flying to Minneapolis for Vikings vs Colts on Sunday. Let's get to the rest of the Week previews with the man, Greg Cosell.\"\n    },\n    {\n      \"start\": 134.0,\n      \"end\": 288.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Indianapolis Colts at Minnesota Vikings. Greg notes the Colts' inability to generate run productivity with Jonathan Taylor and their dependence on young defensive players leading to mistakes. Ross notes the condensed offense without a vertical stretch element.\"\n    },\n    {\n      \"start\": 288.0,\n      \"end\": 376.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Miami Dolphins at New York Jets. Greg praises the Jets' defensive front and safety tandem, while noting their slot cornerback blitz frequency with Brownlee. Dolphins getting run game rhythm off the bye.\"\n    },\n    {\n      \"start\": 376.0,\n      \"end\": 665.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Cleveland Browns at Tennessee Titans. Deep dive into QB footwork issues in the pocket, rushed mechanics, and accuracy. Greg details the Browns single-high man coverage defense, secondary play, and fast linebacker pairing.\"\n    },\n    {\n      \"start\": 665.0,\n      \"end\": 839.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Denver Broncos at Arizona Cardinals. Analysis of Broncos static run game, poor 1st down rushing, Bo Nix's pocket discomfort, lack of intermediate passing routes, and 3rd down efficiency struggles.\"\n    },\n    {\n      \"start\": 839.0,\n      \"end\": 955.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ad reads for West Shore Home and Little Caesars Mix & Match deal.\"\n    },\n    {\n      \"start\": 955.0,\n      \"end\": 1134.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Green Bay Packers at Detroit Lions. Discussion on defensive coordinator schemes, high rate of defensive back blitzing across the NFL, and safety play with Xavier McKinney and Evan Williams.\"\n    },\n    {\n      \"start\": 1134.0,\n      \"end\": 1288.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Los Angeles Rams at Las Vegas Raiders. Analysis of Rams missing under-center play-action passing effectiveness. Raiders personnel usage featuring Brock Bowers and multi-TE sets.\"\n    },\n    {\n      \"start\": 1288.0,\n      \"end\": 1407.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Kansas City Chiefs at Seattle Seahawks. Seahawks offensive imbalance and dropback volume vs Chiefs strong first-down rushing success.\"\n    },\n    {\n      \"start\": 1407.0,\n      \"end\": 1552.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Dallas Cowboys at Philadelphia Eagles. Eagles offensive line cohesion issues with injury replacements/free agent starts. Cowboys regression in 1st down rushing efficiency with Javonte Williams and high pass dropback volume for Dak Prescott.\"\n    },\n    {\n      \"start\": 1552.0,\n      \"end\": 1615.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Tuck's Takes: Recap of Bears vs Patriots Thursday Night Football game featuring Caleb Williams and Drake Maye.\"\n    },\n    {\n      \"start\": 1615.0,\n      \"end\": 1662.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Show wrap-up, Saturday preview with Stephen Holder regarding Colts GM news, and sponsor shoutouts.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"IND\"],\n      \"players\": [\"Jonathan Taylor\"],\n      \"topic\": \"Colts Rushing Attack and Offensive Stagnation\",\n      \"summary\": \"Greg Cosell highlights that the Colts have failed to produce in the run game at the level required for their overall offense to function effectively.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 195,\n      \"quote\": \"They've not run the ball the way that they need to for their offense to truly be effective.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"NYJ\"],\n      \"players\": [],\n      \"topic\": \"Jets Slot Corner Blitz Scheme\",\n      \"summary\": \"Jets slot cornerback Brownlee leads slot cornerbacks in blitz rate across the league, making pre-snap awareness vital for opposing offenses.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 352,\n      \"quote\": \"Brownlee, who's their slot corner, he's got the most blitzes of any true slot corner in the league.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"TEN\"],\n      \"players\": [],\n      \"topic\": \"Quarterback Pocket Mechanics and Footwork Concerns\",\n      \"summary\": \"Ross and Greg detail fundamental footwork issues in the pocket—bouncing, failing to plant the back foot, rushing the delivery, and inconsistent ball placement.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 458,\n      \"quote\": \"He's very unsettled in the pocket. He does not plant a back foot, he bounces, it's almost as if he's not ready to deliver the football, and because of that he has to hurry his throwing motion.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CLE\"],\n      \"players\": [\"Ronnie Hickman\"],\n      \"topic\": \"Browns Defensive Coverages and Linebacker Speed\",\n      \"summary\": \"Cleveland runs the lowest percentage of two-high safety looks in the NFL, operating primarily single-high man coverage. Linebackers Schwesinger and Williams provide elite play speed.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 566,\n      \"quote\": \"They play the lowest percentage of two-high safety structure in the league, they're a single-high defense.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"Bo Nix\"],\n      \"topic\": \"Broncos Passing Game and First-Down Rushing Struggles\",\n      \"summary\": \"Denver's offense is hampered by weak first-down rushing numbers, O-line pass protection issues, and a lack of clean, defined intermediate routes for Bo Nix.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 692,\n      \"quote\": \"Their rushing numbers on first down are bad... they have an ineffective passing game with no intermediate dimension.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Xavier McKinney\", \"Evan Williams\"],\n      \"topic\": \"Packers Defensive Pressure and Safety Blitz Trend\",\n      \"summary\": \"Packers defense under Jonathan Gannon utilizes third-level blitzers heavily, reflecting a broader NFL trend where defensive backs are increasingly deployed as pass rushers.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1022,\n      \"quote\": \"More and more teams are using defensive backs as blitzers.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"LV\"],\n      \"players\": [\"Brock Bowers\"],\n      \"topic\": \"Raiders Heavy Tight End Personnel Usage\",\n      \"summary\": \"Since Brock Bowers returned in Week 3, Las Vegas runs 12/13 personnel on 83% of snaps, throwing 72% of the time when Bowers is on the field.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1171,\n      \"quote\": \"83% of their snaps in that since week three have had two and three tight ends on the field... with Bowers on the field they've thrown the ball 72% of the time.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"LAR\"],\n      \"players\": [\"Matthew Stafford\"],\n      \"topic\": \"Rams Play-Action Pass Game Decline\",\n      \"summary\": \"Los Angeles Rams under-center play-action passing game has regressed significantly compared to last season when it was among the most dominant in the NFL.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1347,\n      \"quote\": \"Their play-action pass game has not been anything near what it was a year ago when it was unbelievably great.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"PHI\"],\n      \"players\": [],\n      \"topic\": \"Eagles Offensive Line Cohesion Issues\",\n      \"summary\": \"Philadelphia is struggling against pressure looks due to a lack of offensive line cohesion while starting free agents and a rookie right tackle.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1432,\n      \"quote\": \"O-line play is about cohesion... right now they're not really aware of how to do all that.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DAL\"],\n      \"players\": [\"Dak Prescott\", \"Javonte Williams\"],\n      \"topic\": \"Cowboys Rushing Efficiency Drop and Prescott Dropbacks\",\n      \"summary\": \"Dallas first-down rushing average dropped from 5.1 ypc last year to 3.5 ypc this year, forcing Dak Prescott into unsustainable 45+ dropbacks per game.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1492,\n      \"quote\": \"Javonte Williams in over 150 first-down rushes averaged 5.1. This year he's averaging 3.5... Dak Prescott is dropping back basically over 45 times per game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"CHI\", \"NE\"],\n      \"players\": [\"Caleb Williams\", \"Drake Maye\"],\n      \"topic\": \"Bears vs Patriots Thursday Night Game Summary\",\n      \"summary\": \"Caleb Williams and Drake Maye both topped 300 passing yards and 2 TDs in a back-and-forth contest decided by Cairo Santos' career-high 58-yard FG.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1568,\n      \"quote\": \"Both guys threw for over 300 yards and two touchdowns.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Raiders Tight End Personnel Usage\",\n      \"timestamp\": 8,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"83% of their snaps in that since week three have had two and three tight ends on the field.\"\n    },\n    {\n      \"topic\": \"Packers Defensive DB Blitz Trend\",\n      \"timestamp\": 1032,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"More and more teams are using defensive backs as blitzers.\"\n    },\n    {\n      \"topic\": \"Cowboys First-Down Rushing Regress\",\n      \"timestamp\": 1492,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"Last year Javonte Williams... averaged 5.1. This year he's averaging 3.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
-        "extracted_picks": [],
+        "youtube_url": "https://www.youtube.com/watch?v=W9MdDfo7bcQ",
+        "latency_ms": 39821,
+        "estimated_cost_usd": 0.024511,
+        "input_tokens": 231476,
+        "output_tokens": 3409,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson breakdown their top NFL Week 8 best bets, including game totals, spreads, player props, a four-leg parlay of the week, and Polymarket prediction picks.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2518,\n    \"last_analyzed_timestamp\": 2518,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 31.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Welcome into the BettingPros NFL Podcast. Seth Woolcock here with Andrew Erickson preparing for Week 8.\"\n    },\n    {\n      \"start\": 31.0,\n      \"end\": 124.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussing Halloween plans, daylight savings time, and preparing for the weekend slate of games.\"\n    },\n    {\n      \"start\": 124.0,\n      \"end\": 320.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Discussing Halloween costumes, Recess cartoon reference, and recap of last week's betting performance.\"\n    },\n    {\n      \"start\": 320.0,\n      \"end\": 404.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Reviewing last week's picks performance and setting up this week's slate of best bets.\"\n    },\n    {\n      \"start\": 404.0,\n      \"end\": 612.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Transitioning to the first official pick of Week 8 in the Vikings vs. Lions matchup.\"\n    },\n    {\n      \"start\": 612.0,\n      \"end\": 668.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Breaking down Vikings vs. Lions game total and why he likes the over at 45.5 points.\"\n    },\n    {\n      \"start\": 668.0,\n      \"end\": 825.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Asking about Jared Goff's MVP chances and discussing the Minnesota Vikings offense.\"\n    },\n    {\n      \"start\": 825.0,\n      \"end\": 886.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Analyzing Jared Goff's statistical metrics, performance against the blitz, and MVP candidate profile.\"\n    },\n    {\n      \"start\": 886.0,\n      \"end\": 1046.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Discussing Jared Goff's futures market odds and how MVP voters might evaluate him compared to Brock Purdy.\"\n    },\n    {\n      \"start\": 1046.0,\n      \"end\": 1086.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Comparing Goff's supporting cast to Brock Purdy and summarizing why Ford Field overs remain profitable.\"\n    },\n    {\n      \"start\": 1086.0,\n      \"end\": 1146.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Agrees with the Lions team total or game over angle and introduces the next matchup: Browns at Steelers.\"\n    },\n    {\n      \"start\": 1146.0,\n      \"end\": 1370.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Explains why he is taking Browns +3.5 against the Steelers despite historical Pittsburgh dominance.\"\n    },\n    {\n      \"start\": 1370.0,\n      \"end\": 1490.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Challenges the Browns pick given Aaron Rodgers and Steelers' recent momentum.\"\n    },\n    {\n      \"start\": 1490.0,\n      \"end\": 1649.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Details the trend of fading teams coming off international travel without a bye week.\"\n    },\n    {\n      \"start\": 1649.0,\n      \"end\": 1729.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Gives counter-arguments on Steelers' momentum and transitions to his best bet on the Bills.\"\n    },\n    {\n      \"start\": 1729.0,\n      \"end\": 1944.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Presents Bills -3.0 vs Ravens, citing rest advantage, Baltimore's defensive regression, and Derrick Henry's slowdown.\"\n    },\n    {\n      \"start\": 1944.0,\n      \"end\": 2138.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Validates the Bills -3 pick based on rest differential data and Jim Leonard's defensive scheme transition.\"\n    },\n    {\n      \"start\": 2138.0,\n      \"end\": 2221.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Introduces Smart Money Tool and transitions to Erickson's next best bet: Chiefs vs. Broncos Under.\"\n    },\n    {\n      \"start\": 2221.0,\n      \"end\": 2432.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Breaks down KC vs DEN Under 40.5 points, highlighting head-to-head under trends and red-zone defense stats.\"\n    },\n    {\n      \"start\": 2432.0,\n      \"end\": 2492.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Agrees with the defensive coordinator chess match in KC vs DEN.\"\n    },\n    {\n      \"start\": 2492.0,\n      \"end\": 2518.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Summarizes all bets and wraps up the episode.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": null,\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 45.5,\n      \"price\": -117,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 372,\n      \"rationale\": \"Ford Field dome environment and high offensive efficiency; road divisional dogs over trend.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"CLE\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 846,\n      \"rationale\": \"Getting key hook over 3 points in a divisional rivalry; fading Steelers returning from international game without a bye week.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BUF\",\n      \"line\": -3.0,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1111,\n      \"rationale\": \"Bills coming off two weeks of preparation; Baltimore defense allowing high turnover/first-down rates and Derrick Henry held under 60 yards in back-to-back games.\"\n    },\n    {\n      \"team\": null,\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 40.5,\n      \"price\": -115,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2376,\n      \"rationale\": \"Last 7 head-to-head meetings have gone under; both teams feature top-10 red-zone defenses and low points allowed per game.\"\n    },\n    {\n      \"team\": \"WAS\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"WAS\",\n      \"line\": -5.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1653,\n      \"rationale\": \"Commanders coming off a bye week with 13 days rest compared to Eagles on short rest; Jayden Daniels health advantage and Eagles banged up in backfield.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": \"T.J. Hockenson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 260,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1912,\n      \"rationale\": \"Lions defense has allowed 10 receiving TDs to tight ends in 6 games; Hockenson leads Vikings in red-zone targets.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"BUF\",\n      \"line\": null,\n      \"price\": -165,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2047,\n      \"rationale\": \"Anchor leg for Parlay of the Week at home after bye week.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"DEN\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2240,\n      \"rationale\": \"Polymarket Prediction of the Week (48% probability); Broncos 17 wins in last 19 home games and divisional home underdog trend.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"team_total\",\n      \"side\": \"UNDER\",\n      \"line\": 18.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2319,\n      \"rationale\": \"Polymarket Prediction of the Week (55% probability); Colts offensive line weakened by Quenton Nelson trade, Daniel Jones struggles with interceptions.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"DET\"],\n      \"players\": [\"Jared Goff\"],\n      \"topic\": \"Jared Goff MVP evaluation and blitz performance\",\n      \"summary\": \"Jared Goff has thrown for 1,788 yards, 14 TDs, and 0 INTs through 6 games, ranking #1 in EPA per dropback and #3 in passer rating vs. blitz.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 472,\n      \"quote\": \"Number one in EPA per dropback... he's been playing at an MVP level.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"PIT\", \"PHI\"],\n      \"players\": [],\n      \"topic\": \"Rest disparity and fading post-international travel\",\n      \"summary\": \"Teams playing immediately after international travel without a bye week are 3-6 ATS season-long and 0-4 ATS following London games.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 901,\n      \"quote\": \"Teams after a neutral site international game without a bye week... those teams are 3 and 6 against the spread.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Saquon Barkley\", \"Damien Pierce\"],\n      \"topic\": \"Eagles running back depth chart injuries\",\n      \"summary\": \"Eagles down to fifth-string running back options due to Saquon Barkley hamstring strain and Damien Pierce landing on injured reserve.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1762,\n      \"quote\": \"Eagles are down to their fifth string running back... this backfield is cursed.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"KC\", \"DEN\"],\n      \"players\": [],\n      \"topic\": \"Chiefs vs. Broncos red-zone defensive strength\",\n      \"summary\": \"Both Chiefs (2nd) and Broncos (7th) rank top-10 in red-zone defense and allowed points per game, driving heavy under trends.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2380,\n      \"quote\": \"Both top 10 in terms of passing defense... Chiefs second best defense in the red zone, Broncos rank seventh.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Vikings vs. Lions Over\",\n      \"timestamp\": 372,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm not going to be swayed away from betting overs at Ford Field.\"\n    },\n    {\n      \"topic\": \"Browns +3.5\",\n      \"timestamp\": 846,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm getting more than a field goal with a divisional team.\"\n    },\n    {\n      \"topic\": \"Bills -3.0\",\n      \"timestamp\": 1111,\n      \"speaker\": \"Seth Woolcock\",\n      \"quote\": \"I'm going to take a well-rested, well-prepared Josh Allen over a potentially gimpy Lamar Jackson.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "UNK",
+            "player": null,
+            "market": "total",
+            "side": "OVER",
+            "line": 45.5,
+            "price": -117,
+            "week": 8,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 372,
+            "rationale": "Ford Field dome environment and high offensive efficiency; road divisional dogs over trend."
+          },
+          {
+            "team": "CLE",
+            "player": null,
+            "market": "spread",
+            "side": "CLE",
+            "line": 3.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 846,
+            "rationale": "Getting key hook over 3 points in a divisional rivalry; fading Steelers returning from international game without a bye week."
+          },
+          {
+            "team": "BUF",
+            "player": null,
+            "market": "spread",
+            "side": "BUF",
+            "line": -3,
+            "price": -110,
+            "week": 8,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 1111,
+            "rationale": "Bills coming off two weeks of preparation; Baltimore defense allowing high turnover/first-down rates and Derrick Henry held under 60 yards in back-to-back games."
+          },
+          {
+            "team": "UNK",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 40.5,
+            "price": -115,
+            "week": 8,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2376,
+            "rationale": "Last 7 head-to-head meetings have gone under; both teams feature top-10 red-zone defenses and low points allowed per game."
+          },
+          {
+            "team": "WAS",
+            "player": null,
+            "market": "spread",
+            "side": "WAS",
+            "line": -5.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1653,
+            "rationale": "Commanders coming off a bye week with 13 days rest compared to Eagles on short rest; Jayden Daniels health advantage and Eagles banged up in backfield."
+          },
+          {
+            "team": "MIN",
+            "player": "T.J. Hockenson",
+            "market": "anytime_touchdown",
+            "side": "YES",
+            "line": null,
+            "price": 260,
+            "week": 8,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 1912,
+            "rationale": "Lions defense has allowed 10 receiving TDs to tight ends in 6 games; Hockenson leads Vikings in red-zone targets."
+          },
+          {
+            "team": "BUF",
+            "player": null,
+            "market": "moneyline",
+            "side": "BUF",
+            "line": null,
+            "price": -165,
+            "week": 8,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 2047,
+            "rationale": "Anchor leg for Parlay of the Week at home after bye week."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "moneyline",
+            "side": "DEN",
+            "line": null,
+            "price": null,
+            "week": 8,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2240,
+            "rationale": "Polymarket Prediction of the Week (48% probability); Broncos 17 wins in last 19 home games and divisional home underdog trend."
+          },
+          {
+            "team": "IND",
+            "player": null,
+            "market": "team_total",
+            "side": "UNDER",
+            "line": 18.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 2319,
+            "rationale": "Polymarket Prediction of the Week (55% probability); Colts offensive line weakened by Quenton Nelson trade, Daniel Jones struggles with interceptions."
+          }
+        ],
         "analysis_notes": [
-          {
-            "note_type": "team_evaluation",
-            "teams": [
-              "IND"
-            ],
-            "players": [
-              "Jonathan Taylor"
-            ],
-            "topic": "Colts Rushing Attack and Offensive Stagnation",
-            "summary": "Greg Cosell highlights that the Colts have failed to produce in the run game at the level required for their overall offense to function effectively.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 195,
-            "quote": "They've not run the ball the way that they need to for their offense to truly be effective.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "coaching_or_scheme",
-            "teams": [
-              "NYJ"
-            ],
-            "players": [],
-            "topic": "Jets Slot Corner Blitz Scheme",
-            "summary": "Jets slot cornerback Brownlee leads slot cornerbacks in blitz rate across the league, making pre-snap awareness vital for opposing offenses.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 352,
-            "quote": "Brownlee, who's their slot corner, he's got the most blitzes of any true slot corner in the league.",
-            "confidence": "stated"
-          },
           {
             "note_type": "player_evaluation",
             "teams": [
-              "TEN"
-            ],
-            "players": [],
-            "topic": "Quarterback Pocket Mechanics and Footwork Concerns",
-            "summary": "Ross and Greg detail fundamental footwork issues in the pocket—bouncing, failing to plant the back foot, rushing the delivery, and inconsistent ball placement.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 458,
-            "quote": "He's very unsettled in the pocket. He does not plant a back foot, he bounces, it's almost as if he's not ready to deliver the football, and because of that he has to hurry his throwing motion.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "coaching_or_scheme",
-            "teams": [
-              "CLE"
+              "DET"
             ],
             "players": [
-              "Ronnie Hickman"
+              "Jared Goff"
             ],
-            "topic": "Browns Defensive Coverages and Linebacker Speed",
-            "summary": "Cleveland runs the lowest percentage of two-high safety looks in the NFL, operating primarily single-high man coverage. Linebackers Schwesinger and Williams provide elite play speed.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 566,
-            "quote": "They play the lowest percentage of two-high safety structure in the league, they're a single-high defense.",
+            "topic": "Jared Goff MVP evaluation and blitz performance",
+            "summary": "Jared Goff has thrown for 1,788 yards, 14 TDs, and 0 INTs through 6 games, ranking #1 in EPA per dropback and #3 in passer rating vs. blitz.",
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 472,
+            "quote": "Number one in EPA per dropback... he's been playing at an MVP level.",
             "confidence": "stated"
           },
           {
-            "note_type": "team_evaluation",
+            "note_type": "schedule_context",
             "teams": [
-              "DEN"
-            ],
-            "players": [
-              "Bo Nix"
-            ],
-            "topic": "Broncos Passing Game and First-Down Rushing Struggles",
-            "summary": "Denver's offense is hampered by weak first-down rushing numbers, O-line pass protection issues, and a lack of clean, defined intermediate routes for Bo Nix.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 692,
-            "quote": "Their rushing numbers on first down are bad... they have an ineffective passing game with no intermediate dimension.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "coaching_or_scheme",
-            "teams": [
-              "GB"
-            ],
-            "players": [
-              "Xavier McKinney",
-              "Evan Williams"
-            ],
-            "topic": "Packers Defensive Pressure and Safety Blitz Trend",
-            "summary": "Packers defense under Jonathan Gannon utilizes third-level blitzers heavily, reflecting a broader NFL trend where defensive backs are increasingly deployed as pass rushers.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1022,
-            "quote": "More and more teams are using defensive backs as blitzers.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "coaching_or_scheme",
-            "teams": [
-              "LV"
-            ],
-            "players": [
-              "Brock Bowers"
-            ],
-            "topic": "Raiders Heavy Tight End Personnel Usage",
-            "summary": "Since Brock Bowers returned in Week 3, Las Vegas runs 12/13 personnel on 83% of snaps, throwing 72% of the time when Bowers is on the field.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1171,
-            "quote": "83% of their snaps in that since week three have had two and three tight ends on the field... with Bowers on the field they've thrown the ball 72% of the time.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "team_evaluation",
-            "teams": [
-              "LAR"
-            ],
-            "players": [
-              "Matthew Stafford"
-            ],
-            "topic": "Rams Play-Action Pass Game Decline",
-            "summary": "Los Angeles Rams under-center play-action passing game has regressed significantly compared to last season when it was among the most dominant in the NFL.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1347,
-            "quote": "Their play-action pass game has not been anything near what it was a year ago when it was unbelievably great.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "team_evaluation",
-            "teams": [
+              "PIT",
               "PHI"
             ],
             "players": [],
-            "topic": "Eagles Offensive Line Cohesion Issues",
-            "summary": "Philadelphia is struggling against pressure looks due to a lack of offensive line cohesion while starting free agents and a rookie right tackle.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1432,
-            "quote": "O-line play is about cohesion... right now they're not really aware of how to do all that.",
+            "topic": "Rest disparity and fading post-international travel",
+            "summary": "Teams playing immediately after international travel without a bye week are 3-6 ATS season-long and 0-4 ATS following London games.",
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 901,
+            "quote": "Teams after a neutral site international game without a bye week... those teams are 3 and 6 against the spread.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "PHI"
+            ],
+            "players": [
+              "Saquon Barkley",
+              "Damien Pierce"
+            ],
+            "topic": "Eagles running back depth chart injuries",
+            "summary": "Eagles down to fifth-string running back options due to Saquon Barkley hamstring strain and Damien Pierce landing on injured reserve.",
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1762,
+            "quote": "Eagles are down to their fifth string running back... this backfield is cursed.",
             "confidence": "stated"
           },
           {
             "note_type": "team_evaluation",
             "teams": [
-              "DAL"
+              "KC",
+              "DEN"
             ],
-            "players": [
-              "Dak Prescott",
-              "Javonte Williams"
-            ],
-            "topic": "Cowboys Rushing Efficiency Drop and Prescott Dropbacks",
-            "summary": "Dallas first-down rushing average dropped from 5.1 ypc last year to 3.5 ypc this year, forcing Dak Prescott into unsustainable 45+ dropbacks per game.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1492,
-            "quote": "Javonte Williams in over 150 first-down rushes averaged 5.1. This year he's averaging 3.5... Dak Prescott is dropping back basically over 45 times per game.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "matchup_analysis",
-            "teams": [
-              "CHI",
-              "NE"
-            ],
-            "players": [
-              "Caleb Williams",
-              "Drake Maye"
-            ],
-            "topic": "Bears vs Patriots Thursday Night Game Summary",
-            "summary": "Caleb Williams and Drake Maye both topped 300 passing yards and 2 TDs in a back-and-forth contest decided by Cairo Santos' career-high 58-yard FG.",
-            "speaker": "Ross Tucker",
-            "source_timestamp": 1568,
-            "quote": "Both guys threw for over 300 yards and two touchdowns.",
+            "players": [],
+            "topic": "Chiefs vs. Broncos red-zone defensive strength",
+            "summary": "Both Chiefs (2nd) and Broncos (7th) rank top-10 in red-zone defense and allowed points per game, driving heavy under trends.",
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2380,
+            "quote": "Both top 10 in terms of passing defense... Chiefs second best defense in the red zone, Broncos rank seventh.",
             "confidence": "stated"
           }
         ],
         "quote_timestamps": [
           {
-            "topic": "Raiders Tight End Personnel Usage",
-            "timestamp": 8,
-            "speaker": "Greg Cosell",
-            "quote": "83% of their snaps in that since week three have had two and three tight ends on the field."
+            "topic": "Vikings vs. Lions Over",
+            "timestamp": 372,
+            "speaker": "Andrew Erickson",
+            "quote": "I'm not going to be swayed away from betting overs at Ford Field."
           },
           {
-            "topic": "Packers Defensive DB Blitz Trend",
-            "timestamp": 1032,
-            "speaker": "Greg Cosell",
-            "quote": "More and more teams are using defensive backs as blitzers."
+            "topic": "Browns +3.5",
+            "timestamp": 846,
+            "speaker": "Andrew Erickson",
+            "quote": "I'm getting more than a field goal with a divisional team."
           },
           {
-            "topic": "Cowboys First-Down Rushing Regress",
-            "timestamp": 1492,
-            "speaker": "Greg Cosell",
-            "quote": "Last year Javonte Williams... averaged 5.1. This year he's averaging 3.5."
+            "topic": "Bills -3.0",
+            "timestamp": 1111,
+            "speaker": "Seth Woolcock",
+            "quote": "I'm going to take a well-rested, well-prepared Josh Allen over a potentially gimpy Lamar Jackson."
           }
         ],
         "coverage_assessment": {
-          "last_covered_timestamp": 1662,
+          "last_covered_timestamp": 2518,
           "self_reported_reached_end": true,
-          "duration_used_for_check": 1662,
+          "duration_used_for_check": 2518,
           "segment_start_seconds": null,
           "segment_end_seconds": null,
           "suspected_incomplete": false,
@@ -240,7 +245,142 @@
         "score_status": "not_scored",
         "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
         "total_ground_truth": 0,
-        "total_shadow_extracted": 0,
+        "total_shadow_extracted": 9,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-bTUlcxhVFx8",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_4c4413f23cfd",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=bTUlcxhVFx8",
+        "latency_ms": 30120,
+        "estimated_cost_usd": 0.004332,
+        "input_tokens": 36931,
+        "output_tokens": 1598,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Doug Kezirian and Stuckey analyze the Week 8 Sunday Night Football matchup between the Philadelphia Eagles and Washington Commanders. Doug makes an official pick on the Washington Commanders spread (-5.5), citing Philadelphia's five-game losing streak and injury concerns.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 381,\n    \"last_analyzed_timestamp\": 381,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 22.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's get into our favorite bets of Week 8. Doug, you're going for your first favorite bet of Week 8. Who do you like?\"\n    },\n    {\n      \"start\": 22.0,\n      \"end\": 148.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Anytime you can bet on Dan Quinn as a favorite... I think Washington is the side here. Philly... it's a lost season. As long as Daniels plays, I think there's enough offense here to cover this number.\"\n    },\n    {\n      \"start\": 148.0,\n      \"end\": 293.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Eagles probably have a walk-through today. I want no part of Philly for the foreseeable future. This team does nothing well right now.\"\n    },\n    {\n      \"start\": 293.0,\n      \"end\": 310.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Their defense is supposed to be good, but it's not. Eagles have been terrible in second half lines—they're the only team in the NFL not to cover a second half line.\"\n    },\n    {\n      \"start\": 310.0,\n      \"end\": 318.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Play calling is bad as well. Evan, you got any notes on this?\"\n    },\n    {\n      \"start\": 318.0,\n      \"end\": 351.0,\n      \"speaker\": \"Evan\",\n      \"text\": \"The 0-7 second half is definitely something to look at with Philly. Also Sirianni is 1-10 straight up as a dog of 3 or more.\"\n    },\n    {\n      \"start\": 351.0,\n      \"end\": 360.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"So Doug is rolling with Washington -5.5 at home on Sunday Night Football.\"\n    },\n    {\n      \"start\": 360.0,\n      \"end\": 381.0,\n      \"speaker\": \"unknown_1\",\n      \"text\": \"Action Network podcast disclaimer and closing information.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"WAS\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"WAS\",\n      \"line\": -5.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 27,\n      \"rationale\": \"Philly is on a 5-game losing streak and facing internal issues/injuries; Washington has enough offensive firepower with Jayden Daniels to cover.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [],\n      \"topic\": \"Eagles overall collapse\",\n      \"summary\": \"Stuckey and Doug detail Philadelphia's five-game losing streak, locker room issues, offensive line struggles, and QB position troubles.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 188,\n      \"quote\": \"I want absolutely no part of Philly for the foreseeable future.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [],\n      \"topic\": \"Eagles 2nd half ATS record\",\n      \"summary\": \"Doug highlights that Philadelphia is 0-7 ATS in second halves, being the only NFL team without a second-half cover.\",\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 300,\n      \"quote\": \"Eagles have been terrible in second half lines; they're the only team in the NFL not to cover a second half line.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [],\n      \"topic\": \"Nick Sirianni record as an underdog\",\n      \"summary\": \"Evan points out that Nick Sirianni is 1-10 straight up when listed as an underdog of 3 or more points.\",\n      \"speaker\": \"Evan\",\n      \"source_timestamp\": 339,\n      \"quote\": \"Sirianni 1 and 10 straight up as a dog of 3 or more.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\n        \"WAS\"\n      ],\n      \"players\": [],\n      \"topic\": \"Commanders run defense strength\",\n      \"summary\": \"Stuckey notes that Washington's run defense has been stout all season, filling gaps and limiting ground attacks effectively.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 319,\n      \"quote\": \"Washington's run defense has actually been pretty stingy this year.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Washington spread pick\",\n      \"timestamp\": 27,\n      \"speaker\": \"Doug Kezirian\",\n      \"quote\": \"I think Washington is the side here.\"\n    },\n    {\n      \"topic\": \"Eagles second half ATS record\",\n      \"timestamp\": 300,\n      \"speaker\": \"Doug Kezirian\",\n      \"quote\": \"They're the only team in the NFL not to cover a second half line.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 27,\n      \"field\": \"price\",\n      \"reason\": \"Vig/price was not stated for Washington -5.5 spread.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "WAS",
+            "player": null,
+            "market": "spread",
+            "side": "WAS",
+            "line": -5.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 27,
+            "rationale": "Philly is on a 5-game losing streak and facing internal issues/injuries; Washington has enough offensive firepower with Jayden Daniels to cover."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "PHI"
+            ],
+            "players": [],
+            "topic": "Eagles overall collapse",
+            "summary": "Stuckey and Doug detail Philadelphia's five-game losing streak, locker room issues, offensive line struggles, and QB position troubles.",
+            "speaker": "Stuckey",
+            "source_timestamp": 188,
+            "quote": "I want absolutely no part of Philly for the foreseeable future.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "market_sentiment",
+            "teams": [
+              "PHI"
+            ],
+            "players": [],
+            "topic": "Eagles 2nd half ATS record",
+            "summary": "Doug highlights that Philadelphia is 0-7 ATS in second halves, being the only NFL team without a second-half cover.",
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 300,
+            "quote": "Eagles have been terrible in second half lines; they're the only team in the NFL not to cover a second half line.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "PHI"
+            ],
+            "players": [],
+            "topic": "Nick Sirianni record as an underdog",
+            "summary": "Evan points out that Nick Sirianni is 1-10 straight up when listed as an underdog of 3 or more points.",
+            "speaker": "Evan",
+            "source_timestamp": 339,
+            "quote": "Sirianni 1 and 10 straight up as a dog of 3 or more.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "WAS"
+            ],
+            "players": [],
+            "topic": "Commanders run defense strength",
+            "summary": "Stuckey notes that Washington's run defense has been stout all season, filling gaps and limiting ground attacks effectively.",
+            "speaker": "Stuckey",
+            "source_timestamp": 319,
+            "quote": "Washington's run defense has actually been pretty stingy this year.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Washington spread pick",
+            "timestamp": 27,
+            "speaker": "Doug Kezirian",
+            "quote": "I think Washington is the side here."
+          },
+          {
+            "topic": "Eagles second half ATS record",
+            "timestamp": 300,
+            "speaker": "Doug Kezirian",
+            "quote": "They're the only team in the NFL not to cover a second half line."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 381,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 381,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 1,
         "full_exact_matches": 0,
         "precision_pct": "not scored",
         "recall_pct": "not scored",

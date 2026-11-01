@@ -1,0 +1,90 @@
+{
+  "schema": "approved_article_notes_execution_v1",
+  "recorded_at_utc": "2026-10-29 15:21:00 UTC",
+  "authorization": "User replied Approved to the staged 124-article notes-only Supabase ingestion request.",
+  "project_id": "aambmuzfcojxqvbzhngp",
+  "link_id": "link_6aac990869948191954e7f3ef1b313b7",
+  "table": "public.research_intel_notes",
+  "approved_sql_sha256": "59a916bd6fa8086f40ebca7aaea49ddc1e0f1e9e9c1b262c1b23ad10f1b9dd84",
+  "status": "completed_verified_no_changes_needed",
+  "mutation_call_count": 1,
+  "verification_select_count": 1,
+  "results": {
+    "filled": [],
+    "inserted": [],
+    "inserted_notes": 0,
+    "staged_candidates": 124,
+    "existing_empty_bodies_filled": 0
+  },
+  "verification_summary": {
+    "sources": [
+      {
+        "source": "Action Network",
+        "staged": 12,
+        "base_present": 12,
+        "with_existing_body": 12
+      },
+      {
+        "source": "BettingPros",
+        "staged": 10,
+        "base_present": 10,
+        "with_existing_body": 10
+      },
+      {
+        "source": "ESPN NFL",
+        "staged": 25,
+        "base_present": 25,
+        "with_existing_body": 18
+      },
+      {
+        "source": "PFF",
+        "staged": 24,
+        "base_present": 24,
+        "with_existing_body": 24
+      },
+      {
+        "source": "Pro Football Talk",
+        "staged": 15,
+        "base_present": 15,
+        "with_existing_body": 15
+      },
+      {
+        "source": "Rotowire NFL",
+        "staged": 5,
+        "base_present": 5,
+        "with_existing_body": 5
+      },
+      {
+        "source": "Sharp Football",
+        "staged": 19,
+        "base_present": 19,
+        "with_existing_body": 19
+      },
+      {
+        "source": "VSiN",
+        "staged": 5,
+        "base_present": 5,
+        "with_existing_body": 5
+      },
+      {
+        "source": "Walter Football",
+        "staged": 9,
+        "base_present": 9,
+        "with_existing_body": 9
+      }
+    ],
+    "staged_candidates": 124,
+    "base_notes_present": 124,
+    "missing_base_notes": 0,
+    "staged_body_values": 80,
+    "staged_body_candidates_still_empty": 0,
+    "eligible_actionnetwork_revisions_missing": 0,
+    "staged_body_candidates_with_nonempty_existing_body": 80
+  },
+  "paid_calls": 0,
+  "emails_sent": 0,
+  "pick_signal_writes": 0,
+  "feed_health_writes": 0,
+  "ledger_writes": 0,
+  "publication_actions": 0
+}

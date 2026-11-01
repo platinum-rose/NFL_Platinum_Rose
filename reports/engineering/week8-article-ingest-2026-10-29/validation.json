@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-10-29T15:22:43.500Z",
+  "unique_url_hashes": 124,
+  "nonempty_titles": true,
+  "untruncated_proposed_bodies": true,
+  "protected_files": [
+    {
+      "path": "data/research-intel/review/article-intel-review-latest.json",
+      "before_sha256": "496d654eeb0d8481647f48f62fdb096173b8c916100fb5c066836ab397c0716a",
+      "after_sha256": "496d654eeb0d8481647f48f62fdb096173b8c916100fb5c066836ab397c0716a",
+      "unchanged": true
+    },
+    {
+      "path": "reports/bets/2026-w08-card.md",
+      "before_sha256": "2d14ceb4c13e8dfd73d6d421d557f0f180f70fc18c42618775640b1d81fd706a",
+      "after_sha256": "2d14ceb4c13e8dfd73d6d421d557f0f180f70fc18c42618775640b1d81fd706a",
+      "unchanged": true
+    },
+    {
+      "path": "data/official-picks/user-placed-wagers-2026.json",
+      "before_sha256": "77aed19509ae6bf92c624e81d4fc4c58f113f004afe322749dd332352566ec72",
+      "after_sha256": "77aed19509ae6bf92c624e81d4fc4c58f113f004afe322749dd332352566ec72",
+      "unchanged": true
+    },
+    {
+      "path": "data/futures-imports/andy-portfolio-ledger-2026.json",
+      "before_sha256": "4a01e6abcff13eb6cdb53b9becaa8c804e1b87df9e7f8ce5d7ab3c8b69572faa",
+      "after_sha256": "4a01e6abcff13eb6cdb53b9becaa8c804e1b87df9e7f8ce5d7ab3c8b69572faa",
+      "unchanged": true
+    }
+  ],
+  "paid_calls": 0,
+  "supabase_actions": 2,
+  "emails_sent": 0,
+  "body_status_counts": {
+    "public_body_captured_not_human_verified": 80,
+    "page_text_retained_needs_article_boundary_review": 29,
+    "subscription_marker_review_needed": 1,
+    "rss_item_only_player_page_not_fetched": 5,
+    "metadata_only_deprioritized_source": 9
+  },
+  "execution_status": "completed_verified_no_changes_needed",
+  "database_results": {
+    "filled": [],
+    "inserted": [],
+    "inserted_notes": 0,
+    "staged_candidates": 124,
+    "existing_empty_bodies_filled": 0
+  },
+  "database_verification": {
+    "sources": [
+      {
+        "source": "Action Network",
+        "staged": 12,
+        "base_present": 12,
+        "with_existing_body": 12
+      },
+      {
+        "source": "BettingPros",
+        "staged": 10,
+        "base_present": 10,
+        "with_existing_body": 10
+      },
+      {
+        "source": "ESPN NFL",
+        "staged": 25,
+        "base_present": 25,
+        "with_existing_body": 18
+      },
+      {
+        "source": "PFF",
+        "staged": 24,
+        "base_present": 24,
+        "with_existing_body": 24
+      },
+      {
+        "source": "Pro Football Talk",
+        "staged": 15,
+        "base_present": 15,
+        "with_existing_body": 15
+      },
+      {
+        "source": "Rotowire NFL",
+        "staged": 5,
+        "base_present": 5,
+        "with_existing_body": 5
+      },
+      {
+        "source": "Sharp Football",
+        "staged": 19,
+        "base_present": 19,
+        "with_existing_body": 19
+      },
+      {
+        "source": "VSiN",
+        "staged": 5,
+        "base_present": 5,
+        "with_existing_body": 5
+      },
+      {
+        "source": "Walter Football",
+        "staged": 9,
+        "base_present": 9,
+        "with_existing_body": 9
+      }
+    ],
+    "staged_candidates": 124,
+    "base_notes_present": 124,
+    "missing_base_notes": 0,
+    "staged_body_values": 80,
+    "staged_body_candidates_still_empty": 0,
+    "eligible_actionnetwork_revisions_missing": 0,
+    "staged_body_candidates_with_nonempty_existing_body": 80
+  }
+}

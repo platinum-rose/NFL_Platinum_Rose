@@ -1,0 +1,14 @@
+{
+  "rows": [],
+  "schema": "week8_promoted_podcast_read_v1",
+  "row_count": 0,
+  "captured_at": "2026-10-29T01:34:59.579638+00:00",
+  "window_start": "2026-10-27T07:00:00Z",
+  "retrieval": {
+    "approved": "one read-only promoted podcast retrieval",
+    "query": "SELECT jsonb_build_object('schema','week8_promoted_podcast_read_v1','window_start','2026-10-27T07:00:00Z','captured_at',now(),'row_count',count(*),'rows',coalesce(jsonb_agg(to_jsonb(q) ORDER BY q.created_at DESC), '[]'::jsonb)) AS podcast_export FROM (SELECT p.episode_id,p.model,p.picks,p.analysis_notes,p.promoted_at,p.created_at,e.title AS episode_title,e.pub_date AS episode_published_at FROM public.podcast_gemini_intel p LEFT JOIN public.podcast_episodes e ON e.id=p.episode_id WHERE p.promoted_at IS NOT NULL AND p.created_at >= '2026-10-27T07:00:00Z'::timestamptz) q",
+    "database_calls": 1,
+    "database_writes": 0,
+    "paid_model_calls": 0
+  }
+}

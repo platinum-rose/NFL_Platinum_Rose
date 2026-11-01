@@ -1,0 +1,459 @@
+{
+  "checked_at": "2026-10-28T20:06:44.323Z",
+  "week": 8,
+  "status": "HOLD_research_preview_only",
+  "guardrails": {
+    "paid_calls": 0,
+    "supabase_actions": 0,
+    "canonical_files_written": 0,
+    "publication": false,
+    "offline_preview_network_calls": 0,
+    "public_capture_network_calls": "Free ESPN endpoint, official CAR/GB pages and Packers news index; see receipts. Includes one initial404."
+  },
+  "live_canonical_freshness": {
+    "ok": false,
+    "checked_at": "2026-10-28T20:06:44.323Z",
+    "current_week": 8,
+    "max_age_hours": 36,
+    "inputs": [
+      {
+        "key": "player_availability",
+        "ok": true,
+        "generated_at": "2026-10-27T23:30:02.145Z",
+        "age_hours": 20.61,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "projected_starters",
+        "ok": true,
+        "generated_at": "2026-10-27T23:04:32.046Z",
+        "age_hours": 21.04,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "secondary_matchups",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:48.719Z",
+        "age_hours": 114.8,
+        "week": 7,
+        "problems": [
+          "stale: 114.8h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      },
+      {
+        "key": "player_props_intel",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:51.182Z",
+        "age_hours": 114.8,
+        "week": 7,
+        "problems": [
+          "stale: 114.8h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      }
+    ],
+    "errors": [
+      "secondary_matchups (data/secondary-matchups/latest.json): stale: 114.8h old (max 36h); week 7 != current week 8",
+      "player_props_intel (data/research-intel/review/player-props-intel-latest.json): stale: 114.8h old (max 36h); week 7 != current week 8"
+    ]
+  },
+  "preview": {
+    "availability_meta": {
+      "schema": "player_availability_snapshot_v1",
+      "season": 2026,
+      "generated_at": "2026-10-28T20:06:44.323Z",
+      "event_count": 679,
+      "synthesis_eligible_count": 676,
+      "conflicted_intel_count": 3,
+      "needs_confirmation_count": 0,
+      "unique_evidence_count": 679,
+      "teams_with_events": 32,
+      "improving_count": 57,
+      "worsening_count": 102,
+      "major_count": 303,
+      "offensive_line_worsening_count": 13,
+      "defensive_front_worsening_count": 8,
+      "teams_with_ol_cluster_risk": 2,
+      "teams_with_defensive_front_cluster_risk": 2,
+      "recommendation_status": "availability_intel_only_not_picks",
+      "guardrails": {
+        "live_model_calls": false,
+        "supabase_writes": false,
+        "official_picks_generated": false
+      },
+      "source_health": [
+        {
+          "source": "reports\\engineering\\week8-midday-2026-10-28\\espn-injuries.json",
+          "status": "file",
+          "evidence": "32 team groups; 655 parsed rows."
+        },
+        {
+          "source": "FantasyPros injuries API",
+          "status": "skipped",
+          "reason": "Disabled with --no-live-fantasypros-injuries."
+        },
+        {
+          "source": "Training camp snapshot",
+          "status": "available",
+          "evidence": "62 availability-like item(s) from 225 camp item(s)."
+        }
+      ],
+      "team_identity_validation": {
+        "schema": "team_identity_validation_v1",
+        "status": "pass",
+        "row_count": 679,
+        "unique_evidence_count": 679,
+        "duplicate_evidence_rows": 0,
+        "source_prefix_rows": 20,
+        "authoritative_source_rows": 20,
+        "primary_source_mismatch_count": 0,
+        "missing_primary_team_count": 0,
+        "missing_evidence_id_count": 0,
+        "related_team_reference_count": 876,
+        "ambiguous_inferred_primary_count": 0,
+        "corrected_source_assignment_count": 17
+      },
+      "availability_evidence_validation": {
+        "schema": "availability_evidence_validation_v1",
+        "status": "pass",
+        "event_count": 679,
+        "detected_conflict_count": 3,
+        "unflagged_contradiction_count": 0,
+        "conflicts_missing_source_count": 0,
+        "conflicts_missing_review_flag_count": 0,
+        "conflicts_still_eligible_count": 0
+      },
+      "named_status_review_validation": {
+        "schema": "named_status_review_validation_v1",
+        "status": "pass",
+        "required_case_count": 2,
+        "recorded_case_count": 2,
+        "confirmed_count": 0,
+        "withheld_count": 2,
+        "synthesis_eligible_count": 0,
+        "missing_required_case_count": 0,
+        "missing_required_cases": [],
+        "invalid_case_count": 0,
+        "invalid_cases": [],
+        "duplicate_case_count": 0
+      }
+    },
+    "starters_meta": {
+      "schema": "projected_starters_snapshot_v1",
+      "season": 2026,
+      "generated_at": "2026-10-28T20:06:44.323Z",
+      "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
+      "player_count": 163,
+      "manual_row_count": 151,
+      "eligible_manual_row_count": 151,
+      "estimated_row_count": 16,
+      "withheld_named_manual_row_count": 0,
+      "human_review_approved_count": 206,
+      "human_review_rejected_count": 0,
+      "teams_with_signals": 32,
+      "teams_needing_manual_depth_chart": 0,
+      "named_status_review_validation": {
+        "schema": "named_status_review_validation_v1",
+        "status": "pass",
+        "required_case_count": 2,
+        "recorded_case_count": 2,
+        "confirmed_count": 0,
+        "withheld_count": 2,
+        "synthesis_eligible_count": 0,
+        "missing_required_case_count": 0,
+        "missing_required_cases": [],
+        "invalid_case_count": 0,
+        "invalid_cases": [],
+        "duplicate_case_count": 0
+      },
+      "inputs": {
+        "availability": {
+          "path": "reports\\engineering\\week8-midday-2026-10-28\\availability-preview.json",
+          "generated_at": "2026-10-28T20:06:44.323Z",
+          "evidence_validation_status": "pass"
+        },
+        "named_status_review": {
+          "path": "data\\projected-starters\\2026\\named-status-review.json",
+          "reviewed_at": "2026-10-10T00:00:00-07:00",
+          "validation_status": "pass"
+        },
+        "manual_directory": "data\\projected-starters\\2026\\manual"
+      },
+      "recommendation_status": "research_context_only_not_picks",
+      "guardrails": {
+        "live_model_calls": false,
+        "network_fetches": false,
+        "supabase_writes": false,
+        "official_picks_generated": false
+      }
+    },
+    "secondary_meta": {
+      "schema": "secondary_matchup_vulnerability_snapshot_v1",
+      "season": 2026,
+      "week": 8,
+      "generated_at": "2026-10-28T20:06:44.323Z",
+      "game_count": 14,
+      "matchup_count": 28,
+      "matchups_with_secondary_absences": 13,
+      "high_or_medium_vulnerabilities": 3,
+      "recommendation_status": "manual_matchup_intel_only_not_picks",
+      "manual_seed_coverage": {
+        "required_team_count": 28,
+        "required_teams": [
+          "ARI",
+          "ATL",
+          "BAL",
+          "BUF",
+          "CAR",
+          "CHI",
+          "CIN",
+          "CLE",
+          "DAL",
+          "DEN",
+          "DET",
+          "GB",
+          "IND",
+          "JAX",
+          "KC",
+          "LAC",
+          "LAR",
+          "LV",
+          "MIA",
+          "MIN",
+          "NE",
+          "NYJ",
+          "PHI",
+          "PIT",
+          "SEA",
+          "TB",
+          "TEN",
+          "WAS"
+        ],
+        "coverage_scheme_team_count": 32,
+        "secondary_role_team_count": 32,
+        "receiver_role_team_count": 32,
+        "missing_coverage_scheme_teams": [],
+        "missing_secondary_role_teams": [],
+        "missing_receiver_role_teams": [],
+        "coverage_scheme_rows_with_source_url": 32,
+        "secondary_role_rows_with_source_url": 179,
+        "receiver_role_rows_with_source_url": 160,
+        "complete": true
+      },
+      "guardrails": {
+        "paid_data_used": false,
+        "live_model_calls": false,
+        "supabase_writes": false,
+        "official_picks_generated": false
+      },
+      "source_health": []
+    },
+    "secondary_seed_inputs": [
+      {
+        "path": "data/secondary-matchups/manual/coverage-schemes-2026.json",
+        "sha256": "f530872bf5f9d2e4dd68142bb6575f04572d81d4bbca81200cf734bd92841511",
+        "modified_at": "2026-07-30T20:11:46.459Z",
+        "content_dates": [
+          "2026-07-30",
+          "2026-09-15"
+        ]
+      },
+      {
+        "path": "data/secondary-matchups/manual/secondary-roles-2026.json",
+        "sha256": "cc8ec82ca7a693552ca3e2594650f9c082f8afe5749b084ab9254484d4057ddf",
+        "modified_at": "2026-10-22T18:20:50.551Z",
+        "content_dates": [
+          "2026-09-27",
+          "2026-10-22",
+          "2026-10-02",
+          "2026-10-14"
+        ]
+      },
+      {
+        "path": "data/secondary-matchups/manual/receiver-roles-2026.json",
+        "sha256": "0d08c274715b838f55552ad8e1ce82d48ca1b8c8415335aba030a878904c0a88",
+        "modified_at": "2026-10-22T18:20:50.587Z",
+        "content_dates": [
+          "2026-10-14",
+          "2026-09-27",
+          "2026-10-22",
+          "2026-10-02"
+        ]
+      }
+    ]
+  },
+  "article_review": {
+    "generated_at": "2026-10-28T18:35:05.353Z",
+    "collection": {
+      "since": "2026-10-27T07:00:00.000Z",
+      "requested_limit": null,
+      "local_only": false,
+      "local_files_scanned": 0,
+      "database_status": "complete",
+      "database_pages": 1,
+      "database_rows": 173,
+      "database_cap_reached": false,
+      "complete_for_since_window": true,
+      "deduped_records": 143
+    },
+    "summary": {
+      "article_records_assessed": 143,
+      "articles_with_body": 136,
+      "body_evidence": {
+        "metadata_only": 7,
+        "thin_body": 0,
+        "suspected_ingest_cap": 11,
+        "body_available": 125
+      },
+      "pick_oriented_records": 5,
+      "unresolved_pick_oriented_records": 0,
+      "manually_dispositioned_pick_oriented_records": 4,
+      "likely_non_nfl_false_positives": 0,
+      "explicit_analyst_selection_mentions": 13,
+      "unique_explicit_analyst_selections": 13,
+      "selections_needing_execution_verification": 13,
+      "actual_picks": 0,
+      "weighted_picks": {
+        "total_actionable": 11,
+        "tier_1_direct_execution": 0,
+        "tier_2_analyst_best_bets": 3,
+        "tier_3_secondary_leans_props": 8,
+        "aggregate_weight": 6.25
+      },
+      "market_leads": 120,
+      "pick_leads": 120,
+      "analysis_notes": 433
+    }
+  },
+  "ftn": {
+    "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "sha256": "9d1e5ca2603ea752e2391c99161f007eb71bb15b79f1743af648313c7ad18ebd",
+    "week": 8,
+    "coverage_status": "pass_week7_game_counts",
+    "ftn_source_coverage_ready": true
+  },
+  "protected_hashes": {
+    "data/player-availability/latest.json": "75cf883cef343577ad98f9367a427d62cce46ce333517fadb624bd5353972391",
+    "data/projected-starters/2026/latest.json": "d8707e125708de491d820858e218281cfa9184511f4214e4ffb21432da273288",
+    "data/secondary-matchups/latest.json": "624aa13cf98f4ff0eed8fd33ce00621689a066ea7337ff79bad278f80356a5ae",
+    "data/research-intel/review/player-props-intel-latest.json": "96d6d8c55b9b7fd6c4e7dfc1dbd7d8cb27c4aa5cdda1c933af8a01e0b3a24641",
+    "data/alpha/alpha-packet-2026.json": "a5a4d1d974bff1dbb14f8af1e2d3ee070dd8dc82f99452e011fc068594108135",
+    "public/alpha/alpha-packet-2026.json": "a5a4d1d974bff1dbb14f8af1e2d3ee070dd8dc82f99452e011fc068594108135",
+    "public/live-tracker-sunday.html": "60c32321b125a01c8fabb5a0d697ab4f4e5f5940fd56d5d5ac677f4b6da39aa1",
+    "docs/tracked-wagers/live-tracker-sunday.html": "60c32321b125a01c8fabb5a0d697ab4f4e5f5940fd56d5d5ac677f4b6da39aa1"
+  },
+  "limitations": [
+    "Preview timestamps do not certify practice coverage, role accuracy, or source freshness.",
+    "ESPN status rows are not a full official Wednesday practice-participation report.",
+    "Independent ARI/MIN depth-chart conflicts and prior human approvals remain intact.",
+    "Secondary manual seeds require source-date review before synthesis.",
+    "Canonical player props input remains Week7; no Supabase fetch performed."
+  ],
+  "tnf_updates_reported_on_pacific_capture_date": [
+    {
+      "player_name": "Jaelan Phillips",
+      "team": "CAR",
+      "status": "Out",
+      "reported_at": "2026-10-28T18:01Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Torricelli Simpkins III",
+      "team": "CAR",
+      "status": "Out",
+      "reported_at": "2026-10-28T18:01Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Damien Lewis",
+      "team": "CAR",
+      "status": "Out",
+      "reported_at": "2026-10-28T18:01Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Akayleb Evans",
+      "team": "CAR",
+      "status": "Out",
+      "reported_at": "2026-10-28T18:00Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Bobby Brown III",
+      "team": "CAR",
+      "status": "Questionable",
+      "reported_at": "2026-10-28T18:00Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Matthew Golden",
+      "team": "GB",
+      "status": "Questionable",
+      "reported_at": "2026-10-28T19:12Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Aaron Banks",
+      "team": "GB",
+      "status": "Active",
+      "reported_at": "2026-10-28T19:05Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Zaire Franklin",
+      "team": "GB",
+      "status": "Out",
+      "reported_at": "2026-10-28T19:04Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    },
+    {
+      "player_name": "Travis Glover",
+      "team": "GB",
+      "status": "Out",
+      "reported_at": "2026-10-28T19:04Z",
+      "roster_match": true,
+      "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+    }
+  ],
+  "tnf_update_date_policy": "America/Los_Angeles calendar day; Active recap rows are not practice or game clearance",
+  "tnf_official_capture": {
+    "path": "reports/engineering/week8-midday-2026-10-28/tnf-official-status-review.json",
+    "source_url": "https://www.packers.com/news/packers-list-four-questionable-rule-out-three-vs-panthers-week-8-injury-report",
+    "captured_at": "2026-10-28T20:07:27.1271434+00:00",
+    "rows": 17,
+    "all_roster_matched": true,
+    "counts": {
+      "GB": {
+        "Out": 3,
+        "Questionable": 4,
+        "no_game_designation": 2
+      },
+      "CAR": {
+        "Out": 4,
+        "Questionable": 1,
+        "no_game_designation": 3
+      }
+    }
+  },
+  "roster_gate_path": "data/generated/master-intel/w08-roster-vet.json",
+  "independent_validation": {
+    "verified_at": "2026-10-28T20:09:47.648Z",
+    "agent": "wednesday_readiness",
+    "official_tnf_rows": 17,
+    "correct_team_roster_matches": 17,
+    "raw_receipt_hashes": "pass",
+    "protected_canonical_hashes": "8_of_8_unchanged",
+    "espn_vs_official_out_questionable_conflicts": 0
+  }
+}

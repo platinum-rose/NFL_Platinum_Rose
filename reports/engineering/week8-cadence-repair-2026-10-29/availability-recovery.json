@@ -1,0 +1,42 @@
+{
+  "recovered_at": "2026-10-29T16:00:53.039Z",
+  "source_generated_at": "2026-10-29T15:34:34.134Z",
+  "event_count": 1146,
+  "source_json_unchanged": true,
+  "checks": [
+    {
+      "path": "data\\player-availability\\player-availability-2026-10-29.json",
+      "sha256": "2de493cd6f2e74001f045c0a041767f171ab36818c62f95532aff4d09c04189c",
+      "matches_saved_snapshot_render": true
+    },
+    {
+      "path": "data\\player-availability\\latest.json",
+      "sha256": "2de493cd6f2e74001f045c0a041767f171ab36818c62f95532aff4d09c04189c",
+      "matches_saved_snapshot_render": true
+    },
+    {
+      "path": "docs\\player-availability\\player-availability-2026-10-29.md",
+      "sha256": "7852e430378e3dbab1991a2d328afc0da22a6afdd6dce56d8c045f78b4ade8d1",
+      "matches_saved_snapshot_render": true
+    },
+    {
+      "path": "docs\\player-availability\\player-availability-latest.md",
+      "sha256": "7852e430378e3dbab1991a2d328afc0da22a6afdd6dce56d8c045f78b4ade8d1",
+      "matches_saved_snapshot_render": true
+    },
+    {
+      "path": "docs\\player-availability\\player-availability-2026-10-29.html",
+      "sha256": "ce08e8f7d7282ea3a411f29d9049ad08b87f0800fb1dc66f6c6100a8df0c4cab",
+      "matches_saved_snapshot_render": true
+    },
+    {
+      "path": "docs\\player-availability\\player-availability-latest.html",
+      "sha256": "ce08e8f7d7282ea3a411f29d9049ad08b87f0800fb1dc66f6c6100a8df0c4cab",
+      "matches_saved_snapshot_render": true
+    }
+  ],
+  "all_pass": true,
+  "live_fetches": 0,
+  "supabase_actions": 0,
+  "paid_calls": 0
+}

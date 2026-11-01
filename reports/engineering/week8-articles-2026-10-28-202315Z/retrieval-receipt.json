@@ -1,0 +1,19 @@
+{
+  "authorization": "Andy approved this single read-only retrieval via the pending question.",
+  "project_id": "aambmuzfcojxqvbzhngp",
+  "table": "public.research_intel_notes",
+  "query": "SELECT jsonb_build_object('schema','week8_research_article_export_v1','since','2026-10-27T07:00:00.000Z','until','2026-10-28T20:23:15.471Z','retrieved_at',now(),'row_count',count(*),'rows',coalesce(jsonb_agg(to_jsonb(r) ORDER BY r.published_at DESC NULLS LAST, r.id), '[]'::jsonb)) AS article_export FROM (SELECT id,source,source_type,title,summary,body,url,published_at,captured_at,author,confidence FROM public.research_intel_notes WHERE captured_at >= '2026-10-27T07:00:00.000Z'::timestamptz AND captured_at <= '2026-10-28T20:23:15.471Z'::timestamptz) r",
+  "database_select_calls": 1,
+  "database_write_calls": 0,
+  "paid_model_calls": 0,
+  "publication": false,
+  "raw_rows": 189,
+  "since": "2026-10-27T07:00:00.000Z",
+  "until": "2026-10-28T20:23:15.471Z",
+  "retrieved_at": "2026-10-28T20:23:37.171779+00:00",
+  "storage": "Raw full retained body fields from database; source truncation remains possible.",
+  "output": "research-articles-raw.json",
+  "raw_sha256": "a10aca133f1c3e037b1df4873e2f3b09560edcdf1c2fde0d6d845928412b732d",
+  "raw_bytes": 1536916,
+  "authorization_status": "completed_consumed_one_read_only_retrieval"
+}

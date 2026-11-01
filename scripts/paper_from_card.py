@@ -13,7 +13,7 @@ import argparse, itertools, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SECTIONS = ('3', '4', '5', '7h', '7i', '7j', '7k', '7l', '7e')  # heading prefixes
+SECTIONS = ('3', '4', '4b', '5', '7h', '7i', '7j', '7k', '7l', '7e')  # heading prefixes
 TEAM = {'Arizona': 'ARI', 'Atlanta': 'ATL', 'Baltimore': 'BAL', 'Buffalo': 'BUF', 'Carolina': 'CAR', 'Chicago': 'CHI', 'Cincinnati': 'CIN',
         'Cleveland': 'CLE', 'Dallas': 'DAL', 'Denver': 'DEN', 'Detroit': 'DET', 'Green Bay': 'GB', 'Houston': 'HOU', 'Indianapolis': 'IND',
         'Jacksonville': 'JAX', 'Kansas City': 'KC', 'Las Vegas': 'LV', 'Los Angeles Rams': 'LAR', 'Los Angeles Chargers': 'LAC', 'Miami': 'MIA',
@@ -26,6 +26,7 @@ NICK = {'Browns': 'CLE', 'Jets': 'NYJ', 'Giants': 'NYG', 'Rams': 'LAR', 'Charger
         'Cowboys': 'DAL', 'Eagles': 'PHI', 'Titans': 'TEN'}
 # (regex on the market text, market, target_stat)
 PROPS = [
+    (r'2\+\s*(?:TD|touchdowns?)\b', 'two_plus_touchdowns', 'touchdowns'),
     (r'kicker points|kicking points', 'kicker_points', 'kicking_points'),
     (r'fantasy points', 'fantasy_points', 'fantasy_points_ppr'),
     (r'longest reception', 'longest_reception', 'longest_reception'),
@@ -56,9 +57,11 @@ def player_team(name, away, home):
         except Exception:
             ROSTER['_'] = []
     base = re.sub(r'\s+(Jr\.|Sr\.|II|III|IV)$', '', name or '').strip()
+    canonical = lambda t: {'WSH': 'WAS', 'JAC': 'JAX', 'LVR': 'LV', 'LA': 'LAR'}.get(t, t)
     for cand in (name, base, base + ' Jr.', base + ' Sr.', base + ' III', base + ' II'):
         for e in ROSTER.get(cand, []):
-            if e.get('team') in (away, home): return e['team']
+            team = canonical(e.get('team'))
+            if team in (canonical(away), canonical(home)): return team
     return None
 
 
@@ -74,10 +77,13 @@ def money(s):
 
 
 def dec(price):
-    try:
-        a = int(str(price).replace('+', '').replace(',', '').strip())
-    except ValueError:
+    # Preserve "BKR ref" in the leg; use its numeric American price only for
+    # hypothetical return arithmetic, never as a verified executable offer.
+    m = re.match(r'^\s*([+-]?\d[\d,]*)(?:\s|$)', str(price))
+    if not m:
         return None
+    a = int(m.group(1).replace(',', ''))
+    if a == 0: return None
     return 1 + (a / 100 if a > 0 else 100 / -a)
 
 
@@ -92,8 +98,8 @@ def leg_from(row, n, tid, starts):
     g = game_fmt(game)
     L = dict(leg_num=n, game=g, team=None, opponent=None, market=None, selection=mkt, line=None, price=price or None,
              game_start=starts.get(g), status='PENDING', key=f'{tid}_{n}', source=book)
-    ou = re.search(r'\b(Over|Under|O|U)\s?(\d+(?:\.\d+)?)', mkt)
-    direction = ('over' if ou.group(1) in ('Over', 'O') else 'under') if ou else None
+    ou = re.search(r'\b(Over|Under|O|U)\s?(\d+(?:\.\d+)?)', mkt, re.I)
+    direction = ('over' if ou.group(1).lower() in ('over', 'o') else 'under') if ou else None
     line = float(ou.group(2)) if ou else None
     # game total
     if re.fullmatch(r'(Over|Under) \d+(\.\d+)?', mkt):
@@ -137,9 +143,11 @@ def leg_from(row, n, tid, starts):
         pm = re.search(pat, mkt, re.I)
         if pm:
             player = mkt[:pm.start()].strip()
-            player = re.sub(r'\s+(O|U)\d.*$', '', player).strip()
+            player = re.sub(r'\s+(?:(?:over|under|o|u)\s*)?\d+(?:\.\d+)?\+?\s*$', '', player, flags=re.I).strip()
             if market in ('anytime_touchdown', 'first_touchdown'):
                 line, direction = 0.5, 'over'
+            elif market == 'two_plus_touchdowns':
+                line, direction = 1.5, 'over'
             L.update(player=player or None, market=market, line=line, direction=direction, target_stat=stat)
             t = player_team(player, away, home)
             if t: L.update(team=t, opponent=home if t == away else away)
@@ -175,7 +183,9 @@ def parse(card, season, week, date, starts, section_dates=None):
             if not rows or stake is None: continue
             tid = 'paper_w%d_card_%s' % (week, re.sub(r'[^a-z0-9]+', '_', name.lower()).strip('_')[:48])
             legs = [leg_from(r, n, tid, starts) for n, r in enumerate(rows, 1)]
-            is_rr = sec == '4'
+            # Section 4 now holds ordinary parlays; round robins are in 4b.
+            # Determine structure from the ticket itself, not its section number.
+            is_rr = bool(re.search(r'round robin', name, re.I))
             w = dict(id=tid, ticket_number=None, is_paper=True, date=(section_dates or {}).get(sec, date), season=season, week=week,
                      game=f'Week {week} multi-game' if len(legs) > 1 else legs[0]['game'],
                      game_title=f'Platinum Rose AI paper: {name}', book=f'Paper ({book} card price)',
@@ -183,19 +193,23 @@ def parse(card, season, week, date, starts, section_dates=None):
                      category='AI Recommendation', funding_type='paper', cash_risk_usd=stake, stake_usd=stake,
                      odds_american=None, odds_decimal=None, potential_profit_usd=None, potential_payout_usd=None,
                      status='PENDING', result=None, card_section=sec,
-                     progress_notes=f'Platinum Rose AI Week {week} card (reports/bets/{season}-w{week:02d}-card.md §{sec}), as proposed Sat 10/24. '
+                     progress_notes=f'Platinum Rose AI Week {week} card (reports/bets/{season}-w{week:02d}-card.md §{sec}), source date {(section_dates or {}).get(sec, date) or "not supplied"}. '
                                     f'Not placed: imaginary money for reference and accuracy, excluded from cash totals and the bankroll. Card line: {rest}. '
                                     + (f'Flags: {flags}' if flags else ''),
                      legs=legs)
             ds = [dec(l['price']) for l in legs]
             if is_rr:
-                k = int(re.search(r'by (\d+)s', name).group(1))
+                rr_size = re.search(r'by\s+(\d+)s', name, re.I)
+                if not rr_size: raise ValueError(f'Round-robin combination size missing: {name}')
+                k = int(rr_size.group(1))
+                if not 1 <= k <= len(legs): raise ValueError(f'Invalid round-robin size: {name}')
+                if not all(ds): raise ValueError(f'Round-robin price missing: {name}')
                 combos = list(itertools.combinations(range(len(legs)), k))
                 per = round(stake / len(combos), 2)
                 cs = []
                 for c in combos:
                     d_ = 1.0
-                    for x in c: d_ *= ds[x] or 1.91
+                    for x in c: d_ *= ds[x]
                     cs.append(dict(teams=[legs[x].get('team') or legs[x]['selection'] for x in c], leg_nums=[x + 1 for x in c], stake_usd=per, to_win_usd=round(per * d_ - per, 2)))
                 w['ticket_type'] = f'Round Robin ({len(legs)} Selections, {k}-Team Combinations, {len(combos)} Parlays)'
                 w['round_robin'] = dict(selection_count=len(legs), teams_per_combination=k, combination_count=len(combos), stake_per_combination_usd=per,

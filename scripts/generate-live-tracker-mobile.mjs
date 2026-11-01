@@ -25,6 +25,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildHedgeAlerts, alertMessage, hedgeDirectionsConflict } from './lib/hedge-alerts.mjs';
 import { ESPN_API_BASE, fetchEspnJson } from './lib/espn-http.mjs';
+import { wagerSplit } from './lib/wager-splits.mjs';
+import { prepareTrackerWagers } from './lib/tracker-wagers.mjs';
+import { extractTeamScoringCounts, gradeTeamCountLeg } from './lib/team-scoring-counts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -97,6 +100,7 @@ async function loadBox(ev) {
     try {
       const sum = await fetchEspnJson(`${ESPN_API_BASE}/summary?event=${ev.id}`);
       players = new Map();
+      players.teamScoringCounts = extractTeamScoringCounts(sum, ev.id);
       for (const t of sum.boxscore?.players || []) {
         const team = normAbbr(t.team?.abbreviation);
         for (const g of t.statistics || []) {
@@ -181,7 +185,10 @@ const STAT = {
 };
 const MARKET_STAT = {
   anytime_touchdown: 'touchdowns', touchdowns_2plus: 'touchdowns', touchdowns: 'touchdowns',
+  anytime_td: 'touchdowns', two_plus_touchdowns: 'touchdowns',
+  pass_td: 'passing_touchdowns', passing_tds: 'passing_touchdowns',
   tackles_assists: 'tackles_assists', pass_interceptions: 'pass_interceptions', interceptions_thrown: 'pass_interceptions',
+  interceptions: 'pass_interceptions',
   tackles_combined: 'tackles_assists', kicker_points: 'kicking_points',
 };
 const STAT_LABEL = {
@@ -219,6 +226,7 @@ async function gradeLeg(leg, events) {
   const preset = String(leg.status || '').toUpperCase();
   if (['WON', 'LOST', 'PUSH', 'VOID'].includes(preset)) return { status: preset, now: leg.grading_note ? 'graded' : '', locked: true };
   const ev = findEvent(events, leg);
+  if (String(leg.grading || '').startsWith('manual:') && !['team_touchdowns', 'team_field_goals'].includes(leg.market)) return { eventId: ev?.id, status: 'CHECK', now: leg.grading, locked: false };
   if (!ev) return { status: 'CHECK', now: 'game not found on ESPN', locked: false };
   const out = { eventId: ev.id };
   if (ev.state === 'pre') return { ...out, status: 'PENDING', now: kickoffPT(ev.date), locked: false };
@@ -226,6 +234,11 @@ async function gradeLeg(leg, events) {
   const market = String(leg.market || '').replace(/^sgp_/, '').replace(/^alternate_/, '');
   const sel = String(leg.selection || '');
   const total = ev.awayScore + ev.homeScore;
+
+  if (market === 'team_touchdowns' || market === 'team_field_goals') {
+    const players = await loadBox(ev);
+    return { ...out, ...gradeTeamCountLeg({ ...leg, eventId: ev.id }, players?.teamScoringCounts) };
+  }
 
   if (market === 'spread' || market === 'moneyline') {
     const team = normAbbr(leg.team) || teamFromText(sel);
@@ -252,7 +265,7 @@ async function gradeLeg(leg, events) {
   }
 
   // game- and team-level counts from the box score
-  if (market === 'game_field_goals' || market === 'team_touchdowns' || market === 'first_touchdown') {
+  if (market === 'game_field_goals' || market === 'first_touchdown') {
     const players = await loadBox(ev);
     if (!players) return { ...out, status: 'CHECK', now: 'box score unavailable', locked: false };
     const line = Number(leg.line ?? 0.5);
@@ -261,12 +274,6 @@ async function gradeLeg(leg, events) {
       let fg = 0;
       for (const p of players.values()) fg += STAT.field_goals_made(p.groups);
       return overUnder(out, fg, line, dir, final, 'FG (both teams)');
-    }
-    if (market === 'team_touchdowns') {
-      const team = normAbbr(leg.team) || teamFromText(sel);
-      let td = 0;
-      for (const p of players.values()) if (p.team === team) td += STAT.touchdowns(p.groups);
-      return overUnder(out, td, line, dir, final, `${team} TD`);
     }
     // first_touchdown
     const ft = players.firstTd;
@@ -306,14 +313,14 @@ function summarizeTicket(t, graded) {
     let alive = 0; let cashed = 0; let wonUsd = 0; let maxUsd = 0;
     for (const c of t.round_robin.combinations) {
       const gs = c.leg_nums?.length ? c.leg_nums.map((n) => byNum.get(Number(n))) : c.teams.map((tm) => byTeam.get(normAbbr(tm)));
-      if (gs.some((g) => !g)) { alive++; maxUsd += c.to_win_usd; continue; }
+      if (gs.some((g) => !g)) { alive++; maxUsd += c.to_win_usd + c.stake_usd; continue; }
       if (gs.some((g) => g.status === 'LOST')) continue;
-      if (gs.every((g) => ['WON', 'PUSH', 'VOID'].includes(g.status))) { cashed++; wonUsd += c.to_win_usd + c.stake_usd; maxUsd += c.to_win_usd; continue; }
-      alive++; maxUsd += c.to_win_usd;
+      if (gs.every((g) => ['WON', 'PUSH', 'VOID'].includes(g.status))) { cashed++; wonUsd += c.to_win_usd + c.stake_usd; maxUsd += c.to_win_usd + c.stake_usd; continue; }
+      alive++; maxUsd += c.to_win_usd + c.stake_usd;
     }
     const total = t.round_robin.combinations.length;
     const state = alive > 0 ? 'open' : cashed > 0 ? 'cashed' : 'burnt';
-    return { kind: 'rr', state, counts, alive, cashed, total, returnedUsd: +wonUsd.toFixed(2), maxProfitUsd: +maxUsd.toFixed(2) };
+    return { kind: 'rr', state, counts, alive, cashed, total, returnedUsd: +wonUsd.toFixed(2), maxProfitUsd: +(maxUsd - Number(t.stake_usd || 0)).toFixed(2) };
   }
   const state = counts.LOST > 0 ? 'burnt' : legs.every((g) => ['WON', 'PUSH', 'VOID'].includes(g.status)) ? 'cashed' : 'open';
   return { kind: 'parlay', state, counts };
@@ -356,7 +363,7 @@ function legName(leg) {
 function legRow(leg, g, ev) {
   const cls = { WON: 'hit', PUSH: 'push', VOID: 'push', LOST: 'burnt', LIVE: 'live', PENDING: 'pending', CHECK: 'check' }[g.status] || 'pending';
   const mark = { hit: '✓', push: '=', burnt: '✕', check: '!' }[cls] || '';
-  const hasNum = g.value !== undefined && leg.line != null && !/spread|moneyline/.test(String(leg.market));
+  const hasNum = Number.isFinite(g.value) && leg.line != null && !/spread|moneyline/.test(String(leg.market));
   let progress = '';
   if (hasNum) {
     const line = Number(leg.line);
@@ -365,7 +372,7 @@ function legRow(leg, g, ev) {
     const pct = Math.max(0, Math.min(100, (g.value / (target || 1)) * 100));
     const tail = cls === 'hit' ? ' ✅' : cls === 'burnt' ? ' ❌' : '';
     const fill = cls === 'hit' ? 'green' : cls === 'burnt' ? 'red' : over ? 'blue' : 'amber';
-    progress = `<div class="prog-row"><span>Stat Progress${over ? '' : ' (under)'}</span><b>${g.value} / ${line}${tail}</b></div>
+    progress = `<div class="prog-row"><span>Stat Progress${over ? '' : ' (under)'}</span><b>${g.value} / ${leg.team_market && over ? target : line}${tail}</b></div>
       <div class="pbar"><i class="${fill}" style="width:${pct.toFixed(0)}%"></i></div>`;
   } else if (g.status !== 'PENDING' || !ev) {
     progress = `<div class="prog-row"><span>${g.status === 'CHECK' ? 'Needs a hand grade' : 'Score'}</span><b class="${cls}">${esc(g.now || '')}</b></div>`;
@@ -384,11 +391,11 @@ function ticketCard(t, graded, sum, evById) {
   const c = sum.counts;
   const left = c.LIVE + c.PENDING + c.CHECK;
   const done = c.WON + c.PUSH + (c.VOID || 0);
-  const line = sum.kind === 'rr'
+  const line = sum.state === 'burnt' ? `Burnt · ${c.LOST} missed · ${done} hit` : sum.state === 'cashed' ? `Cashed · ${done} hit` : sum.kind === 'rr'
     ? `${sum.alive} of ${sum.total} combos alive${sum.cashed ? ` · ${sum.cashed} cashed (${usd(sum.returnedUsd)} back)` : ''}`
     : `${done} of ${t.legs.length} hit · ${left} to go${c.LIVE ? ` · ${c.LIVE} live` : ''}`;
   const toWin = sum.kind === 'rr' ? sum.maxProfitUsd : t.potential_profit_usd;
-  let title = String(t.game_title || '').replace(/^Platinum Rose AI paper:\s*/, '');
+  let title = String(t.game_title || t.game || t.ticket_type || t.id).replace(/^Platinum Rose AI paper:\s*/, '');
   if (title.length > 90 && title.includes(':')) title = title.slice(0, title.indexOf(':'));
   const legsLabel = sum.kind === 'rr' ? `Round robin (${t.legs.length} picks)` : `${t.category || 'Parlay'} (${t.legs.length} legs)`;
   const funding = String(t.funding_type || 'cash').toUpperCase();
@@ -396,12 +403,16 @@ function ticketCard(t, graded, sum, evById) {
   const tid = t.ticket_number || t.id;
   const badges = t.is_paper
     ? `<span class="badge badge-paper">📝 Imaginary</span>${t.card_section ? `<span class="badge badge-id">Card §${esc(t.card_section)}</span>` : ''}`
-    : `<span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">#${esc(tid)}</span>`;
+    : `<span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">${t.ticket_number ? '#' + esc(t.ticket_number) : 'Ticket # not supplied'}</span>`;
   return `<details class="bet-card${t.is_paper ? ' paper' : ''}" id="t-${esc(tid)}">
   <summary>
     <div class="card-header"><div class="card-title">${esc(title)}</div><span class="chev" aria-hidden="true">▾</span></div>
     <div class="card-subtitle">${esc(t.book)} • ${esc(legsLabel)}</div>
     <div class="badges">${badges}${c.CHECK ? '<span class="badge badge-check">check leg</span>' : ''}</div>
+    ${t.owner && t.ownership_type === 'solo' ? `<div class="badge">${esc(t.owner)} SOLO</div>` : ''}
+    ${t.historical_backfill ? `<p class="card-line">Historical ${esc(t.date)} snapshot · added after kickoff · reference prices</p>` : ''}
+    ${(t.priced_components || []).filter(c => c.type === 'sgp').map(c => `<p class="card-line">${c.leg_nums.length}-leg SGP ${esc(c.price)}: ${c.leg_nums.map(n => esc(t.legs.find(l => l.leg_num === n)?.selection || 'Leg ' + n)).join(' + ')}</p>`).join('')}
+    ${t.is_split ? `<div class="badge">🤝 ${esc(wagerSplit(t).label)}</div><p class="card-line">${esc(wagerSplit(t).note)}</p>` : ''}
     <div class="money-row">
       <div><small>Stake:</small><b>${usd(t.stake_usd)}</b></div>
       <div><small>Odds:</small><b class="odds">${esc(t.odds_american || (sum.kind === 'rr' ? 'RR' : '—'))}</b></div>
@@ -426,20 +437,21 @@ function gameCard(e) {
   </a>`;
 }
 
-function paperRow(o) {
+function paperRow(o, evById) {
   const r = o.sum.state === 'cashed' ? 'hit' : 'burnt';
   const title = String(o.t.game_title || '').replace(/^Platinum Rose AI paper:\s*/, '');
-  return `<div class="paper-row"><span class="pr-title">${esc(title)}</span><span class="pr-pl ${r}">${o.pl >= 0 ? '+' : '−'}${usd(Math.abs(o.pl))}</span></div>`;
+  return `<div>${ticketCard(o.t, o.graded, o.sum, evById)}<div class="paper-row"><span class="pr-title">Paper P&amp;L</span><span class="pr-pl ${r}">${o.pl == null ? 'Payout unknown' : (o.pl >= 0 ? '+' : '−') + usd(Math.abs(o.pl))}</span></div></div>`;
 }
 
 function paperSection(paper, evById) {
   if (!paper.all.length) return '';
   const pl = paper.settled.reduce((a, o) => a + o.pl, 0);
+  const unpriced = paper.settled.filter(o => o.pl == null).length;
   return `<details class="paper-wrap" id="paper-section" open>
-  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (${paper.open.length} Live)</span><span class="chev" aria-hidden="true">▾</span></summary>
-  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: ${paper.settled.filter((o) => o.sum.state === 'cashed').length} cashed, ${paper.settled.filter((o) => o.sum.state === 'burnt').length} burnt, <b class="${pl >= 0 ? 'hit' : 'burnt'}">${pl >= 0 ? '+' : '−'}${usd(Math.abs(pl))}</b> paper P&amp;L. Open paper risk ${usd(paper.risk)} to win ${usd(paper.toWin)}.</p>
+  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (${paper.all.length} total · ${paper.open.length} live)</span><span class="chev" aria-hidden="true">▾</span></summary>
+  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: ${paper.settled.filter((o) => o.sum.state === 'cashed').length} cashed, ${paper.settled.filter((o) => o.sum.state === 'burnt').length} burnt, <b class="${pl >= 0 ? 'hit' : 'burnt'}">${pl >= 0 ? '+' : '−'}${usd(Math.abs(pl))}</b> known paper P&amp;L.${unpriced ? ` ${unpriced} settled slip(s) have an unknown payout and are excluded from P&amp;L.` : ''} Open paper risk ${usd(paper.risk)} to win ${usd(paper.toWin)} where priced.</p>
   <div class="list">${paper.open.map((o) => ticketCard(o.t, o.graded, o.sum, evById)).join('\n') || '<div class="empty">Every paper ticket has settled.</div>'}</div>
-  ${paper.settled.length ? `<details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (${paper.settled.length})</summary><div class="paper-rows">${paper.settled.map(paperRow).join('')}</div></details>` : ''}
+  ${paper.settled.length ? `<details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (${paper.settled.length}) — expand for slips and legs</summary><div class="paper-rows">${paper.settled.map(o => paperRow(o, evById)).join('')}</div></details>` : ''}
 </details>`;
 }
 
@@ -492,7 +504,9 @@ function page({ open, settledCounts, games, builtAt, totals, evById, paper, aler
   const builtIso = builtAt.toISOString();
   const builtLabel = 'Graded ' + builtAt.toLocaleString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
   return `<title>Platinum Rose Road Tracker</title>
+<meta charset="UTF-8">
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 /* Layout: desktop Live Tracker palette on one phone column: header panel, game board strip, slip cards with leg boxes. Single dark look, same as desktop. */
 :root {
@@ -692,7 +706,7 @@ if (WEEK === 'auto' || !SEASON) {
 SEASON = Number(SEASON);
 if (!Number.isInteger(SEASON)) throw new Error('invalid --season; pass a season year such as 2026');
 WEEK = Number(WEEK);
-const weekTickets = wagers.filter((w) => Number(w.week) === WEEK && !w.is_paper && (w.legs || []).length);
+const weekTickets = await prepareTrackerWagers(wagers.filter((w) => Number(w.week) === WEEK && !w.is_paper && (w.legs || []).length), ROOT);
 const pending = weekTickets.filter((w) => String(w.status).toUpperCase() === 'PENDING');
 const paperWagers = NO_PAPER ? [] : JSON.parse(await readFile(path.join(ROOT, 'data/official-picks/paper-wagers-2026.json'), 'utf8'));
 const paperAll = paperWagers.filter((w) => Number(w.week) === WEEK && (w.legs || []).length && String(w.status).toUpperCase() === 'PENDING');
@@ -719,8 +733,8 @@ for (const t of paperAll) {
   for (const leg of t.legs) g.push(await gradeLeg(leg, events));
   const sum = summarizeTicket(t, g);
   const stake = Number(t.stake_usd || 0);
-  const pl = sum.kind === 'rr' ? sum.returnedUsd - stake : sum.state === 'cashed' ? Number(t.potential_profit_usd || 0) : -stake;
-  paperGraded.push({ t, graded: g, sum, pl: +pl.toFixed(2) });
+  const pl = sum.kind === 'rr' ? sum.returnedUsd - stake : sum.state === 'cashed' ? (t.potential_profit_usd == null ? null : Number(t.potential_profit_usd)) : -stake;
+  paperGraded.push({ t, graded: g, sum, pl: pl == null ? null : +pl.toFixed(2) });
 }
 const byCloseness = (a, b) => {
   const la = a.graded.filter((g) => !g.locked).length; const lb = b.graded.filter((g) => !g.locked).length;
@@ -741,7 +755,7 @@ const settledCounts = {
   cashedUsd: settledToday.filter((w) => /won|win|cash/i.test(String(w.result))).reduce((a, w) => a + Number(w.settled_payout_usd || 0), 0),
 };
 const totals = {
-  risk: open.reduce((s, o) => s + Number(o.t.stake_usd || 0), 0),
+  risk: open.reduce((s, o) => s + Number(o.t.cash_risk_usd ?? (o.t.is_promo_credit || o.t.funding_type === 'promo_credit' ? 0 : o.t.stake_usd) ?? 0), 0),
   toWin: open.reduce((s, o) => s + Number(o.sum.kind === 'rr' ? o.sum.maxProfitUsd : o.t.potential_profit_usd || 0), 0),
 };
 const gameIds = new Set();
@@ -807,7 +821,7 @@ await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, ev
 await writeFile(OUT_STATE, JSON.stringify({
   built_at: builtAt.toISOString(), week: WEEK,
   tickets: [...graded, ...paperGraded].map((o) => ({
-    paper: !!o.t.is_paper, ticket_number: o.t.ticket_number || o.t.id, book: o.t.book, title: o.t.game_title, state: o.sum.state, summary: o.sum,
+    id: o.t.id, owner: o.t.owner || null, split: wagerSplit(o.t), paper: !!o.t.is_paper, ticket_number: o.t.ticket_number || o.t.id, book: o.t.book, title: o.t.game_title, state: o.sum.state, summary: o.sum,
     legs: o.t.legs.map((l, i) => ({ leg_num: l.leg_num, selection: l.selection, game: l.game, ...o.graded[i] })),
   })),
 }, null, 2), 'utf8');
@@ -815,7 +829,7 @@ await writeFile(OUT_STATE, JSON.stringify({
 console.log(`W${WEEK}: ${pending.length} pending tickets → ${open.length} open, ${graded.filter((o) => o.sum.state === 'cashed').length} now cashed, ${graded.filter((o) => o.sum.state === 'burnt').length} now burnt`);
 for (const o of graded) {
   const flags = o.graded.filter((g) => g.status === 'CHECK').length;
-  console.log(`  ${o.sum.state.padEnd(6)} ${o.t.ticket_number.padEnd(11)} ${JSON.stringify(o.sum.counts)}${flags ? '  CHECK×' + flags : ''}`);
+  console.log(`  ${o.sum.state.padEnd(6)} ${String(o.t.ticket_number || o.t.id).padEnd(11)} ${JSON.stringify(o.sum.counts)}${flags ? '  CHECK×' + flags : ''}`);
 }
 console.log(`paper: ${paperAll.length} pending → ${paperOpen.length} open, ${paper.settled.length} decided (paper P&L ${paper.settled.reduce((a, o) => a + o.pl, 0).toFixed(2)})`);
 for (const o of paperGraded) {

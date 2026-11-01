@@ -1,0 +1,356 @@
+{
+  "evaluated_at": "2026-10-31T06:05:40.562Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.043884,
+  "average_cost_usd": 0.043884,
+  "total_latency_ms": 74467,
+  "average_latency_ms": 74467,
+  "total_extracted_picks": 10,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-B52fNE-Gm4k",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_21299ee1557e",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=B52fNE-Gm4k",
+        "latency_ms": 74467,
+        "estimated_cost_usd": 0.043884,
+        "input_tokens": 413296,
+        "output_tokens": 6387,
+        "raw_model_response": "{\n  \"transcript_summary\": \"In this Week 8 NFL betting preview on The Action Network Podcast, Stuckey, Doug Kezirian, and Evan Abrams analyze key matchups, trends, and betting lines. They detail their Six Pack of favorite ATS spread picks, a Moneyline Underdog Parlay, and a two-team Teaser of the Week.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 4516,\n    \"last_analyzed_timestamp\": 4516,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 33.0,\n      \"speaker\": \"unknown_1\",\n      \"text\": \"Intro montage and show branding for The Action Network Podcast.\"\n    },\n    {\n      \"start\": 33.0,\n      \"end\": 124.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Welcome degenerates to The Action Network Podcast NFL Week 8 betting preview presented by DraftKings with Stuckey, Doug Kezirian, and Evan Abrams.\"\n    },\n    {\n      \"start\": 124.0,\n      \"end\": 169.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Glad to be back after a tough week. Last week crystallized situational spots across college and pro football.\"\n    },\n    {\n      \"start\": 169.0,\n      \"end\": 179.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's get right into Week 8 after a quick word from DraftKings.\"\n    },\n    {\n      \"start\": 179.0,\n      \"end\": 224.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"DraftKings promo segment for new customers using code ACTIONNETWORK.\"\n    },\n    {\n      \"start\": 224.0,\n      \"end\": 273.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Overview of Action Pro line move alerts for tracking target line shifts.\"\n    },\n    {\n      \"start\": 273.0,\n      \"end\": 311.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"First, let's talk Thursday Night Football: Panthers at Packers (-3.5, O/U 47.5).\"\n    },\n    {\n      \"start\": 311.0,\n      \"end\": 387.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Panthers trends are interesting. They are awful as favorites but have covered 13 straight off a loss.\"\n    },\n    {\n      \"start\": 387.0,\n      \"end\": 616.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Leaning under 47.5 due to both defenses stopping explosive passing plays, offensive line injuries, and kicking concerns.\"\n    },\n    {\n      \"start\": 616.0,\n      \"end\": 655.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Matt LaFleur and Jordan Love are 36-21-1 to the first half under over the last four seasons.\"\n    },\n    {\n      \"start\": 655.0,\n      \"end\": 671.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Moving to Sunday Night Football: Eagles at Commanders (-5.5, O/U 40.5).\"\n    },\n    {\n      \"start\": 671.0,\n      \"end\": 757.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Taking Washington -5.5. Philly looks done after five straight losses and locker room issues.\"\n    },\n    {\n      \"start\": 757.0,\n      \"end\": 968.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Eagles defense is in complete breakdown. Washington's run defense has been solid under Flores' scheme.\"\n    },\n    {\n      \"start\": 968.0,\n      \"end\": 1000.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Eagles are 0-7 ATS in second halves this season. Sirianni is 1-10 SU as a underdog of 3+ points.\"\n    },\n    {\n      \"start\": 1000.0,\n      \"end\": 1013.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Doug locks in Washington -5.5. Moving to Falcons at Buccaneers (-2.5).\"\n    },\n    {\n      \"start\": 1013.0,\n      \"end\": 1059.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"I'm picking Buccaneers -2.5 at home. Tampa's defense is top 5 DVOA against run and pass.\"\n    },\n    {\n      \"start\": 1059.0,\n      \"end\": 1171.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Atlanta's run defense is a paper tiger and benefited from +4 turnover differential last week.\"\n    },\n    {\n      \"start\": 1171.0,\n      \"end\": 1224.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Penix gets the ball out in 2.48 seconds, 50% under 2.5s, countering Bowles' blitz.\"\n    },\n    {\n      \"start\": 1224.0,\n      \"end\": 1362.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Tampa's defense can take away Penix's first read. Falcons games consistently land on 1 or 2 point margins.\"\n    },\n    {\n      \"start\": 1362.0,\n      \"end\": 1385.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Next up: Chiefs at Broncos (+1.5).\"\n    },\n    {\n      \"start\": 1385.0,\n      \"end\": 1506.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Taking Broncos +1.5. In 5 starts vs Vance Joseph's Denver defense, Mahomes has been in the bottom half in passer rating.\"\n    },\n    {\n      \"start\": 1506.0,\n      \"end\": 1671.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"I agree with Denver +1.5. KC's offense relies heavily on Kenneth Walker, and Denver's defense brings relentless pressure.\"\n    },\n    {\n      \"start\": 1671.0,\n      \"end\": 1739.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Kicking concerns with Harrison Butker. Running back committee situation with Jonah Coleman and Dobbins.\"\n    },\n    {\n      \"start\": 1739.0,\n      \"end\": 1805.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"KC's defense has matchup advantages, but Denver's motivation after opening night blowout makes +1.5 prime value.\"\n    },\n    {\n      \"start\": 1805.0,\n      \"end\": 1842.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Marquee matchup of the week: Ravens at Bills (-3.5, O/U 50.5).\"\n    },\n    {\n      \"start\": 1842.0,\n      \"end\": 2038.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Taking Ravens +3.5. Lamar Jackson is #1 in adjusted EPA/play and #2 in success rate when healthy.\"\n    },\n    {\n      \"start\": 2038.0,\n      \"end\": 2165.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Lamar is 13-2 ATS as an underdog, covering by 9.0 points per game. Bills defense is ranking near the bottom in every category.\"\n    },\n    {\n      \"start\": 2165.0,\n      \"end\": 2263.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Baltimore's second half drop-offs (+65 1H vs -70 2H) offer 1st half value opportunities.\"\n    },\n    {\n      \"start\": 2263.0,\n      \"end\": 2356.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Discussing first half spread vs full game line and Bills coin-flip decision to receive kickoff.\"\n    },\n    {\n      \"start\": 2356.0,\n      \"end\": 2433.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Bills 4th quarter games are 6-0 to the over. Josh Allen is 5-14 ATS in 1st halves as a favorite.\"\n    },\n    {\n      \"start\": 2433.0,\n      \"end\": 2449.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Locking in Ravens +3.5 as my pick.\"\n    },\n    {\n      \"start\": 2449.0,\n      \"end\": 2518.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Monday Night Football: Bears at Seahawks (-3, O/U 46.5).\"\n    },\n    {\n      \"start\": 2518.0,\n      \"end\": 2620.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Taking Seahawks -3. Mike Macdonald's defense shut down Payton and Reid offenses recently.\"\n    },\n    {\n      \"start\": 2620.0,\n      \"end\": 2776.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Caleb Williams is playing in-structure under Ben Johnson, leading NFL in CPOE and completion percentage.\"\n    },\n    {\n      \"start\": 2776.0,\n      \"end\": 2857.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Ben Johnson is 18-4-1 ATS in primetime and 14-2-1 ATS vs non-division opponents outside the NFC North.\"\n    },\n    {\n      \"start\": 2857.0,\n      \"end\": 2888.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Raiders at Jets (-1.5, O/U 45.5).\"\n    },\n    {\n      \"start\": 2888.0,\n      \"end\": 3045.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Taking Jets -1.5. Jets getting healthy with Breece Hall, Braelon Allen, Malachi Corley, and Amari Cooper back.\"\n    },\n    {\n      \"start\": 3045.0,\n      \"end\": 3080.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Jets hold distinct statistical edges on both sides of the ball.\"\n    },\n    {\n      \"start\": 3080.0,\n      \"end\": 3220.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Raiders defense was humiliated last week; coaching matchup heavily favors Las Vegas but spot is tough for travel.\"\n    },\n    {\n      \"start\": 3220.0,\n      \"end\": 3322.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Hurry Up Offense: Cardinals at Cowboys (O/U 54.5). Leaning Over 54.5.\"\n    },\n    {\n      \"start\": 3322.0,\n      \"end\": 3458.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Browns at Steelers (-3.5). Steelers have won 22 straight home regular season games against Cleveland.\"\n    },\n    {\n      \"start\": 3458.0,\n      \"end\": 3537.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Leaning Steelers -3.5 due to Browns road defense regression.\"\n    },\n    {\n      \"start\": 3537.0,\n      \"end\": 3680.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Colts at Jaguars (-9.5). Indy roster fire sale and secondary injuries make Jacksonville attractive.\"\n    },\n    {\n      \"start\": 3680.0,\n      \"end\": 3791.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Titans at Bengals (-10.5). Joe Burrow is 1-3 ATS as 10+ point favorite and 3-7 ATS as 7+ point favorite.\"\n    },\n    {\n      \"start\": 3791.0,\n      \"end\": 3911.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Patriots (-7) at Dolphins. Drake Maye is 12-4 ATS when favored by 3+ points against bad defenses.\"\n    },\n    {\n      \"start\": 3911.0,\n      \"end\": 4080.0,\n      \"speaker\": \"Doug Kezirian\",\n      \"text\": \"Moneyline Underdog Parlay leg 1: Vikings ML over Lions.\"\n    },\n    {\n      \"start\": 4080.0,\n      \"end\": 4365.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Moneyline Underdog Parlay leg 2: Chargers ML over Rams to pair with Vikings ML (~7-to-1).\"\n    },\n    {\n      \"start\": 4365.0,\n      \"end\": 4428.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Teaser of the Week: Broncos +7.5 / Falcons +8.5.\"\n    },\n    {\n      \"start\": 4428.0,\n      \"end\": 4516.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Summarizing 6-Pack ATS picks: WAS -5.5, SEA -3, TB -2.5, BAL +3.5, NYJ -1.5, DEN +1.5. Sign off.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"WAS\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"WAS\",\n      \"line\": -5.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 711,\n      \"rationale\": \"Philly is on a 5-game losing streak with locker room friction; Washington has the offensive capability to cover.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 1017,\n      \"rationale\": \"Tampa Bay defense ranks top 5 in DVOA against both run and pass, stopping Atlanta's rush-heavy attack.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DEN\",\n      \"line\": 1.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 1385,\n      \"rationale\": \"Vance Joseph's defense has historically contained Mahomes below career averages in passer rating and success rate.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BAL\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 2038,\n      \"rationale\": \"Lamar Jackson is 13-2 ATS as an underdog covering by 9 points per game; Buffalo's defense ranks near bottom in DVOA.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SEA\",\n      \"line\": -3.0,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 2518,\n      \"rationale\": \"Mike Macdonald's defense limits explosive plays at home, and Caleb Williams will face off-script pressure.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYJ\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 2888,\n      \"rationale\": \"Jets offensive skill players returning to full health; Raiders defense in letdown travel spot after four straight losses.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"MIN\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 3911,\n      \"rationale\": \"Leg 1 of Moneyline Underdog Parlay: Minnesota's offense ready to burst against Detroit's secondary.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"LAC\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 4080,\n      \"rationale\": \"Leg 2 of Moneyline Underdog Parlay: Chargers coming off a bye getting healthier while Rams accrue mounting injuries.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"teaser\",\n      \"side\": \"DEN\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 4365,\n      \"rationale\": \"Leg 1 of 6-point Teaser of the Week, teasing Denver up from +1.5 through key numbers 3 and 7.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"teaser\",\n      \"side\": \"ATL\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 8,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 4365,\n      \"rationale\": \"Leg 2 of 6-point Teaser of the Week, teasing Atlanta up from +2.5 through key numbers 3 and 7 in a low-scoring divisional game.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"GB\", \"CAR\"],\n      \"players\": [\"Jordan Love\"],\n      \"topic\": \"Panthers at Packers 1H Under Trend\",\n      \"summary\": \"Matt LaFleur and Jordan Love are 36-21-1 to the first-half under over the past four seasons, showing slow early offensive starts.\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 616,\n      \"quote\": \"Love 9 and 1 first-half under at home since the start of last year.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Jalen Hurts\"],\n      \"topic\": \"Eagles Second Half Collapse\",\n      \"summary\": \"Philadelphia is 0-7 ATS in second halves this season and Nick Sirianni is 1-10 SU as a underdog of 3+ points.\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 968,\n      \"quote\": \"The 0 and 7 second half is definitely something to look at with Philly.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Michael Penix Jr.\"],\n      \"topic\": \"Penix Quick Release vs Tampa Blitz\",\n      \"summary\": \"Michael Penix Jr. releases the ball in 2.48s with 50% of attempts thrown under 2.5s, countering Todd Bowles' blitz-heavy scheme.\",\n      \"speaker\": \"Doug Kezirian\",\n      \"source_timestamp\": 1171,\n      \"quote\": \"Penix gets the ball out the fastest amount of time, 2.48 seconds.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"stat_trend\",\n      \"teams\": [\"DEN\", \"KC\"],\n      \"players\": [\"Patrick Mahomes\"],\n      \"topic\": \"Mahomes Efficiency vs Vance Joseph Defense\",\n      \"summary\": \"In 5 career starts against Vance Joseph's Denver defense, Mahomes has recorded bottom-half passer ratings and under 6.5 YPA in 3 of 5 games.\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 1385,\n      \"quote\": \"His 5 starts versus this Peyton Vance Denver defense, they're all in the bottom half in passer rating for his career.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"stat_trend\",\n      \"teams\": [\"BAL\"],\n      \"players\": [\"Lamar Jackson\"],\n      \"topic\": \"Lamar Jackson Underdog Covering Record\",\n      \"summary\": \"Lamar Jackson is 13-2 ATS as an underdog, winning 10 of 15 games outright and covering by an average of 9 points per game.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 2038,\n      \"quote\": \"Lamar as an underdog is 13 and 2 against the spread, covering by 9 points per game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Caleb Williams\"],\n      \"topic\": \"Ben Johnson Primetime ATS Record\",\n      \"summary\": \"Ben Johnson is 18-4-1 ATS in primetime games and 14-2-1 ATS against non-NFC North opponents.\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 2776,\n      \"quote\": \"With the Lions OC in here, 18-4-1 ATS in primetime.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"LV\", \"NYJ\"],\n      \"players\": [],\n      \"topic\": \"Raiders Cross-Country Travel Spot\",\n      \"summary\": \"Las Vegas travels across the country after four consecutive tough losses, creating a classic flat letdown spot.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 3080,\n      \"quote\": \"You're going across the country after four straight losses... this has flat written all over it.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"stat_trend\",\n      \"teams\": [\"PIT\", \"CLE\"],\n      \"players\": [],\n      \"topic\": \"Steelers Home Streak vs Browns\",\n      \"summary\": \"Pittsburgh has won 22 straight home regular season games against Cleveland, including 9-0 SU in toss-up spreads (\\u22644 points).\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 3322,\n      \"quote\": \"22 straight... Steelers at home against the Browns in the regular season.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Commanders Spread Pick\",\n      \"timestamp\": 671,\n      \"speaker\": \"Doug Kezirian\",\n      \"quote\": \"I think Washington is the side here. Philly... stick a fork in them.\"\n    },\n    {\n      \"topic\": \"Buccaneers Spread Pick\",\n      \"timestamp\": 1017,\n      \"speaker\": \"Stuckey\",\n      \"quote\": \"Let me throw out my favorite bet... let's go with the Bucks -2.5 at home against Atlanta.\"\n    },\n    {\n      \"topic\": \"Broncos Spread Pick\",\n      \"timestamp\": 1385,\n      \"speaker\": \"Evan Abrams\",\n      \"quote\": \"I'm going to go with Denver... taking a Denver team as a home underdog.\"\n    },\n    {\n      \"topic\": \"Ravens Spread Pick\",\n      \"timestamp\": 2038,\n      \"speaker\": \"Stuckey\",\n      \"quote\": \"I took the Ravens +3.5... Lamar as an underdog is 13 and 2 against the spread.\"\n    },\n    {\n      \"topic\": \"Seahawks Spread Pick\",\n      \"timestamp\": 2518,\n      \"speaker\": \"Doug Kezirian\",\n      \"quote\": \"I like the Seahawks... at 3 I think I would have made this line like 4, 4.5.\"\n    },\n    {\n      \"topic\": \"Jets Spread Pick\",\n      \"timestamp\": 2888,\n      \"speaker\": \"Stuckey\",\n      \"quote\": \"I played the Jets... their offense now should be finally fully healthy.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "WAS",
+            "player": null,
+            "market": "spread",
+            "side": "WAS",
+            "line": -5.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 711,
+            "rationale": "Philly is on a 5-game losing streak with locker room friction; Washington has the offensive capability to cover."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "spread",
+            "side": "TB",
+            "line": -2.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 1017,
+            "rationale": "Tampa Bay defense ranks top 5 in DVOA against both run and pass, stopping Atlanta's rush-heavy attack."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "spread",
+            "side": "DEN",
+            "line": 1.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Evan Abrams",
+            "source_timestamp": 1385,
+            "rationale": "Vance Joseph's defense has historically contained Mahomes below career averages in passer rating and success rate."
+          },
+          {
+            "team": "BAL",
+            "player": null,
+            "market": "spread",
+            "side": "BAL",
+            "line": 3.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 2038,
+            "rationale": "Lamar Jackson is 13-2 ATS as an underdog covering by 9 points per game; Buffalo's defense ranks near bottom in DVOA."
+          },
+          {
+            "team": "SEA",
+            "player": null,
+            "market": "spread",
+            "side": "SEA",
+            "line": -3,
+            "price": null,
+            "week": 8,
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 2518,
+            "rationale": "Mike Macdonald's defense limits explosive plays at home, and Caleb Williams will face off-script pressure."
+          },
+          {
+            "team": "NYJ",
+            "player": null,
+            "market": "spread",
+            "side": "NYJ",
+            "line": -1.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 2888,
+            "rationale": "Jets offensive skill players returning to full health; Raiders defense in letdown travel spot after four straight losses."
+          },
+          {
+            "team": "MIN",
+            "player": null,
+            "market": "moneyline",
+            "side": "MIN",
+            "line": null,
+            "price": null,
+            "week": 8,
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 3911,
+            "rationale": "Leg 1 of Moneyline Underdog Parlay: Minnesota's offense ready to burst against Detroit's secondary."
+          },
+          {
+            "team": "LAC",
+            "player": null,
+            "market": "moneyline",
+            "side": "LAC",
+            "line": null,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 4080,
+            "rationale": "Leg 2 of Moneyline Underdog Parlay: Chargers coming off a bye getting healthier while Rams accrue mounting injuries."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "teaser",
+            "side": "DEN",
+            "line": 7.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 4365,
+            "rationale": "Leg 1 of 6-point Teaser of the Week, teasing Denver up from +1.5 through key numbers 3 and 7."
+          },
+          {
+            "team": "ATL",
+            "player": null,
+            "market": "teaser",
+            "side": "ATL",
+            "line": 8.5,
+            "price": null,
+            "week": 8,
+            "speaker": "Stuckey",
+            "source_timestamp": 4365,
+            "rationale": "Leg 2 of 6-point Teaser of the Week, teasing Atlanta up from +2.5 through key numbers 3 and 7 in a low-scoring divisional game."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "GB",
+              "CAR"
+            ],
+            "players": [
+              "Jordan Love"
+            ],
+            "topic": "Panthers at Packers 1H Under Trend",
+            "summary": "Matt LaFleur and Jordan Love are 36-21-1 to the first-half under over the past four seasons, showing slow early offensive starts.",
+            "speaker": "Evan Abrams",
+            "source_timestamp": 616,
+            "quote": "Love 9 and 1 first-half under at home since the start of last year.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "PHI"
+            ],
+            "players": [
+              "Jalen Hurts"
+            ],
+            "topic": "Eagles Second Half Collapse",
+            "summary": "Philadelphia is 0-7 ATS in second halves this season and Nick Sirianni is 1-10 SU as a underdog of 3+ points.",
+            "speaker": "Evan Abrams",
+            "source_timestamp": 968,
+            "quote": "The 0 and 7 second half is definitely something to look at with Philly.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "ATL"
+            ],
+            "players": [
+              "Michael Penix Jr."
+            ],
+            "topic": "Penix Quick Release vs Tampa Blitz",
+            "summary": "Michael Penix Jr. releases the ball in 2.48s with 50% of attempts thrown under 2.5s, countering Todd Bowles' blitz-heavy scheme.",
+            "speaker": "Doug Kezirian",
+            "source_timestamp": 1171,
+            "quote": "Penix gets the ball out the fastest amount of time, 2.48 seconds.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "stat_trend",
+            "teams": [
+              "DEN",
+              "KC"
+            ],
+            "players": [
+              "Patrick Mahomes"
+            ],
+            "topic": "Mahomes Efficiency vs Vance Joseph Defense",
+            "summary": "In 5 career starts against Vance Joseph's Denver defense, Mahomes has recorded bottom-half passer ratings and under 6.5 YPA in 3 of 5 games.",
+            "speaker": "Evan Abrams",
+            "source_timestamp": 1385,
+            "quote": "His 5 starts versus this Peyton Vance Denver defense, they're all in the bottom half in passer rating for his career.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "stat_trend",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Lamar Jackson"
+            ],
+            "topic": "Lamar Jackson Underdog Covering Record",
+            "summary": "Lamar Jackson is 13-2 ATS as an underdog, winning 10 of 15 games outright and covering by an average of 9 points per game.",
+            "speaker": "Stuckey",
+            "source_timestamp": 2038,
+            "quote": "Lamar as an underdog is 13 and 2 against the spread, covering by 9 points per game.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Caleb Williams"
+            ],
+            "topic": "Ben Johnson Primetime ATS Record",
+            "summary": "Ben Johnson is 18-4-1 ATS in primetime games and 14-2-1 ATS against non-NFC North opponents.",
+            "speaker": "Evan Abrams",
+            "source_timestamp": 2776,
+            "quote": "With the Lions OC in here, 18-4-1 ATS in primetime.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "schedule_context",
+            "teams": [
+              "LV",
+              "NYJ"
+            ],
+            "players": [],
+            "topic": "Raiders Cross-Country Travel Spot",
+            "summary": "Las Vegas travels across the country after four consecutive tough losses, creating a classic flat letdown spot.",
+            "speaker": "Stuckey",
+            "source_timestamp": 3080,
+            "quote": "You're going across the country after four straight losses... this has flat written all over it.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "stat_trend",
+            "teams": [
+              "PIT",
+              "CLE"
+            ],
+            "players": [],
+            "topic": "Steelers Home Streak vs Browns",
+            "summary": "Pittsburgh has won 22 straight home regular season games against Cleveland, including 9-0 SU in toss-up spreads (≤4 points).",
+            "speaker": "Evan Abrams",
+            "source_timestamp": 3322,
+            "quote": "22 straight... Steelers at home against the Browns in the regular season.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Commanders Spread Pick",
+            "timestamp": 671,
+            "speaker": "Doug Kezirian",
+            "quote": "I think Washington is the side here. Philly... stick a fork in them."
+          },
+          {
+            "topic": "Buccaneers Spread Pick",
+            "timestamp": 1017,
+            "speaker": "Stuckey",
+            "quote": "Let me throw out my favorite bet... let's go with the Bucks -2.5 at home against Atlanta."
+          },
+          {
+            "topic": "Broncos Spread Pick",
+            "timestamp": 1385,
+            "speaker": "Evan Abrams",
+            "quote": "I'm going to go with Denver... taking a Denver team as a home underdog."
+          },
+          {
+            "topic": "Ravens Spread Pick",
+            "timestamp": 2038,
+            "speaker": "Stuckey",
+            "quote": "I took the Ravens +3.5... Lamar as an underdog is 13 and 2 against the spread."
+          },
+          {
+            "topic": "Seahawks Spread Pick",
+            "timestamp": 2518,
+            "speaker": "Doug Kezirian",
+            "quote": "I like the Seahawks... at 3 I think I would have made this line like 4, 4.5."
+          },
+          {
+            "topic": "Jets Spread Pick",
+            "timestamp": 2888,
+            "speaker": "Stuckey",
+            "quote": "I played the Jets... their offense now should be finally fully healthy."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 4516,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 4516,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 10,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

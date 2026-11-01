@@ -1,0 +1,62 @@
+{
+  "schema": "player_props_intel_review_preview_v1",
+  "week": 8,
+  "season": 2026,
+  "generated_at": "2026-10-28T20:25:16.247Z",
+  "recommendation_status": "HOLD_source_review_required",
+  "source_export": "reports/engineering/week8-articles-2026-10-28-202315Z/research-articles-raw.json",
+  "summary": {
+    "raw_rows": 189,
+    "nfl_current_window_records": 159,
+    "raw_parser_candidates": 1,
+    "body_eligible_candidates": 1,
+    "games_on_schedule": 14
+  },
+  "props": [
+    {
+      "id": "prop__9927__jordan_love__passing_tds",
+      "player": "Jordan Love",
+      "team": "GB",
+      "game": "CAR @ GB",
+      "game_slate": "Thu 8:15 PM ET",
+      "category": "passing_tds",
+      "line": "2+",
+      "threshold_semantics": "at_least_2_passing_touchdowns",
+      "side": "over",
+      "price": "-166",
+      "price_status": "article_display_price_not_live_verified",
+      "book": "DraftKings (article attribution only)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 9927,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-8-picks-predictions-best-early-parlays-2026/",
+      "source_published_at": "2026-10-28T10:58:28+00:00",
+      "source_captured_at": "2026-10-28T11:03:24.872146+00:00",
+      "source_body_sha256": "323f737e5365c2f1e7174a53a2ed31f4e9043c75b12e94667d5210f3111a598e",
+      "verbatim_quote": "Leg 1: Jordan Love 2+ Passing Touchdowns ( -166 )",
+      "quote_start": 995,
+      "context_quote": "Early NFL Week 8 Parlay #1",
+      "context_quote_start": 968,
+      "recommendation_class": "parlay_only_source_leg",
+      "recommendation_status": "source_evidence_only_not_standalone_pick",
+      "body_evidence_status": "body_available",
+      "body_eligible": true,
+      "manual_context_review": true,
+      "week": 8
+    }
+  ],
+  "parlayCards": [],
+  "guardrails": {
+    "network_calls": 0,
+    "database_writes": 0,
+    "paid_model_calls": 0,
+    "canonical_latest_written": false,
+    "publication": false
+  },
+  "limitations": [
+    "Extraction uses a narrow parenthesized-American-odds pattern; zero matches does not imply no current prop articles.",
+    "Book venue, exact quote, article context and prices require human review.",
+    "Body completeness and source eligibility must pass before any candidate promotion.",
+    "No official picks, player projections, confidence grades, parlays or executable prices are established.",
+    "The one parser candidate is explicitly a leg of the source author's early parlay; it is not a standalone recommendation."
+  ]
+}

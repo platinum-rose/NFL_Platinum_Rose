@@ -1,0 +1,59 @@
+{
+  "schema": "week8_manual_prop_source_review_v1",
+  "reviewed_at": "2026-10-28T20:27:31.894Z",
+  "recommendation_status": "source_evidence_only",
+  "rows": [
+    {
+      "source_note_id": 9916,
+      "source": "VSiN",
+      "author": "Zachary Cohen",
+      "source_url": "https://vsin.com/nfl/panthers-vs-packers-predictions-week-8-thursday-night-football-odds-picks-and-player-props/",
+      "published_at": "2026-10-28T04:15:41+00:00",
+      "captured_at": "2026-10-28T04:33:14.332038+00:00",
+      "body_sha256": "37048ce85ab927697559dcef6ea1ca6b2c69881f6626605cb8e0bc35f9399095",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "roster_match": true,
+      "game": "CAR @ GB",
+      "classification": "conditional_secondary_lean_author_explicitly_not_betting_props",
+      "selections": [
+        {
+          "market": "anytime_touchdown",
+          "selection": "Yes",
+          "article_price": "-120",
+          "live_price_verified": false
+        },
+        {
+          "market": "rushing_yards",
+          "selection": "Over",
+          "threshold": 68.5,
+          "article_price": null,
+          "live_price_verified": false
+        }
+      ],
+      "evidence": [
+        {
+          "quote": "LEAN: Hubbard Anytime Touchdown (-120)",
+          "body_start": 15227,
+          "body_end_exclusive": 15265
+        },
+        {
+          "quote": "so I won't personally be adding anything on the player prop market.",
+          "body_start": 15312,
+          "body_end_exclusive": 15379
+        },
+        {
+          "quote": "going Over 68.5 rushing yards",
+          "body_start": 15795,
+          "body_end_exclusive": 15824
+        }
+      ]
+    }
+  ],
+  "guardrails": {
+    "network_calls": 0,
+    "database_calls": 0,
+    "official_pick": false,
+    "canonical_promotion": false
+  }
+}

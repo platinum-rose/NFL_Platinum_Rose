@@ -7,7 +7,7 @@
     "loss": 0,
     "basis": "Five spread-only SuperContest picks at their frozen contest lines"
   },
-  "as_of_week": 6,
+  "as_of_week": 7,
   "weeks": [
     {
       "week": 1,
@@ -83,6 +83,18 @@
     },
     {
       "week": 7,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 3,
+      "ai_picks": ["CIN +2.5", "GB +3.5", "ATL +3.5", "LV +4", "ARI +4.5"],
+      "official_picks": ["CIN +2.5", "GB +3.5", "ATL +3.5", "LV +4", "ARI +4.5"],
+      "review": "Both the official card and the Dashboard AI proposal used the same five selections and went 3–2 (3 points). CIN +2.5 and ATL +3.5 won outright, and GB +3.5 covered by half a point in a 20–17 loss at Detroit. LV +4 and ARI +4.5 failed to cover, losing by 14 each.",
+      "dashboard_why": "CIN +2.5 (won 35–13 at Baltimore), ATL +3.5 (won 29–20 vs San Francisco), and GB +3.5 (lost 20–17 at Detroit, covering on the hook) were the three winners. LV +4 (lost 35–21 to the Rams) and ARI +4.5 (lost 30–16 to Denver) missed.",
+      "amanda_why": "Amanda's official card matched the Dashboard AI five and went 3–2. CIN +2.5, GB +3.5, and ATL +3.5 covered; LV +4 and ARI +4.5 missed.",
+      "source": "reports/bets/2026-w07-card.md; reports/bets/season-recap/w7gamesum.json; data/supercontest/locked-card-week-7.json; reports/analysis/week7-postmortem/w07-closeout-2026-10-27.md"
+    },
+    {
+      "week": 8,
       "status": "pending",
       "note": "No final score until all games are complete and Andy and Amanda confirm the official five. Freeze the Dashboard five and contest lines before kickoff."
     }

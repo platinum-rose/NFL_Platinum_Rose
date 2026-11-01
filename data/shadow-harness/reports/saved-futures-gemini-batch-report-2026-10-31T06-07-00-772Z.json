@@ -1,0 +1,220 @@
+{
+  "evaluated_at": "2026-10-31T06:07:00.769Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.045591,
+  "average_cost_usd": 0.045591,
+  "total_latency_ms": 75051,
+  "average_latency_ms": 75051,
+  "total_extracted_picks": 7,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-wroZyAXRZhc",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_e96e3df833da",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=wroZyAXRZhc",
+        "latency_ms": 75051,
+        "estimated_cost_usd": 0.045591,
+        "input_tokens": 440879,
+        "output_tokens": 3758,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Kravitz and Kendra Middleton host NFL Week 8 Betting Preview on The Favorites, joined by Action Network Director of Research Evan Abrams, ProFootballDoc Dr. David Chao, and special guest picker John Jastremski (JJ). The crew breaks down NFL Week 8 matchups, injury reports, betting trends, and settles on their official 5-pick contest card.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 4820,\n    \"last_analyzed_timestamp\": 4810,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 50.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Intro and show graphics for The Favorites podcast presented by DraftKings Sportsbook.\"\n    },\n    {\n      \"start\": 50.0,\n      \"end\": 223.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Welcoming co-host Kendra Middleton and breaking down big NFL trades, including Jeffery Simmons to the Bears and Quenton Nelson to the Seahawks.\"\n    },\n    {\n      \"start\": 223.0,\n      \"end\": 309.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Discussing the Bears Super Bowl window with Caleb Williams and assessing the NFC trade impacts.\"\n    },\n    {\n      \"start\": 309.0,\n      \"end\": 442.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Analyzing Seattle's offensive line upgrade and sharing Super Bowl futures tickets on the Bears, Jaguars, and Falcons.\"\n    },\n    {\n      \"start\": 442.0,\n      \"end\": 527.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Proposing a hot-take trade scenario sending Jonathan Taylor to the Denver Broncos.\"\n    },\n    {\n      \"start\": 527.0,\n      \"end\": 608.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Proposing a trade scenario sending Riq Woolen to the Jacksonville Jaguars and discussing Cooper DeJean.\"\n    },\n    {\n      \"start\": 608.0,\n      \"end\": 820.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Celebrating his son's success winning his workplace football pool for two straight years.\"\n    },\n    {\n      \"start\": 820.0,\n      \"end\": 908.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Joining the show to discuss two-minute trends and fatherhood commentary.\"\n    },\n    {\n      \"start\": 908.0,\n      \"end\": 1052.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Highlighting Week 8 betting trends including Carolina's 13-game ATS streak after a straight loss and Browns/Steelers historical trends.\"\n    },\n    {\n      \"start\": 1052.0,\n      \"end\": 1225.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Breaking down Drake Maye's favorite record and Vikings as underdogs against the Lions.\"\n    },\n    {\n      \"start\": 1225.0,\n      \"end\": 1332.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Asking Evan Abrams for his favorite and least favorite bets on the Week 8 slate.\"\n    },\n    {\n      \"start\": 1332.0,\n      \"end\": 1430.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Sharing his top play on Broncos +1.5 against the Chiefs and noting key spots to watch.\"\n    },\n    {\n      \"start\": 1430.0,\n      \"end\": 1510.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"DraftKings Sportsbook advertisement.\"\n    },\n    {\n      \"start\": 1510.0,\n      \"end\": 1695.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"NFL injury update starting with Lamar Jackson's practice status and ankle recovery.\"\n    },\n    {\n      \"start\": 1695.0,\n      \"end\": 1852.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Explaining the three-way return-to-play process involving player, medical staff, and front office.\"\n    },\n    {\n      \"start\": 1852.0,\n      \"end\": 1925.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Inquiring about Kyle Hamilton's injury status following last week's game.\"\n    },\n    {\n      \"start\": 1925.0,\n      \"end\": 1940.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Confirming Kyle Hamilton suffered a stinger and expecting him to play through it.\"\n    },\n    {\n      \"start\": 1940.0,\n      \"end\": 2106.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Evaluating Tyler Shough and Baker Mayfield injury updates.\"\n    },\n    {\n      \"start\": 2106.0,\n      \"end\": 2135.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Playing stoplight game: Jaylen Waddle chest injury rated Yellow.\"\n    },\n    {\n      \"start\": 2135.0,\n      \"end\": 2249.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Rashee Rice hamstring injury rated Red/Yellow due to Chiefs long-term approach.\"\n    },\n    {\n      \"start\": 2249.0,\n      \"end\": 2310.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Patrick Surtain II rated Green for return; Jeremiah Love rated Yellow.\"\n    },\n    {\n      \"start\": 2310.0,\n      \"end\": 2406.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Explaining physical and mental fatigue differences between college and NFL seasons.\"\n    },\n    {\n      \"start\": 2406.0,\n      \"end\": 2523.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Asking Dr. Chao about position group injury impacts for Week 8.\"\n    },\n    {\n      \"start\": 2523.0,\n      \"end\": 2727.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Reviewing offensive line cluster injuries for Packers and Panthers, plus Green Bay linebacker depth concerns.\"\n    },\n    {\n      \"start\": 2727.0,\n      \"end\": 2838.0,\n      \"speaker\": \"John Jastremski\",\n      \"text\": \"Joining the podcast to preview Week 8 slate and review recent contest success.\"\n    },\n    {\n      \"start\": 2838.0,\n      \"end\": 3012.0,\n      \"speaker\": \"John Jastremski\",\n      \"text\": \"Analyzing Panthers at Packers (-3.5 on Thursday Night Football) and leaning Panthers +3.5.\"\n    },\n    {\n      \"start\": 3012.0,\n      \"end\": 3116.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Confirming his bet on Panthers +3.5 and recommending Matthew Golden over receiving yards prop.\"\n    },\n    {\n      \"start\": 3116.0,\n      \"end\": 3280.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Analyzing Ravens at Bills (-3) and expressing concern over Lamar Jackson's health.\"\n    },\n    {\n      \"start\": 3280.0,\n      \"end\": 3521.0,\n      \"speaker\": \"John Jastremski\",\n      \"text\": \"Discussing Ravens at Bills and warning against taking Baltimore if Snoop Huntley starts.\"\n    },\n    {\n      \"start\": 3521.0,\n      \"end\": 3739.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Recommending Jaguars (-7.5 contest line) vs Colts, citing Indianapolis's historical struggles in Jacksonville.\"\n    },\n    {\n      \"start\": 3739.0,\n      \"end\": 3927.0,\n      \"speaker\": \"John Jastremski\",\n      \"text\": \"Evaluating Titans at Bengals (-10.5) and warning of backdoor cover potential.\"\n    },\n    {\n      \"start\": 3927.0,\n      \"end\": 4200.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Nominating Lions (-3.5) vs Vikings and citing Minnesota's offensive limitations.\"\n    },\n    {\n      \"start\": 4200.0,\n      \"end\": 4545.0,\n      \"speaker\": \"John Jastremski\",\n      \"text\": \"Supporting Lions -3.5 as a strong situational revenge spot.\"\n    },\n    {\n      \"start\": 4545.0,\n      \"end\": 4820.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Reviewing Jets (-1.5) vs Raiders, Cowboys (-6.5) vs Cardinals, and finalizing the 5-pick contest card.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 1400,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 249,\n      \"rationale\": \"Bet Bears at 14/1 after the Jeffery Simmons trade news.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOME\",\n      \"line\": 1.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 1245,\n      \"rationale\": \"Top play on the board getting points at home against Kansas City.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"AWAY\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"John Jastremski\",\n      \"source_timestamp\": 3011,\n      \"rationale\": \"Carolina has been an every-other-week team; buy-low spot getting over a field goal.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOME\",\n      \"line\": -7.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3700,\n      \"rationale\": \"Colts haven't won in Jacksonville since 2014 and are having a roster fire sale.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOME\",\n      \"line\": -3.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 4041,\n      \"rationale\": \"Lions offense can score on anyone; Vikings offense cannot keep pace.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOME\",\n      \"line\": -1.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"John Jastremski\",\n      \"source_timestamp\": 5120,\n      \"rationale\": \"Classic Jets win-when-nobody-expects-it spot against a struggling Raiders squad out East.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOME\",\n      \"line\": -6.5,\n      \"price\": -110,\n      \"week\": 8,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 5515,\n      \"rationale\": \"Cardinals defense is completely decimated by injuries.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"CHI\"\n      ],\n      \"players\": [\n        \"Caleb Williams\"\n      ],\n      \"topic\": \"Bears trade for Jeffery Simmons\",\n      \"summary\": \"Acquisition of elite interior lineman signals Chicago's belief in a immediate Super Bowl window with Caleb Williams on a rookie contract.\",\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 241,\n      \"quote\": \"They clearly think that they have a Super Bowl window right now, especially with Caleb's on a rookie deal.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\n        \"BAL\"\n      ],\n      \"players\": [\n        \"Lamar Jackson\"\n      ],\n      \"topic\": \"Lamar Jackson practice and ankle update\",\n      \"summary\": \"Dr. Chao notes returning to practice is positive, but playing doesn't guarantee 100% health or full rushing mobility.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1605,\n      \"quote\": \"Return to play does not mean 100% healthy.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\n        \"MIN\",\n        \"DET\"\n      ],\n      \"players\": [],\n      \"topic\": \"Vikings defense vs Lions offense\",\n      \"summary\": \"Brian Flores' blitz-heavy scheme creates tough test for Jared Goff, though Minnesota's offense struggles to produce enough points.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 4393,\n      \"quote\": \"I don't like Jared Goff when he's uncomfortable.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Panthers post-loss ATS trend\",\n      \"timestamp\": 917,\n      \"speaker\": \"Evan Abrams\",\n      \"quote\": \"Carolina is on a 13-game ATS winning streak off a straight up loss.\"\n    },\n    {\n      \"topic\": \"Lions vs Vikings nomination\",\n      \"timestamp\": 4041,\n      \"speaker\": \"Kendra Middleton\",\n      \"quote\": \"Lions laying three and a half against the Vikings.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "CHI",
+            "player": null,
+            "market": "super_bowl_winner",
+            "side": "YES",
+            "line": null,
+            "price": 1400,
+            "week": null,
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 249,
+            "rationale": "Bet Bears at 14/1 after the Jeffery Simmons trade news."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "spread",
+            "side": "HOME",
+            "line": 1.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Evan Abrams",
+            "source_timestamp": 1245,
+            "rationale": "Top play on the board getting points at home against Kansas City."
+          },
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "spread",
+            "side": "AWAY",
+            "line": 3.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "John Jastremski",
+            "source_timestamp": 3011,
+            "rationale": "Carolina has been an every-other-week team; buy-low spot getting over a field goal."
+          },
+          {
+            "team": "JAX",
+            "player": null,
+            "market": "spread",
+            "side": "HOME",
+            "line": -7.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 3700,
+            "rationale": "Colts haven't won in Jacksonville since 2014 and are having a roster fire sale."
+          },
+          {
+            "team": "DET",
+            "player": null,
+            "market": "spread",
+            "side": "HOME",
+            "line": -3.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Kendra Middleton",
+            "source_timestamp": 4041,
+            "rationale": "Lions offense can score on anyone; Vikings offense cannot keep pace."
+          },
+          {
+            "team": "NYJ",
+            "player": null,
+            "market": "spread",
+            "side": "HOME",
+            "line": -1.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "John Jastremski",
+            "source_timestamp": 5120,
+            "rationale": "Classic Jets win-when-nobody-expects-it spot against a struggling Raiders squad out East."
+          },
+          {
+            "team": "DAL",
+            "player": null,
+            "market": "spread",
+            "side": "HOME",
+            "line": -6.5,
+            "price": -110,
+            "week": 8,
+            "speaker": "Kendra Middleton",
+            "source_timestamp": 5515,
+            "rationale": "Cardinals defense is completely decimated by injuries."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Caleb Williams"
+            ],
+            "topic": "Bears trade for Jeffery Simmons",
+            "summary": "Acquisition of elite interior lineman signals Chicago's belief in a immediate Super Bowl window with Caleb Williams on a rookie contract.",
+            "speaker": "Kendra Middleton",
+            "source_timestamp": 241,
+            "quote": "They clearly think that they have a Super Bowl window right now, especially with Caleb's on a rookie deal.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Lamar Jackson"
+            ],
+            "topic": "Lamar Jackson practice and ankle update",
+            "summary": "Dr. Chao notes returning to practice is positive, but playing doesn't guarantee 100% health or full rushing mobility.",
+            "speaker": "Dr. David Chao",
+            "source_timestamp": 1605,
+            "quote": "Return to play does not mean 100% healthy.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "MIN",
+              "DET"
+            ],
+            "players": [],
+            "topic": "Vikings defense vs Lions offense",
+            "summary": "Brian Flores' blitz-heavy scheme creates tough test for Jared Goff, though Minnesota's offense struggles to produce enough points.",
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 4393,
+            "quote": "I don't like Jared Goff when he's uncomfortable.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Panthers post-loss ATS trend",
+            "timestamp": 917,
+            "speaker": "Evan Abrams",
+            "quote": "Carolina is on a 13-game ATS winning streak off a straight up loss."
+          },
+          {
+            "topic": "Lions vs Vikings nomination",
+            "timestamp": 4041,
+            "speaker": "Kendra Middleton",
+            "quote": "Lions laying three and a half against the Vikings."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 5515,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 4820,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1.144
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 7,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

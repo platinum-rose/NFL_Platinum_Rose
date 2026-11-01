@@ -1,0 +1,340 @@
+{
+  "generated_at": "2026-10-28T23:29:37.439Z",
+  "season": 2026,
+  "through_week": 7,
+  "inputs": {
+    "reports/analysis/week7-postmortem/espn-game-results-2026-10-26.csv": "365658dd0960989f01d52ed902f919658ea72b698ab83b356031b754d6a722dd",
+    "reports/analysis/week7-postmortem/espn-team-stats-2026-10-26.csv": "8e0ac83540f89c0c2aed1342693910dea8afcdadafe78e36e0b0ddfd743561ab",
+    "reports/engineering/week8-profile-refresh/team-stats-provider-2026.csv": "be241370b630c40a724234707633eedf426cda9805dee54257591e2753e94703"
+  },
+  "baseline": {
+    "data/vault-seed/nflverse/games.csv": "f0a61afdd25cf9dc617ac25e6db0bab82e0b275bd23cdf23213b2e29edca9475",
+    "data/vault-seed/nflverse/team_stats.csv": "1898552defab1c73bda526859858f9ae52d66fed4adecbe725ca2a249a2e5075",
+    "data/generated/team-profiles/team-analytic-snapshots-2026-w1.json": "3857004b152120d0d12b8c19a98d75b4056cca1f8f317cee869a69751c827a39",
+    "data/generated/team-profiles/team-analytic-snapshots-2026-w5.json": "c41d8b1da6246fa8b5450cceec0fa3641215d6fbaee5c58397462af780bb3c44",
+    "data/generated/team-profiles/team-analytic-snapshots-2026-w6.json": "031a8c906bfb1e3a76fd406060b48d79e757cd31990e1ec8cbfc24d336c1554d",
+    "data/generated/team-profiles/team-analytic-snapshots-2026-w7.json": "e5aeea20ec1e766a6a2d9ab89be7f036908f0fa3cdc6d0bc3ac9779c22e206bd",
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w1.json": "783a2bdeaf493538626a0dd8131980604c5395fec13b8eff7ef99df86c56d079",
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w2.json": "fdfa2f6309defc421756220a7126eeecd6e5c5a2e97358d24c7bbfa197dcac58",
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w5.json": "65edaba4bcd19eed57073a4f0f7412427b02ffb180c2d8eb78bc88af9d6c8837",
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w6.json": "4204894ca5ec49e2bf1233603c8e9e5ca3371df2785b08da1bd4fb14f282aa16",
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w7.json": "a700fe3582c00279f542853e8a66af1491d3f78b451b0f255acdadf3988040af",
+    "data/generated/team-profiles/team-power-ratings-2026.json": "9ca2941b98303ee62cbdeff8eb9c9b0f21b6cdc80b903bc19ecfdf8ead28f1f0",
+    "data/generated/team-profiles/team-regression-snapshots-2026-w1.json": "4000ad5b6343bd36c3c3b230ef2eb6143160e1903b561250cf299e73df2a4b09",
+    "data/generated/team-profiles/team-regression-snapshots-2026-w5.json": "035cd78e2c01a11e70841201df908c26bd020acbd03d7023b0192f826101f8ed",
+    "data/generated/team-profiles/team-regression-snapshots-2026-w6.json": "8c94b4012ce0db39080c5307a889a0f299ce7651f4f2332de2c50a0f6b85baa4",
+    "data/generated/team-profiles/team-regression-snapshots-2026-w7.json": "4973179066ee07a3dc6ce3d00ec6bc868008d906e3b51a5921d4eea44f86acf3",
+    "data/generated/team-profiles/team-standings-2026-w05.json": "2ac2f9e4be40dd5789c52eb4c92bb756930c1d7d3008badbee61f05379f786c0",
+    "data/generated/team-profiles/team-standings-2026-w06.json": "e56d65ee68476642eed7d3207b118b868901f42667aab922c04fb7fe576e8dc1"
+  },
+  "games": {
+    "completed": 107,
+    "week7": 14,
+    "teams": 32,
+    "provenance": "Prior93preserved;14savedESPNfinals added with source columns"
+  },
+  "team_stats": {
+    "current_season_rows": 214,
+    "week7": 28,
+    "provenance": "Exact provider team-week rows; historical seasons preserved",
+    "ordinary_boxscores_used_for_epa_or_cpoe": false
+  },
+  "cross_checks": [
+    {
+      "game_id": "2026_07_NE_CHI",
+      "team": "CHI",
+      "espn_event_id": "401873010",
+      "attempts": 33,
+      "yards": 405,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_NE_CHI",
+      "team": "NE",
+      "espn_event_id": "401873010",
+      "attempts": 31,
+      "yards": 380,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_PIT_NO",
+      "team": "NO",
+      "espn_event_id": "401873011",
+      "attempts": 38,
+      "yards": 281,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_PIT_NO",
+      "team": "PIT",
+      "espn_event_id": "401873011",
+      "attempts": 30,
+      "yards": 343,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_SF_ATL",
+      "team": "ATL",
+      "espn_event_id": "401873017",
+      "attempts": 34,
+      "yards": 295,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_SF_ATL",
+      "team": "SF",
+      "espn_event_id": "401873017",
+      "attempts": 40,
+      "yards": 400,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_CLE_TEN",
+      "team": "CLE",
+      "espn_event_id": "401873013",
+      "attempts": 36,
+      "yards": 491,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_CLE_TEN",
+      "team": "TEN",
+      "espn_event_id": "401873013",
+      "attempts": 31,
+      "yards": 322,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_IND_MIN",
+      "team": "IND",
+      "espn_event_id": "401873014",
+      "attempts": 22,
+      "yards": 218,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_IND_MIN",
+      "team": "MIN",
+      "espn_event_id": "401873014",
+      "attempts": 24,
+      "yards": 275,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_MIA_NYJ",
+      "team": "MIA",
+      "espn_event_id": "401873015",
+      "attempts": 21,
+      "yards": 360,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_MIA_NYJ",
+      "team": "NYJ",
+      "espn_event_id": "401873015",
+      "attempts": 30,
+      "yards": 377,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_TB_CAR",
+      "team": "CAR",
+      "espn_event_id": "401873018",
+      "attempts": 31,
+      "yards": 266,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_TB_CAR",
+      "team": "TB",
+      "espn_event_id": "401873018",
+      "attempts": 11,
+      "yards": 322,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_CIN_BAL",
+      "team": "BAL",
+      "espn_event_id": "401873012",
+      "attempts": 34,
+      "yards": 359,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_CIN_BAL",
+      "team": "CIN",
+      "espn_event_id": "401873012",
+      "attempts": 30,
+      "yards": 357,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_NYG_HOU",
+      "team": "HOU",
+      "espn_event_id": "401873016",
+      "attempts": 28,
+      "yards": 237,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_NYG_HOU",
+      "team": "NYG",
+      "espn_event_id": "401873016",
+      "attempts": 28,
+      "yards": 420,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_DEN_ARI",
+      "team": "ARI",
+      "espn_event_id": "401873019",
+      "attempts": 48,
+      "yards": 353,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_DEN_ARI",
+      "team": "DEN",
+      "espn_event_id": "401873019",
+      "attempts": 29,
+      "yards": 377,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_GB_DET",
+      "team": "DET",
+      "espn_event_id": "401873020",
+      "attempts": 32,
+      "yards": 415,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_GB_DET",
+      "team": "GB",
+      "espn_event_id": "401873020",
+      "attempts": 45,
+      "yards": 324,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_LA_LV",
+      "team": "LA",
+      "espn_event_id": "401873021",
+      "attempts": 29,
+      "yards": 386,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_LA_LV",
+      "team": "LV",
+      "espn_event_id": "401873021",
+      "attempts": 45,
+      "yards": 350,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_KC_SEA",
+      "team": "KC",
+      "espn_event_id": "401873022",
+      "attempts": 33,
+      "yards": 213,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_KC_SEA",
+      "team": "SEA",
+      "espn_event_id": "401873022",
+      "attempts": 28,
+      "yards": 410,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_DAL_PHI",
+      "team": "DAL",
+      "espn_event_id": "401873009",
+      "attempts": 27,
+      "yards": 416,
+      "status": "pass"
+    },
+    {
+      "game_id": "2026_07_DAL_PHI",
+      "team": "PHI",
+      "espn_event_id": "401873009",
+      "attempts": 35,
+      "yards": 321,
+      "status": "pass"
+    }
+  ],
+  "missing_game_columns": [
+    "Week7coach,closingodds,rest,weather andstadiumfields are deliberatelyblank; these were not supplied by result exports."
+  ],
+  "builders": [
+    {
+      "script": "build-power-ratings.js",
+      "exit_code": 0,
+      "output": "wrote E:\\dev\\projects\\NFL_Dashboard\\data\\generated\\team-profiles\\team-power-ratings-2026.json\npower ratings: 32 teams (season 2026); market delta populated for 30 coherent-market teams.\n",
+      "error": ""
+    },
+    {
+      "script": "build-team-analytics-snapshots.js",
+      "exit_code": 0,
+      "output": "  [ftn] 0 charted plays through week 7, 0 matched to a team via pbp_team_join.csv\nwrote E:\\dev\\projects\\NFL_Dashboard\\data\\generated\\team-profiles\\team-analytic-snapshots-2026-w7.json\nanalytics snapshots: 32 teams, season 2026 through week 7\n",
+      "error": ""
+    },
+    {
+      "script": "build-coaching-tendency-snapshots.js",
+      "exit_code": 0,
+      "output": "wrote E:\\dev\\projects\\NFL_Dashboard\\data\\generated\\team-profiles\\team-coaching-tendency-snapshots-2026-w7.json\ncoaching snapshots: 32 teams, season 2026 through week 7\n",
+      "error": ""
+    },
+    {
+      "script": "build-regression-signals.js",
+      "exit_code": 0,
+      "output": "wrote E:\\dev\\projects\\NFL_Dashboard\\data\\generated\\team-profiles\\team-regression-snapshots-2026-w7.json\nregression snapshots: 32 teams, season 2026 through week 7\n",
+      "error": ""
+    },
+    {
+      "script": "build-team-standings.py",
+      "exit_code": 0,
+      "output": "wrote data\\generated\\team-profiles\\team-standings-2026-w07.json 32 teams; ESPN mismatches: []\r\nAFC East   1 BUF 5-1-0  197-171 W2 div 0-1-0 byes [7]\r\nAFC East   2 NE  4-3-0  160-143 L1 div 2-0-0 byes []\r\nAFC East   3 NYJ 2-5-0  137-150 L2 div 0-2-0 byes []\r\nAFC East   4 MIA 1-5-0   98-157 W1 div 1-0-0 byes [6]\r\nAFC North  1 PIT 5-2-0  153-138 W3 div 1-1-0 byes []\r\nAFC North  2 CLE 5-2-0  133-146 W2 div 2-0-0 byes []\r\nAFC North  3 CIN 4-2-0  163-122 W2 div 1-1-0 byes [6]\r\nAFC North  4 BAL 4-3-0  169-167 L2 div 0-2-0 byes []\r\nAFC South  1 JAX 4-2-0  154-104 L1 div 0-1-0 byes [7]\r\nAFC South  2 HOU 2-5-0  165-170 L1 div 2-1-0 byes []\r\nAFC South  3 IND 2-5-0  154-180 L3 div 1-1-0 byes []\r\nAFC South  4 TEN 1-6-0  108-156 L1 div 1-1-0 byes []\r\nAFC West   1 KC  5-1-0  143-103 L1 div 3-0-0 byes [5]\r\nAFC West   2 DEN 5-2-0  144-141 W3 div 1-1-0 byes []\r\nAFC West   3 LV  3-4-0  183-197 L4 div 1-1-0 byes []\r\nAFC West   4 LAC 0-6-0   90-151 L6 div 0-3-0 byes [7]\r\nNFC East   1 NYG 4-2-1  163-161 W1 div 1-0-1 byes []\r\nNFC East   2 DAL 3-4-0  189-180 W1 div 2-1-0 byes []\r\nNFC East   3 PHI 2-5-0  127-175 L5 div 1-1-0 byes []\r\nNFC East   4 WSH 1-4-1  132-172 L1 div 0-2-1 byes [7]\r\nNFC North  1 MIN 6-0-0  125-74  W6 div 2-0-0 byes [6]\r\nNFC North  2 CHI 5-2-0  180-143 W2 div 0-2-0 byes []\r\nNFC North  3 DET 4-2-0  184-165 W2 div 1-0-0 byes [6]\r\nNFC North  4 GB  4-3-0  144-145 L1 div 1-2-0 byes []\r\nNFC South  1 CAR 3-3-0  159-166 L1 div 1-1-0 byes [5]\r\nNFC South  2 ATL 3-4-0  171-173 W1 div 1-1-0 byes []\r\nNFC South  3 TB  2-5-0  162-151 W1 div 1-0-0 byes []\r\nNFC South  4 NO  2-5-0  162-194 L1 div 0-1-0 byes []\r\nNFC West   1 SF  6-1-0  197-139 L1 div 3-0-0 byes []\r\nNFC West   2 SEA 4-3-0  168-125 W1 div 1-1-0 byes []\r\nNFC West   3 LAR 3-4-0  170-159 W1 div 0-2-0 byes []\r\nNFC West   4 ARI 2-5-0  142-208 L1 div 1-2-0 byes []\r\n",
+      "error": "scripts/build-team-standings.py:64: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\r\n  payload = {'meta': {'season': a.season, 'through_week': a.week, 'generated_at': datetime.datetime.utcnow().isoformat() + 'Z', 'source': 'ESPN summary cache via reports/analysis/season/claude/out/week-NN-teams.json',\r\n"
+    }
+  ],
+  "outputs": {
+    "data/generated/team-profiles/team-power-ratings-2026.json": {
+      "sha256": "44af1c1df3033d0eeb363328d73a11f712aa4bf293ed7614fef9d660a00c3477",
+      "rows": 32,
+      "week": 7
+    },
+    "data/generated/team-profiles/team-analytic-snapshots-2026-w7.json": {
+      "sha256": "c9750f90c78e25ae2018cf1c3464b9b76319bbb17e8ba506b5325ad7c8480562",
+      "rows": 32,
+      "week": 7
+    },
+    "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w7.json": {
+      "sha256": "66f28c5c949c4e08595672cccbbe67dd43c0cc58ff7a411c50ce397b110637cc",
+      "rows": 32,
+      "week": 7
+    },
+    "data/generated/team-profiles/team-regression-snapshots-2026-w7.json": {
+      "sha256": "162890c8babeb15b0060f70e422cd07b7cfb2fef63d998a5e29f41087672b224",
+      "rows": 32,
+      "week": 7
+    },
+    "data/generated/team-profiles/team-standings-2026-w07.json": {
+      "sha256": "5af79a7e8fb154a711fe424725ba7f7af2005c034a1b9faf17cdcfdf7f85df4a",
+      "rows": 32,
+      "week": 7
+    }
+  },
+  "skipped_standings_references": [
+    {
+      "path": "E:\\dev\\projects\\NFL_Dashboard\\data/fantasy/boxscores\\espn-401872930.json",
+      "error": "Unterminated string starting at: line 6055 column 17 (char 200674)"
+    },
+    {
+      "path": "E:\\dev\\projects\\NFL_Dashboard\\data/fantasy/boxscores\\espn-401872931.json",
+      "error": "Unterminated string starting at: line 1570 column 27 (char 49149)"
+    }
+  ]
+}

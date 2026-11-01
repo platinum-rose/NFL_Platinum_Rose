@@ -1,0 +1,57 @@
+{
+  "schema": "proposed_article_notes_ingestion_v1",
+  "status": "completed_verified_no_changes_needed",
+  "project_id": "aambmuzfcojxqvbzhngp",
+  "table": "public.research_intel_notes",
+  "candidates": 124,
+  "body_values_proposed": 80,
+  "body_status_counts": {
+    "public_body_captured_not_human_verified": 80,
+    "page_text_retained_needs_article_boundary_review": 29,
+    "subscription_marker_review_needed": 1,
+    "rss_item_only_player_page_not_fetched": 5,
+    "metadata_only_deprioritized_source": 9
+  },
+  "source_counts": {
+    "Action Network": 12,
+    "BettingPros": 10,
+    "ESPN NFL": 25,
+    "PFF": 24,
+    "Pro Football Talk": 15,
+    "Rotowire NFL": 5,
+    "Sharp Football": 19,
+    "VSiN": 5,
+    "Walter Football": 9
+  },
+  "since": "2026-10-27T07:00:00.000Z",
+  "through": "2026-10-29T14:59:12.476Z",
+  "operations": [
+    "Read/deduplicate only matching base and Action Network revision hashes",
+    "Insert missing raw article notes; preserve existing records",
+    "Append eligible Action Network revisions using the existing 20-hour rule",
+    "Fill existing empty bodies only from the staged article/main extracts; preserve nonempty bodies",
+    "Return inserted IDs and filled-body IDs for verification"
+  ],
+  "excluded_operations": [
+    "research_pick_signals writes",
+    "feed_health writes",
+    "emails",
+    "paid calls",
+    "official-pick or ledger mutations",
+    "tracker or report publication"
+  ],
+  "payload_sha256": "6724983b1a89dcf190a67390f6dd6a1b65be76ec3a3298d153a8bd80e869cae1",
+  "payload_canonical_sha256": "fc9b12c2cf17dc51766861ffc98a2de75e004168d0a2f1f6adc1a0c090ff59fd",
+  "sql_sha256": "59a916bd6fa8086f40ebca7aaea49ddc1e0f1e9e9c1b262c1b23ad10f1b9dd84",
+  "supabase_actions_so_far": 2,
+  "paid_calls_so_far": 0,
+  "emails_sent": 0,
+  "archive_gap_audit": {
+    "additional_current_articles": 4,
+    "older_articles_excluded": 5
+  },
+  "current_database_new_count": 0,
+  "source_quality": "Raw intake only; not roster-cleared or human-reviewed betting intel",
+  "execution_receipt": "execution-receipt.json",
+  "verification_receipt": "database-verification.json"
+}

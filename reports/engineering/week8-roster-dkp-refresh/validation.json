@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-28T23:25:40.335Z",
+  "source_map": "data/nfl-rosters/roster-map-latest.json",
+  "source_map_sha256": "296859c845feaff4e58905f5ef972a8fc884feb0f410522e7cb374aeaae21efe",
+  "source_full_roster": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "source_roster_captured_at": "2026-10-28T07:42:38.648326+00:00",
+  "source_raw": "data/generated/props/draftkings-predictions-live-2026-10-28-week8.last-capture.raw.txt",
+  "source_capture_at": "2026-10-28T21:20:14.591Z",
+  "source_raw_sha256": "de87fde8d66221f05b0a8bdda5612b4009c2a2b5f9d0d71001b558ed0b54d4d0",
+  "new_map_players": 1230,
+  "non_active_offensive_players": 384,
+  "ambiguity": [],
+  "gate": {
+    "passed": true,
+    "errors": [],
+    "stats": {
+      "games": 14,
+      "rows": 698,
+      "players": 242,
+      "markets": 4,
+      "unresolvedTeams": 0,
+      "teamNotInGame": 0,
+      "unresolvedDates": 0
+    }
+  },
+  "parser_roster_conflicts": [],
+  "network_calls": 0,
+  "paid_calls": 0,
+  "supabase_actions": 0,
+  "source_raw_unchanged": true,
+  "parser_unchanged": true,
+  "backups": "before-* files in this directory",
+  "output": "data/generated/props/draftkings-predictions-live-2026-10-28-week8.json",
+  "output_sha256": "006cf91b2d8e7e2c481d9e0f1b29fe6d7d4501e89583685492672067e7eaa7e4",
+  "status": "normalized_gate_pass"
+}

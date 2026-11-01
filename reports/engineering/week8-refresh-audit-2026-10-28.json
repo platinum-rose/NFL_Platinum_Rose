@@ -1,0 +1,294 @@
+{
+  "checked_at": "2026-10-28T22:23:24.113Z",
+  "timezone": "America/Los_Angeles",
+  "week": 8,
+  "head": "71c6b4f9906634293bb24e156aca3a7b16b8a6ff",
+  "status": "HOLD",
+  "scope": "Read-only local refresh audit; no data refresh, cadence, database, paid/model, account, ledger, wager or publication action launched.",
+  "scheduled_pm_run": {
+    "at": "2026-10-28T22:00:01Z",
+    "exit": 1,
+    "stopped_at": "Alpha freshness gate",
+    "log": "logs/toolbox-wednesday-pm.log"
+  },
+  "freshness_gate": {
+    "ok": false,
+    "checked_at": "2026-10-28T22:23:24.112Z",
+    "current_week": 8,
+    "max_age_hours": 36,
+    "inputs": [
+      {
+        "key": "player_availability",
+        "ok": true,
+        "generated_at": "2026-10-28T22:00:01.184Z",
+        "age_hours": 0.39,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "projected_starters",
+        "ok": true,
+        "generated_at": "2026-10-28T22:00:03.327Z",
+        "age_hours": 0.39,
+        "week": null,
+        "problems": []
+      },
+      {
+        "key": "secondary_matchups",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:48.719Z",
+        "age_hours": 117.08,
+        "week": 7,
+        "problems": [
+          "stale: 117.08h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      },
+      {
+        "key": "player_props_intel",
+        "ok": false,
+        "generated_at": "2026-10-24T01:18:51.182Z",
+        "age_hours": 117.08,
+        "week": 7,
+        "problems": [
+          "stale: 117.08h old (max 36h)",
+          "week 7 != current week 8"
+        ]
+      }
+    ],
+    "errors": [
+      "secondary_matchups (data/secondary-matchups/latest.json): stale: 117.08h old (max 36h); week 7 != current week 8",
+      "player_props_intel (data/research-intel/review/player-props-intel-latest.json): stale: 117.08h old (max 36h); week 7 != current week 8"
+    ]
+  },
+  "rows": [
+    {
+      "priority": 1,
+      "source": "Secondary matchup matrix",
+      "status": "refresh_required",
+      "path": "data/secondary-matchups/latest.json",
+      "generated_at": "2026-10-24T01:18:48.719Z",
+      "mtime": "2026-10-24T01:18:48.795Z",
+      "week": 7,
+      "sha256": "624aa13cf98f4ff0eed8fd33ce00621689a066ea7337ff79bad278f80356a5ae",
+      "finding": "Week7; source/role seeds also need review before a Week8 build.",
+      "next": "Use current availability, reconcile role seeds, then build Week8 locally.",
+      "approval": "No new external action needed for local work; source captures must stay within scope."
+    },
+    {
+      "priority": 1,
+      "source": "Player-prop intelligence",
+      "status": "review_and_refresh_required",
+      "path": "data/research-intel/review/player-props-intel-latest.json",
+      "generated_at": "2026-10-24T01:18:51.182Z",
+      "mtime": "2026-10-24T01:18:51.183Z",
+      "week": 7,
+      "sha256": "96d6d8c55b9b7fd6c4e7dfc1dbd7d8cb27c4aa5cdda1c933af8a01e0b3a24641",
+      "finding": "Canonical Week7. Approved1:23PM export has159current-window NFLrecords; parser found1parlay-onlyleg and manualreview1conditionallean.",
+      "next": "Complete coverage-aware extraction from retained bodies; preserve scope, exact quotes and price provenance.",
+      "approval": "Offline saved export can be reviewed; any new Supabase retrieval requires new per-actionOK."
+    },
+    {
+      "priority": 1,
+      "source": "Power ratings and team profiles",
+      "status": "existing_data_integration_and_rebuild_required",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "generated_at": "2026-10-23T15:30:51.014Z",
+      "mtime": "2026-10-23T15:30:51.047Z",
+      "week": null,
+      "sha256": "9ca2941b98303ee62cbdeff8eb9c9b0f21b6cdc80b903bc19ecfdf8ead28f1f0",
+      "finding": "Builder-facing nflverse games/team_stats CSVs stop at Week6, but existing ESPN Week7 exports already contain14finalgames and28team-statrows; all14savedWeek7finalboxscores reverified.",
+      "next": "Reconcile existing verified exports with required builder fields and rebuild locally. Retrieve provider-specific data only if required fields are absent; do not rerunTuesday.",
+      "approval": "Free public/local scope; no paid or database action needed.",
+      "existing_week7_evidence": [
+        "reports/analysis/week7-postmortem/espn-game-results-2026-10-26.csv",
+        "reports/analysis/week7-postmortem/espn-team-stats-2026-10-26.csv"
+      ]
+    },
+    {
+      "priority": 1,
+      "source": "Alpha packet",
+      "status": "blocked_derived_output",
+      "path": "data/alpha/alpha-packet-2026.json",
+      "generated_at": "2026-10-24T01:19:40.078Z",
+      "mtime": "2026-10-24T01:19:40.458Z",
+      "week": null,
+      "sha256": "a5a4d1d974bff1dbb14f8af1e2d3ee070dd8dc82f99452e011fc068594108135",
+      "finding": "WednesdayPM builder refused stale/wrong-week secondary+props inputs.",
+      "next": "Rebuild only after dependencies pass; no allow-stale bypass. Publication remains separate.",
+      "approval": "Local preparation only; publication needsAndyOK."
+    },
+    {
+      "priority": 2,
+      "source": "Offense roster map",
+      "status": "refresh_or_reconcile_required",
+      "path": "data/nfl-rosters/roster-map-latest.json",
+      "generated_at": "2026-10-23T14:34:05.897Z",
+      "mtime": "2026-10-23T14:34:05.906Z",
+      "week": null,
+      "sha256": "f33e5941fe8c2fce7e729d40af7070411c169f8219999a08957a3970f1d4edd1",
+      "finding": "Old Oct23 map still used by prop parsers; full roster is newer.",
+      "next": "Reconcile from current full ESPN roster, preserving operatoroverrides; verify parser alias/team resolution.",
+      "approval": "Local reconciliation can proceed within scope."
+    },
+    {
+      "priority": 2,
+      "source": "DraftKings Predictions board",
+      "status": "captured_but_validation_failed",
+      "path": "data/generated/props/draftkings-predictions-live-2026-10-28-week8.last-capture.raw.txt",
+      "captured_at": "2026-10-28T21:20:14.591Z",
+      "finding": "Offline parse:14games698rows242players. Gate fails5unresolved/null player-teamrows. No normalizedWeek8masterpresent.",
+      "next": "Reconcile roster mappings and rerun offline gate; recapture only if raw evidence is insufficient.",
+      "approval": "Offline investigation needs no new external call. Prediction contracts remain distinct from sportsbook odds."
+    },
+    {
+      "priority": 2,
+      "source": "BetOnline board",
+      "status": "current_partial_player_prop_coverage",
+      "path": "data/generated/props/betonline-live-2026-10-28-week8.json",
+      "generated_at": "2026-10-28T21:10:15.269Z",
+      "mtime": "2026-10-28T21:10:56.224Z",
+      "week": 8,
+      "sha256": "dea5c414dc6c10d0e49d125c676c6fe95bab94a29f913c90fac8dc38e377d303",
+      "finding": "14games528pricedrows;112playerrows/13players are TNF-only. Other13games have game markets but no savedplayerrows.",
+      "next": "Capture remaining player markets as they open; recheck prices before any card.",
+      "approval": "Stay read-only; no wagers/account changes."
+    },
+    {
+      "priority": 2,
+      "source": "Bookmaker and verified SuperContest board",
+      "status": "current_week_local_evidence_missing",
+      "paths": [
+        "data/generated/props/bookmaker-live-*-week8.json",
+        "data/generated/props/bookmaker-user-board-*-week8.json",
+        "data/supercontest/week-08-2026-verified-lines.json"
+      ],
+      "finding": "No matchingWeek8localboard found. Genericlivecomparison stilldeclaresWeek7despiteOct28mtime.",
+      "next": "Obtain currentWeek8boards and verified contestlines. Never reuseopening/historicalprices as current.",
+      "approval": "Paid odds API or account actions need separateOK; user-supplied/read-onlycapture possible."
+    },
+    {
+      "priority": 2,
+      "source": "Schedule attached odds",
+      "status": "price_refresh_required_before_use",
+      "path": "public/schedule.json",
+      "generated_at": null,
+      "mtime": "2026-10-27T23:38:34.773Z",
+      "week": null,
+      "sha256": "298ae24fab0987e926f45ab1e1ad5aecaa971124736d956b1c93f9fc5c6ca888",
+      "finding": "All14Week8games have Oct27 07:00PTodds; kickoff spine is distinct from currentpriceevidence.",
+      "next": "Use fresh verified currentbookprices; do not invoke Supabase-writing schedule ingest for this audit.",
+      "approval": "Paid/API or Supabase refresh needs per-actionOK."
+    },
+    {
+      "priority": 2,
+      "source": "Promoted podcast evidence",
+      "status": "local_week8_pull_missing",
+      "path": "data/generated/master-intel/w08-pull.json",
+      "missing": true,
+      "finding": "No currentlocalpull. Discoveryqueue exists but doesnotprove promotedsource coverage. Database state not queried.",
+      "next": "Reconcile saved source inventories and obtain currentpromotedpull onlywithscopedread approval.",
+      "approval": "Any newSupabase retrieval or model processing needs separateOK."
+    },
+    {
+      "priority": 2,
+      "source": "Availability source timestamps",
+      "status": "quality_review_required",
+      "path": "data/player-availability/latest.json",
+      "generated_at": "2026-10-28T22:00:01.184Z",
+      "mtime": "2026-10-28T22:00:03.204Z",
+      "week": null,
+      "sha256": "8c24f0d1f34a56f74c1b38488c08dfc44a35a129dc496cfbacaee2a9af8426f4",
+      "finding": "Fresh3PMcapture;218FantasyProsnormalized publicationtimes are morethan1hour aftercapture, max04:50Znextday. Mapper documents unresolvednaive-source-timezone interpretation.",
+      "next": "Validate timezone provenance; do not treat future-dated rows as confirmedfreshpractice evidence. Retain ESPN/officialteam evidence separately.",
+      "approval": "Local audit possible; another authenticatedFantasyPros request needs per-actionOK."
+    },
+    {
+      "priority": 3,
+      "source": "Availability and starters",
+      "status": "recently_refreshed_with_review_limits",
+      "paths": [
+        {
+          "path": "data/player-availability/latest.json",
+          "generated_at": "2026-10-28T22:00:01.184Z",
+          "mtime": "2026-10-28T22:00:03.204Z",
+          "week": null,
+          "sha256": "8c24f0d1f34a56f74c1b38488c08dfc44a35a129dc496cfbacaee2a9af8426f4"
+        },
+        {
+          "path": "data/projected-starters/2026/latest.json",
+          "generated_at": "2026-10-28T22:00:03.327Z",
+          "mtime": "2026-10-28T22:00:03.404Z",
+          "week": null,
+          "sha256": "dffbfc45dcab8a346c6e5e08d16d50b1e0ec276b55e8cd45a4e18dc073a136bf"
+        }
+      ],
+      "finding": "3PMscheduledrun built1070events/164starters. Evidencevalidationpasses; roleconflicts and practicecoverage need review.",
+      "next": "Review officialWednesdaypractice coverage and existingwithheldcases; no immediateblanketrecapture."
+    },
+    {
+      "priority": 3,
+      "source": "Prediction markets, map and coherence",
+      "status": "recently_refreshed_context_only",
+      "path": "data/prediction-markets/latest.json",
+      "generated_at": "2026-10-28T22:00:49.301Z",
+      "mtime": "2026-10-28T22:00:49.359Z",
+      "week": null,
+      "sha256": "a9f344d0f0432bf87e607e539b43d9a4ebeeacae01812c3f7183695194b6283d",
+      "finding": "3PMlive4055contracts;629mapped/331coherencemath;3340liquiditywarnings; zeroexecutioneligible.",
+      "next": "Interpret sourcehealth/liquidity/settlement limits. No immediate repull needed."
+    },
+    {
+      "priority": 3,
+      "source": "FTN Stats IQ",
+      "status": "current",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-28T15:09:55.294Z",
+      "mtime": "2026-10-28T15:13:07.622Z",
+      "week": 8,
+      "sha256": "9d1e5ca2603ea752e2391c99161f007eb71bb15b79f1743af648313c7ad18ebd",
+      "finding": "36tables;Week8capturethroughWeek7;384gamecountchecks passed includingMNF.",
+      "next": "No repeatpull needed now."
+    },
+    {
+      "priority": 3,
+      "source": "Usage trends",
+      "status": "current_through_week7",
+      "path": "data/generated/player-usage-trends-2026.json",
+      "generated_at": "2026-10-27T17:00:48.072Z",
+      "mtime": "2026-10-27T17:00:48.074Z",
+      "week": 7,
+      "sha256": "cd7c509add7fe6b7dcd1d6dd65f9a8b255302ce3c30972635649095f63cd1d1f",
+      "finding": "last_updated_week7; generatedTuesday10AMPT.",
+      "next": "No repeatbuild needed now."
+    },
+    {
+      "priority": 3,
+      "source": "ESPN box scores",
+      "status": "complete_through_week7",
+      "path": "data/fantasy/boxscores",
+      "finding": "107savedgames; all14Week7boxscores final.",
+      "next": "No repeatpull needed now."
+    },
+    {
+      "priority": 3,
+      "source": "Full ESPN roster",
+      "status": "current_under24hours",
+      "path": "data/nfl-rosters/espn-full-rosters-latest.json",
+      "generated_at": "2026-10-28T07:42:38.648326+00:00",
+      "mtime": "2026-10-28T07:42:38.683Z",
+      "week": null,
+      "sha256": "20171a8cb3d0730cde5144ea2c1902b06c17fa1024be8a9406874870450cd205",
+      "finding": "32teams2549players; lateststrictvetpassed earlier. Fullsnapshotreaches24hours atThursday12:42AMPT.",
+      "next": "Rerunstrictgatebeforeplayernamedoutput; refresh snapshotwhenolderthan24hours."
+    }
+  ],
+  "correction": {
+    "checked_at": "2026-10-28T23:22:00.844Z",
+    "reason": "Prior recommendation to refresh source feeds was too broad; currentWeek7result/teamstatdata is already local.",
+    "week7_final_games": 14,
+    "week7_team_stat_rows": 28,
+    "week7_final_boxscores_reverified": 14,
+    "new_retrievals": 0
+  }
+}

@@ -7,11 +7,13 @@
 // scheduled TheOddsAPI caller) and costs ZERO API credits. Pass --live to
 // call TheOddsAPI directly instead (3 credits; refuses below ODDS_QUOTA_FLOOR
 // unless --force).
-import { writeFile, mkdir, readdir, readFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
+import { getNFLWeekInfo } from '../src/lib/constants.js';
+import { writeFileAtomic } from './lib/atomic-file-write.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -151,28 +153,38 @@ async function loadEventsFromApi() {
   return { events: await res.json(), oddsCapturedAt: new Date().toISOString(), quotaRemaining };
 }
 
-// Locked SuperContest lines: the newest week among latest.json and week-NN-lines.json.
+// Locked SuperContest lines must match the requested season/week.
 // (latest.json is maintained by agents/supercontest-lines-ingest.js; hand-entered weeks
 // such as week-03-lines.json don't update it, which left the comparison on Week 2.)
-async function loadLockedLines() {
+export async function loadLockedLines({ scDir = SC_DIR, week, season }) {
   const candidates = [];
-  try { candidates.push(JSON.parse(await readFile(path.join(SC_DIR, 'latest.json'), 'utf8'))); } catch { /* optional */ }
-  for (const f of await readdir(SC_DIR)) {
+  try { candidates.push(JSON.parse(await readFile(path.join(scDir, 'latest.json'), 'utf8'))); } catch { /* optional */ }
+  for (const f of await readdir(scDir)) {
     if (/^week-\d{2}-lines\.json$/.test(f)) {
-      try { candidates.push(JSON.parse(await readFile(path.join(SC_DIR, f), 'utf8'))); } catch { /* skip bad file */ }
+      try { candidates.push(JSON.parse(await readFile(path.join(scDir, f), 'utf8'))); } catch { /* skip bad file */ }
     }
   }
-  const valid = candidates.filter(c => Array.isArray(c?.games) && Number.isFinite(Number(c.week)));
-  if (!valid.length) throw new Error(`No locked SuperContest lines in ${SC_DIR}. Run "node agents/supercontest-lines-ingest.js" first.`);
-  valid.sort((a, b) => Number(b.week) - Number(a.week) || String(b.captured_at).localeCompare(String(a.captured_at)));
-  return valid[0];
+  const valid = candidates.filter(c => Array.isArray(c?.games) && c.games.length && Number(c.season) === Number(season) && Number.isFinite(Number(c.week)));
+  const matching = valid.filter(c => Number(c.week) === Number(week));
+  matching.sort((a, b) => String(b.captured_at).localeCompare(String(a.captured_at)));
+  if (!matching.length) {
+    const newest = valid.length ? Math.max(...valid.map(c => Number(c.week))) : 'none';
+    const error = new Error(`Week ${week} locked SuperContest lines (${season}) are unavailable; newest saved week: ${newest}. No market request made; existing comparison left unchanged.`);
+    error.code = 'SUPERCONTEST_WEEK_MISSING';
+    throw error;
+  }
+  return matching[0];
 }
 
-async function syncLiveMarketLines() {
-  const { events, oddsCapturedAt, quotaRemaining } = LIVE ? await loadEventsFromApi() : await loadEventsFromSupabase();
+export async function syncLiveMarketLines({
+  now = new Date(), scDir = SC_DIR,
+  loadMarketData = LIVE ? loadEventsFromApi : loadEventsFromSupabase,
+} = {}) {
+  const { week, season } = getNFLWeekInfo(now);
+  // Validate the local sheet before any Supabase or paid/live request.
+  const scData = await loadLockedLines({ scDir, week, season });
+  const { events, oddsCapturedAt, quotaRemaining } = await loadMarketData();
   const capturedAt = oddsCapturedAt;
-
-  const scData = await loadLockedLines();
   console.log(`📌 Comparing against SuperContest Week ${scData.week} locked lines (captured ${scData.captured_at}).`);
 
   const liveResults = [];
@@ -206,12 +218,10 @@ async function syncLiveMarketLines() {
     // Extract DraftKings spread
     const dkSpreads = dk?.markets?.find(m => m.key === 'spreads')?.outcomes || [];
     const dkFavOut = dkSpreads.find(o => TEAM_MAP[o.name] === fav);
-    const dkDogOut = dkSpreads.find(o => TEAM_MAP[o.name] === dog);
 
     // Extract FanDuel spread
     const fdSpreads = fd?.markets?.find(m => m.key === 'spreads')?.outcomes || [];
     const fdFavOut = fdSpreads.find(o => TEAM_MAP[o.name] === fav);
-    const fdDogOut = fdSpreads.find(o => TEAM_MAP[o.name] === dog);
 
     // Extract totals
     const dkTots = dk?.markets?.find(m => m.key === 'totals')?.outcomes || [];
@@ -269,10 +279,10 @@ async function syncLiveMarketLines() {
     games: liveResults
   };
 
-  const outDir = SC_DIR;
+  const outDir = scDir;
   await mkdir(outDir, { recursive: true });
   const outPath = path.join(outDir, 'live-market-comparison.json');
-  await writeFile(outPath, JSON.stringify(output, null, 2), 'utf8');
+  await writeFileAtomic(outPath, JSON.stringify(output, null, 2));
 
   console.log(`✅ Live market odds successfully synced to ${outPath}`);
   return output;

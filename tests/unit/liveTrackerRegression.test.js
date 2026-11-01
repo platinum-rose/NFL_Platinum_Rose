@@ -45,7 +45,7 @@ function setTickets(legs) {
 function generatedPacing(html, checked = {}) {
   const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
   const configText = script.slice(script.indexOf('const TICKET_CONFIG = '))
-    .match(/^const TICKET_CONFIG = ([\s\S]*?);/)[1];
+    .match(/^const TICKET_CONFIG = ([\s\S]*?);\s*const OPEN_SLOT_LEG_KEYS/)[1];
   const config = JSON.parse(configText);
   const badges = new Map();
   const rows = [...html.matchAll(/<div class="([^"]*)" id="leg-([^"]*)" ([^>]+)>/g)].map(m => {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import 'dotenv/config'; // F-26c §4: needed for FANTASYPROS_API_KEY — this script
@@ -15,6 +15,7 @@ import {
 import { parseArgs, todayPacificDate, nowIso } from './training-camp-intel.js';
 import { fantasyProsGet } from '../agents/lib/fantasypros-client.js';
 import { flattenFantasyProsInjuries } from '../agents/lib/fantasypros-injuries.js';
+import { writeFileAtomic } from './lib/atomic-file-write.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -235,14 +236,16 @@ export async function writeAvailabilitySnapshotAndReports(snapshot, { date, outD
   const latestMdPath = path.join(docsDir, 'player-availability-latest.md');
   const latestHtmlPath = path.join(docsDir, 'player-availability-latest.html');
 
-  await writeFile(jsonPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
-  await writeFile(latestPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
+  const json = `${JSON.stringify(snapshot, null, 2)}\n`;
   const markdown = renderAvailabilityMarkdown(snapshot);
   const html = renderAvailabilityHtml(snapshot);
-  await writeFile(mdPath, markdown, 'utf8');
-  await writeFile(latestMdPath, markdown, 'utf8');
-  await writeFile(htmlPath, html, 'utf8');
-  await writeFile(latestHtmlPath, html, 'utf8');
+  await writeFileAtomic(jsonPath, json);
+  await writeFileAtomic(mdPath, markdown);
+  await writeFileAtomic(htmlPath, html);
+  await writeFileAtomic(latestMdPath, markdown);
+  await writeFileAtomic(latestHtmlPath, html);
+  // Publish the latest JSON only once all views have been written successfully.
+  await writeFileAtomic(latestPath, json);
   return { jsonPath, latestPath, mdPath, latestMdPath, htmlPath, latestHtmlPath };
 }
 

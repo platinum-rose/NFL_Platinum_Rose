@@ -1,0 +1,59 @@
+{
+  "checked_at": "2026-10-28T20:25:16.248Z",
+  "raw_count": 189,
+  "unique_ids": 189,
+  "out_of_capture_window": 0,
+  "raw_sha256": "a10aca133f1c3e037b1df4873e2f3b09560edcdf1c2fde0d6d845928412b732d",
+  "body_total_chars": 1337044,
+  "review_summary": {
+    "article_records_assessed": 159,
+    "articles_with_body": 152,
+    "body_evidence": {
+      "metadata_only": 7,
+      "thin_body": 0,
+      "suspected_ingest_cap": 12,
+      "body_available": 140
+    },
+    "pick_oriented_records": 5,
+    "unresolved_pick_oriented_records": 0,
+    "manually_dispositioned_pick_oriented_records": 5,
+    "likely_non_nfl_false_positives": 0,
+    "explicit_analyst_selection_mentions": 13,
+    "unique_explicit_analyst_selections": 13,
+    "selections_needing_execution_verification": 13,
+    "actual_picks": 0,
+    "weighted_picks": {
+      "total_actionable": 11,
+      "tier_1_direct_execution": 0,
+      "tier_2_analyst_best_bets": 3,
+      "tier_3_secondary_leans_props": 8,
+      "aggregate_weight": 6.25
+    },
+    "market_leads": 129,
+    "pick_leads": 129,
+    "analysis_notes": 494
+  },
+  "preview_summary": {
+    "raw_rows": 189,
+    "nfl_current_window_records": 159,
+    "raw_parser_candidates": 1,
+    "body_eligible_candidates": 1,
+    "games_on_schedule": 14
+  },
+  "protected_hashes_before": {
+    "data/research-intel/review/article-intel-review-latest.json": "496d654eeb0d8481647f48f62fdb096173b8c916100fb5c066836ab397c0716a",
+    "data/research-intel/review/player-props-intel-latest.json": "96d6d8c55b9b7fd6c4e7dfc1dbd7d8cb27c4aa5cdda1c933af8a01e0b3a24641",
+    "data/secondary-matchups/latest.json": "624aa13cf98f4ff0eed8fd33ce00621689a066ea7337ff79bad278f80356a5ae",
+    "data/alpha/alpha-packet-2026.json": "a5a4d1d974bff1dbb14f8af1e2d3ee070dd8dc82f99452e011fc068594108135",
+    "public/alpha/alpha-packet-2026.json": "a5a4d1d974bff1dbb14f8af1e2d3ee070dd8dc82f99452e011fc068594108135",
+    "docs/tracked-wagers/live-tracker-sunday.html": "60c32321b125a01c8fabb5a0d697ab4f4e5f5940fd56d5d5ac677f4b6da39aa1",
+    "public/live-tracker-sunday.html": "60c32321b125a01c8fabb5a0d697ab4f4e5f5940fd56d5d5ac677f4b6da39aa1"
+  },
+  "protected_hashes_unchanged": true,
+  "manual_review": {
+    "path": "reports/engineering/week8-articles-2026-10-28-202315Z/manual-prop-source-review.json",
+    "conditional_source_rows": 1,
+    "quotes_verified": 3,
+    "roster_match": true
+  }
+}
