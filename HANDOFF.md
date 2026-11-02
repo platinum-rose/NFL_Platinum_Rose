@@ -1,26 +1,29 @@
 # NFL_Dashboard — Current Handoff
 
-## Pick up here — November 1, 2026: SNF Island stacks
+## Pick up here — November 2, 2026: Monday / Week 8
 
-Read only `handoffs/2026-11-01-week8-sunday-tracker-close-snf-resume.md` after
-reconciling live Git. Source checkpoint: `dff182a` on
-`claude/w5-prop-cards-2026-10-11`; the following handoff-only commit advances HEAD.
+Read only handoffs/2026-11-02-week8-monday-resume.md after reconciling live Git
+in E:/dev/projects/NFL_Dashboard. Reuse this checkout and its private inputs.
+Branch: claude/w5-prop-cards-2026-10-11. Pre-closeout HEAD: da68caa; the commit
+containing this handoff is the new checkpoint.
 
-Next: Week 8 PHI@WAS SNF Island ladder, proposals only. Kickoff in the saved
-schedule is Sunday November 1 at **5:20 PM Pacific**; reverify game state.
-Read the weekly synthesis prompt and slot 9 in `docs/NFL_WEEKLY_CARD_PROCESS.md`.
-Run the current no-fetch preflight, refresh required SNF inputs and pass a scoped
-strict roster gate before naming candidates. Closeout readiness was blocked/stale.
+Monday cadence completed as a dry-run settlement preview per Andy's log.
+SNF is final; CHI@SEA was pending. Saved reconciliation files are older than
+that log, and the local ledger already contains settlement updates. Reconcile
+read-only; do not attribute ledger writes to the preview or blindly replay them.
 
-Verification: **34/34 focused JS + 4/4 Python**, production build passed.
-Full suite: **2,094/2,114**; 20 unresolved failures are listed in the dated handoff.
+Completed: compact tracker titles/tooltips, combined-yard grading, live completion
+aliases and explicit inclusive sack thresholds. Current focused checks: 38/38
+across nine files; production build PASS. Last full suite was historically
+2094/2114 with 20 unresolved failures; not rerun in this closeout.
 
-The repo is public. Andy explicitly requested private/raw files stay local.
-Current wager/portfolio ledgers, personal generated trackers, raw account/mail/
-media captures, backups and other retained work remain dirty and unpushed.
-Reuse this checkout and preserve them; do not reset, stash or clean. Reconcile
-local official exposure and ownership before proposing SNF additions.
+Next: read-only Monday readiness review, then establish the next task with Andy.
+Before MNF candidates, load the synthesis prompt and slot 9, run preflight with
+--no-fetch, refresh required evidence and pass a scoped strict roster gate.
+Stop on required stale evidence, roster failure, or a started/final target game.
 
-No wagers, sportsbook accounts, paid calls, Supabase writes, publication, push or
-tracker rebuild without current per-action approval. Stage explicit reviewed
-paths only. The completed closeout approval is not standing publication approval.
+The repo is public. Private ledgers, generated personal trackers, reconciliation
+details, raw sources, backups and unrelated dirty work stay local and unpushed.
+No clean/reset/stash or broad staging. No wagers, accounts, paid calls, Supabase
+writes, settlement apply, tracker rebuild, publication or push without current
+per-action approval. Closeout push approval is not standing authorization.

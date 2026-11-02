@@ -1728,7 +1728,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           <div class="${cardClass}" id="card-${bet.id}" draggable="true" data-id="${bet.id}" data-is-promo="${isPromo}" data-is-split="${bet.is_split || false}">
             <div class="card-header">
               <div class="card-title-wrap">
-                <div class="card-title">${bet.game_title || bet.game}</div>
+                <div class="card-title" title="${escapeHtml(bet.game_title || bet.game)}">${escapeHtml(bet.game_title || bet.game)}</div>
                 <div class="card-subtitle">${bet.book || 'Sportsbook'} • ${bet.ticket_type}</div>
                 <div class="badges-row">
                   ${bet.owner && bet.ownership_type === 'solo' ? `<span class="badge badge-cash">${escapeHtml(bet.owner)} SOLO</span>` : ''}
@@ -3200,8 +3200,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     .settle-table th { color: var(--text-muted); font-size: 0.62rem; text-transform: uppercase; }
 
     .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
-    .card-title-wrap { display: flex; flex-direction: column; gap: 2px; }
-    .card-title { font-size: 0.88rem; font-weight: 700; color: #F8FAFC; }
+    .card-title-wrap { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: 2px; }
+    .card-title { font-size: 0.88rem; font-weight: 700; color: #F8FAFC; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bet-card:not(.collapsed) > .card-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+    .bet-card:not(.collapsed) > .card-header > .card-title-wrap { display: contents; }
+    .bet-card:not(.collapsed) > .card-header .card-title,
+    .bet-card:not(.collapsed) > .card-header .card-subtitle { grid-column: 1 / -1; }
+    .bet-card:not(.collapsed) > .card-header .card-subtitle { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .card-subtitle { font-size: 0.7rem; color: var(--text-muted); }
 
     .badges-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
@@ -8699,7 +8704,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       }).join('');
 
       cardHtml.innerHTML = '<div class="card-header">' +
-        '<div class="card-title-wrap"><div class="card-title">' + safeName + '</div>' +
+        '<div class="card-title-wrap"><div class="card-title" title="' + safeName + '">' + safeName + '</div>' +
         '<div class="card-subtitle">' + safeBook + ' • Sunday Wager</div>' +
         '<div class="badges-row">' + stakeBadge +
         '<span class="badge badge-cash" id="badge-split-' + tId + '" style="display:none;">🤝 50/50 SPLIT</span>' +

@@ -167,6 +167,7 @@ const STAT = {
   receptions: (g) => num(g.receiving?.receptions),
   receiving_yards: (g) => num(g.receiving?.receivingYards),
   rushing_yards: (g) => num(g.rushing?.rushingYards),
+  rushing_receiving_yards: (g) => num(g.rushing?.rushingYards) + num(g.receiving?.receivingYards),
   carries: (g) => num(g.rushing?.rushingAttempts),
   passing_yards: (g) => num(g.passing?.passingYards),
   pass_completions: (g) => frac(g.passing?.['completions/passingAttempts'], 0),
@@ -187,12 +188,14 @@ const MARKET_STAT = {
   anytime_touchdown: 'touchdowns', touchdowns_2plus: 'touchdowns', touchdowns: 'touchdowns',
   anytime_td: 'touchdowns', two_plus_touchdowns: 'touchdowns',
   pass_td: 'passing_touchdowns', passing_tds: 'passing_touchdowns',
+  completions: 'pass_completions',
   tackles_assists: 'tackles_assists', pass_interceptions: 'pass_interceptions', interceptions_thrown: 'pass_interceptions',
   interceptions: 'pass_interceptions',
   tackles_combined: 'tackles_assists', kicker_points: 'kicking_points',
 };
 const STAT_LABEL = {
   receptions: 'rec', receiving_yards: 'rec yds', rushing_yards: 'rush yds', carries: 'carries', passing_yards: 'pass yds',
+  rushing_receiving_yards: 'rush+rec yds',
   pass_completions: 'cmp', pass_attempts: 'att', passing_touchdowns: 'pass TD', pass_interceptions: 'INT',
   tackles_assists: 'tkl+ast', sacks: 'sacks', field_goals_made: 'FG', kicking_points: 'kick pts', touchdowns: 'TD',
   sacks_taken: 'sacks taken', longest_reception: 'long rec',
@@ -294,7 +297,18 @@ async function gradeLeg(leg, events) {
     if (final) return { ...out, status: 'CHECK', now: 'not in final box score (inactive?)', locked: false };
     return { ...out, status: 'LIVE', lean: 'behind', now: `0 ${label} · not in box score yet`, locked: false, value: 0 };
   }
-  return overUnder(out, getter(p.groups), Number(leg.line ?? 0.5), leg.direction || 'over', final, label);
+  const value = getter(p.groups);
+  // A receipt's "0.5+ Total Sacks" includes a shared half-sack. Keep ordinary
+  // over/under sack lines separate: those still use the strict comparison below.
+  const sacksAtLeast = market === 'sacks' && (leg.direction || 'over') === 'over'
+    ? sel.match(/\b(\d+(?:\.\d+)?)\+\s+(?:total\s+)?sacks?\b/i) : null;
+  if (sacksAtLeast) {
+    const threshold = Number(sacksAtLeast[1]);
+    if (value >= threshold) return { ...out, status: 'WON', now: `${value} ${label}`, locked: true, value };
+    if (final) return { ...out, status: 'LOST', now: `${value} ${label}`, locked: true, value };
+    return { ...out, status: 'LIVE', lean: 'behind', now: `${value} ${label} · needs ${threshold - value} more`, locked: false, value };
+  }
+  return overUnder(out, value, Number(leg.line ?? 0.5), leg.direction || 'over', final, label);
 }
 
 const legTeams = (leg) => {
@@ -406,7 +420,7 @@ function ticketCard(t, graded, sum, evById) {
     : `<span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">${t.ticket_number ? '#' + esc(t.ticket_number) : 'Ticket # not supplied'}</span>`;
   return `<details class="bet-card${t.is_paper ? ' paper' : ''}" id="t-${esc(tid)}">
   <summary>
-    <div class="card-header"><div class="card-title">${esc(title)}</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-header"><div class="card-title" title="${esc(t.game_title || t.game || title)}">${esc(title)}</div><span class="chev" aria-hidden="true">▾</span></div>
     <div class="card-subtitle">${esc(t.book)} • ${esc(legsLabel)}</div>
     <div class="badges">${badges}${c.CHECK ? '<span class="badge badge-check">check leg</span>' : ''}</div>
     ${t.owner && t.ownership_type === 'solo' ? `<div class="badge">${esc(t.owner)} SOLO</div>` : ''}
@@ -556,7 +570,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .bet-card > summary::-webkit-details-marker { display: none; }
 .bet-card > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 12px; }
 .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.card-title { font-size: 15px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.card-title { flex: 1; min-width: 0; font-size: 15px; font-weight: 700; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .chev { color: var(--muted); transition: transform .2s; padding-top: 2px; }
 .bet-card[open] .chev { transform: rotate(180deg); }
 .card-subtitle { font-size: 12px; color: var(--muted); }
