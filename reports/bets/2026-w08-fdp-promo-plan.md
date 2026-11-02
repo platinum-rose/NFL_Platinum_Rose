@@ -392,3 +392,15 @@ ATD odds = 2026 TD-game rate (box scores Wk 1–8), shaded ~5 pts. Expect FDP to
 - Backups: Zay Flowers 5+ rec (82%) · Derrick Henry 50+ rush yds (80%) · Parker Washington 2+ rec (82%)
 
 MNF and TNF stacks get re-checked Monday morning (Sunday injuries, Week 8 box scores added).
+
+## Monday refresh (Nov 2, ~9:55 AM PT) — box scores through Sunday Week 8, ESPN injuries, depth charts
+**MNF CHI @ SEA (SEA −3, 46.5): M1/M2 unchanged and stronger.** CHI RB2 Kyle Monangai OUT (thumb/toe) → more Swift work; SEA WR2 Rashid Shaheed OUT (knee) → more JSN targets; SEA LT Charles Cross OUT. Loveland (CHI TE) no designation.
+- M1: JSN anytime TD (5/7 games) · Swift 40+ rush yds (7/7) · Burden 3+ rec (7/7) — fair ~2.2x
+- M2: Swift anytime TD (4/7; ~55% with Monangai out) · JSN 60+ rec yds (7/7) · Odunze 2+ rec (7/7) — fair ~2.3x
+
+**TNF JAX @ BAL (now JAX −8.5, 43.5): N1/N2 changed.** **Lamar Jackson OUT — thumb surgery, IR.** Backups Tyler Huntley (turf toe) and Joe Fagnano (knee) both questionable. Avoid BAL passing-game legs (Andrews, Flowers).
+- **N1 ($10, fair ~2.3x, ~2.7x displayed):** Derrick Henry anytime TD (6/8 games; shaded to ~50% for the QB loss and 8.5-pt dog) · Trevor Lawrence 175+ pass yds (86%; 7/7). Backups: Henry ATD → Chris Rodriguez Jr. ATD (3/7); Lawrence → Brenton Strange 2+ rec (87%) · Jakobi Meyers 25+ rec yds (79%).
+- **N2 ($10, fair ~2.2x, ~2.6x displayed):** Bhayshul Tuten anytime TD (4/7; ~55% as an 8.5-pt favorite) · Tuten 50+ rush yds (81%; 6/7). Backups: Tuten ATD → Parker Washington ATD (3/7); Tuten 50+ → Strange 2+ rec.
+- Recheck BAL's QB news Tuesday/Wednesday before placing; if BAL names a healthy starter, Henry ATD goes back to ~60%.
+
+Roster vet PASS (Week 9 date, live ESPN rosters). Leg-type history refreshed with Week 8 (`fdp-legs-2026-w08/hist.txt`): short-priced ATDs now −18 (n=36), heavy ML favorites −14 (n=28), passing TDs near-even +32 (n=14), QB INT +9; no other big shifts.
