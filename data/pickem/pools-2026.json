@@ -1,7 +1,7 @@
 {
   "schema": "pickem_pools_v1",
   "season": 2026,
-  "updated_at": "2026-10-27T15:05:00Z",
+  "updated_at": "2026-11-03T15:20:00Z",
   "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
   "pools": [
     {
@@ -65,6 +65,32 @@
         "max_ev_cost": 2.5
       },
       "standings": {
+        "as_of": "2026-11-03 Week 8 final (API; per-game picks not captured: CBS/SSW/Yahoo browser sessions signed out)",
+        "rank": 20,
+        "pts": 575,
+        "leader": "Freddy Flintstone 615",
+        "gap_to_leader": 40,
+        "by_week": {
+          "1": 90,
+          "2": 85,
+          "3": 75,
+          "4": 96,
+          "5": 75,
+          "6": 66,
+          "7": 61,
+          "8": 88
+        },
+        "dropped_pts": 61,
+        "dropped_note": "Yahoo drops one lowest week; Week 7 (61) is the dropped week. by_week sum 636 - 61 = 575 season total.",
+        "source": "data/pickem/yahoo-472-g-4087-2026-w08.json",
+        "week8_rank": 11,
+        "week8_pts": 88,
+        "week8_record": "11-3",
+        "week8_leader": "Brett's Best 98"
+      },
+      "entry_name": "Fat Lazy American",
+      "url": "https://football.fantasysports.yahoo.com/pickem/4087/12",
+      "prior_standings": {
         "as_of": "2026-10-27 Week 7 final (API; per-game picks not captured: Yahoo browser session signed out)",
         "rank": 22,
         "pts": 487,
@@ -85,9 +111,7 @@
         "week7_rank": 16,
         "week7_pts": 61,
         "week7_record": "8-6"
-      },
-      "entry_name": "Fat Lazy American",
-      "url": "https://football.fantasysports.yahoo.com/pickem/4087/12"
+      }
     },
     {
       "id": "cbs",
