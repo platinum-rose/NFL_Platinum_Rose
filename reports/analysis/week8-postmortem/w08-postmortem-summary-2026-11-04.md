@@ -33,7 +33,9 @@ AI vs Andy, closest tickets, 14 game recaps) is `reports/bets/season-recap/week8
 Built by `reports/bets/season-recap/scripts/{build.py,paper_w8.py,gen_week.py,page_week.py}` with `cfg_w8.py`, `ai_recs_w8.py`, `recaps_w8.py`.
 Re-grade: placed legs 154/252 (61%); AI-backed props 22/38, Andy-only props 70/105, unplaced AI props 10/29.
 Grader fix 11/04: city-name sides ("Chicago ML", "Kansas City ML") now map to teams (`grade.py` CITY map); five paper legs were mis-graded before.
-This regrade puts the paper-ledger legs at 40-58; `platinum-rose-w8-paper-accuracy-2026-11-04.md` (lib.py grader) says 38-60. Not reconciled.
+Paper-ledger legs: **38-60** (reconciled 11/04 evening). The earlier season-recap 40-58 was a grade.py bug: Pick 6 "More/Less" wording was read as overs
+(Nix Less 1.5 pass TD x2 and Goff Less 0.5 INT graded W, Elliott Less 7.5 kicking pts graded L). Fixed; `grade.py`, `lib.py` and the stored statuses now agree
+(`reports/bets/season-recap/work/w8/crosscheck_w8.md`). The page was rebuilt: placed legs and AI-vs-Andy numbers unchanged; four paper legs corrected; fixed scorecard added.
 
 ## Scorecards
 | Area | Week 8 | Detail |
