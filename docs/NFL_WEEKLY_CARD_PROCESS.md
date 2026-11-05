@@ -189,7 +189,16 @@ Run after the last game of the week (usually Tuesday morning, after MNF). Script
    - `recaps_wN.py` adds an `experts` line per game (Claude's synthesis); `cfg_wN.EXPERTS` points at the JSON so the game
      cards render an "Expert view" row with source links.
    - **Automated weekly archive** (Mon 23:30 / Tue 06:00 / Thu 06:00): `scripts/archive/weekly-archive.mjs` runs the team, game-summary and grading steps above (`grade_week.py --apply`: settles what the box score decides, lists what stays open) plus Yahoo fantasy/survivor/pick'em, pool captures, Obsidian notes (`NFL/<season>/Week NN/`) and season CSVs. See `docs/WEEKLY_ARCHIVE_RUNBOOK.md`.
-8. **Post-mortem + ledger.** Write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
+8. **Post-mortem (automated 2026-11-04).** Tuesday cadence step 8 (`node scripts/toolbox.mjs --cadence tuesday`, or on its own
+   `--cadence postmortem [--week N]`) runs `reports/bets/season-recap/scripts/postmortem.py --week N --fetch`: box scores → grader
+   cross-check (`crosscheck.py`: grade.py vs lib.py vs stored; stops on a blocking mismatch; adjudications in
+   `scripts/crosscheck-adjudications.json`) → placed-leg regrade (`build.py`, AI record from `data/official-picks/ai-proposals/`)
+   → paper + AI proposals (`paper.py`) → rules check (`rules.py`, registry `rules/rules-2026.json`) → fixed scorecard
+   (`scorecard.py`) → page (`weekN-post-mortem.html`; an auto-draft `cfg_wN.py`/`recaps_wN.py` is generated when missing and
+   regenerated while it still carries its AUTO DRAFT header). Read-only on both ledgers. Then: edit the [auto draft] text, end the
+   write-up with **at most 3 rules** for next week (`rules.py propose`; Andy accepts with `rules.py accept`), and
+   close the week in the recommendation ledger as below.
+   Legacy manual path: write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
    season-to-date table in every earlier post-mortem, and close the week in the recommendation ledger
    (`docs/claude-project-dev/recommendation-ledger-2026.md` and the claude.ai DEV project copy).
 9. **Findings.** Append `[claude]` lines to `reports/analysis/w1-3-deep/FINDINGS.md` (append-only, shared with Codex)

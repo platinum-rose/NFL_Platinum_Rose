@@ -273,6 +273,12 @@ If a previous session's fix is incomplete, **amend the original bug entry** — 
 
 ---
 
+## AI record at proposal time (all agents) — added 2026-11-04
+Every card, ladder, parlay or promo proposal writes its legs to the machine-readable AI record **when it is proposed**, not after the week:
+`python3 reports/bets/season-recap/scripts/ai_record.py add --week <N> --file <proposal.json>` → `data/official-picks/ai-proposals/2026-wNN.json`.
+Schema and leg keys are in the script's docstring (`ai_record.py show --week <N>` lists what's logged). Mark replaced builds `status --set superseded`.
+This is the AI side of the Tuesday post-mortem (AI-backed vs Andy-only vs unplaced AI); a proposal that isn't logged doesn't exist for grading.
+
 ## NFL Roster Gate (mandatory)
 
 **ROSTER GATE (mandatory since 2026-09-27).** Never state a player's team, role or status from memory — 2026 rosters have changed (A.J. Brown is a Patriot, Mike Evans a 49er, Rachaad White a Commander). Every player named in the digest, card, narratives, matchup seeds and picks must pass `npm run roster:vet -- --week <N> --date <capture-date> --fetch --strict` (wraps `scripts/nfl-rosters/roster_vet.py` and finds Python even where `python3` isn't on PATH) against the live ESPN 2026 rosters (all 32 teams incl. IR and practice squad; auto-refreshed when >24h old). A BLOCK means stop and fix; nothing is presented, built or placed on a failing vet. The preflight and `scripts/master-intel/build.py` both run it and fail on it.

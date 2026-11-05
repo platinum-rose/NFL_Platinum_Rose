@@ -172,7 +172,13 @@ MKT = {'spread': 'spread', 'moneyline': 'ml', 'total': 'total', 'alternate_total
        'completions': 'completions', 'pass_completions': 'completions', 'pass_interceptions': 'int_thrown',
        'interceptions_thrown': 'int_thrown', 'sacks': 'sacks', 'tackles_assists': 'tackles', 'field_goals_made': 'fgm',
        'kicking_points': 'kick_pts', 'dst_touchdown': 'dst_td',
-       'open_slot': 'open'}
+       'open_slot': 'open',
+       # 2026-11-04 crosscheck: canonical keys and aliases used from Week 5 on (lib could not grade W8 pass_td / 2+ TD legs)
+       'pass_td': 'pass_td', 'pass_yds': 'pass_yds', 'rec_yds': 'rec_yds', 'rush_yds': 'rush_yds', 'rec': 'rec', 'atd': 'atd', 'first_td': 'first_td',
+       'first_touchdown_scorer': 'first_td', 'int_thrown': 'int_thrown', 'tackles': 'tackles', 'pass_att': 'pass_att', 'pass_cmp': 'completions',
+       'rushing_attempts': 'carries', 'kicker_points': 'kick_pts', 'def_interceptions': 'def_int', 'def_int': 'def_int',
+       'two_plus_touchdowns': 'tds', 'touchdowns_2_plus': 'tds', 'touchdowns_2plus': 'tds', 'tds': 'tds',
+       'rushing_receiving_yards': 'rush_rec_yds', 'rush_rec_yds': 'rush_rec_yds'}
 QBRUSH = {'jordan love', 'tyler shough', 'lamar jackson', 'baker mayfield', 'jalen hurts', 'josh allen', 'brock purdy', 'drake maye',
           'jaxson dart', 'malik willis', 'jayden daniels', 'justin fields', 'kyler murray', 'anthony richardson', 'bo nix', 'caleb williams'}
 
@@ -189,7 +195,7 @@ def norm_leg(l, w):
     if '(cfb)' in gm.lower() or 'cfb' in (w.get('game_title') or '').lower() and key in ('spread', 'ml', 'total', 'other') and ' @ ' in gm and len(gm) > 12:
         key = 'cfb'
     kind = key if key in ('spread', 'ml', 'total', 'team_total', 'open', 'other', 'cfb', 'dst_td') else 'prop'
-    dirn = (l.get('direction') or ('under' if re.search(r'\bunder\b', sl) else 'over')).lower()
+    dirn = (l.get('direction') or ('under' if re.search(r'\b(under|less)\b|\bu\d', sl) else 'over')).lower()  # 2026-11-04: Pick6 'Less'
     mm = re.search(r'(?<![\d.])(\d+(?:\.\d+)?)\+', sel); need = int(-(-float(mm.group(1)) // 1)) if mm else None  # 2026-11-03: '0.5+ Sacks' was read as 5+
     if key == 'int_thrown' and 'at least 1' in sl: need = 1
     line = l.get('line')
@@ -197,6 +203,7 @@ def norm_leg(l, w):
     except (TypeError, ValueError): line = None
     if key == 'atd' and need and need >= 2: key = 'tds'
     if key == 'atd' and need is None and dirn != 'under': need = 1
+    if key == 'tds' and need is None and dirn != 'under': need = 2
     return dict(kind=kind, key=key, dir=dirn, need=need, line=line, player=l.get('player'),
                 team=T(l.get('team')) if l.get('team') else None, game=gm, sel=sel, price=l.get('price'), dec=dec(l.get('price')))
 
@@ -210,7 +217,7 @@ def category(n):
     return {'team_total': 'Team total', 'cfb': 'CFB', 'rush_yds': 'Rushing yds', 'carries': 'Carries', 'rec': 'Receptions',
             'rec_yds': 'Receiving yds', 'pass_td': 'Passing TDs', 'pass_yds': 'QB volume', 'pass_att': 'QB volume',
             'completions': 'QB volume', 'int_thrown': 'QB INT thrown', 'sacks': 'Sacks', 'tackles': 'Tackles+Ast',
-            'def_int': 'Defensive INT', 'atd': 'Anytime TD', 'tds': '2+ TD', 'first_td': 'First TD', 'fgm': 'Kicker FGs',
+            'def_int': 'Defensive INT', 'rush_rec_yds': 'Rush+rec yds', 'atd': 'Anytime TD', 'tds': '2+ TD', 'first_td': 'First TD', 'fgm': 'Kicker FGs',
             'kick_pts': 'Kicker points', 'dst_td': 'D/ST TD',
             'open': 'Open slot', 'other': 'Other'}.get(k, k)
 
@@ -280,8 +287,12 @@ def grade(n, g):
     if n['kind'] != 'prop': return None, f'unsupported market {k}', None
     pn, p = player_in(g, n['player'], n.get('team'))
     if not p: return 'LOST', 'not in box score (DNP = lost leg)', None
+    if k == 'def_int' and (p.get('passing') or {}).get('C/ATT') and not (p.get('interceptions') or p.get('defensive')):
+        k = 'int_thrown'  # 2026-11-04: market 'interceptions' on a QB ('Jared Goff Less 0.5 INT') is INT thrown, not a defensive INT
     if k in ('atd', 'tds'):
         s = player_tds(p)
+    elif k == 'rush_rec_yds':
+        s = num((p.get('rushing') or {}).get('YDS')) + num((p.get('receiving') or {}).get('YDS'))
     elif k in ('pass_att', 'completions'):
         ca = ((p.get('passing') or {}).get('C/ATT') or '0/0').split('/'); s = num(ca[1] if k == 'pass_att' else ca[0])
     elif k == 'kick_pts':

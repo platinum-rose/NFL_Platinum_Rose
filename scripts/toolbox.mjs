@@ -155,6 +155,13 @@ async function showStatus() {
   }
 }
 
+/** Week to post-mortem: --week N if given, else the week before the current NFL week (Tuesday reports the new week). */
+function postmortemWeek() {
+  const i = process.argv.indexOf('--week');
+  if (i >= 0 && process.argv[i + 1]) return parseInt(process.argv[i + 1], 10);
+  return Math.max(1, getNFLWeekInfo(new Date()).week - 1);
+}
+
 /** Automated Cadence Runner */
 async function runCadence(day) {
   const d = (day || '').toLowerCase();
@@ -191,7 +198,23 @@ async function runCadence(day) {
       await run('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18', '--dry-run']);
       console.log(`${c.cyan}7. Running Roster Audit Baseline...${c.reset}`);
       await run('node', ['scripts/audit-all32-rosters.js']);
+      // 2026-11-04: weekly post-mortem for the week that just finished (getNFLWeekInfo already reports the new week on Tuesday).
+      // Read-only on the wagers/paper ledgers: box scores -> grader cross-check -> leg regrade -> rules check -> scorecard -> page.
+      {
+        const pmWeek = postmortemWeek();
+        console.log(`${c.cyan}8. Post-mortem Week ${pmWeek} (box scores, grader cross-check, scorecard, rules check, season-recap page)...${c.reset}`);
+        await run(repoPython(), ['reports/bets/season-recap/scripts/postmortem.py', '--week', String(pmWeek), '--fetch']);
+      }
       break;
+
+    case 'postmortem': {
+      // Re-run the post-mortem on its own: node scripts/toolbox.mjs --cadence postmortem [--week 9] [--force] [--no-page]
+      const pmWeek = postmortemWeek();
+      const extra = ['--force', '--no-page', '--allow-pending'].filter((f) => process.argv.includes(f));
+      console.log(`${c.cyan}1. Post-mortem Week ${pmWeek}...${c.reset}`);
+      await run(repoPython(), ['reports/bets/season-recap/scripts/postmortem.py', '--week', String(pmWeek), '--fetch', ...extra]);
+      break;
+    }
 
     case 'wednesday':
       console.log(`${c.cyan}1. Running Podcast & YouTube Sweep...${c.reset}`);
@@ -297,7 +320,7 @@ async function runCadence(day) {
       break;
 
     default:
-      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets.${c.reset}`);
+      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets, postmortem.${c.reset}`);
   }
 
   return results.every(Boolean);
@@ -422,6 +445,7 @@ Usage:
   node scripts/toolbox.mjs                          # Interactive menu
   node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets
   node scripts/toolbox.mjs --cadence sunday --no-launch   # build the tracker without opening a browser (scheduled runs)
+  node scripts/toolbox.mjs --cadence postmortem [--week 9] [--force] [--no-page]   # weekly post-mortem (also step 8 of tuesday)
   node scripts/toolbox.mjs --generate-tracker       # Generates public/live-tracker-sunday.html
   node scripts/toolbox.mjs --launch-tracker         # Launches sunday tracker in browser
   node scripts/toolbox.mjs --reconcile [--dry-run]  # Grades wagers and reconciles split ledger

@@ -1,0 +1,18 @@
+{
+ "season": 2026,
+ "note": "Lessons -> rules loop. Each post-mortem proposes at most 3 rules for the next week; Andy accepts them. Cash tickets only; promo/bonus/free-bet tickets are exempt. Managed by reports/bets/season-recap/scripts/rules.py.",
+ "rules": [
+  {"id": "C1", "text": "Max 3-4 legs per cash ticket (6+ leg stacks are promo/bonus only)", "check": "max_legs", "params": {"max": 4},
+   "status": "active", "adopted": "2026-11-04", "effective_week": 9, "source": "Week 8 post-mortem"},
+  {"id": "C2", "text": "One read on at most 2-3 cash tickets", "check": "read_reuse", "params": {"max": 3},
+   "status": "active", "adopted": "2026-11-04", "effective_week": 9, "source": "Week 8 post-mortem (Okonkwo receptions x5, Warren receiving x4)"},
+  {"id": "C3", "text": "Prefer rushing-lane legs; receiving props at the lowest rung offered", "check": "lane_pref", "params": {},
+   "status": "active", "adopted": "2026-11-04", "effective_week": 9, "source": "Week 8 post-mortem (rushing 6-1, receptions 0-4, receiving yds 0-2)",
+   "check_note": "Proxy: flags a receiving leg on a cash ticket when the same player/market appears at a lower rung on another ticket that week."},
+  {"id": "C4", "text": "No totals or same-team prop stacks on a shaky-QB game until inactives are out", "check": "shaky_qb",
+   "params": {"games": {"9": [{"game": "JAX @ BAL", "qb": "Joe Fagnano (BAL)", "inactives": "2026-11-05T15:45:00-08:00"}]}},
+   "status": "active", "adopted": "2026-11-04", "effective_week": 9, "source": "Week 8 post-mortem (Lamar left BAL@BUF on the first series)"},
+  {"id": "C5", "text": "Skip master round robins", "check": "no_master_rr", "params": {},
+   "status": "active", "adopted": "2026-11-04", "effective_week": 9, "source": "Season: 4-team master RRs 0 for 5"}
+ ]
+}

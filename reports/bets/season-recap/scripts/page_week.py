@@ -97,4 +97,8 @@ var x=e.clientX+14,y=e.clientY+14;var r=t.getBoundingClientRect();if(x+r.width>i
 document.addEventListener('mousemove',show);document.addEventListener('mouseleave',function(){{t.style.opacity=0}});
 document.addEventListener('touchstart',function(e){{if(e.touches[0])show({{target:e.target,clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}})}},{{passive:true}});}})();
 </script>'''
-open(f'week{WK}-post-mortem.html','w').write(page); print(len(page))
+import os as _os  # 2026-11-04: fixed scorecard section from scorecard.py, when present
+if _os.path.exists(f'scorecard_w{WK}.html') or _os.path.exists(_os.path.join('..','..','work',f'w{WK}',f'scorecard_w{WK}.html')):
+    _sp=f'scorecard_w{WK}.html' if _os.path.exists(f'scorecard_w{WK}.html') else _os.path.join('..','..','work',f'w{WK}',f'scorecard_w{WK}.html')
+    page=page.replace('<section id="method">',open(_sp,encoding='utf-8').read()+'\n<section id="method">',1).replace('<a href="#method">Method</a>','<a href="#scorecard">Scorecard</a><a href="#method">Method</a>',1)
+open(f'week{WK}-post-mortem.html','w',encoding='utf-8').write(page); print(len(page))

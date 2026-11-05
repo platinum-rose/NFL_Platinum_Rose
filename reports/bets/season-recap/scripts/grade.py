@@ -77,8 +77,11 @@ def stat(p, key, g, pname):
     if key=='fgm': return num((P.get('kicking',{}).get('FG') or '0/0').split('/')[0])
     if key in ('atd','tds'):
         tl=td_list(g); n=norm(pname)
+        # 2026-11-04 crosscheck: box TD columns are the floor; ESPN sometimes writes a scoring play in play-by-play form
+        # ('J.Gibbs up the middle for 1 yard, TOUCHDOWN') that scorer() can't parse (W5 Gibbs 2+ TD graded L, was W)
+        box=sum(num((P.get(c) or {}).get('TD')) for c in ('rushing','receiving','kickReturns','puntReturns'))
         exact=sum(1 for sc,_ in tl if norm(sc)==n)
-        if exact: return float(exact)
+        if exact or box: return float(max(exact,box))
         # fuzzy (last name + first initial) only when the box name never appears exactly, and only if one such scorer
         fz={norm(sc) for sc,_ in tl if norm(sc).split()[-1]==n.split()[-1] and norm(sc)[0]==n[0]}
         return float(sum(1 for sc,_ in tl if norm(sc) in fz)) if len(fz)==1 else 0.0
@@ -119,6 +122,7 @@ def grade_side(kind,team,line,gamestr=None,dirn=None,total=None):
         return dict(result=r,actual=f"{team} {s}",margin=m,game=f"{A}@{Hm}")
     mine,opp=(a,h) if team==A else (h,a)
     diff=mine-opp
-    if kind=='ml': return dict(result='W' if diff>0 else 'L',actual=f"{team} {mine}-{opp}",margin=diff,game=f"{A}@{Hm}")
+    if kind=='ml': return dict(result='W' if diff>0 else ('P' if diff==0 else 'L'),  # 2026-11-04: tie = push (W5 NYG@WSH 27-27)
+                               actual=f"{team} {mine}-{opp}",margin=diff,game=f"{A}@{Hm}")
     v=diff+line
     return dict(result='W' if v>0 else ('P' if v==0 else 'L'),actual=f"{team} {mine}-{opp}",margin=v,game=f"{A}@{Hm}")
