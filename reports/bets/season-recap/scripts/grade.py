@@ -12,10 +12,13 @@ def gkey(a,h): return (FIX.get(a,a),FIX.get(h,h))
 GAMES={gkey(g['away'],g['home']):g for g in G}
 TEAMS={}
 NICK={'falcons':'ATL','packers':'GB','bengals':'CIN','steelers':'PIT','ravens':'BAL','cowboys':'DAL','eagles':'PHI','bears':'CHI','saints':'NO','raiders':'LV','jaguars':'JAX','patriots':'NE','rams':'LAR','broncos':'DEN','panthers':'CAR','browns':'CLE','seahawks':'SEA','commanders':'WSH','lions':'DET','jets':'NYJ','bills':'BUF','chargers':'LAC','49ers':'SF','cardinals':'ARI','titans':'TEN','giants':'NYG','colts':'IND','texans':'HOU','buccaneers':'TB','vikings':'MIN','chiefs':'KC','dolphins':'MIA'}
+CITY={'arizona':'ARI','atlanta':'ATL','baltimore':'BAL','buffalo':'BUF','carolina':'CAR','chicago':'CHI','cincinnati':'CIN','cleveland':'CLE','dallas':'DAL','denver':'DEN','detroit':'DET','green bay':'GB','houston':'HOU','indianapolis':'IND','jacksonville':'JAX','kansas city':'KC','las vegas':'LV','miami':'MIA','minnesota':'MIN','new england':'NE','new orleans':'NO','philadelphia':'PHI','pittsburgh':'PIT','san francisco':'SF','seattle':'SEA','tampa bay':'TB','tennessee':'TEN','washington':'WSH'}
 def team_of(txt):
     t=txt.lower()
     for k,v in NICK.items():
         if k in t: return v
+    for k,v in CITY.items():
+        if re.search(r'\b'+k+r'\b',t): return v
     m=re.match(r'\s*([A-Z]{2,3})\b',txt)
     return FIX.get(m.group(1),m.group(1)) if m else None
 def game_for_team(t):
@@ -66,6 +69,7 @@ def stat(p, key, g, pname):
     if key=='carries': return num(ru.get('CAR'))
     if key=='rec': return num(re_.get('REC'))
     if key=='rec_yds': return num(re_.get('YDS'))
+    if key=='rush_rec_yds': return num(ru.get('YDS'))+num(re_.get('YDS'))  # 2026-11-03
     if key=='sacks': return num(de.get('SACKS'))
     if key=='tackles': return num(de.get('TOT'))
     if key=='def_int': return num(it.get('INT'))

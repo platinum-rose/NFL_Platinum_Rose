@@ -55,7 +55,7 @@ def bar_h(rows, width=640, label_w=150, maxv=None, fmt=lambda v:str(v), row_h=30
 # ---------- chart 1: P&L buckets
 rows=[]
 for k,(s,r,n) in B.items():
-    segs=[(r,'s-ret',f'{k}: returned ${r:.2f}'),(s-r,'s-stake',f'{k}: ${s:.2f} staked on {n} tickets')]
+    segs=[(r,'s-ret',f'{k}: returned ${r:.2f}'),(max(s-r,0),'s-stake',f'{k}: ${s:.2f} staked on {n} tickets')]
     rows.append((k,segs,f'${s:.2f} · {n} tkt'+(f' · back ${r:.2f}' if r else '')))
 c_pnl=bar_h(rows,label_w=190,right_w=250,width=760)
 # ---------- chart 2: projection vs actual totals (dumbbell)

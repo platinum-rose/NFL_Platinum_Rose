@@ -1,0 +1,1894 @@
+[
+ {
+  "name": "Platinum Rose AI Pick 6 v1 Entry A (2-pick)",
+  "id": "paper_w8_pick6_v1_entry_a",
+  "paper": true,
+  "stake": 5,
+  "odds": null,
+  "legs": [
+   {
+    "label": "Bo Nix Less 1.5 pass TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Deshaun Watson More 0.5 pass TDs",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 0.5,
+    "player": "Deshaun Watson"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Pick 6 v1 Entry B (2-pick)",
+  "id": "paper_w8_pick6_v1_entry_b",
+  "paper": true,
+  "stake": 5,
+  "odds": null,
+  "legs": [
+   {
+    "label": "Daniel Jones More 0.5 pass TDs",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 0.5,
+    "player": "Daniel Jones"
+   },
+   {
+    "label": "Cameron Ward More 0.5 pass TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 0.5,
+    "player": "Cameron Ward"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Pick 6 Stack 1 (3-pick, rejected)",
+  "id": "paper_w8_pick6_stack1_v2",
+  "paper": true,
+  "stake": 5,
+  "odds": null,
+  "legs": [
+   {
+    "label": "Bo Nix Less 1.5 pass TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Jared Goff Less 0.5 INT",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 0.5,
+    "player": "Jared Goff"
+   },
+   {
+    "label": "Jake Elliott Less 7.5 kicking points",
+    "result": "L",
+    "actual": 4.0,
+    "margin": -3.5,
+    "kind": "prop",
+    "key": "kicking_points",
+    "thr": 7.5,
+    "player": "Jake Elliott"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single ARI@DAL Under 54.5",
+  "id": "paper_w8_card_single_ari_dal_under_54_5",
+  "paper": true,
+  "stake": 20,
+  "odds": "-108",
+  "legs": [
+   {
+    "label": "Under 54.5",
+    "result": "L",
+    "actual": "total 63",
+    "margin": -8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 54.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single BAL@BUF Over 55",
+  "id": "paper_w8_card_single_bal_buf_over_55",
+  "paper": true,
+  "stake": 20,
+  "odds": "-101",
+  "legs": [
+   {
+    "label": "Over 55",
+    "result": "L",
+    "actual": "total 46",
+    "margin": -9.0,
+    "kind": "total",
+    "key": null,
+    "thr": 55.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single IND@JAX Under 46",
+  "id": "paper_w8_card_single_ind_jax_under_46",
+  "paper": true,
+  "stake": 20,
+  "odds": "-103",
+  "legs": [
+   {
+    "label": "Under 46",
+    "result": "L",
+    "actual": "total 49",
+    "margin": -3.0,
+    "kind": "total",
+    "key": null,
+    "thr": 46.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single NE@MIA Under 43.5",
+  "id": "paper_w8_card_single_ne_mia_under_43_5",
+  "paper": true,
+  "stake": 20,
+  "odds": "-111",
+  "legs": [
+   {
+    "label": "Under 43.5",
+    "result": "W",
+    "actual": "total 43",
+    "margin": 0.5,
+    "kind": "total",
+    "key": null,
+    "thr": 43.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Morning Parlay (optional SNF-cap template)",
+  "id": "paper_w8_card_morning_parlay_optional_snf_cap_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+1346",
+  "legs": [
+   {
+    "label": "Under 54.5",
+    "result": "L",
+    "actual": "total 63",
+    "margin": -8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 54.5,
+    "player": null
+   },
+   {
+    "label": "Over 55",
+    "result": "L",
+    "actual": "total 46",
+    "margin": -9.0,
+    "kind": "total",
+    "key": null,
+    "thr": 55.0,
+    "player": null
+   },
+   {
+    "label": "Under 46",
+    "result": "L",
+    "actual": "total 49",
+    "margin": -3.0,
+    "kind": "total",
+    "key": null,
+    "thr": 46.0,
+    "player": null
+   },
+   {
+    "label": "Los Angeles Rams ML",
+    "result": "W",
+    "actual": "LAR 24-9",
+    "margin": 15,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Washington ML (SNF cap)",
+    "result": "W",
+    "actual": "WSH 27-10",
+    "margin": 17,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Afternoon Parlay (optional SNF-cap template)",
+  "id": "paper_w8_card_afternoon_parlay_optional_snf_cap_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+1820",
+  "legs": [
+   {
+    "label": "Under 54.5",
+    "result": "L",
+    "actual": "total 63",
+    "margin": -8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 54.5,
+    "player": null
+   },
+   {
+    "label": "Over 55",
+    "result": "L",
+    "actual": "total 46",
+    "margin": -9.0,
+    "kind": "total",
+    "key": null,
+    "thr": 55.0,
+    "player": null
+   },
+   {
+    "label": "Under 43.5",
+    "result": "W",
+    "actual": "total 43",
+    "margin": 0.5,
+    "kind": "total",
+    "key": null,
+    "thr": 43.5,
+    "player": null
+   },
+   {
+    "label": "Kansas City ML",
+    "result": "L",
+    "actual": "KC 24-28",
+    "margin": -4,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Washington ML (SNF cap)",
+    "result": "W",
+    "actual": "WSH 27-10",
+    "margin": 17,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Dog ML Round Robin (by 2s)",
+  "id": "paper_w8_card_dog_ml_round_robin_by_2s",
+  "paper": true,
+  "stake": 20,
+  "odds": null,
+  "legs": [
+   {
+    "label": "Arizona ML",
+    "result": "W",
+    "actual": "ARI 33-30",
+    "margin": 3,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Philadelphia ML",
+    "result": "L",
+    "actual": "PHI 10-27",
+    "margin": -17,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Cleveland ML",
+    "result": "L",
+    "actual": "CLE 6-27",
+    "margin": -21,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Baltimore ML",
+    "result": "L",
+    "actual": "BAL 10-36",
+    "margin": -26,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Chicago ML",
+    "result": "W",
+    "actual": "CHI 34-17",
+    "margin": 17,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Master Round Robin (8 legs by 4s)",
+  "id": "paper_w8_card_master_round_robin_8_legs_by_4s",
+  "paper": true,
+  "stake": 70,
+  "odds": null,
+  "legs": [
+   {
+    "label": "Under 54.5",
+    "result": "L",
+    "actual": "total 63",
+    "margin": -8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 54.5,
+    "player": null
+   },
+   {
+    "label": "Over 55",
+    "result": "L",
+    "actual": "total 46",
+    "margin": -9.0,
+    "kind": "total",
+    "key": null,
+    "thr": 55.0,
+    "player": null
+   },
+   {
+    "label": "Under 46",
+    "result": "L",
+    "actual": "total 49",
+    "margin": -3.0,
+    "kind": "total",
+    "key": null,
+    "thr": 46.0,
+    "player": null
+   },
+   {
+    "label": "Under 43.5",
+    "result": "W",
+    "actual": "total 43",
+    "margin": 0.5,
+    "kind": "total",
+    "key": null,
+    "thr": 43.5,
+    "player": null
+   },
+   {
+    "label": "Cleveland +3.5",
+    "result": "L",
+    "actual": "CLE 6-27",
+    "margin": -17.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.5,
+    "player": null
+   },
+   {
+    "label": "Los Angeles Chargers +6.5",
+    "result": "L",
+    "actual": "LAC 9-24",
+    "margin": -8.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 6.5,
+    "player": null
+   },
+   {
+    "label": "Minnesota +3",
+    "result": "L",
+    "actual": "MIN 15-19",
+    "margin": -1.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   },
+   {
+    "label": "Chicago +3",
+    "result": "W",
+    "actual": "CHI 34-17",
+    "margin": 20.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7a Morning Props (BEO template)",
+  "id": "paper_w8_card_7a_morning_props_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+1445",
+  "legs": [
+   {
+    "label": "Cam Ward UNDER 191.5 passing yards",
+    "result": "L",
+    "actual": 304.0,
+    "margin": -112.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 191.5,
+    "player": "Cam Ward"
+   },
+   {
+    "label": "Jaylen Warren OVER 24.5 receiving yards",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -24.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 24.5,
+    "player": "Jaylen Warren"
+   },
+   {
+    "label": "Jonathan Taylor UNDER 57.5 rushing yards",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 34.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 57.5,
+    "player": "Jonathan Taylor"
+   },
+   {
+    "label": "Chig Okonkwo OVER 3.5 receptions",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7b Afternoon Props (BEO template)",
+  "id": "paper_w8_card_7b_afternoon_props_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+1457",
+  "legs": [
+   {
+    "label": "Blake Corum OVER 47.5 rushing yards",
+    "result": "W",
+    "actual": 73.0,
+    "margin": 25.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 47.5,
+    "player": "Blake Corum"
+   },
+   {
+    "label": "Malik Willis UNDER 16.5 completions",
+    "result": "L",
+    "actual": 21.0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 16.5,
+    "player": "Malik Willis"
+   },
+   {
+    "label": "Bo Nix UNDER 15.5 rushing yards",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 11.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 15.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Chig Okonkwo OVER 3.5 receptions",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7d Hybrid 8-leg (BEO template)",
+  "id": "paper_w8_card_7d_hybrid_8_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+24934",
+  "legs": [
+   {
+    "label": "Cam Ward UNDER 191.5 passing yards",
+    "result": "L",
+    "actual": 304.0,
+    "margin": -112.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 191.5,
+    "player": "Cam Ward"
+   },
+   {
+    "label": "Jaylen Warren OVER 24.5 receiving yards",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -24.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 24.5,
+    "player": "Jaylen Warren"
+   },
+   {
+    "label": "Amon-Ra St. Brown OVER 7.5 receptions",
+    "result": "L",
+    "actual": 7.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7.5,
+    "player": "Amon-Ra St. Brown"
+   },
+   {
+    "label": "Kirk Cousins OVER 239.5 passing yards",
+    "result": "W",
+    "actual": 247.0,
+    "margin": 7.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 239.5,
+    "player": "Kirk Cousins"
+   },
+   {
+    "label": "Blake Corum OVER 47.5 rushing yards",
+    "result": "W",
+    "actual": 73.0,
+    "margin": 25.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 47.5,
+    "player": "Blake Corum"
+   },
+   {
+    "label": "Malik Willis UNDER 16.5 completions",
+    "result": "L",
+    "actual": 21.0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 16.5,
+    "player": "Malik Willis"
+   },
+   {
+    "label": "Bo Nix UNDER 15.5 rushing yards",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 11.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 15.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Chig Okonkwo OVER 3.5 receptions",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7e Anytime TD 7-leg (BEO template)",
+  "id": "paper_w8_card_7e_anytime_td_7_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+32931",
+  "legs": [
+   {
+    "label": "Javonte Williams anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Javonte Williams"
+   },
+   {
+    "label": "Josh Allen anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Josh Allen"
+   },
+   {
+    "label": "Darnell Washington anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Darnell Washington"
+   },
+   {
+    "label": "Mike Gesicki anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Mike Gesicki"
+   },
+   {
+    "label": "Aaron Jones anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Aaron Jones"
+   },
+   {
+    "label": "Ollie Gordon II anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Ollie Gordon II"
+   },
+   {
+    "label": "Rachaad White anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Rachaad White"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 8a First TD 3-leg (BEO template)",
+  "id": "paper_w8_card_8a_first_td_3_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+14468",
+  "legs": [
+   {
+    "label": "Javonte Williams first TD",
+    "result": "L",
+    "actual": "James Mitchell",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Javonte Williams"
+   },
+   {
+    "label": "Jahmyr Gibbs first TD",
+    "result": "L",
+    "actual": "Justin Jefferson",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Jahmyr Gibbs"
+   },
+   {
+    "label": "Kyren Williams first TD",
+    "result": "W",
+    "actual": "Kyren Williams",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Kyren Williams"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 8b 2+ TD 3-leg (BEO template)",
+  "id": "paper_w8_card_8b_2_td_3_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+13987",
+  "legs": [
+   {
+    "label": "Javonte Williams 2+ TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "tds",
+    "thr": 2.0,
+    "player": "Javonte Williams"
+   },
+   {
+    "label": "Josh Allen 2+ TD",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "tds",
+    "thr": 2.0,
+    "player": "Josh Allen"
+   },
+   {
+    "label": "Mike Gesicki 2+ TD",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "tds",
+    "thr": 2.0,
+    "player": "Mike Gesicki"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Core 8-Leg (BEO template)",
+  "id": "paper_w8_card_core_8_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+25093",
+  "legs": [
+   {
+    "label": "Cam Ward UNDER 191.5 passing yards",
+    "result": "L",
+    "actual": 304.0,
+    "margin": -112.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 191.5,
+    "player": "Cam Ward"
+   },
+   {
+    "label": "Jonathan Taylor UNDER 57.5 rushing yards",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 34.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 57.5,
+    "player": "Jonathan Taylor"
+   },
+   {
+    "label": "Jaylen Warren OVER 24.5 receiving yards",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -24.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 24.5,
+    "player": "Jaylen Warren"
+   },
+   {
+    "label": "Lamar Jackson OVER 1.5 passing TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Lamar Jackson"
+   },
+   {
+    "label": "Amon-Ra St. Brown OVER 7.5 receptions",
+    "result": "L",
+    "actual": 7.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7.5,
+    "player": "Amon-Ra St. Brown"
+   },
+   {
+    "label": "Malik Willis UNDER 16.5 completions",
+    "result": "L",
+    "actual": 21.0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 16.5,
+    "player": "Malik Willis"
+   },
+   {
+    "label": "Bo Nix UNDER 15.5 rushing yards",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 11.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 15.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Chig Okonkwo OVER 3.5 receptions",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Perfect Lottery 13-leg (BEO template)",
+  "id": "paper_w8_card_perfect_lottery_13_leg_beo_template",
+  "paper": true,
+  "stake": 10,
+  "odds": "+723633",
+  "legs": [
+   {
+    "label": "Cam Ward UNDER 191.5 passing yards",
+    "result": "L",
+    "actual": 304.0,
+    "margin": -112.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 191.5,
+    "player": "Cam Ward"
+   },
+   {
+    "label": "Jonathan Taylor UNDER 57.5 rushing yards",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 34.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 57.5,
+    "player": "Jonathan Taylor"
+   },
+   {
+    "label": "Jaylen Warren OVER 24.5 receiving yards",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -24.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 24.5,
+    "player": "Jaylen Warren"
+   },
+   {
+    "label": "Lamar Jackson OVER 1.5 passing TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Lamar Jackson"
+   },
+   {
+    "label": "Amon-Ra St. Brown OVER 7.5 receptions",
+    "result": "L",
+    "actual": 7.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7.5,
+    "player": "Amon-Ra St. Brown"
+   },
+   {
+    "label": "Bijan Robinson UNDER 80.5 rushing yards",
+    "result": "W",
+    "actual": 76.0,
+    "margin": 4.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 80.5,
+    "player": "Bijan Robinson"
+   },
+   {
+    "label": "Michael Wilson UNDER 57.5 receiving yards",
+    "result": "L",
+    "actual": 111.0,
+    "margin": -53.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 57.5,
+    "player": "Michael Wilson"
+   },
+   {
+    "label": "Kirk Cousins OVER 239.5 passing yards",
+    "result": "W",
+    "actual": 247.0,
+    "margin": 7.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 239.5,
+    "player": "Kirk Cousins"
+   },
+   {
+    "label": "Blake Corum OVER 47.5 rushing yards",
+    "result": "W",
+    "actual": 73.0,
+    "margin": 25.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 47.5,
+    "player": "Blake Corum"
+   },
+   {
+    "label": "Malik Willis UNDER 16.5 completions",
+    "result": "L",
+    "actual": 21.0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 16.5,
+    "player": "Malik Willis"
+   },
+   {
+    "label": "Bo Nix UNDER 15.5 rushing yards",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 11.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 15.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Chig Okonkwo OVER 3.5 receptions",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   },
+   {
+    "label": "Jaxon Smith-Njigba OVER 7.5 receptions",
+    "result": "L",
+    "actual": 6.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7.5,
+    "player": "Jaxon Smith-Njigba"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI MNF Bears passing game held down (3-leg SGP)",
+  "id": "paper_w8_mnf_chi_sea_1_williams_unders",
+  "paper": true,
+  "stake": 10,
+  "odds": "+498",
+  "legs": [
+   {
+    "label": "Caleb Williams UNDER 227.5 passing yards",
+    "result": "L",
+    "actual": 247.0,
+    "margin": -19.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 227.5,
+    "player": "Caleb Williams"
+   },
+   {
+    "label": "Caleb Williams UNDER 25.5 rushing yards",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 24.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 25.5,
+    "player": "Caleb Williams"
+   },
+   {
+    "label": "Caleb Williams UNDER 1.5 passing TDs",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Caleb Williams"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI MNF Seattle volume (3-leg SGP)",
+  "id": "paper_w8_mnf_chi_sea_2_seattle_volume",
+  "paper": true,
+  "stake": 10,
+  "odds": "+632",
+  "legs": [
+   {
+    "label": "Jaxon Smith-Njigba 8+ receptions",
+    "result": "L",
+    "actual": 6.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 8.0,
+    "player": "Jaxon Smith-Njigba"
+   },
+   {
+    "label": "Sam Darnold OVER 4.5 rushing yards",
+    "result": "W",
+    "actual": 20.0,
+    "margin": 15.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 4.5,
+    "player": "Sam Darnold"
+   },
+   {
+    "label": "Zach Charbonnet 28+ rushing yards",
+    "result": "L",
+    "actual": 23.0,
+    "margin": -5.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 28.0,
+    "player": "Zach Charbonnet"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI MNF Bears cover, low score (3-leg SGP)",
+  "id": "paper_w8_mnf_chi_sea_3_bears_cover_low_score",
+  "paper": true,
+  "stake": 10,
+  "odds": "+646",
+  "legs": [
+   {
+    "label": "Chicago Bears +3",
+    "result": "W",
+    "actual": "CHI 34-17",
+    "margin": 20.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   },
+   {
+    "label": "Chicago Bears @ Seattle Seahawks Under 46.5 Total Points",
+    "result": "L",
+    "actual": "total 51",
+    "margin": -4.5,
+    "kind": "total",
+    "key": null,
+    "thr": 46.5,
+    "player": null
+   },
+   {
+    "label": "Caleb Williams UNDER 25.5 rushing yards",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 24.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 25.5,
+    "player": "Caleb Williams"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI MNF MNF touchdown builder, 7e style (3-leg SGP)",
+  "id": "paper_w8_mnf_chi_sea_4_td_builder",
+  "paper": true,
+  "stake": 10,
+  "odds": "+647",
+  "legs": [
+   {
+    "label": "D'Andre Swift anytime TD",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 2.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "D'Andre Swift"
+   },
+   {
+    "label": "Jaxon Smith-Njigba anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jaxon Smith-Njigba"
+   },
+   {
+    "label": "Zach Charbonnet anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Zach Charbonnet"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI MNF Safer 2-leg (SGP)",
+  "id": "paper_w8_mnf_chi_sea_5_safer_2leg",
+  "paper": true,
+  "stake": 10,
+  "odds": "+210",
+  "legs": [
+   {
+    "label": "Caleb Williams UNDER 1.5 passing TDs",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Caleb Williams"
+   },
+   {
+    "label": "Sam Darnold OVER 4.5 rushing yards",
+    "result": "W",
+    "actual": 20.0,
+    "margin": 15.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 4.5,
+    "player": "Sam Darnold"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S1 (Jacobs R+R / Young INT / Kraft 5+ / Young U10.5 rush)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Josh Jacobs 76.5+ rush_rec_yds",
+    "result": "L",
+    "actual": 52.0,
+    "margin": -24.5,
+    "kind": "prop",
+    "key": "rush_rec_yds",
+    "thr": 76.5,
+    "player": "Josh Jacobs"
+   },
+   {
+    "label": "Bryce Young 1+ int_thrown",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Bryce Young"
+   },
+   {
+    "label": "Tucker Kraft 4.5+ rec",
+    "result": "W",
+    "actual": 6.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 4.5,
+    "player": "Tucker Kraft"
+   },
+   {
+    "label": "Bryce Young U10.5 rush_yds",
+    "result": "W",
+    "actual": 0.0,
+    "margin": 10.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 10.5,
+    "player": "Bryce Young"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S2 (Jacobs / Watson / Hubbard ATD)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Josh Jacobs 1+ atd",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Josh Jacobs"
+   },
+   {
+    "label": "Christian Watson 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Christian Watson"
+   },
+   {
+    "label": "Chuba Hubbard 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Chuba Hubbard"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S3 (Young 23+ cmp / Metchie / Hubbard / Watson / Jacobs carries)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Bryce Young 22.5+ completions",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 22.5,
+    "player": "Bryce Young"
+   },
+   {
+    "label": "John Metchie 1.5+ rec",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 1.5,
+    "player": "John Metchie"
+   },
+   {
+    "label": "Chuba Hubbard 2.5+ rec",
+    "result": "W",
+    "actual": 7.0,
+    "margin": 4.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 2.5,
+    "player": "Chuba Hubbard"
+   },
+   {
+    "label": "Christian Watson 4.5+ rec",
+    "result": "W",
+    "actual": 8.0,
+    "margin": 3.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 4.5,
+    "player": "Christian Watson"
+   },
+   {
+    "label": "Josh Jacobs 15.5+ carries",
+    "result": "W",
+    "actual": 21.0,
+    "margin": 5.5,
+    "kind": "prop",
+    "key": "carries",
+    "thr": 15.5,
+    "player": "Josh Jacobs"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S3b (Young / Metchie / Hubbard / Love 2+ TD / McMillan 6+)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jordan Love 1.5+ pass_td",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Jordan Love"
+   },
+   {
+    "label": "Tetairoa McMillan 6+ rec",
+    "result": "W",
+    "actual": 6.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 6,
+    "player": "Tetairoa McMillan"
+   },
+   {
+    "label": "Bryce Young 22.5+ completions",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 0.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 22.5,
+    "player": "Bryce Young"
+   },
+   {
+    "label": "John Metchie 1.5+ rec",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 1.5,
+    "player": "John Metchie"
+   },
+   {
+    "label": "Chuba Hubbard 2.5+ rec",
+    "result": "W",
+    "actual": 7.0,
+    "margin": 4.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 2.5,
+    "player": "Chuba Hubbard"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S4 rebuilt (Love INT / Van Ness / Waller 22+ / Coker ATD)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jordan Love 1+ int_thrown",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Jordan Love"
+   },
+   {
+    "label": "Jalen Coker 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jalen Coker"
+   },
+   {
+    "label": "Lukas Van Ness 1+ sacks",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "sacks",
+    "thr": 1,
+    "player": "Lukas Van Ness"
+   },
+   {
+    "label": "Darren Waller 22+ rec_yds",
+    "result": "L",
+    "actual": 11.0,
+    "margin": -11.0,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 22,
+    "player": "Darren Waller"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S5 (Love 3+ TD / Young 2+ TD / McMillan / Kraft ATD / Coker 6+)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jordan Love 3+ pass_td",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 3,
+    "player": "Jordan Love"
+   },
+   {
+    "label": "Bryce Young 1.5+ pass_td",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 1.5,
+    "player": "Bryce Young"
+   },
+   {
+    "label": "Tetairoa McMillan 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Tetairoa McMillan"
+   },
+   {
+    "label": "Tucker Kraft 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Tucker Kraft"
+   },
+   {
+    "label": "Jalen Coker 6+ rec",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -4.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 6,
+    "player": "Jalen Coker"
+   }
+  ]
+ },
+ {
+  "name": "AI D50 weekend 11-leg",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Josh Jacobs 1+ atd",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Josh Jacobs"
+   },
+   {
+    "label": "BUF ML",
+    "result": "W",
+    "actual": "BUF 36-10",
+    "margin": 26,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Ja'Marr Chase 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Ja'Marr Chase"
+   },
+   {
+    "label": "DAL ML",
+    "result": "L",
+    "actual": "DAL 30-33",
+    "margin": -3,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "PIT ML",
+    "result": "W",
+    "actual": "PIT 27-6",
+    "margin": 21,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Bucky Irving 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Bucky Irving"
+   },
+   {
+    "label": "IND @ JAX Under 46.5",
+    "result": "L",
+    "actual": "total 49",
+    "margin": -2.5,
+    "kind": "total",
+    "key": null,
+    "thr": 46.5,
+    "player": null
+   },
+   {
+    "label": "LAR ML",
+    "result": "W",
+    "actual": "LAR 24-9",
+    "margin": 15,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "KC @ DEN Under 40.5",
+    "result": "L",
+    "actual": "total 52",
+    "margin": -11.5,
+    "kind": "total",
+    "key": null,
+    "thr": 40.5,
+    "player": null
+   },
+   {
+    "label": "NE ML",
+    "result": "W",
+    "actual": "NE 24-19",
+    "margin": 5,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "WSH ML",
+    "result": "W",
+    "actual": "WSH 27-10",
+    "margin": 17,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI D51 weekend 9-leg",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jordan Love 2+ pass_td",
+    "result": "W",
+    "actual": 3.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Jordan Love"
+   },
+   {
+    "label": "DET ML",
+    "result": "W",
+    "actual": "DET 19-15",
+    "margin": 4,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Josh Allen 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Josh Allen"
+   },
+   {
+    "label": "CLE @ PIT Under 39.5",
+    "result": "W",
+    "actual": "total 33",
+    "margin": 6.5,
+    "kind": "total",
+    "key": null,
+    "thr": 39.5,
+    "player": null
+   },
+   {
+    "label": "TB ML",
+    "result": "W",
+    "actual": "TB 16-0",
+    "margin": 16,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Bhayshul Tuten 1+ atd",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Bhayshul Tuten"
+   },
+   {
+    "label": "LAC @ LAR Over 44.5",
+    "result": "L",
+    "actual": "total 33",
+    "margin": -11.5,
+    "kind": "total",
+    "key": null,
+    "thr": 44.5,
+    "player": null
+   },
+   {
+    "label": "Rhamondre Stevenson 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Rhamondre Stevenson"
+   },
+   {
+    "label": "WSH -5.5",
+    "result": "W",
+    "actual": "WSH 27-10",
+    "margin": 11.5,
+    "kind": "spread",
+    "key": null,
+    "thr": -5.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI Afternoon 5 (Stafford INT / Mack / Dobbins / Nix / NE-MIA U43)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Bo Nix U15.5 rush_yds",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 11.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 15.5,
+    "player": "Bo Nix"
+   },
+   {
+    "label": "Matthew Stafford 1+ int_thrown",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Matthew Stafford"
+   },
+   {
+    "label": "Khalil Mack 1+ sacks",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "sacks",
+    "thr": 1,
+    "player": "Khalil Mack"
+   },
+   {
+    "label": "J.K. Dobbins 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "J.K. Dobbins"
+   },
+   {
+    "label": "NE @ MIA Under 43",
+    "result": "P",
+    "actual": "total 43",
+    "margin": 0,
+    "kind": "total",
+    "key": null,
+    "thr": 43,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI SNF T1 (McKee / Okonkwo / Barkley)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Chig Okonkwo 3.5+ rec",
+    "result": "L",
+    "actual": 2.0,
+    "margin": -1.5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3.5,
+    "player": "Chig Okonkwo"
+   },
+   {
+    "label": "Tanner McKee 20+ completions",
+    "result": "W",
+    "actual": 23.0,
+    "margin": 3.0,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 20,
+    "player": "Tanner McKee"
+   },
+   {
+    "label": "Saquon Barkley 51+ rush_yds",
+    "result": "L",
+    "actual": 30.0,
+    "margin": -21.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 51,
+    "player": "Saquon Barkley"
+   }
+  ]
+ },
+ {
+  "name": "AI SNF T2 (Daniels 2+ TD / Diggs 5+ / Lemon ATD)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jayden Daniels 2+ pass_td",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Jayden Daniels"
+   },
+   {
+    "label": "Stefon Diggs 5+ rec",
+    "result": "L",
+    "actual": 3.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 5,
+    "player": "Stefon Diggs"
+   },
+   {
+    "label": "Makai Lemon 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Makai Lemon"
+   }
+  ]
+ },
+ {
+  "name": "AI SNF T3 (Goedert / Hollywood / A. Williams ATD)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Dallas Goedert 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Dallas Goedert"
+   },
+   {
+    "label": "Marquise Brown 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Marquise Brown"
+   },
+   {
+    "label": "Antonio Williams 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Antonio Williams"
+   }
+  ]
+ }
+]
