@@ -190,7 +190,7 @@ def norm_leg(l, w):
         key = 'cfb'
     kind = key if key in ('spread', 'ml', 'total', 'team_total', 'open', 'other', 'cfb', 'dst_td') else 'prop'
     dirn = (l.get('direction') or ('under' if re.search(r'\bunder\b', sl) else 'over')).lower()
-    mm = re.search(r'(\d+)\+', sel); need = int(mm.group(1)) if mm else None
+    mm = re.search(r'(?<![\d.])(\d+(?:\.\d+)?)\+', sel); need = int(-(-float(mm.group(1)) // 1)) if mm else None  # 2026-11-03: '0.5+ Sacks' was read as 5+
     if key == 'int_thrown' and 'at least 1' in sl: need = 1
     line = l.get('line')
     try: line = float(line) if line is not None else None

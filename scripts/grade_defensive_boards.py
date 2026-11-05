@@ -37,7 +37,9 @@ def summary(eid):
         txt = subprocess.run(['curl', '-s', '-m', '30', f'https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event={eid}'], capture_output=True, text=True).stdout
         d = json.loads(txt)
         if d['header']['competitions'][0]['status']['type']['completed']:
-            os.makedirs(CACHE, exist_ok=True); open(os.path.join(CACHE, f'espn-{eid}.json'), 'w').write(txt); return d
+            os.makedirs(CACHE, exist_ok=True); _p = os.path.join(CACHE, f'espn-{eid}.json');
+            with open(_p + '.tmp', 'w', encoding='utf-8') as fh: fh.write(txt)
+            os.replace(_p + '.tmp', _p); return d
     except Exception: pass
     return None
 

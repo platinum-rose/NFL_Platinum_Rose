@@ -1,0 +1,83 @@
+{
+ "generated_at": "2026-11-03T21:30:00Z",
+ "week": 9,
+ "source": "YouTube channel RSS via free web fetch; discovery only",
+ "spend_usd": 0,
+ "extract": [
+  {
+   "show": "Sharp or Square",
+   "title": "NFL WEEK 9 BETS: Jags-Ravens, Jets-Chiefs, Cowboys-Colts, Bucs-Bears, Raiders-49ers, Bills-Vikings",
+   "videoId": "WbYwN5iWNGY",
+   "url": "https://www.youtube.com/watch?v=WbYwN5iWNGY",
+   "published_pt": "2026-11-03 10:51",
+   "speakers_named_in_description": [
+    "Chad Millman",
+    "Simon Hunter"
+   ],
+   "jax_bal_segment": "0:06:00",
+   "runtime_min_lower_bound": "1:04:45"
+  },
+  {
+   "show": "Ross Tucker",
+   "title": "2026 NFL Week 9 BETS!",
+   "videoId": "kq21OfxY1Mk",
+   "url": "https://www.youtube.com/watch?v=kq21OfxY1Mk",
+   "published_pt": "2026-11-03 07:06",
+   "speakers_named_in_description": [
+    "Ross Tucker",
+    "Steve Fezzik"
+   ],
+   "jax_bal_segment": "14:09",
+   "runtime_min_lower_bound": "25:43",
+   "notes": "skip W8 recap 2:10-14:09; label teasers (Wong); likely no captions -> parakeet_local"
+  },
+  {
+   "show": "BettingPros",
+   "title": "NFL Week 9 Early Picks & Line Movement Predictions (2026)",
+   "videoId": "OtB_TD5uMgE",
+   "url": "https://www.youtube.com/watch?v=OtB_TD5uMgE",
+   "published_pt": "2026-11-02 13:27",
+   "also_url": "https://www.youtube.com/shorts/KBxzssZwduM",
+   "notes": "short KBxzssZwduM (11/03 05:29) is probably a clip; extract once"
+  },
+  {
+   "show": "BettingPros",
+   "title": "Early NFL BEST BETS & Survivor Pool Picks: Week 9 Predictions (2026)",
+   "videoId": "KjbSWUbYkeI",
+   "url": "https://www.youtube.com/watch?v=KjbSWUbYkeI",
+   "published_pt": "2026-11-03 13:15",
+   "notes": "found on 3:00 PM PT re-check; Erickson/Perrault/Fitzmaurice format last week; survivor picks -> market as stated, game null"
+  }
+ ],
+ "skipped": [
+  {
+   "videoId": "KuDM9dpepC8",
+   "show": "Sharp or Square",
+   "reason": "recorded Sunday night (rule: never Sunday episodes); Andy may override"
+  },
+  {
+   "videoId": "qR8k9BWi-VM",
+   "show": "Sharp or Square",
+   "reason": "Sunday Week 8 reactions; early W9 leans at 0:42:30"
+  },
+  {
+   "videoId": "ijhyDvDt8S4",
+   "show": "Ross Tucker",
+   "reason": "power rankings, not betting"
+  },
+  {
+   "videoId": "kBq9yqicLlE",
+   "show": "Warren Sharp",
+   "reason": "Week 8 takeaways recap"
+  }
+ ],
+ "not_yet_found": [
+  "Action Network early lines (Koerner/Anderson) - audio feed",
+  "VSiN (Adam Burke)",
+  "Lock & Cash",
+  "Cody Brown",
+  "Move the Sticks",
+  "Ross Tucker Week 9 PICKS (expected Wed)"
+ ],
+ "caption_route_note": "Firecrawl's YouTube postprocessor exposes transcript text to its query/answer mode only (no timestamped raw transcript in markdown/rawHtml), so it can't satisfy the source_timestamp rule. Captions still need yt-dlp/Parakeet on Windows."
+}

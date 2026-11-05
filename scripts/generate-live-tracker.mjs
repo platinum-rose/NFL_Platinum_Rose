@@ -21,6 +21,7 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getNFLWeekInfo } from '../src/lib/constants.js';
+import { writeFileAtomic } from './lib/atomic-file-write.js';
 import { validateWagers } from './lib/validate-wager-legs.mjs';
 import { wagerSplit } from './lib/wager-splits.mjs';
 import { prepareTrackerWagers } from './lib/tracker-wagers.mjs';
@@ -306,7 +307,7 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
       const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`);
       if (!res.ok) throw new Error(`ESPN summary HTTP ${res.status}`);
       data = await res.json();
-      await writeFile(cachePath, JSON.stringify(data, null, 2), 'utf8');
+      await writeFileAtomic(cachePath, JSON.stringify(data, null, 2)); // atomic: a killed build left truncated espn-401872930/31.json (10/22)
     } catch {
       try {
         const raw = await readFile(cachePath, 'utf8');

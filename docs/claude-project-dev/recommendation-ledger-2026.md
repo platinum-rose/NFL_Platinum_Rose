@@ -4,7 +4,7 @@
 
 **2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. **Update 2026-09-29 (Claude Team 2): recovered.** The older version was still in the claude.ai DEV project; it is preserved verbatim as `claude/recommendation-ledger-2026-pre-rebuild.md` (repo mirror `docs/claude-project-dev/recommendation-ledger-2026-pre-rebuild.md`). Cite its entries as **P-D1…P-D15** (Week 2 D1–D12 all IRRELEVANT; Week 3 TNF P-D13–P-D15 overlap D1–D4 here). Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-10-29 ~20:55 PT by Claude (Week 8 TNF graded: D48/D49 and the Andy-built TNF tickets lost, D50/D51 TNF legs won and still alive, D52/D53 graded on paper). Earlier 2026-10-29 ~17:35 PT by Claude (Week 8 section D48–D53 opened: TNF CAR @ GB and weekend tickets logged, pending). Earlier 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
+**Last updated:** 2026-11-04 ~08:30 PT by Claude (Week 8 closed: weekend D50/D51 graded, D54 paper card, D55 SuperContest, D56 FDP promo, close-out on both DK bases). Earlier 2026-10-29 ~20:55 PT by Claude (Week 8 TNF graded: D48/D49 and the Andy-built TNF tickets lost, D50/D51 TNF legs won and still alive, D52/D53 graded on paper). Earlier 2026-10-29 ~17:35 PT by Claude (Week 8 section D48–D53 opened: TNF CAR @ GB and weekend tickets logged, pending). Earlier 2026-10-27 ~09:00 PT by Claude Team 2 (DK Predictions promo reconciliation: all 35 DK tickets retagged promo per Andy, DK booked at the account result (+$132, corrected to +$127.13 from DK's lifetime summary at 12:05 PT), W1/W6/W7 and season cash restated). Earlier the same morning (Week 7 section D38–D47 added; §7l S1/S3 graded by hand from the MNF box score; the claude.ai project copy, which had stopped at Week 4, was replaced with this file). Earlier 2026-10-21 ~13:00 PT by Claude (W6 hit-rate line corrected 72-66 to 70-66 after ticket 740512242 was retagged to W7). Earlier 2026-10-20 ~22:30 PT by Claude (Week 6 D37 added: MNF WSH @ SF island paper proposals, graded from Andy's pasted text; paper only, kept out of placed-bet hit rates). Earlier 2026-10-20 ~14:00 PT by Claude (Week 5 section D34–D36 written, replacing the money stub; W1-2 reconciliation note; W6 hit rates re-run after the Bo Nix leg correction). Earlier 2026-10-20 ~01:30 PT: Week 6 section D27–D33 added. Earlier: 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
 
 ---
 
@@ -240,7 +240,7 @@ Built 2026-10-27 by Claude Team 2 from the ESPN finals (`reports/analysis/week7-
 
 ---
 
-## Week 8 (2026-10-29 TNF CAR @ GB through MNF CHI @ SEA, 2026-11-02) — in progress
+## Week 8 (2026-10-29 TNF CAR @ GB through MNF CHI @ SEA, 2026-11-02) — closed 2026-11-04
 
 Opened 2026-10-29 ~17:35 PT by Claude (DEV session, Andy-approved ledger update). Sources:
 - `reports/bets/2026-w08-tnf-island-ladder-2026-10-29.md`, `2026-w08-tnf-sgp-proposals-2026-10-29.md`, `2026-w08-weekend-parlay-proposal-2026-10-29.md`, `2026-w08-pool-picks-proposal-2026-10-29.md`.
@@ -329,6 +329,42 @@ Session rule added by Andy (3:34 PM PT): **no full-game spreads or totals inside
 - duma GB 10, Yahoo GB 8, CBS GB.
 - Tiebreakers: most points DAL, fewest PHI.
 - Sunday tiebreaker scores (proposed): SEA 24–21, WSH 23–17.
+
+
+**Weekend and MNF results (graded 2026-11-04 from the ESPN finals; tickets already settled in the wagers file).**
+
+| Entry | Ticket | Result | Missed legs |
+|---|---|---|---|
+| D50 weekend 11-leg (agreement + Andy's line buys) | BKR 740983886 ($10) | LOST 8/11 | DAL ML (lost 30-33 in OT); IND-JAX u47.5 (49) and KC-DEN u42 (52), **both of them Andy's bought Unders** |
+| D51 weekend 10-leg (agreement + line buys) | BKR 740984963 ($10) | LOST 7/10 | LAC-LAR o43 (33), BAL-BUF o53 (46), Stevenson ATD |
+
+- **D50/D51 grade: IRRELEVANT on the buys.** Andy's half-point and point buys moved four totals; all four totals lost by more than the buy (49 vs 47.5, 52 vs 42, 33 vs 43, 46 vs 53), so the card's original numbers would also have lost. DAL ML (Claude leg) lost in overtime.
+
+**D54 - Master Intel paper card (24 paper tickets, not placed as a set).** Graded in `reports/analysis/week8-postmortem/platinum-rose-w8-paper-accuracy-2026-11-04.md`.
+- **4 cashed, 20 burnt; legs 38-60 (38.8%)**, down from 53.4% in Week 7. Winners: NE@MIA Under 43.5 single, Dog ML RR (2 of 5 hit), MNF safer 2-leg SGP, Pick 6 Entry B.
+- By unique proposition: **rushing yards 6-1** (Nix and Caleb Williams rushing unders, Bijan and Taylor unders), receptions 0-4, receiving yards 0-2, game totals 1-4.
+- Okonkwo receptions (on 5 templates) and the Warren receiving over (4) were reused too often; one bad read sank many tickets.
+- Andy placed none of the card tickets as written. **Grade: IRRELEVANT to money; skip right on the BEO templates** (all eight lost).
+
+**D55 - SuperContest.** AI five CIN -10.5 L (won by 7), BAL +3.5 L (10-36), CLE +3.5 L (6-27), LAC +6.5 L (9-24), CHI +3 W (won 34-17): **1-4, 1.0 pt**.
+Official five (Andy & Amanda) MIN +3.5 L (15-19), JAX -9.5 W (42-7), CHI +3 W, CLE +3.5 L, CIN -10.5 L: **2-3, 2.0 pts**. The two swaps (MIN and JAX for BAL and LAC) were worth +1.0.
+BKR mirrors 741127297 5-team ($25) lost; compact RR 741127298 ($15) returned $5.10 (-$9.90). **Grade: Andy right** (JAX, the third alternate, won by 35).
+
+**D56 - FDP promo (plan: `claude/fdp-promo-plan-2026-10-30.md`).** Qualifiers: Day 1 5-ML lost on DAL ML; Day 2 JAX ML won.
+Bonus slips: 8 lost (Bonus 1 a-d, Bonus 2 t1/t2, promo v1/v2), each one or two legs short. **MNF Bonus 4 m1 (4-leg) and m2 (5-leg) both won.** Promo: 10 tickets, $80 credit, $58.49 value. **Grade: agreement** (built with Claude); the MNF same-game builds were the ones that hit.
+
+**Andy-built Week 8 weekend/MNF tickets (independent action):** Alejandro splits (13 two-way tickets, all lost) and the **A-A-A DK 6-pick (Tuten/Irving/Allen/Rodgers/Schwesinger/Nacua, $14.98 → $609.00)**, the week's only cash winner. Two BKR 6-team mixed parlays (lost), BKR MNF 2-team U47.5 bought (lost), BEO MNF first-TD Roush (lost), BEO 2H Over 23.5 free bet (won, +$17.39 credit value), DK MNF promo combos (lost), Amanda's solo DK 3-pick ($4.94, lost).
+
+### Week 8 close-out
+**Two bases, pending Andy's DK call:**
+- **As tagged in the wagers file:** 32 cash tickets, $348.27 staked, 2 won, **+$267.83** (`weekly_review.py`). This counts 12 DK Predictions tickets tagged `cash`, including the A-A-A win (+$594.02).
+- **Under the 10/27 rule (DK = promo; DK booked at the account result):** 20 cash tickets (BEO 6, BKR 12, FDP 2), $228.50 staked, $7.10 back, **-$221.40**, plus the change in the DK account result (needs DK's current balance and transaction summary from Andy).
+- Splits (Week 8): Alejandro +$133.06 (14 tickets: $69.94 in, $203 out); Amanda +$198.00 on the A-A-A, less her solo DK ticket ($4.94, lost) if Andy fronted it. Andy's own share of the as-tagged cash result: about -$63.23.
+
+**Divergence tally:** Andy right - D55 (SuperContest +1.0). Claude right - D52 (advised against the TNF 8-leg; lost 6/8). Agreement - D49 (lost), D50/D51 (lost; buys irrelevant), D56 (MNF bonus wins). Partial - D48 (lost only on Andy's McKinney leg). IRRELEVANT - D53, D54.
+**Pattern:** for the second straight week the game-level and rushing reads beat the receiving and TD reads. Week 8's only cash winner was a short-leg combo built from the rushing/QB lane (Tuten, Irving, Allen, Rodgers).
+
+**Season through Week 8:** as tagged, **-$432.61 on $3,650.58**; under the 10/27 rule, **-$921.84 on $3,530.81 in cash tickets plus the DK account result** (+$127.13 through Week 7; Week 8 change pending).
 
 ---
 

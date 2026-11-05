@@ -183,6 +183,7 @@ async function readManualStarterRows(manualDir) {
         impact_bucket: item.impact_bucket || 'starter_uncertain',
         needs_human_review: item.needs_human_review ?? true,
         confidence_basis: item.confidence_basis || 'manual_depth_chart',
+        source_file: entry.name,
       });
     }
   }
@@ -320,6 +321,57 @@ export function applyHumanReviewDecisions(players, decisionsMap) {
   return kept;
 }
 
+// ── STALE-LOCK + AVAILABILITY GUARDS (2026-11-03/04, approved by Andy 11/04) ─────────────────
+// Rule 1: week1-usage-locks.json never expired. For single-starter positions, a newer weekly lock
+// (week-usage-locks.json) for the same team+position supersedes the Week 1 row.
+// Rule 2: a manual/estimated starter whose latest availability event is IR/OUT/PUP/SUSPENDED is kept
+// for audit but marked role "unavailable" and left out of team.known/estimated. Q/D stay starters.
+const WEEK1_LOCK_FILE = 'week1-usage-locks.json';
+const WEEKLY_LOCK_FILE = 'week-usage-locks.json';
+const SINGLE_STARTER_POSITIONS = new Set(['QB', 'RB', 'TE', 'K', 'P']);
+const UNAVAILABLE_STATUSES = new Set(['IR', 'OUT', 'PUP', 'SUSPENDED']);
+
+export function supersedeWeek1Locks(rows) {
+  const weekly = new Set(rows
+    .filter((r) => r.source_file === WEEKLY_LOCK_FILE && SINGLE_STARTER_POSITIONS.has(String(r.position || '').toUpperCase()))
+    .map((r) => `${r.team}|${String(r.position).toUpperCase()}`));
+  const dropped = [];
+  const kept = rows.filter((r) => {
+    if (r.source_file !== WEEK1_LOCK_FILE) return true;
+    const key = `${r.team}|${String(r.position || '').toUpperCase()}`;
+    if (!weekly.has(key)) return true;
+    dropped.push(`${r.team} ${r.player_name} ${r.position}`);
+    return false;
+  });
+  return { kept, dropped };
+}
+
+export function applyAvailabilityVeto(rows, events = []) {
+  const latest = new Map();
+  for (const e of events) {
+    const name = String(e.player_name || '').toLowerCase();
+    const teams = [e.team_abbr, e.primary_team].filter(Boolean);
+    for (const t of new Set(teams)) {
+      const key = `${t}|${name}`;
+      const prev = latest.get(key);
+      if (!prev || String(e.published_at || '') > String(prev.published_at || '')) latest.set(key, e);
+    }
+  }
+  const vetoed = [];
+  for (const row of rows) {
+    const e = latest.get(`${row.team}|${String(row.player_name || '').toLowerCase()}`);
+    const status = String(e?.normalized_status || '').toUpperCase();
+    if (e && UNAVAILABLE_STATUSES.has(status)) {
+      row.role = 'unavailable';
+      row.needs_human_review = true;
+      row.availability_veto = { status, published_at: e.published_at || null, source: e.source || null };
+      row.evidence_tags = [...new Set([...(row.evidence_tags || []), 'availability_veto'])];
+      vetoed.push(`${row.team} ${row.player_name} ${row.position || ''} (${status})`.trim());
+    }
+  }
+  return vetoed;
+}
+
 function buildTeams(rows, namedReviews = []) {
   const teams = {};
   for (const team of Object.values(NFL_TEAMS)) {
@@ -339,6 +391,7 @@ function buildTeams(rows, namedReviews = []) {
     const team = teams[row.team];
     if (!team) continue;
     team.players.push(row);
+    if (row.role === 'unavailable') { (team.unavailable ||= []).push(`${row.player_name} ${row.position || ''}`.trim()); continue; }
     if (row.confidence_basis === 'manual_depth_chart') team.known.push(`${row.player_name} ${row.position || ''}`.trim());
     else team.estimated.push(`${row.player_name} ${row.position || ''}`.trim());
   }
@@ -457,10 +510,12 @@ export async function buildProjectedStarters(options = {}) {
     .filter((event) => namedReviewIndex.get(String(event.player_name || '').toLowerCase())?.eligible_for_synthesis !== false)
     .map(starterSignalFromEvent)
     .filter(Boolean);
-  const eligibleManualRows = manualRows.filter((row) => namedReviewIndex.get(String(row.player_name || '').toLowerCase())?.eligible_for_synthesis !== false);
+  const { kept: currentManualRows, dropped: supersededWeek1Locks } = supersedeWeek1Locks(manualRows);
+  const eligibleManualRows = currentManualRows.filter((row) => namedReviewIndex.get(String(row.player_name || '').toLowerCase())?.eligible_for_synthesis !== false);
   const mergedStarterRows = mergeStarterRows([...eligibleManualRows, ...estimatedRows]);
   const humanReviewDecisions = await loadHumanReviewDecisions(manualDir);
   const players = applyHumanReviewDecisions(mergedStarterRows, humanReviewDecisions);
+  const availabilityVetoes = applyAvailabilityVeto(players, availability.events || []);
   const teams = buildTeams(players, namedStatusReview.cases || []);
   const snapshot = {
     meta: {
@@ -468,6 +523,8 @@ export async function buildProjectedStarters(options = {}) {
       season,
       generated_at: generatedAt,
       source_policy: 'manual_depth_chart_rows_plus_local_availability_starter_language',
+      superseded_week1_locks: supersededWeek1Locks,
+      availability_vetoes: availabilityVetoes,
       player_count: players.length,
       manual_row_count: manualRows.length,
       eligible_manual_row_count: eligibleManualRows.length,

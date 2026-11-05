@@ -185,6 +185,10 @@ async function runCadence(day) {
       await run('node', ['scripts/build-projected-starters.js']);
       console.log(`${c.cyan}6. Ingesting Initial Game Odds (TheOddsAPI)...${c.reset}`);
       await run('node', ['agents/game-odds-ingest.js', '--season', '2026']); // live write: dry run reviewed and approved by Andy 2026-10-06
+      // 2026-11-03: step 1 writes public/schedule.json from the odds snapshot that existed BEFORE step 6, so the cache was always one
+      // ingest behind (W9 JAX@BAL showed 8.5/42.5 after DK moved to 9.5/41.5). Re-write the cache only (--dry-run = no Supabase write, no TheOddsAPI call).
+      console.log(`${c.cyan}6b. Refreshing schedule cache with the new odds snapshot (cache only)...${c.reset}`);
+      await run('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18', '--dry-run']);
       console.log(`${c.cyan}7. Running Roster Audit Baseline...${c.reset}`);
       await run('node', ['scripts/audit-all32-rosters.js']);
       break;
