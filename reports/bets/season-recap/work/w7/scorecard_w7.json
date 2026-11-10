@@ -1,0 +1,398 @@
+{
+ "week": 7,
+ "open_tickets": [],
+ "cash": {
+  "tickets": 24,
+  "won": 0,
+  "staked": 292.57,
+  "returned": 13.52,
+  "net": -279.05,
+  "draftkings_predictions": null
+ },
+ "by_legs": {
+  "2": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 15.0,
+   "returned": 0.0,
+   "net": -15.0
+  },
+  "3": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 30.0,
+   "returned": 0.0,
+   "net": -30.0
+  },
+  "4": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 35.0,
+   "returned": 0.0,
+   "net": -35.0
+  },
+  "5-6": {
+   "tickets": 11,
+   "won": 0,
+   "staked": 108.52,
+   "returned": 0.0,
+   "net": -108.52
+  },
+  "7+": {
+   "tickets": 7,
+   "won": 0,
+   "staked": 69.05,
+   "returned": 0.0,
+   "net": -69.05
+  },
+  "RR": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 35.0,
+   "returned": 13.52,
+   "net": -21.48
+  }
+ },
+ "by_family": {
+  "Game-line parlay": {
+   "tickets": 9,
+   "won": 0,
+   "staked": 155.74,
+   "returned": 0.0,
+   "net": -155.74
+  },
+  "2-team RR": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 35.0,
+   "returned": 13.52,
+   "net": -21.48
+  },
+  "Teaser": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 30.0,
+   "returned": 0.0,
+   "net": -30.0
+  },
+  "Prop parlay / stack": {
+   "tickets": 6,
+   "won": 0,
+   "staked": 38.31,
+   "returned": 0.0,
+   "net": -38.31
+  },
+  "Island SGP ladder (TNF/SNF/MNF)": {
+   "tickets": 6,
+   "won": 0,
+   "staked": 33.52,
+   "returned": 0.0,
+   "net": -33.52
+  }
+ },
+ "ai_vs_andy": {
+  "unique_positions": {
+   "Player props": {
+    "ai_backed": [
+     22,
+     49
+    ],
+    "andy_only": [
+     31,
+     56
+    ],
+    "unplaced_ai": [
+     23,
+     40
+    ]
+   },
+   "Sides & totals": {
+    "ai_backed": [
+     7,
+     21
+    ],
+    "andy_only": [
+     14,
+     26
+    ],
+    "unplaced_ai": [
+     5,
+     8
+    ]
+   }
+  },
+  "ai_record_size": 152,
+  "tickets_by_builder": {
+   "AI-built (all legs in AI record)": {
+    "tickets": 5,
+    "won": 0,
+    "staked": 65.0,
+    "returned": 0.0,
+    "net": -65.0
+   },
+   "Mixed": {
+    "tickets": 16,
+    "won": 0,
+    "staked": 212.57,
+    "returned": 13.52,
+    "net": -199.05
+   },
+   "Andy-built (no AI legs)": {
+    "tickets": 3,
+    "won": 0,
+    "staked": 15.0,
+    "returned": 0.0,
+    "net": -15.0
+   }
+  }
+ },
+ "near_misses": [
+  {
+   "name": "Cross-week Flex SGP 6-team (WAS +7.5 / Under 52 SGP; Bears / Over 50.5 SGP; KC +3.5; MIN ML)",
+   "kind": "cash",
+   "stake": 15,
+   "odds": "+2356",
+   "legs": 6,
+   "missed": "Kansas City Chiefs +3.5",
+   "actual": "KC 3-20",
+   "margin": -13.5
+  },
+  {
+   "name": "BKR 3-team 6-pt football teaser (SF -1, MIN -0.5, KC +8)",
+   "kind": "cash",
+   "stake": 30,
+   "odds": "+150",
+   "legs": 3,
+   "missed": "Kansas City Chiefs +8 (teased from +2)",
+   "actual": "KC 3-20",
+   "margin": -9.0
+  },
+  {
+   "name": "DraftKings Predictions 4-Pick Combo (7% implied): Tucker Kraft Anytime TD Scorer, Jordan Love 2+ Passing Touchdowns, Patrick Mahomes 2+ Passing Touchdowns, TB @ CAR Over 42.5 (Alternate Total Points)",
+   "kind": "promo",
+   "stake": 5.12,
+   "odds": "+1248",
+   "legs": 4,
+   "missed": "Patrick Mahomes 2+ Passing Touchdowns",
+   "actual": 0.0,
+   "margin": -2.0
+  },
+  {
+   "name": "BKR 5-team parlay (GB@DET Under 57 + GB +4.5, KC@SEA SEA ML + Over 41, LAR ML)",
+   "kind": "cash",
+   "stake": 20,
+   "odds": "+1627",
+   "legs": 5,
+   "missed": "Over 41 (SGP with SEA ML)",
+   "actual": "total 23",
+   "margin": -18.0
+  },
+  {
+   "name": "BKR MNF SGP 6-leg moonshot (Javonte 1st TD, Lamb TD, Barkley 44-63 rush yds, Spann-Ford 2+ rec, Dak 2+ pass TD)",
+   "kind": "cash",
+   "stake": 5,
+   "odds": "+15114",
+   "legs": 6,
+   "missed": "Javonte Williams Player To Score 1st Touchdown",
+   "actual": "Saquon Barkley",
+   "margin": null
+  },
+  {
+   "name": "BKR MNF 2-team parlay: Under 44.5 + Dallas -2.5",
+   "kind": "cash",
+   "stake": 15,
+   "odds": "+196",
+   "legs": 2,
+   "missed": "Under 44.5",
+   "actual": "total 59",
+   "margin": -14.5
+  },
+  {
+   "name": "DraftKings Predictions 5-Pick Combo (3.2% implied), MNF DAL @ PHI: McKee 1+ INT, Dak 2+ pass TD, Pierce 20+ rush, Goedert/Lamb ATD",
+   "kind": "promo",
+   "stake": 5,
+   "odds": "+2820",
+   "legs": 5,
+   "missed": "Dallas Goedert Anytime TD Scorer",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "Platinum Rose AI Hybrid A (BEO, no Paris game)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+1203",
+   "legs": 4,
+   "missed": "Under 39.5",
+   "actual": "total 53",
+   "margin": -13.5
+  },
+  {
+   "name": "Platinum Rose AI Hybrid B (BEO, no Paris game)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+1899",
+   "legs": 4,
+   "missed": "Patrick Mahomes pass TD Over 1.5",
+   "actual": 0.0,
+   "margin": -1.5
+  },
+  {
+   "name": "Platinum Rose AI A Receiving-Yards Core 4-Leg (SNF cap)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+389",
+   "legs": 4,
+   "missed": "Sam LaPorta receiving yds Over 40.5",
+   "actual": 18.0,
+   "margin": -22.5
+  },
+  {
+   "name": "Platinum Rose AI MNF Island Tier 1 (fresh)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+704",
+   "legs": 4,
+   "missed": "CeeDee Lamb receptions Over 6.5",
+   "actual": 5.0,
+   "margin": -1.5
+  },
+  {
+   "name": "Platinum Rose AI MNF Island Tier 3 moonshot (fresh)",
+   "kind": "paper",
+   "stake": 5,
+   "odds": "+8065",
+   "legs": 5,
+   "missed": "Javonte Williams first TD",
+   "actual": "Saquon Barkley",
+   "margin": null
+  },
+  {
+   "name": "Platinum Rose AI S3 Defense 5-Leg (DK tackles board)",
+   "kind": "paper",
+   "stake": 5,
+   "odds": null,
+   "legs": 5,
+   "missed": "Total sacks, both teams Over 4.5",
+   "actual": 0,
+   "margin": -4.5
+  }
+ ],
+ "projection": {
+  "source": null,
+  "games": 0,
+  "margin_mae": null,
+  "total_mae": null,
+  "total_bias": null,
+  "winners_right": 0,
+  "rows": []
+ },
+ "split": {
+  "cash": {
+   "tickets": 24,
+   "won": 0,
+   "staked": 292.57,
+   "returned": 13.52,
+   "net": -279.05,
+   "draftkings_predictions": null
+  },
+  "promo": {
+   "tickets": 15,
+   "won": 2,
+   "credit_staked": 94.94,
+   "value_returned": 139.0
+  }
+ },
+ "season": [
+  {
+   "week": 1,
+   "tickets": 20,
+   "won": 2,
+   "staked": 365.82,
+   "returned": 80.56,
+   "net": -285.26,
+   "legs_hit": [
+    63,
+    136
+   ]
+  },
+  {
+   "week": 2,
+   "tickets": 33,
+   "won": 3,
+   "staked": 428.79,
+   "returned": 131.24,
+   "net": -297.55,
+   "legs_hit": [
+    107,
+    211
+   ]
+  },
+  {
+   "week": 3,
+   "tickets": 38,
+   "won": 1,
+   "staked": 498.41,
+   "returned": 39.21,
+   "net": -459.2,
+   "legs_hit": [
+    87,
+    206
+   ]
+  },
+  {
+   "week": 4,
+   "tickets": 27,
+   "won": 1,
+   "staked": 401.32,
+   "returned": 126.39,
+   "net": -274.93,
+   "legs_hit": [
+    85,
+    171
+   ]
+  },
+  {
+   "week": 5,
+   "tickets": 32,
+   "won": 0,
+   "staked": 412.45,
+   "returned": 25.21,
+   "net": -387.24,
+   "legs_hit": [
+    106,
+    207
+   ]
+  },
+  {
+   "week": 6,
+   "tickets": 26,
+   "won": 6,
+   "staked": 902.95,
+   "returned": 2185.74,
+   "net": 1282.79,
+   "legs_hit": [
+    98,
+    180
+   ]
+  },
+  {
+   "week": 7,
+   "tickets": 24,
+   "won": 0,
+   "staked": 292.57,
+   "returned": 13.52,
+   "net": -279.05,
+   "legs_hit": [
+    110,
+    227
+   ]
+  }
+ ],
+ "rules": {
+  "week": 7,
+  "checked": [],
+  "proposed_for_next_week": [],
+  "cash_tickets": 24
+ }
+}

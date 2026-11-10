@@ -1,0 +1,155 @@
+{
+ "week": 9,
+ "checked": [
+  {
+   "id": "C2",
+   "text": "One read on at most 2-3 cash tickets",
+   "check": "read_reuse",
+   "effective_week": 9,
+   "followed": true,
+   "violations": [],
+   "violators": {
+    "tickets": 0,
+    "won": 0,
+    "staked": 0,
+    "returned": 0,
+    "net": 0
+   },
+   "compliant": {
+    "tickets": 21,
+    "won": 5,
+    "staked": 223.11,
+    "returned": 433.23,
+    "net": 210.12
+   },
+   "before_rule": {
+    "tickets": 4,
+    "won": 0,
+    "staked": 58.15,
+    "returned": 0.0,
+    "net": -58.15
+   },
+   "verdict": "followed; before the rule these tickets were 4 for 0, net -58.15"
+  },
+  {
+   "id": "C3",
+   "text": "Prefer rushing-lane legs; receiving props at the lowest rung offered",
+   "check": "lane_pref",
+   "effective_week": 9,
+   "followed": false,
+   "violations": [
+    {
+     "id": "bet_20261108_dkp_4pick_snf_island_tier1_andy_solo",
+     "num": null,
+     "title": "SNF Island Tier 1 DK 4-pick: McLaughlin 2+ FG / Caleb Williams 21+ comp / Mayfield U1.5 pass TD / Raymond 2+ rec (+20% boost)",
+     "why": "Kalif Raymond rec 2 (lowest seen 1.5)",
+     "stake": 9.87,
+     "returned": 83.23,
+     "result": "win"
+    },
+    {
+     "id": "bet_20261109_pick6_3pick_mnf_td_longshot_stack_andy_solo",
+     "num": null,
+     "title": "MNF DK Pick6 3-pick: Coleman TD (2.9x) / Mason TD (1.6x) / D.J. Moore 4+ rec (0.9x) (+50% winnings boost)",
+     "why": "D.J. Moore rec 3.5 (lowest seen 2.5)",
+     "stake": 10.0,
+     "returned": 0.0,
+     "result": "loss"
+    },
+    {
+     "id": "bet_20261109_betonline_1013840975_mnf_6leg_prop_parlay",
+     "num": "1013840975",
+     "title": "MNF BEO 6-leg prop parlay: Allen 211+ pass / Jefferson ATD / Cook 18+ car / Ty Johnson O1.5 rec / Coleman ATD / Moore O3.5 rec",
+     "why": "Ty Johnson rec 1.5 (lowest seen 0.5); D.J. Moore rec 3.5 (lowest seen 2.5)",
+     "stake": 10.0,
+     "returned": 0.0,
+     "result": "loss"
+    }
+   ],
+   "violators": {
+    "tickets": 3,
+    "won": 1,
+    "staked": 29.87,
+    "returned": 83.23,
+    "net": 53.36
+   },
+   "compliant": {
+    "tickets": 18,
+    "won": 4,
+    "staked": 193.24,
+    "returned": 350.0,
+    "net": 156.76
+   },
+   "before_rule": {
+    "tickets": 21,
+    "won": 0,
+    "staked": 142.17,
+    "returned": 0.0,
+    "net": -142.17
+   },
+   "verdict": "broken on 3 cash ticket(s): 1 won, net +53.36 vs compliant net +156.76"
+  },
+  {
+   "id": "C4",
+   "text": "No totals or same-team prop stacks on a shaky-QB game until inactives are out",
+   "check": "shaky_qb",
+   "effective_week": 9,
+   "followed": true,
+   "violations": [],
+   "violators": {
+    "tickets": 0,
+    "won": 0,
+    "staked": 0,
+    "returned": 0,
+    "net": 0
+   },
+   "compliant": {
+    "tickets": 21,
+    "won": 5,
+    "staked": 223.11,
+    "returned": 433.23,
+    "net": 210.12
+   },
+   "before_rule": {
+    "tickets": 0,
+    "won": 0,
+    "staked": 0,
+    "returned": 0,
+    "net": 0
+   },
+   "verdict": "followed"
+  },
+  {
+   "id": "C5",
+   "text": "Skip master round robins",
+   "check": "no_master_rr",
+   "effective_week": 9,
+   "followed": true,
+   "violations": [],
+   "violators": {
+    "tickets": 0,
+    "won": 0,
+    "staked": 0,
+    "returned": 0,
+    "net": 0
+   },
+   "compliant": {
+    "tickets": 21,
+    "won": 5,
+    "staked": 223.11,
+    "returned": 433.23,
+    "net": 210.12
+   },
+   "before_rule": {
+    "tickets": 5,
+    "won": 0,
+    "staked": 525.0,
+    "returned": 84.47,
+    "net": -440.53
+   },
+   "verdict": "followed; before the rule these tickets were 5 for 0, net -440.53"
+  }
+ ],
+ "proposed_for_next_week": [],
+ "cash_tickets": 21
+}

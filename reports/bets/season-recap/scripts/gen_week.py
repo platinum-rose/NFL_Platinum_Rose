@@ -55,7 +55,7 @@ def bar_h(rows, width=640, label_w=150, maxv=None, fmt=lambda v:str(v), row_h=30
 # ---------- chart 1: P&L buckets
 rows=[]
 for k,(s,r,n) in B.items():
-    segs=[(r,'s-ret',f'{k}: returned ${r:.2f}'),(s-r,'s-stake',f'{k}: ${s:.2f} staked on {n} tickets')]
+    segs=[(r,'s-ret',f'{k}: returned ${r:.2f}'),(max(s-r,0),'s-stake',f'{k}: ${s:.2f} staked on {n} tickets')]
     rows.append((k,segs,f'${s:.2f} · {n} tkt'+(f' · back ${r:.2f}' if r else '')))
 c_pnl=bar_h(rows,label_w=190,right_w=250,width=760)
 # ---------- chart 2: projection vs actual totals (dumbbell)
@@ -63,7 +63,9 @@ PROJ=CFG.PROJ
 GM={f"{g['away']}@{g['home']}":g for g in GS}
 dd=[]
 for k,(pa,ph) in PROJ.items():
-    g=GM[k]; a,h=g['score']; dd.append((k,pa+ph,a+h,ph-pa,h-a,(pa>ph)==(a>h)))
+    g=GM.get(k)
+    if not g: continue  # 2026-11-04: projection for a game not in the box-score set
+    a,h=g['score']; dd.append((k,pa+ph,a+h,ph-pa,h-a,(pa>ph)==(a>h)))
 dd.sort(key=lambda x:x[2]-x[1])
 def dumbbell(items,lo,hi,title_proj,title_act,unit,width=640,label_w=90,zero=None):
     plot=width-label_w-30; rh=26; h=rh*len(items)+44
@@ -82,8 +84,9 @@ def dumbbell(items,lo,hi,title_proj,title_act,unit,width=640,label_w=90,zero=Non
 c_tot=dumbbell([(k,round(p,1),a,f'{k}: final total {a} (projected {p:.1f}, {a-p:+.1f})') for k,p,a,pm,am,ok in dd],CFG.TOT_LO,CFG.TOT_HI,'','',' pts')
 dm=sorted(dd,key=lambda x:x[4]-x[3])
 c_mar=dumbbell([(k,round(pm,1),am,f'{k}: home margin {am:+d} (projected {pm:+.1f})'+('' if ok else ' — wrong winner')) for k,p,a,pm,am,ok in dm],-40,40,'','','',zero=0)
-tot_err=sum(a-p for k,p,a,*_ in dd)/len(dd); winners=sum(ok for *_,ok in dd); over_n=sum(a>p for k,p,a,*_ in dd)
-mae=sum(abs(am-pm) for k,p,a,pm,am,ok in dd)/len(dd)
+_n=len(dd) or 1  # 2026-11-04: weeks with no fair-line projection (W5-W7 backfill)
+tot_err=sum(a-p for k,p,a,*_ in dd)/_n; winners=sum(ok for *_,ok in dd); over_n=sum(a>p for k,p,a,*_ in dd)
+mae=sum(abs(am-pm) for k,p,a,pm,am,ok in dd)/_n
 # ---------- chart 3: category hit rate
 order=[]
 for (grp,c),(w,lo) in cat.items(): order.append((grp,c,w,lo))
@@ -94,7 +97,7 @@ def catrows(grp):
         if g!=grp: continue
         rr.append((c,[(w,'s-hit',f'{c}: {w} hit'),(lo,'s-miss',f'{c}: {lo} missed')],f'{w}/{w+lo} · {round(100*w/(w+lo))}%'))
     return rr
-mx=max(w+lo for *_,w,lo in order)
+mx=max([w+lo for *_,w,lo in order] or [1])
 c_cat_p=bar_h(catrows('Player props'),label_w=150,maxv=mx)
 c_cat_s=bar_h(catrows('Sides & totals'),label_w=150,maxv=mx)
 # ---------- chart 4: origin comparison
@@ -160,7 +163,9 @@ def expert_row(k,r):
     srcs=(' <span class="srcs">'+links+'</span>') if links else ''
     return f'<div><dt>Expert view</dt><dd>{e(r["experts"])}{srcs}</dd></div>'
 def gcard(k):
-    g=GM[k]; r=R.get(k); a,h=g['score']; A_,H_=g['away'],g['home']
+    g=GM.get(k); r=R.get(k)
+    if not g: return ''
+    a,h=g['score']; A_,H_=g['away'],g['home']
     ls=g['ls']; nq=max(len(ls[0]),len(ls[1]))
     head=''.join(f'<th>{i+1 if i<4 else "OT"}</th>' for i in range(nq))
     def row(t,q,s,win): return f'<tr class="{ "win" if win else ""}"><td>{t}</td>'+''.join(f'<td>{x}</td>' for x in q)+f'<td class="fin">{s}</td></tr>'

@@ -1,0 +1,13 @@
+[
+ {"id":"w09-sc-ai-five-analytic","title":"SuperContest AI five, analytics-first (Fri 11/06 PM): ARI +12.5 / TB +6.5 / HOU -4.5 / CLE +3 / IND +5.5",
+  "family":"candidates","funding":"promo","book":"SuperContest","source_doc":"reports/intel/w09-model/w09-fair-lines-summary.md",
+  "note":"Supersedes w09-sc-ai-five. Simulated cover at contest line: 60.8/57.7/55.2/54.7/54.3%. Alternates SF -9.5, CIN -3, CAR +2.5. Contest picks, no wager.",
+  "legs":[{"game":"ARI @ SEA","kind":"spread","team":"ARI","line":12.5},{"game":"TB @ CHI","kind":"spread","team":"TB","line":6.5},
+          {"game":"HOU @ LAC","kind":"spread","team":"HOU","line":-4.5},{"game":"CLE @ NO","kind":"spread","team":"CLE","line":3},
+          {"game":"DAL @ IND","kind":"spread","team":"IND","line":5.5}]},
+ {"id":"w09-mi-tb-spread","title":"MI rec (B): TB +6.5","family":"single","funding":"cash","stake":20,"source_doc":"scratch/w09-synthesis-digest.md","note":"sim 57.7%; price not captured (no BKR)","legs":[{"game":"TB @ CHI","kind":"spread","team":"TB","line":6.5}]},
+ {"id":"w09-mi-cle-spread","title":"MI rec (B): CLE +3.5","family":"single","funding":"cash","stake":20,"source_doc":"scratch/w09-synthesis-digest.md","note":"sim 55.7%","legs":[{"game":"CLE @ NO","kind":"spread","team":"CLE","line":3.5}]},
+ {"id":"w09-mi-nyjkc-under","title":"MI rec (C): NYJ@KC Under 48","family":"single","funding":"cash","stake":20,"source_doc":"scratch/w09-synthesis-digest.md","note":"sim 57.2%","legs":[{"game":"NYJ @ KC","kind":"total","line":48,"dir":"under"}]},
+ {"id":"w09-mi-nygphi-over","title":"MI rec (C): NYG@PHI Over 38.5","family":"single","funding":"cash","stake":20,"source_doc":"scratch/w09-synthesis-digest.md","note":"sim 57.9%","legs":[{"game":"NYG @ PHI","kind":"total","line":38.5,"dir":"over"}]},
+ {"id":"w09-mi-cinatl-under","title":"MI rec (C): CIN@ATL Under 52.5","family":"single","funding":"cash","stake":20,"source_doc":"scratch/w09-synthesis-digest.md","note":"sim 56.1%","legs":[{"game":"CIN @ ATL","kind":"total","line":52.5,"dir":"under"}]}
+]

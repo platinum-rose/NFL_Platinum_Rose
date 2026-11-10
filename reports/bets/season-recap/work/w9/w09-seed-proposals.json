@@ -1,0 +1,17 @@
+[
+ {"id": "w09-tnf-candidates-wed", "title": "TNF JAX@BAL candidate legs with a line (Wed 11/04 card)", "family": "candidates", "funding": "cash",
+  "source_doc": "reports/bets/2026-w09-card.md", "created_at": "2026-11-04T16:15:00+00:00",
+  "note": "Theses 1-4. Priced legs (Fagnano pass yds U, Henry rush U, JAX lead-back rush, Lawrence rush U) get logged when the boards post Thursday.",
+  "legs": [
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Roquan Smith", "key": "tackles", "line": 8, "dir": "over"},
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Foyesade Oluokun", "key": "tackles", "line": 7, "dir": "over"},
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Joe Fagnano", "key": "int_thrown", "line": 1, "dir": "over"},
+   {"game": "JAX @ BAL", "kind": "team_total", "team": "BAL", "line": 16.5, "dir": "under", "price": "-150", "book": "BEO"}]},
+ {"id": "w09-fdp-n2-branch-b", "title": "FDP bonus N2 Branch B (Lawrence 2+ pass TD / P. Washington 40+ rec yds / Rodriguez ATD optional)", "family": "prop_parlay",
+  "funding": "promo", "book": "FDP", "source_doc": "reports/bets/2026-w09-card.md", "created_at": "2026-11-04T22:00:00+00:00",
+  "note": "Sent Wed 11/04 ~3 PM PT. Andy placed N2a/N2b instead (different legs).",
+  "legs": [
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Trevor Lawrence", "key": "pass_td", "line": 2, "dir": "over"},
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Parker Washington", "key": "rec_yds", "line": 40, "dir": "over"},
+   {"game": "JAX @ BAL", "kind": "prop", "player": "Chris Rodriguez Jr.", "key": "atd", "line": 1, "dir": "over"}]}
+]

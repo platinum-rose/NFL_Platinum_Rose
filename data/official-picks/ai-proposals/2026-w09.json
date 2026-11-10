@@ -1,0 +1,516 @@
+{
+ "season": 2026,
+ "week": 9,
+ "proposals": [
+  {
+   "id": "w09-tnf-candidates-wed",
+   "title": "TNF JAX@BAL candidate legs with a line (Wed 11/04 card)",
+   "family": "candidates",
+   "funding": "cash",
+   "source_doc": "reports/bets/2026-w09-card.md",
+   "created_at": "2026-11-04T16:15:00+00:00",
+   "note": "Theses 1-4. Priced legs (Fagnano pass yds U, Henry rush U, JAX lead-back rush, Lawrence rush U) get logged when the boards post Thursday.",
+   "legs": [
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Roquan Smith",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Foyesade Oluokun",
+     "key": "tackles",
+     "line": 7,
+     "dir": "over"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Joe Fagnano",
+     "key": "int_thrown",
+     "line": 1,
+     "dir": "over"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "team_total",
+     "team": "BAL",
+     "line": 16.5,
+     "dir": "under",
+     "price": "-150",
+     "book": "BEO"
+    }
+   ],
+   "status": "proposed"
+  },
+  {
+   "id": "w09-fdp-n2-branch-b",
+   "title": "FDP bonus N2 Branch B (Lawrence 2+ pass TD / P. Washington 40+ rec yds / Rodriguez ATD optional)",
+   "family": "prop_parlay",
+   "funding": "promo",
+   "book": "FDP",
+   "source_doc": "reports/bets/2026-w09-card.md",
+   "created_at": "2026-11-04T22:00:00+00:00",
+   "note": "Sent Wed 11/04 ~3 PM PT. Andy placed N2a/N2b instead (different legs).",
+   "legs": [
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Trevor Lawrence",
+     "key": "pass_td",
+     "line": 2,
+     "dir": "over"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Parker Washington",
+     "key": "rec_yds",
+     "line": 40,
+     "dir": "over"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Chris Rodriguez Jr.",
+     "key": "atd",
+     "line": 1,
+     "dir": "over"
+    }
+   ],
+   "status": "proposed"
+  },
+  {
+   "id": "w09-tnf-c1-beo",
+   "title": "TNF C1 'BAL can't move it' (Fagnano U165.5 pass yds / Fagnano 1+ INT / BAL TT U16.5)",
+   "family": "prop_parlay",
+   "funding": "cash",
+   "book": "BEO",
+   "source_doc": "reports/bets/2026-w09-tnf-build-plan.md",
+   "note": "Built 4:15 PM PT after inactives (Tuten active). Prices BEO 4:11 PM capture; tackles legs unavailable (BKR logged out). C1-C5 checked.",
+   "legs": [
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Joe Fagnano",
+     "key": "pass_yds",
+     "line": 165.5,
+     "dir": "under",
+     "price": "-120"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "prop",
+     "player": "Joe Fagnano",
+     "key": "int_thrown",
+     "line": 1,
+     "dir": "over",
+     "price": "-180"
+    },
+    {
+     "game": "JAX @ BAL",
+     "kind": "team_total",
+     "team": "BAL",
+     "line": 16.5,
+     "dir": "under",
+     "price": "-150"
+    }
+   ],
+   "created_at": "2026-11-06T00:14:37+00:00",
+   "status": "proposed"
+  },
+  {
+   "id": "w09-sc-ai-five",
+   "title": "SuperContest AI five (Fri 11/06 AM, pre-cadence): ARI +12.5 / WAS +5.5 / HOU -4.5 / MIN +3.5 / TB +6.5",
+   "family": "candidates",
+   "funding": "promo",
+   "source_doc": "reports/bets/2026-w09-sc-ai-five.md",
+   "book": "SuperContest",
+   "note": "SuperContest contest lines (no wager; not a cash ticket). Value vs BEO 11/05: ARI +4, WAS +1, HOU +1, MIN +0.5 (hook through 3), TB +0.5. Alternate 5th: PHI +3.5. Re-check after Friday cadence/injury designations.",
+   "legs": [
+    {
+     "game": "ARI @ SEA",
+     "kind": "spread",
+     "team": "ARI",
+     "line": 12.5
+    },
+    {
+     "game": "LAR @ WAS",
+     "kind": "spread",
+     "team": "WAS",
+     "line": 5.5
+    },
+    {
+     "game": "HOU @ LAC",
+     "kind": "spread",
+     "team": "HOU",
+     "line": -4.5
+    },
+    {
+     "game": "BUF @ MIN",
+     "kind": "spread",
+     "team": "MIN",
+     "line": 3.5
+    },
+    {
+     "game": "TB @ CHI",
+     "kind": "spread",
+     "team": "TB",
+     "line": 6.5
+    }
+   ],
+   "created_at": "2026-11-06T15:28:53+00:00",
+   "status": "superseded",
+   "updated_at": "2026-11-07T05:56:27+00:00"
+  },
+  {
+   "id": "w09-sun-s1-rush-early",
+   "title": "S1 early-window rushing lanes: Gibbs 79+ / Javonte Williams 61+ / K. Walker 71+ rush yds",
+   "family": "prop_parlay",
+   "funding": "cash",
+   "book": "BEO",
+   "price": "+171 (BKR ref product)",
+   "source_doc": "reports/bets/2026-w09-sunday-card-proposals.md",
+   "note": "Sat 11/07 rungs from BKR capture (reference prices; cross-game parlay must be placed at BEO). Walker lowest posted rung is 71+.",
+   "legs": [
+    {
+     "game": "DET @ MIA",
+     "kind": "prop",
+     "player": "Jahmyr Gibbs",
+     "key": "rush_yds",
+     "line": 79,
+     "dir": "over",
+     "price": "-240"
+    },
+    {
+     "game": "DAL @ IND",
+     "kind": "prop",
+     "player": "Javonte Williams",
+     "key": "rush_yds",
+     "line": 61,
+     "dir": "over",
+     "price": "-229"
+    },
+    {
+     "game": "NYJ @ KC",
+     "kind": "prop",
+     "player": "Kenneth Walker III",
+     "key": "rush_yds",
+     "line": 71,
+     "dir": "over",
+     "price": "-301"
+    }
+   ],
+   "created_at": "2026-11-06T21:01:03+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:10:12+00:00"
+  },
+  {
+   "id": "w09-sun-s2-rush-late",
+   "title": "S2 rushing lanes: Judkins 59+ / Woody Marks 51+ (Irving pending: no BKR board)",
+   "family": "prop_parlay",
+   "funding": "cash",
+   "book": "BEO",
+   "price": "+110 (BKR ref, 2 legs)",
+   "source_doc": "reports/bets/2026-w09-sunday-card-proposals.md",
+   "note": "Sat 11/07: Judkins 49+ is -460 (breaks -350 floor) so 59+; Irving rushing not posted at BKR; add him only if BEO posts a rung inside -350.",
+   "legs": [
+    {
+     "game": "CLE @ NO",
+     "kind": "prop",
+     "player": "Quinshon Judkins",
+     "key": "rush_yds",
+     "line": 59,
+     "dir": "over",
+     "price": "-218"
+    },
+    {
+     "game": "HOU @ LAC",
+     "kind": "prop",
+     "player": "Woody Marks",
+     "key": "rush_yds",
+     "line": 51,
+     "dir": "over",
+     "price": "-229"
+    }
+   ],
+   "created_at": "2026-11-06T21:01:03+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:10:12+00:00"
+  },
+  {
+   "id": "w09-sun-s3-teaser",
+   "title": "S3 6-pt teaser: CAR +8.5 / ATL +9 / GB +9",
+   "family": "game_line_parlay",
+   "funding": "cash",
+   "book": "BEO",
+   "source_doc": "reports/bets/2026-w09-sunday-card-proposals.md",
+   "note": "Through 3 and 7 on all three. Podcast support: CAR best bet (Hunter x2) + CAR/GB 2u teaser legs (Fezzik/Tucker); ATL +3 (Tucker 1u, Fitzmaurice).",
+   "legs": [
+    {
+     "game": "DEN @ CAR",
+     "kind": "spread",
+     "team": "CAR",
+     "line": 8.5
+    },
+    {
+     "game": "CIN @ ATL",
+     "kind": "spread",
+     "team": "ATL",
+     "line": 9
+    },
+    {
+     "game": "GB @ NE",
+     "kind": "spread",
+     "team": "GB",
+     "line": 9
+    }
+   ],
+   "created_at": "2026-11-06T21:01:03+00:00",
+   "status": "proposed"
+  },
+  {
+   "id": "w09-sun-s4-dogs",
+   "title": "S4 (optional) market dogs that match the SC reads: ARI +8.5 / WAS +4.5 / MIN +3",
+   "family": "game_line_parlay",
+   "funding": "cash",
+   "book": "BEO",
+   "source_doc": "reports/bets/2026-w09-sunday-card-proposals.md",
+   "note": "Same reads as the SC five at market numbers. ARI leg runs against Q5's SEA ML leg (an ARI win kills Q5).",
+   "legs": [
+    {
+     "game": "ARI @ SEA",
+     "kind": "spread",
+     "team": "ARI",
+     "line": 8.5
+    },
+    {
+     "game": "LAR @ WAS",
+     "kind": "spread",
+     "team": "WAS",
+     "line": 4.5
+    },
+    {
+     "game": "BUF @ MIN",
+     "kind": "spread",
+     "team": "MIN",
+     "line": 3
+    }
+   ],
+   "created_at": "2026-11-06T21:01:03+00:00",
+   "status": "proposed"
+  },
+  {
+   "id": "w09-sun-tackles-candidates",
+   "title": "Tackles lane candidates (price Saturday; BKR single-game only)",
+   "family": "candidates",
+   "funding": "cash",
+   "source_doc": "reports/bets/2026-w09-sunday-card-proposals.md",
+   "note": "TNF tackles reads went 2-0. Ernest Jones dropped (ankle, Q).",
+   "legs": [
+    {
+     "game": "LAR @ WAS",
+     "kind": "prop",
+     "player": "Sonny Styles",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    },
+    {
+     "game": "TB @ CHI",
+     "kind": "prop",
+     "player": "Josiah Trotter",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    },
+    {
+     "game": "HOU @ LAC",
+     "kind": "prop",
+     "player": "Azeez Al-Shaair",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    },
+    {
+     "game": "ARI @ SEA",
+     "kind": "prop",
+     "player": "Jack Gibbens",
+     "key": "tackles",
+     "line": 7,
+     "dir": "over"
+    },
+    {
+     "game": "BUF @ MIN",
+     "kind": "prop",
+     "player": "Blake Cashman",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    }
+   ],
+   "created_at": "2026-11-06T21:01:03+00:00",
+   "status": "proposed"
+  },
+  {
+   "id": "w09-mi-cinatl-under",
+   "title": "MI rec (C): CIN@ATL Under 52.5",
+   "family": "single",
+   "funding": "cash",
+   "stake": 20,
+   "source_doc": "scratch/w09-synthesis-digest.md",
+   "note": "sim 56.1%",
+   "legs": [
+    {
+     "game": "CIN @ ATL",
+     "kind": "total",
+     "line": 52.5,
+     "dir": "under"
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "superseded",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  },
+  {
+   "id": "w09-mi-cle-spread",
+   "title": "MI rec (B): CLE +3 (+103 BKR)",
+   "family": "single",
+   "funding": "cash",
+   "stake": 20,
+   "book": "BKR",
+   "price": "+103",
+   "source_doc": "scratch/w09-synthesis-digest-sat.md",
+   "note": "Sat: sim 55.4% ex-push (Fri +3.5)",
+   "legs": [
+    {
+     "game": "CLE @ NO",
+     "kind": "spread",
+     "team": "CLE",
+     "line": 3,
+     "price": "+103"
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  },
+  {
+   "id": "w09-mi-nygphi-over",
+   "title": "MI rec (C): NYG@PHI Over 38.5 (-109 BKR)",
+   "family": "single",
+   "funding": "cash",
+   "stake": 20,
+   "book": "BKR",
+   "price": "-109",
+   "source_doc": "scratch/w09-synthesis-digest-sat.md",
+   "note": "sim 57.9%",
+   "legs": [
+    {
+     "game": "NYG @ PHI",
+     "kind": "total",
+     "line": 38.5,
+     "dir": "over",
+     "price": "-109"
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  },
+  {
+   "id": "w09-mi-nyjkc-under",
+   "title": "MI rec (C): NYJ@KC Under 48 (-107 BKR)",
+   "family": "single",
+   "funding": "cash",
+   "stake": 20,
+   "book": "BKR",
+   "price": "-107",
+   "source_doc": "scratch/w09-synthesis-digest-sat.md",
+   "note": "sim 57.2%",
+   "legs": [
+    {
+     "game": "NYJ @ KC",
+     "kind": "total",
+     "line": 48,
+     "dir": "under",
+     "price": "-107"
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  },
+  {
+   "id": "w09-mi-tb-spread",
+   "title": "MI rec (B): TB +6 (-110 BKR)",
+   "family": "single",
+   "funding": "cash",
+   "stake": 20,
+   "book": "BKR",
+   "price": "-110",
+   "source_doc": "scratch/w09-synthesis-digest-sat.md",
+   "note": "Sat: sim 57.2% (Fri +6.5 57.7%)",
+   "legs": [
+    {
+     "game": "TB @ CHI",
+     "kind": "spread",
+     "team": "TB",
+     "line": 6,
+     "price": "-110"
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  },
+  {
+   "id": "w09-sc-ai-five-analytic",
+   "title": "SuperContest AI five, analytics-first (Sat 11/07): ARI +12.5 / TB +6.5 / CLE +3 / IND +5.5 / SF -9.5",
+   "family": "candidates",
+   "funding": "promo",
+   "book": "SuperContest",
+   "source_doc": "reports/intel/w09-model/w09-fair-lines-summary.md",
+   "note": "Sat re-run at BKR lines: 60.1/58.4/55.4/55.0/54.8%. SF replaces HOU -4.5 (53.9%, first alternate). Alternates HOU -4.5, CAR +2.5, CIN -3.",
+   "legs": [
+    {
+     "game": "ARI @ SEA",
+     "kind": "spread",
+     "team": "ARI",
+     "line": 12.5
+    },
+    {
+     "game": "TB @ CHI",
+     "kind": "spread",
+     "team": "TB",
+     "line": 6.5
+    },
+    {
+     "game": "CLE @ NO",
+     "kind": "spread",
+     "team": "CLE",
+     "line": 3
+    },
+    {
+     "game": "DAL @ IND",
+     "kind": "spread",
+     "team": "IND",
+     "line": 5.5
+    },
+    {
+     "game": "LV @ SF",
+     "kind": "spread",
+     "team": "SF",
+     "line": -9.5
+    }
+   ],
+   "created_at": "2026-11-07T05:56:27+00:00",
+   "status": "proposed",
+   "updated_at": "2026-11-07T21:11:48+00:00"
+  }
+ ]
+}

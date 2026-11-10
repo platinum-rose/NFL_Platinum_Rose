@@ -1,0 +1,12 @@
+[
+ {"id":"w09-sc-ai-five-analytic","title":"SuperContest AI five, analytics-first (Sat 11/07): ARI +12.5 / TB +6.5 / CLE +3 / IND +5.5 / SF -9.5",
+  "family":"candidates","funding":"promo","book":"SuperContest","source_doc":"reports/intel/w09-model/w09-fair-lines-summary.md",
+  "note":"Sat re-run at BKR lines: 60.1/58.4/55.4/55.0/54.8%. SF replaces HOU -4.5 (53.9%, first alternate). Alternates HOU -4.5, CAR +2.5, CIN -3.",
+  "legs":[{"game":"ARI @ SEA","kind":"spread","team":"ARI","line":12.5},{"game":"TB @ CHI","kind":"spread","team":"TB","line":6.5},
+          {"game":"CLE @ NO","kind":"spread","team":"CLE","line":3},{"game":"DAL @ IND","kind":"spread","team":"IND","line":5.5},
+          {"game":"LV @ SF","kind":"spread","team":"SF","line":-9.5}]},
+ {"id":"w09-mi-tb-spread","title":"MI rec (B): TB +6 (-110 BKR)","family":"single","funding":"cash","stake":20,"book":"BKR","price":"-110","source_doc":"scratch/w09-synthesis-digest-sat.md","note":"Sat: sim 57.2% (Fri +6.5 57.7%)","legs":[{"game":"TB @ CHI","kind":"spread","team":"TB","line":6,"price":"-110"}]},
+ {"id":"w09-mi-cle-spread","title":"MI rec (B): CLE +3 (+103 BKR)","family":"single","funding":"cash","stake":20,"book":"BKR","price":"+103","source_doc":"scratch/w09-synthesis-digest-sat.md","note":"Sat: sim 55.4% ex-push (Fri +3.5)","legs":[{"game":"CLE @ NO","kind":"spread","team":"CLE","line":3,"price":"+103"}]},
+ {"id":"w09-mi-nyjkc-under","title":"MI rec (C): NYJ@KC Under 48 (-107 BKR)","family":"single","funding":"cash","stake":20,"book":"BKR","price":"-107","source_doc":"scratch/w09-synthesis-digest-sat.md","note":"sim 57.2%","legs":[{"game":"NYJ @ KC","kind":"total","line":48,"dir":"under","price":"-107"}]},
+ {"id":"w09-mi-nygphi-over","title":"MI rec (C): NYG@PHI Over 38.5 (-109 BKR)","family":"single","funding":"cash","stake":20,"book":"BKR","price":"-109","source_doc":"scratch/w09-synthesis-digest-sat.md","note":"sim 57.9%","legs":[{"game":"NYG @ PHI","kind":"total","line":38.5,"dir":"over","price":"-109"}]}
+]

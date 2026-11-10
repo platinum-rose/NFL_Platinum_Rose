@@ -1,0 +1,672 @@
+[
+ {
+  "name": "Platinum Rose AI Single NYJ@KC Under 48",
+  "id": "paper_w9_card_single_nyj_kc_under_48",
+  "paper": true,
+  "stake": 20.0,
+  "odds": "-107",
+  "legs": [
+   {
+    "label": "Under 48",
+    "result": "W",
+    "actual": "total 47",
+    "margin": 1.0,
+    "kind": "total",
+    "key": null,
+    "thr": 48.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single NYG@PHI Over 38.5",
+  "id": "paper_w9_card_single_nyg_phi_over_38_5",
+  "paper": true,
+  "stake": 20.0,
+  "odds": "-109",
+  "legs": [
+   {
+    "label": "Over 38.5",
+    "result": "L",
+    "actual": "total 30",
+    "margin": -8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 38.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single TB@CHI Tampa Bay +6",
+  "id": "paper_w9_card_single_tb_chi_tampa_bay_6",
+  "paper": true,
+  "stake": 20.0,
+  "odds": "-110",
+  "legs": [
+   {
+    "label": "Tampa Bay +6",
+    "result": "W",
+    "actual": "TB 24-27",
+    "margin": 3.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 6.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Single CLE@NO Cleveland +3",
+  "id": "paper_w9_card_single_cle_no_cleveland_3",
+  "paper": true,
+  "stake": 20.0,
+  "odds": "+103",
+  "legs": [
+   {
+    "label": "Cleveland +3",
+    "result": "W",
+    "actual": "CLE 22-23",
+    "margin": 2.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Model Sides Parlay (3 legs)",
+  "id": "paper_w9_card_model_sides_parlay_3_legs",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+646",
+  "legs": [
+   {
+    "label": "Tampa Bay +6",
+    "result": "W",
+    "actual": "TB 24-27",
+    "margin": 3.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 6.0,
+    "player": null
+   },
+   {
+    "label": "Cleveland +3",
+    "result": "W",
+    "actual": "CLE 22-23",
+    "margin": 2.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   },
+   {
+    "label": "Indianapolis +4.5",
+    "result": "W",
+    "actual": "IND 23-27",
+    "margin": 0.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 4.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Dog ML Round Robin (by 2s)",
+  "id": "paper_w9_card_dog_ml_round_robin_by_2s",
+  "paper": true,
+  "stake": 20.0,
+  "odds": null,
+  "legs": [
+   {
+    "label": "ARI ML",
+    "result": "L",
+    "actual": "ARI 3-17",
+    "margin": -14,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "TB ML",
+    "result": "L",
+    "actual": "TB 24-27",
+    "margin": -3,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "CLE ML",
+    "result": "L",
+    "actual": "CLE 22-23",
+    "margin": -1,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "IND ML",
+    "result": "L",
+    "actual": "IND 23-27",
+    "margin": -4,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "CAR ML",
+    "result": "L",
+    "actual": "CAR 21-26",
+    "margin": -5,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7a Rushing Lane 3-Leg (S1, BEO template)",
+  "id": "paper_w9_card_7a_rushing_lane_3_leg_s1_beo_template",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+171",
+  "legs": [
+   {
+    "label": "Jahmyr Gibbs rush yds 79+",
+    "result": "L",
+    "actual": 74.0,
+    "margin": -5.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 79.0,
+    "player": "Jahmyr Gibbs"
+   },
+   {
+    "label": "Javonte Williams rush yds 61+",
+    "result": "W",
+    "actual": 101.0,
+    "margin": 40.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 61.0,
+    "player": "Javonte Williams"
+   },
+   {
+    "label": "Kenneth Walker III rush yds 71+",
+    "result": "W",
+    "actual": 102.0,
+    "margin": 31.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 71.0,
+    "player": "Kenneth Walker III"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7b Rushing Lane 2-Leg (S2, BEO template)",
+  "id": "paper_w9_card_7b_rushing_lane_2_leg_s2_beo_template",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+110",
+  "legs": [
+   {
+    "label": "Quinshon Judkins rush yds 59+",
+    "result": "L",
+    "actual": 43.0,
+    "margin": -16.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 59.0,
+    "player": "Quinshon Judkins"
+   },
+   {
+    "label": "Woody Marks rush yds 51+",
+    "result": "W",
+    "actual": 70.0,
+    "margin": 19.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 51.0,
+    "player": "Woody Marks"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7c Hit-Rate Screen 4-Leg (BEO template)",
+  "id": "paper_w9_card_7c_hit_rate_screen_4_leg_beo_template",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+2270",
+  "legs": [
+   {
+    "label": "J.K. Dobbins rush yds 36+",
+    "result": "L",
+    "actual": 18.0,
+    "margin": -18.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 36.0,
+    "player": "J.K. Dobbins"
+   },
+   {
+    "label": "Brock Purdy rush yds 26+",
+    "result": "W",
+    "actual": 40.0,
+    "margin": 14.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 26.0,
+    "player": "Brock Purdy"
+   },
+   {
+    "label": "Aaron Jones rush attempts 10+",
+    "result": "L",
+    "actual": 5.0,
+    "margin": -5.0,
+    "kind": "prop",
+    "key": "carries",
+    "thr": 10.0,
+    "player": "Aaron Jones"
+   },
+   {
+    "label": "Samaje Perine rush attempts under 5.5",
+    "result": "L",
+    "actual": 11.0,
+    "margin": -5.5,
+    "kind": "prop",
+    "key": "carries",
+    "thr": 5.5,
+    "player": "Samaje Perine"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 7e Anytime TD 3-Leg (BEO template)",
+  "id": "paper_w9_card_7e_anytime_td_3_leg_beo_template",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+2271",
+  "legs": [
+   {
+    "label": "Mike Gesicki anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Mike Gesicki"
+   },
+   {
+    "label": "Stefon Diggs anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Stefon Diggs"
+   },
+   {
+    "label": "Trey McBride anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Trey McBride"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI 8a First TD 3-Leg (BEO template)",
+  "id": "paper_w9_card_8a_first_td_3_leg_beo_template",
+  "paper": true,
+  "stake": 10.0,
+  "odds": "+5087",
+  "legs": [
+   {
+    "label": "Jahmyr Gibbs first TD",
+    "result": "W",
+    "actual": "Jahmyr Gibbs",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Jahmyr Gibbs"
+   },
+   {
+    "label": "Bijan Robinson first TD",
+    "result": "L",
+    "actual": "Charlie Woerner",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Bijan Robinson"
+   },
+   {
+    "label": "Kenneth Walker III first TD",
+    "result": "W",
+    "actual": "Kenneth Walker III",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Kenneth Walker III"
+   }
+  ]
+ },
+ {
+  "name": "Platinum Rose AI Week 9 SuperContest five 5-team parlay (ARI +12.5, TB +6.5, CLE +3, IND +5.5, SF -9.5)",
+  "id": "paper_w9_ai_supercontest_five",
+  "paper": true,
+  "stake": 25.0,
+  "odds": "+2436",
+  "legs": [
+   {
+    "label": "Arizona Cardinals +12.5",
+    "result": "L",
+    "actual": "ARI 3-17",
+    "margin": -1.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 12.5,
+    "player": null
+   },
+   {
+    "label": "Tampa Bay Buccaneers +6.5",
+    "result": "W",
+    "actual": "TB 24-27",
+    "margin": 3.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 6.5,
+    "player": null
+   },
+   {
+    "label": "Cleveland Browns +3",
+    "result": "W",
+    "actual": "CLE 22-23",
+    "margin": 2.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.0,
+    "player": null
+   },
+   {
+    "label": "Indianapolis Colts +5.5",
+    "result": "W",
+    "actual": "IND 23-27",
+    "margin": 1.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 5.5,
+    "player": null
+   },
+   {
+    "label": "San Francisco 49ers -9.5",
+    "result": "W",
+    "actual": "SF 38-17",
+    "margin": 11.5,
+    "kind": "spread",
+    "key": null,
+    "thr": -9.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI FDP bonus N2 Branch B (Lawrence 2+ pass TD / P. Washington 40+ rec yds / Rodriguez ATD optional) (promo)",
+  "id": "w09-fdp-n2-branch-b",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": null,
+  "funding": "promo",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "Trevor Lawrence 2+ pass_td",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Trevor Lawrence"
+   },
+   {
+    "label": "Parker Washington 40+ rec_yds",
+    "result": "W",
+    "actual": 61.0,
+    "margin": 21.0,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 40,
+    "player": "Parker Washington"
+   },
+   {
+    "label": "Chris Rodriguez Jr. 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Chris Rodriguez Jr."
+   }
+  ]
+ },
+ {
+  "name": "AI TNF C1 'BAL can't move it' (Fagnano U165.5 pass yds / Fagnano 1+ INT / BAL TT U16.5)",
+  "id": "w09-tnf-c1-beo",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": null,
+  "funding": "cash",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "Joe Fagnano U165.5 pass_yds",
+    "result": "W",
+    "actual": 60.0,
+    "margin": 105.5,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 165.5,
+    "player": "Joe Fagnano"
+   },
+   {
+    "label": "Joe Fagnano 1+ int_thrown",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Joe Fagnano"
+   },
+   {
+    "label": "BAL TT Under 16.5",
+    "result": "W",
+    "actual": "BAL 10",
+    "margin": 6.5,
+    "kind": "team_total",
+    "key": null,
+    "thr": 16.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI S1 early-window rushing lanes: Gibbs 79+ / Javonte Williams 61+ / K. Walker 71+ rush yds",
+  "id": "w09-sun-s1-rush-early",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": "+171 (BKR ref product)",
+  "funding": "cash",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "Jahmyr Gibbs 79+ rush_yds",
+    "result": "L",
+    "actual": 74.0,
+    "margin": -5.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 79,
+    "player": "Jahmyr Gibbs"
+   },
+   {
+    "label": "Javonte Williams 61+ rush_yds",
+    "result": "W",
+    "actual": 101.0,
+    "margin": 40.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 61,
+    "player": "Javonte Williams"
+   },
+   {
+    "label": "Kenneth Walker III 71+ rush_yds",
+    "result": "W",
+    "actual": 102.0,
+    "margin": 31.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 71,
+    "player": "Kenneth Walker III"
+   }
+  ]
+ },
+ {
+  "name": "AI S2 rushing lanes: Judkins 59+ / Woody Marks 51+ (Irving pending: no BKR board)",
+  "id": "w09-sun-s2-rush-late",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": "+110 (BKR ref, 2 legs)",
+  "funding": "cash",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "Quinshon Judkins 59+ rush_yds",
+    "result": "L",
+    "actual": 43.0,
+    "margin": -16.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 59,
+    "player": "Quinshon Judkins"
+   },
+   {
+    "label": "Woody Marks 51+ rush_yds",
+    "result": "W",
+    "actual": 70.0,
+    "margin": 19.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 51,
+    "player": "Woody Marks"
+   }
+  ]
+ },
+ {
+  "name": "AI S3 6-pt teaser: CAR +8.5 / ATL +9 / GB +9",
+  "id": "w09-sun-s3-teaser",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": null,
+  "funding": "cash",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "CAR +8.5",
+    "result": "W",
+    "actual": "CAR 21-26",
+    "margin": 3.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 8.5,
+    "player": null
+   },
+   {
+    "label": "ATL +9",
+    "result": "L",
+    "actual": "ATL 17-34",
+    "margin": -8,
+    "kind": "spread",
+    "key": null,
+    "thr": 9,
+    "player": null
+   },
+   {
+    "label": "GB +9",
+    "result": "W",
+    "actual": "GB 45-27",
+    "margin": 27,
+    "kind": "spread",
+    "key": null,
+    "thr": 9,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI S4 (optional) market dogs that match the SC reads: ARI +8.5 / WAS +4.5 / MIN +3",
+  "id": "w09-sun-s4-dogs",
+  "paper": true,
+  "extra": true,
+  "stake": null,
+  "odds": null,
+  "funding": "cash",
+  "status": "proposed",
+  "legs": [
+   {
+    "label": "ARI +8.5",
+    "result": "L",
+    "actual": "ARI 3-17",
+    "margin": -5.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 8.5,
+    "player": null
+   },
+   {
+    "label": "WAS +4.5",
+    "result": "L",
+    "actual": "WSH 13-20",
+    "margin": -2.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 4.5,
+    "player": null
+   },
+   {
+    "label": "MIN +3",
+    "result": "L",
+    "actual": "MIN 6-23",
+    "margin": -14,
+    "kind": "spread",
+    "key": null,
+    "thr": 3,
+    "player": null
+   }
+  ]
+ }
+]

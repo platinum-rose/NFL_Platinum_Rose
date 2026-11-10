@@ -1,0 +1,594 @@
+{
+ "week": 8,
+ "open_tickets": [],
+ "cash": {
+  "tickets": 32,
+  "won": 2,
+  "staked": 348.27,
+  "returned": 616.1,
+  "net": 267.83,
+  "draftkings_predictions": {
+   "tickets": 12,
+   "won": 1,
+   "staked": 119.77,
+   "returned": 609.0,
+   "net": 489.23
+  }
+ },
+ "by_legs": {
+  "1": {
+   "tickets": 2,
+   "won": 1,
+   "staked": 4.66,
+   "returned": 2.0,
+   "net": -2.66
+  },
+  "2": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 46.02,
+   "returned": 0.0,
+   "net": -46.02
+  },
+  "3": {
+   "tickets": 4,
+   "won": 0,
+   "staked": 34.9,
+   "returned": 0.0,
+   "net": -34.9
+  },
+  "4": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 6.02,
+   "returned": 0.0,
+   "net": -6.02
+  },
+  "5-6": {
+   "tickets": 15,
+   "won": 1,
+   "staked": 176.7,
+   "returned": 609.0,
+   "net": 432.3
+  },
+  "7+": {
+   "tickets": 7,
+   "won": 0,
+   "staked": 64.97,
+   "returned": 0.0,
+   "net": -64.97
+  },
+  "RR": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 15.0,
+   "returned": 5.1,
+   "net": -9.9
+  }
+ },
+ "by_family": {
+  "Game-line parlay": {
+   "tickets": 7,
+   "won": 0,
+   "staked": 117.82,
+   "returned": 0.0,
+   "net": -117.82
+  },
+  "2-team RR": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 15.0,
+   "returned": 5.1,
+   "net": -9.9
+  },
+  "Single": {
+   "tickets": 2,
+   "won": 1,
+   "staked": 4.66,
+   "returned": 2.0,
+   "net": -2.66
+  },
+  "Prop parlay / stack": {
+   "tickets": 14,
+   "won": 1,
+   "staked": 139.8,
+   "returned": 609.0,
+   "net": 469.2
+  },
+  "Island SGP ladder (TNF/SNF/MNF)": {
+   "tickets": 8,
+   "won": 0,
+   "staked": 70.99,
+   "returned": 0.0,
+   "net": -70.99
+  }
+ },
+ "ai_vs_andy": {
+  "unique_positions": {
+   "Player props": {
+    "ai_backed": [
+     22,
+     38
+    ],
+    "andy_only": [
+     70,
+     105
+    ],
+    "unplaced_ai": [
+     10,
+     29
+    ]
+   },
+   "Sides & totals": {
+    "ai_backed": [
+     13,
+     26
+    ],
+    "andy_only": [
+     5,
+     14
+    ],
+    "unplaced_ai": [
+     1,
+     3
+    ]
+   }
+  },
+  "ai_record_size": 100,
+  "tickets_by_builder": {
+   "AI-built (all legs in AI record)": {
+    "tickets": 5,
+    "won": 0,
+    "staked": 50.99,
+    "returned": 0.0,
+    "net": -50.99
+   },
+   "Mixed": {
+    "tickets": 20,
+    "won": 1,
+    "staked": 232.68,
+    "returned": 614.1,
+    "net": 381.42
+   },
+   "Andy-built (no AI legs)": {
+    "tickets": 7,
+    "won": 1,
+    "staked": 64.6,
+    "returned": 2.0,
+    "net": -62.6
+   }
+  }
+ },
+ "near_misses": [
+  {
+   "name": "DraftKings Predictions 6-Pick Combo (3.4%), TNF CAR @ GB, 30% profit boost: Hubbard ATD, McKinney 4+ T+A, Jacobs 15+ carries, Young 1+ INT, Kraft 4+ rec, Watson 5+ rec",
+   "kind": "promo",
+   "stake": 10,
+   "odds": "+3458",
+   "legs": 6,
+   "missed": "Xavier McKinney 4+ Tackles + Assists",
+   "actual": 3.0,
+   "margin": -1.0
+  },
+  {
+   "name": "Week 8 TNF BEO 4-leg prop parlay (Love o0.5 INT, Van Ness o0.5 sacks, Coker ATD, Waller o21.5 rec yds)",
+   "kind": "cash",
+   "stake": 6.02,
+   "odds": "+2300",
+   "legs": 4,
+   "missed": "Darren Waller Over 21.5 Receiving Yards",
+   "actual": 11.0,
+   "margin": -10.5
+  },
+  {
+   "name": "DraftKings Predictions 2-Pick Combo (29%), TNF CAR @ GB: CAR +4.5 (alt spread), Under 48.5 (alt total)",
+   "kind": "promo",
+   "stake": 9.87,
+   "odds": "+224",
+   "legs": 2,
+   "missed": "CAR Panthers +4.5 (Alternate Spread)",
+   "actual": "CAR 19-27",
+   "margin": -3.5
+  },
+  {
+   "name": "bet_20261031_fdp_bonus2_t1_5leg",
+   "kind": "promo",
+   "stake": 10,
+   "odds": null,
+   "legs": 5,
+   "missed": "Yes Javonte Williams To Score a Touchdown",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "bet_20261031_fdp_bonus2_t2_4leg",
+   "kind": "promo",
+   "stake": 10,
+   "odds": null,
+   "legs": 4,
+   "missed": "Over 24.5 Chris Godwin Jr. Receiving Yards",
+   "actual": 0.0,
+   "margin": -24.5
+  },
+  {
+   "name": "bet_20261030_fdp_day1_qualifier_5ml",
+   "kind": "cash",
+   "stake": 1.8,
+   "odds": null,
+   "legs": 5,
+   "missed": "Dallas Cowboys ML",
+   "actual": "DAL 30-33",
+   "margin": -3
+  },
+  {
+   "name": "bet_20261030_fdp_bonus1_d_6leg",
+   "kind": "promo",
+   "stake": 5.01,
+   "odds": null,
+   "legs": 6,
+   "missed": "Over 49.5 Zay Flowers Receiving Yards",
+   "actual": 0.0,
+   "margin": -49.5
+  },
+  {
+   "name": "Week 8 Alejandro split DK Predictions 3-pick combo: Josh Allen / Mike Gesicki / Darnell Washington anytime TD (+10% profit boost)",
+   "kind": "cash",
+   "stake": 9.97,
+   "odds": "+2328",
+   "legs": 3,
+   "missed": "Darnell Washington Anytime TD Scorer",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "Amanda solo DK Predictions 3-pick combo: Stafford 2+ pass TD / Herbert 1+ INT / Landman 8+ T+A",
+   "kind": "cash",
+   "stake": 4.94,
+   "odds": "+345",
+   "legs": 3,
+   "missed": "Matthew Stafford 2+ Passing Touchdowns",
+   "actual": 1.0,
+   "margin": -1.0
+  },
+  {
+   "name": "FanDuel promo V1: Kyren Williams ATD / J.K. Dobbins over 24.5 rush yards / Malik Washington over 2.5 receptions",
+   "kind": "promo",
+   "stake": 10,
+   "odds": null,
+   "legs": 3,
+   "missed": "J.K. Dobbins Over 24.5 Rushing Yards",
+   "actual": 13.0,
+   "margin": -11.5
+  },
+  {
+   "name": "FanDuel promo V2: Kenneth Walker III ATD / Hunter Henry over 1.5 receptions / Dallas Goedert over 1.5 receptions",
+   "kind": "promo",
+   "stake": 10,
+   "odds": null,
+   "legs": 3,
+   "missed": "Kenneth Walker III Anytime Touchdown",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "Official Alejandro split SNF: McKee 21+ completions / Okonkwo 4+ receptions / Styles 8+ tackles + assists",
+   "kind": "cash",
+   "stake": 9.99,
+   "odds": null,
+   "legs": 3,
+   "missed": "Chigoziem Okonkwo 4+ Receptions",
+   "actual": 2.0,
+   "margin": -2.0
+  },
+  {
+   "name": "BKR 2-team parlay #1011531336: Chicago Bears +3 (+105) / CHI@SEA Under 47.5 (-130, bought 1 pt)",
+   "kind": "cash",
+   "stake": 21.02,
+   "odds": "+262",
+   "legs": 2,
+   "missed": "Chicago Bears/Seattle Seahawks Under 47.5 (bought 1 pt)",
+   "actual": "total 51",
+   "margin": -3.5
+  },
+  {
+   "name": "Platinum Rose AI MNF Bears passing game held down (3-leg SGP)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+498",
+   "legs": 3,
+   "missed": "Caleb Williams UNDER 227.5 passing yards",
+   "actual": 247.0,
+   "margin": -19.5
+  },
+  {
+   "name": "Platinum Rose AI MNF Bears cover, low score (3-leg SGP)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+646",
+   "legs": 3,
+   "missed": "Chicago Bears @ Seattle Seahawks Under 46.5 Total Points",
+   "actual": "total 51",
+   "margin": -4.5
+  },
+  {
+   "name": "Platinum Rose AI MNF MNF touchdown builder, 7e style (3-leg SGP)",
+   "kind": "paper",
+   "stake": 10,
+   "odds": "+647",
+   "legs": 3,
+   "missed": "Zach Charbonnet anytime TD",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "AI TNF S1 (Jacobs R+R / Young INT / Kraft 5+ / Young U10.5 rush)",
+   "kind": "paper",
+   "stake": null,
+   "odds": null,
+   "legs": 4,
+   "missed": "Josh Jacobs 76.5+ rush_rec_yds",
+   "actual": 52.0,
+   "margin": -24.5
+  },
+  {
+   "name": "AI TNF S2 (Jacobs / Watson / Hubbard ATD)",
+   "kind": "paper",
+   "stake": null,
+   "odds": null,
+   "legs": 3,
+   "missed": "Christian Watson 1+ atd",
+   "actual": 0.0,
+   "margin": -1.0
+  },
+  {
+   "name": "AI TNF S4 rebuilt (Love INT / Van Ness / Waller 22+ / Coker ATD)",
+   "kind": "paper",
+   "stake": null,
+   "odds": null,
+   "legs": 4,
+   "missed": "Darren Waller 22+ rec_yds",
+   "actual": 11.0,
+   "margin": -11.0
+  }
+ ],
+ "projection": {
+  "source": "AI record / ai_recs",
+  "games": 13,
+  "margin_mae": 11.5,
+  "total_mae": 12.5,
+  "total_bias": 1.8,
+  "winners_right": 9,
+  "rows": [
+   {
+    "game": "ARI@DAL",
+    "proj_total": 52.5,
+    "total": 63,
+    "proj_margin": 6.3,
+    "margin": -3,
+    "winner_right": false
+   },
+   {
+    "game": "ATL@TB",
+    "proj_total": 42.6,
+    "total": 16,
+    "proj_margin": 3.0,
+    "margin": 16,
+    "winner_right": true
+   },
+   {
+    "game": "BAL@BUF",
+    "proj_total": 56.0,
+    "total": 46,
+    "proj_margin": 2.4,
+    "margin": 26,
+    "winner_right": true
+   },
+   {
+    "game": "CHI@SEA",
+    "proj_total": 45.0,
+    "total": 51,
+    "proj_margin": 2.2,
+    "margin": -17,
+    "winner_right": false
+   },
+   {
+    "game": "CLE@PIT",
+    "proj_total": 38.5,
+    "total": 33,
+    "proj_margin": 2.5,
+    "margin": 21,
+    "winner_right": true
+   },
+   {
+    "game": "IND@JAX",
+    "proj_total": 44.5,
+    "total": 49,
+    "proj_margin": 10.5,
+    "margin": 35,
+    "winner_right": true
+   },
+   {
+    "game": "KC@DEN",
+    "proj_total": 39.4,
+    "total": 52,
+    "proj_margin": -1.4,
+    "margin": 4,
+    "winner_right": false
+   },
+   {
+    "game": "LAC@LAR",
+    "proj_total": 44.5,
+    "total": 33,
+    "proj_margin": 5.5,
+    "margin": 15,
+    "winner_right": true
+   },
+   {
+    "game": "LV@NYJ",
+    "proj_total": 45.5,
+    "total": 71,
+    "proj_margin": 1.7,
+    "margin": -5,
+    "winner_right": false
+   },
+   {
+    "game": "MIN@DET",
+    "proj_total": 45.0,
+    "total": 34,
+    "proj_margin": 2.8,
+    "margin": 4,
+    "winner_right": true
+   },
+   {
+    "game": "NE@MIA",
+    "proj_total": 41.6,
+    "total": 43,
+    "proj_margin": -6.0,
+    "margin": -5,
+    "winner_right": true
+   },
+   {
+    "game": "PHI@WSH",
+    "proj_total": 42.0,
+    "total": 37,
+    "proj_margin": 5.0,
+    "margin": 17,
+    "winner_right": true
+   },
+   {
+    "game": "TEN@CIN",
+    "proj_total": 46.3,
+    "total": 79,
+    "proj_margin": 12.5,
+    "margin": 7,
+    "winner_right": true
+   }
+  ]
+ },
+ "split": {
+  "cash": {
+   "tickets": 32,
+   "won": 2,
+   "staked": 348.27,
+   "returned": 616.1,
+   "net": 267.83,
+   "draftkings_predictions": {
+    "tickets": 12,
+    "won": 1,
+    "staked": 119.77,
+    "returned": 609.0,
+    "net": 489.23
+   }
+  },
+  "promo": {
+   "tickets": 18,
+   "won": 3,
+   "credit_staked": 169.42,
+   "value_returned": 75.88
+  }
+ },
+ "season": [
+  {
+   "week": 1,
+   "tickets": 20,
+   "won": 2,
+   "staked": 365.82,
+   "returned": 80.56,
+   "net": -285.26,
+   "legs_hit": [
+    63,
+    136
+   ]
+  },
+  {
+   "week": 2,
+   "tickets": 33,
+   "won": 3,
+   "staked": 428.79,
+   "returned": 131.24,
+   "net": -297.55,
+   "legs_hit": [
+    107,
+    211
+   ]
+  },
+  {
+   "week": 3,
+   "tickets": 38,
+   "won": 1,
+   "staked": 498.41,
+   "returned": 39.21,
+   "net": -459.2,
+   "legs_hit": [
+    87,
+    206
+   ]
+  },
+  {
+   "week": 4,
+   "tickets": 27,
+   "won": 1,
+   "staked": 401.32,
+   "returned": 126.39,
+   "net": -274.93,
+   "legs_hit": [
+    85,
+    171
+   ]
+  },
+  {
+   "week": 5,
+   "tickets": 32,
+   "won": 0,
+   "staked": 412.45,
+   "returned": 25.21,
+   "net": -387.24,
+   "legs_hit": [
+    106,
+    207
+   ]
+  },
+  {
+   "week": 6,
+   "tickets": 26,
+   "won": 6,
+   "staked": 902.95,
+   "returned": 2185.74,
+   "net": 1282.79,
+   "legs_hit": [
+    98,
+    180
+   ]
+  },
+  {
+   "week": 7,
+   "tickets": 24,
+   "won": 0,
+   "staked": 292.57,
+   "returned": 13.52,
+   "net": -279.05,
+   "legs_hit": [
+    110,
+    227
+   ]
+  },
+  {
+   "week": 8,
+   "tickets": 32,
+   "won": 2,
+   "staked": 348.27,
+   "returned": 616.1,
+   "net": 267.83,
+   "legs_hit": [
+    154,
+    252
+   ]
+  }
+ ],
+ "rules": {
+  "week": 8,
+  "checked": [],
+  "proposed_for_next_week": [],
+  "cash_tickets": 32
+ }
+}

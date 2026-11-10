@@ -1,0 +1,356 @@
+{
+ "meta": {
+  "week": 9,
+  "written": "2026-11-10",
+  "by": "Claude Team 2",
+  "source": "reports/analysis/week9-postmortem/w09-matchup-postmortem.md; numbers from reports/analysis/season/claude/out/week-09-matchup-intel.json",
+  "note": "Hand-written takeaways. Research only, not a recommendation. Ranks are of 32, opponent-adjusted, last 4 weeks weighted 1.5x."
+ },
+ "teams": {
+  "ARI": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Minshew 166y, 3 sacks; RZ 0-2.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "LAR",
+     "note": "ARI run game into LAR run D #2; Minshew worse than season numbers"
+    }
+   ]
+  },
+  "ATL": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Run game A (Bijan), defense F, 12-88 penalties.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "KC",
+     "note": "KC explosives #5 vs ATL allowed #29"
+    }
+   ]
+  },
+  "BAL": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Fagnano 10/18 60y 2 INT; run game B (34-172, J. Hill 9-85).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "LAC",
+     "note": "Fagnano -0.38 adj EPA/play over 2 starts, 10 ppg; run game is the only lane; two bottom offenses, total 38.5"
+    }
+   ]
+  },
+  "BUF": {
+   "w9_overall_grade": "A+",
+   "w9_takeaway": "Best team-game grade of the season: MIN 0-8 on 3rd, 81 pass yds; Cook 31-107; RZ 1-3.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "NYJ",
+     "note": "BUF pass O #4 vs NYJ pass D #30; #1 net and #1 last-4"
+    }
+   ]
+  },
+  "CAR": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Outgained DEN but 13-119 penalties.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "NO",
+     "note": "CAR run game vs NO run D #31: rushing lane"
+    }
+   ]
+  },
+  "CHI": {
+   "w9_overall_grade": "B",
+   "w9_takeaway": "Caleb 4 INT but def/ST TD; 279y 2TD.",
+   "carry_forward": [
+    {
+     "week": 11,
+     "opp": "NO",
+     "note": "CHI pass O #7 and run game vs NO #25 pass / #31 run D; CHI has the 2nd-hardest remaining schedule"
+    }
+   ]
+  },
+  "CIN": {
+   "w9_overall_grade": "B",
+   "w9_takeaway": "Off A+ (Burrow 24/29 271 3TD, Chase 10-155); def F vs the run (Bijan 19-100).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "PIT",
+     "note": "CIN pass O #1 vs PIT pass D #13; fade CIN rushing into PIT run D #1; overs profile (#1 off / #22 def)"
+    }
+   ]
+  },
+  "CLE": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Sanders debut 297y 2TD but 5 sacks (12%); run game F (Judkins 15-43).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "HOU",
+     "note": "CLE protection #31 vs HOU pass rush #2: best sack/pressure spot of W10; HOU explosives vs CLE #31 allowed"
+    }
+   ]
+  },
+  "DAL": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Outgained IND 508-271 (Lamb 10-195) but 14-153 penalties + missed FG.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "SF",
+     "note": "DAL pass D #32 and run D #32 vs SF #2 pass / #3 run: top W10 mismatch"
+    },
+    {
+     "week": 11,
+     "opp": "TEN",
+     "note": "TEN run game vs DAL run D #32"
+    }
+   ]
+  },
+  "DEN": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Won despite YPP deficit (4.8 vs 5.7).",
+   "carry_forward": [
+    {
+     "week": 11,
+     "opp": "LV",
+     "note": "7-2 but net rk 9 (sell); DEN run #7 vs LV run D #27"
+    }
+   ]
+  },
+  "DET": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Def B; pass offense F (Goff 170y 0TD QBR 19), RZ 1-4.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "NE",
+     "note": "Both teams long-play spots (DET/NE explosives top 4, allowed bottom 7); DET pass D #23"
+    }
+   ]
+  },
+  "GB": {
+   "w9_overall_grade": "A",
+   "w9_takeaway": "Love 372y 3TD QBR 98, Watson 7-171; run D F.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "MIN",
+     "note": "GB pass-first (#6 pass, #31 run); MIN #1 sack rate vs GB #10 protection; both run games are fades; lean Under 40.5"
+    }
+   ]
+  },
+  "HOU": {
+   "w9_overall_grade": "B",
+   "w9_takeaway": "Stroud 384y 5TD; 8 sacks of Herbert.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "CLE",
+     "note": "HOU pass rush #2 vs CLE protection #31; 3-5 but net rk 11 (buy); 4th-easiest remaining schedule"
+    }
+   ]
+  },
+  "IND": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Off F (Jones QBR 15, 5 three-and-outs).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "MIA",
+     "note": "IND run game #5 vs MIA run D #28 (Taylor lane); IND pass rush vs MIA protection #29; IND pass O #31"
+    }
+   ]
+  },
+  "JAX": {
+   "w9_overall_grade": "A",
+   "w9_takeaway": "Def A+ vs Fagnano (BAL pass EPA -0.75/db); offense C, run game weak (30-77).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "TEN",
+     "note": "JAX pass O #3 vs TEN pass D #28; TEN offense into JAX top-3 D"
+    },
+    {
+     "week": 11,
+     "opp": "NYG",
+     "note": "NYG offense into JAX pass/run D #3"
+    }
+   ]
+  },
+  "KC": {
+   "w9_overall_grade": "A",
+   "w9_takeaway": "Def A vs pass and run; Walker 18-102.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "ATL",
+     "note": "KC run game #2; KC explosives vs ATL #29 allowed"
+    }
+   ]
+  },
+  "LAC": {
+   "w9_overall_grade": "F",
+   "w9_takeaway": "0-8; Herbert sacked 8 (20%); #32 offense, pass and run.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "BAL",
+     "note": "Worst protection in the league; two broken offenses, lean Under 38.5"
+    }
+   ]
+  },
+  "LAR": {
+   "w9_overall_grade": "B",
+   "w9_takeaway": "Def B (WAS run 19-60); Puka 14-150 on 19 tgts.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "ARI",
+     "note": "LAR run D #2: fade ARI rushing; LAR has the hardest remaining schedule"
+    }
+   ]
+  },
+  "LV": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Cousins 3 INT, 5 turnovers; run game 15-24.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "SEA",
+     "note": "LV run game #28 vs SEA run D #6: fade LV rushing"
+    }
+   ]
+  },
+  "MIA": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Willis 13/25 128; red-zone stalls.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "IND",
+     "note": "MIA protection #29 vs IND rush; MIA run D #28"
+    }
+   ]
+  },
+  "MIN": {
+   "w9_overall_grade": "F",
+   "w9_takeaway": "Wentz 8/25 81y 2 INT; ToP 17:28.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "GB",
+     "note": "#31 offense / #2 defense with Wentz (Murray OUT): MIN unders, fade MIN players"
+    },
+    {
+     "week": 11,
+     "opp": "SF",
+     "note": "MIN offense into SF #4 run D / #12 pass D"
+    }
+   ]
+  },
+  "NE": {
+   "w9_overall_grade": "F",
+   "w9_takeaway": "4 turnovers (Maye 3 INT); run game A (Kiner).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "DET",
+     "note": "NE explosives #4 vs DET #28 allowed; NE pass D #24"
+    }
+   ]
+  },
+  "NO": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Even game; missed 52-yd FG; ST F.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "CAR",
+     "note": "NO run D #31 vs CAR run game #13: Hubbard rushing lane; model has CAR -3.4 vs market NO -1.5"
+    }
+   ]
+  },
+  "NYG": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Def B, 7 sacks of Milton; run game F (Singletary 21-31); McCarthy sacked 6.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "WAS",
+     "note": "5-2-1 but net rk 17 (sell); McCarthy sack rate 13%"
+    }
+   ]
+  },
+  "NYJ": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Geno 165y, 5 sacks; ST A+ (KC missed FG).",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "BUF",
+     "note": "NYJ pass D #30 vs BUF pass O #4 + #1 explosives"
+    }
+   ]
+  },
+  "PHI": {
+   "w9_overall_grade": "D",
+   "w9_takeaway": "Milton 18/34 169, 7 sacks, 6 three-and-outs.",
+   "carry_forward": [
+    {
+     "week": 11,
+     "opp": "PIT",
+     "note": "Worst last-4 in the league (-22.8); PIT run game and PIT pass rush both flagged"
+    }
+   ]
+  },
+  "SEA": {
+   "w9_overall_grade": "B",
+   "w9_takeaway": "Lock 19/28 QBR 90, 0 sacks.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "LV",
+     "note": "Lock +0.02 adj EPA/play vs Darnold -0.09: no downgrade; model SEA -5.2 vs market -3.5"
+    }
+   ]
+  },
+  "SF": {
+   "w9_overall_grade": "A",
+   "w9_takeaway": "Def A+ (5 LV turnovers, def/ST TD); 43-190 rushing.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "DAL",
+     "note": "SF #2 pass / #3 run vs DAL #32/#32; SF ST worst in league (-3.5/g)"
+    }
+   ]
+  },
+  "TB": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "+3 turnovers but lost; 2-12 on 3rd; def A again.",
+   "carry_forward": [
+    {
+     "week": 11,
+     "opp": "DET",
+     "note": "3-6 but net rk 6 (buy): #1 defense, easiest remaining schedule; TB protection #28 vs DET rush #8"
+    }
+   ]
+  },
+  "WAS": {
+   "w9_overall_grade": "C",
+   "w9_takeaway": "Run game D; Daniels 274y.",
+   "carry_forward": [
+    {
+     "week": 10,
+     "opp": "NYG",
+     "note": "WAS protection #19 vs NYG pass rush (7 sacks in W9)"
+    }
+   ]
+  }
+ }
+}

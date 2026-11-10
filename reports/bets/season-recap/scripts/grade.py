@@ -12,10 +12,13 @@ def gkey(a,h): return (FIX.get(a,a),FIX.get(h,h))
 GAMES={gkey(g['away'],g['home']):g for g in G}
 TEAMS={}
 NICK={'falcons':'ATL','packers':'GB','bengals':'CIN','steelers':'PIT','ravens':'BAL','cowboys':'DAL','eagles':'PHI','bears':'CHI','saints':'NO','raiders':'LV','jaguars':'JAX','patriots':'NE','rams':'LAR','broncos':'DEN','panthers':'CAR','browns':'CLE','seahawks':'SEA','commanders':'WSH','lions':'DET','jets':'NYJ','bills':'BUF','chargers':'LAC','49ers':'SF','cardinals':'ARI','titans':'TEN','giants':'NYG','colts':'IND','texans':'HOU','buccaneers':'TB','vikings':'MIN','chiefs':'KC','dolphins':'MIA'}
+CITY={'arizona':'ARI','atlanta':'ATL','baltimore':'BAL','buffalo':'BUF','carolina':'CAR','chicago':'CHI','cincinnati':'CIN','cleveland':'CLE','dallas':'DAL','denver':'DEN','detroit':'DET','green bay':'GB','houston':'HOU','indianapolis':'IND','jacksonville':'JAX','kansas city':'KC','las vegas':'LV','miami':'MIA','minnesota':'MIN','new england':'NE','new orleans':'NO','philadelphia':'PHI','pittsburgh':'PIT','san francisco':'SF','seattle':'SEA','tampa bay':'TB','tennessee':'TEN','washington':'WSH'}
 def team_of(txt):
     t=txt.lower()
     for k,v in NICK.items():
         if k in t: return v
+    for k,v in CITY.items():
+        if re.search(r'\b'+k+r'\b',t): return v
     m=re.match(r'\s*([A-Z]{2,3})\b',txt)
     return FIX.get(m.group(1),m.group(1)) if m else None
 def game_for_team(t):
@@ -66,6 +69,7 @@ def stat(p, key, g, pname):
     if key=='carries': return num(ru.get('CAR'))
     if key=='rec': return num(re_.get('REC'))
     if key=='rec_yds': return num(re_.get('YDS'))
+    if key=='rush_rec_yds': return num(ru.get('YDS'))+num(re_.get('YDS'))  # 2026-11-03
     if key=='sacks': return num(de.get('SACKS'))
     if key=='tackles': return num(de.get('TOT'))
     if key=='def_int': return num(it.get('INT'))
@@ -73,8 +77,11 @@ def stat(p, key, g, pname):
     if key=='fgm': return num((P.get('kicking',{}).get('FG') or '0/0').split('/')[0])
     if key in ('atd','tds'):
         tl=td_list(g); n=norm(pname)
+        # 2026-11-04 crosscheck: box TD columns are the floor; ESPN sometimes writes a scoring play in play-by-play form
+        # ('J.Gibbs up the middle for 1 yard, TOUCHDOWN') that scorer() can't parse (W5 Gibbs 2+ TD graded L, was W)
+        box=sum(num((P.get(c) or {}).get('TD')) for c in ('rushing','receiving','kickReturns','puntReturns'))
         exact=sum(1 for sc,_ in tl if norm(sc)==n)
-        if exact: return float(exact)
+        if exact or box: return float(max(exact,box))
         # fuzzy (last name + first initial) only when the box name never appears exactly, and only if one such scorer
         fz={norm(sc) for sc,_ in tl if norm(sc).split()[-1]==n.split()[-1] and norm(sc)[0]==n[0]}
         return float(sum(1 for sc,_ in tl if norm(sc) in fz)) if len(fz)==1 else 0.0
@@ -115,6 +122,7 @@ def grade_side(kind,team,line,gamestr=None,dirn=None,total=None):
         return dict(result=r,actual=f"{team} {s}",margin=m,game=f"{A}@{Hm}")
     mine,opp=(a,h) if team==A else (h,a)
     diff=mine-opp
-    if kind=='ml': return dict(result='W' if diff>0 else 'L',actual=f"{team} {mine}-{opp}",margin=diff,game=f"{A}@{Hm}")
+    if kind=='ml': return dict(result='W' if diff>0 else ('P' if diff==0 else 'L'),  # 2026-11-04: tie = push (W5 NYG@WSH 27-27)
+                               actual=f"{team} {mine}-{opp}",margin=diff,game=f"{A}@{Hm}")
     v=diff+line
     return dict(result='W' if v>0 else ('P' if v==0 else 'L'),actual=f"{team} {mine}-{opp}",margin=v,game=f"{A}@{Hm}")

@@ -1,0 +1,13 @@
+[
+ {"id":"w09-sun-s1-rush-early","title":"S1 early-window rushing lanes: Gibbs 79+ / Javonte Williams 61+ / K. Walker 71+ rush yds",
+  "family":"prop_parlay","funding":"cash","book":"BEO","price":"+171 (BKR ref product)","source_doc":"reports/bets/2026-w09-sunday-card-proposals.md",
+  "note":"Sat 11/07 rungs from BKR capture (reference prices; cross-game parlay must be placed at BEO). Walker lowest posted rung is 71+.",
+  "legs":[{"game":"DET @ MIA","kind":"prop","player":"Jahmyr Gibbs","key":"rush_yds","line":79,"dir":"over","price":"-240"},
+          {"game":"DAL @ IND","kind":"prop","player":"Javonte Williams","key":"rush_yds","line":61,"dir":"over","price":"-229"},
+          {"game":"NYJ @ KC","kind":"prop","player":"Kenneth Walker III","key":"rush_yds","line":71,"dir":"over","price":"-301"}]},
+ {"id":"w09-sun-s2-rush-late","title":"S2 rushing lanes: Judkins 59+ / Woody Marks 51+ (Irving pending: no BKR board)",
+  "family":"prop_parlay","funding":"cash","book":"BEO","price":"+110 (BKR ref, 2 legs)","source_doc":"reports/bets/2026-w09-sunday-card-proposals.md",
+  "note":"Sat 11/07: Judkins 49+ is -460 (breaks -350 floor) so 59+; Irving rushing not posted at BKR; add him only if BEO posts a rung inside -350.",
+  "legs":[{"game":"CLE @ NO","kind":"prop","player":"Quinshon Judkins","key":"rush_yds","line":59,"dir":"over","price":"-218"},
+          {"game":"HOU @ LAC","kind":"prop","player":"Woody Marks","key":"rush_yds","line":51,"dir":"over","price":"-229"}]}
+]

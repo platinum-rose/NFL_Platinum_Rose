@@ -9,9 +9,9 @@
     "stored_stale": 0
    },
    "nflverse": {
-    "compared": 861,
+    "compared": 859,
     "mismatches": 0,
-    "unmatched_players_with_offense": 2
+    "unmatched_players_with_offense": 3
    }
   },
   "2": {
@@ -51,11 +51,77 @@
     "mismatches": 0,
     "unmatched_players_with_offense": 1
    }
+  },
+  "5": {
+   "games": 15,
+   "legs": {
+    "legs": 213,
+    "ledger_wrong": 1,
+    "no_box_line": 1,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 847,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 1
+   }
+  },
+  "6": {
+   "games": 14,
+   "legs": {
+    "legs": 180,
+    "one_grader": 1,
+    "no_box_line": 2,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 745,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 1
+   }
+  },
+  "7": {
+   "games": 14,
+   "legs": {
+    "legs": 230,
+    "ungradable": 4,
+    "one_grader": 4,
+    "fuzzy": 1,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 766,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 2
+   }
+  },
+  "8": {
+   "games": 14,
+   "legs": {
+    "legs": 253,
+    "one_grader": 12,
+    "no_box_line": 1,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 722,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 3
+   }
+  },
+  "9": {
+   "games": 15,
+   "legs": {
+    "legs": 124,
+    "ungradable": 5
+   },
+   "nflverse": {}
   }
  },
  "counts": {
-  "INFO": 36,
-  "WARN": 2
+  "INFO": 67,
+  "WARN": 27,
+  "ERROR": 10
  },
  "findings": [
   {
@@ -291,25 +357,25 @@
    "sev": "INFO",
    "area": "L",
    "week": 3,
-   "msg": "superseded copy reports/bets/season-recap/work/container/cum/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+   "msg": "superseded copy reports\\bets\\season-recap\\work\\container\\cum\\w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
   },
   {
    "sev": "INFO",
    "area": "L",
    "week": 3,
-   "msg": "superseded copy reports/bets/season-recap/work/container/w3/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+   "msg": "superseded copy reports\\bets\\season-recap\\work\\container\\w3\\w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
   },
   {
    "sev": "INFO",
    "area": "L",
    "week": 3,
-   "msg": "superseded copy reports/bets/season-recap/work/device-scratch/w3legs.json differs from the canonical season-recap table in 41 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+   "msg": "superseded copy reports\\bets\\season-recap\\work\\device-scratch\\w3legs.json differs from the canonical season-recap table in 41 legs (34 vs 40 tickets); use season-recap/w3legs.json"
   },
   {
    "sev": "INFO",
    "area": "L",
    "week": 3,
-   "msg": "superseded copy reports/bets/week3-recap/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+   "msg": "superseded copy reports\\bets\\week3-recap\\w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
   },
   {
    "sev": "INFO",
@@ -400,6 +466,532 @@
    "area": "L",
    "week": 4,
    "msg": "leg player has no box line (graded LOST): 'Za'Darius Smith' (ATL @ NO, bet_20261005_betonline_1002759127)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 5,
+   "msg": "PHI@JAX: look-alike names ['Jarrian Jones', 'Jonathan Jones'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872981",
+   "names": [
+    "Jarrian Jones",
+    "Jonathan Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 5,
+   "msg": "LV@NE: look-alike names ['DaQuan Jones', \"Dre'Mont Jones\"] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872986",
+   "names": [
+    "DaQuan Jones",
+    "Dre'Mont Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 5,
+   "msg": "CHI@GB: look-alike names ['Tory Taylor', 'Tyrod Taylor'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872990",
+   "names": [
+    "Tory Taylor",
+    "Tyrod Taylor"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 5,
+   "msg": "DET@ARI: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872991",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 5,
+   "msg": "BAL@ATL: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872993",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 5,
+   "msg": "ledger leg PUSH but box says LOST: t_20261011_betonline_snf_island_6leg | Cameron Thomas 1+ Sacks"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 5,
+   "msg": "leg player has no box line (graded LOST): 'Konata Mumpfield' (BUF @ LAR, t_20261012_dkp_8pick_combo_mnf_promo)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "CAR@PHI: look-alike names ['Bryce Young', 'Byron Young'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872998",
+   "names": [
+    "Bryce Young",
+    "Byron Young"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "CHI@ATL: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872999",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "NYJ@NE: look-alike names ['DaQuan Jones', \"Dre'Mont Jones\"] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873001",
+   "names": [
+    "DaQuan Jones",
+    "Dre'Mont Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "TEN@IND: look-alike names ['Cam Ward', 'Charvarius Ward'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873003",
+   "names": [
+    "Cam Ward",
+    "Charvarius Ward"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "TEN@IND: look-alike names ['James Williams Sr.', 'Joshua Williams'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873003",
+   "names": [
+    "James Williams Sr.",
+    "Joshua Williams"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "ARI@LAR: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873004",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 6,
+   "msg": "BUF@LV: look-alike names ['Taron Johnson', 'Ty Johnson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873005",
+   "names": [
+    "Taron Johnson",
+    "Ty Johnson"
+   ]
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 6,
+   "msg": "one grader cannot grade (lib: team not resolved): 0261018_bkr_740418415_6team_flex_sgp | Over 52 (SGP with LV +5)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 6,
+   "msg": "leg player has no box line (graded LOST): 'Tyler Warren' (TEN @ IND, 18_bkr_740419086_8team_prop_stack_7d)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 6,
+   "msg": "leg player has no box line (graded LOST): 'Tyler Warren' (TEN @ IND, bet_20261018_beo_w6_atd8_td_stack)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 7,
+   "msg": "CLE@TEN: look-alike names ['James Williams Sr.', 'Joshua Williams'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873013",
+   "names": [
+    "James Williams Sr.",
+    "Joshua Williams"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 7,
+   "msg": "SF@ATL: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873017",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 7,
+   "msg": "DEN@ARI: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873019",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 7,
+   "msg": "KC@SEA: look-alike names ['R Mason Thomas', 'Rodney Thomas II'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873022",
+   "names": [
+    "R Mason Thomas",
+    "Rodney Thomas II"
+   ]
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 7,
+   "msg": "ungradable leg (both graders): 9_bkr_740512242_6team_flex_sgp_xweek | Washington Commanders +7.5 (SGP with Under 52) | no box score"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 7,
+   "msg": "ungradable leg (both graders): 9_bkr_740512242_6team_flex_sgp_xweek | Under 52 (SGP with WAS +7.5) | no box score"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "one grader cannot grade (lib: unsupported market other): 9_bkr_740512242_6team_flex_sgp_xweek | Over 50.5 (SGP with Chicago Bears)"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 7,
+   "msg": "ungradable leg (both graders): _20261019_bkr_740506458_3team_teaser | San Francisco 49ers -1 (teased from -7) | no box score"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "leg player matched by last name + initial only: 'Andres Borregales' -> box 'Andy Borregales' (_beo_1007918593_sgp5_propshop_ne_chi)"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "one grader cannot grade (lib: unsupported market other): 08729493_week_7_beo_6leg_prop_parlay | NYJ Total Touchdowns - UNDER 2.5"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "recap grader has no stat key for market 'longest_reception': bet_20261025_beo_1008729493_week_7_beo_6leg_prop_parlay | Longest Reception - DK Metcalf - Over 22.5"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 7,
+   "msg": "ungradable leg (both graders): 08729493_week_7_beo_6leg_prop_parlay | Longest Reception - DK Metcalf - Over 22.5 | unsupported market other"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "one grader cannot grade (lib: team not resolved): 61025_bkr_740822735_5team_sgp_parlay | Under 57 (SGP with GB +4.5)"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 7,
+   "msg": "one grader cannot grade (lib: unsupported market other): 61025_bkr_740822735_5team_sgp_parlay | Over 41 (SGP with SEA ML)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "ARI@DAL: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873024",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "ARI@DAL: look-alike names [\"Kei'Trel Clark\", 'Kenny Clark'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873024",
+   "names": [
+    "Kei'Trel Clark",
+    "Kenny Clark"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "ARI@DAL: look-alike names ['Javonte Williams', 'Jayden Williams'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873024",
+   "names": [
+    "Javonte Williams",
+    "Jayden Williams"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "BAL@BUF: look-alike names ['Lamar Jackson', 'Landon Jackson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873026",
+   "names": [
+    "Lamar Jackson",
+    "Landon Jackson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "IND@JAX: look-alike names ['Brian Thomas Jr.', 'Bryan Thomas Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873028",
+   "names": [
+    "Brian Thomas Jr.",
+    "Bryan Thomas Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "IND@JAX: look-alike names ['Jarrian Jones', 'Jaylon Jones'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873028",
+   "names": [
+    "Jarrian Jones",
+    "Jaylon Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 8,
+   "msg": "NE@MIA: look-alike names ['DaQuan Jones', \"Dre'Mont Jones\"] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873034",
+   "names": [
+    "DaQuan Jones",
+    "Dre'Mont Jones"
+   ]
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t1_5leg | Over 174.5 Joe Burrow Passing Yards"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t1_5leg | Over 174.5 Drake Maye Passing Yards"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t1_5leg | Yes Javonte Williams To Score a Touchdown"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t1_5leg | Over 1.5 Josh Downs Receptions"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t1_5leg | Over 24.5 Garrett Wilson Receiving Yards"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t2_4leg | Yes Jahmyr Gibbs To Score a Touchdown"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t2_4leg | Over 59.5 Puka Nacua Receiving Yards"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t2_4leg | Over 24.5 Chris Godwin Jr. Receiving Yards"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: no box score): bet_20261031_fdp_bonus2_t2_4leg | Over 1.5 Travis Kelce Receptions"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: unsupported market other): t_20261031_6leg_2471_alejandro_split | PIT Total Touchdowns - Under 2.5"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: unsupported market other): t_20261031_6leg_2471_alejandro_split | DET Total Field Goals - Over 1.5"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 8,
+   "msg": "leg player has no box line (graded LOST): 'Sam Roush' (CHI @ SEA, 02_beo_1011524199_mnf_first_td_roush)"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 8,
+   "msg": "one grader cannot grade (lib: unsupported market other): e_1011560847_chi_sea_2h_over_freebet | Chicago Bears/Seattle Seahawks Over 23.5 2nd Half"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 9,
+   "msg": "JAX@BAL: look-alike names ['Jarrian Jones', 'Jaylon Jones'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873037",
+   "names": [
+    "Jarrian Jones",
+    "Jaylon Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 9,
+   "msg": "ARI@SEA: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873048",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 9,
+   "msg": "GB@NE: look-alike names ['DaQuan Jones', \"Dre'Mont Jones\"] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401873049",
+   "names": [
+    "DaQuan Jones",
+    "Dre'Mont Jones"
+   ]
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "recap grader has no stat key for market 'open_spot': bet_20261108_bkr_w09_sc_5team_open1 | Open spot (plan: live ARI +12.5 @ SEA if available)"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 9,
+   "msg": "ungradable leg (both graders): bet_20261108_bkr_w09_sc_5team_open1 | Open spot (plan: live ARI +12.5 @ SEA if available) | no box score"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "recap grader has no stat key for market 'rush_rec_td': bet_20261109_pick6_4pick_mnf_kincaid_stack_andy_solo | Dalton Kincaid MORE 0.5 Rush + Rec TD"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 9,
+   "msg": "ungradable leg (both graders): k6_4pick_mnf_kincaid_stack_andy_solo | Dalton Kincaid MORE 0.5 Rush + Rec TD | unsupported market other"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "recap grader has no stat key for market 'rush_rec_td': bet_20261109_pick6_4pick_mnf_cook_td_stack_andy_solo | James Cook MORE 0.5 Rush + Rec TD"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 9,
+   "msg": "ungradable leg (both graders): k6_4pick_mnf_cook_td_stack_andy_solo | James Cook MORE 0.5 Rush + Rec TD | unsupported market other"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "recap grader has no stat key for market 'rush_rec_td': bet_20261109_pick6_3pick_mnf_td_longshot_stack_andy_solo | Keon Coleman MORE 0.5 Rush + Rec TD"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 9,
+   "msg": "ungradable leg (both graders): pick_mnf_td_longshot_stack_andy_solo | Keon Coleman MORE 0.5 Rush + Rec TD | unsupported market other"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "recap grader has no stat key for market 'rush_rec_td': bet_20261109_pick6_3pick_mnf_td_longshot_stack_andy_solo | Jordan Mason MORE 0.5 Rush + Rec TD"
+  },
+  {
+   "sev": "ERROR",
+   "area": "L",
+   "week": 9,
+   "msg": "ungradable leg (both graders): pick_mnf_td_longshot_stack_andy_solo | Jordan Mason MORE 0.5 Rush + Rec TD | unsupported market other"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 9,
+   "msg": "w9legs.json missing (no post-mortem leg table for this week)"
+  },
+  {
+   "sev": "INFO",
+   "area": "X",
+   "week": 9,
+   "msg": "no nflverse rows for this week in the snapshot yet (Tuesday toolbox loads them); cross-check skipped"
   }
  ]
 }

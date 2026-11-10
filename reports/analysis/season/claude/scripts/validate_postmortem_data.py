@@ -252,7 +252,11 @@ def check_legs(week, LG, W, paper_ids):
             stats['legs'] += 1
             if l.get('player'):
                 leg_players.add(lib.norm(l['player']))
-            a = m.get(pp.grade_spec(s)['result']) if s else None
+            if s and s.get('kind') == 'prop' and s.get('key') is None:  # 2026-11-03: unmapped market crashed the whole run (KeyError: None)
+                add('WARN', 'L', week, f"recap grader has no stat key for market {l.get('market')!r}: {w['id']} | {l.get('selection')}")
+                a = None
+            else:
+                a = m.get(pp.grade_spec(s)['result']) if s else None
             nl = lib.norm_leg(l, w); g = lib.game_for(LG, week, nl['game'])
             b, btxt, _ = lib.grade(nl, g)
             if s and s.get('kind') == 'cfb':

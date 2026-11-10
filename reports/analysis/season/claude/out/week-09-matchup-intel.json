@@ -1,0 +1,6172 @@
+{
+ "meta": {
+  "week": 9,
+  "generated_by": "reports/analysis/season/claude/scripts/matchup_postmortem.py",
+  "source": "data/nflverse/2026/play_by_play_2026.csv.gz",
+  "pbp_weeks": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "league_avg": {
+   "epa": -0.007668496007457546,
+   "pass_epa": 0.04761094783201114,
+   "rush_epa": -0.0961753305586911,
+   "sr": 0.4318769189221302,
+   "sack_rate": 0.06370142414781604,
+   "explosive": 0.08552432985453254
+  },
+  "plays_per_game": 62.0,
+  "projection_calibration": {
+   "slope": 0.391,
+   "intercept": -0.48,
+   "games": 72,
+   "weeks": "5-9",
+   "r": 0.367,
+   "mae_model": 9.9,
+   "mae_market": 9.35,
+   "r_model_vs_market": 0.797
+  },
+  "projection_note": "proj_home_margin = slope x (home net - away net) + intercept, fit walk-forward on prior weeks; a sanity check, not a fair line (QB changes are not modeled)",
+  "grade_scale": "percentile of opponent-adjusted value among all team-games W1..N: A+>=95 A>=85 B>=65 C>=35 D>=15 F<15",
+  "caveat": "One game is noise. Grades say how a unit played relative to the opponent's usual level, not who is good."
+ },
+ "ratings": [
+  {
+   "team": "ARI",
+   "games": 9,
+   "off": -0.035282568,
+   "deff": 0.0574000615,
+   "pass_o": -0.0234024759,
+   "rush_o": -0.0603469994,
+   "pass_d": 0.2292746178,
+   "rush_d": -0.1396778762,
+   "sack_allowed": 0.0586167249,
+   "sack_made": 0.0601787506,
+   "expl_o": 0.0581405815,
+   "expl_d": 0.0842887306,
+   "st": -1.7903839251,
+   "to_pg": 0.8888888889,
+   "take_pg": 0.7777777778,
+   "plays_pg": 66.6666666667,
+   "opp_plays_pg": 59.4444444444,
+   "neutral_pass": 0.5772410317,
+   "proe": -0.003847612,
+   "rz_td": 0.4285714286,
+   "rz_td_allowed": 0.7,
+   "third": 0.3743226635,
+   "third_allowed": 0.4107873608,
+   "pts_pg": 19.7777777778,
+   "pts_allowed_pg": 28.3333333333,
+   "last4_net": -3.3328439378,
+   "season_net": -8.3213272649,
+   "w_last_qb": "G.Minshew",
+   "qbs": {
+    "J.Brissett": 549,
+    "G.Minshew": 51
+   },
+   "qb_splits": {
+    "G.Minshew": {
+     "games": 1,
+     "adj_off_epa": -0.097,
+     "adj_pass_epa": -0.086,
+     "sack_rate": 0.091,
+     "pts_pg": 3.0
+    },
+    "J.Brissett": {
+     "games": 8,
+     "adj_off_epa": -0.026,
+     "adj_pass_epa": -0.011,
+     "sack_rate": 0.054,
+     "pts_pg": 21.9
+    }
+   },
+   "record": "3-6",
+   "net": -7.5367069568,
+   "rk_net": 26,
+   "rk_off": 18,
+   "rk_deff": 24,
+   "rk_pass_o": 22,
+   "rk_rush_o": 14,
+   "rk_pass_d": 31,
+   "rk_rush_d": 7,
+   "rk_sack_allowed": 16,
+   "rk_sack_made": 17,
+   "rk_st": 25,
+   "rk_expl_o": 31,
+   "rk_expl_d": 16
+  },
+  {
+   "team": "ATL",
+   "games": 9,
+   "off": -0.0587185761,
+   "deff": -0.0315801125,
+   "pass_o": -0.0942234374,
+   "rush_o": -0.0382119019,
+   "pass_d": -0.1521280558,
+   "rush_d": -0.1133002623,
+   "sack_allowed": 0.0487559189,
+   "sack_made": 0.0792140165,
+   "expl_o": 0.0877667248,
+   "expl_d": 0.1035988554,
+   "st": -2.9759874577,
+   "to_pg": 1.6666666667,
+   "take_pg": 1.1111111111,
+   "plays_pg": 58.3333333333,
+   "opp_plays_pg": 63.6666666667,
+   "neutral_pass": 0.5169413919,
+   "proe": -0.0768633534,
+   "rz_td": 0.6153846154,
+   "rz_td_allowed": 0.6470588235,
+   "third": 0.3574896781,
+   "third_allowed": 0.4319004525,
+   "pts_pg": 20.8888888889,
+   "pts_allowed_pg": 24.7777777778,
+   "last4_net": -9.3822617836,
+   "season_net": -4.0029162153,
+   "w_last_qb": "M.Penix",
+   "qbs": {
+    "M.Penix": 401,
+    "C.Rush": 124
+   },
+   "qb_splits": {
+    "C.Rush": {
+     "games": 2,
+     "adj_off_epa": -0.44,
+     "adj_pass_epa": -0.729,
+     "sack_rate": 0.115,
+     "pts_pg": 8.0
+    },
+    "M.Penix": {
+     "games": 7,
+     "adj_off_epa": 0.06,
+     "adj_pass_epa": 0.09,
+     "sack_rate": 0.035,
+     "pts_pg": 24.6
+    }
+   },
+   "record": "3-6",
+   "net": -4.6585722022,
+   "rk_net": 22,
+   "rk_off": 23,
+   "rk_deff": 12,
+   "rk_pass_o": 26,
+   "rk_rush_o": 11,
+   "rk_pass_d": 4,
+   "rk_rush_d": 13,
+   "rk_sack_allowed": 11,
+   "rk_sack_made": 6,
+   "rk_st": 29,
+   "rk_expl_o": 15,
+   "rk_expl_d": 29
+  },
+  {
+   "team": "BAL",
+   "games": 9,
+   "off": -0.0877640257,
+   "deff": -0.0083550525,
+   "pass_o": -0.0285007838,
+   "rush_o": -0.1651253419,
+   "pass_d": 0.0646905133,
+   "rush_d": -0.0870263931,
+   "sack_allowed": 0.0769649793,
+   "sack_made": 0.0498694682,
+   "expl_o": 0.0752275251,
+   "expl_d": 0.0704848357,
+   "st": -2.1928962121,
+   "to_pg": 1.1111111111,
+   "take_pg": 1.0,
+   "plays_pg": 58.6666666667,
+   "opp_plays_pg": 61.4444444444,
+   "neutral_pass": 0.5590350384,
+   "proe": -0.0713942158,
+   "rz_td": 0.5925925926,
+   "rz_td_allowed": 0.65625,
+   "third": 0.3753544295,
+   "third_allowed": 0.3804847386,
+   "pts_pg": 21.0,
+   "pts_allowed_pg": 26.2222222222,
+   "last4_net": -17.1295660857,
+   "season_net": -5.2276501253,
+   "w_last_qb": "J.Fagnano",
+   "qbs": {
+    "L.Jackson": 232,
+    "T.Huntley": 194,
+    "J.Fagnano": 102
+   },
+   "qb_splits": {
+    "J.Fagnano": {
+     "games": 2,
+     "adj_off_epa": -0.376,
+     "adj_pass_epa": -0.654,
+     "sack_rate": 0.088,
+     "pts_pg": 10.0
+    },
+    "L.Jackson": {
+     "games": 4,
+     "adj_off_epa": 0.119,
+     "adj_pass_epa": 0.304,
+     "sack_rate": 0.053,
+     "pts_pg": 29.0
+    },
+    "T.Huntley": {
+     "games": 3,
+     "adj_off_epa": -0.066,
+     "adj_pass_epa": 0.093,
+     "sack_rate": 0.094,
+     "pts_pg": 17.7
+    }
+   },
+   "record": "4-5",
+   "net": -7.1162525489,
+   "rk_net": 25,
+   "rk_off": 26,
+   "rk_deff": 16,
+   "rk_pass_o": 23,
+   "rk_rush_o": 24,
+   "rk_pass_d": 18,
+   "rk_rush_d": 19,
+   "rk_sack_allowed": 22,
+   "rk_sack_made": 27,
+   "rk_st": 27,
+   "rk_expl_o": 24,
+   "rk_expl_d": 8
+  },
+  {
+   "team": "BUF",
+   "games": 8,
+   "off": 0.1550911929,
+   "deff": -0.0944493043,
+   "pass_o": 0.2635483382,
+   "rush_o": 0.0172432644,
+   "pass_d": -0.1083786108,
+   "rush_d": -0.0647678126,
+   "sack_allowed": 0.0625267493,
+   "sack_made": 0.056617461,
+   "expl_o": 0.120682412,
+   "expl_d": 0.0823623385,
+   "st": 3.2529360683,
+   "to_pg": 1.5,
+   "take_pg": 1.5,
+   "plays_pg": 63.0,
+   "opp_plays_pg": 63.0,
+   "neutral_pass": 0.5797429735,
+   "proe": -0.0321962356,
+   "rz_td": 0.6666666667,
+   "rz_td_allowed": 0.6333333333,
+   "third": 0.4418385536,
+   "third_allowed": 0.3712230478,
+   "pts_pg": 32.0,
+   "pts_allowed_pg": 23.375,
+   "last4_net": 28.9484075549,
+   "season_net": 16.6245513933,
+   "w_last_qb": "J.Allen",
+   "qbs": {
+    "J.Allen": 504
+   },
+   "qb_splits": {
+    "J.Allen": {
+     "games": 8,
+     "adj_off_epa": 0.17,
+     "adj_pass_epa": 0.283,
+     "sack_rate": 0.062,
+     "pts_pg": 32.0
+    }
+   },
+   "record": "7-1",
+   "net": 18.7244468968,
+   "rk_net": 1,
+   "rk_off": 3,
+   "rk_deff": 7,
+   "rk_pass_o": 4,
+   "rk_rush_o": 4,
+   "rk_pass_d": 6,
+   "rk_rush_d": 24,
+   "rk_sack_allowed": 17,
+   "rk_sack_made": 20,
+   "rk_st": 3,
+   "rk_expl_o": 1,
+   "rk_expl_d": 14
+  },
+  {
+   "team": "CAR",
+   "games": 8,
+   "off": 0.0452726477,
+   "deff": 0.0686525395,
+   "pass_o": 0.1153021214,
+   "rush_o": -0.048078386,
+   "pass_d": 0.191392201,
+   "rush_d": -0.0456131703,
+   "sack_allowed": 0.0787736733,
+   "sack_made": 0.033191617,
+   "expl_o": 0.0878988414,
+   "expl_d": 0.0678276308,
+   "st": -0.328247018,
+   "to_pg": 1.25,
+   "take_pg": 1.125,
+   "plays_pg": 65.5,
+   "opp_plays_pg": 64.75,
+   "neutral_pass": 0.6623582318,
+   "proe": 0.0302571622,
+   "rz_td": 0.6551724138,
+   "rz_td_allowed": 0.75,
+   "third": 0.3864182794,
+   "third_allowed": 0.4793097527,
+   "pts_pg": 24.875,
+   "pts_allowed_pg": 27.375,
+   "last4_net": -7.1808770504,
+   "season_net": -0.4621253174,
+   "w_last_qb": "B.Young",
+   "qbs": {
+    "B.Young": 524
+   },
+   "qb_splits": {
+    "B.Young": {
+     "games": 8,
+     "adj_off_epa": 0.059,
+     "adj_pass_epa": 0.148,
+     "sack_rate": 0.075,
+     "pts_pg": 24.9
+    }
+   },
+   "record": "3-5",
+   "net": -1.7778003073,
+   "rk_net": 18,
+   "rk_off": 11,
+   "rk_deff": 26,
+   "rk_pass_o": 12,
+   "rk_rush_o": 13,
+   "rk_pass_d": 27,
+   "rk_rush_d": 26,
+   "rk_sack_allowed": 23,
+   "rk_sack_made": 32,
+   "rk_st": 18,
+   "rk_expl_o": 14,
+   "rk_expl_d": 6
+  },
+  {
+   "team": "CHI",
+   "games": 9,
+   "off": 0.0758027808,
+   "deff": -0.0292663839,
+   "pass_o": 0.1869307111,
+   "rush_o": -0.0449807319,
+   "pass_d": -0.0140027113,
+   "rush_d": -0.0726636895,
+   "sack_allowed": 0.0548231661,
+   "sack_made": 0.0916040966,
+   "expl_o": 0.093067787,
+   "expl_d": 0.090600019,
+   "st": 3.2337044742,
+   "to_pg": 1.8888888889,
+   "take_pg": 1.1111111111,
+   "plays_pg": 69.3333333333,
+   "opp_plays_pg": 52.5555555556,
+   "neutral_pass": 0.6131545608,
+   "proe": 0.0083970258,
+   "rz_td": 0.5526315789,
+   "rz_td_allowed": 0.5384615385,
+   "third": 0.4511312217,
+   "third_allowed": 0.2248954749,
+   "pts_pg": 26.7777777778,
+   "pts_allowed_pg": 20.4444444444,
+   "last4_net": 16.4561597408,
+   "season_net": 8.5839014767,
+   "w_last_qb": "C.Williams",
+   "qbs": {
+    "C.Williams": 403,
+    "T.Bagent": 154,
+    "C.Keenum": 67
+   },
+   "qb_splits": {
+    "C.Keenum": {
+     "games": 1,
+     "adj_off_epa": 0.005,
+     "adj_pass_epa": 0.089,
+     "sack_rate": 0.0,
+     "pts_pg": 27.0
+    },
+    "C.Williams": {
+     "games": 6,
+     "adj_off_epa": 0.15,
+     "adj_pass_epa": 0.305,
+     "sack_rate": 0.063,
+     "pts_pg": 30.7
+    },
+    "T.Bagent": {
+     "games": 2,
+     "adj_off_epa": -0.143,
+     "adj_pass_epa": -0.191,
+     "sack_rate": 0.056,
+     "pts_pg": 15.0
+    }
+   },
+   "record": "7-2",
+   "net": 9.7479926859,
+   "rk_net": 5,
+   "rk_off": 9,
+   "rk_deff": 13,
+   "rk_pass_o": 7,
+   "rk_rush_o": 12,
+   "rk_pass_d": 11,
+   "rk_rush_d": 21,
+   "rk_sack_allowed": 13,
+   "rk_sack_made": 3,
+   "rk_st": 4,
+   "rk_expl_o": 13,
+   "rk_expl_d": 18
+  },
+  {
+   "team": "CIN",
+   "games": 8,
+   "off": 0.196068736,
+   "deff": 0.0478967265,
+   "pass_o": 0.3632197531,
+   "rush_o": -0.106301313,
+   "pass_d": 0.1268369005,
+   "rush_d": -0.0912576107,
+   "sack_allowed": 0.0473007377,
+   "sack_made": 0.0712802801,
+   "expl_o": 0.095019454,
+   "expl_d": 0.0930152355,
+   "st": 1.1740279356,
+   "to_pg": 1.125,
+   "take_pg": 1.5,
+   "plays_pg": 60.5,
+   "opp_plays_pg": 61.5,
+   "neutral_pass": 0.6988039738,
+   "proe": 0.0810112039,
+   "rz_td": 0.6875,
+   "rz_td_allowed": 0.4285714286,
+   "third": 0.5448988511,
+   "third_allowed": 0.48120308,
+   "pts_pg": 30.0,
+   "pts_allowed_pg": 21.875,
+   "last4_net": 10.8288185627,
+   "season_net": 10.5278528809,
+   "w_last_qb": "J.Burrow",
+   "qbs": {
+    "J.Burrow": 484
+   },
+   "qb_splits": {
+    "J.Burrow": {
+     "games": 8,
+     "adj_off_epa": 0.182,
+     "adj_pass_epa": 0.333,
+     "sack_rate": 0.047,
+     "pts_pg": 30.0
+    }
+   },
+   "record": "6-2",
+   "net": 10.3606925261,
+   "rk_net": 4,
+   "rk_off": 1,
+   "rk_deff": 22,
+   "rk_pass_o": 1,
+   "rk_rush_o": 17,
+   "rk_pass_d": 22,
+   "rk_rush_d": 18,
+   "rk_sack_allowed": 9,
+   "rk_sack_made": 10,
+   "rk_st": 9,
+   "rk_expl_o": 11,
+   "rk_expl_d": 21
+  },
+  {
+   "team": "CLE",
+   "games": 9,
+   "off": -0.0855165645,
+   "deff": -0.0008129714,
+   "pass_o": -0.0131636575,
+   "rush_o": -0.2288948729,
+   "pass_d": 0.0596551493,
+   "rush_d": -0.1036942543,
+   "sack_allowed": 0.1061417093,
+   "sack_made": 0.0716839665,
+   "expl_o": 0.0776898579,
+   "expl_d": 0.106141348,
+   "st": 0.769468334,
+   "to_pg": 1.1111111111,
+   "take_pg": 1.2222222222,
+   "plays_pg": 60.7777777778,
+   "opp_plays_pg": 63.0,
+   "neutral_pass": 0.6121626884,
+   "proe": -0.0090802443,
+   "rz_td": 0.3913043478,
+   "rz_td_allowed": 0.4666666667,
+   "third": 0.3375860795,
+   "third_allowed": 0.3998616126,
+   "pts_pg": 17.8888888889,
+   "pts_allowed_pg": 21.7777777778,
+   "last4_net": -7.4574395421,
+   "season_net": -3.4311493462,
+   "w_last_qb": "S.Sanders",
+   "qbs": {
+    "D.Watson": 478,
+    "S.Sanders": 69
+   },
+   "qb_splits": {
+    "D.Watson": {
+     "games": 8,
+     "adj_off_epa": -0.058,
+     "adj_pass_epa": 0.017,
+     "sack_rate": 0.104,
+     "pts_pg": 17.4
+    },
+    "S.Sanders": {
+     "games": 1,
+     "adj_off_epa": -0.208,
+     "adj_pass_epa": -0.026,
+     "sack_rate": 0.116,
+     "pts_pg": 22.0
+    }
+   },
+   "record": "5-4",
+   "net": -4.4821544362,
+   "rk_net": 21,
+   "rk_off": 25,
+   "rk_deff": 17,
+   "rk_pass_o": 20,
+   "rk_rush_o": 29,
+   "rk_pass_d": 16,
+   "rk_rush_d": 14,
+   "rk_sack_allowed": 31,
+   "rk_sack_made": 9,
+   "rk_st": 12,
+   "rk_expl_o": 22,
+   "rk_expl_d": 31
+  },
+  {
+   "team": "DAL",
+   "games": 9,
+   "off": 0.0923594061,
+   "deff": 0.1294637681,
+   "pass_o": 0.1704359184,
+   "rush_o": -0.0230561361,
+   "pass_d": 0.2537513324,
+   "rush_d": 0.0114922373,
+   "sack_allowed": 0.0403812446,
+   "sack_made": 0.0512397863,
+   "expl_o": 0.0799409383,
+   "expl_d": 0.0926968022,
+   "st": 0.0024912857,
+   "to_pg": 0.8888888889,
+   "take_pg": 0.8888888889,
+   "plays_pg": 65.0,
+   "opp_plays_pg": 63.0,
+   "neutral_pass": 0.6178999617,
+   "proe": 0.0007208375,
+   "rz_td": 0.7142857143,
+   "rz_td_allowed": 0.6764705882,
+   "third": 0.4658771784,
+   "third_allowed": 0.4866164699,
+   "pts_pg": 27.3333333333,
+   "pts_allowed_pg": 26.2222222222,
+   "last4_net": -1.0318860532,
+   "season_net": -2.6231107744,
+   "w_last_qb": "D.Prescott",
+   "qbs": {
+    "D.Prescott": 585
+   },
+   "qb_splits": {
+    "D.Prescott": {
+     "games": 9,
+     "adj_off_epa": 0.107,
+     "adj_pass_epa": 0.189,
+     "sack_rate": 0.038,
+     "pts_pg": 27.3
+    }
+   },
+   "record": "4-5",
+   "net": -2.2979791555,
+   "rk_net": 19,
+   "rk_off": 6,
+   "rk_deff": 32,
+   "rk_pass_o": 8,
+   "rk_rush_o": 8,
+   "rk_pass_d": 32,
+   "rk_rush_d": 32,
+   "rk_sack_allowed": 6,
+   "rk_sack_made": 25,
+   "rk_st": 17,
+   "rk_expl_o": 19,
+   "rk_expl_d": 19
+  },
+  {
+   "team": "DEN",
+   "games": 9,
+   "off": 0.0403060393,
+   "deff": -0.0438238856,
+   "pass_o": 0.0605437896,
+   "rush_o": -0.0115119716,
+   "pass_d": -0.0577104122,
+   "rush_d": -0.0650564948,
+   "sack_allowed": 0.0373559626,
+   "sack_made": 0.0676996017,
+   "expl_o": 0.0710495971,
+   "expl_d": 0.0843033767,
+   "st": 0.8373798833,
+   "to_pg": 0.6666666667,
+   "take_pg": 1.3333333333,
+   "plays_pg": 57.4444444444,
+   "opp_plays_pg": 67.5555555556,
+   "neutral_pass": 0.6287729106,
+   "proe": -0.0117438515,
+   "rz_td": 0.6296296296,
+   "rz_td_allowed": 0.5172413793,
+   "third": 0.3253201047,
+   "third_allowed": 0.4114322225,
+   "pts_pg": 22.0,
+   "pts_allowed_pg": 20.6666666667,
+   "last4_net": 8.2415030563,
+   "season_net": 6.164313403,
+   "w_last_qb": "B.Nix",
+   "qbs": {
+    "B.Nix": 517
+   },
+   "qb_splits": {
+    "B.Nix": {
+     "games": 9,
+     "adj_off_epa": 0.032,
+     "adj_pass_epa": 0.046,
+     "sack_rate": 0.037,
+     "pts_pg": 22.0
+    }
+   },
+   "record": "7-2",
+   "net": 6.0534352269,
+   "rk_net": 9,
+   "rk_off": 13,
+   "rk_deff": 10,
+   "rk_pass_o": 15,
+   "rk_rush_o": 7,
+   "rk_pass_d": 9,
+   "rk_rush_d": 23,
+   "rk_sack_allowed": 5,
+   "rk_sack_made": 12,
+   "rk_st": 11,
+   "rk_expl_o": 27,
+   "rk_expl_d": 17
+  },
+  {
+   "team": "DET",
+   "games": 8,
+   "off": 0.0871469333,
+   "deff": 0.0712501135,
+   "pass_o": 0.1539509956,
+   "rush_o": -0.061945563,
+   "pass_d": 0.1443672655,
+   "rush_d": -0.1169645086,
+   "sack_allowed": 0.0718929477,
+   "sack_made": 0.0754379196,
+   "expl_o": 0.1073829783,
+   "expl_d": 0.1012240317,
+   "st": 4.2290396691,
+   "to_pg": 0.625,
+   "take_pg": 1.0,
+   "plays_pg": 64.625,
+   "opp_plays_pg": 64.875,
+   "neutral_pass": 0.6004394274,
+   "proe": -0.0242965834,
+   "rz_td": 0.6176470588,
+   "rz_td_allowed": 0.6666666667,
+   "third": 0.3779865967,
+   "third_allowed": 0.4520684789,
+   "pts_pg": 27.75,
+   "pts_allowed_pg": 23.625,
+   "last4_net": 5.377577498,
+   "season_net": 5.1924566663,
+   "w_last_qb": "J.Goff",
+   "qbs": {
+    "J.Goff": 517
+   },
+   "qb_splits": {
+    "J.Goff": {
+     "games": 8,
+     "adj_off_epa": 0.105,
+     "adj_pass_epa": 0.169,
+     "sack_rate": 0.069,
+     "pts_pg": 27.8
+    }
+   },
+   "record": "6-2",
+   "net": 5.2146424994,
+   "rk_net": 10,
+   "rk_off": 8,
+   "rk_deff": 27,
+   "rk_pass_o": 10,
+   "rk_rush_o": 15,
+   "rk_pass_d": 23,
+   "rk_rush_d": 10,
+   "rk_sack_allowed": 21,
+   "rk_sack_made": 8,
+   "rk_st": 2,
+   "rk_expl_o": 3,
+   "rk_expl_d": 28
+  },
+  {
+   "team": "GB",
+   "games": 9,
+   "off": 0.0444878501,
+   "deff": -0.1101491159,
+   "pass_o": 0.2327780516,
+   "rush_o": -0.251082966,
+   "pass_d": -0.0606154971,
+   "rush_d": -0.1137176846,
+   "sack_allowed": 0.0479648142,
+   "sack_made": 0.0672242286,
+   "expl_o": 0.0970596942,
+   "expl_d": 0.0761621304,
+   "st": -1.9917963823,
+   "to_pg": 1.1111111111,
+   "take_pg": 2.1111111111,
+   "plays_pg": 61.6666666667,
+   "opp_plays_pg": 65.7777777778,
+   "neutral_pass": 0.6317960465,
+   "proe": 0.0355217637,
+   "rz_td": 0.5588235294,
+   "rz_td_allowed": 0.6896551724,
+   "third": 0.3507716049,
+   "third_allowed": 0.4335221958,
+   "pts_pg": 24.0,
+   "pts_allowed_pg": 21.2222222222,
+   "last4_net": 11.9742930091,
+   "season_net": 6.0531773227,
+   "w_last_qb": "J.Love",
+   "qbs": {
+    "J.Love": 555
+   },
+   "qb_splits": {
+    "J.Love": {
+     "games": 9,
+     "adj_off_epa": 0.045,
+     "adj_pass_epa": 0.238,
+     "sack_rate": 0.049,
+     "pts_pg": 24.0
+    }
+   },
+   "record": "6-3",
+   "net": 7.5956955094,
+   "rk_net": 7,
+   "rk_off": 12,
+   "rk_deff": 6,
+   "rk_pass_o": 6,
+   "rk_rush_o": 31,
+   "rk_pass_d": 8,
+   "rk_rush_d": 12,
+   "rk_sack_allowed": 10,
+   "rk_sack_made": 13,
+   "rk_st": 26,
+   "rk_expl_o": 8,
+   "rk_expl_d": 10
+  },
+  {
+   "team": "HOU",
+   "games": 8,
+   "off": 0.0915019726,
+   "deff": 0.0076926344,
+   "pass_o": 0.2470936758,
+   "rush_o": -0.1894725638,
+   "pass_d": 0.0634955307,
+   "rush_d": -0.1022931312,
+   "sack_allowed": 0.0458763419,
+   "sack_made": 0.0952228317,
+   "expl_o": 0.0952793643,
+   "expl_d": 0.0993872184,
+   "st": -0.8217639354,
+   "to_pg": 0.5,
+   "take_pg": 1.0,
+   "plays_pg": 61.125,
+   "opp_plays_pg": 64.0,
+   "neutral_pass": 0.632290685,
+   "proe": -0.014192445,
+   "rz_td": 0.6206896552,
+   "rz_td_allowed": 0.6666666667,
+   "third": 0.4005701713,
+   "third_allowed": 0.3935287751,
+   "pts_pg": 26.125,
+   "pts_allowed_pg": 24.0,
+   "last4_net": 8.0310442657,
+   "season_net": 4.2259843741,
+   "w_last_qb": "C.Stroud",
+   "qbs": {
+    "C.Stroud": 489
+   },
+   "qb_splits": {
+    "C.Stroud": {
+     "games": 8,
+     "adj_off_epa": 0.067,
+     "adj_pass_epa": 0.216,
+     "sack_rate": 0.051,
+     "pts_pg": 26.1
+    }
+   },
+   "record": "3-5",
+   "net": 4.3744150348,
+   "rk_net": 11,
+   "rk_off": 7,
+   "rk_deff": 18,
+   "rk_pass_o": 5,
+   "rk_rush_o": 26,
+   "rk_pass_d": 17,
+   "rk_rush_d": 15,
+   "rk_sack_allowed": 8,
+   "rk_sack_made": 2,
+   "rk_st": 21,
+   "rk_expl_o": 10,
+   "rk_expl_d": 24
+  },
+  {
+   "team": "IND",
+   "games": 9,
+   "off": -0.1472469515,
+   "deff": 0.0471022436,
+   "pass_o": -0.246145387,
+   "rush_o": 0.0122262882,
+   "pass_d": 0.0982541098,
+   "rush_d": -0.0205698063,
+   "sack_allowed": 0.0797721851,
+   "sack_made": 0.0692888942,
+   "expl_o": 0.0749782195,
+   "expl_d": 0.103798864,
+   "st": 1.60804032,
+   "to_pg": 1.8888888889,
+   "take_pg": 0.6666666667,
+   "plays_pg": 63.6666666667,
+   "opp_plays_pg": 58.1111111111,
+   "neutral_pass": 0.6202338638,
+   "proe": -0.0412067961,
+   "rz_td": 0.5833333333,
+   "rz_td_allowed": 0.625,
+   "third": 0.3652033152,
+   "third_allowed": 0.3339387464,
+   "pts_pg": 20.4444444444,
+   "pts_allowed_pg": 27.6666666667,
+   "last4_net": -17.8727020639,
+   "season_net": -9.5513454161,
+   "w_last_qb": "D.Jones",
+   "qbs": {
+    "D.Jones": 573
+   },
+   "qb_splits": {
+    "D.Jones": {
+     "games": 9,
+     "adj_off_epa": -0.129,
+     "adj_pass_epa": -0.233,
+     "sack_rate": 0.074,
+     "pts_pg": 20.4
+    }
+   },
+   "record": "2-7",
+   "net": -10.4416097774,
+   "rk_net": 28,
+   "rk_off": 29,
+   "rk_deff": 21,
+   "rk_pass_o": 31,
+   "rk_rush_o": 5,
+   "rk_pass_d": 20,
+   "rk_rush_d": 29,
+   "rk_sack_allowed": 24,
+   "rk_sack_made": 11,
+   "rk_st": 6,
+   "rk_expl_o": 25,
+   "rk_expl_d": 30
+  },
+  {
+   "team": "JAX",
+   "games": 8,
+   "off": 0.131555345,
+   "deff": -0.1466266111,
+   "pass_o": 0.2730715758,
+   "rush_o": -0.0363755346,
+   "pass_d": -0.1793844729,
+   "rush_d": -0.1748889709,
+   "sack_allowed": 0.055750667,
+   "sack_made": 0.0568032383,
+   "expl_o": 0.0986412287,
+   "expl_d": 0.070384355,
+   "st": 1.1476050424,
+   "to_pg": 0.75,
+   "take_pg": 1.75,
+   "plays_pg": 57.875,
+   "opp_plays_pg": 58.25,
+   "neutral_pass": 0.5551198869,
+   "proe": -0.0543681588,
+   "rz_td": 0.652173913,
+   "rz_td_allowed": 0.4090909091,
+   "third": 0.4778251263,
+   "third_allowed": 0.3359983766,
+   "pts_pg": 28.625,
+   "pts_allowed_pg": 15.125,
+   "last4_net": 23.2086420455,
+   "season_net": 17.8964977337,
+   "w_last_qb": "T.Lawrence",
+   "qbs": {
+    "T.Lawrence": 463
+   },
+   "qb_splits": {
+    "T.Lawrence": {
+     "games": 8,
+     "adj_off_epa": 0.133,
+     "adj_pass_epa": 0.276,
+     "sack_rate": 0.058,
+     "pts_pg": 28.6
+    }
+   },
+   "record": "6-2",
+   "net": 18.394886318,
+   "rk_net": 2,
+   "rk_off": 4,
+   "rk_deff": 3,
+   "rk_pass_o": 3,
+   "rk_rush_o": 10,
+   "rk_pass_d": 3,
+   "rk_rush_d": 3,
+   "rk_sack_allowed": 14,
+   "rk_sack_made": 19,
+   "rk_st": 10,
+   "rk_expl_o": 7,
+   "rk_expl_d": 7
+  },
+  {
+   "team": "KC",
+   "games": 8,
+   "off": 0.102718057,
+   "deff": -0.0178752747,
+   "pass_o": 0.1272270174,
+   "rush_o": 0.0512668831,
+   "pass_d": 0.077906845,
+   "rush_d": -0.1294741083,
+   "sack_allowed": 0.0354208047,
+   "sack_made": 0.0497801321,
+   "expl_o": 0.1025026461,
+   "expl_d": 0.0660212938,
+   "st": -3.5026411246,
+   "to_pg": 0.75,
+   "take_pg": 1.25,
+   "plays_pg": 60.625,
+   "opp_plays_pg": 62.75,
+   "neutral_pass": 0.6188101837,
+   "proe": 0.0421758928,
+   "rz_td": 0.6333333333,
+   "rz_td_allowed": 0.3684210526,
+   "third": 0.4133819306,
+   "third_allowed": 0.3486201299,
+   "pts_pg": 25.25,
+   "pts_allowed_pg": 17.875,
+   "last4_net": 0.8831203466,
+   "season_net": 3.9688297705,
+   "w_last_qb": "P.Mahomes",
+   "qbs": {
+    "P.Mahomes": 485
+   },
+   "qb_splits": {
+    "P.Mahomes": {
+     "games": 8,
+     "adj_off_epa": 0.102,
+     "adj_pass_epa": 0.127,
+     "sack_rate": 0.036,
+     "pts_pg": 25.2
+    }
+   },
+   "record": "6-2",
+   "net": 3.9741454432,
+   "rk_net": 13,
+   "rk_off": 5,
+   "rk_deff": 15,
+   "rk_pass_o": 11,
+   "rk_rush_o": 2,
+   "rk_pass_d": 19,
+   "rk_rush_d": 9,
+   "rk_sack_allowed": 3,
+   "rk_sack_made": 28,
+   "rk_st": 31,
+   "rk_expl_o": 5,
+   "rk_expl_d": 4
+  },
+  {
+   "team": "LAC",
+   "games": 8,
+   "off": -0.2650407435,
+   "deff": -0.0348422799,
+   "pass_o": -0.27753176,
+   "rush_o": -0.2576940387,
+   "pass_d": -0.0334381687,
+   "rush_d": -0.0667894751,
+   "sack_allowed": 0.1067019291,
+   "sack_made": 0.0486561016,
+   "expl_o": 0.0696298371,
+   "expl_d": 0.1002811048,
+   "st": -0.3821075598,
+   "to_pg": 2.25,
+   "take_pg": 1.375,
+   "plays_pg": 62.125,
+   "opp_plays_pg": 59.125,
+   "neutral_pass": 0.518885203,
+   "proe": -0.1004963388,
+   "rz_td": 0.4736842105,
+   "rz_td_allowed": 0.53125,
+   "third": 0.3380295868,
+   "third_allowed": 0.3433399933,
+   "pts_pg": 15.125,
+   "pts_allowed_pg": 27.375,
+   "last4_net": -15.4755934976,
+   "season_net": -13.7273463747,
+   "w_last_qb": "J.Herbert",
+   "qbs": {
+    "J.Herbert": 497
+   },
+   "qb_splits": {
+    "J.Herbert": {
+     "games": 8,
+     "adj_off_epa": -0.26,
+     "adj_pass_epa": -0.277,
+     "sack_rate": 0.105,
+     "pts_pg": 15.1
+    }
+   },
+   "record": "0-8",
+   "net": -14.6544122997,
+   "rk_net": 31,
+   "rk_off": 32,
+   "rk_deff": 11,
+   "rk_pass_o": 32,
+   "rk_rush_o": 32,
+   "rk_pass_d": 10,
+   "rk_rush_d": 22,
+   "rk_sack_allowed": 32,
+   "rk_sack_made": 29,
+   "rk_st": 19,
+   "rk_expl_o": 29,
+   "rk_expl_d": 25
+  },
+  {
+   "team": "LAR",
+   "games": 9,
+   "off": -1.95966e-05,
+   "deff": -0.1206576307,
+   "pass_o": -0.0216005767,
+   "rush_o": 0.0109049793,
+   "pass_d": -0.0695473525,
+   "rush_d": -0.2039755309,
+   "sack_allowed": 0.0363632743,
+   "sack_made": 0.0485301492,
+   "expl_o": 0.0760082156,
+   "expl_d": 0.0708105798,
+   "st": -3.2219713041,
+   "to_pg": 1.5555555556,
+   "take_pg": 1.1111111111,
+   "plays_pg": 66.0,
+   "opp_plays_pg": 60.8888888889,
+   "neutral_pass": 0.6502452926,
+   "proe": -0.0036680932,
+   "rz_td": 0.6666666667,
+   "rz_td_allowed": 0.4333333333,
+   "third": 0.4108754445,
+   "third_allowed": 0.3132682133,
+   "pts_pg": 23.7777777778,
+   "pts_allowed_pg": 20.1111111111,
+   "last4_net": 3.4684037977,
+   "season_net": 5.0786420128,
+   "w_last_qb": "M.Stafford",
+   "qbs": {
+    "M.Stafford": 594
+   },
+   "qb_splits": {
+    "M.Stafford": {
+     "games": 9,
+     "adj_off_epa": 0.017,
+     "adj_pass_epa": 0.012,
+     "sack_rate": 0.035,
+     "pts_pg": 23.8
+    }
+   },
+   "record": "5-4",
+   "net": 4.2575868121,
+   "rk_net": 12,
+   "rk_off": 14,
+   "rk_deff": 5,
+   "rk_pass_o": 21,
+   "rk_rush_o": 6,
+   "rk_pass_d": 7,
+   "rk_rush_d": 2,
+   "rk_sack_allowed": 4,
+   "rk_sack_made": 30,
+   "rk_st": 30,
+   "rk_expl_o": 23,
+   "rk_expl_d": 9
+  },
+  {
+   "team": "LV",
+   "games": 9,
+   "off": -0.018668087,
+   "deff": 0.0765945229,
+   "pass_o": 0.0998905692,
+   "rush_o": -0.2200772223,
+   "pass_d": 0.1707067279,
+   "rush_d": -0.0425563195,
+   "sack_allowed": 0.0298911056,
+   "sack_made": 0.0573218828,
+   "expl_o": 0.0778899112,
+   "expl_d": 0.1110942984,
+   "st": 1.2012652148,
+   "to_pg": 1.2222222222,
+   "take_pg": 1.5555555556,
+   "plays_pg": 61.0,
+   "opp_plays_pg": 62.0,
+   "neutral_pass": 0.5812635621,
+   "proe": -0.0196079244,
+   "rz_td": 0.5294117647,
+   "rz_td_allowed": 0.7105263158,
+   "third": 0.4611222111,
+   "third_allowed": 0.4525634859,
+   "pts_pg": 26.4444444444,
+   "pts_allowed_pg": 29.7777777778,
+   "last4_net": -5.3431367853,
+   "season_net": -4.5376002358,
+   "w_last_qb": "K.Cousins",
+   "qbs": {
+    "K.Cousins": 549
+   },
+   "qb_splits": {
+    "K.Cousins": {
+     "games": 9,
+     "adj_off_epa": -0.023,
+     "adj_pass_epa": 0.093,
+     "sack_rate": 0.032,
+     "pts_pg": 26.4
+    }
+   },
+   "record": "4-5",
+   "net": -4.7050165997,
+   "rk_net": 23,
+   "rk_off": 16,
+   "rk_deff": 28,
+   "rk_pass_o": 13,
+   "rk_rush_o": 28,
+   "rk_pass_d": 26,
+   "rk_rush_d": 27,
+   "rk_sack_allowed": 1,
+   "rk_sack_made": 18,
+   "rk_st": 7,
+   "rk_expl_o": 21,
+   "rk_expl_d": 32
+  },
+  {
+   "team": "MIA",
+   "games": 8,
+   "off": -0.0790658877,
+   "deff": 0.0840109386,
+   "pass_o": -0.0393600624,
+   "rush_o": -0.1249596433,
+   "pass_d": 0.1990910277,
+   "rush_d": -0.0358620887,
+   "sack_allowed": 0.096919879,
+   "sack_made": 0.0530879445,
+   "expl_o": 0.0828934952,
+   "expl_d": 0.0960043547,
+   "st": -2.7024321285,
+   "to_pg": 1.25,
+   "take_pg": 0.875,
+   "plays_pg": 55.75,
+   "opp_plays_pg": 56.75,
+   "neutral_pass": 0.5356997663,
+   "proe": -0.1095810835,
+   "rz_td": 0.4761904762,
+   "rz_td_allowed": 0.59375,
+   "third": 0.3971688034,
+   "third_allowed": 0.4965524671,
+   "pts_pg": 15.75,
+   "pts_allowed_pg": 25.0,
+   "last4_net": -10.3536748437,
+   "season_net": -13.0014942132,
+   "w_last_qb": "M.Willis",
+   "qbs": {
+    "M.Willis": 446
+   },
+   "qb_splits": {
+    "M.Willis": {
+     "games": 8,
+     "adj_off_epa": -0.082,
+     "adj_pass_epa": -0.056,
+     "sack_rate": 0.096,
+     "pts_pg": 15.8
+    }
+   },
+   "record": "1-7",
+   "net": -12.813195363,
+   "rk_net": 29,
+   "rk_off": 24,
+   "rk_deff": 29,
+   "rk_pass_o": 24,
+   "rk_rush_o": 18,
+   "rk_pass_d": 29,
+   "rk_rush_d": 28,
+   "rk_sack_allowed": 29,
+   "rk_sack_made": 22,
+   "rk_st": 28,
+   "rk_expl_o": 18,
+   "rk_expl_d": 22
+  },
+  {
+   "team": "MIN",
+   "games": 8,
+   "off": -0.235501457,
+   "deff": -0.1779136261,
+   "pass_o": -0.1920865265,
+   "rush_o": -0.2399783781,
+   "pass_d": -0.2333491932,
+   "rush_d": -0.1344101293,
+   "sack_allowed": 0.0875184181,
+   "sack_made": 0.1104420273,
+   "expl_o": 0.0832894298,
+   "expl_d": 0.0812400847,
+   "st": 4.2622545576,
+   "to_pg": 1.0,
+   "take_pg": 1.5,
+   "plays_pg": 55.875,
+   "opp_plays_pg": 60.125,
+   "neutral_pass": 0.5975866318,
+   "proe": -0.0258596851,
+   "rz_td": 0.5294117647,
+   "rz_td_allowed": 0.2631578947,
+   "third": 0.3166266638,
+   "third_allowed": 0.3066145048,
+   "pts_pg": 18.25,
+   "pts_allowed_pg": 14.5,
+   "last4_net": -13.2178181706,
+   "season_net": 2.9781299775,
+   "w_last_qb": "C.Wentz",
+   "qbs": {
+    "K.Murray": 292,
+    "C.Wentz": 155
+   },
+   "qb_splits": {
+    "C.Wentz": {
+     "games": 3,
+     "adj_off_epa": -0.258,
+     "adj_pass_epa": -0.238,
+     "sack_rate": 0.094,
+     "pts_pg": 18.0
+    },
+    "K.Murray": {
+     "games": 5,
+     "adj_off_epa": -0.177,
+     "adj_pass_epa": -0.11,
+     "sack_rate": 0.085,
+     "pts_pg": 18.4
+    }
+   },
+   "record": "6-2",
+   "net": 0.6918090451,
+   "rk_net": 16,
+   "rk_off": 31,
+   "rk_deff": 2,
+   "rk_pass_o": 29,
+   "rk_rush_o": 30,
+   "rk_pass_d": 2,
+   "rk_rush_d": 8,
+   "rk_sack_allowed": 26,
+   "rk_sack_made": 1,
+   "rk_st": 1,
+   "rk_expl_o": 17,
+   "rk_expl_d": 13
+  },
+  {
+   "team": "NE",
+   "games": 9,
+   "off": 0.0626162381,
+   "deff": 0.0317941852,
+   "pass_o": 0.1669538305,
+   "rush_o": -0.1029006284,
+   "pass_d": 0.1482491555,
+   "rush_d": -0.116557046,
+   "sack_allowed": 0.0636039228,
+   "sack_made": 0.0801406134,
+   "expl_o": 0.1043876378,
+   "expl_d": 0.1004231183,
+   "st": 0.1295087322,
+   "to_pg": 2.1111111111,
+   "take_pg": 0.8888888889,
+   "plays_pg": 60.7777777778,
+   "opp_plays_pg": 59.4444444444,
+   "neutral_pass": 0.5920689453,
+   "proe": -0.0085132684,
+   "rz_td": 0.5833333333,
+   "rz_td_allowed": 0.5862068966,
+   "third": 0.4115774657,
+   "third_allowed": 0.3711991712,
+   "pts_pg": 23.4444444444,
+   "pts_allowed_pg": 23.0,
+   "last4_net": -3.693866417,
+   "season_net": 3.4207213054,
+   "w_last_qb": "D.Maye",
+   "qbs": {
+    "D.Maye": 547
+   },
+   "qb_splits": {
+    "D.Maye": {
+     "games": 9,
+     "adj_off_epa": 0.069,
+     "adj_pass_epa": 0.181,
+     "sack_rate": 0.063,
+     "pts_pg": 23.4
+    }
+   },
+   "record": "5-4",
+   "net": 2.0404760121,
+   "rk_net": 14,
+   "rk_off": 10,
+   "rk_deff": 19,
+   "rk_pass_o": 9,
+   "rk_rush_o": 16,
+   "rk_pass_d": 24,
+   "rk_rush_d": 11,
+   "rk_sack_allowed": 18,
+   "rk_sack_made": 5,
+   "rk_st": 16,
+   "rk_expl_o": 4,
+   "rk_expl_d": 26
+  },
+  {
+   "team": "NO",
+   "games": 8,
+   "off": -0.038589656,
+   "deff": 0.0911126748,
+   "pass_o": 0.0552370163,
+   "rush_o": -0.1775961055,
+   "pass_d": 0.1660318851,
+   "rush_d": -0.0124038648,
+   "sack_allowed": 0.0545523394,
+   "sack_made": 0.0775237261,
+   "expl_o": 0.061596197,
+   "expl_d": 0.0975955862,
+   "st": -1.0841551633,
+   "to_pg": 1.625,
+   "take_pg": 0.875,
+   "plays_pg": 66.125,
+   "opp_plays_pg": 63.5,
+   "neutral_pass": 0.607269925,
+   "proe": -0.014457653,
+   "rz_td": 0.7037037037,
+   "rz_td_allowed": 0.53125,
+   "third": 0.4260110294,
+   "third_allowed": 0.4879768414,
+   "pts_pg": 23.125,
+   "pts_allowed_pg": 27.0,
+   "last4_net": -0.8123942144,
+   "season_net": -10.7333057123,
+   "w_last_qb": "T.Shough",
+   "qbs": {
+    "T.Shough": 529
+   },
+   "qb_splits": {
+    "T.Shough": {
+     "games": 8,
+     "adj_off_epa": -0.05,
+     "adj_pass_epa": 0.031,
+     "sack_rate": 0.055,
+     "pts_pg": 23.1
+    }
+   },
+   "record": "3-5",
+   "net": -9.1256996753,
+   "rk_net": 27,
+   "rk_off": 20,
+   "rk_deff": 30,
+   "rk_pass_o": 16,
+   "rk_rush_o": 25,
+   "rk_pass_d": 25,
+   "rk_rush_d": 31,
+   "rk_sack_allowed": 12,
+   "rk_sack_made": 7,
+   "rk_st": 24,
+   "rk_expl_o": 30,
+   "rk_expl_d": 23
+  },
+  {
+   "team": "NYG",
+   "games": 8,
+   "off": -0.0535909516,
+   "deff": -0.0203854335,
+   "pass_o": -0.0098468249,
+   "rush_o": -0.1312226725,
+   "pass_d": 0.0392748445,
+   "rush_d": -0.0803839816,
+   "sack_allowed": 0.098195097,
+   "sack_made": 0.0516588384,
+   "expl_o": 0.0834766211,
+   "expl_d": 0.0803376869,
+   "st": 0.5427291074,
+   "to_pg": 1.25,
+   "take_pg": 1.125,
+   "plays_pg": 64.875,
+   "opp_plays_pg": 59.5,
+   "neutral_pass": 0.5614966024,
+   "proe": -0.0588838932,
+   "rz_td": 0.6818181818,
+   "rz_td_allowed": 0.7894736842,
+   "third": 0.4327717626,
+   "third_allowed": 0.4017923865,
+   "pts_pg": 22.75,
+   "pts_allowed_pg": 21.5,
+   "last4_net": -0.4525399046,
+   "season_net": -2.9104788416,
+   "w_last_qb": "J.McCarthy",
+   "qbs": {
+    "J.Winston": 327,
+    "J.McCarthy": 127,
+    "J.Dart": 65
+   },
+   "qb_splits": {
+    "J.Dart": {
+     "games": 1,
+     "adj_off_epa": 0.303,
+     "adj_pass_epa": 0.563,
+     "sack_rate": 0.061,
+     "pts_pg": 28.0
+    },
+    "J.McCarthy": {
+     "games": 2,
+     "adj_off_epa": 0.044,
+     "adj_pass_epa": 0.108,
+     "sack_rate": 0.133,
+     "pts_pg": 23.0
+    },
+    "J.Winston": {
+     "games": 5,
+     "adj_off_epa": -0.175,
+     "adj_pass_epa": -0.178,
+     "sack_rate": 0.085,
+     "pts_pg": 21.6
+    }
+   },
+   "record": "5-2-1",
+   "net": -1.5160130197,
+   "rk_net": 17,
+   "rk_off": 22,
+   "rk_deff": 14,
+   "rk_pass_o": 19,
+   "rk_rush_o": 21,
+   "rk_pass_d": 14,
+   "rk_rush_d": 20,
+   "rk_sack_allowed": 30,
+   "rk_sack_made": 24,
+   "rk_st": 13,
+   "rk_expl_o": 16,
+   "rk_expl_d": 11
+  },
+  {
+   "team": "NYJ",
+   "games": 9,
+   "off": -0.0237663982,
+   "deff": 0.0487955503,
+   "pass_o": 0.0189013452,
+   "rush_o": -0.1286743678,
+   "pass_d": 0.2113162248,
+   "rush_d": -0.0997716466,
+   "sack_allowed": 0.0891511822,
+   "sack_made": 0.06220339,
+   "expl_o": 0.0990662521,
+   "expl_d": 0.0840705841,
+   "st": 0.5320766186,
+   "to_pg": 0.7777777778,
+   "take_pg": 1.0,
+   "plays_pg": 58.3333333333,
+   "opp_plays_pg": 62.5555555556,
+   "neutral_pass": 0.5626624361,
+   "proe": -0.0360395704,
+   "rz_td": 0.4074074074,
+   "rz_td_allowed": 0.6666666667,
+   "third": 0.3269137353,
+   "third_allowed": 0.4251402918,
+   "pts_pg": 20.2222222222,
+   "pts_allowed_pg": 24.7777777778,
+   "last4_net": -10.5092664609,
+   "season_net": -2.5570047393,
+   "w_last_qb": "G.Smith",
+   "qbs": {
+    "G.Smith": 525
+   },
+   "qb_splits": {
+    "G.Smith": {
+     "games": 9,
+     "adj_off_epa": -0.027,
+     "adj_pass_epa": 0.016,
+     "sack_rate": 0.09,
+     "pts_pg": 20.2
+    }
+   },
+   "record": "2-7",
+   "net": -3.9667641881,
+   "rk_net": 20,
+   "rk_off": 17,
+   "rk_deff": 23,
+   "rk_pass_o": 17,
+   "rk_rush_o": 20,
+   "rk_pass_d": 30,
+   "rk_rush_d": 16,
+   "rk_sack_allowed": 27,
+   "rk_sack_made": 16,
+   "rk_st": 14,
+   "rk_expl_o": 6,
+   "rk_expl_d": 15
+  },
+  {
+   "team": "PHI",
+   "games": 9,
+   "off": -0.1801238833,
+   "deff": 0.0639263366,
+   "pass_o": -0.1918954806,
+   "rush_o": -0.1441920271,
+   "pass_d": 0.1242339415,
+   "rush_d": -0.0142464314,
+   "sack_allowed": 0.0864581962,
+   "sack_made": 0.0530567232,
+   "expl_o": 0.0477546149,
+   "expl_d": 0.0928454951,
+   "st": 0.4802393697,
+   "to_pg": 1.0,
+   "take_pg": 0.4444444444,
+   "plays_pg": 60.4444444444,
+   "opp_plays_pg": 65.5555555556,
+   "neutral_pass": 0.6154179629,
+   "proe": -0.0209415852,
+   "rz_td": 0.7272727273,
+   "rz_td_allowed": 0.5757575758,
+   "third": 0.345113601,
+   "third_allowed": 0.4104658958,
+   "pts_pg": 16.4444444444,
+   "pts_allowed_pg": 24.5555555556,
+   "last4_net": -22.8316653276,
+   "season_net": -13.7720373603,
+   "w_last_qb": "J.Milton",
+   "qbs": {
+    "J.Hurts": 287,
+    "T.McKee": 191,
+    "J.Milton": 66
+   },
+   "qb_splits": {
+    "J.Hurts": {
+     "games": 5,
+     "adj_off_epa": -0.115,
+     "adj_pass_epa": -0.068,
+     "sack_rate": 0.075,
+     "pts_pg": 18.4
+    },
+    "J.Milton": {
+     "games": 1,
+     "adj_off_epa": -0.313,
+     "adj_pass_epa": -0.325,
+     "sack_rate": 0.152,
+     "pts_pg": 11.0
+    },
+    "T.McKee": {
+     "games": 3,
+     "adj_off_epa": -0.208,
+     "adj_pass_epa": -0.285,
+     "sack_rate": 0.077,
+     "pts_pg": 15.0
+    }
+   },
+   "record": "2-7",
+   "net": -14.6508742638,
+   "rk_net": 30,
+   "rk_off": 30,
+   "rk_deff": 25,
+   "rk_pass_o": 28,
+   "rk_rush_o": 22,
+   "rk_pass_d": 21,
+   "rk_rush_d": 30,
+   "rk_sack_allowed": 25,
+   "rk_sack_made": 23,
+   "rk_st": 15,
+   "rk_expl_o": 32,
+   "rk_expl_d": 20
+  },
+  {
+   "team": "PIT",
+   "games": 8,
+   "off": -0.0078335674,
+   "deff": -0.0465965431,
+   "pass_o": -0.0724425603,
+   "rush_o": 0.0985890164,
+   "pass_d": 0.028586156,
+   "rush_d": -0.2140061404,
+   "sack_allowed": 0.0699585366,
+   "sack_made": 0.0866984255,
+   "expl_o": 0.0970479041,
+   "expl_d": 0.0804742085,
+   "st": -1.0185820461,
+   "to_pg": 1.0,
+   "take_pg": 1.5,
+   "plays_pg": 61.75,
+   "opp_plays_pg": 60.75,
+   "neutral_pass": 0.6140193793,
+   "proe": 0.0118385083,
+   "rz_td": 0.5,
+   "rz_td_allowed": 0.375,
+   "third": 0.374162296,
+   "third_allowed": 0.348768556,
+   "pts_pg": 22.5,
+   "pts_allowed_pg": 18.0,
+   "last4_net": 9.6201853408,
+   "season_net": -0.1373916294,
+   "w_last_qb": "A.Rodgers",
+   "qbs": {
+    "A.Rodgers": 494
+   },
+   "qb_splits": {
+    "A.Rodgers": {
+     "games": 8,
+     "adj_off_epa": -0.02,
+     "adj_pass_epa": -0.077,
+     "sack_rate": 0.069,
+     "pts_pg": 22.5
+    }
+   },
+   "record": "6-2",
+   "net": 1.3847224481,
+   "rk_net": 15,
+   "rk_off": 15,
+   "rk_deff": 9,
+   "rk_pass_o": 25,
+   "rk_rush_o": 1,
+   "rk_pass_d": 13,
+   "rk_rush_d": 1,
+   "rk_sack_allowed": 20,
+   "rk_sack_made": 4,
+   "rk_st": 23,
+   "rk_expl_o": 9,
+   "rk_expl_d": 12
+  },
+  {
+   "team": "SEA",
+   "games": 9,
+   "off": -0.0431428352,
+   "deff": -0.1228079292,
+   "pass_o": 0.0977296724,
+   "rush_o": -0.2058058625,
+   "pass_d": -0.1213509423,
+   "rush_d": -0.1453496092,
+   "sack_allowed": 0.0557665288,
+   "sack_made": 0.0632781626,
+   "expl_o": 0.0721421543,
+   "expl_d": 0.0472336148,
+   "st": 2.4568713883,
+   "to_pg": 1.5555555556,
+   "take_pg": 1.2222222222,
+   "plays_pg": 62.1111111111,
+   "opp_plays_pg": 58.4444444444,
+   "neutral_pass": 0.5557649901,
+   "proe": -0.0582922984,
+   "rz_td": 0.5,
+   "rz_td_allowed": 0.75,
+   "third": 0.3561472569,
+   "third_allowed": 0.3023675399,
+   "pts_pg": 22.4444444444,
+   "pts_allowed_pg": 18.0,
+   "last4_net": 6.006470149,
+   "season_net": 6.9779803512,
+   "w_last_qb": "D.Lock",
+   "qbs": {
+    "S.Darnold": 387,
+    "D.Lock": 172
+   },
+   "qb_splits": {
+    "D.Lock": {
+     "games": 3,
+     "adj_off_epa": 0.02,
+     "adj_pass_epa": 0.185,
+     "sack_rate": 0.037,
+     "pts_pg": 20.3
+    },
+    "S.Darnold": {
+     "games": 6,
+     "adj_off_epa": -0.092,
+     "adj_pass_epa": 0.04,
+     "sack_rate": 0.07,
+     "pts_pg": 23.5
+    }
+   },
+   "record": "5-4",
+   "net": 7.3961072149,
+   "rk_net": 8,
+   "rk_off": 21,
+   "rk_deff": 4,
+   "rk_pass_o": 14,
+   "rk_rush_o": 27,
+   "rk_pass_d": 5,
+   "rk_rush_d": 6,
+   "rk_sack_allowed": 15,
+   "rk_sack_made": 15,
+   "rk_st": 5,
+   "rk_expl_o": 26,
+   "rk_expl_d": 1
+  },
+  {
+   "team": "SF",
+   "games": 8,
+   "off": 0.1816815827,
+   "deff": -0.0708140482,
+   "pass_o": 0.3350728625,
+   "rush_o": 0.0488731914,
+   "pass_d": -0.0068107789,
+   "rush_d": -0.1725790872,
+   "sack_allowed": 0.0312758223,
+   "sack_made": 0.0480824703,
+   "expl_o": 0.1112815427,
+   "expl_d": 0.0530938111,
+   "st": -3.5491350267,
+   "to_pg": 1.125,
+   "take_pg": 1.375,
+   "plays_pg": 58.375,
+   "opp_plays_pg": 60.125,
+   "neutral_pass": 0.5742170655,
+   "proe": 0.0096640313,
+   "rz_td": 0.8461538462,
+   "rz_td_allowed": 0.48,
+   "third": 0.5355196886,
+   "third_allowed": 0.3987225193,
+   "pts_pg": 29.375,
+   "pts_allowed_pg": 19.5,
+   "last4_net": 6.8106405623,
+   "season_net": 12.9911402655,
+   "w_last_qb": "B.Purdy",
+   "qbs": {
+    "B.Purdy": 467
+   },
+   "qb_splits": {
+    "B.Purdy": {
+     "games": 8,
+     "adj_off_epa": 0.197,
+     "adj_pass_epa": 0.367,
+     "sack_rate": 0.028,
+     "pts_pg": 29.4
+    }
+   },
+   "record": "7-1",
+   "net": 12.1055940911,
+   "rk_net": 3,
+   "rk_off": 2,
+   "rk_deff": 8,
+   "rk_pass_o": 2,
+   "rk_rush_o": 3,
+   "rk_pass_d": 12,
+   "rk_rush_d": 4,
+   "rk_sack_allowed": 2,
+   "rk_sack_made": 31,
+   "rk_st": 32,
+   "rk_expl_o": 2,
+   "rk_expl_d": 2
+  },
+  {
+   "team": "TB",
+   "games": 9,
+   "off": -0.0978228687,
+   "deff": -0.2236535147,
+   "pass_o": -0.2376820887,
+   "rush_o": -0.0274129812,
+   "pass_d": -0.259607292,
+   "rush_d": -0.1677113403,
+   "sack_allowed": 0.0948213389,
+   "sack_made": 0.0500536122,
+   "expl_o": 0.094959211,
+   "expl_d": 0.0657423108,
+   "st": 1.1932972772,
+   "to_pg": 1.5555555556,
+   "take_pg": 2.1111111111,
+   "plays_pg": 61.7777777778,
+   "opp_plays_pg": 57.2222222222,
+   "neutral_pass": 0.4941098798,
+   "proe": -0.1073233632,
+   "rz_td": 0.4838709677,
+   "rz_td_allowed": 0.4583333333,
+   "third": 0.375973005,
+   "third_allowed": 0.3467239551,
+   "pts_pg": 22.4444444444,
+   "pts_allowed_pg": 19.7777777778,
+   "last4_net": 17.691521231,
+   "season_net": 7.5369387138,
+   "w_last_qb": "B.Mayfield",
+   "qbs": {
+    "B.Mayfield": 359,
+    "J.Daniels": 197
+   },
+   "qb_splits": {
+    "B.Mayfield": {
+     "games": 6,
+     "adj_off_epa": -0.112,
+     "adj_pass_epa": -0.278,
+     "sack_rate": 0.105,
+     "pts_pg": 24.2
+    },
+    "J.Daniels": {
+     "games": 3,
+     "adj_off_epa": -0.06,
+     "adj_pass_epa": -0.076,
+     "sack_rate": 0.071,
+     "pts_pg": 19.0
+    }
+   },
+   "record": "3-6",
+   "net": 8.9947973289,
+   "rk_net": 6,
+   "rk_off": 27,
+   "rk_deff": 1,
+   "rk_pass_o": 30,
+   "rk_rush_o": 9,
+   "rk_pass_d": 1,
+   "rk_rush_d": 5,
+   "rk_sack_allowed": 28,
+   "rk_sack_made": 26,
+   "rk_st": 8,
+   "rk_expl_o": 12,
+   "rk_expl_d": 3
+  },
+  {
+   "team": "TEN",
+   "games": 8,
+   "off": -0.1265412298,
+   "deff": 0.0975720771,
+   "pass_o": -0.1300297316,
+   "rush_o": -0.1276076904,
+   "pass_d": 0.1930147099,
+   "rush_d": -0.0594333907,
+   "sack_allowed": 0.0414872364,
+   "sack_made": 0.0637665074,
+   "expl_o": 0.0707006996,
+   "expl_d": 0.1008188824,
+   "st": -0.9996386052,
+   "to_pg": 1.25,
+   "take_pg": 1.375,
+   "plays_pg": 56.5,
+   "opp_plays_pg": 65.375,
+   "neutral_pass": 0.5689324797,
+   "proe": -0.0478670065,
+   "rz_td": 0.5217391304,
+   "rz_td_allowed": 0.6451612903,
+   "third": 0.3555506993,
+   "third_allowed": 0.4277292152,
+   "pts_pg": 18.0,
+   "pts_allowed_pg": 24.875,
+   "last4_net": -3.6117350786,
+   "season_net": -15.8965071136,
+   "w_last_qb": "C.Ward",
+   "qbs": {
+    "C.Ward": 452
+   },
+   "qb_splits": {
+    "C.Ward": {
+     "games": 8,
+     "adj_off_epa": -0.141,
+     "adj_pass_epa": -0.155,
+     "sack_rate": 0.045,
+     "pts_pg": 18.0
+    }
+   },
+   "record": "1-7",
+   "net": -14.8946636286,
+   "rk_net": 32,
+   "rk_off": 28,
+   "rk_deff": 31,
+   "rk_pass_o": 27,
+   "rk_rush_o": 19,
+   "rk_pass_d": 28,
+   "rk_rush_d": 25,
+   "rk_sack_allowed": 7,
+   "rk_sack_made": 14,
+   "rk_st": 22,
+   "rk_expl_o": 28,
+   "rk_expl_d": 27
+  },
+  {
+   "team": "WAS",
+   "games": 8,
+   "off": -0.0362365059,
+   "deff": 0.0373168066,
+   "pass_o": 0.0147390138,
+   "rush_o": -0.1610906862,
+   "pass_d": 0.0559459303,
+   "rush_d": -0.0920844263,
+   "sack_allowed": 0.0667081269,
+   "sack_made": 0.0560103519,
+   "expl_o": 0.0794466691,
+   "expl_d": 0.0671699008,
+   "st": -0.5251108416,
+   "to_pg": 0.625,
+   "take_pg": 1.5,
+   "plays_pg": 61.5,
+   "opp_plays_pg": 64.5,
+   "neutral_pass": 0.6149904492,
+   "proe": -0.0062191432,
+   "rz_td": 0.5238095238,
+   "rz_td_allowed": 0.75,
+   "third": 0.3108516484,
+   "third_allowed": 0.4062261268,
+   "pts_pg": 21.5,
+   "pts_allowed_pg": 25.25,
+   "last4_net": 4.0658676583,
+   "season_net": -6.0522686059,
+   "w_last_qb": "J.Daniels",
+   "qbs": {
+    "J.Daniels": 368,
+    "M.Mariota": 63,
+    "A.Kaliakmanis": 61
+   },
+   "qb_splits": {
+    "A.Kaliakmanis": {
+     "games": 1,
+     "adj_off_epa": -0.359,
+     "adj_pass_epa": -0.346,
+     "sack_rate": 0.049,
+     "pts_pg": 13.0
+    },
+    "J.Daniels": {
+     "games": 6,
+     "adj_off_epa": 0.003,
+     "adj_pass_epa": 0.043,
+     "sack_rate": 0.067,
+     "pts_pg": 21.0
+    },
+    "M.Mariota": {
+     "games": 1,
+     "adj_off_epa": 0.025,
+     "adj_pass_epa": 0.237,
+     "sack_rate": 0.057,
+     "pts_pg": 33.0
+    }
+   },
+   "record": "2-5-1",
+   "net": -5.0854162165,
+   "rk_net": 24,
+   "rk_off": 19,
+   "rk_deff": 20,
+   "rk_pass_o": 18,
+   "rk_rush_o": 23,
+   "rk_pass_d": 15,
+   "rk_rush_d": 17,
+   "rk_sack_allowed": 19,
+   "rk_sack_made": 21,
+   "rk_st": 20,
+   "rk_expl_o": 20,
+   "rk_expl_d": 5
+  }
+ ],
+ "vetoes": {
+  "ARI": [
+   "Jeremiyah Love RB (IR)",
+   "Bam Knight RB (OUT)",
+   "Michael Wilson WR (OUT)",
+   "Kendrick Bourne WR (IR)",
+   "Jayden Williams OT (OUT)",
+   "Jon Gaines II G (OUT)"
+  ],
+  "MIN": [
+   "Kyler Murray QB (OUT)",
+   "Demond Claiborne RB (IR)",
+   "Jauan Jennings WR (OUT)"
+  ],
+  "TB": [
+   "Yaya Diaby LB (OUT)"
+  ],
+  "BAL": [
+   "Lamar Jackson QB (IR)"
+  ],
+  "GB": [
+   "MarShawn Lloyd RB (OUT)"
+  ],
+  "LAC": [
+   "David Njoku TE (IR)"
+  ],
+  "NYG": [
+   "Jaxson Dart QB (IR)",
+   "Cam Skattebo RB (OUT)"
+  ],
+  "WAS": [
+   "Jacory Croskey-Merritt RB (IR)"
+  ],
+  "SF": [
+   "Brandon Aiyuk WR (OUT)"
+  ],
+  "CAR": [
+   "Brady Christensen G (IR)"
+  ]
+ },
+ "remaining_schedule": {
+  "ARI": {
+   "remaining": [
+    "W10 vs LAR",
+    "W11 @ KC",
+    "W12 vs WAS",
+    "W13 vs PHI",
+    "W15 vs NYJ",
+    "W16 @ NO",
+    "W17 vs LV",
+    "W18 vs SF"
+   ],
+   "games": 8,
+   "avg_opp_net": -2.15,
+   "rank_hardest": 25
+  },
+  "ATL": {
+   "remaining": [
+    "W10 vs KC",
+    "W12 @ MIN",
+    "W13 vs DET",
+    "W14 @ CLE",
+    "W15 @ WAS",
+    "W16 vs TB",
+    "W17 vs NO",
+    "W18 @ CAR"
+   ],
+   "games": 8,
+   "avg_opp_net": -0.2,
+   "rank_hardest": 19
+  },
+  "BAL": {
+   "remaining": [
+    "W10 vs LAC",
+    "W11 @ CAR",
+    "W12 @ HOU",
+    "W14 vs TB",
+    "W15 @ PIT",
+    "W16 vs CLE",
+    "W17 @ CIN",
+    "W18 vs PIT"
+   ],
+   "games": 8,
+   "avg_opp_net": 0.7,
+   "rank_hardest": 12
+  },
+  "BUF": {
+   "remaining": [
+    "W10 @ NYJ",
+    "W11 vs MIA",
+    "W12 vs KC",
+    "W13 @ NE",
+    "W14 @ GB",
+    "W15 vs CHI",
+    "W16 @ DEN",
+    "W17 @ MIA",
+    "W18 vs NYJ"
+   ],
+   "games": 9,
+   "avg_opp_net": -0.46,
+   "rank_hardest": 21
+  },
+  "CAR": {
+   "remaining": [
+    "W10 @ NO",
+    "W11 vs BAL",
+    "W12 @ TB",
+    "W13 @ MIN",
+    "W14 vs NO",
+    "W15 vs CIN",
+    "W16 @ PIT",
+    "W17 vs SEA",
+    "W18 vs ATL"
+   ],
+   "games": 9,
+   "avg_opp_net": -0.13,
+   "rank_hardest": 18
+  },
+  "CHI": {
+   "remaining": [
+    "W11 vs NO",
+    "W12 @ DET",
+    "W13 vs JAX",
+    "W14 @ MIA",
+    "W15 @ BUF",
+    "W16 vs GB",
+    "W17 vs DET",
+    "W18 @ MIN"
+   ],
+   "games": 8,
+   "avg_opp_net": 4.24,
+   "rank_hardest": 2
+  },
+  "CIN": {
+   "remaining": [
+    "W10 vs PIT",
+    "W11 @ WAS",
+    "W12 vs NO",
+    "W13 @ CLE",
+    "W14 vs KC",
+    "W15 @ CAR",
+    "W16 @ IND",
+    "W17 vs BAL",
+    "W18 vs CLE"
+   ],
+   "games": 9,
+   "avg_opp_net": -4.13,
+   "rank_hardest": 31
+  },
+  "CLE": {
+   "remaining": [
+    "W10 vs HOU",
+    "W12 vs LV",
+    "W13 vs CIN",
+    "W14 vs ATL",
+    "W15 @ NYG",
+    "W16 @ BAL",
+    "W17 vs IND",
+    "W18 @ CIN"
+   ],
+   "games": 8,
+   "avg_opp_net": -0.42,
+   "rank_hardest": 20
+  },
+  "DAL": {
+   "remaining": [
+    "W10 vs SF",
+    "W11 vs TEN",
+    "W12 vs PHI",
+    "W13 @ SEA",
+    "W15 @ LAR",
+    "W16 vs JAX",
+    "W17 vs NYG",
+    "W18 @ WAS"
+   ],
+   "games": 8,
+   "avg_opp_net": 0.75,
+   "rank_hardest": 11
+  },
+  "DEN": {
+   "remaining": [
+    "W11 vs LV",
+    "W12 @ PIT",
+    "W13 vs MIA",
+    "W14 @ NYJ",
+    "W15 @ LV",
+    "W16 vs BUF",
+    "W17 @ NE",
+    "W18 vs LAC"
+   ],
+   "games": 8,
+   "avg_opp_net": -2.34,
+   "rank_hardest": 27
+  },
+  "DET": {
+   "remaining": [
+    "W10 vs NE",
+    "W11 vs TB",
+    "W12 vs CHI",
+    "W13 @ ATL",
+    "W14 vs TEN",
+    "W15 @ MIN",
+    "W16 vs NYG",
+    "W17 @ CHI",
+    "W18 @ GB"
+   ],
+   "games": 9,
+   "avg_opp_net": 1.97,
+   "rank_hardest": 8
+  },
+  "GB": {
+   "remaining": [
+    "W10 vs MIN",
+    "W12 @ LAR",
+    "W13 @ NO",
+    "W14 vs BUF",
+    "W15 vs MIA",
+    "W16 @ CHI",
+    "W17 vs HOU",
+    "W18 vs DET"
+   ],
+   "games": 8,
+   "avg_opp_net": 2.63,
+   "rank_hardest": 6
+  },
+  "HOU": {
+   "remaining": [
+    "W10 @ CLE",
+    "W11 vs IND",
+    "W12 vs BAL",
+    "W13 @ PIT",
+    "W14 @ WAS",
+    "W15 vs JAX",
+    "W16 @ PHI",
+    "W17 @ GB",
+    "W18 vs TEN"
+   ],
+   "games": 9,
+   "avg_opp_net": -3.26,
+   "rank_hardest": 29
+  },
+  "IND": {
+   "remaining": [
+    "W10 vs MIA",
+    "W11 @ HOU",
+    "W12 vs NYG",
+    "W14 @ PHI",
+    "W15 @ TEN",
+    "W16 vs CIN",
+    "W17 @ CLE",
+    "W18 vs JAX"
+   ],
+   "games": 8,
+   "avg_opp_net": -1.9,
+   "rank_hardest": 24
+  },
+  "JAX": {
+   "remaining": [
+    "W10 @ TEN",
+    "W11 @ NYG",
+    "W12 vs TEN",
+    "W13 @ CHI",
+    "W14 vs PIT",
+    "W15 @ HOU",
+    "W16 @ DAL",
+    "W17 vs WAS",
+    "W18 @ IND"
+   ],
+   "games": 9,
+   "avg_opp_net": -3.74,
+   "rank_hardest": 30
+  },
+  "KC": {
+   "remaining": [
+    "W10 @ ATL",
+    "W11 vs ARI",
+    "W12 @ BUF",
+    "W13 @ LAR",
+    "W14 @ CIN",
+    "W15 vs NE",
+    "W16 vs SF",
+    "W17 @ LAC",
+    "W18 vs LV"
+   ],
+   "games": 9,
+   "avg_opp_net": 1.77,
+   "rank_hardest": 9
+  },
+  "LAC": {
+   "remaining": [
+    "W10 @ BAL",
+    "W11 vs NYJ",
+    "W12 vs NE",
+    "W13 @ TB",
+    "W14 @ LV",
+    "W15 vs SF",
+    "W16 @ MIA",
+    "W17 vs KC",
+    "W18 @ DEN"
+   ],
+   "games": 9,
+   "avg_opp_net": 0.51,
+   "rank_hardest": 14
+  },
+  "LAR": {
+   "remaining": [
+    "W10 @ ARI",
+    "W12 vs GB",
+    "W13 vs KC",
+    "W14 @ SF",
+    "W15 vs DAL",
+    "W16 @ SEA",
+    "W17 @ TB",
+    "W18 vs SEA"
+   ],
+   "games": 8,
+   "avg_opp_net": 4.7,
+   "rank_hardest": 1
+  },
+  "LV": {
+   "remaining": [
+    "W10 vs SEA",
+    "W11 @ DEN",
+    "W12 @ CLE",
+    "W14 vs LAC",
+    "W15 vs DEN",
+    "W16 vs TEN",
+    "W17 @ ARI",
+    "W18 @ KC"
+   ],
+   "games": 8,
+   "avg_opp_net": -2.26,
+   "rank_hardest": 26
+  },
+  "MIA": {
+   "remaining": [
+    "W10 @ IND",
+    "W11 @ BUF",
+    "W12 vs NYJ",
+    "W13 @ DEN",
+    "W14 vs CHI",
+    "W15 @ GB",
+    "W16 vs LAC",
+    "W17 vs BUF",
+    "W18 @ NE"
+   ],
+   "games": 9,
+   "avg_opp_net": 3.76,
+   "rank_hardest": 3
+  },
+  "MIN": {
+   "remaining": [
+    "W10 @ GB",
+    "W11 @ SF",
+    "W12 vs ATL",
+    "W13 vs CAR",
+    "W14 @ NE",
+    "W15 vs DET",
+    "W16 vs WAS",
+    "W17 @ NYJ",
+    "W18 vs CHI"
+   ],
+   "games": 9,
+   "avg_opp_net": 2.36,
+   "rank_hardest": 7
+  },
+  "NE": {
+   "remaining": [
+    "W10 @ DET",
+    "W12 @ LAC",
+    "W13 vs BUF",
+    "W14 vs MIN",
+    "W15 @ KC",
+    "W16 @ NYJ",
+    "W17 vs DEN",
+    "W18 vs MIA"
+   ],
+   "games": 8,
+   "avg_opp_net": 0.4,
+   "rank_hardest": 16
+  },
+  "NO": {
+   "remaining": [
+    "W10 vs CAR",
+    "W11 @ CHI",
+    "W12 @ CIN",
+    "W13 vs GB",
+    "W14 @ CAR",
+    "W15 @ TB",
+    "W16 vs ARI",
+    "W17 @ ATL",
+    "W18 vs TB"
+   ],
+   "games": 9,
+   "avg_opp_net": 3.33,
+   "rank_hardest": 4
+  },
+  "NYG": {
+   "remaining": [
+    "W10 vs WAS",
+    "W11 vs JAX",
+    "W12 @ IND",
+    "W13 vs SF",
+    "W14 @ SEA",
+    "W15 vs CLE",
+    "W16 @ DET",
+    "W17 @ DAL",
+    "W18 vs PHI"
+   ],
+   "games": 9,
+   "avg_opp_net": 0.68,
+   "rank_hardest": 13
+  },
+  "NYJ": {
+   "remaining": [
+    "W10 vs BUF",
+    "W11 @ LAC",
+    "W12 @ MIA",
+    "W14 vs DEN",
+    "W15 @ ARI",
+    "W16 vs NE",
+    "W17 vs MIN",
+    "W18 @ BUF"
+   ],
+   "games": 8,
+   "avg_opp_net": 1.4,
+   "rank_hardest": 10
+  },
+  "PHI": {
+   "remaining": [
+    "W11 vs PIT",
+    "W12 @ DAL",
+    "W13 @ ARI",
+    "W14 vs IND",
+    "W15 vs SEA",
+    "W16 vs HOU",
+    "W17 @ SF",
+    "W18 @ NYG"
+   ],
+   "games": 8,
+   "avg_opp_net": 0.43,
+   "rank_hardest": 15
+  },
+  "PIT": {
+   "remaining": [
+    "W10 @ CIN",
+    "W11 @ PHI",
+    "W12 vs DEN",
+    "W13 vs HOU",
+    "W14 @ JAX",
+    "W15 vs BAL",
+    "W16 vs CAR",
+    "W17 @ TEN",
+    "W18 @ BAL"
+   ],
+   "games": 9,
+   "avg_opp_net": -0.71,
+   "rank_hardest": 23
+  },
+  "SEA": {
+   "remaining": [
+    "W10 @ LV",
+    "W12 @ SF",
+    "W13 vs DAL",
+    "W14 vs NYG",
+    "W15 @ PHI",
+    "W16 vs LAR",
+    "W17 @ CAR",
+    "W18 @ LAR"
+   ],
+   "games": 8,
+   "avg_opp_net": -0.54,
+   "rank_hardest": 22
+  },
+  "SF": {
+   "remaining": [
+    "W10 @ DAL",
+    "W11 vs MIN",
+    "W12 vs SEA",
+    "W13 @ NYG",
+    "W14 vs LAR",
+    "W15 @ LAC",
+    "W16 @ KC",
+    "W17 vs PHI",
+    "W18 @ ARI"
+   ],
+   "games": 9,
+   "avg_opp_net": -2.7,
+   "rank_hardest": 28
+  },
+  "TB": {
+   "remaining": [
+    "W11 @ DET",
+    "W12 vs CAR",
+    "W13 vs LAC",
+    "W14 @ BAL",
+    "W15 vs NO",
+    "W16 @ ATL",
+    "W17 vs LAR",
+    "W18 @ NO"
+   ],
+   "games": 8,
+   "avg_opp_net": -4.62,
+   "rank_hardest": 32
+  },
+  "TEN": {
+   "remaining": [
+    "W10 vs JAX",
+    "W11 @ DAL",
+    "W12 @ JAX",
+    "W13 vs WAS",
+    "W14 @ DET",
+    "W15 vs IND",
+    "W16 @ LV",
+    "W17 vs PIT",
+    "W18 @ HOU"
+   ],
+   "games": 9,
+   "avg_opp_net": 2.8,
+   "rank_hardest": 5
+  },
+  "WAS": {
+   "remaining": [
+    "W10 @ NYG",
+    "W11 vs CIN",
+    "W12 @ ARI",
+    "W13 @ TEN",
+    "W14 vs HOU",
+    "W15 vs ATL",
+    "W16 @ MIN",
+    "W17 @ JAX",
+    "W18 vs DAL"
+   ],
+   "games": 9,
+   "avg_opp_net": 0.32,
+   "rank_hardest": 17
+  }
+ },
+ "games": [
+  {
+   "week": 10,
+   "game": "WAS@NYG",
+   "away": "WAS",
+   "home": "NYG",
+   "kickoff_utc": "2026-11-13T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.19,
+    "rush_edge": -0.38,
+    "protection_edge": 0.66,
+    "explosive_edge": -0.66
+   },
+   "home_edges": {
+    "pass_edge": -0.21,
+    "rush_edge": -0.28,
+    "protection_edge": -0.98,
+    "explosive_edge": -1.23
+   },
+   "proj_home_margin": 0.9,
+   "market_home_margin": 2.5,
+   "market_total": 41.5,
+   "model_minus_market": -1.6,
+   "notes": [
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "NE@DET",
+   "away": "NE",
+   "home": "DET",
+   "kickoff_utc": "2026-11-15T14:30:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.45,
+    "rush_edge": -0.44,
+    "protection_edge": -0.65,
+    "explosive_edge": 2.17
+   },
+   "home_edges": {
+    "pass_edge": 1.4,
+    "rush_edge": -0.01,
+    "protection_edge": -1.29,
+    "explosive_edge": 2.31
+   },
+   "proj_home_margin": 0.8,
+   "market_home_margin": 2.5,
+   "market_total": 51.5,
+   "model_minus_market": -1.7,
+   "notes": [
+    "NE explosives (rk 4) vs DET (allowed rk 28): long-play spot",
+    "DET explosives (rk 3) vs NE (allowed rk 26): long-play spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "KC@ATL",
+   "away": "KC",
+   "home": "ATL",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.91,
+    "rush_edge": 1.21,
+    "protection_edge": 0.36,
+    "explosive_edge": 2.21
+   },
+   "home_edges": {
+    "pass_edge": -0.55,
+    "rush_edge": 0.0,
+    "protection_edge": 1.56,
+    "explosive_edge": -1.03
+   },
+   "proj_home_margin": -3.9,
+   "market_home_margin": -3.5,
+   "market_total": 45.5,
+   "model_minus_market": -0.4,
+   "notes": [
+    "KC explosives (rk 5) vs ATL (allowed rk 29): long-play spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "HOU@CLE",
+   "away": "HOU",
+   "home": "CLE",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.31,
+    "rush_edge": -1.09,
+    "protection_edge": 0.36,
+    "explosive_edge": 1.92
+   },
+   "home_edges": {
+    "pass_edge": -0.18,
+    "rush_edge": -1.47,
+    "protection_edge": -3.7,
+    "explosive_edge": 0.41
+   },
+   "proj_home_margin": -3.9,
+   "market_home_margin": -4.5,
+   "market_total": 39.5,
+   "model_minus_market": 0.6,
+   "notes": [
+    "HOU explosives (rk 10) vs CLE (allowed rk 31): long-play spot",
+    "HOU pass rush (sack rate rk 2) vs CLE protection (rk 31): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "MIN@GB",
+   "away": "MIN",
+   "home": "GB",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.11,
+    "rush_edge": -1.78,
+    "protection_edge": -1.19,
+    "explosive_edge": -0.68
+   },
+   "home_edges": {
+    "pass_edge": -0.88,
+    "rush_edge": -2.27,
+    "protection_edge": -2.08,
+    "explosive_edge": 0.48
+   },
+   "proj_home_margin": 2.2,
+   "market_home_margin": 5.5,
+   "market_total": 40.5,
+   "model_minus_market": -3.3,
+   "notes": [
+    "MIN pass O (29) into GB pass D (8): tough spot",
+    "MIN run game (30) into GB run D (12): fade rushing overs",
+    "GB run game (31) into MIN run D (8): fade rushing overs",
+    "MIN pass rush (sack rate rk 1) vs GB protection (rk 10): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "JAX@TEN",
+   "away": "JAX",
+   "home": "TEN",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.42,
+    "rush_edge": 1.28,
+    "protection_edge": 0.4,
+    "explosive_edge": 1.79
+   },
+   "home_edges": {
+    "pass_edge": -2.61,
+    "rush_edge": -1.73,
+    "protection_edge": 1.45,
+    "explosive_edge": -1.82
+   },
+   "proj_home_margin": -13.5,
+   "market_home_margin": -10.5,
+   "market_total": 46.5,
+   "model_minus_market": -3.0,
+   "notes": [
+    "JAX pass O (3) vs TEN pass D (28): big edge",
+    "JAX explosives (rk 7) vs TEN (allowed rk 27): long-play spot",
+    "TEN pass O (27) into JAX pass D (3): tough spot",
+    "TEN run game (19) into JAX run D (3): fade rushing overs"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "MIA@IND",
+   "away": "MIA",
+   "home": "IND",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.08,
+    "rush_edge": 1.07,
+    "protection_edge": -1.73,
+    "explosive_edge": 1.0
+   },
+   "home_edges": {
+    "pass_edge": -0.56,
+    "rush_edge": 2.2,
+    "protection_edge": 0.0,
+    "explosive_edge": 0.03
+   },
+   "proj_home_margin": 0.4,
+   "market_home_margin": 2.5,
+   "market_total": 40.5,
+   "model_minus_market": -2.1,
+   "notes": [
+    "IND pass rush (sack rate rk 11) vs MIA protection (rk 29): sack/pressure spot",
+    "IND run game (5) vs MIA run D (28): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "CAR@NO",
+   "away": "CAR",
+   "home": "NO",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.31,
+    "rush_edge": 2.0,
+    "protection_edge": -1.43,
+    "explosive_edge": 0.93
+   },
+   "home_edges": {
+    "pass_edge": 1.14,
+    "rush_edge": 0.08,
+    "protection_edge": 2.31,
+    "explosive_edge": -2.54
+   },
+   "proj_home_margin": -3.4,
+   "market_home_margin": 1.5,
+   "market_total": 48.5,
+   "model_minus_market": -4.9,
+   "notes": [
+    "CAR run game (13) vs NO run D (31): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "BUF@NYJ",
+   "away": "BUF",
+   "home": "NYJ",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.49,
+    "rush_edge": 1.1,
+    "protection_edge": 0.2,
+    "explosive_edge": 2.12
+   },
+   "home_edges": {
+    "pass_edge": -1.23,
+    "rush_edge": 0.24,
+    "protection_edge": -0.62,
+    "explosive_edge": 0.68
+   },
+   "proj_home_margin": -9.4,
+   "market_home_margin": -8.5,
+   "market_total": 50.5,
+   "model_minus_market": -0.9,
+   "notes": [
+    "BUF pass O (4) vs NYJ pass D (30): big edge",
+    "BUF explosives (rk 1) vs NYJ (allowed rk 15): long-play spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "SEA@LV",
+   "away": "SEA",
+   "home": "LV",
+   "kickoff_utc": "2026-11-15T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.24,
+    "rush_edge": -0.16,
+    "protection_edge": 0.79,
+    "explosive_edge": 0.79
+   },
+   "home_edges": {
+    "pass_edge": -0.85,
+    "rush_edge": -2.15,
+    "protection_edge": 1.56,
+    "explosive_edge": -2.81
+   },
+   "proj_home_margin": -5.2,
+   "market_home_margin": -3.5,
+   "market_total": 43.5,
+   "model_minus_market": -1.7,
+   "notes": [
+    "LV run game (28) into SEA run D (6): fade rushing overs"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "LAR@ARI",
+   "away": "LAR",
+   "home": "ARI",
+   "kickoff_utc": "2026-11-15T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.96,
+    "rush_edge": 0.32,
+    "protection_edge": 1.47,
+    "explosive_edge": -0.63
+   },
+   "home_edges": {
+    "pass_edge": -1.2,
+    "rush_edge": -1.56,
+    "protection_edge": 1.2,
+    "explosive_edge": -2.57
+   },
+   "proj_home_margin": -5.1,
+   "market_home_margin": -9.5,
+   "market_total": 40.5,
+   "model_minus_market": 4.4,
+   "notes": [
+    "ARI run game (14) into LAR run D (2): fade rushing overs"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "SF@DAL",
+   "away": "SF",
+   "home": "DAL",
+   "kickoff_utc": "2026-11-15T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 3.22,
+    "rush_edge": 3.42,
+    "protection_edge": 2.23,
+    "explosive_edge": 2.07
+   },
+   "home_edges": {
+    "pass_edge": 0.38,
+    "rush_edge": -0.62,
+    "protection_edge": 2.03,
+    "explosive_edge": -2.32
+   },
+   "proj_home_margin": -6.1,
+   "market_home_margin": -4.5,
+   "market_total": 55.5,
+   "model_minus_market": -1.6,
+   "notes": [
+    "SF pass O (2) vs DAL pass D (32): big edge",
+    "SF run game (3) vs DAL run D (32): rushing-lane spot",
+    "SF explosives (rk 2) vs DAL (allowed rk 19): long-play spot"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "PIT@CIN",
+   "away": "PIT",
+   "home": "CIN",
+   "kickoff_utc": "2026-11-16T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.07,
+    "rush_edge": 2.09,
+    "protection_edge": -0.67,
+    "explosive_edge": 1.21
+   },
+   "home_edges": {
+    "pass_edge": 1.76,
+    "rush_edge": -2.21,
+    "protection_edge": -0.62,
+    "explosive_edge": 0.31
+   },
+   "proj_home_margin": 3.0,
+   "market_home_margin": 3.5,
+   "market_total": 48.5,
+   "model_minus_market": -0.5,
+   "notes": [
+    "PIT run game (1) vs CIN run D (18): rushing-lane spot",
+    "CIN pass O (1) vs PIT pass D (13): big edge",
+    "CIN run game (17) into PIT run D (1): fade rushing overs"
+   ]
+  },
+  {
+   "week": 10,
+   "game": "LAC@BAL",
+   "away": "LAC",
+   "home": "BAL",
+   "kickoff_utc": "2026-11-17T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.71,
+    "rush_edge": -1.49,
+    "protection_edge": -0.98,
+    "explosive_edge": -1.88
+   },
+   "home_edges": {
+    "pass_edge": -0.97,
+    "rush_edge": -0.17,
+    "protection_edge": 0.39,
+    "explosive_edge": 0.31
+   },
+   "proj_home_margin": 2.5,
+   "market_home_margin": 5.5,
+   "market_total": 38.5,
+   "model_minus_market": -3.0,
+   "notes": [
+    "LAC pass O (32) into BAL pass D (18): tough spot",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "IND@HOU",
+   "away": "IND",
+   "home": "HOU",
+   "kickoff_utc": "2026-11-20T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.53,
+    "rush_edge": 1.01,
+    "protection_edge": -2.55,
+    "explosive_edge": 0.24
+   },
+   "home_edges": {
+    "pass_edge": 1.59,
+    "rush_edge": 0.41,
+    "protection_edge": 0.5,
+    "explosive_edge": 1.77
+   },
+   "proj_home_margin": 5.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "IND pass O (31) into HOU pass D (17): tough spot",
+    "HOU pass rush (sack rate rk 2) vs IND protection (rk 24): sack/pressure spot",
+    "HOU pass O (5) vs IND pass D (20): big edge",
+    "HOU explosives (rk 10) vs IND (allowed rk 30): long-play spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "MIA@BUF",
+   "away": "MIA",
+   "home": "BUF",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.57,
+    "rush_edge": 0.27,
+    "protection_edge": -0.96,
+    "explosive_edge": -0.32
+   },
+   "home_edges": {
+    "pass_edge": 2.41,
+    "rush_edge": 2.25,
+    "protection_edge": 0.76,
+    "explosive_edge": 2.86
+   },
+   "proj_home_margin": 11.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIA pass O (24) into BUF pass D (6): tough spot",
+    "BUF pass O (4) vs MIA pass D (29): big edge",
+    "BUF run game (4) vs MIA run D (28): rushing-lane spot",
+    "BUF explosives (rk 1) vs MIA (allowed rk 22): long-play spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "NO@CHI",
+   "away": "NO",
+   "home": "CHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.34,
+    "rush_edge": -0.41,
+    "protection_edge": -1.23,
+    "explosive_edge": -1.13
+   },
+   "home_edges": {
+    "pass_edge": 1.72,
+    "rush_edge": 2.03,
+    "protection_edge": -0.39,
+    "explosive_edge": 1.25
+   },
+   "proj_home_margin": 6.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CHI pass O (7) vs NO pass D (25): big edge",
+    "CHI run game (12) vs NO run D (31): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "TEN@DAL",
+   "away": "TEN",
+   "home": "DAL",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.51,
+    "rush_edge": 1.61,
+    "protection_edge": 1.79,
+    "explosive_edge": -0.44
+   },
+   "home_edges": {
+    "pass_edge": 1.82,
+    "rush_edge": 1.41,
+    "protection_edge": 1.08,
+    "explosive_edge": 0.64
+   },
+   "proj_home_margin": 4.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "TEN run game (19) vs DAL run D (32): rushing-lane spot",
+    "DAL pass O (8) vs TEN pass D (28): big edge"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "TB@DET",
+   "away": "TB",
+   "home": "DET",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.9,
+    "rush_edge": 0.34,
+    "protection_edge": -2.01,
+    "explosive_edge": 1.59
+   },
+   "home_edges": {
+    "pass_edge": -1.53,
+    "rush_edge": -0.93,
+    "protection_edge": 0.53,
+    "explosive_edge": 0.16
+   },
+   "proj_home_margin": -2.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DET pass rush (sack rate rk 8) vs TB protection (rk 28): sack/pressure spot",
+    "TB explosives (rk 12) vs DET (allowed rk 28): long-play spot",
+    "DET pass O (10) into TB pass D (1): tough spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "ARI@KC",
+   "away": "ARI",
+   "home": "KC",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.13,
+    "rush_edge": -0.23,
+    "protection_edge": 1.13,
+    "explosive_edge": -2.87
+   },
+   "home_edges": {
+    "pass_edge": 1.83,
+    "rush_edge": 0.74,
+    "protection_edge": 1.51,
+    "explosive_edge": 1.01
+   },
+   "proj_home_margin": 4.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "KC pass O (11) vs ARI pass D (31): big edge"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "PIT@PHI",
+   "away": "PIT",
+   "home": "PHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.09,
+    "rush_edge": 3.47,
+    "protection_edge": 0.43,
+    "explosive_edge": 1.2
+   },
+   "home_edges": {
+    "pass_edge": -1.47,
+    "rush_edge": -2.6,
+    "protection_edge": -2.33,
+    "explosive_edge": -2.61
+   },
+   "proj_home_margin": -6.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PIT run game (1) vs PHI run D (30): rushing-lane spot",
+    "PHI run game (22) into PIT run D (1): fade rushing overs",
+    "PIT pass rush (sack rate rk 4) vs PHI protection (rk 25): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "BAL@CAR",
+   "away": "BAL",
+   "home": "CAR",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.65,
+    "rush_edge": 0.21,
+    "protection_edge": 1.33,
+    "explosive_edge": -1.7
+   },
+   "home_edges": {
+    "pass_edge": 0.58,
+    "rush_edge": 0.66,
+    "protection_edge": 0.24,
+    "explosive_edge": -0.75
+   },
+   "proj_home_margin": 1.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "NYJ@LAC",
+   "away": "NYJ",
+   "home": "LAC",
+   "kickoff_utc": "2026-11-22T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.69,
+    "rush_edge": 0.2,
+    "protection_edge": -0.14,
+    "explosive_edge": 1.79
+   },
+   "home_edges": {
+    "pass_edge": -0.65,
+    "rush_edge": -1.72,
+    "protection_edge": -1.73,
+    "explosive_edge": -1.04
+   },
+   "proj_home_margin": -4.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYJ explosives (rk 6) vs LAC (allowed rk 25): long-play spot",
+    "LAC run game (32) into NYJ run D (16): fade rushing overs",
+    "NYJ pass rush (sack rate rk 16) vs LAC protection (rk 32): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "LV@DEN",
+   "away": "LV",
+   "home": "DEN",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.39,
+    "rush_edge": -0.71,
+    "protection_edge": 1.3,
+    "explosive_edge": -0.51
+   },
+   "home_edges": {
+    "pass_edge": 1.02,
+    "rush_edge": 1.83,
+    "protection_edge": 1.6,
+    "explosive_edge": 0.72
+   },
+   "proj_home_margin": 3.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DEN run game (7) vs LV run D (27): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "JAX@NYG",
+   "away": "JAX",
+   "home": "NYG",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.31,
+    "rush_edge": 0.9,
+    "protection_edge": 1.14,
+    "explosive_edge": 0.52
+   },
+   "home_edges": {
+    "pass_edge": -1.91,
+    "rush_edge": -1.77,
+    "protection_edge": -1.03,
+    "explosive_edge": -1.03
+   },
+   "proj_home_margin": -8.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYG pass O (19) into JAX pass D (3): tough spot",
+    "NYG run game (21) into JAX run D (3): fade rushing overs",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "MIN@SF",
+   "away": "MIN",
+   "home": "SF",
+   "kickoff_utc": "2026-11-23T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.73,
+    "rush_edge": -2.84,
+    "protection_edge": -0.03,
+    "explosive_edge": -2.11
+   },
+   "home_edges": {
+    "pass_edge": -0.29,
+    "rush_edge": 0.81,
+    "protection_edge": -1.36,
+    "explosive_edge": 1.36
+   },
+   "proj_home_margin": 4.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIN pass O (29) into SF pass D (12): tough spot",
+    "MIN run game (30) into SF run D (4): fade rushing overs",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 11,
+   "game": "CIN@WAS",
+   "away": "CIN",
+   "home": "WAS",
+   "kickoff_utc": "2026-11-24T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.96,
+    "rush_edge": -0.03,
+    "protection_edge": 1.24,
+    "explosive_edge": -0.52
+   },
+   "home_edges": {
+    "pass_edge": 0.44,
+    "rush_edge": -0.57,
+    "protection_edge": -0.53,
+    "explosive_edge": 0.12
+   },
+   "proj_home_margin": -6.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs WAS pass D (15): big edge"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "GB@LAR",
+   "away": "GB",
+   "home": "LAR",
+   "kickoff_utc": "2026-11-26T01:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.29,
+    "rush_edge": -3.52,
+    "protection_edge": 1.67,
+    "explosive_edge": -0.16
+   },
+   "home_edges": {
+    "pass_edge": -1.12,
+    "rush_edge": 0.79,
+    "protection_edge": 1.04,
+    "explosive_edge": -1.13
+   },
+   "proj_home_margin": -1.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "GB run game (31) into LAR run D (2): fade rushing overs"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "CHI@DET",
+   "away": "CHI",
+   "home": "DET",
+   "kickoff_utc": "2026-11-26T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.57,
+    "rush_edge": 0.16,
+    "protection_edge": -0.26,
+    "explosive_edge": 1.47
+   },
+   "home_edges": {
+    "pass_edge": 0.24,
+    "rush_edge": 0.78,
+    "protection_edge": -1.99,
+    "explosive_edge": 1.7
+   },
+   "proj_home_margin": -2.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CHI pass O (7) vs DET pass D (23): big edge",
+    "CHI pass rush (sack rate rk 3) vs DET protection (rk 21): sack/pressure spot",
+    "DET explosives (rk 3) vs CHI (allowed rk 18): long-play spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "PHI@DAL",
+   "away": "PHI",
+   "home": "DAL",
+   "kickoff_utc": "2026-11-26T21:30:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.15,
+    "rush_edge": 1.44,
+    "protection_edge": -0.18,
+    "explosive_edge": -1.86
+   },
+   "home_edges": {
+    "pass_edge": 1.33,
+    "rush_edge": 2.22,
+    "protection_edge": 1.72,
+    "explosive_edge": 0.14
+   },
+   "proj_home_margin": 4.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DAL run game (8) vs PHI run D (30): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "KC@BUF",
+   "away": "KC",
+   "home": "BUF",
+   "kickoff_utc": "2026-11-27T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.6,
+    "rush_edge": 2.08,
+    "protection_edge": 1.73,
+    "explosive_edge": 0.89
+   },
+   "home_edges": {
+    "pass_edge": 1.53,
+    "rush_edge": 0.57,
+    "protection_edge": 0.96,
+    "explosive_edge": 1.0
+   },
+   "proj_home_margin": 5.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "KC run game (2) vs BUF run D (24): rushing-lane spot",
+    "BUF pass O (4) vs KC pass D (19): big edge"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "DEN@PIT",
+   "away": "DEN",
+   "home": "PIT",
+   "kickoff_utc": "2026-11-27T20:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.0,
+    "rush_edge": -1.24,
+    "protection_edge": -0.18,
+    "explosive_edge": -1.17
+   },
+   "home_edges": {
+    "pass_edge": -1.4,
+    "rush_edge": 2.56,
+    "protection_edge": -0.45,
+    "explosive_edge": 0.67
+   },
+   "proj_home_margin": -2.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PIT run game (1) vs DEN run D (23): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "NO@CIN",
+   "away": "NO",
+   "home": "CIN",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.67,
+    "rush_edge": -0.74,
+    "protection_edge": 0.0,
+    "explosive_edge": -0.98
+   },
+   "home_edges": {
+    "pass_edge": 2.75,
+    "rush_edge": 1.4,
+    "protection_edge": -0.06,
+    "explosive_edge": 1.37
+   },
+   "proj_home_margin": 7.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs NO pass D (25): big edge"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "LV@CLE",
+   "away": "LV",
+   "home": "CLE",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.45,
+    "rush_edge": -1.4,
+    "protection_edge": 1.05,
+    "explosive_edge": 0.84
+   },
+   "home_edges": {
+    "pass_edge": 0.59,
+    "rush_edge": -0.39,
+    "protection_edge": -1.41,
+    "explosive_edge": 1.14
+   },
+   "proj_home_margin": -0.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 12,
+   "game": "NYG@IND",
+   "away": "NYG",
+   "home": "IND",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.09,
+    "rush_edge": 1.0,
+    "protection_edge": -1.78,
+    "explosive_edge": 1.04
+   },
+   "home_edges": {
+    "pass_edge": -1.71,
+    "rush_edge": 1.4,
+    "protection_edge": 0.09,
+    "explosive_edge": -0.94
+   },
+   "proj_home_margin": -4.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "IND pass rush (sack rate rk 11) vs NYG protection (rk 30): sack/pressure spot",
+    "IND pass O (31) into NYG pass D (14): tough spot",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "NYJ@MIA",
+   "away": "NYJ",
+   "home": "MIA",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.98,
+    "rush_edge": 0.75,
+    "protection_edge": -0.41,
+    "explosive_edge": 1.52
+   },
+   "home_edges": {
+    "pass_edge": 0.73,
+    "rush_edge": -0.35,
+    "protection_edge": -1.3,
+    "explosive_edge": -0.22
+   },
+   "proj_home_margin": -3.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYJ explosives (rk 6) vs MIA (allowed rk 22): long-play spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "ATL@MIN",
+   "away": "ATL",
+   "home": "MIN",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.79,
+    "rush_edge": -0.09,
+    "protection_edge": -2.12,
+    "explosive_edge": -0.09
+   },
+   "home_edges": {
+    "pass_edge": -2.77,
+    "rush_edge": -1.78,
+    "protection_edge": -1.92,
+    "explosive_edge": 1.02
+   },
+   "proj_home_margin": 1.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "ATL pass O (26) into MIN pass D (2): tough spot",
+    "MIN pass rush (sack rate rk 1) vs ATL protection (rk 11): sack/pressure spot",
+    "MIN pass O (29) into ATL pass D (4): tough spot",
+    "MIN run game (30) into ATL run D (13): fade rushing overs",
+    "ATL pass rush (sack rate rk 6) vs MIN protection (rk 26): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "BAL@HOU",
+   "away": "BAL",
+   "home": "HOU",
+   "kickoff_utc": "2026-11-29T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.27,
+    "rush_edge": -0.81,
+    "protection_edge": -2.43,
+    "explosive_edge": 0.26
+   },
+   "home_edges": {
+    "pass_edge": 1.34,
+    "rush_edge": -0.79,
+    "protection_edge": 1.68,
+    "explosive_edge": -0.29
+   },
+   "proj_home_margin": 4.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU pass rush (sack rate rk 2) vs BAL protection (rk 22): sack/pressure spot",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "TEN@JAX",
+   "away": "TEN",
+   "home": "JAX",
+   "kickoff_utc": "2026-11-29T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.61,
+    "rush_edge": -1.73,
+    "protection_edge": 1.45,
+    "explosive_edge": -1.82
+   },
+   "home_edges": {
+    "pass_edge": 2.42,
+    "rush_edge": 1.28,
+    "protection_edge": 0.4,
+    "explosive_edge": 1.79
+   },
+   "proj_home_margin": 12.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "TEN pass O (27) into JAX pass D (3): tough spot",
+    "TEN run game (19) into JAX run D (3): fade rushing overs",
+    "JAX pass O (3) vs TEN pass D (28): big edge",
+    "JAX explosives (rk 7) vs TEN (allowed rk 27): long-play spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "WAS@ARI",
+   "away": "WAS",
+   "home": "ARI",
+   "kickoff_utc": "2026-11-29T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.18,
+    "rush_edge": -1.44,
+    "protection_edge": 0.14,
+    "explosive_edge": -0.42
+   },
+   "home_edges": {
+    "pass_edge": -0.29,
+    "rush_edge": 0.45,
+    "protection_edge": 0.75,
+    "explosive_edge": -2.8
+   },
+   "proj_home_margin": -1.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 12,
+   "game": "SEA@SF",
+   "away": "SEA",
+   "home": "SF",
+   "kickoff_utc": "2026-11-29T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.04,
+    "rush_edge": -2.49,
+    "protection_edge": 1.35,
+    "explosive_edge": -2.8
+   },
+   "home_edges": {
+    "pass_edge": 0.52,
+    "rush_edge": 0.61,
+    "protection_edge": 1.5,
+    "explosive_edge": -0.74
+   },
+   "proj_home_margin": 1.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SEA run game (27) into SF run D (4): fade rushing overs"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "NE@LAC",
+   "away": "NE",
+   "home": "LAC",
+   "kickoff_utc": "2026-11-30T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.17,
+    "rush_edge": 0.46,
+    "protection_edge": 0.98,
+    "explosive_edge": 2.12
+   },
+   "home_edges": {
+    "pass_edge": -1.11,
+    "rush_edge": -2.02,
+    "protection_edge": -2.81,
+    "explosive_edge": -0.02
+   },
+   "proj_home_margin": -7.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NE explosives (rk 4) vs LAC (allowed rk 25): long-play spot",
+    "LAC run game (32) into NE run D (11): fade rushing overs",
+    "NE pass rush (sack rate rk 5) vs LAC protection (rk 32): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 12,
+   "game": "CAR@TB",
+   "away": "CAR",
+   "home": "TB",
+   "kickoff_utc": "2026-12-01T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.76,
+    "rush_edge": -0.79,
+    "protection_edge": 0.23,
+    "explosive_edge": -1.04
+   },
+   "home_edges": {
+    "pass_edge": -0.56,
+    "rush_edge": 1.62,
+    "protection_edge": 0.55,
+    "explosive_edge": -0.48
+   },
+   "proj_home_margin": 3.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CAR pass O (12) into TB pass D (1): tough spot",
+    "TB run game (9) vs CAR run D (26): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "KC@LAR",
+   "away": "KC",
+   "home": "LAR",
+   "kickoff_utc": "2026-12-04T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.32,
+    "rush_edge": -0.42,
+    "protection_edge": 2.22,
+    "explosive_edge": 0.17
+   },
+   "home_edges": {
+    "pass_edge": -0.12,
+    "rush_edge": 0.51,
+    "protection_edge": 2.1,
+    "explosive_edge": -1.76
+   },
+   "proj_home_margin": -0.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 13,
+   "game": "DET@ATL",
+   "away": "DET",
+   "home": "ATL",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.76,
+    "rush_edge": 0.05,
+    "protection_edge": -1.24,
+    "explosive_edge": 2.51
+   },
+   "home_edges": {
+    "pass_edge": -0.07,
+    "rush_edge": 0.23,
+    "protection_edge": 0.0,
+    "explosive_edge": 1.15
+   },
+   "proj_home_margin": -4.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DET explosives (rk 3) vs ATL (allowed rk 29): long-play spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "JAX@CHI",
+   "away": "JAX",
+   "home": "CHI",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.93,
+    "rush_edge": 1.04,
+    "protection_edge": -1.28,
+    "explosive_edge": 1.16
+   },
+   "home_edges": {
+    "pass_edge": -0.76,
+    "rush_edge": -0.88,
+    "protection_edge": 0.87,
+    "explosive_edge": -0.44
+   },
+   "proj_home_margin": -3.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 13,
+   "game": "CIN@CLE",
+   "away": "CIN",
+   "home": "CLE",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.98,
+    "rush_edge": -0.23,
+    "protection_edge": 0.29,
+    "explosive_edge": 1.9
+   },
+   "home_edges": {
+    "pass_edge": 0.28,
+    "rush_edge": -1.27,
+    "protection_edge": -2.25,
+    "explosive_edge": 0.01
+   },
+   "proj_home_margin": -6.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs CLE pass D (16): big edge",
+    "CIN explosives (rk 11) vs CLE (allowed rk 31): long-play spot",
+    "CIN pass rush (sack rate rk 10) vs CLE protection (rk 31): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "WAS@TEN",
+   "away": "WAS",
+   "home": "TEN",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.92,
+    "rush_edge": -0.0,
+    "protection_edge": -0.07,
+    "explosive_edge": 0.61
+   },
+   "home_edges": {
+    "pass_edge": -0.91,
+    "rush_edge": -0.24,
+    "protection_edge": 1.5,
+    "explosive_edge": -2.02
+   },
+   "proj_home_margin": -4.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 13,
+   "game": "GB@NO",
+   "away": "GB",
+   "home": "NO",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.99,
+    "rush_edge": -0.08,
+    "protection_edge": -0.09,
+    "explosive_edge": 1.5
+   },
+   "home_edges": {
+    "pass_edge": -0.67,
+    "rush_edge": -1.14,
+    "protection_edge": 0.25,
+    "explosive_edge": -2.02
+   },
+   "proj_home_margin": -7.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "GB pass O (6) vs NO pass D (25): big edge",
+    "GB explosives (rk 8) vs NO (allowed rk 23): long-play spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "SF@NYG",
+   "away": "SF",
+   "home": "NYG",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.67,
+    "rush_edge": 1.78,
+    "protection_edge": 2.21,
+    "explosive_edge": 1.31
+   },
+   "home_edges": {
+    "pass_edge": -0.67,
+    "rush_edge": -1.73,
+    "protection_edge": -0.5,
+    "explosive_edge": -2.1
+   },
+   "proj_home_margin": -5.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SF pass O (2) vs NYG pass D (14): big edge",
+    "SF run game (3) vs NYG run D (20): rushing-lane spot",
+    "NYG run game (21) into SF run D (4): fade rushing overs",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "LAC@TB",
+   "away": "LAC",
+   "home": "TB",
+   "kickoff_utc": "2026-12-06T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -4.04,
+    "rush_edge": -2.93,
+    "protection_edge": -0.99,
+    "explosive_edge": -2.17
+   },
+   "home_edges": {
+    "pass_edge": -2.18,
+    "rush_edge": 1.24,
+    "protection_edge": -0.39,
+    "explosive_edge": 1.53
+   },
+   "proj_home_margin": 8.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LAC pass O (32) into TB pass D (1): tough spot",
+    "LAC run game (32) into TB run D (5): fade rushing overs",
+    "TB pass O (30) into LAC pass D (10): tough spot",
+    "TB explosives (rk 12) vs LAC (allowed rk 25): long-play spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "MIA@DEN",
+   "away": "MIA",
+   "home": "DEN",
+   "kickoff_utc": "2026-12-06T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.2,
+    "rush_edge": 0.27,
+    "protection_edge": -1.63,
+    "explosive_edge": -0.2
+   },
+   "home_edges": {
+    "pass_edge": 1.23,
+    "rush_edge": 1.96,
+    "protection_edge": 1.85,
+    "explosive_edge": -0.21
+   },
+   "proj_home_margin": 6.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DEN pass rush (sack rate rk 12) vs MIA protection (rk 29): sack/pressure spot",
+    "DEN run game (7) vs MIA run D (28): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "PHI@ARI",
+   "away": "PHI",
+   "home": "ARI",
+   "kickoff_utc": "2026-12-06T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.03,
+    "rush_edge": -1.27,
+    "protection_edge": -0.72,
+    "explosive_edge": -2.38
+   },
+   "home_edges": {
+    "pass_edge": 0.2,
+    "rush_edge": 1.84,
+    "protection_edge": 0.93,
+    "explosive_edge": -1.2
+   },
+   "proj_home_margin": 2.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "ARI run game (14) vs PHI run D (30): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "CAR@MIN",
+   "away": "CAR",
+   "home": "MIN",
+   "kickoff_utc": "2026-12-06T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.57,
+    "rush_edge": -0.19,
+    "protection_edge": -3.43,
+    "explosive_edge": -0.08
+   },
+   "home_edges": {
+    "pass_edge": -0.3,
+    "rush_edge": -0.56,
+    "protection_edge": 0.87,
+    "explosive_edge": -1.2
+   },
+   "proj_home_margin": 0.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CAR pass O (12) into MIN pass D (2): tough spot",
+    "MIN pass rush (sack rate rk 1) vs CAR protection (rk 23): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "BUF@NE",
+   "away": "BUF",
+   "home": "NE",
+   "kickoff_utc": "2026-12-06T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.04,
+    "rush_edge": 0.8,
+    "protection_edge": -0.88,
+    "explosive_edge": 3.13
+   },
+   "home_edges": {
+    "pass_edge": -0.37,
+    "rush_edge": 0.5,
+    "protection_edge": 0.49,
+    "explosive_edge": 1.01
+   },
+   "proj_home_margin": -7.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF pass O (4) vs NE pass D (24): big edge",
+    "BUF explosives (rk 1) vs NE (allowed rk 26): long-play spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "HOU@PIT",
+   "away": "HOU",
+   "home": "PIT",
+   "kickoff_utc": "2026-12-07T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.08,
+    "rush_edge": -3.07,
+    "protection_edge": -0.55,
+    "explosive_edge": 0.33
+   },
+   "home_edges": {
+    "pass_edge": -0.52,
+    "rush_edge": 1.89,
+    "protection_edge": -2.12,
+    "explosive_edge": 1.61
+   },
+   "proj_home_margin": -1.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU run game (26) into PIT run D (1): fade rushing overs",
+    "PIT run game (1) vs HOU run D (15): rushing-lane spot",
+    "HOU pass rush (sack rate rk 2) vs PIT protection (rk 20): sack/pressure spot",
+    "PIT explosives (rk 9) vs HOU (allowed rk 24): long-play spot"
+   ]
+  },
+  {
+   "week": 13,
+   "game": "DAL@SEA",
+   "away": "DAL",
+   "home": "SEA",
+   "kickoff_utc": "2026-12-08T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.44,
+    "rush_edge": -0.13,
+    "protection_edge": 1.11,
+    "explosive_edge": -2.68
+   },
+   "home_edges": {
+    "pass_edge": 1.84,
+    "rush_edge": 0.81,
+    "protection_edge": 1.16,
+    "explosive_edge": -0.35
+   },
+   "proj_home_margin": 3.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SEA pass O (14) vs DAL pass D (32): big edge"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "MIN@NE",
+   "away": "MIN",
+   "home": "NE",
+   "kickoff_utc": "2026-12-11T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.61,
+    "rush_edge": -1.84,
+    "protection_edge": -1.98,
+    "explosive_edge": 0.82
+   },
+   "home_edges": {
+    "pass_edge": -1.27,
+    "rush_edge": -0.75,
+    "protection_edge": -2.77,
+    "explosive_edge": 0.94
+   },
+   "proj_home_margin": 0.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIN run game (30) into NE run D (11): fade rushing overs",
+    "NE pass rush (sack rate rk 5) vs MIN protection (rk 26): sack/pressure spot",
+    "MIN pass rush (sack rate rk 1) vs NE protection (rk 18): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "ATL@CLE",
+   "away": "ATL",
+   "home": "CLE",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.68,
+    "rush_edge": 0.46,
+    "protection_edge": 0.23,
+    "explosive_edge": 1.45
+   },
+   "home_edges": {
+    "pass_edge": -1.73,
+    "rush_edge": -1.66,
+    "protection_edge": -2.73,
+    "explosive_edge": 0.67
+   },
+   "proj_home_margin": -0.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CLE pass O (20) into ATL pass D (4): tough spot",
+    "CLE run game (29) into ATL run D (13): fade rushing overs",
+    "ATL pass rush (sack rate rk 6) vs CLE protection (rk 31): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "TEN@DET",
+   "away": "TEN",
+   "home": "DET",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.28,
+    "rush_edge": -0.69,
+    "protection_edge": 0.32,
+    "explosive_edge": 0.09
+   },
+   "home_edges": {
+    "pass_edge": 1.73,
+    "rush_edge": 1.02,
+    "protection_edge": -0.3,
+    "explosive_edge": 2.33
+   },
+   "proj_home_margin": 7.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DET pass O (10) vs TEN pass D (28): big edge",
+    "DET explosives (rk 3) vs TEN (allowed rk 27): long-play spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "CHI@MIA",
+   "away": "CHI",
+   "home": "MIA",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.96,
+    "rush_edge": 1.61,
+    "protection_edge": 1.09,
+    "explosive_edge": 1.15
+   },
+   "home_edges": {
+    "pass_edge": -0.89,
+    "rush_edge": 0.13,
+    "protection_edge": -3.08,
+    "explosive_edge": 0.19
+   },
+   "proj_home_margin": -9.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CHI pass O (7) vs MIA pass D (29): big edge",
+    "CHI run game (12) vs MIA run D (28): rushing-lane spot",
+    "CHI pass rush (sack rate rk 3) vs MIA protection (rk 29): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "DEN@NYJ",
+   "away": "DEN",
+   "home": "NYJ",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.31,
+    "rush_edge": 0.81,
+    "protection_edge": 1.3,
+    "explosive_edge": -0.95
+   },
+   "home_edges": {
+    "pass_edge": -0.86,
+    "rush_edge": 0.23,
+    "protection_edge": -1.29,
+    "explosive_edge": 0.8
+   },
+   "proj_home_margin": -4.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 14,
+   "game": "IND@PHI",
+   "away": "IND",
+   "home": "PHI",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.1,
+    "rush_edge": 2.59,
+    "protection_edge": 0.0,
+    "explosive_edge": -0.16
+   },
+   "home_edges": {
+    "pass_edge": -0.97,
+    "rush_edge": 0.87,
+    "protection_edge": -1.27,
+    "explosive_edge": -1.17
+   },
+   "proj_home_margin": -2.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "IND run game (5) vs PHI run D (30): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "HOU@WAS",
+   "away": "HOU",
+   "home": "WAS",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.28,
+    "rush_edge": -0.88,
+    "protection_edge": 1.31,
+    "explosive_edge": -0.5
+   },
+   "home_edges": {
+    "pass_edge": -0.02,
+    "rush_edge": -0.77,
+    "protection_edge": -1.98,
+    "explosive_edge": 0.52
+   },
+   "proj_home_margin": -4.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU pass rush (sack rate rk 2) vs WAS protection (rk 19): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "NO@CAR",
+   "away": "NO",
+   "home": "CAR",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.14,
+    "rush_edge": 0.08,
+    "protection_edge": 2.31,
+    "explosive_edge": -2.54
+   },
+   "home_edges": {
+    "pass_edge": 1.31,
+    "rush_edge": 2.0,
+    "protection_edge": -1.43,
+    "explosive_edge": 0.93
+   },
+   "proj_home_margin": 2.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CAR run game (13) vs NO run D (31): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "TB@BAL",
+   "away": "TB",
+   "home": "BAL",
+   "kickoff_utc": "2026-12-13T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.48,
+    "rush_edge": 0.87,
+    "protection_edge": -0.46,
+    "explosive_edge": -0.31
+   },
+   "home_edges": {
+    "pass_edge": -2.59,
+    "rush_edge": -1.99,
+    "protection_edge": 0.31,
+    "explosive_edge": -1.83
+   },
+   "proj_home_margin": -6.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BAL pass O (23) into TB pass D (1): tough spot",
+    "BAL run game (24) into TB run D (5): fade rushing overs",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "LAC@LV",
+   "away": "LAC",
+   "home": "LV",
+   "kickoff_utc": "2026-12-13T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.95,
+    "rush_edge": -0.69,
+    "protection_edge": -1.43,
+    "explosive_edge": 0.64
+   },
+   "home_edges": {
+    "pass_edge": -0.22,
+    "rush_edge": -0.74,
+    "protection_edge": 2.45,
+    "explosive_edge": 0.48
+   },
+   "proj_home_margin": 3.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 14,
+   "game": "KC@CIN",
+   "away": "KC",
+   "home": "CIN",
+   "kickoff_utc": "2026-12-13T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.09,
+    "rush_edge": 1.6,
+    "protection_edge": 0.84,
+    "explosive_edge": 1.55
+   },
+   "home_edges": {
+    "pass_edge": 2.11,
+    "rush_edge": -0.7,
+    "protection_edge": 1.62,
+    "explosive_edge": -0.59
+   },
+   "proj_home_margin": 2.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "KC run game (2) vs CIN run D (18): rushing-lane spot",
+    "KC explosives (rk 5) vs CIN (allowed rk 21): long-play spot",
+    "CIN pass O (1) vs KC pass D (19): big edge"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "LAR@SF",
+   "away": "LAR",
+   "home": "SF",
+   "kickoff_utc": "2026-12-13T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.73,
+    "rush_edge": -0.27,
+    "protection_edge": 2.2,
+    "explosive_edge": -2.56
+   },
+   "home_edges": {
+    "pass_edge": 0.89,
+    "rush_edge": -0.44,
+    "protection_edge": 2.4,
+    "explosive_edge": 0.72
+   },
+   "proj_home_margin": 2.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 14,
+   "game": "NYG@SEA",
+   "away": "NYG",
+   "home": "SEA",
+   "kickoff_utc": "2026-12-13T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.49,
+    "rush_edge": -1.24,
+    "protection_edge": -1.42,
+    "explosive_edge": -2.46
+   },
+   "home_edges": {
+    "pass_edge": 0.29,
+    "rush_edge": -0.84,
+    "protection_edge": 1.14,
+    "explosive_edge": -1.11
+   },
+   "proj_home_margin": 3.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "BUF@GB",
+   "away": "BUF",
+   "home": "GB",
+   "kickoff_utc": "2026-12-14T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.54,
+    "rush_edge": 0.85,
+    "protection_edge": -0.1,
+    "explosive_edge": 1.63
+   },
+   "home_edges": {
+    "pass_edge": 0.02,
+    "rush_edge": -1.02,
+    "protection_edge": 1.18,
+    "explosive_edge": 0.55
+   },
+   "proj_home_margin": -4.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF explosives (rk 1) vs GB (allowed rk 10): long-play spot"
+   ]
+  },
+  {
+   "week": 14,
+   "game": "PIT@JAX",
+   "away": "PIT",
+   "home": "JAX",
+   "kickoff_utc": "2026-12-15T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.27,
+    "rush_edge": 0.59,
+    "protection_edge": 0.21,
+    "explosive_edge": -0.19
+   },
+   "home_edges": {
+    "pass_edge": 1.24,
+    "rush_edge": -1.5,
+    "protection_edge": -0.99,
+    "explosive_edge": 0.53
+   },
+   "proj_home_margin": 6.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PIT pass O (25) into JAX pass D (3): tough spot",
+    "JAX run game (10) into PIT run D (1): fade rushing overs"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "SF@LAC",
+   "away": "SF",
+   "home": "LAC",
+   "kickoff_utc": "2026-12-18T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.15,
+    "rush_edge": 2.02,
+    "protection_edge": 2.39,
+    "explosive_edge": 2.54
+   },
+   "home_edges": {
+    "pass_edge": -2.22,
+    "rush_edge": -3.02,
+    "protection_edge": -0.87,
+    "explosive_edge": -2.96
+   },
+   "proj_home_margin": -10.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SF run game (3) vs LAC run D (22): rushing-lane spot",
+    "SF explosives (rk 2) vs LAC (allowed rk 25): long-play spot",
+    "LAC pass O (32) into SF pass D (12): tough spot",
+    "LAC run game (32) into SF run D (4): fade rushing overs"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "SEA@PHI",
+   "away": "SEA",
+   "home": "PHI",
+   "kickoff_utc": "2026-12-19T22:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.9,
+    "rush_edge": 0.35,
+    "protection_edge": 1.05,
+    "explosive_edge": -0.34
+   },
+   "home_edges": {
+    "pass_edge": -2.55,
+    "rush_edge": -1.37,
+    "protection_edge": -0.91,
+    "explosive_edge": -4.67
+   },
+   "proj_home_margin": -9.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PHI pass O (28) into SEA pass D (5): tough spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "CHI@BUF",
+   "away": "CHI",
+   "home": "BUF",
+   "kickoff_utc": "2026-12-20T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.25,
+    "rush_edge": 1.09,
+    "protection_edge": 0.88,
+    "explosive_edge": 0.31
+   },
+   "home_edges": {
+    "pass_edge": 0.87,
+    "rush_edge": 1.59,
+    "protection_edge": -1.58,
+    "explosive_edge": 2.52
+   },
+   "proj_home_margin": 3.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF run game (4) vs CHI run D (21): rushing-lane spot",
+    "CHI pass rush (sack rate rk 3) vs BUF protection (rk 17): sack/pressure spot",
+    "BUF explosives (rk 1) vs CHI (allowed rk 18): long-play spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "MIA@GB",
+   "away": "MIA",
+   "home": "GB",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.22,
+    "rush_edge": -0.6,
+    "protection_edge": -1.6,
+    "explosive_edge": -0.71
+   },
+   "home_edges": {
+    "pass_edge": 2.23,
+    "rush_edge": -0.5,
+    "protection_edge": 1.39,
+    "explosive_edge": 1.4
+   },
+   "proj_home_margin": 7.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "GB pass rush (sack rate rk 13) vs MIA protection (rk 29): sack/pressure spot",
+    "GB pass O (6) vs MIA pass D (29): big edge"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "IND@TEN",
+   "away": "IND",
+   "home": "TEN",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.6,
+    "rush_edge": 1.78,
+    "protection_edge": -0.64,
+    "explosive_edge": 0.33
+   },
+   "home_edges": {
+    "pass_edge": -0.61,
+    "rush_edge": 1.04,
+    "protection_edge": 0.69,
+    "explosive_edge": 0.25
+   },
+   "proj_home_margin": -2.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "IND run game (5) vs TEN run D (25): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "CLE@NYG",
+   "away": "CLE",
+   "home": "NYG",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.35,
+    "rush_edge": -1.07,
+    "protection_edge": -1.06,
+    "explosive_edge": -0.77
+   },
+   "home_edges": {
+    "pass_edge": -0.19,
+    "rush_edge": -0.49,
+    "protection_edge": -1.93,
+    "explosive_edge": 1.19
+   },
+   "proj_home_margin": 0.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CLE pass rush (sack rate rk 9) vs NYG protection (rk 30): sack/pressure spot",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "BAL@PIT",
+   "away": "BAL",
+   "home": "PIT",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.52,
+    "rush_edge": -2.82,
+    "protection_edge": -1.91,
+    "explosive_edge": -0.91
+   },
+   "home_edges": {
+    "pass_edge": -0.51,
+    "rush_edge": 2.17,
+    "protection_edge": 0.63,
+    "explosive_edge": -0.18
+   },
+   "proj_home_margin": 2.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BAL run game (24) into PIT run D (1): fade rushing overs",
+    "PIT pass rush (sack rate rk 4) vs BAL protection (rk 22): sack/pressure spot",
+    "PIT run game (1) vs BAL run D (19): rushing-lane spot",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "NO@TB",
+   "away": "NO",
+   "home": "TB",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.1,
+    "rush_edge": -2.11,
+    "protection_edge": 1.29,
+    "explosive_edge": -2.67
+   },
+   "home_edges": {
+    "pass_edge": -0.75,
+    "rush_edge": 2.21,
+    "protection_edge": -2.14,
+    "explosive_edge": 1.37
+   },
+   "proj_home_margin": 6.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NO pass O (16) into TB pass D (1): tough spot",
+    "NO run game (25) into TB run D (5): fade rushing overs",
+    "TB run game (9) vs NO run D (31): rushing-lane spot",
+    "NO pass rush (sack rate rk 7) vs TB protection (rk 28): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "ATL@WAS",
+   "away": "ATL",
+   "home": "WAS",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.7,
+    "rush_edge": 0.67,
+    "protection_edge": 1.18,
+    "explosive_edge": -0.96
+   },
+   "home_edges": {
+    "pass_edge": -1.57,
+    "rush_edge": -0.97,
+    "protection_edge": -1.01,
+    "explosive_edge": 0.78
+   },
+   "proj_home_margin": -0.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "WAS pass O (18) into ATL pass D (4): tough spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "CIN@CAR",
+   "away": "CIN",
+   "home": "CAR",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.93,
+    "rush_edge": 0.81,
+    "protection_edge": 2.63,
+    "explosive_edge": -0.47
+   },
+   "home_edges": {
+    "pass_edge": 1.02,
+    "rush_edge": 0.59,
+    "protection_edge": -1.06,
+    "explosive_edge": 0.65
+   },
+   "proj_home_margin": -5.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs CAR pass D (27): big edge"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "JAX@HOU",
+   "away": "JAX",
+   "home": "HOU",
+   "kickoff_utc": "2026-12-20T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.49,
+    "rush_edge": 0.51,
+    "protection_edge": -1.5,
+    "explosive_edge": 1.71
+   },
+   "home_edges": {
+    "pass_edge": -0.41,
+    "rush_edge": -2.36,
+    "protection_edge": 1.26,
+    "explosive_edge": -0.3
+   },
+   "proj_home_margin": -6.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU pass rush (sack rate rk 2) vs JAX protection (rk 14): sack/pressure spot",
+    "JAX explosives (rk 7) vs HOU (allowed rk 24): long-play spot",
+    "HOU run game (26) into JAX run D (3): fade rushing overs"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "NYJ@ARI",
+   "away": "NYJ",
+   "home": "ARI",
+   "kickoff_utc": "2026-12-20T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.2,
+    "rush_edge": -1.11,
+    "protection_edge": -0.84,
+    "explosive_edge": 0.8
+   },
+   "home_edges": {
+    "pass_edge": 0.83,
+    "rush_edge": 0.31,
+    "protection_edge": 0.37,
+    "explosive_edge": -1.75
+   },
+   "proj_home_margin": -1.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 15,
+   "game": "DEN@LV",
+   "away": "DEN",
+   "home": "LV",
+   "kickoff_utc": "2026-12-20T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.02,
+    "rush_edge": 1.83,
+    "protection_edge": 1.6,
+    "explosive_edge": 0.72
+   },
+   "home_edges": {
+    "pass_edge": -0.39,
+    "rush_edge": -0.71,
+    "protection_edge": 1.3,
+    "explosive_edge": -0.51
+   },
+   "proj_home_margin": -4.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DEN run game (7) vs LV run D (27): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "DAL@LAR",
+   "away": "DAL",
+   "home": "LAR",
+   "kickoff_utc": "2026-12-20T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.07,
+    "rush_edge": -1.18,
+    "protection_edge": 2.0,
+    "explosive_edge": -1.22
+   },
+   "home_edges": {
+    "pass_edge": 1.14,
+    "rush_edge": 3.03,
+    "protection_edge": 2.01,
+    "explosive_edge": -0.11
+   },
+   "proj_home_margin": 2.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LAR run game (6) vs DAL run D (32): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "DET@MIN",
+   "away": "DET",
+   "home": "MIN",
+   "kickoff_utc": "2026-12-21T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.34,
+    "rush_edge": -0.33,
+    "protection_edge": -3.13,
+    "explosive_edge": 1.12
+   },
+   "home_edges": {
+    "pass_edge": -0.64,
+    "rush_edge": -1.84,
+    "protection_edge": -1.69,
+    "explosive_edge": 0.87
+   },
+   "proj_home_margin": -2.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIN pass rush (sack rate rk 1) vs DET protection (rk 21): sack/pressure spot",
+    "MIN run game (30) into DET run D (10): fade rushing overs",
+    "DET pass rush (sack rate rk 8) vs MIN protection (rk 26): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 15,
+   "game": "NE@KC",
+   "away": "NE",
+   "home": "KC",
+   "kickoff_utc": "2026-12-22T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.97,
+    "rush_edge": -0.66,
+    "protection_edge": 0.91,
+    "explosive_edge": -0.01
+   },
+   "home_edges": {
+    "pass_edge": 1.25,
+    "rush_edge": 1.15,
+    "protection_edge": 0.3,
+    "explosive_edge": 2.01
+   },
+   "proj_home_margin": 0.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "KC explosives (rk 5) vs NE (allowed rk 26): long-play spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "HOU@PHI",
+   "away": "HOU",
+   "home": "PHI",
+   "kickoff_utc": "2026-12-25T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.77,
+    "rush_edge": 0.52,
+    "protection_edge": 1.48,
+    "explosive_edge": 1.09
+   },
+   "home_edges": {
+    "pass_edge": -1.22,
+    "rush_edge": -0.6,
+    "protection_edge": -2.84,
+    "explosive_edge": -1.44
+   },
+   "proj_home_margin": -7.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU pass O (5) vs PHI pass D (21): big edge",
+    "HOU pass rush (sack rate rk 2) vs PHI protection (rk 25): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "GB@CHI",
+   "away": "GB",
+   "home": "CHI",
+   "kickoff_utc": "2026-12-25T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.69,
+    "rush_edge": -1.16,
+    "protection_edge": -0.94,
+    "explosive_edge": 1.06
+   },
+   "home_edges": {
+    "pass_edge": 0.09,
+    "rush_edge": 0.21,
+    "protection_edge": 0.24,
+    "explosive_edge": -0.08
+   },
+   "proj_home_margin": 0.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 16,
+   "game": "BUF@DEN",
+   "away": "BUF",
+   "home": "DEN",
+   "kickoff_utc": "2026-12-25T21:30:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.56,
+    "rush_edge": 1.73,
+    "protection_edge": -0.13,
+    "explosive_edge": 2.13
+   },
+   "home_edges": {
+    "pass_edge": -0.99,
+    "rush_edge": 1.44,
+    "protection_edge": 1.64,
+    "explosive_edge": -1.06
+   },
+   "proj_home_margin": -5.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF run game (4) vs DEN run D (23): rushing-lane spot",
+    "BUF explosives (rk 1) vs DEN (allowed rk 17): long-play spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "LAR@SEA",
+   "away": "LAR",
+   "home": "SEA",
+   "kickoff_utc": "2026-12-26T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.56,
+    "rush_edge": 0.22,
+    "protection_edge": 1.28,
+    "explosive_edge": -2.93
+   },
+   "home_edges": {
+    "pass_edge": -0.49,
+    "rush_edge": -3.05,
+    "protection_edge": 1.33,
+    "explosive_edge": -1.7
+   },
+   "proj_home_margin": 0.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LAR pass O (21) into SEA pass D (5): tough spot",
+    "SEA run game (27) into LAR run D (2): fade rushing overs"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "TB@ATL",
+   "away": "TB",
+   "home": "ATL",
+   "kickoff_utc": "2026-12-27T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -3.04,
+    "rush_edge": 0.4,
+    "protection_edge": -2.24,
+    "explosive_edge": 1.74
+   },
+   "home_edges": {
+    "pass_edge": -2.97,
+    "rush_edge": -0.68,
+    "protection_edge": 1.54,
+    "explosive_edge": -1.05
+   },
+   "proj_home_margin": -5.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "TB pass O (30) into ATL pass D (4): tough spot",
+    "ATL pass rush (sack rate rk 6) vs TB protection (rk 28): sack/pressure spot",
+    "TB explosives (rk 12) vs ATL (allowed rk 29): long-play spot",
+    "ATL pass O (26) into TB pass D (1): tough spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "CIN@IND",
+   "away": "CIN",
+   "home": "IND",
+   "kickoff_utc": "2026-12-27T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.26,
+    "rush_edge": 1.26,
+    "protection_edge": 0.44,
+    "explosive_edge": 1.75
+   },
+   "home_edges": {
+    "pass_edge": -1.08,
+    "rush_edge": 1.2,
+    "protection_edge": -1.1,
+    "explosive_edge": -0.15
+   },
+   "proj_home_margin": -8.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs IND pass D (20): big edge",
+    "CIN explosives (rk 11) vs IND (allowed rk 30): long-play spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "WAS@MIN",
+   "away": "WAS",
+   "home": "MIN",
+   "kickoff_utc": "2026-12-27T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.15,
+    "rush_edge": -1.35,
+    "protection_edge": -2.9,
+    "explosive_edge": -0.61
+   },
+   "home_edges": {
+    "pass_edge": -1.27,
+    "rush_edge": -1.4,
+    "protection_edge": -0.51,
+    "explosive_edge": -1.24
+   },
+   "proj_home_margin": 1.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "WAS pass O (18) into MIN pass D (2): tough spot",
+    "MIN pass rush (sack rate rk 1) vs WAS protection (rk 19): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "CAR@PIT",
+   "away": "CAR",
+   "home": "PIT",
+   "kickoff_utc": "2026-12-27T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.32,
+    "rush_edge": -1.62,
+    "protection_edge": -1.99,
+    "explosive_edge": -0.13
+   },
+   "home_edges": {
+    "pass_edge": 0.4,
+    "rush_edge": 2.91,
+    "protection_edge": 1.64,
+    "explosive_edge": -0.35
+   },
+   "proj_home_margin": 0.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CAR run game (13) into PIT run D (1): fade rushing overs",
+    "PIT pass rush (sack rate rk 4) vs CAR protection (rk 23): sack/pressure spot",
+    "PIT run game (1) vs CAR run D (26): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "LAC@MIA",
+   "away": "LAC",
+   "home": "MIA",
+   "kickoff_utc": "2026-12-27T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.74,
+    "rush_edge": -0.57,
+    "protection_edge": -1.17,
+    "explosive_edge": -0.3
+   },
+   "home_edges": {
+    "pass_edge": -1.03,
+    "rush_edge": 0.24,
+    "protection_edge": -0.48,
+    "explosive_edge": 0.79
+   },
+   "proj_home_margin": 0.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 16,
+   "game": "ARI@NO",
+   "away": "ARI",
+   "home": "NO",
+   "kickoff_utc": "2026-12-27T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.5,
+    "rush_edge": 1.88,
+    "protection_edge": -0.55,
+    "explosive_edge": -0.91
+   },
+   "home_edges": {
+    "pass_edge": 1.41,
+    "rush_edge": -1.61,
+    "protection_edge": 0.67,
+    "explosive_edge": -1.52
+   },
+   "proj_home_margin": -1.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "ARI run game (14) vs NO run D (31): rushing-lane spot",
+    "NO run game (25) into ARI run D (7): fade rushing overs"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "NE@NYJ",
+   "away": "NE",
+   "home": "NYJ",
+   "kickoff_utc": "2026-12-27T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.93,
+    "rush_edge": -0.13,
+    "protection_edge": 0.16,
+    "explosive_edge": 1.11
+   },
+   "home_edges": {
+    "pass_edge": 0.62,
+    "rush_edge": -0.69,
+    "protection_edge": -2.05,
+    "explosive_edge": 1.8
+   },
+   "proj_home_margin": -2.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NE pass O (9) vs NYJ pass D (30): big edge",
+    "NE pass rush (sack rate rk 5) vs NYJ protection (rk 27): sack/pressure spot",
+    "NYJ explosives (rk 6) vs NE (allowed rk 26): long-play spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "CLE@BAL",
+   "away": "CLE",
+   "home": "BAL",
+   "kickoff_utc": "2026-12-27T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.17,
+    "rush_edge": -1.19,
+    "protection_edge": -0.95,
+    "explosive_edge": -1.38
+   },
+   "home_edges": {
+    "pass_edge": -0.3,
+    "rush_edge": -0.84,
+    "protection_edge": -1.0,
+    "explosive_edge": 0.68
+   },
+   "proj_home_margin": -1.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "TEN@LV",
+   "away": "TEN",
+   "home": "LV",
+   "kickoff_utc": "2026-12-27T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.09,
+    "rush_edge": 0.64,
+    "protection_edge": 1.42,
+    "explosive_edge": 0.7
+   },
+   "home_edges": {
+    "pass_edge": 1.41,
+    "rush_edge": -0.61,
+    "protection_edge": 1.53,
+    "explosive_edge": 0.51
+   },
+   "proj_home_margin": 3.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 16,
+   "game": "SF@KC",
+   "away": "SF",
+   "home": "KC",
+   "kickoff_utc": "2026-12-27T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.95,
+    "rush_edge": 0.89,
+    "protection_edge": 2.32,
+    "explosive_edge": 0.42
+   },
+   "home_edges": {
+    "pass_edge": 0.13,
+    "rush_edge": 0.15,
+    "protection_edge": 2.24,
+    "explosive_edge": -0.92
+   },
+   "proj_home_margin": -3.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SF pass O (2) vs KC pass D (19): big edge"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "JAX@DAL",
+   "away": "JAX",
+   "home": "DAL",
+   "kickoff_utc": "2026-12-28T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.86,
+    "rush_edge": 2.55,
+    "protection_edge": 1.16,
+    "explosive_edge": 1.29
+   },
+   "home_edges": {
+    "pass_edge": -0.86,
+    "rush_edge": -0.66,
+    "protection_edge": 1.5,
+    "explosive_edge": -1.25
+   },
+   "proj_home_margin": -8.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "JAX pass O (3) vs DAL pass D (32): big edge",
+    "JAX run game (10) vs DAL run D (32): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 16,
+   "game": "NYG@DET",
+   "away": "NYG",
+   "home": "DET",
+   "kickoff_utc": "2026-12-29T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.42,
+    "rush_edge": -0.73,
+    "protection_edge": -2.16,
+    "explosive_edge": 0.88
+   },
+   "home_edges": {
+    "pass_edge": 0.62,
+    "rush_edge": 0.64,
+    "protection_edge": 0.43,
+    "explosive_edge": 1.07
+   },
+   "proj_home_margin": 2.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "DET pass rush (sack rate rk 8) vs NYG protection (rk 30): sack/pressure spot",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "BAL@CIN",
+   "away": "BAL",
+   "home": "CIN",
+   "kickoff_utc": "2027-01-01T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.19,
+    "rush_edge": -0.61,
+    "protection_edge": -0.98,
+    "explosive_edge": -0.14
+   },
+   "home_edges": {
+    "pass_edge": 2.02,
+    "rush_edge": 0.07,
+    "protection_edge": 1.62,
+    "explosive_edge": -0.31
+   },
+   "proj_home_margin": 6.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass O (1) vs BAL pass D (18): big edge",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "DEN@NE",
+   "away": "DEN",
+   "home": "NE",
+   "kickoff_utc": "2027-01-03T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.86,
+    "rush_edge": 0.51,
+    "protection_edge": 0.22,
+    "explosive_edge": 0.06
+   },
+   "home_edges": {
+    "pass_edge": -0.0,
+    "rush_edge": 0.49,
+    "protection_edge": -0.18,
+    "explosive_edge": 1.13
+   },
+   "proj_home_margin": -2.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 17,
+   "game": "KC@LAC",
+   "away": "KC",
+   "home": "LAC",
+   "kickoff_utc": "2027-01-03T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.06,
+    "rush_edge": 2.04,
+    "protection_edge": 2.21,
+    "explosive_edge": 2.0
+   },
+   "home_edges": {
+    "pass_edge": -1.61,
+    "rush_edge": -2.25,
+    "protection_edge": -0.97,
+    "explosive_edge": -2.16
+   },
+   "proj_home_margin": -7.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "KC run game (2) vs LAC run D (22): rushing-lane spot",
+    "KC explosives (rk 5) vs LAC (allowed rk 25): long-play spot",
+    "LAC pass O (32) into KC pass D (19): tough spot",
+    "LAC run game (32) into KC run D (9): fade rushing overs"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "LAR@TB",
+   "away": "LAR",
+   "home": "TB",
+   "kickoff_utc": "2027-01-03T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.55,
+    "rush_edge": -0.18,
+    "protection_edge": 2.08,
+    "explosive_edge": -1.78
+   },
+   "home_edges": {
+    "pass_edge": -2.44,
+    "rush_edge": -1.22,
+    "protection_edge": -0.38,
+    "explosive_edge": -0.29
+   },
+   "proj_home_margin": 1.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LAR pass O (21) into TB pass D (1): tough spot",
+    "TB pass O (30) into LAR pass D (7): tough spot"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "WAS@JAX",
+   "away": "WAS",
+   "home": "JAX",
+   "kickoff_utc": "2027-01-03T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.76,
+    "rush_edge": -2.07,
+    "protection_edge": 0.35,
+    "explosive_edge": -1.28
+   },
+   "home_edges": {
+    "pass_edge": 1.43,
+    "rush_edge": 0.69,
+    "protection_edge": 0.87,
+    "explosive_edge": -0.29
+   },
+   "proj_home_margin": 8.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "WAS pass O (18) into JAX pass D (3): tough spot",
+    "WAS run game (23) into JAX run D (3): fade rushing overs"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "NO@ATL",
+   "away": "NO",
+   "home": "ATL",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.33,
+    "rush_edge": -1.14,
+    "protection_edge": -0.48,
+    "explosive_edge": -0.32
+   },
+   "home_edges": {
+    "pass_edge": 0.09,
+    "rush_edge": 2.1,
+    "protection_edge": -0.12,
+    "explosive_edge": 0.92
+   },
+   "proj_home_margin": 1.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "ATL run game (11) vs NO run D (31): rushing-lane spot"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "IND@CLE",
+   "away": "IND",
+   "home": "CLE",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.56,
+    "rush_edge": 0.98,
+    "protection_edge": -1.12,
+    "explosive_edge": 0.66
+   },
+   "home_edges": {
+    "pass_edge": 0.07,
+    "rush_edge": 0.0,
+    "protection_edge": -2.13,
+    "explosive_edge": 0.68
+   },
+   "proj_home_margin": 1.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "IND pass O (31) into CLE pass D (16): tough spot",
+    "IND pass rush (sack rate rk 11) vs CLE protection (rk 31): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "NYG@DAL",
+   "away": "NYG",
+   "home": "DAL",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.21,
+    "rush_edge": 1.58,
+    "protection_edge": -0.69,
+    "explosive_edge": 0.35
+   },
+   "home_edges": {
+    "pass_edge": 0.72,
+    "rush_edge": 1.04,
+    "protection_edge": 1.81,
+    "explosive_edge": -0.63
+   },
+   "proj_home_margin": -0.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYG run game (21) vs DAL run D (32): rushing-lane spot",
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "PIT@TEN",
+   "away": "PIT",
+   "home": "TEN",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.41,
+    "rush_edge": 2.66,
+    "protection_edge": -0.22,
+    "explosive_edge": 1.7
+   },
+   "home_edges": {
+    "pass_edge": -1.11,
+    "rush_edge": -2.43,
+    "protection_edge": -0.36,
+    "explosive_edge": -1.19
+   },
+   "proj_home_margin": -6.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PIT run game (1) vs TEN run D (25): rushing-lane spot",
+    "PIT explosives (rk 9) vs TEN (allowed rk 27): long-play spot",
+    "TEN run game (19) into PIT run D (1): fade rushing overs"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "BUF@MIA",
+   "away": "BUF",
+   "home": "MIA",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 2.41,
+    "rush_edge": 2.25,
+    "protection_edge": 0.76,
+    "explosive_edge": 2.86
+   },
+   "home_edges": {
+    "pass_edge": -1.57,
+    "rush_edge": 0.27,
+    "protection_edge": -0.96,
+    "explosive_edge": -0.32
+   },
+   "proj_home_margin": -12.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF pass O (4) vs MIA pass D (29): big edge",
+    "BUF run game (4) vs MIA run D (28): rushing-lane spot",
+    "BUF explosives (rk 1) vs MIA (allowed rk 22): long-play spot",
+    "MIA pass O (24) into BUF pass D (6): tough spot"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "MIN@NYJ",
+   "away": "MIN",
+   "home": "NYJ",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.16,
+    "rush_edge": -1.53,
+    "protection_edge": -0.89,
+    "explosive_edge": -0.19
+   },
+   "home_edges": {
+    "pass_edge": -2.13,
+    "rush_edge": -1.01,
+    "protection_edge": -3.88,
+    "explosive_edge": 0.61
+   },
+   "proj_home_margin": -2.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIN run game (30) into NYJ run D (16): fade rushing overs",
+    "NYJ pass O (17) into MIN pass D (2): tough spot",
+    "MIN pass rush (sack rate rk 1) vs NYJ protection (rk 27): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "SEA@CAR",
+   "away": "SEA",
+   "home": "CAR",
+   "kickoff_utc": "2027-01-03T18:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.39,
+    "rush_edge": -0.21,
+    "protection_edge": 2.26,
+    "explosive_edge": -1.89
+   },
+   "home_edges": {
+    "pass_edge": -0.76,
+    "rush_edge": -0.38,
+    "protection_edge": -0.57,
+    "explosive_edge": -2.19
+   },
+   "proj_home_margin": -4.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 17,
+   "game": "LV@ARI",
+   "away": "LV",
+   "home": "ARI",
+   "kickoff_utc": "2027-01-03T21:05:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.67,
+    "rush_edge": -2.05,
+    "protection_edge": 1.75,
+    "explosive_edge": -0.51
+   },
+   "home_edges": {
+    "pass_edge": 0.53,
+    "rush_edge": 1.33,
+    "protection_edge": 0.67,
+    "explosive_edge": -0.07
+   },
+   "proj_home_margin": -1.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LV pass O (13) vs ARI pass D (31): big edge",
+    "LV run game (28) into ARI run D (7): fade rushing overs"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "DET@CHI",
+   "away": "DET",
+   "home": "CHI",
+   "kickoff_utc": "2027-01-03T21:25:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.24,
+    "rush_edge": 0.78,
+    "protection_edge": -1.99,
+    "explosive_edge": 1.7
+   },
+   "home_edges": {
+    "pass_edge": 1.57,
+    "rush_edge": 0.16,
+    "protection_edge": -0.26,
+    "explosive_edge": 1.47
+   },
+   "proj_home_margin": 1.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CHI pass rush (sack rate rk 3) vs DET protection (rk 21): sack/pressure spot",
+    "DET explosives (rk 3) vs CHI (allowed rk 18): long-play spot",
+    "CHI pass O (7) vs DET pass D (23): big edge"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "PHI@SF",
+   "away": "PHI",
+   "home": "SF",
+   "kickoff_utc": "2027-01-04T01:20:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.72,
+    "rush_edge": -1.86,
+    "protection_edge": 0.01,
+    "explosive_edge": -4.31
+   },
+   "home_edges": {
+    "pass_edge": 2.28,
+    "rush_edge": 2.96,
+    "protection_edge": 2.12,
+    "explosive_edge": 2.08
+   },
+   "proj_home_margin": 10.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PHI pass O (28) into SF pass D (12): tough spot",
+    "PHI run game (22) into SF run D (4): fade rushing overs",
+    "SF pass O (2) vs PHI pass D (21): big edge",
+    "SF run game (3) vs PHI run D (30): rushing-lane spot",
+    "SF explosives (rk 2) vs PHI (allowed rk 20): long-play spot"
+   ]
+  },
+  {
+   "week": 17,
+   "game": "HOU@GB",
+   "away": "HOU",
+   "home": "GB",
+   "kickoff_utc": "2027-01-05T01:15:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.44,
+    "rush_edge": -1.27,
+    "protection_edge": 0.63,
+    "explosive_edge": 0.06
+   },
+   "home_edges": {
+    "pass_edge": 1.25,
+    "rush_edge": -1.69,
+    "protection_edge": -1.16,
+    "explosive_edge": 1.61
+   },
+   "proj_home_margin": 0.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "GB run game (31) into HOU run D (15): fade rushing overs",
+    "GB explosives (rk 8) vs HOU (allowed rk 24): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "NYJ@BUF",
+   "away": "NYJ",
+   "home": "BUF",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.23,
+    "rush_edge": 0.24,
+    "protection_edge": -0.62,
+    "explosive_edge": 0.68
+   },
+   "home_edges": {
+    "pass_edge": 2.49,
+    "rush_edge": 1.1,
+    "protection_edge": 0.2,
+    "explosive_edge": 2.12
+   },
+   "proj_home_margin": 8.4,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "BUF pass O (4) vs NYJ pass D (30): big edge",
+    "BUF explosives (rk 1) vs NYJ (allowed rk 15): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "CLE@CIN",
+   "away": "CLE",
+   "home": "CIN",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.28,
+    "rush_edge": -1.27,
+    "protection_edge": -2.25,
+    "explosive_edge": 0.01
+   },
+   "home_edges": {
+    "pass_edge": 1.98,
+    "rush_edge": -0.23,
+    "protection_edge": 0.29,
+    "explosive_edge": 1.9
+   },
+   "proj_home_margin": 5.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "CIN pass rush (sack rate rk 10) vs CLE protection (rk 31): sack/pressure spot",
+    "CIN pass O (1) vs CLE pass D (16): big edge",
+    "CIN explosives (rk 11) vs CLE (allowed rk 31): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "LAC@DEN",
+   "away": "LAC",
+   "home": "DEN",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -2.59,
+    "rush_edge": -1.09,
+    "protection_edge": -2.06,
+    "explosive_edge": -1.02
+   },
+   "home_edges": {
+    "pass_edge": -0.45,
+    "rush_edge": 1.4,
+    "protection_edge": 2.12,
+    "explosive_edge": 0.05
+   },
+   "proj_home_margin": 7.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LAC pass O (32) into DEN pass D (9): tough spot",
+    "DEN pass rush (sack rate rk 12) vs LAC protection (rk 32): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "DET@GB",
+   "away": "DET",
+   "home": "GB",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.1,
+    "rush_edge": 0.04,
+    "protection_edge": -0.51,
+    "explosive_edge": 0.81
+   },
+   "home_edges": {
+    "pass_edge": 1.83,
+    "rush_edge": -1.96,
+    "protection_edge": 0.04,
+    "explosive_edge": 1.72
+   },
+   "proj_home_margin": 0.5,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "GB pass O (6) vs DET pass D (23): big edge",
+    "GB run game (31) into DET run D (10): fade rushing overs",
+    "GB explosives (rk 8) vs DET (allowed rk 28): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "JAX@IND",
+   "away": "JAX",
+   "home": "IND",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 1.74,
+    "rush_edge": 1.97,
+    "protection_edge": 0.07,
+    "explosive_edge": 1.98
+   },
+   "home_edges": {
+    "pass_edge": -3.28,
+    "rush_edge": -0.3,
+    "protection_edge": -0.22,
+    "explosive_edge": -1.56
+   },
+   "proj_home_margin": -11.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "JAX pass O (3) vs IND pass D (20): big edge",
+    "JAX run game (10) vs IND run D (29): rushing-lane spot",
+    "JAX explosives (rk 7) vs IND (allowed rk 30): long-play spot",
+    "IND pass O (31) into JAX pass D (3): tough spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "LV@KC",
+   "away": "LV",
+   "home": "KC",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.58,
+    "rush_edge": -1.86,
+    "protection_edge": 2.38,
+    "explosive_edge": -1.65
+   },
+   "home_edges": {
+    "pass_edge": 1.41,
+    "rush_edge": 2.48,
+    "protection_edge": 1.68,
+    "explosive_edge": 2.67
+   },
+   "proj_home_margin": 2.9,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "LV run game (28) into KC run D (9): fade rushing overs",
+    "KC run game (2) vs LV run D (27): rushing-lane spot",
+    "KC explosives (rk 5) vs LV (allowed rk 32): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "SEA@LAR",
+   "away": "SEA",
+   "home": "LAR",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.49,
+    "rush_edge": -3.05,
+    "protection_edge": 1.33,
+    "explosive_edge": -1.7
+   },
+   "home_edges": {
+    "pass_edge": -1.56,
+    "rush_edge": 0.22,
+    "protection_edge": 1.28,
+    "explosive_edge": -2.93
+   },
+   "proj_home_margin": -1.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SEA run game (27) into LAR run D (2): fade rushing overs",
+    "LAR pass O (21) into SEA pass D (5): tough spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "CHI@MIN",
+   "away": "CHI",
+   "home": "MIN",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.15,
+    "rush_edge": -0.16,
+    "protection_edge": -2.38,
+    "explosive_edge": 0.24
+   },
+   "home_edges": {
+    "pass_edge": -1.78,
+    "rush_edge": -1.05,
+    "protection_edge": -2.67,
+    "explosive_edge": 0.21
+   },
+   "proj_home_margin": -4.0,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "MIN pass rush (sack rate rk 1) vs CHI protection (rk 13): sack/pressure spot",
+    "MIN pass O (29) into CHI pass D (11): tough spot",
+    "CHI pass rush (sack rate rk 3) vs MIN protection (rk 26): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "MIA@NE",
+   "away": "MIA",
+   "home": "NE",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.28,
+    "rush_edge": -0.66,
+    "protection_edge": -2.39,
+    "explosive_edge": 0.8
+   },
+   "home_edges": {
+    "pass_edge": 1.84,
+    "rush_edge": 1.02,
+    "protection_edge": 0.71,
+    "explosive_edge": 1.85
+   },
+   "proj_home_margin": 5.3,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NE pass rush (sack rate rk 5) vs MIA protection (rk 29): sack/pressure spot",
+    "NE pass O (9) vs MIA pass D (29): big edge",
+    "NE explosives (rk 4) vs MIA (allowed rk 22): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "TB@NO",
+   "away": "TB",
+   "home": "NO",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.75,
+    "rush_edge": 2.21,
+    "protection_edge": -2.14,
+    "explosive_edge": 1.37
+   },
+   "home_edges": {
+    "pass_edge": -2.1,
+    "rush_edge": -2.11,
+    "protection_edge": 1.29,
+    "explosive_edge": -2.67
+   },
+   "proj_home_margin": -7.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "TB run game (9) vs NO run D (31): rushing-lane spot",
+    "NO pass rush (sack rate rk 7) vs TB protection (rk 28): sack/pressure spot",
+    "NO pass O (16) into TB pass D (1): tough spot",
+    "NO run game (25) into TB run D (5): fade rushing overs"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "PHI@NYG",
+   "away": "PHI",
+   "home": "NYG",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -1.39,
+    "rush_edge": -0.2,
+    "protection_edge": -0.2,
+    "explosive_edge": -2.62
+   },
+   "home_edges": {
+    "pass_edge": 0.28,
+    "rush_edge": 1.12,
+    "protection_edge": -0.8,
+    "explosive_edge": 0.36
+   },
+   "proj_home_margin": 4.7,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "NYG: Jaxson Dart QB (IR)"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "SF@ARI",
+   "away": "SF",
+   "home": "ARI",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 3.04,
+    "rush_edge": 0.71,
+    "protection_edge": 1.69,
+    "explosive_edge": 1.55
+   },
+   "home_edges": {
+    "pass_edge": -0.74,
+    "rush_edge": -1.0,
+    "protection_edge": 1.23,
+    "explosive_edge": -3.67
+   },
+   "proj_home_margin": -8.2,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "SF pass O (2) vs ARI pass D (31): big edge",
+    "SF explosives (rk 2) vs ARI (allowed rk 16): long-play spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "DAL@WAS",
+   "away": "DAL",
+   "home": "WAS",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.84,
+    "rush_edge": 0.83,
+    "protection_edge": 1.55,
+    "explosive_edge": -1.45
+   },
+   "home_edges": {
+    "pass_edge": 1.35,
+    "rush_edge": 1.27,
+    "protection_edge": 0.69,
+    "explosive_edge": 0.1
+   },
+   "proj_home_margin": -1.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": []
+  },
+  {
+   "week": 18,
+   "game": "ATL@CAR",
+   "away": "ATL",
+   "home": "CAR",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": 0.27,
+    "rush_edge": 1.51,
+    "protection_edge": 2.56,
+    "explosive_edge": -0.92
+   },
+   "home_edges": {
+    "pass_edge": -0.98,
+    "rush_edge": 0.19,
+    "protection_edge": -1.54,
+    "explosive_edge": 1.3
+   },
+   "proj_home_margin": 0.6,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "ATL run game (11) vs CAR run D (26): rushing-lane spot",
+    "ATL pass rush (sack rate rk 6) vs CAR protection (rk 23): sack/pressure spot"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "PIT@BAL",
+   "away": "PIT",
+   "home": "BAL",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.51,
+    "rush_edge": 2.17,
+    "protection_edge": 0.63,
+    "explosive_edge": -0.18
+   },
+   "home_edges": {
+    "pass_edge": -0.52,
+    "rush_edge": -2.82,
+    "protection_edge": -1.91,
+    "explosive_edge": -0.91
+   },
+   "proj_home_margin": -3.8,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "PIT run game (1) vs BAL run D (19): rushing-lane spot",
+    "BAL run game (24) into PIT run D (1): fade rushing overs",
+    "PIT pass rush (sack rate rk 4) vs BAL protection (rk 22): sack/pressure spot",
+    "BAL: Lamar Jackson QB (IR)"
+   ]
+  },
+  {
+   "week": 18,
+   "game": "TEN@HOU",
+   "away": "TEN",
+   "home": "HOU",
+   "kickoff_utc": "2027-01-10T05:00:00.000Z",
+   "away_edges": {
+    "pass_edge": -0.86,
+    "rush_edge": -0.43,
+    "protection_edge": -0.88,
+    "explosive_edge": -0.02
+   },
+   "home_edges": {
+    "pass_edge": 2.27,
+    "rush_edge": -0.29,
+    "protection_edge": 0.84,
+    "explosive_edge": 1.59
+   },
+   "proj_home_margin": 7.1,
+   "market_home_margin": null,
+   "market_total": null,
+   "model_minus_market": null,
+   "notes": [
+    "HOU pass O (5) vs TEN pass D (28): big edge",
+    "HOU explosives (rk 10) vs TEN (allowed rk 27): long-play spot"
+   ]
+  }
+ ]
+}
