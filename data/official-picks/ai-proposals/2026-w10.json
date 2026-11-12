@@ -1,0 +1,50 @@
+{
+ "season": 2026,
+ "week": 10,
+ "proposals": [
+  {
+   "id": "w10-tnf-candidates-wed",
+   "title": "TNF WAS@NYG candidate legs (Wed 11/11 card)",
+   "family": "candidates",
+   "funding": "cash",
+   "source_doc": "reports/bets/2026-w10-card.md",
+   "note": "Wednesday read: no side, no total (C4 until McCarthy confirmed). Priced at Thursday captures; McCarthy sacked 2+ not recorded (no QB-sacks-taken key in ai_record).",
+   "legs": [
+    {
+     "game": "WAS @ NYG",
+     "kind": "prop",
+     "player": "Sonny Styles",
+     "key": "tackles",
+     "line": 8,
+     "dir": "over"
+    },
+    {
+     "game": "WAS @ NYG",
+     "kind": "prop",
+     "player": "Arvell Reese",
+     "key": "tackles",
+     "line": 7,
+     "dir": "over"
+    },
+    {
+     "game": "WAS @ NYG",
+     "kind": "prop",
+     "player": "Cam Skattebo",
+     "key": "rush_yds",
+     "line": 39.5,
+     "dir": "over"
+    },
+    {
+     "game": "WAS @ NYG",
+     "kind": "prop",
+     "player": "Malik Nabers",
+     "key": "rec",
+     "line": 4.5,
+     "dir": "over"
+    }
+   ],
+   "status": "proposed",
+   "created_at": "2026-11-11T20:35:29+00:00"
+  }
+ ]
+}

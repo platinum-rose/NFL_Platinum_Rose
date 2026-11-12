@@ -1,0 +1,806 @@
+{
+ "meta": {
+  "generated_at": "2026-11-12T02:07:12+00:00",
+  "week": 10,
+  "weights": {
+   "srs": 0.4,
+   "dvoa": 0.4,
+   "ypp": 0.2
+  },
+  "shrink": 0.5,
+  "hfa": 1.5,
+  "srs_weeks": "1-9",
+  "srs_margin_cap": 24,
+  "calibration": {
+   "dvoa_pts_per_pct": 0.305,
+   "dvoa_r": 0.915,
+   "ypp_pts_per_yard": 6.293,
+   "ypp_r": 0.762
+  },
+  "adjustments": {
+   "MIN": {
+    "pts": -0.5,
+    "why": "QB TBD (Wed 11/11: O'Connell not committing to Cousins; Wentz now has an ankle injury; Murray expected out): Kirk Cousins acquired from LV Tue 11/10 (3rd-rd pick), expected to start if ready on a short week; Wentz benched for Brosmer in W9 MNF (8/25, 81y, 2 INT); Murray DOUBTFUL (Grade 2 hamstring). Season numbers: Murray -0.18 x5, Wentz -0.26 x3. Cousins at LV -0.02 x9. Wentz/Brosmer scenario below"
+   },
+   "BAL": {
+    "pts": -0.5,
+    "why": "Jacoby Brissett (acquired from ARI 11/04) expected to start MNF per Minter, NOT Fagnano. Brissett -0.03 x8 at ARI is close to BAL season blend (Jackson +0.12 x4, Huntley -0.07 x3, Fagnano -0.38 x2); -0.5 for a 12-day install. Fagnano scenario below"
+   },
+   "NYG": {
+    "pts": 0.5,
+    "why": "J.J. McCarthy (hip, Q; full practice Tue) +0.04 x2 vs Winston-heavy season numbers (-0.18 x5); offset by his 13% sack rate. Dart IR"
+   },
+   "ARI": {
+    "pts": -2.0,
+    "why": "Rookie Carson Beck expected to start (ESPN/Weinfuss); Minshew to IR (elbow) Tue; Brissett traded. Season numbers are Brissett (-0.03 x8)"
+   },
+   "CLE": {
+    "pts": 0.0,
+    "why": "Deshaun Watson named the W10 starter (ESPN/Fowler 11/09, CBS official 11/11; cleared concussion protocol 11/07). Season numbers are his 8 starts (-0.06), so no adjustment. Was -1.0 for Sanders on 11/10"
+   },
+   "SEA": {
+    "pts": -0.5,
+    "why": "Drew Lock (+0.02 x3; oblique, Q, expected to play) for Sam Darnold (OUT). W9 used -2.5, which was too big: Lock has not been a downgrade"
+   },
+   "LV": {
+    "pts": -1.5,
+    "why": "Rookie Fernando Mendoza starts after Kirk Cousins (-0.02 x9) was traded to MIN Tue"
+   },
+   "MIA": {
+    "pts": -1.5,
+    "why": "Kyle McCord starts; Malik Willis (-0.08 x8) to IR (core) Tue"
+   },
+   "LAR": {
+    "pts": -1.0,
+    "why": "Puka Nacua DOUBTFUL (ESPN 11/10; FantasyPros lists IR, conflict) and Davante Adams IR"
+   },
+   "GB": {
+    "pts": -0.5,
+    "why": "Josh Jacobs OUT; Jayden Reed IR"
+   },
+   "NE": {
+    "pts": -0.5,
+    "why": "Rhamondre Stevenson DOUBTFUL; A.J. Brown and TreVeyon Henderson Q"
+   },
+   "SF": {
+    "pts": -0.3,
+    "why": "Brandon Aiyuk out (roster exemption); Mike Evans and Deebo Samuel Q"
+   }
+  },
+  "scenarios": {
+   "MIN": [
+    {
+     "pts": -2.0,
+     "label": "Wentz/Brosmer start (Cousins not ready)"
+    }
+   ],
+   "BAL": [
+    {
+     "pts": -3.5,
+     "label": "Fagnano starts instead of Brissett"
+    }
+   ],
+   "KC": [
+    {
+     "pts": -6.0,
+     "label": "Mahomes OUT (unlikely: elbow, practicing in full Wed per Reid)"
+    }
+   ],
+   "SEA": [
+    {
+     "pts": -1.5,
+     "label": "Lock out (oblique)"
+    }
+   ],
+   "NYG": [
+    {
+     "pts": -1.0,
+     "label": "McCarthy out (unlikely: hip, full practice Tue): Winston"
+    }
+   ],
+   "CLE": [
+    {
+     "pts": -1.0,
+     "label": "Shedeur Sanders starts instead (Watson setback)"
+    }
+   ],
+   "LAC": [
+    {
+     "pts": -2.5,
+     "label": "Herbert out (finger, Q; Harbaugh: should be good to go)"
+    }
+   ]
+  },
+  "srs_w1_9": {
+   "JAX": 10.57,
+   "CIN": 8.15,
+   "SF": 8.07,
+   "BUF": 7.92,
+   "CHI": 6.98,
+   "MIN": 5.17,
+   "KC": 4.85,
+   "GB": 4.46,
+   "TB": 4.39,
+   "PIT": 4.24,
+   "SEA": 3.8,
+   "DET": 3.32,
+   "NE": 3.28,
+   "DEN": 2.84,
+   "HOU": 1.64,
+   "LAR": 1.42,
+   "ATL": -0.25,
+   "CAR": -1.54,
+   "DAL": -1.69,
+   "LV": -2.89,
+   "NYG": -3.08,
+   "CLE": -4.01,
+   "NO": -4.17,
+   "NYJ": -4.51,
+   "BAL": -4.83,
+   "IND": -5.46,
+   "WAS": -5.62,
+   "MIA": -6.07,
+   "ARI": -7.7,
+   "PHI": -9.01,
+   "TEN": -9.51,
+   "LAC": -10.76
+  },
+  "srs_power_file_1107": {
+   "JAX": 10.359,
+   "CIN": 6.681,
+   "SF": 6.602,
+   "BUF": 6.268,
+   "CHI": 7.758,
+   "MIN": 7.297,
+   "KC": 3.072,
+   "GB": 3.134,
+   "TB": 4.549,
+   "PIT": 4.657,
+   "SEA": 3.464,
+   "DET": 3.538,
+   "NE": 5.831,
+   "DEN": 2.144,
+   "HOU": -0.484,
+   "LAR": 1.179,
+   "ATL": 0.702,
+   "CAR": -1.248,
+   "DAL": -2.316,
+   "LV": -1.229,
+   "NYG": -3.852,
+   "CLE": -3.515,
+   "NO": -3.715,
+   "NYJ": -2.209,
+   "BAL": -5.118,
+   "IND": -5.76,
+   "WAS": -6.096,
+   "MIA": -5.422,
+   "ARI": -7.76,
+   "PHI": -8.904,
+   "TEN": -9.77,
+   "LAC": -9.837
+  },
+  "inputs": {
+   "srs": "computed from data/archive/2026/season/team-weeks.csv",
+   "ftn": "data/research-intel/source-evidence/2026-11-11-pm-ftn-stats-iq",
+   "team_weeks": "data/archive/2026/season/team-weeks.csv",
+   "market": "BEO 11/10 1:10 PM",
+   "openers": "DK Tuesday open (handoff 2026-11-10 15:00)",
+   "sc": "not captured yet",
+   "kalshi": "data/prediction-markets/latest.json (pulled 11/06; pre-news, reference only)",
+   "podcasts": "data/podcasts/youtube-extracted-picks-2026-w10.json",
+   "intel": "reports/analysis/season/claude/out/week-09-matchup-intel.json"
+  }
+ },
+ "games": [
+  {
+   "game": "WAS@NYG",
+   "kickoff_utc": "2026-11-13T01:15:00.000Z",
+   "market_home_line": -2.5,
+   "market_total": 41,
+   "components": {
+    "srs": 2.54,
+    "dvoa_pts": -2.47,
+    "ypp_pts": 0.08,
+    "hfa": 1.5,
+    "adj_home": 0.5,
+    "adj_away": 0
+   },
+   "model_line": -2.0,
+   "fair_line": -2.3,
+   "edge_pts": -0.2,
+   "base_total": 45.5,
+   "fair_total": 43.2,
+   "sim_market": {
+    "home_cover": 0.494,
+    "away_cover": 0.506,
+    "over": 0.57,
+    "under": 0.43,
+    "home_win": 0.543
+   },
+   "opener_home_line": -2.5,
+   "opener_total": 41.5,
+   "kalshi_home_win_1106": 57,
+   "intel_proj_home_line": -0.9,
+   "intel_notes": [
+    "NYG: Jaxson Dart QB (IR)"
+   ],
+   "scenarios": [
+    {
+     "team": "NYG",
+     "scenario": "McCarthy out (unlikely: hip, full practice Tue): Winston",
+     "adj": -1.0,
+     "fair_line": -1.5,
+     "edge_pts": -1.0
+    }
+   ],
+   "expert_votes": {
+    "NYG": 1
+   },
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "NE@DET",
+   "kickoff_utc": "2026-11-15T14:30:00.000Z",
+   "market_home_line": -3,
+   "market_total": 51,
+   "components": {
+    "srs": 0.04,
+    "dvoa_pts": -1.5,
+    "ypp_pts": -0.5,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": -0.5
+   },
+   "model_line": -1.3,
+   "fair_line": -2.2,
+   "edge_pts": -0.8,
+   "base_total": 48.6,
+   "fair_total": 49.8,
+   "sim_market": {
+    "home_cover": 0.476,
+    "away_cover": 0.524,
+    "over": 0.463,
+    "under": 0.537,
+    "home_win": 0.568
+   },
+   "opener_home_line": -2.5,
+   "opener_total": 51.5,
+   "kalshi_home_win_1106": 58,
+   "intel_proj_home_line": -0.8,
+   "intel_notes": [
+    "NE explosives (rk 4) vs DET (allowed rk 28): long-play spot",
+    "DET explosives (rk 3) vs NE (allowed rk 26): long-play spot"
+   ],
+   "scenarios": [],
+   "expert_votes": {
+    "DET": 1
+   },
+   "dissent_flag": false,
+   "model_side": "NE"
+  },
+  {
+   "game": "KC@ATL",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": 3,
+   "market_total": 45,
+   "components": {
+    "srs": -5.1,
+    "dvoa_pts": -9.03,
+    "ypp_pts": -8.99,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": 0
+   },
+   "model_line": 6.0,
+   "fair_line": 4.5,
+   "edge_pts": -1.5,
+   "base_total": 44.4,
+   "fair_total": 44.7,
+   "sim_market": {
+    "home_cover": 0.458,
+    "away_cover": 0.542,
+    "over": 0.491,
+    "under": 0.509,
+    "home_win": 0.35
+   },
+   "opener_home_line": 3.5,
+   "opener_total": 45.5,
+   "kalshi_home_win_1106": 38,
+   "intel_proj_home_line": 3.9,
+   "intel_notes": [
+    "KC explosives (rk 5) vs ATL (allowed rk 29): long-play spot"
+   ],
+   "scenarios": [
+    {
+     "team": "KC",
+     "scenario": "Mahomes OUT (unlikely: elbow, practicing in full Wed per Reid)",
+     "adj": -6.0,
+     "fair_line": 1.5,
+     "edge_pts": 1.5
+    }
+   ],
+   "expert_votes": {},
+   "dissent_flag": false,
+   "model_side": "KC"
+  },
+  {
+   "game": "HOU@CLE",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": 5,
+   "market_total": 40,
+   "components": {
+    "srs": -5.65,
+    "dvoa_pts": -7.02,
+    "ypp_pts": -4.16,
+    "hfa": 1.5,
+    "adj_home": 0.0,
+    "adj_away": 0
+   },
+   "model_line": 4.4,
+   "fair_line": 4.7,
+   "edge_pts": 0.3,
+   "base_total": 44.9,
+   "fair_total": 42.4,
+   "sim_market": {
+    "home_cover": 0.508,
+    "away_cover": 0.492,
+    "over": 0.576,
+    "under": 0.424,
+    "home_win": 0.322
+   },
+   "opener_home_line": 4.5,
+   "opener_total": 39.5,
+   "kalshi_home_win_1106": 34,
+   "intel_proj_home_line": 3.9,
+   "intel_notes": [
+    "HOU explosives (rk 10) vs CLE (allowed rk 31): long-play spot",
+    "HOU pass rush (sack rate rk 2) vs CLE protection (rk 31): sack/pressure spot"
+   ],
+   "scenarios": [
+    {
+     "team": "CLE",
+     "scenario": "Shedeur Sanders starts instead (Watson setback)",
+     "adj": -1.0,
+     "fair_line": 5.2,
+     "edge_pts": -0.2
+    }
+   ],
+   "expert_votes": {
+    "CLE": 1
+   },
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "MIN@GB",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": -3.5,
+   "market_total": 42,
+   "components": {
+    "srs": -0.71,
+    "dvoa_pts": 4.82,
+    "ypp_pts": 3.87,
+    "hfa": 1.5,
+    "adj_home": -0.5,
+    "adj_away": -0.5
+   },
+   "model_line": -3.9,
+   "fair_line": -3.7,
+   "edge_pts": 0.2,
+   "base_total": 38.4,
+   "fair_total": 40.2,
+   "sim_market": {
+    "home_cover": 0.506,
+    "away_cover": 0.494,
+    "over": 0.444,
+    "under": 0.556,
+    "home_win": 0.634
+   },
+   "opener_home_line": -5.5,
+   "opener_total": 40.5,
+   "kalshi_home_win_1106": 61,
+   "intel_proj_home_line": -2.2,
+   "intel_notes": [
+    "MIN pass O (29) into GB pass D (8): tough spot",
+    "MIN run game (30) into GB run D (12): fade rushing overs",
+    "GB run game (31) into MIN run D (8): fade rushing overs",
+    "MIN pass rush (sack rate rk 1) vs GB protection (rk 10): sack/pressure spot",
+    "MIN: Kyler Murray QB (OUT)"
+   ],
+   "scenarios": [
+    {
+     "team": "MIN",
+     "scenario": "Wentz/Brosmer start (Cousins not ready)",
+     "adj": -2.0,
+     "fair_line": -4.5,
+     "edge_pts": 1.0
+    }
+   ],
+   "expert_votes": {},
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "JAX@TEN",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": 10.5,
+   "market_total": 46.5,
+   "components": {
+    "srs": -20.09,
+    "dvoa_pts": -18.13,
+    "ypp_pts": -9.36,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": 0
+   },
+   "model_line": 15.7,
+   "fair_line": 13.1,
+   "edge_pts": -2.6,
+   "base_total": 43.3,
+   "fair_total": 44.9,
+   "sim_market": {
+    "home_cover": 0.425,
+    "away_cover": 0.575,
+    "over": 0.452,
+    "under": 0.548,
+    "home_win": 0.143
+   },
+   "opener_home_line": 10.5,
+   "opener_total": 46.5,
+   "kalshi_home_win_1106": 16,
+   "intel_proj_home_line": 13.5,
+   "intel_notes": [
+    "JAX pass O (3) vs TEN pass D (28): big edge",
+    "JAX explosives (rk 7) vs TEN (allowed rk 27): long-play spot",
+    "TEN pass O (27) into JAX pass D (3): tough spot",
+    "TEN run game (19) into JAX run D (3): fade rushing overs"
+   ],
+   "scenarios": [],
+   "expert_votes": {
+    "JAX": 1,
+    "TEN": 2
+   },
+   "dissent_flag": false,
+   "model_side": "JAX"
+  },
+  {
+   "game": "MIA@IND",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": -3.5,
+   "market_total": 38,
+   "components": {
+    "srs": 0.61,
+    "dvoa_pts": 0.43,
+    "ypp_pts": -5.5,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": -1.5
+   },
+   "model_line": -2.3,
+   "fair_line": -2.9,
+   "edge_pts": -0.6,
+   "base_total": 43.5,
+   "fair_total": 40.8,
+   "sim_market": {
+    "home_cover": 0.484,
+    "away_cover": 0.516,
+    "over": 0.586,
+    "under": 0.414,
+    "home_win": 0.614
+   },
+   "opener_home_line": -2.5,
+   "opener_total": 40.5,
+   "kalshi_home_win_1106": 66,
+   "intel_proj_home_line": -0.4,
+   "intel_notes": [
+    "IND pass rush (sack rate rk 11) vs MIA protection (rk 29): sack/pressure spot",
+    "IND run game (5) vs MIA run D (28): rushing-lane spot"
+   ],
+   "scenarios": [],
+   "expert_votes": {},
+   "dissent_flag": false,
+   "model_side": "MIA"
+  },
+  {
+   "game": "CAR@NO",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": 0,
+   "market_total": 49,
+   "components": {
+    "srs": -2.63,
+    "dvoa_pts": -6.38,
+    "ypp_pts": -7.55,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": 0
+   },
+   "model_line": 3.6,
+   "fair_line": 1.8,
+   "edge_pts": -1.8,
+   "base_total": 51.2,
+   "fair_total": 50.1,
+   "sim_market": {
+    "home_cover": 0.452,
+    "away_cover": 0.548,
+    "over": 0.534,
+    "under": 0.466,
+    "home_win": 0.441
+   },
+   "opener_home_line": -1.5,
+   "opener_total": 48.5,
+   "kalshi_home_win_1106": 56,
+   "intel_proj_home_line": 3.4,
+   "intel_notes": [
+    "CAR run game (13) vs NO run D (31): rushing-lane spot"
+   ],
+   "scenarios": [],
+   "expert_votes": {},
+   "dissent_flag": false,
+   "model_side": "CAR"
+  },
+  {
+   "game": "BUF@NYJ",
+   "kickoff_utc": "2026-11-15T18:00:00.000Z",
+   "market_home_line": 8,
+   "market_total": 51,
+   "components": {
+    "srs": -12.43,
+    "dvoa_pts": -10.68,
+    "ypp_pts": -5.02,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": 0
+   },
+   "model_line": 8.7,
+   "fair_line": 8.4,
+   "edge_pts": -0.4,
+   "base_total": 50.2,
+   "fair_total": 50.6,
+   "sim_market": {
+    "home_cover": 0.489,
+    "away_cover": 0.511,
+    "over": 0.487,
+    "under": 0.513,
+    "home_win": 0.223
+   },
+   "opener_home_line": 8.5,
+   "opener_total": 50.5,
+   "kalshi_home_win_1106": 20,
+   "intel_proj_home_line": 9.4,
+   "intel_notes": [
+    "BUF pass O (4) vs NYJ pass D (30): big edge",
+    "BUF explosives (rk 1) vs NYJ (allowed rk 15): long-play spot"
+   ],
+   "scenarios": [],
+   "expert_votes": {},
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "SEA@LV",
+   "kickoff_utc": "2026-11-15T21:05:00.000Z",
+   "market_home_line": 6.5,
+   "market_total": 40.5,
+   "components": {
+    "srs": -6.69,
+    "dvoa_pts": -9.37,
+    "ypp_pts": -11.75,
+    "hfa": 1.5,
+    "adj_home": -1.5,
+    "adj_away": -0.5
+   },
+   "model_line": 8.3,
+   "fair_line": 7.4,
+   "edge_pts": -0.9,
+   "base_total": 47.1,
+   "fair_total": 43.8,
+   "sim_market": {
+    "home_cover": 0.476,
+    "away_cover": 0.524,
+    "over": 0.6,
+    "under": 0.4,
+    "home_win": 0.264
+   },
+   "opener_home_line": 3.5,
+   "opener_total": 43.5,
+   "kalshi_home_win_1106": 28,
+   "intel_proj_home_line": 5.2,
+   "intel_notes": [
+    "LV run game (28) into SEA run D (6): fade rushing overs"
+   ],
+   "scenarios": [
+    {
+     "team": "SEA",
+     "scenario": "Lock out (oblique)",
+     "adj": -1.5,
+     "fair_line": 6.9,
+     "edge_pts": -0.4
+    }
+   ],
+   "expert_votes": {
+    "LV": 1,
+    "SEA": 1
+   },
+   "dissent_flag": false,
+   "model_side": "SEA"
+  },
+  {
+   "game": "LAR@ARI",
+   "kickoff_utc": "2026-11-15T21:05:00.000Z",
+   "market_home_line": 10,
+   "market_total": 38.5,
+   "components": {
+    "srs": -9.12,
+    "dvoa_pts": -11.96,
+    "ypp_pts": -11.26,
+    "hfa": 1.5,
+    "adj_home": -2.0,
+    "adj_away": -1.0
+   },
+   "model_line": 10.2,
+   "fair_line": 10.1,
+   "edge_pts": -0.1,
+   "base_total": 44.2,
+   "fair_total": 41.4,
+   "sim_market": {
+    "home_cover": 0.497,
+    "away_cover": 0.503,
+    "over": 0.586,
+    "under": 0.414,
+    "home_win": 0.194
+   },
+   "opener_home_line": 9.5,
+   "opener_total": 40.5,
+   "kalshi_home_win_1106": 21,
+   "intel_proj_home_line": 5.1,
+   "intel_notes": [
+    "ARI run game (14) into LAR run D (2): fade rushing overs"
+   ],
+   "scenarios": [],
+   "expert_votes": {
+    "LAR": 1
+   },
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "SF@DAL",
+   "kickoff_utc": "2026-11-15T21:25:00.000Z",
+   "market_home_line": 4,
+   "market_total": 55.5,
+   "components": {
+    "srs": -9.76,
+    "dvoa_pts": -11.38,
+    "ypp_pts": -11.46,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": -0.3
+   },
+   "model_line": 8.9,
+   "fair_line": 6.5,
+   "edge_pts": -2.5,
+   "base_total": 51.0,
+   "fair_total": 53.3,
+   "sim_market": {
+    "home_cover": 0.432,
+    "away_cover": 0.568,
+    "over": 0.433,
+    "under": 0.567,
+    "home_win": 0.279
+   },
+   "opener_home_line": 4.5,
+   "opener_total": 55.5,
+   "kalshi_home_win_1106": 35,
+   "intel_proj_home_line": 6.1,
+   "intel_notes": [
+    "SF pass O (2) vs DAL pass D (32): big edge",
+    "SF run game (3) vs DAL run D (32): rushing-lane spot",
+    "SF explosives (rk 2) vs DAL (allowed rk 19): long-play spot"
+   ],
+   "scenarios": [],
+   "expert_votes": {
+    "SF": 1,
+    "DAL": 1
+   },
+   "dissent_flag": false,
+   "model_side": "SF"
+  },
+  {
+   "game": "PIT@CIN",
+   "kickoff_utc": "2026-11-16T01:20:00.000Z",
+   "market_home_line": -3.5,
+   "market_total": 49.5,
+   "components": {
+    "srs": 3.91,
+    "dvoa_pts": 2.2,
+    "ypp_pts": 1.02,
+    "hfa": 1.5,
+    "adj_home": 0,
+    "adj_away": 0
+   },
+   "model_line": -4.1,
+   "fair_line": -3.8,
+   "edge_pts": 0.3,
+   "base_total": 46.2,
+   "fair_total": 47.8,
+   "sim_market": {
+    "home_cover": 0.509,
+    "away_cover": 0.491,
+    "over": 0.45,
+    "under": 0.55,
+    "home_win": 0.637
+   },
+   "opener_home_line": -3.5,
+   "opener_total": 48.5,
+   "kalshi_home_win_1106": 64,
+   "intel_proj_home_line": -3.0,
+   "intel_notes": [
+    "PIT run game (1) vs CIN run D (18): rushing-lane spot",
+    "CIN pass O (1) vs PIT pass D (13): big edge",
+    "CIN run game (17) into PIT run D (1): fade rushing overs"
+   ],
+   "scenarios": [],
+   "expert_votes": {
+    "PIT": 3
+   },
+   "dissent_flag": false,
+   "model_side": null
+  },
+  {
+   "game": "LAC@BAL",
+   "kickoff_utc": "2026-11-17T01:15:00.000Z",
+   "market_home_line": -5,
+   "market_total": 38.5,
+   "components": {
+    "srs": 5.94,
+    "dvoa_pts": 10.32,
+    "ypp_pts": 5.96,
+    "hfa": 1.5,
+    "adj_home": -0.5,
+    "adj_away": 0
+   },
+   "model_line": -8.7,
+   "fair_line": -6.8,
+   "edge_pts": 1.8,
+   "base_total": 44.6,
+   "fair_total": 41.5,
+   "sim_market": {
+    "home_cover": 0.551,
+    "away_cover": 0.449,
+    "over": 0.591,
+    "under": 0.409,
+    "home_win": 0.707
+   },
+   "opener_home_line": -5.5,
+   "opener_total": 38.5,
+   "kalshi_home_win_1106": 66,
+   "intel_proj_home_line": -2.5,
+   "intel_notes": [
+    "LAC pass O (32) into BAL pass D (18): tough spot",
+    "BAL: Lamar Jackson QB (IR)"
+   ],
+   "scenarios": [
+    {
+     "team": "BAL",
+     "scenario": "Fagnano starts instead of Brissett",
+     "adj": -3.5,
+     "fair_line": -5.3,
+     "edge_pts": 0.3
+    },
+    {
+     "team": "LAC",
+     "scenario": "Herbert out (finger, Q; Harbaugh: should be good to go)",
+     "adj": -2.5,
+     "fair_line": -8.1,
+     "edge_pts": 3.1
+    }
+   ],
+   "expert_votes": {
+    "BAL": 1
+   },
+   "dissent_flag": false,
+   "model_side": "BAL"
+  }
+ ]
+}

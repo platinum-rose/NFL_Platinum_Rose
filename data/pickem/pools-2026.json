@@ -9,18 +9,17 @@
       "name": "the duma 2 (SimplySportsware confidence pool)",
       "platform": "SimplySportsware",
       "format": "confidence",
-      "scoring": "confidence 1..N (N = games that week)",
+      "scoring": "confidence (17 - N)..16: the top slot is always 16 (N = games that week; Week 8 with 14 games uses 3-16)",
       "entrants": 93,
-      "entrants_note": "93 on the 10/05 standings",
+      "entrants_note": "93 rows in October 29 overall standings",
       "lock": "per_game_kickoff",
       "prizes": [
         "weekly",
-        "quarterly",
-        "four_game_segment",
+        "rolling_4_week",
         "season"
       ],
       "strategy": "market",
-      "strategy_note": "Three of four prizes are cumulative -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
+      "strategy_note": "Two of three prizes are cumulative (rolling 4-week, season) -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
       "standings": {
         "as_of": "2026-11-10 Week 9 final",
         "rank_row": 18,
@@ -66,20 +65,50 @@
       "url": "https://www.simplysportsware.com/pool-home",
       "entry_name": "Fat Lazy American",
       "prior_standings": {
-        "as_of": "2026-10-05 Week 4 final",
-        "rank_row": 45,
-        "site_rank": 41,
-        "pts": 346,
-        "leader": "AVL GAL 399",
-        "gap_to_leader": 53,
+        "as_of": "2026-11-07 ~12:30 PT, overall after Week 8 + Week 9 TNF",
+        "rank_row": 19,
+        "site_rank": 19,
+        "pts": 719.5,
+        "leader": "BrockTua 758.5",
+        "gap_to_leader": 39,
+        "games": 121,
         "by_week": {
-          "1": 95,
-          "2": 85,
-          "3": 75,
-          "4": 91
+          "6": 80,
+          "7": 90,
+          "8": 104,
+          "9_tnf": 16
         },
-        "week4_rank_row": 55,
-        "source": "data/pickem/simplysportsware-duma2-2026-w04.json"
+        "week8_rank_row": 39,
+        "week8_leader": "Robo53 122",
+        "rolling_6_9": {
+          "pts_so_far": 290,
+          "rank": 7,
+          "leader": "Bloodydamn Goblin 306",
+          "gap": 16
+        },
+        "rolling_7_10": {
+          "pts_so_far": 210,
+          "rank": 10,
+          "leader": "Fredzone 225",
+          "gap": 15
+        },
+        "source": "data/pickem/simplysportsware-duma2-2026-w09-partial.json"
+      },
+      "prizes_note": "Rolling 4-week prize (Andy, 2026-10-29 2:15 PM PT): each week, that week plus the previous three form a window and the top window total is paid weekly. The \"quarterly\" and \"four-game segment\" prizes are this same prize.",
+      "prior_standings_w8pre": {
+        "as_of": "2026-10-29 13:20 PT, overall standings; before Week 8",
+        "rank_row": 21,
+        "site_rank": 21,
+        "pts": 599.5,
+        "leader": "Fangirl 635",
+        "gap_to_leader": 35.5,
+        "games": 106,
+        "wins": 66,
+        "losses": 39,
+        "ties": 1,
+        "previous_week_rank": 35,
+        "source": "reports/engineering/week8-pool-standings-2026-10-29.md",
+        "note": "Another row has 599.5; site labels rows 21 and 22. Leader has 107 counted games; reason for difference unverified."
       },
       "winnings": [
         {
@@ -147,11 +176,11 @@
       "entry_name": "Fat Lazy American",
       "url": "https://football.fantasysports.yahoo.com/pickem/4087/12",
       "prior_standings": {
-        "as_of": "2026-11-03 Week 8 final (API; per-game picks not captured: CBS/SSW/Yahoo browser sessions signed out)",
-        "rank": 20,
-        "pts": 575,
-        "leader": "Freddy Flintstone 615",
-        "gap_to_leader": 40,
+        "as_of": "2026-10-27 Week 7 final (API; per-game picks not captured: Yahoo browser session signed out)",
+        "rank": 22,
+        "pts": 487,
+        "leader": "Freddy Flintstone 530",
+        "gap_to_leader": 43,
         "by_week": {
           "1": 90,
           "2": 85,
@@ -159,16 +188,14 @@
           "4": 96,
           "5": 75,
           "6": 66,
-          "7": 61,
-          "8": 88
+          "7": 61
         },
         "dropped_pts": 61,
-        "dropped_note": "Yahoo drops one lowest week; Week 7 (61) is the dropped week. by_week sum 636 - 61 = 575 season total.",
-        "source": "data/pickem/yahoo-472-g-4087-2026-w08.json",
-        "week8_rank": 11,
-        "week8_pts": 88,
-        "week8_record": "11-3",
-        "week8_leader": "Brett's Best 98"
+        "dropped_note": "Yahoo drops one lowest week; Week 7 (61) is flagged week_dropped in the API file. by_week sum 548 - 61 = 487 season total.",
+        "source": "data/pickem/yahoo-472-g-4087-2026-w07.json",
+        "week7_rank": 16,
+        "week7_pts": 61,
+        "week7_record": "8-6"
       }
     },
     {
@@ -178,7 +205,7 @@
       "format": "straight_up",
       "scoring": "1 point per correct pick",
       "entrants": 73,
-      "entrants_note": "73 on the 10/05 standings",
+      "entrants_note": "73 entries in October 29 standings",
       "lock": "per_game_kickoff",
       "prizes": [
         "weekly",
@@ -217,19 +244,22 @@
       },
       "url": "https://picks.cbssports.com/football/pickem/pools/kbxw63b2ge3dknzyheytg===",
       "prior_standings": {
-        "as_of": "2026-10-06 Week 4 final (overall re-read after MNF)",
-        "rank": 19,
-        "tied": 9,
-        "ytd": 40,
-        "leader": "cary delgado 46",
+        "as_of": "2026-10-29 13:21 PT, overall standings; before Week 8",
+        "rank": 23,
+        "tied": 7,
+        "ytd": 64,
+        "leader": "greg barrows 70",
+        "gap_to_leader_picks": 6,
         "by_week": {
           "1": 12,
           "2": 10,
           "3": 8,
-          "4": 10
+          "4": 10,
+          "5": 7,
+          "6": 8,
+          "7": 9
         },
-        "week4_rank": 27,
-        "source": "data/pickem/cbs-bukbuk-2026-w04.json"
+        "source": "reports/engineering/week8-pool-standings-2026-10-29.md"
       }
     }
   ]
