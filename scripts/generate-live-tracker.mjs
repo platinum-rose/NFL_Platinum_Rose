@@ -17,7 +17,8 @@
  *  node scripts/generate-live-tracker.mjs [--week <num>] [--out <path>]
  */
 
-import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { readFile as fsReadFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+const readFile = fsReadFile;
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getNFLWeekInfo } from '../src/lib/constants.js';
@@ -137,7 +138,7 @@ function playerNameKey(name) {
     .trim();
   // Ticket/book full legal names -> the name ESPN's box score uses. Kept inside the function body
   // because playerNameKey.toString() is injected into the client script. Add new pairs here.
-  const PLAYER_NAME_ALIASES = { 'chigoziem okonkwo': 'chig okonkwo' };
+  const PLAYER_NAME_ALIASES = { 'chigoziem okonkwo': 'chig okonkwo', 'cameron skattebo': 'cam skattebo' };
   return PLAYER_NAME_ALIASES[key] || key;
 }
 
@@ -436,12 +437,51 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
 const WEEK_ROLLOVER_GRACE_MS = 14 * 60 * 60 * 1000;
 const DEFAULT_WEEK = getNFLWeekInfo(new Date(Date.now() - WEEK_ROLLOVER_GRACE_MS)).week || 1;
 
-export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS] } = {}) {
-  console.log(`\n🏈 Generating Sunday Multi-Game Live Tracker for Week ${week}...`);
+export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS], partner = null } = {}) {
+  console.log(`\n🏈 Generating Sunday Multi-Game Live Tracker for Week ${week}${partner ? ` (partner view: ${partner})` : ''}...`);
+  // Partner view (2026-11-15, spec docs/specs/alejandro-live-tracker-spec-2026-11-15.md): same Ticketboard,
+  // only tickets the partner shares, every amount shown as the partner's share, and Andy-only sources
+  // (SuperContest, fantasy, futures, paper, price watch) never read, so they cannot reach the page.
+  const PARTNER_BLOCKED_SOURCES = ['supercontest', 'fantasy', 'futures-imports', 'paper-wagers', 'locked-card', 'alternates-week', 'price-watch'];
+  const readFile = partner
+    ? (p, enc) => (PARTNER_BLOCKED_SOURCES.some((b) => String(p).replace(/\\/g, '/').includes(b)) ? Promise.reject(new Error('partner view: private source skipped')) : fsReadFile(p, enc))
+    : fsReadFile;
+  const isPartnerWager = (w) => !!partner && ((w.ownership_shares?.[partner] || 0) > 0 || w.split_partner === partner || (w.split_participants || []).some((x) => x.name === partner));
+  const partnerOriginal = new Map();
+  let partnerNotes = {};
+  if (partner) {
+    try { partnerNotes = JSON.parse(await fsReadFile(path.join(ROOT, 'data', 'official-picks', `${partner.toLowerCase()}-leg-notes-2026.json`), 'utf8')); } catch { /* no notes */ }
+  }
+  // Rewrite a ticket's money to the partner's share (in memory only). Promo-funded tickets still
+  // charge the partner his face-value share (Andy's 2026-11-08 rule), so they display as cash.
+  const toPartnerView = (w) => {
+    const s = wagerSplit(w);
+    partnerOriginal.set(w.id, { ...w, legs: undefined, split: s });
+    const f = s.fraction; const r = (n) => (n == null ? n : Math.round(Number(n) * f * 100) / 100);
+    const out = { ...w, legs: (w.legs || []).map((l) => ({ ...l, alejandro_note: partnerNotes[l.key] || null })) };
+    out.stake_usd = Math.round(s.contribution * 100) / 100;
+    out.cash_risk_usd = out.stake_usd;
+    out.is_promo_credit = false; out.funding_type = 'cash'; out.promo_credit_stake_usd = 0;
+    out.potential_payout_usd = r(w.potential_payout_usd);
+    out.potential_profit_usd = w.potential_payout_usd != null ? Math.round((out.potential_payout_usd - out.stake_usd) * 100) / 100 : r(w.potential_profit_usd);
+    if (w.settled_payout_usd != null) out.settled_payout_usd = r(w.settled_payout_usd);
+    if (w.profit_usd != null && w.settled_payout_usd != null) out.profit_usd = Math.round((out.settled_payout_usd - out.stake_usd) * 100) / 100;
+    out.is_split = true;
+    return out;
+  };
+  const splitInfo = (bet) => {
+    if (!partner) return wagerSplit(bet);
+    const o = partnerOriginal.get(bet.id);
+    if (!o) return wagerSplit(bet);
+    const pct = Math.round(o.split.fraction * 100);
+    const others = o.split.count === 3 ? 'Andy and Amanda' : 'Andy';
+    return { ...o.split, label: o.split.count === 3 ? '3-WAY POOL' : '50/50 WITH ANDY',
+      note: `Your ${pct}% share shown (with ${others}). Whole ticket: $${Number(o.stake_usd ?? o.cash_risk_usd ?? 0).toFixed(2)} stake, $${Number(o.potential_payout_usd ?? 0).toFixed(2)} payout.` };
+  };
 
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
   const allWagers = JSON.parse(rawWagers);
-  const wagers = await prepareTrackerWagers(allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures'), ROOT);
+  const wagers = await prepareTrackerWagers(allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures' && (!partner || isPartnerWager(w))).map(w => (partner ? toPartnerView(w) : w)), ROOT);
   // SGP-paired game-line legs are stored as sgp_spread / sgp_total / sgp_moneyline (to keep the
   // pair label), but the live grader only understands spread / total / moneyline, so those legs
   // never got a live projection. Normalize in memory only; the ledger keeps the sgp_ names.
@@ -467,7 +507,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   // game-day board -- they're tracked in their own Futures Portfolio tab below, independent
   // of which week's tracker is being generated, and are pulled from the full wager list
   // (not the week-filtered one) since they span the whole season.
-  const futuresWagers = allWagers.filter(w => w.game === 'NFL Futures');
+  const futuresWagers = partner ? [] : allWagers.filter(w => w.game === 'NFL Futures');
 
   let schedule = [];
   try {
@@ -764,7 +804,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
   };
 
-  let scTop5List = [
+  let scTop5List = partner ? [] : [
     SC_RANKINGS['CAR'],
     SC_RANKINGS['IND'],
     SC_RANKINGS['TB'],
@@ -1016,7 +1056,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       lostLegs: (bet.legs || []).filter(l => String(l.status || '').toUpperCase() === 'LOST').map(l => l.selection || l.player || 'leg'),
       book: bet.book,
       ticketNumber: bet.ticket_number || null,
-      split: wagerSplit(bet),
+      split: splitInfo(bet),
       owner: bet.owner || null,
       teamCountLegs: (bet.legs || []).map((leg, idx) => ({ ...leg, key: leg.key || `leg_${bet.id}_${idx + 1}`, eventId: String(findScheduleGameForLeg(leg, weekSchedule)?.id || '') }))
         .filter(leg => ['team_touchdowns', 'team_field_goals'].includes(leg.market)),
@@ -1738,7 +1778,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                     : `<span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}">${isPromo ? '$0 CASH (PROMO)' : 'CASH'}</span>`}
                   ${bet.ticket_type?.includes('Open') ? '<span class="badge badge-open">OPEN PARLAY</span>' : ''}
                   ${(() => { const n = (bet.legs || []).filter(l => (l.market === 'open_slot' || l.status === 'OPEN')).length; return (n && bet.status !== 'SETTLED') ? `<span class="badge badge-decision" title="This ticket still has open spots to fill with picks">⚠️ DECISION NEEDED · ${n} OPEN SPOT${n > 1 ? 'S' : ''}</span>` : ''; })()}
-                  <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 ${escapeHtml(wagerSplit(bet).label)}</span>
+                  <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 ${escapeHtml(splitInfo(bet).label)}</span>
                   <span class="cashed-badge"${cashedBadgeStyle ? ` style="${cashedBadgeStyle}"` : ''}>CASHED</span>
                   <span class="burnt-badge"${burntBadgeStyle ? ` style="${burntBadgeStyle}"` : ''}>BURNT</span>
                   <span class="injury-beat-badge" id="injury-beat-badge-${bet.id}" style="display:none;" title="Burnt, and the only missed leg was a player who left injured / inactive">🚑 INJURY BEAT</span>
@@ -1762,7 +1802,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             <div class="card-body">
               ${bet.historical_backfill ? `<div style="font-size:0.7rem; color:#C4B5FD; margin:4px 0;">Historical ${escapeHtml(bet.date)} snapshot · added after kickoff · reference prices</div>` : ''}
               ${(bet.priced_components || []).filter(c => c.type === 'sgp').map(c => `<div style="font-size:0.72rem; color:#93C5FD; margin:4px 0;">${c.leg_nums.length}-leg SGP ${escapeHtml(c.price)}: ${c.leg_nums.map(n => escapeHtml((bet.legs || []).find(l => l.leg_num === n)?.selection || 'Leg ' + n)).join(' + ')}</div>`).join('')}
-              ${bet.is_split ? `<div class="split-note" style="font-size:0.72rem; color:#C7D2FE; margin:4px 0;">${escapeHtml(wagerSplit(bet).note)}</div>` : ''}
+              ${bet.is_split ? `<div class="split-note" style="font-size:0.72rem; color:#C7D2FE; margin:4px 0;">${escapeHtml(splitInfo(bet).note)}</div>` : ''}
               <div class="burn-reason-banner" id="burn-banner-${bet.id}" style="${burnBannerStyle}">
                 ${isBurntInitial ? '<span>🔥</span><strong>Concluded / Settled Loss:</strong> Ticket settled as loss.' : ''}
               </div>
@@ -1889,6 +1929,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                       ${(isOpenSlot || !isPropLeg) ? '' : `<button class="btn-leg-out" id="btn-out-leg-${legKey}" onclick="toggleLegOut('${legKey}', '${bet.id}', event)" title="Mark Player Out / Inactive (left the game)">🚑</button>`}
                     </div>
                   </div>
+                  ${leg.alejandro_note ? `<div class="leg-note" style="font-size:0.7rem; color:#CBD5E1; padding-left:22px; margin-top:2px;">💡 ${escapeHtml(leg.alejandro_note)}</div>` : ''}
                   ${leg.manual_review_required ? `<div style="font-size:0.7rem; color:#FCD34D; padding-left:22px;">Inactive (${escapeHtml(leg.availability_at_import)}): outcome requires review; original selection preserved.</div>` : ''}
                   ${isTeamCount ? '<div style="font-size:0.68rem; color:#94A3B8; padding-left:22px;">Automatic team count · ESPN box score</div>' : ''}
                   ${(isPropLeg || isTeamCount) ? `
@@ -4991,8 +5032,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       checkedState = readJsonKey(STORAGE_KEY, {});
       splitState = readJsonKey(SPLITS_KEY, {});
       // Seed official ownership without discarding saved manual marks.
+      // The ledger's official split flag wins over a stale saved mark (e.g. a ticket that was
+      // marked as a split after this browser first loaded it). Manual splits on other tickets are kept.
       for (const [id, cfg] of Object.entries(TICKET_CONFIG)) {
-        if (splitState[id] === undefined) splitState[id] = !!cfg.split?.enabled;
+        if (cfg.split?.enabled) splitState[id] = true;
+        else if (splitState[id] === undefined) splitState[id] = false;
       }
       manualBurns = readJsonKey(BURNS_KEY, {});
       manualCashed = readJsonKey(CASHED_KEY, {});
@@ -9182,7 +9226,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           const isBurnt = card && card.classList.contains('burnt');
 
           const share = config.split?.fraction ?? 0.5;
-          const cost = config.isPromo ? 0 : (config.split?.contribution ?? config.cashStake * share);
+          const cost = config.split?.contribution ?? ((config.cashStake || config.promoStake || 0) * share); // partner pays face value even on promo tickets
           totalCostShare += cost;
           if (!isBurnt) {
             totalPotentialShare += (config.payout * share);
@@ -9956,7 +10000,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         }
         if (w.isSplit) {
           const share = w.split?.fraction ?? 0.5;
-          const cost = w.isPromo ? 0 : (w.split?.contribution ?? w.cashStake * share);
+          const cost = w.split?.contribution ?? ((w.cashStake || w.promoStake || 0) * share); // partner pays face value even on promo tickets
           const cashedShare = (w.status === 'WON') ? (w.payout * share) : 0;
           alejandroNet += (cashedShare - cost);
         }
@@ -10308,13 +10352,53 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 </html>
 `;
 
+  let pageHtml = html;
+  if (partner) pageHtml = applyPartnerView(html, { partner, week, allWagers, isPartnerWager, toPartnerView, splitInfo });
   for (const outPath of outPaths) {
     await mkdir(path.dirname(outPath), { recursive: true });
-    await writeFile(outPath, html, 'utf8');
+    await writeFile(outPath, pageHtml, 'utf8');
     console.log(`   ✅ Wrote Live Tracker HTML: ${path.relative(ROOT, outPath)}`);
   }
 
-  return { html, wagersCount: wagers.length };
+  return { html: pageHtml, wagersCount: wagers.length };
+}
+
+// Partner view chrome: hide Andy-only controls/tabs, relabel the ticker, add the season ledger.
+function applyPartnerView(html, { partner, week, allWagers, isPartnerWager, toPartnerView, splitInfo }) {
+  const settled = allWagers.filter((w) => isPartnerWager(w) && String(w.status).toUpperCase() !== 'PENDING' && w.game !== 'NFL Futures')
+    .map((w) => ({ w: toPartnerView(w), s: splitInfo(w) }))
+    .sort((a, b) => String(b.w.placed_at || b.w.date).localeCompare(String(a.w.placed_at || a.w.date)));
+  let staked = 0; let back = 0; let wins = 0;
+  const rows = settled.map(({ w }) => {
+    const ret = Number(w.settled_payout_usd || 0); staked += Number(w.stake_usd || 0); back += ret; if (ret > 0) wins++;
+    return `<tr><td>W${escapeHtml(w.week)}</td><td>${escapeHtml(w.book || '')}${w.ticket_number ? ' #' + escapeHtml(w.ticket_number) : ''}<div class="pl-title">${escapeHtml(w.game_title || w.ticket_type || '')}</div></td><td>$${Number(w.stake_usd || 0).toFixed(2)}</td><td class="${ret > 0 ? 'pl-win' : 'pl-loss'}">$${ret.toFixed(2)}</td></tr>`;
+  }).join('');
+  const net = back - staked;
+  const ledger = `
+      <details class="partner-ledger"><summary>📒 ${escapeHtml(partner)}'s season ledger · ${wins}-${settled.length - wins} · net <b class="${net >= 0 ? 'pl-win' : 'pl-loss'}">${net >= 0 ? '+' : '−'}$${Math.abs(net).toFixed(2)}</b> <span class="pl-sub">(your stakes $${staked.toFixed(2)}, back $${back.toFixed(2)})</span></summary>
+        <table><thead><tr><th>Wk</th><th>Ticket</th><th>Your stake</th><th>You got back</th></tr></thead><tbody>${rows}</tbody></table>
+      </details>
+`;
+  const css = `<meta name="robots" content="noindex, nofollow"><style>
+    #total-promo-risk, .ticker-box:has(#total-promo-risk), #btn-grade-settle, #btn-perf-drawer, #tab-btn-supercontest, #tab-btn-fantasy, #tab-btn-futures,
+    #alejandro-ledger-box, .btn-alejandro-toggle, button[onclick="setFilter('promo')"], button[onclick="setFilter('alejandro')"], button[onclick="setFilter('cash')"],
+    #tab-supercontest-wrap, #tab-fantasy-wrap, #tab-futures-wrap, .source-tag { display: none !important; }
+    .partner-ledger { background:#111A2B; border:1px solid #273752; border-radius:10px; padding:10px 12px; margin:14px 0; font-size:0.8rem; }
+    .partner-ledger summary { cursor:pointer; font-weight:700; } .partner-ledger table { width:100%; border-collapse:collapse; margin-top:8px; }
+    .partner-ledger th, .partner-ledger td { text-align:left; padding:5px 6px; border-bottom:1px solid #1E293B; vertical-align:top; } .partner-ledger th { color:#94A3B8; font-size:0.7rem; text-transform:uppercase; }
+    .pl-title { color:#94A3B8; font-size:0.7rem; } .pl-win { color:#10B981; } .pl-loss { color:#EF4444; } .pl-sub { color:#94A3B8; font-weight:400; }
+  </style>`;
+  let out = html
+    .replace('</head>', css + '\n</head>')
+    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(partner)} · Live Tickets · Week ${week}</title>`)
+    .replace(`🏈 NFL Sunday Live Tracker • Week ${week}`, `🤝 ${escapeHtml(partner)}'s Live Tickets • Week ${week}`)
+    .replace('<div class="ticker-label">Cash Risk</div>', '<div class="ticker-label">Your Stake</div>')
+    .replace('<div class="ticker-label">Potential Win</div>', '<div class="ticker-label">Your Potential</div>')
+    .replace('<div class="ticker-label">Total Cashed</div>', '<div class="ticker-label">You Cashed</div>');
+  const marker = '<!-- TAB 2: PLAYER CHEAT SHEET';
+  const i = out.indexOf(marker);
+  if (i > -1) out = out.slice(0, i) + ledger + '      ' + out.slice(i);
+  return out;
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === __filename;
@@ -10325,7 +10409,10 @@ if (isMain) {
   const outIdx = args.indexOf('--out');
   const customOut = outIdx >= 0 ? [path.resolve(ROOT, args[outIdx + 1])] : [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS];
 
-  generateLiveTracker({ week, outPaths: customOut }).catch(err => {
+  const partnerIdx = args.indexOf('--partner');
+  const partner = partnerIdx >= 0 ? args[partnerIdx + 1] : null;
+  const outPaths = partner && outIdx < 0 ? [path.join(ROOT, 'public', `${partner.toLowerCase()}`, 'index.html')] : customOut;
+  generateLiveTracker({ week, outPaths, partner }).catch(err => {
     console.error(`❌ Live Tracker generation failed:`, err);
     process.exit(1);
   });

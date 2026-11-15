@@ -22,3 +22,13 @@
 3. Morning refresh if wanted: splits (8h), Master pull (10h), injuries (10h) are stale by Sunday AM. Confirm inactives (Q/D players) before kickoff; NE@DET 6:30 AM PT.
 4. Investigate why scheduled NFL_BetOnline_Prop_Sync skipped Props Builder at 8:10 PM (manual rerun restored 936 rows).
 5. Kalshi $25.01 bonus credit expires ~2026-12-14 (reminder set 12/8).
+
+## Addendum 02:58 PT (Claude, same session) — 6 more real tickets logged (local ledger only)
+- DKP promo 8-pick (Strange/Dulcich/Shakir/Watson/Young/Charbonnet/Kyren/C. Brown), $10 promo → $946. Replaces the BEO +12,800 slip (never placed). Position # missing.
+- BKR 5-leg props (Cook O19.5 att / Taylor O15.5 att / Olave O73.5 / Rice O5.5 rec / Collins U4.5 rec) +2880, $10. Henry dropped (BKR -102). Ticket # missing.
+- BEO 8-leg ATD parlay +5300, $7.65. Ticket # missing.
+- BEO NE@DET 4-leg SGP #1015545207 +2600, $5 (Henry O3.5 rec / LaPorta ATD / Gibbs O4.5 rec / NE ML). Low-correlation build; the correlated version priced +850.
+- BKR 2-team 6-pt teaser NE +8.5 / BUF -2, -120, $42. Ticket # missing.
+- BKR SGP+ 8-leg +6371, $8. **Conflict:** PIT@CIN O46.5 vs master 8-team U48.5 (middle 47–48).
+- Pending: DKP first-TD 3-pick (Hubbard/Cook/D. Henry) — DKP down for maintenance; reminder scheduled 9:15 AM PT (trig_0155tFD7bPDyCjroX5yCxfYE). BEO fallback +12,275.
+- All logged solo/cash unless noted; solo is an assumption. Tracker: 16 real W10 open + 16 paper. Mobile tracker still not republished.
