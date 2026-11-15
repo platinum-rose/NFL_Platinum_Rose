@@ -621,6 +621,17 @@ def price_books(ctx):
             l_, f_ = nkey(pl)
             line = None if mk in YES else (float(r['line']) if dk_source else float(r['line']) - 0.5) if r.get('line') is not None else None
             idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['DK'].append((line, int(odd_val), f_))
+    # Kalshi player-prop ladders (2026-11-14, Claude): reference price = buy Yes at the ask incl. Kalshi taker fee.
+    # Written by scripts/props/kalshi-props-capture.py; newest capture on or before the build date (Pacific).
+    KMAP = {'atd_1_plus': 'atd', 'td_2_plus': 'td2', 'first_td': 'first_td', 'pass_yds': 'pass_yds', 'pass_td': 'pass_td',
+            'pass_cmp': 'pass_cmp', 'pass_att': 'pass_att', 'pass_int': 'pass_int', 'rush_yds': 'rush_yds', 'carries': 'carries',
+            'rec_yds': 'rec_yds', 'rec': 'rec', 'rush_rec_yds': 'rr_yds', 'longest_rec': 'long_rec', 'longest_rush': 'long_rush'}
+    _, kal = market_captures.newest('kalshi-props', ctx['week'], ctx['date'])
+    for r in (kal or {}).get('rows', []):
+        mk = KMAP.get(r.get('market')); gid = r.get('game')
+        if not mk or gid not in ctx['games'] or not r.get('player') or r.get('american_ask_with_fee') is None: continue
+        l_, f_ = nkey(r['player'])
+        idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['KAL'].append((None if mk in YES else r.get('line'), int(r['american_ask_with_fee']), f_))
     return idx
 
 
@@ -848,7 +859,7 @@ def props_lab(ctx):
                 got = idx.get((gid, l_, mk, 'yes')) or {}
                 best = None
                 for b, opts in got.items():
-                    if b == 'DK': continue  # prediction contracts are reference prices, not sportsbook rungs
+                    if b in ('DK', 'KAL'): continue  # prediction contracts are reference prices, not sportsbook rungs
                     for line, odds, fi in opts:
                         if f_ and fi and fi != f_: continue
                         if best is None or dec(odds) > dec(best['odds']):
@@ -862,7 +873,7 @@ def props_lab(ctx):
             got = idx.get((gid, l_, mkey, sd)) or {}
             by_line = {}
             for b, opts in got.items():
-                if b == 'DK': continue
+                if b in ('DK', 'KAL'): continue
                 for line, odds, fi in opts:
                     if f_ and fi and fi != f_: continue
                     if line is None: continue
@@ -879,7 +890,7 @@ def props_lab(ctx):
 
         if not rungs:
             pr = c.get('prices') or {}
-            exact = {b: v for b, v in pr.items() if v.get('exact') and b != 'DK'}
+            exact = {b: v for b, v in pr.items() if v.get('exact') and b not in ('DK', 'KAL')}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
             if best:
                 lbl = f"{c['line']:g}+" if c.get('line') is not None and c.get('side') == 'over' else (f"u{c['line']:g}" if c.get('line') is not None else MNAME.get(c.get('mkey'), c.get('mkey')))
@@ -998,7 +1009,7 @@ def props_lab(ctx):
                 base_desc = f"{sd_txt} {line_val:g} {MNAME.get(mkey, mkey)}".strip() if line_val is not None else (c.get('raw') or MNAME.get(mkey, mkey))
 
             pr = c.get('prices') or {}
-            exact = {b: v for b, v in pr.items() if v.get('exact') and b != 'DK'}
+            exact = {b: v for b, v in pr.items() if v.get('exact') and b not in ('DK', 'KAL')}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
             price_span = f'<b>{am(best[1]["odds"])}</b> <span class="lg-book">{best[0]}</span>' if best else ''
 
@@ -1045,6 +1056,9 @@ def props_lab(ctx):
                 if not v: return f'<div class="lp-cell"><span class="lp-b">{b}</span><span class="px-none">—</span></div>'
                 if b == 'DK':
                     return f'<div class="lp-cell"><span class="lp-b">DKP contract</span><span>{100 / dec(v["odds"]):.0f}% before fees · reference</span></div>'
+                if b == 'KAL':
+                    lab_ = am(v['odds']) if v.get('exact') else f'{v["line"]:g}+ {am(v["odds"])} (alt line)'
+                    return f'<div class="lp-cell"><span class="lp-b">Kalshi</span><span>{E(lab_)} incl. fee · reference</span></div>'
                 cls = 'px-best' if best and best[0] == b else ('px-alt' if not v.get('exact') else '')
                 lab = am(v['odds']) if v.get('exact') else f'{("o" if side == "over" else "")}{v["line"]:g} {am(v["odds"])} (alt line)'
                 return f'<div class="lp-cell"><span class="lp-b">{b}</span><span class="{cls}">{E(lab)}</span></div>'
@@ -1103,7 +1117,7 @@ def props_lab(ctx):
                 f'  </div>'
                 f'  <div class="prop-card-intel">'
                 f'    <div class="intel-header" style="font-size:12px;font-weight:750;color:var(--primary);margin-bottom:6px;">Intel, expert quotes ({len(src)}) & book prices:</div>'
-                f'    <div class="lp-row">{cell("BKR")}{cell("BEO")}{cell("DK")}</div>'
+                f'    <div class="lp-row">{cell("BKR")}{cell("BEO")}{cell("DK")}{cell("KAL")}</div>'
                 f'    <ul class="leg-src">{"".join(whos)}</ul>'
                 f'    <p class="prop-game-link"><a href="{gpage(gid)}" class="table-link">Full {E(away)} @ {E(home)} game write-up →</a></p>'
                 f'  </div>'

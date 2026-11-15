@@ -22,6 +22,7 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
             data/nfl-rosters/roster-map-latest.json, data/survivor/*, data/research-intel/review/player-props-intel-latest.json
 Outputs:
   dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.{md,html,docx}
+  (every build is also copied, permanently, to reports/intel/packets-archive/<season>-w<NN>/ - see packet_archive.py)
 """
 import argparse, math, base64, collections, datetime, glob, hashlib, html, json, os, re, sys, zoneinfo
 from pathlib import Path
@@ -572,7 +573,10 @@ def finalize_report(L, gaps):
           'the author and Platinum Rose accept no responsibility or liability for any wager, loss or other outcome arising from use of this report. Bet only where it is legal for you, only if you are of legal age, and only what you can afford to lose. '
           'If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
     short_gaps = [re.sub(r'(\s*\([^)]*/[^)]*\)|(?:[a-zA-Z0-9_\-\.]+/)+[a-zA-Z0-9_\-\.]+\.[a-zA-Z0-9]+)', '', g_).strip().rstrip('.').replace('<', '&lt;') for g_ in gaps]  # banner: plain text, no file paths
-    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(short_gaps) if short_gaps else 'none')
+    # Banner stays short (Andy 2026-11-07): a count plus the first two non-advisory gaps; the full list is in Section 11.
+    _gp = [g_ for g_ in short_gaps if 'gate advisory' not in g_]
+    _gtxt = (f"{len(short_gaps)} open items, including: " + '; '.join((g_[:140] + '…') if len(g_) > 140 else g_ for g_ in (_gp or short_gaps)[:2])) if short_gaps else 'none'
+    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', _gtxt)
     txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
     return txt
 
@@ -1206,8 +1210,19 @@ def main():
 
     # ---- actionable props pool ----
     POOL = collections.defaultdict(list); seenp = set()
+    # Andy 2026-11-14: no prop recommendations on players listed Questionable (or Doubtful/Out) on the latest injury report.
+    POOL_INJ_SKIP = collections.Counter(); POOL_INJ_NAMES = collections.defaultdict(set)
+    def pool_inj_player(gid, text):
+        tl = (text or '').lower()
+        for t_ in (gid or '').split('@'):
+            for n_, e_ in INJ.get(t_, {}).items():
+                if n_.lower() in tl: return n_, str(e_.get('normalized_status') or '').title()
+        return None, None
     def pool_add(gid, text, price, book, tier, why, src):
         if gid not in ids: return
+        _inj_n, _inj_st = pool_inj_player(gid, text)
+        if _inj_n:
+            POOL_INJ_SKIP[gid] += 1; POOL_INJ_NAMES[gid].add(f'{_inj_n} ({_inj_st})'); return
         nm = re.split(r'\s+(?:[+-]?\d|OVER|UNDER|over|under|o\d|u\d)', text)[0].split()
         num = re.search(r'\d+(?:\.\d)?', text)
         k = (gid, (nm[1] if len(nm) > 1 else (nm[0] if nm else '')).lower(), num.group(0) if num else '', prop_kind(text))
@@ -1267,11 +1282,12 @@ def main():
                  esc(p.get('rationale') or '')[:110] + (f" [source]({p['source_url']})" if p.get('source_url') else ''), p.get('analyst') or 'article')
 
     L = []
-    asof = bkr['rows'][0].get('capturedAt', '')[:16]
+    _bkr0 = bkr['rows'][0] if bkr.get('rows') else {}  # 2026-11-06: tolerate a placeholder file when no BKR capture exists
+    asof = (_bkr0.get('capturedAt') or '')[:16]
     RE = ['', '</div>', '</details>']  # rollup end without back-link
     def pt12(dt_): return dt_.astimezone(PT).strftime('%a %b %-d, %-I:%M %p PT') if os.name != 'nt' else dt_.astimezone(PT).strftime('%a %b %#d, %#I:%M %p PT')
-    try: asof_txt = pt12(datetime.datetime.fromisoformat(bkr['rows'][0].get('capturedAt', '').replace('Z', '+00:00')))
-    except Exception: asof_txt = f'{D}'
+    try: asof_txt = pt12(datetime.datetime.fromisoformat((_bkr0.get('capturedAt') or '').replace('Z', '+00:00')))
+    except Exception: asof_txt = f'{D}' if _bkr0 else 'NO BOOKMAKER CAPTURE (placeholder; see Known Gaps)'
     L += [logo_css(), f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
           "## What to bet this week, why we like it, and what every expert and betting market is saying",
           (f'### Built {pt12(datetime.datetime.now(PT))} · BKR prop snapshot as of {asof_txt}; game lines use Andy-supplied board (capture time not stated)' if bkr_user_board.get('games') else f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip'),
@@ -1625,7 +1641,9 @@ def main():
     if _txt:
         _td = re.sub(r'^### (.+)$', r'**\\1**', _txt.replace(_intro, '', 1), flags=re.M)
         PBP += roll('section-2', 'td-menu', '🏈 Touchdown menu — one anytime TD per team, one first TD per game', True) + [_intro, '', _td, '', '</div>', '</details>', '']
-    L += ['', '<a id="prop-pool"></a>'] + PBP + ['### 🧰 Build your own: actionable props pool', '',
+    _inj_note = (['', f"*Injury filter (Andy, 2026-11-14): {sum(POOL_INJ_SKIP.values())} prop suggestions left out because the player is listed Questionable, Doubtful or Out: "
+                  + '; '.join(f"{g_}: {', '.join(sorted(v_))}" for g_, v_ in sorted(POOL_INJ_NAMES.items())) + '.*', ''] if POOL_INJ_SKIP else [])
+    L += ['', '<a id="prop-pool"></a>'] + PBP + ['### 🧰 Build your own: actionable props pool', ''] + _inj_note + [
           'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed, grouped by prop category and then by matchup so you can build your own stacks. **"Card"** rows passed our build rules; **"expert"** rows are calls we have not checked ourselves.', '',
           '**Jump to a category:** ' + ' · '.join(f"[{lab} ({sum(1 for g in pool_games for p in POOL[g['id']] if prop_category(p)[0] == ck)})](#props-cat-{ck.lower()})" for ck, lab in (('TDs','Touchdowns'),('Passing','Passing'),('Rushing','Rushing'),('Receiving','Receiving'),('DEF','Defense'),('Kicking','Kicking'),('Other','Other')) if any(prop_category(p)[0] == ck for g in pool_games for p in POOL[g['id']])), '']
     _kc = collections.Counter(p['kind'] for g in pool_games for p in POOL[g['id']])
@@ -3293,7 +3311,7 @@ def main():
         if overall and overall[0] is not None:
             S += [f'**Amanda Rose — Overall:** {overall[0]:g} points; **GB:** {overall[1]-overall[0]:g}; {overall[2]-overall[0]:g} points below the current fifth-place payout score ({overall[2]:g}).']
         if quarterly and quarterly[0] is not None:
-            S += [f'**Amanda Rose — Quarterly:** {quarterly[0]:g} points; **GB:** {quarterly[1]-quarterly[0]:g}. The quarter ends after Week 8.']
+            _qe = re.search(r'[Qq]uarter ends after Week (\d+)', standings_text); S += [f'**Amanda Rose — Quarterly:** {quarterly[0]:g} points; **GB:** {quarterly[1]-quarterly[0]:g}.' + (f' The quarter ends after Week {_qe.group(1)}.' if _qe else '')]
         if graded_weeks:
             ai_points = sum(float(r.get('ai_score', 0)) for r in graded_weeks)
             amanda_points = sum(float(r.get('official_score', 0)) for r in graded_weeks)
@@ -3416,6 +3434,10 @@ def main():
             for _x in _f: print('  ✗', _x)
         else:
             print('SuperContest format gate: PASS')
+    # Permanent copy of this build (dist/ is wiped by `vite build`; Andy 2026-11-07: keep every week's build).
+    import packet_archive
+    _arch = packet_archive.snapshot_dir(out_dir, W, a.season, 'build')
+    print(f'archived -> {_arch.relative_to(ROOT) if _arch else "nothing"}')
 
 if __name__ == '__main__':
     main()

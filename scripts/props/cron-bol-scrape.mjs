@@ -463,6 +463,18 @@ async function run() {
     console.log(`💾 Saved master JSON: ${masterJson}`);
     console.log(`📋 Mirrored research JSON: ${mirrorJson}`);
 
+    // 2026-11-14 (Claude, Andy OK'd): add the Props Builder over/under board (most yardage/reception props live there,
+    // not on the game pages). Non-fatal: a Props Builder failure keeps the main-board capture above intact.
+    if (!process.argv.includes('--no-props-builder')) {
+      try {
+        const { captureAndMergePropsBuilder } = await import('./bol-propsbuilder-capture.mjs');
+        await captureAndMergePropsBuilder({ masterJson });
+        fs.copyFileSync(masterJson, mirrorJson);
+      } catch (err) {
+        console.warn(`⚠️ Props Builder capture skipped: ${err.message}`);
+      }
+    }
+
     console.log(`\n✅ BetOnline prop pipeline completed successfully with strict acceptance sign-off!`);
   } finally {
     if (currentLockToken) {

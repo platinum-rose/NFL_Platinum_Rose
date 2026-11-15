@@ -159,7 +159,8 @@ for g in slate.get('games', []):
     p['weather'] = next((r for r in wx.get('rows', []) if r.get('game') == M), None)
 
     # splits
-    gid_hit = [s for s in pull.get('splits', []) if s.get('home_team') == H and s.get('away_team') == A]
+    _ab = lambda t: {'WSH': 'WAS', 'JAC': 'JAX', 'LA': 'LAR'}.get(t, t)   # pull splits use WSH; schedule uses WAS
+    gid_hit = [s for s in pull.get('splits', []) if _ab(s.get('home_team')) == H and _ab(s.get('away_team')) == A]
     p['splits'] = gid_hit
     if not gid_hit: missing.append('bets-vs-money splits')
 
@@ -202,6 +203,13 @@ for g in slate.get('games', []):
         d = load(f) or {}
         return {'path': f, 'capturedAt': d.get('capturedAt'), 'row_count': len(d.get('rows') or []), 'summary': d.get('summary')}
     p['prop_boards'] = {'bookmaker': board('bookmaker-live'), 'draftkings_predictions_reference_only': board('draftkings-predictions-live'), 'betonline': board('betonline-live')}
+    # 2026-11-14 (Claude): Kalshi prop ladders + DKP event-feed are weekly files; point the agent at them with this game's row count.
+    for _key, _pat in (('kalshi_reference_only', 'kalshi-props-*-week*.json'), ('draftkings_predictions_feed_reference_only', 'draftkings-predictions-feed-*-week*.json')):
+        _f = latest(f'data/generated/props/{_pat}')
+        _d = (load(_f) or {}) if _f else {}
+        _n = sum(1 for r in (_d.get('rows') or []) if str(r.get('game') or '').replace('JAC', 'JAX') == f'{A}@{H}')
+        p['prop_boards'][_key] = {'path': _f, 'capturedAt': _d.get('capturedAt'), 'row_count_this_game': _n,
+                                  'note': f'weekly file; filter rows where game == "{A}@{H}". Kalshi odds: use american_ask_with_fee.' if _f else None}
     if a.pass_ == 'props':
         for b in ('bookmaker', 'betonline'):
             if not p['prop_boards'][b]['path'] or (p['prop_boards'][b]['row_count'] or 0) < 100:

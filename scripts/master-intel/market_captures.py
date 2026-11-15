@@ -4,6 +4,7 @@ import html
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
 NICKS = dict(zip(
@@ -24,7 +25,9 @@ def newest(prefix, week, date):
         at = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
         if at.tzinfo is None: at = at.replace(tzinfo=timezone.utc)
         # --date is the requested capture day, not the date printed on an event.
-        if at.date().isoformat() > date or at.year != int(date[:4]): continue
+        # 2026-11-14 (Claude): compare in Pacific time; --date is a PT day, so a 4:30 PM PT capture (00:30Z next day) belongs to it.
+        at_pt = at.astimezone(ZoneInfo('America/Los_Angeles'))
+        if at_pt.date().isoformat() > date or at_pt.year != int(date[:4]): continue
         found.append((at, str(path), data))
     if not found: return None, None
     _, path, data = max(found, key=lambda item: (item[0], item[1]))
@@ -45,8 +48,49 @@ def beo_rows(week, date):
                          capturedAt=row.get('capturedAt') or data.get('capturedAt'), line_kind='ou'))
     return path, rows
 
+def _feed_as_live(data):
+    """2026-11-14 (Claude, Andy OK'd): the DKP capture now writes draftkings-predictions-feed-<date>-week<N>.json
+    (scripts/props/dkp-event-feed-capture.mjs, schema draftkings_predictions_feed_master_v1). Convert its rows to the
+    older draftkings-predictions-live shape so build.py / site_extras.py read them unchanged.
+    Game lines -> market 'game_lines' + bet spread/total/moneyline (side = team code or Over/Under).
+    Player props -> the 'Over'/'Yes' side only (consumers price every DKP prop as over/yes); milestones use lineEquiv
+    (e.g. 70+ -> 69.5). 1H/1Q lines, team totals, Under sides and 'No Touchdown Scorer' are left out."""
+    bets = {'spread': 'spread', 'game_total': 'total', 'moneyline': 'moneyline'}
+    names, rows = {}, []
+    for r in data.get('rows', []):
+        gid, m, side = r.get('game'), r.get('market'), r.get('side')
+        if not gid or '@' not in gid: continue
+        try: pct = int(str(r.get('pct') or '').rstrip('%'))
+        except ValueError: pct = None
+        base = dict(book='DKP', source='dkp_event_feed', event=gid, game=gid, available=True, player=r.get('player'), team=r.get('team'),
+                    odds=r.get('american'), price=pct, probability=(pct / 100 if pct is not None else None),
+                    sectionTitle=r.get('marketName'), marketTitle=r.get('marketName'), capturedAt=data.get('capturedAt'))
+        if m in bets:
+            if m != 'game_total':
+                code = team(r.get('label'))
+                if not code: continue
+                names[code] = r.get('label'); side = code
+            line = r.get('line')
+            sel = f"{side} {'' if line is None else format(line, '+g') if m == 'spread' else line} ({r.get('pct')})".replace('  ', ' ')
+            rows.append(dict(base, market='game_lines', bet=bets[m], side=side, line=line, selection=sel))
+        elif r.get('player'):
+            if r.get('kind') == 'milestone': side, line = 'Over', r.get('lineEquiv')
+            elif side in ('Over', 'Yes'): line = r.get('line')
+            else: continue
+            rows.append(dict(base, market=m, bet='prop', side=side, line=line,
+                             selection=f"{r['player']} {r.get('marketName')} {r.get('label') if r.get('kind') == 'milestone' else (side + ('' if line is None else ' ' + str(line)))} ({r.get('pct')})"))
+    events = {}
+    for row in rows:
+        a, h = row['game'].split('@')
+        ev = events.setdefault(row['game'], dict(away=names.get(a, a), home=names.get(h, h), capturedAt=data.get('capturedAt'), rows=[]))
+        ev['rows'].append(row)
+    return dict(data, events=list(events.values()), rows=rows)
+
 def dkp_events(week, date):
     path, data = newest('draftkings-predictions-live', week, date)
+    if data is None:
+        path, data = newest('draftkings-predictions-feed', week, date)
+        if data is not None: data = _feed_as_live(data)
     if data is None: return None, []
     events = []
     for event in data.get('events', []):
@@ -61,9 +105,12 @@ def dkp_events(week, date):
 
 def reference_boards(week, date):
     """Complete saved menus, separate from recommendations and priced by source."""
-    blocks = ['<section id="captured-market-menus"><h2>Latest captured menus — BKR, BEO and DKP</h2><p>Captured offers are reference material, not additional AI picks. Missing rows are not filled from older boards. DKP percentages are contract prices before fees, not sportsbook odds.</p>']
-    for book, prefix in [('BKR', 'bookmaker-live'), ('BEO', 'betonline-live'), ('DKP', 'draftkings-predictions-live')]:
+    blocks = ['<section id="captured-market-menus"><h2>Latest captured menus — BKR, BEO, DKP and Kalshi</h2><p>Captured offers are reference material, not additional AI picks. Missing rows are not filled from older boards. DKP percentages are contract prices before fees, not sportsbook odds.</p>']
+    for book, prefix in [('BKR', 'bookmaker-live'), ('BEO', 'betonline-live'), ('DKP', 'draftkings-predictions-live'), ('KAL', 'kalshi-props')]:
         path, data = newest(prefix, week, date)
+        if data is None and book == 'DKP':  # 2026-11-14: event-feed capture fallback (see _feed_as_live)
+            path, data = newest('draftkings-predictions-feed', week, date)
+            if data is not None: data = _feed_as_live(data)
         if data is None: continue
         rows = data.get('rows') or [r for e in data.get('events', []) for r in e.get('rows', [])]
         grouped = defaultdict(list)
@@ -76,6 +123,7 @@ def reference_boards(week, date):
                 selection = row.get('selection') or row.get('player') or row.get('side') or ''
                 if row.get('available') is False: price = 'Unavailable at capture'
                 elif book == 'DKP': price = f'{row.get("price")}% contract · before fees' if row.get('price') is not None else 'Price not captured'
+                elif book == 'KAL': price = f'{round((row.get("yes_ask") or 0) * 100)}¢ ask · {row.get("american_ask_with_fee"):+d} incl. fee' if row.get('american_ask_with_fee') is not None else 'No ask'
                 else: price = f'{row["odds"]:+g}' if row.get('odds') is not None else 'Price not captured'
                 url = row.get('eventUrl') or ''
                 source = f'<a href="{html.escape(url, quote=True)}">{book} captured market</a>' if url.startswith('https://') else f'{book} saved capture'

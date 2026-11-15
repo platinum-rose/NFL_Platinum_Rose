@@ -132,7 +132,9 @@ beo_rows = len((J(beo, {}) or {}).get('rows') or []) if beo else 0
 add('L6', 'Lines & markets', 'BetOnline player props (prop stacks, props pass)', 'REQUIRED' if STAGE == 'saturday' else 'ADVISORY',
     'PASS' if beo and age_h(beo) <= maxage('lines') and beo_rows >= 500 else ('FAIL' if STAGE == 'saturday' else 'WARN'),
     f'{beo or "none"}; rows={beo_rows}; age={age_h(beo) and round(age_h(beo),1)}h', 'npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon).')
-dkp = newest(f'data/generated/props/dk-predictions-*.json')
+# 2026-11-14 (Claude, Andy OK'd): include the event-feed master (dkp-event-feed-capture.mjs) and the older live/mhtml saves; newest wins.
+dkp = max([f for f in (newest(f'data/generated/props/draftkings-predictions-feed-*-week{W}.json'), newest(f'data/generated/props/draftkings-predictions-live-*-week{W}.json'),
+                       newest(f'data/generated/props/dk-predictions-*.json')) if f], key=os.path.getmtime, default=None)
 add('L7', 'Lines & markets', 'DraftKings Predictions props', 'ADVISORY',
     'PASS' if dkp and age_h(dkp) <= maxage('lines') else 'WARN', f'{dkp or "none"}',
     'npm run props:dkp:launch (log in) → npm run props:dkp:cron → npm run props:dkp:defense')
@@ -203,7 +205,7 @@ add('E8', 'Expert & media intel', 'Twitter/X bookmark intel (text)', 'REQUIRED',
     '' if tw_ok else 'node scripts/twitter-bookmarks-cron.js (bookmark sync), then re-pull.')
 mq_p = f'data/twitter/w{WW}-media-extraction-queue.json'
 mq = J(mq_p, {}) or {}
-pend = [i for i in (mq.get('items') or []) if i.get('status') == 'pending' and i.get('relevance') == 'sunday_slate']
+pend = [i for i in (mq.get('items') or []) if i.get('status') == 'pending' and not str(i.get('relevance') or '').strip().lower().startswith('moot')]  # any pending item counts unless explicitly moot (relevance is free text)
 lvl = 'REQUIRED' if STAGE == 'saturday' else 'ADVISORY'
 if not mq:
     add('E9', 'Expert & media intel', 'Twitter media queue (videos / images / threads)', 'REQUIRED', 'FAIL', f'missing: {mq_p}',
