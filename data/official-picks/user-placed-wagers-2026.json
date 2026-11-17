@@ -47478,8 +47478,8 @@
     "unboosted_payout_usd": 283.0,
     "displayed_probability_pct": 3.3,
     "promotion": "DKP +10% boost",
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "card_section": "MNF Island (solo)",
@@ -47487,7 +47487,7 @@
       "DKP position number not supplied (order confirmation only)",
       "placed_at approximate (~3:41 PM PT)"
     ],
-    "progress_notes": "Andy pasted 2026-11-16 3:42 PM PT: official SOLO DKP 7 Pick Combo 3.3%, $9.97, pays $283 base / $310.30 with +10% boost. Built from the Tier 1 core (BAL -4.5 / Henry 70+ / Herbert 20+ / Henry ATD) plus defensive legs (Simpson 5+, model ~70%; Henley 6+, run-heavy projection ~60% vs 72% implied) and Dicker 2+ FG. Fresh DKP prices 2:43 PM PT. Not written to Supabase.",
+    "progress_notes": "Andy pasted 2026-11-16 3:42 PM PT: official SOLO DKP 7 Pick Combo 3.3%, $9.97, pays $283 base / $310.30 with +10% boost. Built from the Tier 1 core (BAL -4.5 / Henry 70+ / Herbert 20+ / Henry ATD) plus defensive legs (Simpson 5+, model ~70%; Henley 6+, run-heavy projection ~60% vs 72% implied) and Dicker 2+ FG. Fresh DKP prices 2:43 PM PT. Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "leg_num": 1,
@@ -47496,7 +47496,7 @@
         "line": -4.5,
         "direction": "cover",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_1",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47505,7 +47505,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": null,
-        "target_stat": "margin"
+        "target_stat": "margin",
+        "result": "loss",
+        "actual_stat": "BAL lost 20-23 (margin -3)",
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 2,
@@ -47514,7 +47518,7 @@
         "line": 69.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_2",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47522,7 +47526,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Derrick Henry"
+        "player": "Derrick Henry",
+        "result": "loss",
+        "actual_stat": 10,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 3,
@@ -47531,7 +47539,7 @@
         "line": 19.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_3",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -47539,7 +47547,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Justin Herbert"
+        "player": "Justin Herbert",
+        "result": "win",
+        "actual_stat": 51,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 4,
@@ -47548,7 +47560,7 @@
         "line": 0.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_4",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47556,7 +47568,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Derrick Henry"
+        "player": "Derrick Henry",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 5,
@@ -47565,7 +47581,7 @@
         "line": 4.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_5",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47573,7 +47589,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Trenton Simpson"
+        "player": "Trenton Simpson",
+        "result": "win",
+        "actual_stat": 8,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 6,
@@ -47582,7 +47602,7 @@
         "line": 5.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_6",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -47590,7 +47610,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Daiyan Henley"
+        "player": "Daiyan Henley",
+        "result": "win",
+        "actual_stat": 11,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 7,
@@ -47599,7 +47623,7 @@
         "line": 1.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simpson5_henley6_dicker2fg_boost_7",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -47608,9 +47632,16 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Cameron Dicker",
-        "target_stat": "field_goals_made"
+        "target_stat": "field_goals_made",
+        "result": "win",
+        "actual_stat": 3,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.97,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   },
   {
     "id": "bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost",
@@ -47649,8 +47680,8 @@
     "unboosted_payout_usd": 124.0,
     "displayed_probability_pct": 7.5,
     "promotion": "DKP +10% boost",
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "card_section": "MNF Island (solo)",
@@ -47659,7 +47690,7 @@
       "placed_at approximate (~3:52 PM PT)",
       "solo assumed (Andy said 'official play', no split stated)"
     ],
-    "progress_notes": "Andy pasted 2026-11-16 3:53 PM PT: official DKP 6 Pick Combo 7.5%, $9.99, pays $124 base / $135.40 with +10% boost. Variant of the Island Tier 2 card: Under 39.5 dropped, Zay Flowers 6+ rec added (O5.5 was -138), Andrews at 3+ (O2.5 -150). Overlaps: Roquan Smith 8+ shares the BAL tackle-volume script with Simpson 5+ on the MNF 7-pick. Not written to Supabase.",
+    "progress_notes": "Andy pasted 2026-11-16 3:53 PM PT: official DKP 6 Pick Combo 7.5%, $9.99, pays $124 base / $135.40 with +10% boost. Variant of the Island Tier 2 card: Under 39.5 dropped, Zay Flowers 6+ rec added (O5.5 was -138), Andrews at 3+ (O2.5 -150). Overlaps: Roquan Smith 8+ shares the BAL tackle-volume script with Simpson 5+ on the MNF 7-pick. Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "leg_num": 1,
@@ -47668,7 +47699,7 @@
         "line": 1.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_1",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47677,7 +47708,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Riley Patterson",
-        "target_stat": "field_goals_made"
+        "target_stat": "field_goals_made",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 2,
@@ -47686,7 +47721,7 @@
         "line": 2.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_2",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47694,7 +47729,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Mark Andrews"
+        "player": "Mark Andrews",
+        "result": "win",
+        "actual_stat": 8,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 3,
@@ -47703,7 +47742,7 @@
         "line": 7.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_3",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47711,7 +47750,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Roquan Smith"
+        "player": "Roquan Smith",
+        "result": "win",
+        "actual_stat": 8,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 4,
@@ -47720,7 +47763,7 @@
         "line": 29.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_4",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -47728,7 +47771,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Omarion Hampton"
+        "player": "Omarion Hampton",
+        "result": "win",
+        "actual_stat": 105,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 5,
@@ -47737,7 +47784,7 @@
         "line": 11.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_5",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47745,7 +47792,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Keaton Mitchell"
+        "player": "Keaton Mitchell",
+        "result": "loss",
+        "actual_stat": 4,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 6,
@@ -47754,7 +47805,7 @@
         "line": 5.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost_6",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47762,9 +47813,16 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Zay Flowers"
+        "player": "Zay Flowers",
+        "result": "win",
+        "actual_stat": 6,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.99,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   },
   {
     "id": "bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost",
@@ -47803,8 +47861,8 @@
     "unboosted_payout_usd": 1045.0,
     "displayed_probability_pct": 0.9,
     "promotion": "DKP +10% boost",
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "card_section": "MNF Island (solo)",
@@ -47813,7 +47871,7 @@
       "placed_at approximate (~4:13 PM PT)",
       "solo assumed (no split stated)"
     ],
-    "progress_notes": "Andy pasted 2026-11-16 4:14 PM PT: official DKP 7 Pick Combo 0.9%, $10, pays $1,045 base / $1,148.50 with +10% boost (~115x: above the ~94.6x combo ceiling seen earlier in W10, so that ceiling is not a hard cap). Island Tier 3 moonshot. Swapping Brissett INT for Mike Green 1+ sack dropped the slip to ~$104 (unexplained DKP repricing; Green kept for a separate stack). Overlaps: Henry on the 7-pick and Tier 1 slip; Roquan 8+ also on the 6-pick. Not written to Supabase.",
+    "progress_notes": "Andy pasted 2026-11-16 4:14 PM PT: official DKP 7 Pick Combo 0.9%, $10, pays $1,045 base / $1,148.50 with +10% boost (~115x: above the ~94.6x combo ceiling seen earlier in W10, so that ceiling is not a hard cap). Island Tier 3 moonshot. Swapping Brissett INT for Mike Green 1+ sack dropped the slip to ~$104 (unexplained DKP repricing; Green kept for a separate stack). Overlaps: Henry on the 7-pick and Tier 1 slip; Roquan 8+ also on the 6-pick. Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "leg_num": 1,
@@ -47822,7 +47880,7 @@
         "line": 1.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_1",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47831,7 +47889,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Derrick Henry",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 2,
@@ -47840,7 +47902,7 @@
         "line": 99.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_2",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47848,7 +47910,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Derrick Henry"
+        "player": "Derrick Henry",
+        "result": "loss",
+        "actual_stat": 10,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 3,
@@ -47857,7 +47923,7 @@
         "line": 7.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_3",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47865,7 +47931,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Roquan Smith"
+        "player": "Roquan Smith",
+        "result": "win",
+        "actual_stat": 8,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 4,
@@ -47874,7 +47944,7 @@
         "line": 18.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_4",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47882,7 +47952,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Derrick Henry"
+        "player": "Derrick Henry",
+        "result": "loss",
+        "actual_stat": 10,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 5,
@@ -47891,7 +47965,7 @@
         "line": 1.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_5",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -47899,7 +47973,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "KeAndre Lambert-Smith"
+        "player": "KeAndre Lambert-Smith",
+        "result": "loss",
+        "actual_stat": 0,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final); not in ESPN box score (0 rec or inactive). If DKP voided this leg the ticket still lost on Henry 100+ / 19+ att"
       },
       {
         "leg_num": 6,
@@ -47908,7 +47986,7 @@
         "line": 0.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_6",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47917,7 +47995,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Jacoby Brissett",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "result": "win",
+        "actual_stat": 1,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 7,
@@ -47926,7 +48008,7 @@
         "line": 4.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost_7",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -47934,9 +48016,16 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Zay Flowers"
+        "player": "Zay Flowers",
+        "result": "win",
+        "actual_stat": 6,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10.0,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   },
   {
     "id": "bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd",
@@ -47974,8 +48063,8 @@
     "potential_profit_usd": 178.02,
     "displayed_probability_pct": 5,
     "promotion": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "card_section": "MNF (solo)",
@@ -47984,7 +48073,7 @@
       "placed_at approximate (~4:22 PM PT)",
       "solo assumed (no split stated)"
     ],
-    "progress_notes": "Andy pasted 2026-11-16 4:23 PM PT: official DKP 7 Pick Combo 5%, $9.98, pays $188. Built around the Mike Green sack + Herbert INT core (LAC offense breakdown) with easier non-defensive legs (second DEF leg halved the payout; see scratch/w10-mnf-island-rework DKP pricing notes). Overlaps: Henry ATD also on the MNF 7-pick and Tier 1 slip. Not written to Supabase.",
+    "progress_notes": "Andy pasted 2026-11-16 4:23 PM PT: official DKP 7 Pick Combo 5%, $9.98, pays $188. Built around the Mike Green sack + Herbert INT core (LAC offense breakdown) with easier non-defensive legs (second DEF leg halved the payout; see scratch/w10-mnf-island-rework DKP pricing notes). Overlaps: Henry ATD also on the MNF 7-pick and Tier 1 slip. Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "leg_num": 1,
@@ -47993,7 +48082,7 @@
         "line": 0.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_1",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -48002,7 +48091,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Mike Green",
-        "target_stat": "sacks"
+        "target_stat": "sacks",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 2,
@@ -48011,7 +48104,7 @@
         "line": 0.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_2",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -48020,7 +48113,11 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Justin Herbert",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "result": "loss",
+        "actual_stat": 0,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 3,
@@ -48029,7 +48126,7 @@
         "line": 19.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_3",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -48037,7 +48134,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Omarion Hampton"
+        "player": "Omarion Hampton",
+        "result": "win",
+        "actual_stat": 105,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 4,
@@ -48046,7 +48147,7 @@
         "line": 29.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_4",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -48054,7 +48155,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Tre Harris"
+        "player": "Tre Harris",
+        "result": "win",
+        "actual_stat": 86,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 5,
@@ -48063,7 +48168,7 @@
         "line": 19.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_5",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "LAC",
@@ -48071,7 +48176,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Quentin Johnston"
+        "player": "Quentin Johnston",
+        "result": "loss",
+        "actual_stat": 6,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 6,
@@ -48080,7 +48189,7 @@
         "line": 19.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_6",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -48088,7 +48197,11 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Justice Hill"
+        "player": "Justice Hill",
+        "result": "loss",
+        "actual_stat": 4,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 7,
@@ -48097,7 +48210,7 @@
         "line": 0.5,
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd_7",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -48105,9 +48218,16 @@
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "player": "Derrick Henry"
+        "player": "Derrick Henry",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.98,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   },
   {
     "id": "bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo",
@@ -48139,14 +48259,14 @@
     "potential_profit_usd": 19.85,
     "odds_source": "FDP Order Confirmed screenshot: 3.17x displayed; payout $29.85 (subtotal $9.40 x ~3.18)",
     "promotion": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "needs_confirmation": [
       "bankroll_exempt carried over from the FDP convention (initial FDP promo credits): confirm FDP is still exempt",
       "solo assumed (no split stated)"
     ],
-    "progress_notes": "Placed by Andy 2026-11-16 ~4:30 PM PT (FDP Order Confirmed screenshot, order 01A1E6E9-FBFB-7AA9-93DA-9604B1895B9E, 11/16/2026 7:30PM ET, cleared at CDNA): Same Game Combo, 3 selections, 3.17x. Subtotal $9.40 + $0.60 fee = $10.00, payout $29.85. Overlaps: Henry TD also on MNF DKP 7-pick (core) and DKP Green/Herbert 7-pick; Henry rush yds on the core 7-pick (70+) and moonshot (100+); Hampton 20+ on the Green/Herbert stack. Not written to Supabase.",
+    "progress_notes": "Placed by Andy 2026-11-16 ~4:30 PM PT (FDP Order Confirmed screenshot, order 01A1E6E9-FBFB-7AA9-93DA-9604B1895B9E, 11/16/2026 7:30PM ET, cleared at CDNA): Same Game Combo, 3 selections, 3.17x. Subtotal $9.40 + $0.60 fee = $10.00, payout $29.85. Overlaps: Henry TD also on MNF DKP 7-pick (core) and DKP Green/Herbert 7-pick; Henry rush yds on the core 7-pick (70+) and moonshot (100+); Hampton 20+ on the Green/Herbert stack. Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "leg_num": 1,
@@ -48158,13 +48278,17 @@
         "selection": "Yes Derrick Henry To Score a Touchdown",
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "FanDuel Predicts",
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "key": "leg_bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo_1",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "result": "win",
+        "actual_stat": 2,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 2,
@@ -48176,12 +48300,16 @@
         "selection": "Over 19.5 Omarion Hampton Rushing Yards",
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "FanDuel Predicts",
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "key": "leg_bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo_2"
+        "key": "leg_bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo_2",
+        "result": "win",
+        "actual_stat": 105,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "leg_num": 3,
@@ -48193,14 +48321,21 @@
         "selection": "Over 59.5 Derrick Henry Rushing Yards",
         "direction": "over",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
-        "key": "leg_bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo_3"
+        "key": "leg_bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo_3",
+        "result": "loss",
+        "actual_stat": 10,
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10.0,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   },
   {
     "id": "bet_20261116_bkr_9team_open1_jax_lac_hou_chi_det_sf_den_cin_andy_solo",
@@ -48451,19 +48586,19 @@
     "odds_source": "Bookmaker confirmation: +197, win $48.34, returns $72.88",
     "potential_payout_usd": 72.88,
     "potential_profit_usd": 48.34,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "card_section": "MNF live",
     "needs_confirmation": [
       "placed_at approximate (~6:50 PM PT, around halftime)",
       "solo assumed"
     ],
-    "progress_notes": "Andy pasted 2026-11-16 6:52 PM PT: live Bookmaker SGP #741947214, 2nd-half Under 21.5 + LAC +3.5 2nd half, $24.54 to win $48.34 (+197). Grade from 2nd-half points only (Q3+Q4+OT per book rules). Not written to Supabase.",
+    "progress_notes": "Andy pasted 2026-11-16 6:52 PM PT: live Bookmaker SGP #741947214, 2nd-half Under 21.5 + LAC +3.5 2nd half, $24.54 to win $48.34 (+197). Grade from 2nd-half points only (Q3+Q4+OT per book rules). Not written to Supabase. 2026-11-16 9:30 PM PT: settled LOST by hand from ESPN 401873065 (LAC 23-20).",
     "legs": [
       {
         "player": null,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "Bookmaker",
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
@@ -48477,12 +48612,16 @@
         "selection": "LAC/BAL Under 21.5 2nd Half",
         "direction": "under",
         "target_stat": "total",
-        "key": "leg_bet_20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5_1"
+        "key": "leg_bet_20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5_1",
+        "result": "win",
+        "actual_stat": "2H total 16 (BAL 10, LAC 6)",
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       },
       {
         "player": null,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "Bookmaker",
         "game": "LAC @ BAL",
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
@@ -48496,8 +48635,15 @@
         "selection": "Los Angeles Chargers +3.5 2nd Half",
         "direction": "cover",
         "target_stat": "margin",
-        "key": "leg_bet_20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5_2"
+        "key": "leg_bet_20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5_2",
+        "result": "loss",
+        "actual_stat": "2H LAC 6 - BAL 10 (-4 vs +3.5)",
+        "graded_at": "2026-11-16T21:30:00-08:00",
+        "grading_note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -24.54,
+    "graded_at": "2026-11-16T21:30:00-08:00"
   }
 ]
