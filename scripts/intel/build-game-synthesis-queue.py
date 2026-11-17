@@ -41,6 +41,7 @@ ap.add_argument('--date', help='capture date YYYY-MM-DD for prop/gameline files 
 ap.add_argument('--qb-notes', help='operator QB/availability notes file (md)')
 ap.add_argument('--include-started', action='store_true')
 ap.add_argument('--out')
+ap.add_argument('--allow-stale', action='store_true', help='weekend build: proceed even if article review / props intel are older than 24 h')
 a = ap.parse_args()
 W, WW, S = a.week, f'{a.week:02d}', a.season
 now = datetime.now(timezone.utc)
@@ -70,6 +71,23 @@ ps = use('projected_starters', f'data/projected-starters/{S}/latest.json') or {}
 cm = use('prediction_markets', 'data/prediction-markets/cross-market-coherence-latest.json') or {}
 art = use('article_review', 'data/research-intel/review/article-intel-review-latest.json') or {}
 ppi = use('props_intel', 'data/research-intel/review/player-props-intel-latest.json') or {}
+# Freshness preflight (Andy 2026-11-17, audit decision 10): W10's Saturday queue used an 83-hour-old
+# article review and 29-hour-old props intel. On weekend builds (Sat/Sun PT) both must be under 24 h;
+# toolbox --cadence saturday rebuilds them first. Other days only warn.
+def _age_h(doc, key):
+    ts = (doc or {}).get('generated_at')
+    try: t = datetime.fromisoformat(str(ts).replace('Z', '+00:00'))
+    except Exception: t = datetime.fromtimestamp(os.path.getmtime(src[key]['path']), timezone.utc) if not src[key].get('missing') else None
+    return None if t is None else (now - t).total_seconds() / 3600
+_stale = [(k, h) for k, h in (('article_review', _age_h(art, 'article_review')), ('props_intel', _age_h(ppi, 'props_intel'))) if h is None or h > 24]
+if _stale:
+    _msg = 'stale inputs: ' + ', '.join(f"{k} {'missing' if h is None else f'{h:.0f} h old'}" for k, h in _stale)
+    try:
+        from zoneinfo import ZoneInfo; _weekend = now.astimezone(ZoneInfo('America/Los_Angeles')).weekday() >= 5
+    except Exception: _weekend = now.weekday() >= 5
+    if _weekend and not a.allow_stale:
+        sys.exit(f'PREFLIGHT FAILED, {_msg}. Run: node scripts/toolbox.mjs --cadence saturday (or rebuild them), or pass --allow-stale.')
+    print('WARNING', _msg)
 rv = use('roster_vet', f'data/generated/master-intel/w{WW}-roster-vet.json') or {}
 ftn = use('ftn_context', 'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json') or {}
 gl_path = latest(f'data/generated/props/bookmaker-gamelines-{D}-week{W}.raw.txt') or latest(f'data/generated/props/bookmaker-gamelines-*-week{W}.raw.txt')
