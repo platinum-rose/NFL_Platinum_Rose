@@ -37,6 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { generateLiveTracker } from './generate-live-tracker.mjs';
 import { syncPlacedWagersToBankroll } from './sync-placed-wagers-to-bankroll.mjs';
 import { inferLegFields, validateWager } from './lib/validate-wager-legs.mjs';
+import { DKP_BOOK, priceDkpTicket } from './props/dkp-leg-prices.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -166,6 +167,14 @@ export async function addPlacedWagers(newWagersList, { rebuildTracker = true, we
     if (legProblems.length) {
       throw new Error(`Wager "${wagerRecord.id}" has legs the Live Tracker cannot grade:\n  - ` + legProblems.join('\n  - ') +
         '\nAdd player, team and a specific market (anytime_touchdown, sacks, receptions, rec_yds, rush_yds, carries, pass_td, ...) and retry.');
+    }
+
+    // Andy 2026-11-17 (audit decision 9): record each DKP leg's feed price at logging time.
+    if (wagerRecord.book === DKP_BOOK) {
+      try {
+        const r = priceDkpTicket(wagerRecord);
+        console.log(`   DKP feed prices: ${r.priced.length} leg(s) priced${r.missing.length ? `; no feed match for ${r.missing.join('; ')}` : ''}`);
+      } catch (err) { console.warn(`   DKP feed prices skipped: ${err.message}`); }
     }
 
     existingWagers.push(wagerRecord);

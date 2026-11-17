@@ -46,8 +46,10 @@ const FEED_HOST_RE = /sportsbook-nash\.draftkings\.com\/sites\/PREDICT\/api\/spo
 
 // Tabs and the O/U chips under them. Labels are matched case-insensitively and only from this list.
 export const TAB_STEPS = [
-  ['PASSING', ['Pass Yards O/U', 'Pass TDs O/U']],
-  ['RECEIVING', ['Rec Yards O/U', 'Receptions O/U']],
+  // Andy 2026-11-17 (audit decision 8): QB INT and reception milestones were never captured. The chip labels
+  // below are best guesses; a missing chip is only logged in diagnostics.clicks, so check those after the next run.
+  ['PASSING', ['Pass Yards O/U', 'Pass TDs O/U', 'Interceptions', 'Interceptions Thrown', 'INTs', 'Pass INTs']],
+  ['RECEIVING', ['Rec Yards O/U', 'Receptions O/U', 'Receptions']],
   ['RUSHING', ['Rush Yards O/U', 'Rush Attempts O/U']],
   ['TEAM PROPS', []],
   ['GAME PROPS', []],
@@ -70,13 +72,15 @@ const MARKET_MAP = [
   [/^Passing Touchdowns/i, 'pass_td'],
   [/^Passing Attempts/i, 'pass_att'],
   [/^(Passing )?Completions/i, 'pass_cmp'],
-  [/^Interceptions/i, 'pass_int'],
+  [/^Interceptions|Interceptions Thrown/i, 'pass_int'],
   [/^Receiving Yards/i, 'rec_yds'],
   [/^Receptions/i, 'rec'],
   [/^Rushing Yards/i, 'rush_yds'],
   [/^Rushing Attempts/i, 'carries'],
   [/^Rush(ing)? \+ Rec(eiving)?/i, 'rush_rec_yds'],
   [/^Sacks/i, 'sacks'],
+  // Kicker milestones: marketName is '<Kicker> Field Goals Made', so this one is not anchored (580 rows sat in 'other').
+  [/Field Goals Made/i, 'fg_made'],
   // Order matters: combined T+A before solo tackles; both typeName forms seen as '<X> Milestones' / 'O/U'.
   [/Tackles\s*(\+|and)\s*Assists|Combined Tackles/i, 'tackles_assists'],
   [/^Assists/i, 'assists'],
