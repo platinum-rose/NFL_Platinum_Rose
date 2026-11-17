@@ -140,7 +140,9 @@
     "progress_notes": "Auto-graded via ESPN box scores on 2026-09-14T20:31:33.692Z: at least one leg LOST, parlay busted. Full stake ($4.95) lost. | Settled 2026-09-28 by Claude Team 3 (Week 1 close-out; matches week1-post-mortem totals). Andy 2026-10-27: every DraftKings Predictions ticket was funded with promo (free) credit; the only DK deposit was the initial $5. Retagged promo_credit with $0 cash risk (cash-tagged before). DK account result is booked at the real-money figure from DK's lifetime Transaction Summary (Andy, 2026-10-27 12:05 PT), +$127.13 ($137.13 ending balance minus $10.00 net deposits: $15.00 deposited, $5.00 withdrawn), not as the sum of ticket profits; see docs/claude-project-dev/recommendation-ledger-2026.md, DK promo reconciliation.",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "promo_credit_stake_usd": 4.95
+    "promo_credit_stake_usd": 4.95,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20260909_bm_738444813_2team",
@@ -518,7 +520,9 @@
       }
     ],
     "profit_usd": 0,
-    "settled_payout_usd": 0
+    "settled_payout_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_1789085490286_dkp_ferguson_td",
@@ -561,7 +565,9 @@
       }
     ],
     "profit_usd": 0,
-    "settled_payout_usd": 0
+    "settled_payout_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_1789085880000_bm_open_parlay_7t",
@@ -1925,7 +1931,9 @@
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/combo/DKP4-F05C3737B87F43178A8D78270C3CDC2B-CMB",
     "progress_notes": "Leg 1 (SF +4) WON. Advancing to Sunday games. | Settled 2026-09-28 by Claude Team 3 (Week 1 close-out; matches week1-post-mortem totals).",
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20260913_738683302_bm_6teams_parlay",
@@ -2209,7 +2217,9 @@
       "source": "Supabase game_odds_snapshots table (game_id 2026_01_NYG_DAL)"
     },
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "date": "2026-09-13",
@@ -2360,7 +2370,9 @@
       "source": "Supabase game_odds_snapshots table (game_id 2026_01_NYG_DAL)"
     },
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "date": "2026-09-13",
@@ -2481,7 +2493,9 @@
       "source": "Supabase game_odds_snapshots table (game_id 2026_01_NYG_DAL)"
     },
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20260914_bkr_3team_anytime_td_sgp",
@@ -19442,7 +19456,9 @@
         "source": "DK Predictions board"
       }
     ],
-    "promo_credit_stake_usd": 10
+    "promo_credit_stake_usd": 10,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261012_dkp_8pick_combo_mnf_promo",
@@ -19627,7 +19643,9 @@
         "source": "DK Predictions board"
       }
     ],
-    "promo_credit_stake_usd": 10
+    "promo_credit_stake_usd": 10,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261012_dkp_2pick_combo_mnf_promo",
@@ -19691,7 +19709,9 @@
         "target_stat": "total_points"
       }
     ],
-    "promo_credit_stake_usd": 30.24
+    "promo_credit_stake_usd": 30.24,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261015_betonline_1005591415_lv_buf_spread_freebet",
@@ -20222,7 +20242,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-16T10:30:02.210Z",
-    "promo_credit_stake_usd": 9.94
+    "promo_credit_stake_usd": 9.94,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261013_bkr_740212915_9team_parlay",
@@ -20625,7 +20647,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-16T10:30:02.210Z",
-    "promo_credit_stake_usd": 4.99
+    "promo_credit_stake_usd": 4.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261015_dkp_6pick_combo_sea_den",
@@ -20772,7 +20796,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-16T10:30:02.210Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261015_dkp_7pick_combo_sea_den",
@@ -20938,7 +20964,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-16T10:30:02.210Z",
-    "promo_credit_stake_usd": 10
+    "promo_credit_stake_usd": 10,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261015_bkr_740291356_9team_parlay_sunday",
@@ -22601,7 +22629,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-19T03:59:00Z",
-    "promo_credit_stake_usd": 9.98
+    "promo_credit_stake_usd": 9.98,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261018_bkr_740479908_dal_gb_under56_hedge",
@@ -22825,7 +22855,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-20T05:34:00Z",
-    "promo_credit_stake_usd": 24.06
+    "promo_credit_stake_usd": 24.06,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261018_dkp_dal_plus3p5_live_hedge",
@@ -22875,7 +22907,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-19T03:59:00Z",
-    "promo_credit_stake_usd": 9.69
+    "promo_credit_stake_usd": 9.69,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261018_bkr_740483359_dal_plus4_live_hedge",
@@ -23226,7 +23260,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-20T03:41:00Z",
-    "promo_credit_stake_usd": 10.37
+    "promo_credit_stake_usd": 10.37,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261019_dkp_6pick_combo_was_sf_cmc_sf_ml",
@@ -23371,7 +23407,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-20T03:41:00Z",
-    "promo_credit_stake_usd": 9.99
+    "promo_credit_stake_usd": 9.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261019_beo_8leg_mnf_was_sf_17900",
@@ -23703,7 +23741,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-20T03:41:00Z",
-    "promo_credit_stake_usd": 9.94
+    "promo_credit_stake_usd": 9.94,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261019_bkr_740512242_6team_flex_sgp_xweek",
@@ -24484,7 +24524,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-23T10:30:03.374Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261022_dkp_43591231_4pick_tier1_ne_chi",
@@ -24598,7 +24640,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-23T10:30:03.374Z",
-    "promo_credit_stake_usd": 9.95
+    "promo_credit_stake_usd": 9.95,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261022_dkp_43579067_6pick_tier3_ne_chi",
@@ -24750,7 +24794,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-23T10:30:03.374Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261022_dkp_43564438_7pick_tier3_boost25_ne_chi",
@@ -24921,7 +24967,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-23T10:30:03.374Z",
-    "promo_credit_stake_usd": 9.99
+    "promo_credit_stake_usd": 9.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261022_bkr_740627731_8team_open2",
@@ -26711,7 +26759,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-25T21:22:14Z",
-    "promo_credit_stake_usd": 5.07
+    "promo_credit_stake_usd": 5.07,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261025_dkp_45488862_5pick_int_pressure_combo",
@@ -26851,7 +26901,9 @@
     "profit_usd": 72.06,
     "settled_payout_usd": 77,
     "graded_at": "2026-10-26T03:50:48Z",
-    "promo_credit_stake_usd": 4.94
+    "promo_credit_stake_usd": 4.94,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261025_dkp_45474408_4pick_kraft_love_mahomes_tbcar_over",
@@ -26969,7 +27021,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-26T03:50:48Z",
-    "promo_credit_stake_usd": 5.12
+    "promo_credit_stake_usd": 5.12,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261025_dkp_45451260_8pick_7e_atd_lottery",
@@ -27162,7 +27216,9 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-10-25T16:42:42Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "date": "2026-10-25",
@@ -28521,7 +28577,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-26T03:50:48Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261025_dkp_46447402_4pick_snf_atd_kc_sea",
@@ -28641,7 +28699,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-26T03:50:48Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261026_bkr_740869686_mnf_sgp_5leg",
@@ -29153,7 +29213,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-27T03:46:06Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261026_dkp_46908050_6pick_mnf_dal_phi",
@@ -29315,7 +29377,9 @@
     "profit_usd": 52.01,
     "settled_payout_usd": 62,
     "graded_at": "2026-10-27T03:46:06Z",
-    "promo_credit_stake_usd": 9.99
+    "promo_credit_stake_usd": 9.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261026_bkr_740871157_mnf_2team_u445_dal_m25",
@@ -29534,7 +29598,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-27T03:46:06Z",
-    "promo_credit_stake_usd": 5
+    "promo_credit_stake_usd": 5,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261026_dkp_46998409_5pick_mnf_dal_phi",
@@ -29676,7 +29742,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-27T03:46:06Z",
-    "promo_credit_stake_usd": 9.97
+    "promo_credit_stake_usd": 9.97,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261026_dkp_46957964_6pick_mnf_dal_phi",
@@ -29838,7 +29906,9 @@
     "profit_usd": 0,
     "settled_payout_usd": 0,
     "graded_at": "2026-10-27T03:46:06Z",
-    "promo_credit_stake_usd": 4.91
+    "promo_credit_stake_usd": 4.91,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261029_dkp_tnf_6pick_car_gb_boost30",
@@ -29997,7 +30067,9 @@
     "promotion": "30% profit boost (base payout $276.00)",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-10-30T03:50:00Z"
+    "graded_at": "2026-10-30T03:50:00Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261029_beo_1010127424_prop4_tnf_car_gb",
@@ -31135,7 +31207,9 @@
     "promotion": "20% profit boost (base payout $268.00)",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-10-30T03:50:00Z"
+    "graded_at": "2026-10-30T03:50:00Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261029_dkp_48337161_2pick_car_gb",
@@ -31211,7 +31285,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-10-30T03:50:00Z"
+    "graded_at": "2026-10-30T03:50:00Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261027_bkr_740904942_6team_ml_parlay",
@@ -31572,7 +31648,8 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-11-03T01:34:05.594992+00:00",
-    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Yes Javonte Williams To Score a Touchdown"
+    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Yes Javonte Williams To Score a Touchdown",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261031_fdp_bonus2_t2_4leg",
@@ -31652,7 +31729,8 @@
     "settled_payout_usd": 0,
     "profit_usd": 0,
     "graded_at": "2026-11-03T01:34:05.594992+00:00",
-    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Over 24.5 Chris Godwin Jr. Receiving Yards"
+    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Over 24.5 Chris Godwin Jr. Receiving Yards",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261030_fdp_day1_qualifier_5ml",
@@ -31858,7 +31936,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261030_fdp_bonus1_b_6leg",
@@ -31964,7 +32043,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261030_fdp_bonus1_c_6leg",
@@ -32073,7 +32153,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261030_fdp_bonus1_d_6leg",
@@ -32180,7 +32261,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261031_bkr_741107137_6team_flex_sgp_alejandro_split",
@@ -32331,7 +32413,12 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_dkp_49780739_3pick_atd_boost_alejandro_split",
@@ -32431,7 +32518,14 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.97,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_beo_3leg_2td_bijan_brown_stevenson_alejandro_split",
@@ -32525,7 +32619,12 @@
     "settled_payout_usd": 0,
     "profit_usd": -10,
     "graded_at": "2026-11-03T01:34:05.594992+00:00",
-    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Bijan Robinson 2+ Touchdowns; Chase Brown 2+ Touchdowns; Rhamondre Stevenson 2+ Touchdowns"
+    "settlement_note": "SETTLED LOSS 2026-11-02 ~5:35 PM PT at Andy's request (mobile tracker ESPN grading built 5:26 PM PT): lost leg(s) Bijan Robinson 2+ Touchdowns; Chase Brown 2+ Touchdowns; Rhamondre Stevenson 2+ Touchdowns",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_6leg_2471_alejandro_split",
@@ -32698,7 +32797,12 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_dkp_5pick_atd_stafford_was_boost10_alejandro_split",
@@ -32853,7 +32957,14 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.98,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_bkr_741127297_sc_5team_parlay",
@@ -33461,7 +33572,15 @@
     ],
     "settled_payout_usd": 609,
     "profit_usd": 594.02,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.3333333333333333,
+      "Amanda": 0.3333333333333333,
+      "Andy": 0.3333333333333333
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_bkr_741128165_6team_atd_alejandro_split",
@@ -33631,7 +33750,12 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261031_dkp_8pick_combo_72940_boost10_alejandro_split",
@@ -33860,7 +33984,14 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-02T10:30:03.654Z"
+    "graded_at": "2026-11-02T10:30:03.654Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261101_bkr_741130216_6team_mixed_parlay",
@@ -34359,7 +34490,14 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.96,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261101_dkp_6pick_26800_alejandro_split",
@@ -34549,7 +34687,14 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.98,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261101_bkr_741175927_flex_sgp_alejandro_split",
@@ -34748,7 +34893,12 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261101_dkp_amanda_solo_3pick_2200",
@@ -34872,7 +35022,9 @@
     "exclude_from_andy_bankroll": true,
     "settled_payout_usd": 0,
     "profit_usd": -4.94,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_fdp_promo_v1_3leg",
@@ -34962,7 +35114,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_fdp_promo_v2_3leg",
@@ -35052,7 +35205,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_dkp_snf6_139960_boost20_alejandro_split",
@@ -35253,7 +35407,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_dkp_snf6_30100_alejandro_split",
@@ -35454,7 +35610,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_dkp_snf3_6700_alejandro_split",
@@ -35599,7 +35757,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_dkp_snf8_66400_andy_solo",
@@ -35827,7 +35987,9 @@
     "reported_at": "2026-11-02T01:26:50.518Z",
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261101_dkp_snf8_66400_andy_solo_final",
@@ -36056,7 +36218,9 @@
     "reported_at": "2026-11-02T01:32:35.119Z",
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-02T10:30:03.655Z"
+    "graded_at": "2026-11-02T10:30:03.655Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261102_dkp_mnf_chi_sea_promo_6pick",
@@ -36217,7 +36381,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261102_bkr_1011531336_mnf_chi_sea_2team",
@@ -36463,7 +36628,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261102_beo_1011524199_mnf_first_td_roush",
@@ -36693,7 +36859,8 @@
     "result": "win",
     "settled_payout_usd": 28.47,
     "profit_usd": 28.47,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261102_fdp_bonus4_m2_5leg_mnf_chi_sea",
@@ -36821,7 +36988,8 @@
     "result": "win",
     "settled_payout_usd": 30.02,
     "profit_usd": 30.02,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "ticket_number": null,
@@ -36901,7 +37069,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "ticket_number": null,
@@ -36960,7 +37129,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-03T04:46:17Z"
+    "graded_at": "2026-11-03T04:46:17Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261102_betonline_1011560847_chi_sea_2h_over_freebet",
@@ -37171,7 +37341,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-06T15:27:28.414Z"
+    "graded_at": "2026-11-06T15:27:28.414Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261104_fdp_bonus_n2a_4leg_tnf_jax_bal_tuten",
@@ -37276,7 +37447,8 @@
     "result": "win",
     "settled_payout_usd": 11.69,
     "profit_usd": 11.69,
-    "graded_at": "2026-11-06T15:27:28.414Z"
+    "graded_at": "2026-11-06T15:27:28.414Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261104_fdp_bonus_n2b_4leg_tnf_jax_bal_rodriguez",
@@ -37382,7 +37554,8 @@
     "result": "loss",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-06T15:27:28.414Z"
+    "graded_at": "2026-11-06T15:27:28.414Z",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261108_fdp_6pick_gibbs2td_charbonnet_olave_jsn_cmc_byoung",
@@ -37537,7 +37710,14 @@
     "displayed_probability_pct": 2.6,
     "graded_at": "2026-11-09T05:00:00Z",
     "settled_payout_usd": 0,
-    "profit_usd": -9.99
+    "profit_usd": -9.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261108_betonline_1013495969_4leg_td",
@@ -37765,7 +37945,8 @@
     ],
     "graded_at": "2026-11-09T05:00:00Z",
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261108_fdp_promo_profit_5leg_walker_stbrown_barkley_love_swift",
@@ -37900,7 +38081,13 @@
     "alejandro_owes_usd": 5,
     "graded_at": "2026-11-09T05:00:00Z",
     "settled_payout_usd": 0,
-    "profit_usd": 0
+    "profit_usd": 0,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded.",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261108_bkr_w09_sc_5team_open1",
@@ -38442,7 +38629,12 @@
     "settled_payout_usd": 0,
     "profit_usd": -10,
     "bankroll_exempt": true,
-    "bankroll_exempt_reason": "FanDuel Predicts does not count against the official bankroll: Andy is still playing on the initial FDP promo credits; only $10 real outlay at that book (Andy 2026-11-09)"
+    "bankroll_exempt_reason": "FanDuel Predicts does not count against the official bankroll: Andy is still playing on the initial FDP promo credits; only $10 real outlay at that book (Andy 2026-11-09)",
+    "ownership_shares": {
+      "Alejandro": 0.5,
+      "Andy": 0.5
+    },
+    "ownership_shares_note": "Backfilled 2026-11-17 (Andy decision 2): equal shares per split_partner/split_designation."
   },
   {
     "id": "bet_20261108_dkp_2pick_tb_chi_u485_tb75_andy_solo",
@@ -40745,7 +40937,8 @@
     ],
     "graded_at": "2026-11-13T04:40:00Z",
     "settled_payout_usd": 21.94,
-    "profit_usd": 16.94
+    "profit_usd": 16.94,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261112_dkp_7pick_tnf_skattebo_white_td_tackles_andy_solo",
@@ -41878,7 +42071,9 @@
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/60103599",
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-16T10:30:02.922Z"
+    "graded_at": "2026-11-16T10:30:02.922Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261114_dkp_7pick_alejandro_mendoza_charbonnet_kittle_flournoy_kyren_cmc_jeanty",
@@ -42067,7 +42262,9 @@
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/60113104",
     "settled_payout_usd": 0,
     "profit_usd": -9.97,
-    "graded_at": "2026-11-16T10:30:02.923Z"
+    "graded_at": "2026-11-16T10:30:02.923Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261114_dkp_5pick_alejandro_maye_goff_gibbs80_henry4_gibbsatd",
@@ -42220,7 +42417,9 @@
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/60135712",
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-16T10:30:02.923Z"
+    "graded_at": "2026-11-16T10:30:02.923Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261114_dkp_8pick_alejandro_shough_cousins_watson_cook_jsn_javonte_corum_mcbride",
@@ -42429,7 +42628,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.98,
-    "graded_at": "2026-11-16T10:30:02.923Z"
+    "graded_at": "2026-11-16T10:30:02.923Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "ticket_number": "741845600",
@@ -44620,7 +44821,9 @@
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/60232674",
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-11-16T10:30:02.923Z"
+    "graded_at": "2026-11-16T10:30:02.923Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_bkr_5leg_props_cook_taylor_olave_rice_collins",
@@ -45605,7 +45808,7 @@
         "line": null,
         "direction": "yes",
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261115_dkp_3pick_first_td_cook_hubbard_dhenry_3",
         "source": "Andy user-reported ticket (DK Predictions order confirmation pasted in chat)",
         "team": "BAL",
@@ -45614,12 +45817,15 @@
         "game_id": "nfl_2026_2_w10_LAC_at_BAL",
         "kickoff_utc": "2026-11-17T01:15:00.000Z",
         "player": "Derrick Henry",
-        "settlement_note": "Moot: ticket already lost before this MNF leg (LAC@BAL) is played"
+        "settlement_note": "Moot: ticket already lost before this MNF leg (LAC@BAL) is played",
+        "actual_stat": "Justin Herbert (LAC) scored 1st TD"
       }
     ],
     "graded_at": "2026-11-16T17:09:30Z",
     "settled_payout_usd": 0,
-    "profit_usd": -10
+    "profit_usd": -10,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_5pick_alejandro_taylor_corum_purdy_warren_ward_int_boost",
@@ -45772,7 +45978,9 @@
     ],
     "graded_at": "2026-11-16T17:09:30Z",
     "settled_payout_usd": 0,
-    "profit_usd": -9.98
+    "profit_usd": -9.98,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_8pick_alejandro_cmc_lake_beck_dak_emmett_love_burrow_cousins",
@@ -45980,7 +46188,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_7pick_alejandro_love_int_mendoza_rice_olave_judkins_dak_cooper",
@@ -46169,7 +46379,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_7pick_alejandro_kyren_burrow_higgins_javonte_deebo_beck_charbonnet",
@@ -46360,7 +46572,9 @@
     ],
     "graded_at": "2026-11-16T17:09:30Z",
     "settled_payout_usd": 0,
-    "profit_usd": -9.99
+    "profit_usd": -9.99,
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_6pick_alejandro_cmc60_corum_lake6_jsn8_mendoza_lamb",
@@ -46532,7 +46746,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.98,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_7pick_solo_purdy_dakint_warner9_mcbride_mumpfield_chase_warren",
@@ -46711,7 +46927,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_8pick_solo_bernard_dwash_gesicki_warren_cmc_kittle_lamb6_sf_m2_5",
@@ -46908,7 +47126,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_6pick_solo_snf_higgins_warren_dwash3_burrow_int_burrow2td_warren60_boost",
@@ -47070,7 +47290,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_2pick_solo_snf_pit_p4_5_over45_5",
@@ -47160,7 +47382,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -29.75,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_dkp_6pick_solo_snf_lotto_dwash_gesicki_warren60_burrow270_rodgers_int_boswell2fg",
@@ -47322,7 +47546,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-16T10:30:02.924Z"
+    "graded_at": "2026-11-16T10:30:02.924Z",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261115_bkr_730846806_legacy_ncaa_open_spot_pitcin_o45_5",
@@ -47641,7 +47867,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.97,
-    "graded_at": "2026-11-16T21:30:00-08:00"
+    "graded_at": "2026-11-16T21:30:00-08:00",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampton30_mitchell115_flowers6_boost",
@@ -47822,7 +48050,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.99,
-    "graded_at": "2026-11-16T21:30:00-08:00"
+    "graded_at": "2026-11-16T21:30:00-08:00",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19att_lambertsmith2_brissett_int_flowers5_boost",
@@ -48025,7 +48255,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10.0,
-    "graded_at": "2026-11-16T21:30:00-08:00"
+    "graded_at": "2026-11-16T21:30:00-08:00",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harris30_johnston20_hill20_henry_atd",
@@ -48227,7 +48459,9 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -9.98,
-    "graded_at": "2026-11-16T21:30:00-08:00"
+    "graded_at": "2026-11-16T21:30:00-08:00",
+    "bankroll_exempt": true,
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo",
@@ -48335,7 +48569,8 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10.0,
-    "graded_at": "2026-11-16T21:30:00-08:00"
+    "graded_at": "2026-11-16T21:30:00-08:00",
+    "bankroll_exempt_reason": "Andy 2026-11-17 (decision 1): every DraftKings Predictions, DraftKings Pick6 and FanDuel Predicts ticket is off the official bankroll, solo or split, cash- or promo-funded."
   },
   {
     "id": "bet_20261116_bkr_9team_open1_jax_lac_hou_chi_det_sf_den_cin_andy_solo",

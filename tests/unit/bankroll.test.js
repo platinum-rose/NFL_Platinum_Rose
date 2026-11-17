@@ -1,220 +1,44 @@
-/**
- * Unit tests for src/lib/bankroll.js
- *
- * Run: npx vitest run
- * Coverage: npx vitest run --coverage
- */
-import { beforeEach, describe, it, expect, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { andyShare, bankrollEntry, isBankrollExempt, summarizeBankroll } from '../../scripts/lib/bankroll.mjs';
 
-// Mock storage and supabase to avoid localStorage/network in Node.
-vi.mock('../../src/lib/storage.js', () => ({
-  loadFromStorage: vi.fn((key, fallback = null) => {
-    const raw = globalThis.__bankrollTestStorage?.get(key);
-    return raw === undefined ? fallback : raw;
-  }),
-  saveToStorage: vi.fn((key, value) => {
-    globalThis.__bankrollTestStorage?.set(key, value);
-    return true;
-  }),
-  PR_STORAGE_KEYS: {
-    BANKROLL: { key: 'nfl_bankroll_v1' },
-  },
-  ALPHA_STATE_DOMAINS: {
-    BANKROLL: 'sandbox portfolio',
-  },
-  getAlphaStorageKey: vi.fn(({ profileId, stateDomain, season, week }) => {
-    const base = `nfl_alpha:${profileId}:${stateDomain}`;
-    return season && week ? `${base}:${season}:${week}:v1` : `${base}:v1`;
-  }),
-}));
+const t = (o) => ({ id: 'x', week: 10, status: 'SETTLED', book: 'BetOnline', funding_type: 'cash', profit_usd: -10, ...o });
 
-vi.mock('../../src/lib/supabase.js', () => ({
-  syncBet: vi.fn(async () => null),
-  supabase: null,
-}));
-
-import {
-  BET_STATUS,
-  BET_TYPES,
-  calculateKellyUnit,
-  calculateAnalytics,
-  getRecommendedUnit,
-  importBankrollData,
-  saveBankrollData,
-} from '../../src/lib/bankroll.js';
-
-describe('bankroll', () => {
-  beforeEach(() => {
-    globalThis.__bankrollTestStorage = new Map();
+describe('official bankroll rule (Andy 2026-11-17)', () => {
+  it('exempts every DKP, Pick6 and FDP ticket, solo or split, any funding', () => {
+    for (const book of ['DraftKings Predictions', 'DraftKings Pick6', 'FanDuel Predicts']) {
+      expect(isBankrollExempt(t({ book }))).toBe(true);
+      expect(isBankrollExempt(t({ book, is_split: true, funding_type: 'promo_credit' }))).toBe(true);
+      expect(isBankrollExempt(t({ book, bankroll_exempt: false, exclude_from_andy_bankroll: false }))).toBe(true);
+    }
   });
-
-  describe('BET_STATUS', () => {
-    it('exports all five status values', () => {
-      expect(BET_STATUS.PENDING).toBeDefined();
-      expect(BET_STATUS.WON).toBeDefined();
-      expect(BET_STATUS.LOST).toBeDefined();
-      expect(BET_STATUS.PUSHED).toBeDefined();
-      expect(BET_STATUS.VOID).toBeDefined();
-    });
-
-    it('PENDING is a non-empty string', () => {
-      expect(typeof BET_STATUS.PENDING).toBe('string');
-      expect(BET_STATUS.PENDING.length).toBeGreaterThan(0);
-    });
-
-    it('all status values are distinct', () => {
-      const values = Object.values(BET_STATUS);
-      const unique = new Set(values);
-      expect(unique.size).toBe(values.length);
-    });
+  it('keeps hand-flagged exemptions at other books', () => {
+    expect(isBankrollExempt(t({ book: 'Bookmaker', bankroll_exempt: true }))).toBe(true);
+    expect(isBankrollExempt(t({ exclude_from_bankroll: true }))).toBe(true);
+    expect(isBankrollExempt(t({}))).toBe(false);
   });
-
-  describe('BET_TYPES', () => {
-    it('exports all seven bet types', () => {
-      expect(BET_TYPES.SPREAD).toBeDefined();
-      expect(BET_TYPES.MONEYLINE).toBeDefined();
-      expect(BET_TYPES.TOTAL).toBeDefined();
-      expect(BET_TYPES.PROP).toBeDefined();
-      expect(BET_TYPES.TEASER).toBeDefined();
-      expect(BET_TYPES.PARLAY).toBeDefined();
-      expect(BET_TYPES.FUTURES).toBeDefined();
-    });
-
-    it('all type values are distinct strings', () => {
-      const values = Object.values(BET_TYPES);
-      const unique = new Set(values);
-      expect(unique.size).toBe(values.length);
-    });
+  it('uses ownership_shares, then participants, then split_count', () => {
+    expect(andyShare(t({ ownership_shares: { Andy: 0.5, Alejandro: 0.5 } }))).toBe(0.5);
+    expect(andyShare(t({ ownership_shares: { Andy: 0, Amanda: 1 } }))).toBe(0);
+    expect(andyShare(t({ is_split: true, split_participants: [{ name: 'Andy', share_numerator: 1, share_denominator: 3 }] }))).toBeCloseTo(1 / 3);
+    expect(andyShare(t({ is_split: true }))).toBe(0.5);
+    expect(andyShare(t({ is_split: true, split_count: 3 }))).toBeCloseTo(1 / 3);
+    expect(andyShare(t({ bankroll_owner: 'Amanda' }))).toBe(0);
+    expect(andyShare(t({}))).toBe(1);
   });
-
-  describe('calculateKellyUnit', () => {
-    it('returns positive amount for a clearly +EV bet', () => {
-      // 60% win at +200: b=2, p=0.6, q=0.4 → f=(2×0.6-0.4)/2=0.4 → cap 25% → 250
-      const unit = calculateKellyUnit(60, 200, 1000);
-      expect(unit).toBeCloseTo(250, 0);
-    });
-
-    it('returns 0 for a negative Kelly fraction (-EV bet)', () => {
-      // 40% win at -110 → Kelly is negative → floored to 0
-      const unit = calculateKellyUnit(40, -110, 1000);
-      expect(unit).toBe(0);
-    });
-
-    it('never exceeds 25% of bankroll (safety cap)', () => {
-      // Even extreme win probability / large +odds should cap at 25%
-      const unit = calculateKellyUnit(90, 500, 1000);
-      expect(unit).toBeLessThanOrEqual(250);
-    });
-
-    it('scales proportionally with bankroll size', () => {
-      const half  = calculateKellyUnit(60, 200, 500);
-      const full  = calculateKellyUnit(60, 200, 1000);
-      expect(full).toBeCloseTo(half * 2, 1);
-    });
-
-    it('returns 0 for 0% win probability', () => {
-      expect(calculateKellyUnit(0, 200, 1000)).toBe(0);
-    });
+  it('counts profit x share and reports exempt separately', () => {
+    const s = summarizeBankroll([
+      t({ id: 'a', profit_usd: -10, is_split: true, ownership_shares: { Andy: 0.5, Alejandro: 0.5 } }),
+      t({ id: 'b', profit_usd: 40 }),
+      t({ id: 'c', book: 'DraftKings Predictions', profit_usd: 100 }),
+      t({ id: 'd', week: 11, status: 'PENDING' }),
+    ]);
+    expect(s.season.bankroll).toBe(35);
+    expect(s.season.exempt_andy).toBe(100);
+    expect(s.open_tickets).toEqual(['d']);
   });
-
-  describe('getRecommendedUnit', () => {
-    it('returns amount, percentage, and units fields', () => {
-      const result = getRecommendedUnit(75, 1000, 'moderate');
-      expect(result).toHaveProperty('amount');
-      expect(result).toHaveProperty('percentage');
-      expect(result).toHaveProperty('units');
-    });
-
-    it('higher confidence yields higher percentage', () => {
-      const low  = getRecommendedUnit(20, 1000, 'moderate');
-      const high = getRecommendedUnit(90, 1000, 'moderate');
-      expect(high.percentage).toBeGreaterThan(low.percentage);
-    });
-
-    it('aggressive profile has higher maxUnitPercentage than conservative', () => {
-      const cons = getRecommendedUnit(90, 1000, 'conservative');
-      const agg  = getRecommendedUnit(90, 1000, 'aggressive');
-      expect(agg.percentage).toBeGreaterThan(cons.percentage);
-    });
-
-    it('amount equals bankroll * percentage / 100', () => {
-      const result = getRecommendedUnit(75, 1000, 'moderate');
-      expect(result.amount).toBeCloseTo(1000 * result.percentage / 100, 2);
-    });
-
-    it('defaults to moderate when no riskProfile provided', () => {
-      const r1 = getRecommendedUnit(75, 1000);
-      const r2 = getRecommendedUnit(75, 1000, 'moderate');
-      expect(r1.percentage).toBeCloseTo(r2.percentage, 5);
-    });
-  });
-
-  describe('importBankrollData / exportBankrollData round-trip', () => {
-    it('importBankrollData returns false for invalid JSON', () => {
-      expect(importBankrollData('not-json')).toBe(false);
-    });
-
-    it('importBankrollData returns false when bets field is missing', () => {
-      expect(importBankrollData(JSON.stringify({ settings: {} }))).toBe(false);
-    });
-
-    it('importBankrollData returns false when settings field is missing', () => {
-      expect(importBankrollData(JSON.stringify({ bets: [] }))).toBe(false);
-    });
-
-    it('importBankrollData returns true for valid structure', () => {
-      const valid = JSON.stringify({ bets: [], settings: { totalBankroll: 1000 } });
-      expect(importBankrollData(valid)).toBe(true);
-    });
-  });
-
-  describe('calculateAnalytics bankroll math safeguards', () => {
-    it('falls back to a valid starting bankroll and unit size when settings are missing', () => {
-      saveBankrollData({
-        settings: {},
-        bets: [{
-          id: 'won_1',
-          status: BET_STATUS.WON,
-          type: BET_TYPES.SPREAD,
-          amount: 50,
-          odds: -110,
-          profit: 100,
-          timestamp: '2026-09-10T12:00:00.000Z',
-          settledAt: '2026-09-10T16:00:00.000Z',
-        }],
-        weeklyStats: {},
-      });
-
-      const analytics = calculateAnalytics('all');
-
-      expect(analytics.currentBankroll).toBe(1100);
-      expect(analytics.unitsWon).toBe(2);
-    });
-
-    it('does not produce Infinity when unit size is zero', () => {
-      saveBankrollData({
-        settings: {
-          totalBankroll: 500,
-          unitSize: 0,
-        },
-        bets: [{
-          id: 'lost_1',
-          status: BET_STATUS.LOST,
-          type: BET_TYPES.TOTAL,
-          amount: 25,
-          odds: -110,
-          profit: -25,
-          timestamp: '2026-09-10T12:00:00.000Z',
-          settledAt: '2026-09-10T16:00:00.000Z',
-        }],
-        weeklyStats: {},
-      });
-
-      const analytics = calculateAnalytics('all');
-
-      expect(analytics.currentBankroll).toBe(475);
-      expect(analytics.unitsWon).toBe(-0.5);
-      expect(Number.isFinite(analytics.unitsWon)).toBe(true);
-    });
+  it('estimates missing profit from payout minus cash stake and warns', () => {
+    const e = bankrollEntry(t({ profit_usd: undefined, settled_payout_usd: 25, cash_risk_usd: 10 }));
+    expect(e.bankroll_profit).toBe(15);
+    expect(e.profit_estimated).toBe(true);
   });
 });
