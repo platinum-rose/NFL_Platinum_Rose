@@ -18,6 +18,7 @@ Automatic checks (cash tickets only; promo/bonus/free-bet tickets are exempt by 
   lane_pref       receiving prop on a cash ticket at a higher rung than the lowest rung seen for that player/market that week (proxy)
   shaky_qb        before the game's inactives: a total, or 2+ props on the same team, in a game listed under params.games[week]
   no_master_rr    any 4-team master round robin
+  player_cap      one player (any stat) or one game total on more than params.max cash tickets per slate
   manual          no automatic check: the post-mortem lists it for a by-hand yes/no
 """
 import argparse, collections, datetime, json, os, re, sys
@@ -56,9 +57,42 @@ def prop_legs(w):
 
 
 # ------------------------------------------------------------------ checks: each returns {ticket_id: reason}
+def combo_size(w):
+    """Legs per parlay: the combination size for a round robin, else the ticket's leg count."""
+    rr = w.get('round_robin') or {}
+    if rr.get('teams_per_combination'): return int(rr['teams_per_combination'])
+    m = re.search(r'(\d+)-team comb', w.get('ticket_type') or '', re.I)
+    return int(m.group(1)) if m else lib.n_legs(w)
+
+
 def chk_max_legs(T, rule, week, W):
-    mx = rule['params'].get('max', 4)
-    return {w['id']: f'{lib.n_legs(w)} legs' for w in T if not is_rr(w) and lib.n_legs(w) > mx}
+    """params.max legs per cash parlay; params.dkp_max for DraftKings Predictions (S1, 2026-11-17). With
+    params.rr_by_combo, round robins count their combination size (an 8-pick RR of 4-team combos is 4 legs)."""
+    p = rule['params']; mx = p.get('max', 4); out = {}
+    for w in T:
+        if is_rr(w) and not p.get('rr_by_combo'): continue
+        n = combo_size(w) if p.get('rr_by_combo') else lib.n_legs(w)
+        lim = p.get('dkp_max', mx) if w.get('book') == 'DraftKings Predictions' else mx
+        if n > lim: out[w['id']] = f'{n} legs{" per combination" if is_rr(w) else ""} (limit {lim}{" on DKP" if lim != mx else ""})'
+    return out
+
+
+def chk_player_cap(T, rule, week, W):
+    """S5 (2026-11-17): at most params.max tickets per slate on one player (any stat) or one game total.
+    Slate = game day of the leg. Tickets past the cap, in placement order, are the violators."""
+    mx = rule['params'].get('max', 2); seen = collections.defaultdict(list)
+    for w in sorted(T, key=lambda w: str(w.get('placed_at') or w.get('date') or '')):
+        keys = set()
+        for l in lib.real_legs(w):
+            n = lib.norm_leg(l, w)
+            day = (re.match(r'(\d\d/\d\d/\d{4})', l.get('game_start') or '') or [None, w.get('date')])[1]
+            if n['kind'] == 'prop' and n.get('player'): keys.add((day, lib.norm(n['player'])))
+            elif n['kind'] == 'total': keys.add((day, 'total ' + re.sub(r'[^A-Z@]', '', (n.get('game') or l.get('game') or '').upper())))
+        for k in keys: seen[k].append(w['id'])
+    out = {}
+    for (day, who), ids in seen.items():
+        for i in ids[mx:]: out[i] = (out[i] + '; ' if i in out else '') + f'{who} on ticket #{ids.index(i) + 1} of {len(ids)} ({day})'
+    return out
 
 
 def chk_read_reuse(T, rule, week, W):
@@ -110,7 +144,7 @@ def chk_shaky_qb(T, rule, week, W):
 def chk_no_master_rr(T, rule, week, W): return {w['id']: '4-team master RR' for w in T if lib.family(w) == '4-team master RR'}
 
 
-CHECKS = dict(max_legs=chk_max_legs, read_reuse=chk_read_reuse, lane_pref=chk_lane_pref, shaky_qb=chk_shaky_qb, no_master_rr=chk_no_master_rr)
+CHECKS = dict(max_legs=chk_max_legs, player_cap=chk_player_cap, read_reuse=chk_read_reuse, lane_pref=chk_lane_pref, shaky_qb=chk_shaky_qb, no_master_rr=chk_no_master_rr)
 
 
 def money(ws):
