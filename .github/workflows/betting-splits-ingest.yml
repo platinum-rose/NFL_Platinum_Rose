@@ -9,7 +9,7 @@
 # Schedule:
 #   Offseason: once daily (9 AM UTC) — keeps infra warm, handles empty response
 #   Game week (Tue–Sat): 3×/day — captures splits as they develop
-#   Game days (Sun/Mon/Thu): every 2h — tracks sharp money movement pre-kickoff
+#   Game days (Sun/Mon/Thu): twice (10 AM and 5 PM ET) — cut from every 2h 2026-11-17
 #
 # Offseason behavior:
 #   Action Network returns an empty games array when no NFL lines are posted.
@@ -19,10 +19,10 @@ name: Betting Splits Ingest
 
 on:
   schedule:
-    # Game days (Sun, Mon, Thu) — every 2 hours for live line tracking
-    - cron: '0 */2 * * 0'
-    - cron: '0 */2 * * 1'
-    - cron: '0 */2 * * 4'
+    # Game days (Sun, Mon, Thu) — twice: 15:00 UTC (10 AM ET) and 22:00 UTC (5 PM ET, before the night game).
+    # Cut from every 2 h 2026-11-17 (Andy, audit decision 12): public splits added nothing measurable
+    # (public side 46-44; with/against 35-28 vs 24-21 over 134 games).
+    - cron: '0 15,22 * * 0,1,4'
     # Game week build-up (Tue, Wed, Fri, Sat) — 3×/day
     - cron: '0 9,15,21 * * 2,3,5,6'
   workflow_dispatch:
