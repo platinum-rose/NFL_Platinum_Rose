@@ -123,7 +123,8 @@ cap = max((s.get('captured_at') or '' for s in spl), default='')
 try: sp_age = (NOW - dt.datetime.fromisoformat(cap.replace('Z', '+00:00'))).total_seconds() / 3600
 except Exception: sp_age = 1e9
 sp_ok = len(spl) >= REM and sp_age <= maxage('splits')
-add('L5', 'Lines & markets', 'Betting splits (Action Network)', 'REQUIRED', 'PASS' if sp_ok else 'FAIL',
+# 2026-11-17 (Andy, S6/S13): splits are context only and captured twice on game days, so stale splits no longer fail the gate.
+add('L5', 'Lines & markets', 'Betting splits (Action Network, context only)', 'ADVISORY', 'PASS' if sp_ok else 'WARN',
     f'{len(spl)} games, newest capture {cap or "?"} ({sp_age:.1f}h; limit {maxage("splits")}h)' if sp_age < 1e8 else f'{len(spl)} games, no capture time',
     '' if sp_ok else 'Re-pull AN splits (Claude in Chrome, api v2 scoreboard bookIds=15) into the pull json.')
 

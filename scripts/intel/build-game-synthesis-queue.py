@@ -44,6 +44,21 @@ ap.add_argument('--out')
 ap.add_argument('--allow-stale', action='store_true', help='weekend build: proceed even if article review / props intel are older than 24 h')
 a = ap.parse_args()
 W, WW, S = a.week, f'{a.week:02d}', a.season
+SOURCE_POLICY = {
+    'rules': 'S6 + S13, Andy 2026-11-17',
+    'context_only': 'Expert spread, moneyline and teaser picks; any pick labelled a best bet; every Action Network, Ross Tucker and VSiN pick; '
+                    'betting splits and any public-side / fade-the-public argument. Read them for information, never count them toward a pick or cite them as a reason.',
+    'flag_only': 'Expert totals: may mark a game as worth a look, never move or support a total pick.',
+    'counts': 'Expert player props, the fair-line model, injuries, matchup and market data weigh as before.',
+}
+_OUT_SOURCES = re.compile(r'action ?network|\bross tucker\b|\btucker\b|\bvsin\b', re.I)
+def source_weight(source, market, *text):
+    """Tag a pick row per SOURCE_POLICY: 'context_only', 'flag_only' or 'counts'."""
+    m = str(market or '').lower(); t = ' '.join(str(x or '') for x in text)
+    if _OUT_SOURCES.search(str(source or '')) or re.search(r'best ?bet', t, re.I): return 'context_only (S6)'
+    if m in ('spread', 'moneyline', 'teaser', 'ml', 'side', 'ats') or 'spread' in m: return 'context_only (S6)'
+    if m in ('total', 'game_total') or m.endswith('total'): return 'flag_only (S6)'
+    return 'counts'
 now = datetime.now(timezone.utc)
 D = a.date or '*'
 
@@ -179,13 +194,17 @@ for g in slate.get('games', []):
     # splits
     _ab = lambda t: {'WSH': 'WAS', 'JAC': 'JAX', 'LA': 'LAR'}.get(t, t)   # pull splits use WSH; schedule uses WAS
     gid_hit = [s for s in pull.get('splits', []) if _ab(s.get('home_team')) == H and _ab(s.get('away_team')) == A]
-    p['splits'] = gid_hit
+    p['splits'] = [dict(r, weight='context_only: not a reason (S13)') for r in gid_hit]
     if not gid_hit: missing.append('bets-vs-money splits')
 
+    # Source policy (Andy 2026-11-17, rules S6 = audit #18 and S13 = audit #25). Rows stay in the packet as context,
+    # tagged so the synthesizer cannot count them: expert spreads/MLs/teasers and best bets were -48.5u on 441 with an
+    # interval below zero; Action Network, Ross Tucker and VSiN likewise; expert totals 6-11 in W10; splits 46-44.
+    p['source_policy'] = SOURCE_POLICY
     # expert / article / podcast / social
     def ex_match(r):
         return mentions(r.get('visitor'), A) or mentions(r.get('home'), H) or mentions(r.get('visitor'), H) or mentions(r.get('home'), A)
-    p['expert_picks_pull'] = [r for r in pull.get('expert', []) if ex_match(r)]
+    p['expert_picks_pull'] = [dict(r, weight=source_weight(r.get('expert'), r.get('pick_type'), r.get('selection'), r.get('rationale'))) for r in pull.get('expert', []) if ex_match(r)]
     p['youtube_picks_approved'] = [r for r in yt.get('picks', []) if r.get('game') == M]
     # 2026-10-30: Evan Abrams' Action Network primer (scripts/intel/primer_feed.py) — trends, Bet Labs systems, QB/coach/ref, public splits
     p['an_primer'] = dict(game=(PRIMER.get('games') or {}).get(M), rows=[r for r in (PRIMER.get('rows') or []) if r.get('game') in (M, 'SLATE')])
@@ -203,6 +222,7 @@ for g in slate.get('games', []):
     notes = _n
     p['news_notes'] = [{'source': r.get('source'), 'title': r.get('title'), 'summary': trim(r.get('summary'), 350), 'published_at': r.get('published_at'), 'url': r.get('url')} for r in notes][:50]
     p['article_selections'] = [{k: r.get(k) for k in ('item_id', 'teams', 'market', 'selection', 'side', 'line', 'price', 'book', 'analyst', 'tier', 'tier_label', 'evidence_status', 'source_article_id')} for r in team_rows_for_game((art.get('tiered_picks') or []) + (art.get('analyst_selections') or []), A, H)]
+    for r in p['article_selections']: r['weight'] = source_weight(r.get('analyst'), r.get('market'), r.get('selection'), r.get('tier_label'))
     _an, _seen = [], set()
     for r in team_rows_for_game(art.get('analysis_notes'), A, H, max_teams=2):
         txt = ' '.join(str(r.get(k) or '') for k in ('topic', 'text', 'summary'))
