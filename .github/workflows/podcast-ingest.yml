@@ -1,8 +1,10 @@
 name: Podcast Ingest Agent
 
 on:
-  schedule:
-    - cron: '30 8 * * 2,3,4,5'   # Tue-Fri at 08:30 UTC (in-season: recaps, deep dives, TNF & weekend props)
+  # Schedule disabled 2026-11-16 (Andy OK, midseason pipeline audit fix #7): AssemblyAI balance
+  # negative since 10/14; podcast picks now come from the Gemini/Antigravity sweeps. Manual dispatch still works.
+  # schedule:
+  #   - cron: '30 8 * * 2,3,4,5'   # Tue-Fri at 08:30 UTC (in-season: recaps, deep dives, TNF & weekend props)
   workflow_dispatch:         # Manual trigger from GitHub Actions tab
     inputs:
       dry_run:
