@@ -79,6 +79,9 @@ async function loadEvents(weeks) {
           id: e.id, week: w, date: e.date,
           away: normAbbr(side('away').team.abbreviation), home: normAbbr(side('home').team.abbreviation),
           awayScore: Number(side('away').score || 0), homeScore: Number(side('home').score || 0),
+          awayLines: (side('away').linescores || []).map((l) => Number(l?.value ?? l?.displayValue) || 0),
+          homeLines: (side('home').linescores || []).map((l) => Number(l?.value ?? l?.displayValue) || 0),
+          halftime: st.type.name === 'STATUS_HALFTIME' || st.type.description === 'Halftime',
           state: st.type.state, // pre | in | post
           completed: !!st.type.completed,
           detail: st.type.shortDetail || st.type.detail || '',
@@ -186,7 +189,7 @@ const STAT = {
 };
 const MARKET_STAT = {
   anytime_touchdown: 'touchdowns', touchdowns_2plus: 'touchdowns', touchdowns: 'touchdowns',
-  anytime_td: 'touchdowns', two_plus_touchdowns: 'touchdowns',
+  anytime_td: 'touchdowns', two_plus_touchdowns: 'touchdowns', touchdowns_2_plus: 'touchdowns',
   pass_td: 'passing_touchdowns', passing_tds: 'passing_touchdowns',
   completions: 'pass_completions',
   tackles_assists: 'tackles_assists', pass_interceptions: 'pass_interceptions', interceptions_thrown: 'pass_interceptions',
@@ -225,9 +228,39 @@ function findEvent(events, leg) {
 const fmtLine = (n) => (n > 0 ? `+${n}` : `${n}`);
 const kickoffPT = (iso) => new Date(iso).toLocaleString('en-US', { timeZone: TZ, weekday: 'short', hour: 'numeric', minute: '2-digit' });
 
+// 1H / 2H legs: grade sides and totals off the quarter linescores (2H = Q3 + Q4 + OT)
+const HALF_RE = /^(first_half|second_half|1h|2h)_/;
+function legHalf(leg) {
+  const p = String(leg.period || '').toUpperCase();
+  if (p === '1H' || p === '2H') return p;
+  const m = String(leg.market || '').replace(/^sgp_/, '');
+  return /^(first_half|1h)_/.test(m) ? '1H' : /^(second_half|2h)_/.test(m) ? '2H' : '';
+}
+function halfView(ev, half) {
+  const sum = (arr, from, to) => (arr || []).slice(from, to).reduce((s, v) => s + (Number(v) || 0), 0);
+  if (half === '1H') {
+    const done = ev.completed || ev.halftime || Number(ev.period) >= 3;
+    return { ...ev, awayScore: sum(ev.awayLines, 0, 2), homeScore: sum(ev.homeLines, 0, 2), completed: done };
+  }
+  const started = ev.completed || (Number(ev.period) >= 3 && !ev.halftime);
+  if (!started) return null;
+  return { ...ev, awayScore: sum(ev.awayLines, 2), homeScore: sum(ev.homeLines, 2) };
+}
+
 async function gradeLeg(leg, events) {
   const preset = String(leg.status || '').toUpperCase();
   if (['WON', 'LOST', 'PUSH', 'VOID'].includes(preset)) return { status: preset, now: leg.grading_note ? 'graded' : '', locked: true };
+  const half = legHalf(leg);
+  if (half) {
+    const fullEv = findEvent(events, leg);
+    if (!fullEv) return { status: 'CHECK', now: 'game not found on ESPN', locked: false };
+    if (fullEv.state === 'pre') return { eventId: fullEv.id, status: 'PENDING', now: kickoffPT(fullEv.date), locked: false };
+    const hv = halfView(fullEv, half);
+    if (!hv) return { eventId: fullEv.id, status: 'PENDING', now: '2nd half · after halftime', locked: false };
+    const m = String(leg.market || '').replace(/^sgp_/, '').replace(HALF_RE, '');
+    const r = await gradeLeg({ ...leg, market: m, period: '' }, events.map((e) => (e.id === fullEv.id ? hv : e)));
+    return { ...r, now: r.now ? `${half} · ${r.now}` : half };
+  }
   const ev = findEvent(events, leg);
   if (String(leg.grading || '').startsWith('manual:') && !['team_touchdowns', 'team_field_goals'].includes(leg.market)) return { eventId: ev?.id, status: 'CHECK', now: leg.grading, locked: false };
   if (!ev) return { status: 'CHECK', now: 'game not found on ESPN', locked: false };

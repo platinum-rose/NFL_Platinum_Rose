@@ -585,7 +585,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   // must never be matched, via the team-only fallbacks below, to a different week's game for the same team.
   function legGameDateKey(leg) {
     const m = String((leg && leg.game_start) || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-    return m ? m[3] + '-' + m[1].padStart(2, '0') + '-' + m[2].padStart(2, '0') : null;
+    if (m) return m[3] + '-' + m[1].padStart(2, '0') + '-' + m[2].padStart(2, '0');
+    // Legs logged with their own kickoff_utc (e.g. a W10 MNF leg on a W11 ticket) use that date too.
+    const k = leg && leg.kickoff_utc ? new Date(leg.kickoff_utc) : null;
+    return k && !isNaN(k.getTime()) ? k.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' }) : null;
   }
   function fallbackGameDateOk(leg, g) {
     const want = legGameDateKey(leg);
@@ -637,6 +640,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   function getLegKickoffTime(leg, schedList) {
     const g = findScheduleGameForLeg(leg, schedList);
     if (!g) {
+      const k = leg && leg.kickoff_utc ? new Date(leg.kickoff_utc) : null;
+      if (k && !isNaN(k.getTime())) {
+        return { timestamp: k.getTime(), shortText: k.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', weekday: 'short', hour: 'numeric', minute: '2-digit' }) + ' PT', game: null };
+      }
       return { timestamp: 9999999999999, shortText: 'TBD', game: null };
     }
     const ts = g.kickoff_utc ? new Date(g.kickoff_utc).getTime() : 9999999999999;
@@ -1207,7 +1214,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   // named-player test separates them cleanly; the market fallback mirrors the
   // isPropLeg check in renderCard(). The multi-leg guard keeps straight futures
   // (e.g. a single-leg Super Bowl ticket, also categorised "Future/Prop") out.
-  const NON_PROP_MARKETS = ['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot'];
+  const NON_PROP_MARKETS = ['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot', 'first_half_total', 'second_half_total', 'first_half_spread', 'second_half_spread', 'first_half_moneyline', 'second_half_moneyline'];
   function isPropParlay(bet) {
     const legs = Array.isArray(bet.legs) ? bet.legs : [];
     if (legs.length < 2) return false;
@@ -1882,7 +1889,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
                 // Player prop progress gauge
                 const isTeamCount = ['team_touchdowns', 'team_field_goals'].includes(leg.market);
-                const isPropLeg = !leg.manual_review_required && !isTeamCount && !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot'].includes(String(leg.market).toLowerCase())));
+                const isPropLeg = !leg.manual_review_required && !isTeamCount && !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot', 'first_half_total', 'second_half_total', 'first_half_spread', 'second_half_spread', 'first_half_moneyline', 'second_half_moneyline'].includes(String(leg.market).toLowerCase())));
                 const target = leg.line ?? (leg.selection?.match(/(\d+(\.\d+)?)/)?.[1] ? parseFloat(leg.selection.match(/(\d+(\.\d+)?)/)[1]) : 1);
                 const statText = isWon ? (leg.actual_stat ? `${leg.actual_stat} / ${target} ✅` : `${target} / ${target} ✅`) : `0 / ${target}`;
                 const barWidth = isWon ? '100%' : '0%';
@@ -1908,7 +1915,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 const isTotalLeg = leg.market === 'total' || leg.market === 'alternate_total_points' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
 
                 return `
-                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-review-required="${leg.manual_review_required ? '1' : '0'}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
+                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-review-required="${leg.manual_review_required ? '1' : '0'}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-period="${leg.period || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
                   <div class="leg-row">
                     <div class="leg-left">
                       <span class="leg-icon">${icon}</span>
@@ -7669,7 +7676,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           isLive,
           clock,
           period,
-          shortDetail
+          shortDetail,
+          // Quarter-by-quarter scores (Q1, Q2, Q3, Q4, OT...) for 1st/2nd-half legs.
+          homeLines: (Array.isArray(home.linescores) ? home.linescores : []).map(l => Number(l && (l.value ?? l.displayValue)) || 0),
+          awayLines: (Array.isArray(away.linescores) ? away.linescores : []).map(l => Number(l && (l.value ?? l.displayValue)) || 0),
+          isHalftime: ev.status?.type?.name === 'STATUS_HALFTIME' || ev.status?.type?.description === 'Halftime'
         };
         eventMap[homeAbbr] = evObj;
         eventMap[awayAbbr] = evObj;
@@ -7742,7 +7753,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         }
 
         const rawPlayer = el.getAttribute('data-player');
-        const rawMarket = (el.getAttribute('data-market') || '').toLowerCase();
+        let rawMarket = (el.getAttribute('data-market') || '').toLowerCase();
         const rawTeam = normalizeClientTeam(el.getAttribute('data-team'));
         const rawOpp = normalizeClientTeam(el.getAttribute('data-opp'));
         const rawGame = el.getAttribute('data-game') || '';
@@ -7775,6 +7786,35 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           if (wantTeams.length === 2 && wantTeams.some(t => t && !evTeams.includes(t))) ev = null;
         }
 
+        // 1st-half / 2nd-half sides and totals: grade on that half's points only, from ESPN
+        // quarter linescores. 1H = Q1+Q2 (settles at halftime); 2H = Q3+Q4+OT (starts at Q3).
+        const legPeriod = ((el.getAttribute('data-period') || '').toUpperCase())
+          || (/^(first_half|1h)_/.test(rawMarket) ? '1H' : (/^(second_half|2h)_/.test(rawMarket) ? '2H' : ''));
+        if (legPeriod === '1H' || legPeriod === '2H') {
+          rawMarket = rawMarket.replace(/^(first_half|second_half|1h|2h)_/, '');
+          if (ev && (ev.isLive || ev.isCompleted)) {
+            const hl = Array.isArray(ev.homeLines) ? ev.homeLines : [];
+            const al = Array.isArray(ev.awayLines) ? ev.awayLines : [];
+            const sumQ = (arr, from, to) => arr.slice(from, to).reduce((a, v) => a + (Number(v) || 0), 0);
+            if (legPeriod === '1H') {
+              const done = ev.isCompleted || ev.isHalftime || ev.period >= 3;
+              ev = Object.assign({}, ev, { homeScore: sumQ(hl, 0, 2), awayScore: sumQ(al, 0, 2), isCompleted: done, isLive: !done });
+            } else {
+              const started = ev.isCompleted || (ev.period >= 3 && !ev.isHalftime);
+              if (!started) {
+                el.classList.remove('pace-green', 'pace-red', 'pace-yellow');
+                el.classList.add('pace-pre');
+                if (badge) {
+                  badge.className = 'leg-pace-badge badge-pacing-pre';
+                  badge.textContent = '2nd half · after halftime';
+                }
+                return;
+              }
+              ev = Object.assign({}, ev, { homeScore: sumQ(hl, 2), awayScore: sumQ(al, 2) });
+            }
+          }
+        }
+
         // Pre-game or missing event
         if (!ev || (!ev.isLive && !ev.isCompleted)) {
           el.classList.remove('pace-green', 'pace-red', 'pace-yellow');
@@ -7798,6 +7838,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             minsElapsed += Math.max(0, 15 - rem);
           }
         }
+        // Half legs: pace projections below scale to a 60-minute game, so express the half's
+        // elapsed time at double speed (a 30-minute half projects to the same 60-minute basis).
+        if (legPeriod === '1H') minsElapsed = Math.max(0.5, Math.min(minsElapsed, 30)) * 2;
+        else if (legPeriod === '2H') minsElapsed = Math.max(0.5, Math.min(minsElapsed - 30, 30)) * 2;
         if (ev.isCompleted) minsElapsed = 60;
         minsElapsed = Math.max(1, Math.min(60, minsElapsed));
 

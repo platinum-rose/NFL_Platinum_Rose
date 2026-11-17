@@ -1,0 +1,209 @@
+{
+  "_meta": {
+    "description": "Legacy Bookmaker open-spot parlays (2026 NCAA tournament) still alive at BKR. Locked legs all WON. Use open spots as hedges / fresh legs (NFL incl. playoffs). Log each fill here AND in user-placed-wagers-2026.json.",
+    "source": "Andy BKR open-bets paste 2026-11-15 5:49 PM PT (authoritative); NCAA_Dashboard/public/my_futures.json is older",
+    "book": "Bookmaker",
+    "notes": [
+      "Open spots accept live lines (confirmed 2026-11-15); alt totals were not offered pregame in the open-spot fill.",
+      "Locked value = stake x product of locked-leg decimals; each fill multiplies by that leg's decimal. Both open spots must eventually win on 2-spot tickets.",
+      "730846806 (1 spot) FILLED 2026-11-15 with PIT/CIN Over 45.5 live -146 -> see user-placed-wagers-2026.json.",
+      "730685358 is in NCAA my_futures.json as open but NOT in Andy's 11/15 BKR open list: presumed expired/settled; confirm with Andy.",
+      "Andy 2026-11-16: legacy NCAA open-spot parlays (and any fills on them) are OFF the 2026 NFL bankroll. New 2026-season open-spot parlays count toward the 2026 bankroll even if they carry into 2027."
+    ]
+  },
+  "tickets": [
+    {
+      "ticket_number": "731536472",
+      "stake_usd": 25,
+      "placed_at": "2026-04-04T16:27:00-07:00",
+      "total_legs": 4,
+      "open_spots": 2,
+      "locked_legs": [
+        {
+          "selection": "Michigan/Arizona Over 156 (Final Four)",
+          "price": -129,
+          "status": "WON"
+        },
+        {
+          "selection": "Michigan +2 vs Arizona (Final Four)",
+          "price": -136,
+          "status": "WON"
+        }
+      ],
+      "locked_multiplier": 3.08,
+      "locked_value_usd": 77.01,
+      "book_displayed_returns_usd": 280.68,
+      "book_display_assumption": "-110 per open spot",
+      "status": "open_spots_available",
+      "fills": []
+    },
+    {
+      "ticket_number": "731063264",
+      "stake_usd": 20,
+      "placed_at": "2026-03-26T14:44:00-07:00",
+      "total_legs": 6,
+      "open_spots": 2,
+      "locked_legs": [
+        {
+          "selection": "Texas +9 vs Purdue",
+          "price": -115,
+          "status": "WON"
+        },
+        {
+          "selection": "Arizona ML vs Arkansas",
+          "price": -394,
+          "status": "WON"
+        },
+        {
+          "selection": "Michigan ML vs Alabama",
+          "price": -484,
+          "status": "WON"
+        },
+        {
+          "selection": "Iowa +3 vs Nebraska",
+          "price": -129,
+          "status": "WON"
+        }
+      ],
+      "locked_multiplier": 5.021,
+      "locked_value_usd": 100.42,
+      "book_displayed_returns_usd": 365.99,
+      "book_display_assumption": "-110 per open spot",
+      "status": "open_spots_available",
+      "fills": []
+    },
+    {
+      "ticket_number": "731062665",
+      "stake_usd": 30,
+      "placed_at": "2026-03-26T14:36:00-07:00",
+      "total_legs": 6,
+      "open_spots": 2,
+      "locked_legs": [
+        {
+          "selection": "Iowa +2 vs Nebraska",
+          "price": -112,
+          "status": "WON"
+        },
+        {
+          "selection": "Arizona ML vs Arkansas",
+          "price": -413,
+          "status": "WON"
+        },
+        {
+          "selection": "Michigan ML vs Alabama",
+          "price": -484,
+          "status": "WON"
+        },
+        {
+          "selection": "Purdue ML vs Texas",
+          "price": -443,
+          "status": "WON"
+        }
+      ],
+      "locked_multiplier": 3.477,
+      "locked_value_usd": 104.32,
+      "book_displayed_returns_usd": 380.21,
+      "book_display_assumption": "-110 per open spot",
+      "status": "open_spots_available",
+      "fills": []
+    },
+    {
+      "ticket_number": "730888303",
+      "stake_usd": 30,
+      "placed_at": "2026-03-22T10:54:00-07:00",
+      "total_legs": 6,
+      "open_spots": 2,
+      "locked_legs": [
+        {
+          "selection": "Tennessee/Virginia Over 136.5",
+          "price": -115,
+          "status": "WON"
+        },
+        {
+          "selection": "Utah State +12.5 vs Arizona",
+          "price": -124,
+          "status": "WON"
+        },
+        {
+          "selection": "Iowa +10.5 vs Florida",
+          "price": -125,
+          "status": "WON"
+        },
+        {
+          "selection": "Kentucky/Iowa State Over 142 (live)",
+          "price": -140,
+          "status": "WON"
+        }
+      ],
+      "locked_multiplier": 10.421,
+      "locked_value_usd": 312.64,
+      "book_displayed_returns_usd": 1139.46,
+      "book_display_assumption": "-110 per open spot",
+      "status": "open_spots_available",
+      "fills": []
+    },
+    {
+      "ticket_number": "730737412",
+      "stake_usd": 20,
+      "placed_at": "2026-03-20T10:53:00-07:00",
+      "total_legs": 7,
+      "open_spots": 2,
+      "locked_legs": [
+        {
+          "selection": "Hofstra/Alabama Under 160.5",
+          "price": -128,
+          "status": "WON"
+        },
+        {
+          "selection": "California Baptist +15 vs Kansas",
+          "price": -131,
+          "status": "WON"
+        },
+        {
+          "selection": "Iowa -1 vs Clemson",
+          "price": -108,
+          "status": "WON"
+        },
+        {
+          "selection": "Central Florida +7 vs UCLA",
+          "price": -141,
+          "status": "WON"
+        },
+        {
+          "selection": "Alabama ML vs Hofstra",
+          "price": -644,
+          "status": "WON"
+        }
+      ],
+      "locked_multiplier": 11.945,
+      "locked_value_usd": 238.9,
+      "book_displayed_returns_usd": 870.71,
+      "book_display_assumption": "-110 per open spot",
+      "status": "open_spots_available",
+      "fills": []
+    }
+  ],
+  "filled": [
+    {
+      "ticket_number": "730846806",
+      "stake_usd": 37.5,
+      "locked_multiplier": 6.322,
+      "fill": "PIT/CIN Over 45.5 live -146 (NFL W10 SNF)",
+      "filled_at": "2026-11-15T17:35:00-08:00",
+      "returns_usd": 399.43
+    }
+  ],
+  "nfl_2026_open_spot_tickets": [
+    {
+      "ticket_number": null,
+      "ledger_id": "bet_20261116_bkr_9team_open1_jax_lac_hou_chi_det_sf_den_cin_andy_solo",
+      "stake_usd": 15.0,
+      "open_spots": 1,
+      "counts_toward_bankroll": "2026",
+      "locked_legs_pending": 8,
+      "book_displayed_returns_usd": 1214.5,
+      "book_display_assumption": "-110 for the open spot",
+      "status": "legs pending (W10 MNF + W11)"
+    }
+  ]
+}

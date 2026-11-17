@@ -1,5 +1,7 @@
 <title>Platinum Rose Road Tracker</title>
+<meta charset="UTF-8">
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 /* Layout: desktop Live Tracker palette on one phone column: header panel, game board strip, slip cards with leg boxes. Single dark look, same as desktop. */
 :root {
@@ -49,7 +51,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .bet-card > summary::-webkit-details-marker { display: none; }
 .bet-card > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 12px; }
 .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.card-title { font-size: 15px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.card-title { flex: 1; min-width: 0; font-size: 15px; font-weight: 700; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .chev { color: var(--muted); transition: transform .2s; padding-top: 2px; }
 .bet-card[open] .chev { transform: rotate(180deg); }
 .card-subtitle { font-size: 12px; color: var(--muted); }
@@ -134,130 +136,133 @@ footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display:
 </style>
 
 <div class="top"><div class="wrap"><div class="panel">
-  <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week 7</h1></div>
-  <div class="fresh" id="fresh" data-built="2026-10-27T04:40:51.276Z">Graded 9:40 PM</div>
+  <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week 11</h1></div>
+  <div class="fresh" id="fresh" data-built="2026-11-17T04:31:23.631Z">Graded 8:31 PM</div>
   <div class="kpis">
-    <div class="kpi"><small>Cash risk</small><b>$0.00</b></div>
-    <div class="kpi"><small>Potential win</small><b class="blue">$0.00</b></div>
-    <div class="kpi"><small>Total cashed</small><b class="green">$139.00</b></div>
+    <div class="kpi"><small>Cash risk</small><b>$15.00</b></div>
+    <div class="kpi"><small>Potential win</small><b class="blue">$1,199.50</b></div>
+    <div class="kpi"><small>Total cashed</small><b class="green">$0.00</b></div>
   </div>
 </div></div></div>
 
 <main class="wrap">
   
-  <div class="board-h"><span>📅 Game Board</span><span>1 games · tap for ESPN</span></div>
-  <nav class="games" aria-label="Games your open tickets depend on"><a class="game-card post" href="https://www.espn.com/nfl/game/_/gameId/401873009" target="_blank" rel="noopener">
-    <div class="gc-top"><span class="chip final">Final</span></div>
-    <div class="gc-team lead"><span class="tchip" style="background:#2D5BD1;color:#fff">DAL</span><span>Cowboys</span><b>38</b></div>
-    <div class="gc-team"><span class="tchip" style="background:#004C54;color:#fff">PHI</span><span>Eagles</span><b>21</b></div>
-    
+  <div class="board-h"><span>📅 Game Board</span><span>7 games · tap for ESPN</span></div>
+  <nav class="games" aria-label="Games your open tickets depend on"><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873066" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">5:15 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#1F5BD6;color:#fff">IND</span><span>Colts</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#A71930;color:#fff">HOU</span><span>Texans</span><b></b></div>
+    <div class="gc-odds">HOU -11.5 • O/U 44.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873071" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">10:00 AM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#D3BC8D;color:#0B1120">NO</span><span>Saints</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#C83803;color:#fff">CHI</span><span>Bears</span><b></b></div>
+    <div class="gc-odds">CHI -11.5 • O/U 48.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873072" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">10:00 AM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#D50A0A;color:#fff">TB</span><span>Buccaneers</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#0076B6;color:#fff">DET</span><span>Lions</span><b></b></div>
+    <div class="gc-odds">DET -6.5 • O/U 46.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873075" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">1:25 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#A5ACAF;color:#0B1120">LV</span><span>Raiders</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#FB4F14;color:#fff">DEN</span><span>Broncos</span><b></b></div>
+    <div class="gc-odds">DEN -10 • O/U 40.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873069" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">1:25 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#006778;color:#fff">JAX</span><span>Jaguars</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#1F4BD6;color:#fff">NYG</span><span>Giants</span><b></b></div>
+    <div class="gc-odds">JAX -6 • O/U 46.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873077" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">5:20 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#4F2683;color:#fff">MIN</span><span>Vikings</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#AA0000;color:#fff">SF</span><span>49ers</span><b></b></div>
+    <div class="gc-odds">SF -3 • O/U 46.5</div>
+  </a><a class="game-card pre" href="https://www.espn.com/nfl/game/_/gameId/401873078" target="_blank" rel="noopener">
+    <div class="gc-top"><span class="chip time">5:15 PM PT</span></div>
+    <div class="gc-team"><span class="tchip" style="background:#FB4F14;color:#fff">CIN</span><span>Bengals</span><b></b></div>
+    <div class="gc-team"><span class="tchip" style="background:#5A1414;color:#fff">WSH</span><span>Commanders</span><b></b></div>
+    <div class="gc-odds">CIN -6.5 • O/U 52.5</div>
   </a></nav>
-  <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (0 Live)</span></div>
+  <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (1 Live)</span></div>
   <div class="list">
-    <div class="empty">No open tickets right now. Everything for this week has settled.</div>
+    <details class="bet-card" id="t-bet_20261116_bkr_9team_open1_jax_lac_hou_chi_det_sf_den_cin_andy_solo">
+  <summary>
+    <div class="card-header"><div class="card-title" title="BKR 9-team longshot parlay with 1 open spot: JAX -6 / LAC ML +201 / HOU -9.5 / CHI ML / DET ML / SF ML / DEN ML / CIN ML / OPEN">BKR 9-team longshot parlay with 1 open spot</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">Bookmaker • Game Parlay (9 legs)</div>
+    <div class="badges"><span class="badge badge-cash">CASH</span><span class="badge badge-id">Ticket # not supplied</span><span class="badge badge-check">check leg</span></div>
+    <div class="badge">Andy SOLO</div>
+    
+    
+    
+    <div class="money-row">
+      <div><small>Stake:</small><b>$15.00</b></div>
+      <div><small>Odds:</small><b class="odds">+7997</b></div>
+      <div><small>To Win:</small><b class="towin">$1,199.50</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:11%"></div></div>
+    <div class="card-line">1 of 9 hit · 8 to go</div>
+  </summary>
+  <div class="card-legs"><div class="leg-item check">
+    <span class="chk" aria-hidden="true">!</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Open Spot (pending pick)</b></div>
+      <div class="leg-meta"><span class="leg-game"></span></div>
+      <div class="prog-row"><span>Needs a hand grade</span><b class="check">game not found on ESPN</b></div>
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Jacksonville Jaguars -6</b></div>
+      <div class="leg-meta"><span class="chip time">1:25 PM PT</span><span class="leg-game">JAX @ NYG</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Houston Texans -9.5</b></div>
+      <div class="leg-meta"><span class="chip time">5:15 PM PT</span><span class="leg-game">IND @ HOU</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Chicago Bears ML</b></div>
+      <div class="leg-meta"><span class="chip time">10:00 AM PT</span><span class="leg-game">NO @ CHI</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Detroit Lions ML</b></div>
+      <div class="leg-meta"><span class="chip time">10:00 AM PT</span><span class="leg-game">TB @ DET</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>San Francisco 49ers ML (Estadio Banorte, Mexico City)</b></div>
+      <div class="leg-meta"><span class="chip time">5:20 PM PT</span><span class="leg-game">MIN @ SF</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Denver Broncos ML</b></div>
+      <div class="leg-meta"><span class="chip time">1:25 PM PT</span><span class="leg-game">LV @ DEN</span></div>
+      
+    </div></div><div class="leg-item pending">
+    <span class="chk" aria-hidden="true"></span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Cincinnati Bengals ML</b></div>
+      <div class="leg-meta"><span class="chip time">5:15 PM PT</span><span class="leg-game">CIN @ WAS</span></div>
+      
+    </div></div><div class="leg-item hit">
+    <span class="chk" aria-hidden="true">✓</span>
+    <div class="leg-body">
+      <div class="leg-name"><b>Los Angeles Chargers ML</b></div>
+      <div class="leg-meta"><span class="leg-game">LAC @ BAL</span></div>
+      <div class="prog-row"><span>Score</span><b class="hit">graded</b></div>
+    </div></div></div>
+</details>
   </div>
-  <details class="paper-wrap" id="paper-section" open>
-  <summary class="slips-h paper-h"><span class="dot purple" aria-hidden="true"></span><span>📝 Imaginary · Platinum AI Card (2 Live)</span><span class="chev" aria-hidden="true">▾</span></summary>
-  <p class="paper-note">Not placed. Kept out of Cash Risk and Potential Win. Paper record so far: 5 cashed, 36 burnt, <b class="burnt">−$269.01</b> paper P&amp;L. Open paper risk $10.00 to win $91.24.</p>
-  <div class="list"><details class="bet-card paper" id="t-paper_w7_card_s3_defense_5_leg_dk_tackles_board">
-  <summary>
-    <div class="card-header"><div class="card-title">S3 Defense 5-Leg (DK tackles board)</div><span class="chev" aria-hidden="true">▾</span></div>
-    <div class="card-subtitle">Paper (DKP card price) • AI Recommendation (5 legs)</div>
-    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7l</span><span class="badge badge-check">check leg</span></div>
-    <div class="money-row">
-      <div><small>Stake:</small><b>$5.00</b></div>
-      <div><small>Odds:</small><b class="odds">—</b></div>
-      <div><small>To Win:</small><b class="towin">$0.00</b></div>
-    </div>
-    <div class="progress-bar-wrap"><div class="progress-fill" style="width:80%"></div></div>
-    <div class="card-line">4 of 5 hit · 1 to go</div>
-  </summary>
-  <div class="card-legs"><div class="leg-item check">
-    <span class="chk" aria-hidden="true">!</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Total sacks, both teams Over 4.5</b></div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Needs a hand grade</span><b class="check">not in final box score (inactive?)</b></div>
-    </div></div><div class="leg-item hit">
-    <span class="chk" aria-hidden="true">✓</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Zack Baun</b> • tackles + assists Over 6.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>9 / 6.5 ✅</b></div>
-      <div class="pbar"><i class="green" style="width:100%"></i></div>
-    </div></div><div class="leg-item hit">
-    <span class="chk" aria-hidden="true">✓</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>DeMarvion Overshown</b> • tackles + assists Over 5.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>6 / 5.5 ✅</b></div>
-      <div class="pbar"><i class="green" style="width:100%"></i></div>
-    </div></div><div class="leg-item hit">
-    <span class="chk" aria-hidden="true">✓</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Cooper DeJean</b> • tackles + assists Over 3.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Stat Progress</span><b>7 / 3.5 ✅</b></div>
-      <div class="pbar"><i class="green" style="width:100%"></i></div>
-    </div></div><div class="leg-item hit">
-    <span class="chk" aria-hidden="true">✓</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Tanner McKee</b> • pass TDs Under 1.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Stat Progress (under)</span><b>1 / 1.5 ✅</b></div>
-      <div class="pbar"><i class="green" style="width:67%"></i></div>
-    </div></div></div>
-</details>
-<details class="bet-card paper" id="t-paper_w7_card_s1_kickers_game_5_leg">
-  <summary>
-    <div class="card-header"><div class="card-title">S1 Kickers' Game 5-Leg</div><span class="chev" aria-hidden="true">▾</span></div>
-    <div class="card-subtitle">Paper (DKP card price) • AI Recommendation (5 legs)</div>
-    <div class="badges"><span class="badge badge-paper">📝 Imaginary</span><span class="badge badge-id">Card §7l</span><span class="badge badge-check">check leg</span></div>
-    <div class="money-row">
-      <div><small>Stake:</small><b>$5.00</b></div>
-      <div><small>Odds:</small><b class="odds">+1825</b></div>
-      <div><small>To Win:</small><b class="towin">$91.24</b></div>
-    </div>
-    <div class="progress-bar-wrap"><div class="progress-fill" style="width:20%"></div></div>
-    <div class="card-line">1 of 5 hit · 4 to go</div>
-  </summary>
-  <div class="card-legs"><div class="leg-item check">
-    <span class="chk" aria-hidden="true">!</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Brandon Aubrey</b> • fantasy points Over 8.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Needs a hand grade</span><b class="check">grade by hand (fantasy_points)</b></div>
-    </div></div><div class="leg-item check">
-    <span class="chk" aria-hidden="true">!</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Jake Elliott</b> • fantasy points Over 6.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Needs a hand grade</span><b class="check">grade by hand (fantasy_points)</b></div>
-    </div></div><div class="leg-item check">
-    <span class="chk" aria-hidden="true">!</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Longest field goal of the game Over 49.5</b></div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Needs a hand grade</span><b class="check">grade by hand (other)</b></div>
-    </div></div><div class="leg-item check">
-    <span class="chk" aria-hidden="true">!</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Total touchdowns, both teams Under 4.5</b></div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Needs a hand grade</span><b class="check">grade by hand (other)</b></div>
-    </div></div><div class="leg-item hit">
-    <span class="chk" aria-hidden="true">✓</span>
-    <div class="leg-body">
-      <div class="leg-name"><b>Tanner McKee</b> • pass TDs Under 1.5</div>
-      <div class="leg-meta"><span class="chip final">Final</span><span class="leg-game">DAL @ PHI</span></div>
-      <div class="prog-row"><span>Stat Progress (under)</span><b>1 / 1.5 ✅</b></div>
-      <div class="pbar"><i class="green" style="width:67%"></i></div>
-    </div></div></div>
-</details></div>
-  <details class="paper-settled" id="paper-settled"><summary>Settled paper tickets (41)</summary><div class="paper-rows"><div class="paper-row"><span class="pr-title">Afternoon Parlay (SNF cap)</span><span class="pr-pl hit">+$84.41</span></div><div class="paper-row"><span class="pr-title">7b Afternoon 4-Leg (night leg last)</span><span class="pr-pl hit">+$70.29</span></div><div class="paper-row"><span class="pr-title">Single · GB@DET Green Bay +3.5</span><span class="pr-pl hit">+$19.42</span></div><div class="paper-row"><span class="pr-title">Single · TB@CAR Over 44.5</span><span class="pr-pl hit">+$18.52</span></div><div class="paper-row"><span class="pr-title">Single · IND@MIN Under 41.5</span><span class="pr-pl hit">+$18.35</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 2 (fresh, diversified)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 3 moonshot (fresh)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">MNF Island Tier 2 (fresh, diversified)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">MNF Island Tier 3 moonshot (fresh)</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">MNF Tier 3 shootout alternative</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">S2 Dallas Supporting Cast 4-Leg</span><span class="pr-pl burnt">−$5.00</span></div><div class="paper-row"><span class="pr-title">Morning Parlay (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Hybrid A (BEO, no Paris game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Hybrid B (BEO, no Paris game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Perfect Lottery 13-Leg (best leg from every game)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Core 7-Leg (highest hit rates, no leg shorter than -200)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Field-Goal Ticket 7-Leg (red-zone stalls vs wind and TD-heavy scripts)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">QB Pressure Ticket 8-Leg (INTs and sacks taken)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">IDP Tackles Ticket 7-Leg (tackles + assists)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7a Morning 6-Leg (early window)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">A Receiving-Yards Core 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">B Plus-Money Ladder 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">C TD Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">D Kicker / Field-Goal Stack 4-Leg (SNF cap)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">E No-DEN/ARI 5-Leg (two per game + SNF cap; Sun 1:10 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">F Diversified No-DEN/ARI 5-Leg (five prop types + SNF cap; Sun 1:12 PM PT, at the direction of Andy)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">SNF Island Tier 1 (fresh)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">MNF Island Tier 1 (fresh)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">MNF Island Tier 1 (BKR-available rebuild)</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">7e Anytime TD 7-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">8a First TD 3-Leg</span><span class="pr-pl burnt">−$10.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Under 39</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · CIN@BAL Under 47</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · KC@SEA Kansas City +3</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ New York Jets -4</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · DEN@ARI Arizona +4.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · KC@SEA KC ML (Kansas City)</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · MIA@NYJ Malik Willis pass TD Under 0.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Single · PIT@NO Aaron Rodgers pass TD Over 1.5</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Dog ML Round Robin (by 2s)</span><span class="pr-pl burnt">−$20.00</span></div><div class="paper-row"><span class="pr-title">Master Round Robin (8 legs by 4s)</span><span class="pr-pl burnt">−$70.00</span></div></div></details>
-</details>
+  
   <footer>
-    <span>Real tickets are listed closest to cashing first. Week 7 so far: 2 real tickets cashed, 37 burnt (hidden). SuperContest is on the desktop tracker.</span>
+    <span>Real tickets are listed closest to cashing first. Week 11 so far: 0 real tickets cashed, 0 burnt (hidden). SuperContest is on the desktop tracker.</span>
     <span>Scores are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
   </footer>
 </main>

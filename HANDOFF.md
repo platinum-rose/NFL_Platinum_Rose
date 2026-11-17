@@ -1,5 +1,11 @@
 # NFL_Dashboard — Current Handoff
 
+## Pick up here — November 16, 2026 20:40 PT: Week 10 MNF final / Week 11 open
+
+Read `handoffs/2026-11-16-2040-claude-w10-mnf-final-settle-next-START-HERE.md` first.
+Branch: claude/w5-prop-cards-2026-10-11. First task: settle the 7 MNF tickets (LAC 23, BAL 20 final),
+then report the final W10 P/L. Live Tracker is built for Week 11. Older entries below.
+
 ## Pick up here — November 2, 2026: Monday / Week 8
 
 Read only handoffs/2026-11-02-week8-monday-resume.md after reconciling live Git

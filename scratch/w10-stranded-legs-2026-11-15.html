@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W10 Stranded-Leg Triage — Sun 11/15</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--line:#262b36;--tx:#e6e8ee;--mut:#8b93a7;
+--dead:#ef4444;--crit:#f97316;--risk:#eab308;--ok:#22c55e;--won:#16a34a;--ale:#a78bfa;--solo:#38bdf8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--mut);margin-bottom:16px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;padding:2px 7px;border-radius:999px;white-space:nowrap}
+.dead{background:#ef444426;color:#fca5a5}.crit{background:#f9731626;color:#fdba74}
+.risk{background:#eab30826;color:#fde047}.ok{background:#22c55e22;color:#86efac}
+.won{background:#16a34a33;color:#bbf7d0}
+.tag-a{background:#a78bfa26;color:#c4b5fd}.tag-s{background:#38bdf826;color:#7dd3fc}
+h2{font-size:17px;margin:28px 0 10px;padding-left:10px;border-left:4px solid}
+h2.a{border-color:var(--ale)}h2.s{border-color:var(--solo)}h2.p{border-color:var(--ok)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.card.a{border-top:3px solid var(--ale)}.card.s{border-top:3px solid var(--solo)}
+.hd{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.tn{font-weight:700}.pay{color:var(--mut);font-size:12px;white-space:nowrap}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:10px 0 4px}
+ul{list-style:none;margin:0;padding:0}
+li{display:flex;gap:8px;align-items:flex-start;padding:3px 0}
+li .chip{flex:none;margin-top:1px}
+.why{color:var(--mut)}
+.strand li{background:#22c55e10;border-radius:6px;padding:4px 6px;margin-bottom:3px}
+.strand .g{color:var(--mut);font-size:12px;margin-left:auto;white-space:nowrap}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--mut)}
+.mini b{color:var(--tx)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);background:#1c2029}
+td.game{font-weight:700;white-space:nowrap}
+tr.gh td{background:#1c2029;color:var(--ok);font-weight:700}
+.warn{color:#fdba74;font-size:12px}
+.notes{margin-top:18px}.notes li{display:list-item;list-style:disc;margin-left:18px;padding:2px 0}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>W10 Stranded-Leg Triage</h1>
+<div class="sub">Snapshot Sun 11/15, ~11:55 AM PT · 10 AM games mid-Q3 · graded from ESPN live box scores (ledger not updated)</div>
+<div class="legend">
+<span class="chip dead">DEAD</span><span class="chip crit">CRITICAL</span><span class="chip risk">AT RISK</span><span class="chip ok">HOLDING</span><span class="chip won">HIT</span>
+<span class="chip ok" style="background:#22c55e10">▶ stranded afternoon / SNF / MNF leg</span>
+</div>
+
+<!-- ================= ALEJANDRO ================= -->
+<h2 class="a">Alejandro split tickets</h2>
+<div class="grid">
+
+<div class="card a">
+ <div class="hd"><span class="tn">DKP 8-pick #60555716</span><span class="pay">$10 → $376</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>Love 230+ pass yds <span class="why">— 91, GB down 0–17, sacked 6×</span></span></li>
+  <li><span class="chip won">HIT</span><span>Cousins 1+ INT · Emmett Johnson ATD</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>CMC 60+ rush yds<span class="g">SF@DAL 1:25</span></li>
+  <li>Q. Lake 6+ tkl+ast<span class="g">LAR@ARI 1:05</span></li>
+  <li>Carson Beck 1+ INT<span class="g">LAR@ARI 1:05</span></li>
+  <li>Dak 2+ pass TD<span class="g">SF@DAL 1:25</span></li>
+  <li>Burrow 2+ pass TD<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+<div class="card a">
+ <div class="hd"><span class="tn">DKP 7-pick #60689102</span><span class="pay">$10 → $946</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>Olave 50+ rec yds <span class="why">— 0 rec, 1 target</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Judkins ATD <span class="why">— 4 car, 16 yds</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Rashee Rice 5+ rec <span class="why">— 3</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Omar Cooper Jr. ATD <span class="why">— no TD</span></span></li>
+  <li><span class="chip won">HIT</span><span>Love 1+ INT</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>Mendoza 1+ pass TD<span class="g">SEA@LV 1:05</span></li>
+  <li>Dak 240+ pass yds<span class="g">SF@DAL 1:25</span></li>
+ </ul>
+</div>
+
+<div class="card a">
+ <div class="hd"><span class="tn">DKP 8-pick #60166483</span><span class="pay">$9.98 → $349</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>Shough 2+ pass TD <span class="why">— 0, NO scoreless</span></span></li>
+  <li><span class="chip risk">RISK</span><span>James Cook 19+ carries <span class="why">— 13</span></span></li>
+  <li><span class="chip won">HIT</span><span>Cousins 1+ pass TD · D. Watson 20+ rush yds</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>JSN ATD<span class="g">SEA@LV 1:05</span></li>
+  <li>Javonte Williams ATD<span class="g">SF@DAL 1:25</span></li>
+  <li>Blake Corum 40+ rush yds<span class="g">LAR@ARI 1:05</span></li>
+  <li>Trey McBride 40+ rec yds<span class="g">LAR@ARI 1:05</span></li>
+ </ul>
+</div>
+
+<div class="card a">
+ <div class="hd"><span class="tn">BKR 6-leg #741845600</span><span class="pay">$10 → $340.47</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip dead">DEAD*</span><span>CAR/NO Over 48 <span class="why">— 7 total, Q3</span></span></li>
+  <li><span class="chip crit">CRIT</span><span>GB −2.5 <span class="why">— down 17</span></span></li>
+  <li><span class="chip risk">RISK</span><span>HOU/CLE Under 41 <span class="why">— 27 already</span></span></li>
+  <li><span class="chip ok">OK</span><span>BUF/NYJ U51.5 (16) · KC −3 (up 11)</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand"><li>CIN ML<span class="g">PIT@CIN SNF</span></li></ul>
+</div>
+
+<div class="card a">
+ <div class="hd"><span class="tn">DKP boosted 5-pick (no # yet)</span><span class="pay">$9.98 → $319.60</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip risk">RISK</span><span>Jonathan Taylor ATD <span class="why">— 9 car, 48 yds, no TD (IND up 14)</span></span></li>
+  <li><span class="chip won">HIT</span><span>Cam Ward 1+ INT</span></li>
+ </ul>
+ <div class="sec">Stranded if Taylor misses</div>
+ <ul class="strand">
+  <li>Blake Corum ATD<span class="g">LAR@ARI 1:05</span></li>
+  <li>Purdy 2+ pass TD<span class="g">SF@DAL 1:25</span></li>
+  <li>Jaylen Warren ATD<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+</div>
+<p class="mini" style="margin-top:10px"><b>Alejandro, nothing to recompile:</b> DKP 6-pick #60103599 (all 10 AM; Concepcion 1 rec and Love 0 TD, nearly dead) · DKP 7-pick #60113104 (all afternoon, untouched) · DKP 5-pick #60135712 (NE@DET, lost: Maye 0 TD).</p>
+
+<!-- ================= SOLO ================= -->
+<h2 class="s">Andy solo tickets</h2>
+<div class="grid">
+
+<div class="card s">
+ <div class="hd"><span class="tn">DKP promo 8-pick #60232674</span><span class="pay">$10 → $946</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>C. Watson 75+ rec yds <span class="why">— 15</span></span></li>
+  <li><span class="chip crit">CRIT</span><span>Bryce Young 240+ pass yds <span class="why">— 106</span></span></li>
+  <li><span class="chip crit">CRIT</span><span>B. Strange 30+ rec yds <span class="why">— 6</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Shakir 44+ rec yds <span class="why">— 13</span></span></li>
+  <li><span class="chip ok">OK</span><span>Dulcich U3.5 rec (0)</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>Charbonnet O65.5 rush yds<span class="g">SEA@LV 1:05</span></li>
+  <li>Kyren U64.5 rush yds<span class="g">LAR@ARI 1:05</span></li>
+  <li>Chase Brown O45.5 rush yds<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">BKR master 8-team #741847132</span><span class="pay">$5 → $678.76</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>MIN/GB Over 40 <span class="why">— 17, needs 24 more</span></span></li>
+  <li><span class="chip risk">RISK</span><span>JAX −11 <span class="why">— up 6</span></span></li>
+  <li><span class="chip ok">OK</span><span>BUF/NYJ U51 · KC ML · MIA/IND O36 (28)</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>LV +6.5<span class="g">SEA@LV 1:05</span></li>
+  <li>SF −4<span class="g">SF@DAL 1:25</span></li>
+  <li>PIT/CIN Under 48.5<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">BEO ATD 8-leg #1015544828</span><span class="pay">$7.65 → $413.10</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip crit">CRIT</span><span>C. Watson ATD <span class="why">— 1 target all game</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Tuten ATD <span class="why">— 12 car, 0 TD</span></span></li>
+  <li><span class="chip risk">RISK</span><span>Bijan ATD <span class="why">— 10 car, 0 TD, ATL down 11</span></span></li>
+  <li><span class="chip won">HIT</span><span>Gibbs ATD · Hubbard ATD</span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand">
+  <li>Javonte Williams ATD<span class="g">SF@DAL 1:25</span></li>
+  <li>Kyren Williams ATD<span class="g">LAR@ARI 1:05</span></li>
+  <li>Ja'Marr Chase ATD<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">BKR 6-leg #741845603 (solo double)</span><span class="pay">$10 → $340.47</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip dead">DEAD*</span><span>CAR/NO Over 48 <span class="why">— 7 total</span></span></li>
+  <li><span class="chip crit">CRIT</span><span>GB −2.5 <span class="why">— down 17</span></span></li>
+  <li><span class="chip risk">RISK</span><span>HOU/CLE Under 41 <span class="why">— 27</span></span></li>
+ </ul>
+ <div class="sec">Stranded</div>
+ <ul class="strand"><li>CIN ML<span class="g">PIT@CIN SNF</span></li></ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">BKR SC 5-team #741847526</span><span class="pay">$20 → $420.41</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip risk">RISK</span><span>BUF −7 <span class="why">— up 4</span></span></li>
+  <li><span class="chip risk">RISK</span><span>JAX −10.5 <span class="why">— up 6</span></span></li>
+  <li><span class="chip ok">OK</span><span>IND −3 (up 14) · KC −3 (up 11)</span></li>
+ </ul>
+ <div class="sec">Stranded if BUF or JAX misses</div>
+ <ul class="strand"><li>SF −4<span class="g">SF@DAL 1:25</span></li></ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">BKR SGP+ 8-leg #741849069</span><span class="pay">$8 → $517.69</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip risk">RISK</span><span>Rashee Rice ATD <span class="why">— 3 rec, 0 TD</span></span></li>
+  <li><span class="chip risk">RISK</span><span>BUF ML <span class="why">— up 10–6</span></span></li>
+  <li><span class="chip ok">OK</span><span>KC ML (up 11)</span></li>
+  <li><span class="chip won">HIT</span><span>Hubbard ATD · Cam Ward 1+ INT</span></li>
+ </ul>
+ <div class="sec">Stranded if Rice or BUF misses</div>
+ <ul class="strand">
+  <li>SF ML<span class="g">SF@DAL 1:25</span></li>
+  <li>CeeDee Lamb ATD<span class="g">SF@DAL 1:25</span></li>
+  <li>PIT/CIN Over 46.5<span class="g">PIT@CIN SNF</span></li>
+ </ul>
+</div>
+
+<div class="card s">
+ <div class="hd"><span class="tn">DKP first-TD 3-pick (no # yet)</span><span class="pay">$10 → $1,322</span></div>
+ <div class="sec">Burning (10 AM)</div>
+ <ul>
+  <li><span class="chip dead">DEAD</span><span>James Cook first TD <span class="why">— Josh Allen scored BUF's first TD</span></span></li>
+  <li><span class="chip won">HIT</span><span>Hubbard first TD</span></li>
+ </ul>
+ <div class="sec">Already stranded</div>
+ <ul class="strand"><li>Derrick Henry first TD<span class="g">LAC@BAL MNF</span></li></ul>
+</div>
+
+</div>
+<p class="mini" style="margin-top:10px"><b>Solo, nothing to recompile:</b> BKR 5-leg props #741848628 (lost: Nico Collins U4.5 rec, has 8) · BEO NE@DET 4-leg #1015545207 (lost) · BKR teaser #741848843 (lost: NE +8.5 in a 35–10 loss) · singles: GB −3 #1014724720 (down 17), NYJ +9 #1015546951 (covering). Round robins #741847133 (4s) and #741847525 (2s) lose only the combos with dead legs, so they strand nothing outright.</p>
+
+<!-- ================= POOL ================= -->
+<h2 class="p">Recompile pool: stranded legs by game</h2>
+<table>
+<thead><tr><th>Leg</th><th>Stranded on</th><th>Owner</th><th>Note</th></tr></thead>
+<tbody>
+<tr class="gh"><td colspan="4">SEA @ LV · 1:05 PM</td></tr>
+<tr><td>Charbonnet O65.5 rush yds</td><td>DKP 60232674</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+<tr><td>JSN ATD</td><td>DKP 60166483</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Mendoza 1+ pass TD</td><td>DKP 60689102</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>LV +6.5</td><td>BKR 741847132</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+
+<tr class="gh"><td colspan="4">LAR @ ARI · 1:05 PM</td></tr>
+<tr><td>Kyren Williams ATD</td><td>BEO 1015544828</td><td><span class="chip tag-s">SOLO</span></td><td class="warn">⚠ conflicts with Kyren U64.5: keep them on separate slips</td></tr>
+<tr><td>Kyren Williams U64.5 rush yds</td><td>DKP 60232674</td><td><span class="chip tag-s">SOLO</span></td><td class="warn">⚠ see above</td></tr>
+<tr><td>Blake Corum 40+ rush yds</td><td>DKP 60166483</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Blake Corum ATD</td><td>DKP boosted 5-pick (if Taylor misses)</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Trey McBride 40+ rec yds</td><td>DKP 60166483</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Quentin Lake 6+ tkl+ast</td><td>DKP 60555716</td><td><span class="chip tag-a">ALE</span></td><td>Tackles: 62% season hit rate</td></tr>
+<tr><td>Carson Beck 1+ INT</td><td>DKP 60555716</td><td><span class="chip tag-a">ALE</span></td><td>QB INT: 70% season hit rate</td></tr>
+
+<tr class="gh"><td colspan="4">SF @ DAL · 1:25 PM</td></tr>
+<tr><td>Javonte Williams ATD</td><td>DKP 60166483 · BEO 1015544828</td><td><span class="chip tag-a">ALE</span> <span class="chip tag-s">SOLO</span></td><td>On 2 tickets</td></tr>
+<tr><td>CMC 60+ rush yds</td><td>DKP 60555716</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Dak 2+ pass TD</td><td>DKP 60555716</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Dak 240+ pass yds</td><td>DKP 60689102</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Purdy 2+ pass TD</td><td>DKP boosted 5-pick (if Taylor misses)</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>SF −4</td><td>BKR 741847132 · BKR 741847526 (if BUF/JAX miss)</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+<tr><td>SF ML · CeeDee Lamb ATD</td><td>BKR SGP+ 741849069 (if Rice/BUF miss)</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+
+<tr class="gh"><td colspan="4">PIT @ CIN · SNF 5:20 PM</td></tr>
+<tr><td>CIN ML</td><td>BKR 741845600 · BKR 741845603</td><td><span class="chip tag-a">ALE</span> <span class="chip tag-s">SOLO</span></td><td>On 2 tickets</td></tr>
+<tr><td>Chase Brown O45.5 rush yds</td><td>DKP 60232674</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+<tr><td>Burrow 2+ pass TD</td><td>DKP 60555716</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>Ja'Marr Chase ATD</td><td>BEO 1015544828</td><td><span class="chip tag-s">SOLO</span></td><td></td></tr>
+<tr><td>Jaylen Warren ATD</td><td>DKP boosted 5-pick (if Taylor misses)</td><td><span class="chip tag-a">ALE</span></td><td></td></tr>
+<tr><td>PIT/CIN Under 48.5</td><td>BKR 741847132</td><td><span class="chip tag-s">SOLO</span></td><td class="warn">⚠ SGP+ still holds Over 46.5: don't stack the Under while that's alive</td></tr>
+
+<tr class="gh"><td colspan="4">LAC @ BAL · MNF 5:15 PM Mon</td></tr>
+<tr><td>Derrick Henry first TD</td><td>DKP first-TD 3-pick (already dead)</td><td><span class="chip tag-s">SOLO</span></td><td>Consider re-entering as anytime TD</td></tr>
+</tbody>
+</table>
+
+<ul class="notes mini">
+<li>* "DEAD*" = mathematically alive but practically gone (CAR/NO needs 42 more points in ~25 minutes).</li>
+<li>Legs marked ALE came off Alejandro split tickets: decide split vs. solo for each new slip before placing.</li>
+<li>Ledger statuses are untouched (still PENDING); final settlement happens after the games.</li>
+</ul>
+
+</div></body></html>

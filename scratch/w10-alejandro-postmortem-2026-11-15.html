@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 10 Post-Mortem — Alejandro Splits</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--line:#262b36;--tx:#e6e8ee;--mut:#8b93a7;--won:#22c55e;--lost:#ef4444;--acc:#a78bfa;--warn:#f59e0b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:24px;margin:0 0 4px}
+h2{font-size:18px;margin:34px 0 10px;padding-left:10px;border-left:4px solid var(--acc)}
+h3{font-size:15px;margin:18px 0 6px}
+.sub{color:var(--mut)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi .v{font-size:24px;font-weight:700}.kpi .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.callout{background:#a78bfa14;border:1px solid #a78bfa55;border-radius:10px;padding:12px 16px;margin:14px 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:8px 0}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);background:#1c2029}
+td.n{text-align:right;white-space:nowrap}
+.good{color:#86efac;font-weight:600}.bad{color:#fca5a5;font-weight:600}.mut{color:var(--mut)}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;margin:1px 2px 1px 0;white-space:nowrap}
+.w{background:#22c55e22;color:#86efac}.x{background:#ef444426;color:#fca5a5}
+.bar{height:8px;border-radius:4px;background:#262b36;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--won)}
+ol li,ul li{margin:6px 0}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.tier b.t{color:var(--acc)}
+.small{font-size:12px}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Week 10 Post-Mortem: Alejandro Splits</h1>
+<div class="sub">Sunday 11/15 slate + SNF (PIT @ CIN, final CIN 38–18). Graded from ESPN final box scores. Prepared by Claude for Andy &amp; Alejandro.</div>
+
+<div class="kpis">
+ <div class="kpi"><div class="l">Split tickets</div><div class="v">10</div></div>
+ <div class="kpi"><div class="l">Tickets cashed</div><div class="v bad">0</div></div>
+ <div class="kpi"><div class="l">Legs hit</div><div class="v">37–28 <span class="small mut">(57%)</span></div></div>
+ <div class="kpi"><div class="l">Alejandro's share</div><div class="v bad">−$49.95</div></div>
+</div>
+
+<div class="callout"><b>Bottom line:</b> the picks were about as good as the AI's (57% vs 58% of legs hit). The losses came from <b>ticket structure</b>: every split was a 5–8 leg combo, so even a solid hit rate almost never gets all legs home. Several tickets also shared the same failing legs.</div>
+
+<h2>1. Why 57% of legs won but 0 tickets cashed</h2>
+<p>If each leg wins about 57% of the time, the chance that <i>every</i> leg wins drops fast as legs are added:</p>
+<table>
+<tr><th>Legs on ticket</th><th class="n">Chance all hit</th><th>Roughly</th></tr>
+<tr><td>3</td><td class="n">18.5%</td><td>1 in 5</td></tr>
+<tr><td>4</td><td class="n">10.6%</td><td>1 in 9</td></tr>
+<tr><td>5</td><td class="n">6.0%</td><td>1 in 17</td></tr>
+<tr><td>6</td><td class="n">3.4%</td><td>1 in 29</td></tr>
+<tr><td>7</td><td class="n">2.0%</td><td>1 in 51</td></tr>
+<tr><td>8</td><td class="n">1.1%</td><td>1 in 90</td></tr>
+</table>
+<p class="mut">Our ten splits averaged 6.5 legs. Going 0-for-10 is the expected result, not bad luck. These tickets are lottery tickets, and that's fine at $10, but we had no shorter "core" ticket that could actually cash.</p>
+
+<h2>2. How the categories did</h2>
+<table>
+<tr><th>Market type</th><th>Alejandro splits</th><th>AI Master-Intel picks</th><th>Takeaway</th></tr>
+<tr><td>QB interceptions</td><td class="good">5–1 (83%)</td><td class="mut">—</td><td>Best category again. Season-long it's ~70%.</td></tr>
+<tr><td>Rushing yards / carries</td><td class="good">5–1 (83%)</td><td>6–5 (55%)</td><td>Strong. Several near misses by 1–6 yards.</td></tr>
+<tr><td>Game lines (sides / totals)</td><td>3–3 (50%)</td><td class="good">13–3 (81%)</td><td>The AI's strongest area. Use more of these.</td></tr>
+<tr><td>Receiving</td><td>6–4 (60%)</td><td class="bad">4–10 (29%)</td><td>WR yardage overs were the worst bet type of the week overall.</td></tr>
+<tr><td>QB pass TDs</td><td>6–5 (55%)</td><td class="good">2–0</td><td>Mendoza 1+ TD (0) sank two tickets.</td></tr>
+<tr><td>Anytime TD</td><td>11–10 (52%)</td><td>4–3</td><td>Fine on its own, but too many per ticket.</td></tr>
+<tr><td>Tackles</td><td class="bad">0–2</td><td class="mut">—</td><td>Quentin Lake had 2 vs a 6+ line (LAR won 34–6).</td></tr>
+</table>
+
+<h2>3. Ticket by ticket</h2>
+<table>
+<tr><th>Ticket</th><th class="n">Cost → Pays</th><th>Legs hit</th><th>What killed it</th></tr>
+<tr><td>DKP 8-pick #60555716</td><td class="n">$10 → $376</td><td>6 / 8</td><td><span class="chip x">Lake 6+ tkl (2)</span><span class="chip x">Love 230+ yds (220)</span></td></tr>
+<tr><td>DKP 6-pick #60847585</td><td class="n">$9.98 → $330</td><td>4 / 6</td><td><span class="chip x">Lake 6+ tkl (2)</span><span class="chip x">Mendoza 1+ TD (0)</span></td></tr>
+<tr><td>DKP 7-pick #60689102</td><td class="n">$10 → $946</td><td>4 / 7</td><td><span class="chip x">Mendoza 1+ TD (0)</span><span class="chip x">Olave 50+ (30)</span><span class="chip x">O. Cooper ATD</span></td></tr>
+<tr><td>DKP 7-pick #60113104</td><td class="n">$9.97 → $283</td><td>4 / 7</td><td><span class="chip x">Mendoza 1+ INT (0)</span><span class="chip x">Charbonnet ATD</span><span class="chip x">Kyren ATD</span></td></tr>
+<tr><td>DKP 8-pick #60166483</td><td class="n">$9.98 → $349</td><td>4 / 8</td><td><span class="chip x">Shough 2+ TD (1)</span><span class="chip x">Cook 19+ car (18)</span><span class="chip x">Javonte ATD</span><span class="chip x">McBride 40+ (37)</span></td></tr>
+<tr><td>DKP 6-pick #60103599</td><td class="n">$10 → $169</td><td>3 / 6</td><td><span class="chip x">Concepcion 5+ rec (3)</span><span class="chip x">Love 2+ TD (1)</span><span class="chip x">Geno 200+ (148)</span></td></tr>
+<tr><td>DKP 5-pick #60135712</td><td class="n">$10 → $98</td><td>3 / 5</td><td><span class="chip x">Maye 2+ TD (0)</span><span class="chip x">H. Henry 4+ rec (2)</span></td></tr>
+<tr><td>DKP boosted 5-pick</td><td class="n">$9.98 → $319.60</td><td>3 / 5</td><td><span class="chip x">J. Taylor ATD</span><span class="chip x">J. Warren ATD</span></td></tr>
+<tr><td>DKP 7-pick #60873248</td><td class="n">$9.99 → $586</td><td>3 / 7</td><td><span class="chip x">Kyren ATD</span><span class="chip x">Higgins ATD</span><span class="chip x">Javonte ATD</span><span class="chip x">Charbonnet ATD</span></td></tr>
+<tr><td>BKR 6-leg #741845600</td><td class="n">$10 → $340.47</td><td>3 / 6</td><td><span class="chip x">HOU/CLE U41 (51)</span><span class="chip x">CAR/NO O48 (37)</span><span class="chip x">GB −2.5 (lost by 20)</span></td></tr>
+</table>
+
+<h3>Same leg, multiple tickets</h3>
+<ul>
+ <li><b>Quentin Lake 6+ tackles</b> sank 2 tickets, including our best one (6 of 8 hit).</li>
+ <li><b>Mendoza</b> (0 pass TDs, 0 INTs) sank 3 tickets.</li>
+ <li><b>Kyren, Javonte and Charbonnet ATDs</b> each failed on 2 tickets.</li>
+</ul>
+
+<h3>Near misses</h3>
+<ul>
+ <li>Love 220 pass yds (needed 230)</li>
+ <li>James Cook 18 carries (needed 19)</li>
+ <li>McBride 37 rec yds (needed 40)</li>
+</ul>
+<p class="mut">One notch lower on the milestone (DKP offers every 10 yards / every carry) would have turned several of these around.</p>
+
+<h2>4. MNF recommendations: LAC @ BAL (Mon 5:15 PM PT)</h2>
+<p class="mut small">Built on the lessons above: fewer receiving overs, more game lines and rushing, and no leg on more than two tickets. Prices are from Sunday morning; we'll re-check inactives (LAC Njoku and McConkey questionable, BAL QB) and refresh prices around 3:50 PM PT Monday before anything is placed.</p>
+
+<div class="tier"><b class="t">Tier 1 · $10 · ~+878 (4 legs)</b>
+<ul><li>BAL −4.5 (−104)</li><li>Derrick Henry 70+ rush yds (−163)</li><li>Justin Herbert 20+ rush yds (−117): he scrambles when trailing</li><li>LAC team total Under 18.5 (−150)</li></ul></div>
+
+<div class="tier"><b class="t">Tier 2 · $5 · ~+2,700</b>
+<ul><li>Roquan Smith 8+ tackles + assists (−150): the tackle model has a small edge</li><li>Omarion Hampton 30+ rush yds (−127)</li><li>Keaton Mitchell over 10.5 rush yds (−117)</li><li>Riley Patterson 2+ FG (−163)</li><li>Game Under 39.5 (−113)</li><li>Mark Andrews 2+ receptions (−150)</li></ul></div>
+
+<div class="tier"><b class="t">Tier 3 Moonshot · $5 · ~+7,270</b> <span class="mut small">Theme: Henry grinds out a low-scoring Ravens win</span>
+<ul><li>Henry 100+ rush yds (+203)</li><li>Henry 2+ TDs (~+506, price to verify)</li><li>Roquan Smith 9+ tackles + assists (+113)</li><li>Game Under 39.5 (−113)</li></ul></div>
+
+<p class="mut small">Dropped from the original AI card: Flowers 50+/100+ rec yds, Bateman 25+, Lane 20+, Hill/Mitchell receptions and Brissett yardage/TDs. If DKP posts a QB interception market for this game, it's the first leg to add.</p>
+
+<h2>5. Going forward: rest of the regular season</h2>
+<ol>
+ <li><b>Add a core split every week.</b> Make one 3–4 leg split at roughly +300 to +600, built only from our strongest categories: QB INTs, game lines, rushing, and tackles where the model shows volume. Keep the 6–8 leg combos as small lottery tickets on the side.</li>
+ <li><b>Cap exposure.</b> No player-and-market on more than two tickets in a week, so one bad leg can't sink four tickets.</li>
+ <li><b>Shift the mix.</b> Fewer WR yardage overs and committee-back ATDs. More QB INTs, sides and totals, and lead-back rushing.</li>
+ <li><b>Buy one notch lower</b> on rushing and carries milestones when the price difference is small. This week that would have flipped several near misses.</li>
+ <li><b>Watch blowout risk on tackles.</b> Avoid tackle overs for defenders on big favorites (Lake on LAR −9.5): the other offense runs fewer plays.</li>
+ <li><b>Track it weekly.</b> We'll add an "Alejandro vs AI vs Andy" category table to each week's settlement, so these patterns get tested over more than one week.</li>
+</ol>
+
+<p class="mut small" style="margin-top:28px">One week is a small sample; treat these as working rules, not laws. Results graded from ESPN box scores on 11/15. Official settlement happens after MNF.</p>
+</div></body></html>
