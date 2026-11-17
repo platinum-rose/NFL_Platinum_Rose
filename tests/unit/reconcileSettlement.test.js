@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { gradeLeg as gradeSettlementLeg } from '../../scripts/reconcile-settlement.mjs';
+import { settlementCommands } from '../../scripts/reconcile-settlement.mjs';
 
 describe('reconcile-settlement unit logic', () => {
   // Test helper replicating grading math
@@ -99,36 +99,17 @@ describe('reconcile-settlement unit logic', () => {
     expect(split.netBalance).toBe(20.00);
     expect(split.summary).toBe('Andy owes Alejandro $20.00');
   });
-
-  it('does not grade a game that ESPN has not marked final', () => {
-    const leg = { market: 'moneyline', team: 'PHI', selection: 'Philadelphia Eagles ML' };
-    const box = { completed: false, awayTeam: 'PHI', homeTeam: 'CHI', awayScore: 0, homeScore: 0 };
-    expect(gradeSettlementLeg(leg, box)).toEqual({ status: 'PENDING', actual: null });
-  });
-
-  it('grades a completed PHI @ CHI spread without any Week 1 mapping', () => {
-    const leg = { market: 'spread', team: 'PHI', line: -3, selection: 'PHI -3' };
-    const box = { completed: true, awayTeam: 'PHI', homeTeam: 'CHI', awayScore: 24, homeScore: 20 };
-    expect(gradeSettlementLeg(leg, box)).toEqual({ status: 'WON', actual: '+4' });
-  });
 });
 
-describe('reconcile-settlement: real grader edge cases (Week 4 2026 regressions)', () => {
-  const box = {
-    completed: true, homeTeam: 'SF', awayTeam: 'DEN', homeScore: 24, awayScore: 14, totalPoints: 38,
-    players: {
-      'Deebo Samuel Sr.': { rushing: ['1', '44', '44', '0', '44'], receiving: ['5', '26', '5.2', '1', '10'] },
-      'Malik Willis': { passing: ['14/22', '85', '3.9', '0', '0'] },
-    },
-  };
-  it('matches a ledger name without the ESPN suffix (Deebo Samuel -> Deebo Samuel Sr.)', () => {
-    const g = gradeSettlementLeg({ market: 'anytime_touchdown', player: 'Deebo Samuel', line: 0.5 }, box);
-    expect(g.status).toBe('WON');
-    expect(g.actual).toBe(1);
+describe('reconcile-settlement delegates to the one grader (Andy 2026-11-17)', () => {
+  it('grades with the mobile tracker, then settles from its state', () => {
+    const { tracker, settle } = settlementCommands({ week: 11, dryRun: true, root: '/repo' });
+    expect(tracker[1][0].replace(/\\/g, '/')).toMatch(/scripts\/generate-live-tracker-mobile\.mjs$/);
+    expect(tracker[1]).toEqual(expect.arrayContaining(['--week', '11']));
+    expect(settle[1][0].replace(/\\/g, '/')).toMatch(/scripts\/settle_from_mobile_state\.py$/);
+    expect(settle[1]).not.toContain('--apply');
   });
-  it('grades pass_interceptions instead of leaving it pending', () => {
-    const g = gradeSettlementLeg({ market: 'pass_interceptions', player: 'Malik Willis', line: 0.5 }, box);
-    expect(g.status).toBe('LOST');
-    expect(g.actual).toBe(0);
+  it('only passes --apply when not a dry run', () => {
+    expect(settlementCommands({ week: 11, dryRun: false, root: '/repo' }).settle[1]).toContain('--apply');
   });
 });

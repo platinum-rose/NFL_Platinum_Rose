@@ -195,6 +195,7 @@ const MARKET_STAT = {
   tackles_assists: 'tackles_assists', pass_interceptions: 'pass_interceptions', interceptions_thrown: 'pass_interceptions',
   interceptions: 'pass_interceptions',
   tackles_combined: 'tackles_assists', kicker_points: 'kicking_points',
+  rushing_attempts: 'carries', rush_attempts: 'carries',
 };
 const STAT_LABEL = {
   receptions: 'rec', receiving_yards: 'rec yds', rushing_yards: 'rush yds', carries: 'carries', passing_yards: 'pass yds',
@@ -267,7 +268,7 @@ async function gradeLeg(leg, events) {
   const out = { eventId: ev.id };
   if (ev.state === 'pre') return { ...out, status: 'PENDING', now: kickoffPT(ev.date), locked: false };
   const final = ev.completed;
-  const market = String(leg.market || '').replace(/^sgp_/, '').replace(/^alternate_/, '');
+  const market = String(leg.market || '').replace(/^sgp_/, '').replace(/^alternate_/, '').replace(/^(first_td|first_touchdown_scorer)$/, 'first_touchdown');
   const sel = String(leg.selection || '');
   const total = ev.awayScore + ev.homeScore;
 

@@ -35,6 +35,8 @@ state = json.loads(STATE.read_text(encoding="utf-8"))
 built = datetime.fromisoformat(state["built_at"].replace("Z", "+00:00"))
 built_pt = built.astimezone(ZoneInfo("America/Los_Angeles")).strftime("%Y-%m-%d %H:%M PT")
 by_no = {str(w.get("ticket_number")): w for w in wagers}
+# Match on ticket id first: ticket_number repeats ("pending-not-supplied") on hand-logged tickets.
+by_id = {w.get("id"): w for w in wagers if w.get("id")}
 changed = []
 
 for t in state["tickets"]:
@@ -43,7 +45,7 @@ for t in state["tickets"]:
         continue
     if t["state"] not in ("burnt", "cashed"):
         continue
-    w = by_no.get(no)
+    w = by_id.get(t.get("id")) or by_no.get(no)
     if not w or str(w.get("status")).upper() != "PENDING":
         continue
     legs = t["legs"]
@@ -65,7 +67,9 @@ for t in state["tickets"]:
         result = "win" if profit > 0 else "push" if profit == 0 else "loss"
         payout = round(returned, 2)
     elif t["state"] == "burnt":
-        profit, result, payout = -stake, "loss", 0
+        # Promo/free-bet credit is not real money: the ledger books those losses at $0 (58 of 58 so far).
+        promo = w.get("funding_type") in ("promo_credit", "free_bet") or bool(w.get("is_promo_credit"))
+        profit, result, payout = (0.0 if promo else -stake), "loss", 0
     else:
         profit = float(w.get("potential_profit_usd") or 0)
         result, payout = "win", round(stake + profit, 2)
@@ -94,7 +98,7 @@ for t in state["tickets"]:
     print(f"{'APPLY' if a.apply else 'DRY  '} {no} {result} {profit:+.2f}  {note}")
 
 if a.apply and changed:
-    WAGERS.write_text(json.dumps(wagers, indent=2, ensure_ascii=False), encoding="utf-8")
+    WAGERS.write_text(json.dumps(wagers, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"wrote {len(changed)} settlement(s) to {WAGERS.relative_to(ROOT)}")
 elif not changed:
     print("nothing to settle")

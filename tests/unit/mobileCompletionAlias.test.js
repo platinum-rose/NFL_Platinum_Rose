@@ -5,7 +5,8 @@ import { describe, expect, it } from 'vitest';
 const source = readFileSync(new URL('../../scripts/generate-live-tracker-mobile.mjs', import.meta.url), 'utf8');
 const numericHelpers = [source.match(/^const num = .*$/m)[0], source.match(/^const frac = .*$/m)[0]].join('\n');
 const stats = source.slice(source.indexOf('const STAT ='), source.indexOf('// ---------- grading'));
-const grader = source.slice(source.indexOf('async function gradeLeg('), source.indexOf('\nconst legTeams'));
+// legHalf/halfView (1H/2H grading, 2f97b86d) sit between findEvent and gradeLeg; the fixtures mock findEvent.
+const grader = source.slice(source.indexOf('const HALF_RE'), source.indexOf('\nconst legTeams'));
 
 describe('mobile legacy completion labels during a live game', () => {
   it.each(['pass_completions', 'completions'])('grades %s with target_stat completions from the QB completion count', async (market) => {
