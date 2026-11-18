@@ -1,0 +1,3443 @@
+{
+  "schema": "pickem_pool_capture_v1",
+  "pool_id": "simplysportsware",
+  "pool_name": "the duma 2",
+  "platform": "SimplySportsware",
+  "entry_name": "Fat Lazy American",
+  "url": "https://www.simplysportsware.com/pool-home",
+  "pages": {
+    "my_picks": "MyPicks.aspx?view=1",
+    "standings": "Standings.aspx?nfl=1",
+    "weekly_breakdown": "WeeklyBreakdown.aspx"
+  },
+  "week": 10,
+  "season": 2026,
+  "captured_at": "2026-11-17T08:10:00-08:00",
+  "captured_by": "Claude Team 2 via the desktop browser pane (read-only pages only; Andy signed in as 'Fat Lazy American')",
+  "entrants": 93,
+  "scoring": "confidence (17 - N)..16 (Week 10: 14 games, 3-16, max 133); Lost = confidence points on missed picks",
+  "andy": {
+    "week10": {
+      "pts": 98,
+      "lost": 35,
+      "max": 133,
+      "wins": 10,
+      "losses": 4,
+      "rank_row": 46,
+      "of": 93,
+      "note": "Week 10: 14 games, confidence 3-16 (max 133). Misses: NYG 4, HOU 11, GB 8, BAL 12 (lost 35). 6 entries tied at 98 (rows 43-48, incl. Fredzone)."
+    },
+    "season": {
+      "pts": 936.5,
+      "lost": 393.5,
+      "wins": 101,
+      "losses": 47,
+      "ties": 1,
+      "pct": 68.12,
+      "rank_row": 19,
+      "site_rank_header": 19,
+      "prev_rank": 18,
+      "by_week": {
+        "1": 95,
+        "2": 85,
+        "3": 75,
+        "4": 91,
+        "5": 83.5,
+        "6": 80,
+        "7": 90,
+        "8": 104,
+        "9": 135,
+        "10": 98
+      }
+    },
+    "rolling_7_10": {
+      "pts": 427,
+      "rank": 6,
+      "leader": "Robo53 457",
+      "second": "Tahopeful 445",
+      "third": "Fredzone 444 / Dr Zod 444 (tied)",
+      "note": "Computed from WeeklyBreakdown weeks 7-10 (Quattro = sum of 4 weeks; pays 1st-3rd). Not read from a site page."
+    },
+    "picks": [
+      {
+        "game": "WSH@NYG",
+        "pick": "NYG",
+        "confidence": 4,
+        "line": "NYG -2",
+        "winner": "WSH",
+        "correct": false
+      },
+      {
+        "game": "NE@DET",
+        "pick": "DET",
+        "confidence": 5,
+        "line": "DET -2.5",
+        "winner": "DET",
+        "correct": true
+      },
+      {
+        "game": "BUF@NYJ",
+        "pick": "BUF",
+        "confidence": 14,
+        "line": "BUF -8",
+        "winner": "BUF",
+        "correct": true
+      },
+      {
+        "game": "MIA@IND",
+        "pick": "IND",
+        "confidence": 6,
+        "line": "IND -2.5",
+        "winner": "IND",
+        "correct": true
+      },
+      {
+        "game": "HOU@CLE",
+        "pick": "HOU",
+        "confidence": 11,
+        "line": "HOU -5",
+        "winner": "CLE",
+        "correct": false
+      },
+      {
+        "game": "JAX@TEN",
+        "pick": "JAX",
+        "confidence": 16,
+        "line": "JAX -10.5",
+        "winner": "JAX",
+        "correct": true
+      },
+      {
+        "game": "KC@ATL",
+        "pick": "KC",
+        "confidence": 7,
+        "line": "KC -3",
+        "winner": "KC",
+        "correct": true
+      },
+      {
+        "game": "MIN@GB",
+        "pick": "GB",
+        "confidence": 8,
+        "line": "GB -4.5",
+        "winner": "MIN",
+        "correct": false
+      },
+      {
+        "game": "CAR@NO",
+        "pick": "CAR",
+        "confidence": 3,
+        "line": "NO -1",
+        "winner": "CAR",
+        "correct": true
+      },
+      {
+        "game": "SEA@LV",
+        "pick": "SEA",
+        "confidence": 13,
+        "line": "SEA -3.5",
+        "winner": "SEA",
+        "correct": true
+      },
+      {
+        "game": "LAR@ARI",
+        "pick": "LAR",
+        "confidence": 15,
+        "line": "LAR -9.5",
+        "winner": "LAR",
+        "correct": true
+      },
+      {
+        "game": "SF@DAL",
+        "pick": "SF",
+        "confidence": 10,
+        "line": "SF -4",
+        "winner": "SF",
+        "correct": true
+      },
+      {
+        "game": "PIT@CIN",
+        "pick": "CIN",
+        "confidence": 9,
+        "line": "CIN -3.5",
+        "winner": "CIN",
+        "correct": true
+      },
+      {
+        "game": "LAC@BAL",
+        "pick": "BAL",
+        "confidence": 12,
+        "line": "BAL -5",
+        "winner": "LAC",
+        "correct": false
+      }
+    ]
+  },
+  "leaders": {
+    "season": "BrockTua 975.5",
+    "week10": "NowInOakland 127 (13-1); Cobra Kai 15 120 second"
+  },
+  "overall_standings": [
+    {
+      "row": 1,
+      "name": "BrockTua",
+      "pts": 975.5,
+      "lost": 354.5,
+      "w": 106,
+      "l": 42,
+      "t": 1,
+      "pct": 71.48,
+      "prev_rank": 1
+    },
+    {
+      "row": 2,
+      "name": "Bearnecessity",
+      "pts": 971,
+      "lost": 375,
+      "w": 102,
+      "l": 47,
+      "t": 1,
+      "pct": 68.33,
+      "prev_rank": 4
+    },
+    {
+      "row": 3,
+      "name": "Lightning Bolts Are Coming",
+      "pts": 963.5,
+      "lost": 382.5,
+      "w": 97,
+      "l": 52,
+      "t": 1,
+      "pct": 65.0,
+      "prev_rank": 5
+    },
+    {
+      "row": 4,
+      "name": "Fredzone",
+      "pts": 962.5,
+      "lost": 383.5,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 3
+    },
+    {
+      "row": 5,
+      "name": "Fangirl",
+      "pts": 959,
+      "lost": 387,
+      "w": 102,
+      "l": 47,
+      "t": 1,
+      "pct": 68.33,
+      "prev_rank": 2
+    },
+    {
+      "row": 6,
+      "name": "adsch33",
+      "pts": 953.5,
+      "lost": 392.5,
+      "w": 101,
+      "l": 48,
+      "t": 1,
+      "pct": 67.67,
+      "prev_rank": 6
+    },
+    {
+      "row": 7,
+      "name": "Tahopeful",
+      "pts": 952,
+      "lost": 394,
+      "w": 103,
+      "l": 46,
+      "t": 1,
+      "pct": 69.0,
+      "prev_rank": 20
+    },
+    {
+      "row": 8,
+      "name": "FLYING ELVII",
+      "pts": 950.5,
+      "lost": 395.5,
+      "w": 97,
+      "l": 52,
+      "t": 1,
+      "pct": 65.0,
+      "prev_rank": 6
+    },
+    {
+      "row": 9,
+      "name": "NotWavehog",
+      "pts": 948.5,
+      "lost": 397.5,
+      "w": 101,
+      "l": 48,
+      "t": 1,
+      "pct": 67.67,
+      "prev_rank": 8
+    },
+    {
+      "row": 10,
+      "name": "Rayguns",
+      "pts": 948,
+      "lost": 398,
+      "w": 98,
+      "l": 51,
+      "t": 1,
+      "pct": 65.67,
+      "prev_rank": 15
+    },
+    {
+      "row": 11,
+      "name": "sklnews",
+      "pts": 946.5,
+      "lost": 399.5,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 12
+    },
+    {
+      "row": 12,
+      "name": "Deb N Air",
+      "pts": 943,
+      "lost": 403,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 17
+    },
+    {
+      "row": 13,
+      "name": "Hijo y Hanna",
+      "pts": 943,
+      "lost": 403,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 14
+    },
+    {
+      "row": 14,
+      "name": "NowInOakland",
+      "pts": 943,
+      "lost": 403,
+      "w": 98,
+      "l": 51,
+      "t": 1,
+      "pct": 65.67,
+      "prev_rank": 36
+    },
+    {
+      "row": 15,
+      "name": "Robo53",
+      "pts": 942,
+      "lost": 404,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 27
+    },
+    {
+      "row": 16,
+      "name": "the spread",
+      "pts": 942,
+      "lost": 404,
+      "w": 99,
+      "l": 50,
+      "t": 1,
+      "pct": 66.33,
+      "prev_rank": 9
+    },
+    {
+      "row": 17,
+      "name": "LadyDiamond",
+      "pts": 940,
+      "lost": 406,
+      "w": 102,
+      "l": 47,
+      "t": 1,
+      "pct": 68.33,
+      "prev_rank": 10
+    },
+    {
+      "row": 18,
+      "name": "SLJ1872",
+      "pts": 937,
+      "lost": 409,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 22
+    },
+    {
+      "row": 19,
+      "name": "Fat Lazy American",
+      "pts": 936.5,
+      "lost": 393.5,
+      "w": 101,
+      "l": 47,
+      "t": 1,
+      "pct": 68.12,
+      "prev_rank": 18
+    },
+    {
+      "row": 20,
+      "name": "AVL GAL",
+      "pts": 936,
+      "lost": 410,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 11
+    },
+    {
+      "row": 21,
+      "name": "Come back kid",
+      "pts": 935,
+      "lost": 411,
+      "w": 105,
+      "l": 44,
+      "t": 1,
+      "pct": 70.33,
+      "prev_rank": 13
+    },
+    {
+      "row": 22,
+      "name": "Barry18",
+      "pts": 934.5,
+      "lost": 411.5,
+      "w": 97,
+      "l": 52,
+      "t": 1,
+      "pct": 65.0,
+      "prev_rank": 21
+    },
+    {
+      "row": 23,
+      "name": "LeeBabySims",
+      "pts": 932.5,
+      "lost": 413.5,
+      "w": 99,
+      "l": 50,
+      "t": 1,
+      "pct": 66.33,
+      "prev_rank": 28
+    },
+    {
+      "row": 24,
+      "name": "Jmeans110&",
+      "pts": 932.5,
+      "lost": 413.5,
+      "w": 94,
+      "l": 55,
+      "t": 1,
+      "pct": 63.0,
+      "prev_rank": 28
+    },
+    {
+      "row": 25,
+      "name": "Rockydogz",
+      "pts": 931.5,
+      "lost": 414.5,
+      "w": 99,
+      "l": 50,
+      "t": 1,
+      "pct": 66.33,
+      "prev_rank": 16
+    },
+    {
+      "row": 26,
+      "name": "BrantnRave",
+      "pts": 931,
+      "lost": 415,
+      "w": 94,
+      "l": 55,
+      "t": 1,
+      "pct": 63.0,
+      "prev_rank": 33
+    },
+    {
+      "row": 27,
+      "name": "the czar",
+      "pts": 930.5,
+      "lost": 415.5,
+      "w": 99,
+      "l": 50,
+      "t": 1,
+      "pct": 66.33,
+      "prev_rank": 23
+    },
+    {
+      "row": 28,
+      "name": "YoungGunHaaken",
+      "pts": 928,
+      "lost": 418,
+      "w": 95,
+      "l": 54,
+      "t": 1,
+      "pct": 63.67,
+      "prev_rank": 30
+    },
+    {
+      "row": 29,
+      "name": "MoJoRising",
+      "pts": 927,
+      "lost": 403,
+      "w": 99,
+      "l": 49,
+      "t": 1,
+      "pct": 66.78,
+      "prev_rank": 30
+    },
+    {
+      "row": 30,
+      "name": "SKOLinOne",
+      "pts": 925.5,
+      "lost": 420.5,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 19
+    },
+    {
+      "row": 31,
+      "name": "State",
+      "pts": 925,
+      "lost": 421,
+      "w": 98,
+      "l": 51,
+      "t": 1,
+      "pct": 65.67,
+      "prev_rank": 26
+    },
+    {
+      "row": 32,
+      "name": "Baltimore Brown",
+      "pts": 924,
+      "lost": 422,
+      "w": 93,
+      "l": 56,
+      "t": 1,
+      "pct": 62.33,
+      "prev_rank": 35
+    },
+    {
+      "row": 33,
+      "name": "PA Dude",
+      "pts": 924,
+      "lost": 422,
+      "w": 95,
+      "l": 54,
+      "t": 1,
+      "pct": 63.67,
+      "prev_rank": 25
+    },
+    {
+      "row": 34,
+      "name": "T1upTJ",
+      "pts": 923.5,
+      "lost": 422.5,
+      "w": 94,
+      "l": 55,
+      "t": 1,
+      "pct": 63.0,
+      "prev_rank": 24
+    },
+    {
+      "row": 35,
+      "name": "Wecsters",
+      "pts": 923,
+      "lost": 423,
+      "w": 96,
+      "l": 53,
+      "t": 1,
+      "pct": 64.33,
+      "prev_rank": 30
+    },
+    {
+      "row": 36,
+      "name": "Cobra Kai 15",
+      "pts": 921,
+      "lost": 409,
+      "w": 99,
+      "l": 49,
+      "t": 1,
+      "pct": 66.78,
+      "prev_rank": 44
+    },
+    {
+      "row": 37,
+      "name": "Storkuss",
+      "pts": 918,
+      "lost": 428,
+      "w": 100,
+      "l": 49,
+      "t": 1,
+      "pct": 67.0,
+      "prev_rank": 34
+    },
+    {
+      "row": 38,
+      "name": "ksundstrom5",
+      "pts": 915,
+      "lost": 431,
+      "w": 98,
+      "l": 51,
+      "t": 1,
+      "pct": 65.67,
+      "prev_rank": 40
+    },
+    {
+      "row": 39,
+      "name": "Dr Zod",
+      "pts": 914.5,
+      "lost": 431.5,
+      "w": 96,
+      "l": 53,
+      "t": 1,
+      "pct": 64.33,
+      "prev_rank": 38
+    },
+    {
+      "row": 40,
+      "name": "Morrisszyslak",
+      "pts": 908.5,
+      "lost": 437.5,
+      "w": 92,
+      "l": 57,
+      "t": 1,
+      "pct": 61.67,
+      "prev_rank": 38
+    },
+    {
+      "row": 41,
+      "name": "The Iggles",
+      "pts": 908,
+      "lost": 406,
+      "w": 95,
+      "l": 52,
+      "t": 1,
+      "pct": 64.53,
+      "prev_rank": 37
+    },
+    {
+      "row": 42,
+      "name": "Howlin Wolf",
+      "pts": 905,
+      "lost": 441,
+      "w": 92,
+      "l": 57,
+      "t": 1,
+      "pct": 61.67,
+      "prev_rank": 45
+    },
+    {
+      "row": 43,
+      "name": "Princess Cyn",
+      "pts": 903.5,
+      "lost": 442.5,
+      "w": 95,
+      "l": 54,
+      "t": 1,
+      "pct": 63.67,
+      "prev_rank": 42
+    },
+    {
+      "row": 44,
+      "name": "JHoler",
+      "pts": 901.5,
+      "lost": 444.5,
+      "w": 90,
+      "l": 59,
+      "t": 1,
+      "pct": 60.33,
+      "prev_rank": 42
+    },
+    {
+      "row": 45,
+      "name": "bowncingsole",
+      "pts": 900.5,
+      "lost": 445.5,
+      "w": 95,
+      "l": 54,
+      "t": 1,
+      "pct": 63.67,
+      "prev_rank": 41
+    },
+    {
+      "row": 46,
+      "name": "mzal13",
+      "pts": 895.5,
+      "lost": 434.5,
+      "w": 88,
+      "l": 60,
+      "t": 1,
+      "pct": 59.4,
+      "prev_rank": 50
+    },
+    {
+      "row": 47,
+      "name": "Chuck Wagon",
+      "pts": 893,
+      "lost": 453,
+      "w": 92,
+      "l": 57,
+      "t": 1,
+      "pct": 61.67,
+      "prev_rank": 54
+    },
+    {
+      "row": 48,
+      "name": "akak907",
+      "pts": 891.5,
+      "lost": 454.5,
+      "w": 90,
+      "l": 59,
+      "t": 1,
+      "pct": 60.33,
+      "prev_rank": 46
+    },
+    {
+      "row": 49,
+      "name": "Philly vs. All Youse",
+      "pts": 888,
+      "lost": 458,
+      "w": 91,
+      "l": 58,
+      "t": 1,
+      "pct": 61.0,
+      "prev_rank": 55
+    },
+    {
+      "row": 50,
+      "name": "KickingBass",
+      "pts": 884.5,
+      "lost": 461.5,
+      "w": 94,
+      "l": 55,
+      "t": 1,
+      "pct": 63.0,
+      "prev_rank": 46
+    },
+    {
+      "row": 51,
+      "name": "CM5",
+      "pts": 883,
+      "lost": 447,
+      "w": 93,
+      "l": 55,
+      "t": 1,
+      "pct": 62.75,
+      "prev_rank": 49
+    },
+    {
+      "row": 52,
+      "name": "blindsided",
+      "pts": 881.5,
+      "lost": 464.5,
+      "w": 90,
+      "l": 59,
+      "t": 1,
+      "pct": 60.33,
+      "prev_rank": 58
+    },
+    {
+      "row": 53,
+      "name": "bheather",
+      "pts": 875,
+      "lost": 424,
+      "w": 93,
+      "l": 53,
+      "t": 1,
+      "pct": 63.61,
+      "prev_rank": 57
+    },
+    {
+      "row": 54,
+      "name": "Littlef",
+      "pts": 870.5,
+      "lost": 475.5,
+      "w": 93,
+      "l": 56,
+      "t": 1,
+      "pct": 62.33,
+      "prev_rank": 53
+    },
+    {
+      "row": 55,
+      "name": "Red Grapes of Wrath",
+      "pts": 869,
+      "lost": 461,
+      "w": 89,
+      "l": 59,
+      "t": 1,
+      "pct": 60.07,
+      "prev_rank": 63
+    },
+    {
+      "row": 56,
+      "name": "Bloodydamn Goblin",
+      "pts": 868,
+      "lost": 478,
+      "w": 84,
+      "l": 65,
+      "t": 1,
+      "pct": 56.33,
+      "prev_rank": 56
+    },
+    {
+      "row": 57,
+      "name": "lolasbitchez",
+      "pts": 866.5,
+      "lost": 479.5,
+      "w": 91,
+      "l": 58,
+      "t": 1,
+      "pct": 61.0,
+      "prev_rank": 62
+    },
+    {
+      "row": 58,
+      "name": "jpbblues",
+      "pts": 866.5,
+      "lost": 479.5,
+      "w": 86,
+      "l": 63,
+      "t": 1,
+      "pct": 57.67,
+      "prev_rank": 59
+    },
+    {
+      "row": 59,
+      "name": "Dak to the Future",
+      "pts": 865.5,
+      "lost": 480.5,
+      "w": 93,
+      "l": 56,
+      "t": 1,
+      "pct": 62.33,
+      "prev_rank": 71
+    },
+    {
+      "row": 60,
+      "name": "Shock Therapy",
+      "pts": 865.5,
+      "lost": 480.5,
+      "w": 90,
+      "l": 59,
+      "t": 1,
+      "pct": 60.33,
+      "prev_rank": 48
+    },
+    {
+      "row": 61,
+      "name": "Playing It Koi",
+      "pts": 864.5,
+      "lost": 481.5,
+      "w": 91,
+      "l": 58,
+      "t": 1,
+      "pct": 61.0,
+      "prev_rank": 50
+    },
+    {
+      "row": 62,
+      "name": "LaCostaGrizzly",
+      "pts": 864.5,
+      "lost": 481.5,
+      "w": 88,
+      "l": 61,
+      "t": 1,
+      "pct": 59.0,
+      "prev_rank": 65
+    },
+    {
+      "row": 63,
+      "name": "tmotts62",
+      "pts": 863,
+      "lost": 467,
+      "w": 92,
+      "l": 56,
+      "t": 1,
+      "pct": 62.08,
+      "prev_rank": 61
+    },
+    {
+      "row": 64,
+      "name": "Shoppykat",
+      "pts": 862.5,
+      "lost": 483.5,
+      "w": 91,
+      "l": 58,
+      "t": 1,
+      "pct": 61.0,
+      "prev_rank": 50
+    },
+    {
+      "row": 65,
+      "name": "Cheese Ed",
+      "pts": 862,
+      "lost": 484,
+      "w": 91,
+      "l": 58,
+      "t": 1,
+      "pct": 61.0,
+      "prev_rank": 68
+    },
+    {
+      "row": 66,
+      "name": "KeepItSimple",
+      "pts": 861.5,
+      "lost": 484.5,
+      "w": 88,
+      "l": 61,
+      "t": 1,
+      "pct": 59.0,
+      "prev_rank": 67
+    },
+    {
+      "row": 67,
+      "name": "Lenpapa",
+      "pts": 861.5,
+      "lost": 468.5,
+      "w": 90,
+      "l": 58,
+      "t": 1,
+      "pct": 60.74,
+      "prev_rank": 70
+    },
+    {
+      "row": 68,
+      "name": "bags7777",
+      "pts": 860.5,
+      "lost": 485.5,
+      "w": 87,
+      "l": 62,
+      "t": 1,
+      "pct": 58.33,
+      "prev_rank": 74
+    },
+    {
+      "row": 69,
+      "name": "HoHum",
+      "pts": 860.5,
+      "lost": 485.5,
+      "w": 89,
+      "l": 60,
+      "t": 1,
+      "pct": 59.67,
+      "prev_rank": 72
+    },
+    {
+      "row": 70,
+      "name": "First&Goal",
+      "pts": 859.5,
+      "lost": 486.5,
+      "w": 88,
+      "l": 61,
+      "t": 1,
+      "pct": 59.0,
+      "prev_rank": 78
+    },
+    {
+      "row": 71,
+      "name": "StevieJo",
+      "pts": 856,
+      "lost": 474,
+      "w": 92,
+      "l": 56,
+      "t": 1,
+      "pct": 62.08,
+      "prev_rank": 63
+    },
+    {
+      "row": 72,
+      "name": "Mark1408",
+      "pts": 854.5,
+      "lost": 475.5,
+      "w": 90,
+      "l": 58,
+      "t": 1,
+      "pct": 60.74,
+      "prev_rank": 69
+    },
+    {
+      "row": 73,
+      "name": "Csonkaupthegut",
+      "pts": 854,
+      "lost": 492,
+      "w": 93,
+      "l": 56,
+      "t": 1,
+      "pct": 62.33,
+      "prev_rank": 73
+    },
+    {
+      "row": 74,
+      "name": "Babalinks",
+      "pts": 854,
+      "lost": 476,
+      "w": 90,
+      "l": 58,
+      "t": 1,
+      "pct": 60.74,
+      "prev_rank": 66
+    },
+    {
+      "row": 75,
+      "name": "FoghornLeghorn",
+      "pts": 850.5,
+      "lost": 463.5,
+      "w": 88,
+      "l": 59,
+      "t": 1,
+      "pct": 59.8,
+      "prev_rank": 60
+    },
+    {
+      "row": 76,
+      "name": "LarrySF49",
+      "pts": 849,
+      "lost": 481,
+      "w": 86,
+      "l": 62,
+      "t": 1,
+      "pct": 58.05,
+      "prev_rank": 79
+    },
+    {
+      "row": 77,
+      "name": "tjdieck",
+      "pts": 844.5,
+      "lost": 501.5,
+      "w": 88,
+      "l": 61,
+      "t": 1,
+      "pct": 59.0,
+      "prev_rank": 75
+    },
+    {
+      "row": 78,
+      "name": "The Brooklyn Bruiser",
+      "pts": 844.5,
+      "lost": 501.5,
+      "w": 86,
+      "l": 63,
+      "t": 1,
+      "pct": 57.67,
+      "prev_rank": 75
+    },
+    {
+      "row": 79,
+      "name": "wengel2694",
+      "pts": 841.5,
+      "lost": 504.5,
+      "w": 93,
+      "l": 56,
+      "t": 1,
+      "pct": 62.33,
+      "prev_rank": 83
+    },
+    {
+      "row": 80,
+      "name": "JCP Warriors",
+      "pts": 839.5,
+      "lost": 506.5,
+      "w": 89,
+      "l": 60,
+      "t": 1,
+      "pct": 59.67,
+      "prev_rank": 82
+    },
+    {
+      "row": 81,
+      "name": "Alibaba818",
+      "pts": 834.5,
+      "lost": 495.5,
+      "w": 91,
+      "l": 57,
+      "t": 1,
+      "pct": 61.41,
+      "prev_rank": 77
+    },
+    {
+      "row": 82,
+      "name": "BDANIEL1123",
+      "pts": 829.5,
+      "lost": 516.5,
+      "w": 84,
+      "l": 65,
+      "t": 1,
+      "pct": 56.33,
+      "prev_rank": 84
+    },
+    {
+      "row": 83,
+      "name": "pmac10023",
+      "pts": 829,
+      "lost": 368,
+      "w": 88,
+      "l": 46,
+      "t": 1,
+      "pct": 65.56,
+      "prev_rank": 81
+    },
+    {
+      "row": 84,
+      "name": "lilyvonlily",
+      "pts": 824,
+      "lost": 373,
+      "w": 87,
+      "l": 47,
+      "t": 1,
+      "pct": 64.81,
+      "prev_rank": 86
+    },
+    {
+      "row": 85,
+      "name": "PolyPick6",
+      "pts": 816,
+      "lost": 530,
+      "w": 84,
+      "l": 65,
+      "t": 1,
+      "pct": 56.33,
+      "prev_rank": 85
+    },
+    {
+      "row": 86,
+      "name": "Cinci Jungle Fever",
+      "pts": 807.5,
+      "lost": 538.5,
+      "w": 82,
+      "l": 67,
+      "t": 1,
+      "pct": 55.0,
+      "prev_rank": 80
+    },
+    {
+      "row": 87,
+      "name": "BeastMode12",
+      "pts": 794,
+      "lost": 552,
+      "w": 84,
+      "l": 65,
+      "t": 1,
+      "pct": 56.33,
+      "prev_rank": 87
+    },
+    {
+      "row": 88,
+      "name": "DarksideMOB",
+      "pts": 779,
+      "lost": 430,
+      "w": 82,
+      "l": 53,
+      "t": 1,
+      "pct": 60.66,
+      "prev_rank": 88
+    },
+    {
+      "row": 89,
+      "name": "QuickFish",
+      "pts": 776,
+      "lost": 402,
+      "w": 77,
+      "l": 54,
+      "t": 1,
+      "pct": 58.71,
+      "prev_rank": 89
+    },
+    {
+      "row": 90,
+      "name": "theboxersd",
+      "pts": 712.5,
+      "lost": 617.5,
+      "w": 76,
+      "l": 72,
+      "t": 1,
+      "pct": 51.34,
+      "prev_rank": 90
+    },
+    {
+      "row": 91,
+      "name": "Vagelli",
+      "pts": 701.5,
+      "lost": 612.5,
+      "w": 74,
+      "l": 73,
+      "t": 1,
+      "pct": 50.34,
+      "prev_rank": 91
+    },
+    {
+      "row": 92,
+      "name": "betterlucknextweek",
+      "pts": 496,
+      "lost": 297,
+      "w": 54,
+      "l": 35,
+      "t": 1,
+      "pct": 60.56,
+      "prev_rank": 93
+    },
+    {
+      "row": 93,
+      "name": "Dmichaels08",
+      "pts": 490,
+      "lost": 557,
+      "w": 53,
+      "l": 65,
+      "t": 1,
+      "pct": 44.96,
+      "prev_rank": 92
+    }
+  ],
+  "week10_standings": [
+    {
+      "row": 1,
+      "name": "NowInOakland",
+      "pts": 127,
+      "lost": 6,
+      "w": 13,
+      "l": 1
+    },
+    {
+      "row": 2,
+      "name": "Cobra Kai 15",
+      "pts": 120,
+      "lost": 13,
+      "w": 12,
+      "l": 2
+    },
+    {
+      "row": 3,
+      "name": "Tahopeful",
+      "pts": 118,
+      "lost": 15,
+      "w": 12,
+      "l": 2
+    },
+    {
+      "row": 4,
+      "name": "First&Goal",
+      "pts": 117,
+      "lost": 16,
+      "w": 12,
+      "l": 2
+    },
+    {
+      "row": 5,
+      "name": "Robo53",
+      "pts": 117,
+      "lost": 16,
+      "w": 12,
+      "l": 2
+    },
+    {
+      "row": 6,
+      "name": "Howlin Wolf",
+      "pts": 112,
+      "lost": 21,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 7,
+      "name": "LeeBabySims",
+      "pts": 110,
+      "lost": 23,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 8,
+      "name": "BrantnRave",
+      "pts": 110,
+      "lost": 23,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 9,
+      "name": "Jmeans110&",
+      "pts": 110,
+      "lost": 23,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 10,
+      "name": "blindsided",
+      "pts": 109,
+      "lost": 24,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 11,
+      "name": "bags7777",
+      "pts": 109,
+      "lost": 24,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 12,
+      "name": "mzal13",
+      "pts": 108,
+      "lost": 25,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 13,
+      "name": "lilyvonlily",
+      "pts": 108,
+      "lost": 25,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 14,
+      "name": "Bearnecessity",
+      "pts": 108,
+      "lost": 25,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 15,
+      "name": "Dak to the Future",
+      "pts": 108,
+      "lost": 25,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 16,
+      "name": "QuickFish",
+      "pts": 108,
+      "lost": 25,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 17,
+      "name": "Chuck Wagon",
+      "pts": 108,
+      "lost": 25,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 18,
+      "name": "wengel2694",
+      "pts": 107,
+      "lost": 26,
+      "w": 12,
+      "l": 2
+    },
+    {
+      "row": 19,
+      "name": "LarrySF49",
+      "pts": 107,
+      "lost": 26,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 20,
+      "name": "HoHum",
+      "pts": 107,
+      "lost": 26,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 21,
+      "name": "Baltimore Brown",
+      "pts": 107,
+      "lost": 26,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 22,
+      "name": "YoungGunHaaken",
+      "pts": 106,
+      "lost": 27,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 23,
+      "name": "MoJoRising",
+      "pts": 105,
+      "lost": 28,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 24,
+      "name": "Philly vs. All Youse",
+      "pts": 104,
+      "lost": 29,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 25,
+      "name": "Rayguns",
+      "pts": 104,
+      "lost": 29,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 26,
+      "name": "ksundstrom5",
+      "pts": 104,
+      "lost": 29,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 27,
+      "name": "JCP Warriors",
+      "pts": 104,
+      "lost": 29,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 28,
+      "name": "SLJ1872",
+      "pts": 104,
+      "lost": 29,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 29,
+      "name": "BDANIEL1123",
+      "pts": 104,
+      "lost": 29,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 30,
+      "name": "Lightning Bolts Are Coming",
+      "pts": 103,
+      "lost": 30,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 31,
+      "name": "Csonkaupthegut",
+      "pts": 102,
+      "lost": 31,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 32,
+      "name": "Dr Zod",
+      "pts": 102,
+      "lost": 31,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 33,
+      "name": "Deb N Air",
+      "pts": 102,
+      "lost": 31,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 34,
+      "name": "Red Grapes of Wrath",
+      "pts": 101,
+      "lost": 32,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 35,
+      "name": "Wecsters",
+      "pts": 101,
+      "lost": 32,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 36,
+      "name": "BrockTua",
+      "pts": 101,
+      "lost": 32,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 37,
+      "name": "Lenpapa",
+      "pts": 101,
+      "lost": 32,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 38,
+      "name": "Barry18",
+      "pts": 101,
+      "lost": 32,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 39,
+      "name": "Princess Cyn",
+      "pts": 100,
+      "lost": 33,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 40,
+      "name": "akak907",
+      "pts": 100,
+      "lost": 33,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 41,
+      "name": "sklnews",
+      "pts": 99,
+      "lost": 34,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 42,
+      "name": "Cheese Ed",
+      "pts": 99,
+      "lost": 34,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 43,
+      "name": "lolasbitchez",
+      "pts": 98,
+      "lost": 35,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 44,
+      "name": "Storkuss",
+      "pts": 98,
+      "lost": 35,
+      "w": 11,
+      "l": 3
+    },
+    {
+      "row": 45,
+      "name": "JHoler",
+      "pts": 98,
+      "lost": 35,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 46,
+      "name": "Fat Lazy American",
+      "pts": 98,
+      "lost": 35,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 47,
+      "name": "the czar",
+      "pts": 98,
+      "lost": 35,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 48,
+      "name": "Fredzone",
+      "pts": 98,
+      "lost": 35,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 49,
+      "name": "LaCostaGrizzly",
+      "pts": 97,
+      "lost": 36,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 50,
+      "name": "The Brooklyn Bruiser",
+      "pts": 97,
+      "lost": 36,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 51,
+      "name": "tjdieck",
+      "pts": 97,
+      "lost": 36,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 52,
+      "name": "Hijo y Hanna",
+      "pts": 97,
+      "lost": 36,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 53,
+      "name": "State",
+      "pts": 97,
+      "lost": 36,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 54,
+      "name": "Morrisszyslak",
+      "pts": 96,
+      "lost": 37,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 55,
+      "name": "bheather",
+      "pts": 96,
+      "lost": 37,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 56,
+      "name": "jpbblues",
+      "pts": 96,
+      "lost": 37,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 57,
+      "name": "KeepItSimple",
+      "pts": 96,
+      "lost": 37,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 58,
+      "name": "CM5",
+      "pts": 95,
+      "lost": 22,
+      "w": 10,
+      "l": 3
+    },
+    {
+      "row": 59,
+      "name": "bowncingsole",
+      "pts": 95,
+      "lost": 38,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 60,
+      "name": "The Iggles",
+      "pts": 95,
+      "lost": 22,
+      "w": 10,
+      "l": 3
+    },
+    {
+      "row": 61,
+      "name": "tmotts62",
+      "pts": 94,
+      "lost": 39,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 62,
+      "name": "adsch33",
+      "pts": 94,
+      "lost": 39,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 63,
+      "name": "PA Dude",
+      "pts": 94,
+      "lost": 39,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 64,
+      "name": "DarksideMOB",
+      "pts": 94,
+      "lost": 39,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 65,
+      "name": "Mark1408",
+      "pts": 93,
+      "lost": 40,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 66,
+      "name": "BeastMode12",
+      "pts": 93,
+      "lost": 40,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 67,
+      "name": "NotWavehog",
+      "pts": 93,
+      "lost": 40,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 68,
+      "name": "KickingBass",
+      "pts": 93,
+      "lost": 40,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 69,
+      "name": "T1upTJ",
+      "pts": 93,
+      "lost": 40,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 70,
+      "name": "pmac10023",
+      "pts": 92,
+      "lost": 41,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 71,
+      "name": "PolyPick6",
+      "pts": 91,
+      "lost": 42,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 72,
+      "name": "FLYING ELVII",
+      "pts": 91,
+      "lost": 42,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 73,
+      "name": "LadyDiamond",
+      "pts": 90,
+      "lost": 43,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 74,
+      "name": "the spread",
+      "pts": 90,
+      "lost": 43,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 75,
+      "name": "SKOLinOne",
+      "pts": 90,
+      "lost": 43,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 76,
+      "name": "Alibaba818",
+      "pts": 89,
+      "lost": 44,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 77,
+      "name": "Rockydogz",
+      "pts": 89,
+      "lost": 44,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 78,
+      "name": "AVL GAL",
+      "pts": 88,
+      "lost": 45,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 79,
+      "name": "Come back kid",
+      "pts": 88,
+      "lost": 45,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 80,
+      "name": "StevieJo",
+      "pts": 88,
+      "lost": 45,
+      "w": 10,
+      "l": 4
+    },
+    {
+      "row": 81,
+      "name": "Babalinks",
+      "pts": 87,
+      "lost": 46,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 82,
+      "name": "Bloodydamn Goblin",
+      "pts": 86,
+      "lost": 47,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 83,
+      "name": "Fangirl",
+      "pts": 86,
+      "lost": 47,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 84,
+      "name": "Littlef",
+      "pts": 85,
+      "lost": 48,
+      "w": 9,
+      "l": 5
+    },
+    {
+      "row": 85,
+      "name": "Vagelli",
+      "pts": 83,
+      "lost": 50,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 86,
+      "name": "FoghornLeghorn",
+      "pts": 81,
+      "lost": 36,
+      "w": 8,
+      "l": 5
+    },
+    {
+      "row": 87,
+      "name": "theboxersd",
+      "pts": 78,
+      "lost": 55,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 88,
+      "name": "Playing It Koi",
+      "pts": 77,
+      "lost": 56,
+      "w": 7,
+      "l": 7
+    },
+    {
+      "row": 89,
+      "name": "Shoppykat",
+      "pts": 75,
+      "lost": 58,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 90,
+      "name": "Shock Therapy",
+      "pts": 75,
+      "lost": 58,
+      "w": 8,
+      "l": 6
+    },
+    {
+      "row": 91,
+      "name": "Cinci Jungle Fever",
+      "pts": 70,
+      "lost": 63,
+      "w": 6,
+      "l": 8
+    },
+    {
+      "row": 92,
+      "name": "betterlucknextweek",
+      "pts": 16,
+      "lost": 0,
+      "w": 1,
+      "l": 0
+    },
+    {
+      "row": 93,
+      "name": "Dmichaels08",
+      "pts": 0,
+      "lost": 0,
+      "w": 0,
+      "l": 0
+    }
+  ],
+  "weekly_breakdown": [
+    {
+      "name": "BrockTua",
+      "total": 975.5,
+      "by_week": {
+        "1": 106,
+        "2": 80,
+        "3": 83,
+        "4": 100,
+        "5": 114.5,
+        "6": 71,
+        "7": 78,
+        "8": 112,
+        "9": 130,
+        "10": 101
+      }
+    },
+    {
+      "name": "Bearnecessity",
+      "total": 971,
+      "by_week": {
+        "1": 103,
+        "2": 89,
+        "3": 91,
+        "4": 83,
+        "5": 105,
+        "6": 79,
+        "7": 83,
+        "8": 113,
+        "9": 117,
+        "10": 108
+      }
+    },
+    {
+      "name": "Lightning Bolts Are Coming",
+      "total": 963.5,
+      "by_week": {
+        "1": 107,
+        "2": 95,
+        "3": 74,
+        "4": 98,
+        "5": 83.5,
+        "6": 85,
+        "7": 78,
+        "8": 111,
+        "9": 129,
+        "10": 103
+      }
+    },
+    {
+      "name": "Fredzone",
+      "total": 962.5,
+      "by_week": {
+        "1": 100,
+        "2": 91,
+        "3": 66,
+        "4": 96,
+        "5": 87.5,
+        "6": 78,
+        "7": 98,
+        "8": 113,
+        "9": 135,
+        "10": 98
+      }
+    },
+    {
+      "name": "Fangirl",
+      "total": 959,
+      "by_week": {
+        "1": 100,
+        "2": 89,
+        "3": 87,
+        "4": 98,
+        "5": 99,
+        "6": 78,
+        "7": 84,
+        "8": 106,
+        "9": 132,
+        "10": 86
+      }
+    },
+    {
+      "name": "adsch33",
+      "total": 953.5,
+      "by_week": {
+        "1": 101,
+        "2": 86,
+        "3": 74,
+        "4": 99,
+        "5": 98.5,
+        "6": 82,
+        "7": 81,
+        "8": 107,
+        "9": 131,
+        "10": 94
+      }
+    },
+    {
+      "name": "Tahopeful",
+      "total": 952,
+      "by_week": {
+        "1": 100,
+        "2": 61,
+        "3": 79,
+        "4": 110,
+        "5": 92,
+        "6": 65,
+        "7": 83,
+        "8": 109,
+        "9": 135,
+        "10": 118
+      }
+    },
+    {
+      "name": "FLYING ELVII",
+      "total": 950.5,
+      "by_week": {
+        "1": 105,
+        "2": 83,
+        "3": 77,
+        "4": 98,
+        "5": 88.5,
+        "6": 84,
+        "7": 99,
+        "8": 100,
+        "9": 125,
+        "10": 91
+      }
+    },
+    {
+      "name": "NotWavehog",
+      "total": 948.5,
+      "by_week": {
+        "1": 80,
+        "2": 98,
+        "3": 69,
+        "4": 101,
+        "5": 110.5,
+        "6": 73,
+        "7": 89,
+        "8": 100,
+        "9": 135,
+        "10": 93
+      }
+    },
+    {
+      "name": "Rayguns",
+      "total": 948,
+      "by_week": {
+        "1": 119,
+        "2": 87,
+        "3": 80,
+        "4": 100,
+        "5": 81,
+        "6": 78,
+        "7": 63,
+        "8": 107,
+        "9": 129,
+        "10": 104
+      }
+    },
+    {
+      "name": "sklnews",
+      "total": 946.5,
+      "by_week": {
+        "1": 97,
+        "2": 90,
+        "3": 83,
+        "4": 94,
+        "5": 93.5,
+        "6": 71,
+        "7": 77,
+        "8": 110,
+        "9": 132,
+        "10": 99
+      }
+    },
+    {
+      "name": "Deb N Air",
+      "total": 943,
+      "by_week": {
+        "1": 110,
+        "2": 67,
+        "3": 102,
+        "4": 102,
+        "5": 84,
+        "6": 75,
+        "7": 58,
+        "8": 116,
+        "9": 127,
+        "10": 102
+      }
+    },
+    {
+      "name": "Hijo y Hanna",
+      "total": 943,
+      "by_week": {
+        "1": 87,
+        "2": 86,
+        "3": 81,
+        "4": 94,
+        "5": 100,
+        "6": 70,
+        "7": 102,
+        "8": 105,
+        "9": 121,
+        "10": 97
+      }
+    },
+    {
+      "name": "NowInOakland",
+      "total": 943,
+      "by_week": {
+        "1": 101,
+        "2": 80,
+        "3": 100,
+        "4": 104,
+        "5": 89,
+        "6": 85,
+        "7": 69,
+        "8": 75,
+        "9": 113,
+        "10": 127
+      }
+    },
+    {
+      "name": "the spread",
+      "total": 942,
+      "by_week": {
+        "1": 102,
+        "2": 84,
+        "3": 80,
+        "4": 98,
+        "5": 95,
+        "6": 74,
+        "7": 79,
+        "8": 108,
+        "9": 132,
+        "10": 90
+      }
+    },
+    {
+      "name": "Robo53",
+      "total": 942,
+      "by_week": {
+        "1": 74,
+        "2": 82,
+        "3": 71,
+        "4": 90,
+        "5": 91,
+        "6": 77,
+        "7": 88,
+        "8": 122,
+        "9": 130,
+        "10": 117
+      }
+    },
+    {
+      "name": "LadyDiamond",
+      "total": 940,
+      "by_week": {
+        "1": 104,
+        "2": 92,
+        "3": 72,
+        "4": 98,
+        "5": 109,
+        "6": 72,
+        "7": 76,
+        "8": 103,
+        "9": 124,
+        "10": 90
+      }
+    },
+    {
+      "name": "SLJ1872",
+      "total": 937,
+      "by_week": {
+        "1": 95,
+        "2": 91,
+        "3": 71,
+        "4": 100,
+        "5": 108,
+        "6": 63,
+        "7": 69,
+        "8": 108,
+        "9": 128,
+        "10": 104
+      }
+    },
+    {
+      "name": "Fat Lazy American",
+      "total": 936.5,
+      "by_week": {
+        "1": 95,
+        "2": 85,
+        "3": 75,
+        "4": 91,
+        "5": 83.5,
+        "6": 80,
+        "7": 90,
+        "8": 104,
+        "9": 135,
+        "10": 98
+      }
+    },
+    {
+      "name": "AVL GAL",
+      "total": 936,
+      "by_week": {
+        "1": 116,
+        "2": 88,
+        "3": 86,
+        "4": 109,
+        "5": 107,
+        "6": 70,
+        "7": 49,
+        "8": 102,
+        "9": 121,
+        "10": 88
+      }
+    },
+    {
+      "name": "Come back kid",
+      "total": 935,
+      "by_week": {
+        "1": 103,
+        "2": 84,
+        "3": 74,
+        "4": 95,
+        "5": 88,
+        "6": 88,
+        "7": 64,
+        "8": 116,
+        "9": 135,
+        "10": 88
+      }
+    },
+    {
+      "name": "Barry18",
+      "total": 934.5,
+      "by_week": {
+        "1": 108,
+        "2": 86,
+        "3": 74,
+        "4": 95,
+        "5": 77.5,
+        "6": 65,
+        "7": 84,
+        "8": 111,
+        "9": 133,
+        "10": 101
+      }
+    },
+    {
+      "name": "LeeBabySims",
+      "total": 932.5,
+      "by_week": {
+        "1": 109,
+        "2": 92,
+        "3": 86,
+        "4": 96,
+        "5": 71.5,
+        "6": 73,
+        "7": 61,
+        "8": 106,
+        "9": 128,
+        "10": 110
+      }
+    },
+    {
+      "name": "Jmeans110&",
+      "total": 932.5,
+      "by_week": {
+        "1": 88,
+        "2": 87,
+        "3": 69,
+        "4": 113,
+        "5": 84.5,
+        "6": 66,
+        "7": 70,
+        "8": 113,
+        "9": 132,
+        "10": 110
+      }
+    },
+    {
+      "name": "Rockydogz",
+      "total": 931.5,
+      "by_week": {
+        "1": 103,
+        "2": 83,
+        "3": 70,
+        "4": 101,
+        "5": 101.5,
+        "6": 78,
+        "7": 70,
+        "8": 101,
+        "9": 135,
+        "10": 89
+      }
+    },
+    {
+      "name": "BrantnRave",
+      "total": 931,
+      "by_week": {
+        "1": 104,
+        "2": 90,
+        "3": 73,
+        "4": 93,
+        "5": 88,
+        "6": 76,
+        "7": 76,
+        "8": 93,
+        "9": 128,
+        "10": 110
+      }
+    },
+    {
+      "name": "the czar",
+      "total": 930.5,
+      "by_week": {
+        "1": 91,
+        "2": 89,
+        "3": 75,
+        "4": 105,
+        "5": 84.5,
+        "6": 76,
+        "7": 78,
+        "8": 101,
+        "9": 133,
+        "10": 98
+      }
+    },
+    {
+      "name": "YoungGunHaaken",
+      "total": 928,
+      "by_week": {
+        "1": 86,
+        "2": 75,
+        "3": 70,
+        "4": 107,
+        "5": 79,
+        "6": 84,
+        "7": 78,
+        "8": 114,
+        "9": 129,
+        "10": 106
+      }
+    },
+    {
+      "name": "MoJoRising",
+      "total": 927,
+      "by_week": {
+        "1": 101,
+        "2": 76,
+        "3": 72,
+        "4": 91,
+        "5": 85,
+        "6": 86,
+        "7": 77,
+        "8": 105,
+        "9": 129,
+        "10": 105
+      }
+    },
+    {
+      "name": "SKOLinOne",
+      "total": 925.5,
+      "by_week": {
+        "1": 94,
+        "2": 88,
+        "3": 73,
+        "4": 105,
+        "5": 93.5,
+        "6": 77,
+        "7": 70,
+        "8": 103,
+        "9": 132,
+        "10": 90
+      }
+    },
+    {
+      "name": "State",
+      "total": 925,
+      "by_week": {
+        "1": 95,
+        "2": 91,
+        "3": 87,
+        "4": 98,
+        "5": 77,
+        "6": 76,
+        "7": 68,
+        "8": 109,
+        "9": 127,
+        "10": 97
+      }
+    },
+    {
+      "name": "Baltimore Brown",
+      "total": 924,
+      "by_week": {
+        "1": 105,
+        "2": 90,
+        "3": 71,
+        "4": 101,
+        "5": 83,
+        "6": 79,
+        "7": 75,
+        "8": 98,
+        "9": 115,
+        "10": 107
+      }
+    },
+    {
+      "name": "PA Dude",
+      "total": 924,
+      "by_week": {
+        "1": 98,
+        "2": 84,
+        "3": 79,
+        "4": 92,
+        "5": 86,
+        "6": 82,
+        "7": 74,
+        "8": 108,
+        "9": 127,
+        "10": 94
+      }
+    },
+    {
+      "name": "T1upTJ",
+      "total": 923.5,
+      "by_week": {
+        "1": 98,
+        "2": 79,
+        "3": 66,
+        "4": 98,
+        "5": 94.5,
+        "6": 77,
+        "7": 72,
+        "8": 111,
+        "9": 135,
+        "10": 93
+      }
+    },
+    {
+      "name": "Wecsters",
+      "total": 923,
+      "by_week": {
+        "1": 94,
+        "2": 87,
+        "3": 65,
+        "4": 80,
+        "5": 107,
+        "6": 66,
+        "7": 83,
+        "8": 110,
+        "9": 130,
+        "10": 101
+      }
+    },
+    {
+      "name": "Cobra Kai 15",
+      "total": 921,
+      "by_week": {
+        "1": 108,
+        "2": 75,
+        "3": 69,
+        "4": 90,
+        "5": 91,
+        "6": 82,
+        "7": 57,
+        "8": 101,
+        "9": 128,
+        "10": 120
+      }
+    },
+    {
+      "name": "Storkuss",
+      "total": 918,
+      "by_week": {
+        "1": 106,
+        "2": 79,
+        "3": 90,
+        "4": 114,
+        "5": 88,
+        "6": 61,
+        "7": 54,
+        "8": 111,
+        "9": 117,
+        "10": 98
+      }
+    },
+    {
+      "name": "ksundstrom5",
+      "total": 915,
+      "by_week": {
+        "1": 96,
+        "2": 89,
+        "3": 75,
+        "4": 96,
+        "5": 69,
+        "6": 66,
+        "7": 86,
+        "8": 106,
+        "9": 128,
+        "10": 104
+      }
+    },
+    {
+      "name": "Dr Zod",
+      "total": 914.5,
+      "by_week": {
+        "1": 103,
+        "2": 65,
+        "3": 70,
+        "4": 100,
+        "5": 73.5,
+        "6": 59,
+        "7": 99,
+        "8": 110,
+        "9": 133,
+        "10": 102
+      }
+    },
+    {
+      "name": "Morrisszyslak",
+      "total": 908.5,
+      "by_week": {
+        "1": 91,
+        "2": 80,
+        "3": 83,
+        "4": 88,
+        "5": 92.5,
+        "6": 66,
+        "7": 72,
+        "8": 105,
+        "9": 135,
+        "10": 96
+      }
+    },
+    {
+      "name": "The Iggles",
+      "total": 908,
+      "by_week": {
+        "1": 100,
+        "2": 85,
+        "3": 79,
+        "4": 90,
+        "5": 87,
+        "6": 70,
+        "7": 70,
+        "8": 102,
+        "9": 130,
+        "10": 95
+      }
+    },
+    {
+      "name": "Howlin Wolf",
+      "total": 905,
+      "by_week": {
+        "1": 88,
+        "2": 85,
+        "3": 76,
+        "4": 93,
+        "5": 91,
+        "6": 71,
+        "7": 59,
+        "8": 108,
+        "9": 122,
+        "10": 112
+      }
+    },
+    {
+      "name": "Princess Cyn",
+      "total": 903.5,
+      "by_week": {
+        "1": 70,
+        "2": 98,
+        "3": 66,
+        "4": 102,
+        "5": 91.5,
+        "6": 61,
+        "7": 87,
+        "8": 95,
+        "9": 133,
+        "10": 100
+      }
+    },
+    {
+      "name": "JHoler",
+      "total": 901.5,
+      "by_week": {
+        "1": 100,
+        "2": 86,
+        "3": 69,
+        "4": 83,
+        "5": 102.5,
+        "6": 68,
+        "7": 71,
+        "8": 103,
+        "9": 121,
+        "10": 98
+      }
+    },
+    {
+      "name": "bowncingsole",
+      "total": 900.5,
+      "by_week": {
+        "1": 90,
+        "2": 90,
+        "3": 68,
+        "4": 100,
+        "5": 85.5,
+        "6": 73,
+        "7": 73,
+        "8": 93,
+        "9": 133,
+        "10": 95
+      }
+    },
+    {
+      "name": "mzal13",
+      "total": 895.5,
+      "by_week": {
+        "1": 90,
+        "2": 86,
+        "3": 72,
+        "4": 86,
+        "5": 62.5,
+        "6": 74,
+        "7": 83,
+        "8": 115,
+        "9": 119,
+        "10": 108
+      }
+    },
+    {
+      "name": "Chuck Wagon",
+      "total": 893,
+      "by_week": {
+        "1": 115,
+        "2": 76,
+        "3": 73,
+        "4": 81,
+        "5": 83,
+        "6": 87,
+        "7": 54,
+        "8": 105,
+        "9": 111,
+        "10": 108
+      }
+    },
+    {
+      "name": "akak907",
+      "total": 891.5,
+      "by_week": {
+        "1": 84,
+        "2": 92,
+        "3": 88,
+        "4": 80,
+        "5": 98.5,
+        "6": 67,
+        "7": 90,
+        "8": 68,
+        "9": 124,
+        "10": 100
+      }
+    },
+    {
+      "name": "Philly vs. All Youse",
+      "total": 888,
+      "by_week": {
+        "1": 93,
+        "2": 80,
+        "3": 84,
+        "4": 84,
+        "5": 86,
+        "6": 84,
+        "7": 57,
+        "8": 101,
+        "9": 115,
+        "10": 104
+      }
+    },
+    {
+      "name": "KickingBass",
+      "total": 884.5,
+      "by_week": {
+        "1": 69,
+        "2": 77,
+        "3": 80,
+        "4": 109,
+        "5": 76.5,
+        "6": 69,
+        "7": 77,
+        "8": 107,
+        "9": 127,
+        "10": 93
+      }
+    },
+    {
+      "name": "CM5",
+      "total": 883,
+      "by_week": {
+        "1": 96,
+        "2": 92,
+        "3": 74,
+        "4": 78,
+        "5": 99,
+        "6": 60,
+        "7": 68,
+        "8": 98,
+        "9": 123,
+        "10": 95
+      }
+    },
+    {
+      "name": "blindsided",
+      "total": 881.5,
+      "by_week": {
+        "1": 92,
+        "2": 89,
+        "3": 58,
+        "4": 102,
+        "5": 76.5,
+        "6": 71,
+        "7": 84,
+        "8": 72,
+        "9": 128,
+        "10": 109
+      }
+    },
+    {
+      "name": "bheather",
+      "total": 875,
+      "by_week": {
+        "1": 94,
+        "2": 84,
+        "3": 77,
+        "4": 98,
+        "5": 58,
+        "6": 62,
+        "7": 80,
+        "8": 96,
+        "9": 130,
+        "10": 96
+      }
+    },
+    {
+      "name": "Littlef",
+      "total": 870.5,
+      "by_week": {
+        "1": 61,
+        "2": 104,
+        "3": 75,
+        "4": 87,
+        "5": 101.5,
+        "6": 75,
+        "7": 53,
+        "8": 94,
+        "9": 135,
+        "10": 85
+      }
+    },
+    {
+      "name": "Red Grapes of Wrath",
+      "total": 869,
+      "by_week": {
+        "1": 94,
+        "2": 86,
+        "3": 79,
+        "4": 99,
+        "5": 79,
+        "6": 70,
+        "7": 65,
+        "8": 80,
+        "9": 116,
+        "10": 101
+      }
+    },
+    {
+      "name": "Bloodydamn Goblin",
+      "total": 868,
+      "by_week": {
+        "1": 75,
+        "2": 92,
+        "3": 60,
+        "4": 82,
+        "5": 69,
+        "6": 103,
+        "7": 84,
+        "8": 105,
+        "9": 112,
+        "10": 86
+      }
+    },
+    {
+      "name": "jpbblues",
+      "total": 866.5,
+      "by_week": {
+        "1": 96,
+        "2": 81,
+        "3": 67,
+        "4": 86,
+        "5": 90.5,
+        "6": 73,
+        "7": 57,
+        "8": 104,
+        "9": 116,
+        "10": 96
+      }
+    },
+    {
+      "name": "lolasbitchez",
+      "total": 866.5,
+      "by_week": {
+        "1": 102,
+        "2": 86,
+        "3": 60,
+        "4": 103,
+        "5": 78.5,
+        "6": 64,
+        "7": 70,
+        "8": 98,
+        "9": 107,
+        "10": 98
+      }
+    },
+    {
+      "name": "Dak to the Future",
+      "total": 865.5,
+      "by_week": {
+        "1": 77,
+        "2": 77,
+        "3": 64,
+        "4": 106,
+        "5": 87.5,
+        "6": 82,
+        "7": 64,
+        "8": 70,
+        "9": 130,
+        "10": 108
+      }
+    },
+    {
+      "name": "Shock Therapy",
+      "total": 865.5,
+      "by_week": {
+        "1": 76,
+        "2": 86,
+        "3": 69,
+        "4": 99,
+        "5": 70.5,
+        "6": 75,
+        "7": 94,
+        "8": 103,
+        "9": 118,
+        "10": 75
+      }
+    },
+    {
+      "name": "LaCostaGrizzly",
+      "total": 864.5,
+      "by_week": {
+        "1": 90,
+        "2": 83,
+        "3": 72,
+        "4": 81,
+        "5": 96.5,
+        "6": 70,
+        "7": 53,
+        "8": 100,
+        "9": 122,
+        "10": 97
+      }
+    },
+    {
+      "name": "Playing It Koi",
+      "total": 864.5,
+      "by_week": {
+        "1": 94,
+        "2": 89,
+        "3": 68,
+        "4": 81,
+        "5": 84.5,
+        "6": 75,
+        "7": 73,
+        "8": 106,
+        "9": 117,
+        "10": 77
+      }
+    },
+    {
+      "name": "tmotts62",
+      "total": 863,
+      "by_week": {
+        "1": 68,
+        "2": 62,
+        "3": 84,
+        "4": 66,
+        "5": 81,
+        "6": 79,
+        "7": 89,
+        "8": 115,
+        "9": 125,
+        "10": 94
+      }
+    },
+    {
+      "name": "Shoppykat",
+      "total": 862.5,
+      "by_week": {
+        "1": 105,
+        "2": 71,
+        "3": 81,
+        "4": 67,
+        "5": 95.5,
+        "6": 81,
+        "7": 73,
+        "8": 93,
+        "9": 121,
+        "10": 75
+      }
+    },
+    {
+      "name": "Cheese Ed",
+      "total": 862,
+      "by_week": {
+        "1": 86,
+        "2": 77,
+        "3": 69,
+        "4": 94,
+        "5": 92,
+        "6": 79,
+        "7": 46,
+        "8": 94,
+        "9": 126,
+        "10": 99
+      }
+    },
+    {
+      "name": "KeepItSimple",
+      "total": 861.5,
+      "by_week": {
+        "1": 58,
+        "2": 79,
+        "3": 81,
+        "4": 94,
+        "5": 91.5,
+        "6": 67,
+        "7": 66,
+        "8": 96,
+        "9": 133,
+        "10": 96
+      }
+    },
+    {
+      "name": "Lenpapa",
+      "total": 861.5,
+      "by_week": {
+        "1": 89,
+        "2": 78,
+        "3": 75,
+        "4": 97,
+        "5": 70.5,
+        "6": 54,
+        "7": 71,
+        "8": 97,
+        "9": 129,
+        "10": 101
+      }
+    },
+    {
+      "name": "bags7777",
+      "total": 860.5,
+      "by_week": {
+        "1": 86,
+        "2": 87,
+        "3": 78,
+        "4": 98,
+        "5": 70.5,
+        "6": 77,
+        "7": 46,
+        "8": 88,
+        "9": 121,
+        "10": 109
+      }
+    },
+    {
+      "name": "HoHum",
+      "total": 860.5,
+      "by_week": {
+        "1": 103,
+        "2": 79,
+        "3": 66,
+        "4": 96,
+        "5": 80.5,
+        "6": 71,
+        "7": 66,
+        "8": 91,
+        "9": 101,
+        "10": 107
+      }
+    },
+    {
+      "name": "First&Goal",
+      "total": 859.5,
+      "by_week": {
+        "1": 92,
+        "2": 90,
+        "3": 77,
+        "4": 98,
+        "5": 85.5,
+        "6": 49,
+        "7": 64,
+        "8": 80,
+        "9": 107,
+        "10": 117
+      }
+    },
+    {
+      "name": "StevieJo",
+      "total": 856,
+      "by_week": {
+        "1": 93,
+        "2": 80,
+        "3": 88,
+        "4": 79,
+        "5": 93,
+        "6": 76,
+        "7": 49,
+        "8": 86,
+        "9": 124,
+        "10": 88
+      }
+    },
+    {
+      "name": "Mark1408",
+      "total": 854.5,
+      "by_week": {
+        "1": 93,
+        "2": 83,
+        "3": 87,
+        "4": 84,
+        "5": 79.5,
+        "6": 52,
+        "7": 69,
+        "8": 92,
+        "9": 122,
+        "10": 93
+      }
+    },
+    {
+      "name": "Csonkaupthegut",
+      "total": 854,
+      "by_week": {
+        "1": 88,
+        "2": 85,
+        "3": 78,
+        "4": 95,
+        "5": 56,
+        "6": 76,
+        "7": 75,
+        "8": 97,
+        "9": 102,
+        "10": 102
+      }
+    },
+    {
+      "name": "Babalinks",
+      "total": 854,
+      "by_week": {
+        "1": 67,
+        "2": 125,
+        "3": 67,
+        "4": 92,
+        "5": 69,
+        "6": 70,
+        "7": 59,
+        "8": 106,
+        "9": 112,
+        "10": 87
+      }
+    },
+    {
+      "name": "FoghornLeghorn",
+      "total": 850.5,
+      "by_week": {
+        "1": 83,
+        "2": 78,
+        "3": 76,
+        "4": 85,
+        "5": 82.5,
+        "6": 57,
+        "7": 78,
+        "8": 102,
+        "9": 128,
+        "10": 81
+      }
+    },
+    {
+      "name": "LarrySF49",
+      "total": 849,
+      "by_week": {
+        "1": 76,
+        "2": 75,
+        "3": 68,
+        "4": 75,
+        "5": 93,
+        "6": 63,
+        "7": 70,
+        "8": 96,
+        "9": 126,
+        "10": 107
+      }
+    },
+    {
+      "name": "The Brooklyn Bruiser",
+      "total": 844.5,
+      "by_week": {
+        "1": 90,
+        "2": 92,
+        "3": 51,
+        "4": 104,
+        "5": 71.5,
+        "6": 58,
+        "7": 54,
+        "8": 104,
+        "9": 123,
+        "10": 97
+      }
+    },
+    {
+      "name": "tjdieck",
+      "total": 844.5,
+      "by_week": {
+        "1": 82,
+        "2": 89,
+        "3": 69,
+        "4": 79,
+        "5": 93.5,
+        "6": 80,
+        "7": 55,
+        "8": 72,
+        "9": 128,
+        "10": 97
+      }
+    },
+    {
+      "name": "wengel2694",
+      "total": 841.5,
+      "by_week": {
+        "1": 72,
+        "2": 63,
+        "3": 76,
+        "4": 88,
+        "5": 81.5,
+        "6": 72,
+        "7": 65,
+        "8": 92,
+        "9": 125,
+        "10": 107
+      }
+    },
+    {
+      "name": "JCP Warriors",
+      "total": 839.5,
+      "by_week": {
+        "1": 79,
+        "2": 89,
+        "3": 71,
+        "4": 89,
+        "5": 80.5,
+        "6": 79,
+        "7": 54,
+        "8": 84,
+        "9": 110,
+        "10": 104
+      }
+    },
+    {
+      "name": "Alibaba818",
+      "total": 834.5,
+      "by_week": {
+        "1": 94,
+        "2": 98,
+        "3": 77,
+        "4": 88,
+        "5": 85.5,
+        "6": 51,
+        "7": 50,
+        "8": 98,
+        "9": 104,
+        "10": 89
+      }
+    },
+    {
+      "name": "BDANIEL1123",
+      "total": 829.5,
+      "by_week": {
+        "1": 78,
+        "2": 66,
+        "3": 73,
+        "4": 76,
+        "5": 84.5,
+        "6": 58,
+        "7": 87,
+        "8": 82,
+        "9": 121,
+        "10": 104
+      }
+    },
+    {
+      "name": "pmac10023",
+      "total": 829,
+      "by_week": {
+        "1": 111,
+        "2": 100,
+        "3": 64,
+        "4": 86,
+        "5": 106,
+        "6": 73,
+        "7": 65,
+        "8": 0,
+        "9": 132,
+        "10": 92
+      }
+    },
+    {
+      "name": "lilyvonlily",
+      "total": 824,
+      "by_week": {
+        "1": 98,
+        "2": 88,
+        "3": 72,
+        "4": 98,
+        "5": 105,
+        "6": 48,
+        "7": 0,
+        "8": 87,
+        "9": 120,
+        "10": 108
+      }
+    },
+    {
+      "name": "PolyPick6",
+      "total": 816,
+      "by_week": {
+        "1": 90,
+        "2": 69,
+        "3": 63,
+        "4": 78,
+        "5": 75,
+        "6": 69,
+        "7": 64,
+        "8": 88,
+        "9": 129,
+        "10": 91
+      }
+    },
+    {
+      "name": "Cinci Jungle Fever",
+      "total": 807.5,
+      "by_week": {
+        "1": 95,
+        "2": 56,
+        "3": 79,
+        "4": 72,
+        "5": 88.5,
+        "6": 61,
+        "7": 56,
+        "8": 108,
+        "9": 122,
+        "10": 70
+      }
+    },
+    {
+      "name": "BeastMode12",
+      "total": 794,
+      "by_week": {
+        "1": 80,
+        "2": 73,
+        "3": 59,
+        "4": 86,
+        "5": 52,
+        "6": 52,
+        "7": 96,
+        "8": 83,
+        "9": 120,
+        "10": 93
+      }
+    },
+    {
+      "name": "DarksideMOB",
+      "total": 779,
+      "by_week": {
+        "1": 94,
+        "2": 58,
+        "3": 64,
+        "4": 111,
+        "5": 75,
+        "6": 0,
+        "7": 73,
+        "8": 78,
+        "9": 132,
+        "10": 94
+      }
+    },
+    {
+      "name": "QuickFish",
+      "total": 776,
+      "by_week": {
+        "1": 91,
+        "2": 0,
+        "3": 74,
+        "4": 77,
+        "5": 82,
+        "6": 75,
+        "7": 67,
+        "8": 75,
+        "9": 127,
+        "10": 108
+      }
+    },
+    {
+      "name": "theboxersd",
+      "total": 712.5,
+      "by_week": {
+        "1": 55,
+        "2": 64,
+        "3": 80,
+        "4": 73,
+        "5": 50.5,
+        "6": 73,
+        "7": 90,
+        "8": 76,
+        "9": 73,
+        "10": 78
+      }
+    },
+    {
+      "name": "Vagelli",
+      "total": 701.5,
+      "by_week": {
+        "1": 79,
+        "2": 101,
+        "3": 77,
+        "4": 88,
+        "5": 53.5,
+        "6": 67,
+        "7": 28,
+        "8": 56,
+        "9": 69,
+        "10": 83
+      }
+    },
+    {
+      "name": "betterlucknextweek",
+      "total": 496,
+      "by_week": {
+        "1": 88,
+        "2": 63,
+        "3": 0,
+        "4": 85,
+        "5": 70,
+        "6": 0,
+        "7": 63,
+        "8": 95,
+        "9": 16,
+        "10": 16
+      }
+    },
+    {
+      "name": "Dmichaels08",
+      "total": 490,
+      "by_week": {
+        "1": 47,
+        "2": 38,
+        "3": 40,
+        "4": 70,
+        "5": 45,
+        "6": 71,
+        "7": 82,
+        "8": 97,
+        "9": 0,
+        "10": 0
+      }
+    }
+  ],
+  "weekly_breakdown_captured_at": "2026-11-17T08:14:00-08:00",
+  "weekly_breakdown_note": "WeeklyBreakdown.aspx DataTable rows().data(), all 93 members, Weeks 1-10 (Week 11 all 0, omitted). Totals match Standings overall; Week 10 column matches Week 10 standings."
+}

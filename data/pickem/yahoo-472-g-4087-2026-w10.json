@@ -1,0 +1,670 @@
+{
+  "schema": "pickem_pool_capture_v1",
+  "pool_id": "yahoo-472.g.4087",
+  "pool_name": "Ken's Pickem League",
+  "platform": "Yahoo",
+  "url": "https://football.fantasysports.yahoo.com/pickem/4087/",
+  "week": 10,
+  "season": 2026,
+  "captured_at": "2026-11-17T15:08:57.526Z",
+  "captured_by": "scripts/archive/yahoo-week-archive.mjs (Yahoo Fantasy API, read-only)",
+  "entrants": 54,
+  "scoring": "confidence (Yahoo Pro Football Pick'em); a dropped week does not count toward the season total",
+  "week_status": "final",
+  "andy": {
+    "entry": "Fat Lazy American",
+    "weekly_pts": 77,
+    "weekly_rank": 44,
+    "week_wins": 10,
+    "week_losses": 4,
+    "week_dropped": false,
+    "ytd": 771,
+    "overall_rank": 25,
+    "by_week": {
+      "1": 90,
+      "2": 85,
+      "3": 75,
+      "4": 96,
+      "5": 75,
+      "6": 66,
+      "7": 61,
+      "8": 88,
+      "9": 119,
+      "10": 77,
+      "11": null
+    },
+    "picks": [
+      {
+        "game": "WSH@NYG",
+        "pick": "NYG",
+        "confidence": 2,
+        "winner": "WSH",
+        "correct": false,
+        "pool_pct_away": 17,
+        "pool_pct_home": 83
+      },
+      {
+        "game": "NE@DET",
+        "pick": "DET",
+        "confidence": 4,
+        "winner": "DET",
+        "correct": true,
+        "pool_pct_away": 11,
+        "pool_pct_home": 89
+      },
+      {
+        "game": "KC@ATL",
+        "pick": "KC",
+        "confidence": 6,
+        "winner": "KC",
+        "correct": true,
+        "pool_pct_away": 95,
+        "pool_pct_home": 5
+      },
+      {
+        "game": "HOU@CLE",
+        "pick": "HOU",
+        "confidence": 9,
+        "winner": "CLE",
+        "correct": false,
+        "pool_pct_away": 85,
+        "pool_pct_home": 15
+      },
+      {
+        "game": "MIN@GB",
+        "pick": "GB",
+        "confidence": 7,
+        "winner": "MIN",
+        "correct": false,
+        "pool_pct_away": 21,
+        "pool_pct_home": 79
+      },
+      {
+        "game": "JAX@TEN",
+        "pick": "JAX",
+        "confidence": 14,
+        "winner": "JAX",
+        "correct": true,
+        "pool_pct_away": 99,
+        "pool_pct_home": 1
+      },
+      {
+        "game": "MIA@IND",
+        "pick": "IND",
+        "confidence": 3,
+        "winner": "IND",
+        "correct": true,
+        "pool_pct_away": 17,
+        "pool_pct_home": 83
+      },
+      {
+        "game": "CAR@NO",
+        "pick": "CAR",
+        "confidence": 1,
+        "winner": "CAR",
+        "correct": true,
+        "pool_pct_away": 46,
+        "pool_pct_home": 54
+      },
+      {
+        "game": "BUF@NYJ",
+        "pick": "BUF",
+        "confidence": 12,
+        "winner": "BUF",
+        "correct": true,
+        "pool_pct_away": 99,
+        "pool_pct_home": 1
+      },
+      {
+        "game": "SEA@LV",
+        "pick": "SEA",
+        "confidence": 11,
+        "winner": "SEA",
+        "correct": true,
+        "pool_pct_away": 95,
+        "pool_pct_home": 5
+      },
+      {
+        "game": "LAR@ARI",
+        "pick": "LAR",
+        "confidence": 13,
+        "winner": "LAR",
+        "correct": true,
+        "pool_pct_away": 97,
+        "pool_pct_home": 3
+      },
+      {
+        "game": "SF@DAL",
+        "pick": "SF",
+        "confidence": 8,
+        "winner": "SF",
+        "correct": true,
+        "pool_pct_away": 93,
+        "pool_pct_home": 7
+      },
+      {
+        "game": "PIT@CIN",
+        "pick": "CIN",
+        "confidence": 5,
+        "winner": "CIN",
+        "correct": true,
+        "pool_pct_away": 14,
+        "pool_pct_home": 86
+      },
+      {
+        "game": "LAC@BAL",
+        "pick": "BAL",
+        "confidence": 10,
+        "winner": "LAC",
+        "correct": false,
+        "pool_pct_away": 19,
+        "pool_pct_home": 81
+      }
+    ],
+    "picks_note": "Captured 2026-11-17 from the Yahoo picks page (desktop browser pane, read-only). Picked side inferred from Correct/Incorrect + winner; correct confidences sum to 77 = TOTAL POINTS, 10-4. Page also shows season 771 pts, rank 25/54, W-L 89-46, dropped 61.",
+    "tiebreakers": {
+      "tb1_scores": {
+        "LAC@BAL": {
+          "LAC": 17,
+          "BAL": 22
+        },
+        "PIT@CIN": {
+          "PIT": 23,
+          "CIN": 27
+        }
+      },
+      "tb2_most_points": "SF",
+      "tb2_fewest_points": "ARI"
+    },
+    "dropped_pts": 61
+  },
+  "season_leader": "Ditka’s Bears 824",
+  "overall_standings": [
+    {
+      "rank": 1,
+      "name": "Ditka’s Bears",
+      "pts": 824,
+      "wins": 99,
+      "losses": 36,
+      "week_pts": 97,
+      "week_rank": 2
+    },
+    {
+      "rank": 2,
+      "name": "coolgymnast01",
+      "pts": 807,
+      "wins": 96,
+      "losses": 39,
+      "week_pts": 85,
+      "week_rank": 17
+    },
+    {
+      "rank": 3,
+      "name": "Freddy Flintstone",
+      "pts": 799,
+      "wins": 94,
+      "losses": 41,
+      "week_pts": 73,
+      "week_rank": 48
+    },
+    {
+      "rank": 4,
+      "name": "Steve",
+      "pts": 795,
+      "wins": 90,
+      "losses": 45,
+      "week_pts": 82,
+      "week_rank": 24
+    },
+    {
+      "rank": 5,
+      "name": "KGuers",
+      "pts": 793,
+      "wins": 94,
+      "losses": 41,
+      "week_pts": 81,
+      "week_rank": 34
+    },
+    {
+      "rank": 6,
+      "name": "Eagles Green",
+      "pts": 792,
+      "wins": 92,
+      "losses": 43,
+      "week_pts": 81,
+      "week_rank": 33
+    },
+    {
+      "rank": 7,
+      "name": "Dak To The Future",
+      "pts": 790,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 83,
+      "week_rank": 23
+    },
+    {
+      "rank": 8,
+      "name": "Deshaun's Massage Parlor",
+      "pts": 789,
+      "wins": 93,
+      "losses": 42,
+      "week_pts": 83,
+      "week_rank": 22
+    },
+    {
+      "rank": 9,
+      "name": "The LMC",
+      "pts": 788,
+      "wins": 88,
+      "losses": 47,
+      "week_pts": 85,
+      "week_rank": 18
+    },
+    {
+      "rank": 10,
+      "name": "The Taxman",
+      "pts": 783,
+      "wins": 93,
+      "losses": 42,
+      "week_pts": 83,
+      "week_rank": 21
+    },
+    {
+      "rank": 11,
+      "name": "Bohmzilla",
+      "pts": 783,
+      "wins": 93,
+      "losses": 42,
+      "week_pts": 78,
+      "week_rank": 42
+    },
+    {
+      "rank": 12,
+      "name": "D Pain",
+      "pts": 782,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 85,
+      "week_rank": 16
+    },
+    {
+      "rank": 13,
+      "name": "Spotted Balls",
+      "pts": 782,
+      "wins": 93,
+      "losses": 42,
+      "week_pts": 79,
+      "week_rank": 41
+    },
+    {
+      "rank": 14,
+      "name": "Fontana's Picks",
+      "pts": 782,
+      "wins": 89,
+      "losses": 46,
+      "week_pts": 75,
+      "week_rank": 45
+    },
+    {
+      "rank": 15,
+      "name": "TheGambler",
+      "pts": 781,
+      "wins": 88,
+      "losses": 47,
+      "week_pts": 88,
+      "week_rank": 8
+    },
+    {
+      "rank": 16,
+      "name": "GoBirds🦅",
+      "pts": 781,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 87,
+      "week_rank": 10
+    },
+    {
+      "rank": 17,
+      "name": "MoneyMeat",
+      "pts": 781,
+      "wins": 88,
+      "losses": 47,
+      "week_pts": 80,
+      "week_rank": 38
+    },
+    {
+      "rank": 18,
+      "name": "JGray",
+      "pts": 780,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 82,
+      "week_rank": 29
+    },
+    {
+      "rank": 19,
+      "name": "Palace People",
+      "pts": 777,
+      "wins": 89,
+      "losses": 46,
+      "week_pts": 86,
+      "week_rank": 15
+    },
+    {
+      "rank": 20,
+      "name": "TitansoftheGridiron",
+      "pts": 777,
+      "wins": 90,
+      "losses": 45,
+      "week_pts": 71,
+      "week_rank": 50
+    },
+    {
+      "rank": 21,
+      "name": "Squatch🫈",
+      "pts": 776,
+      "wins": 87,
+      "losses": 48,
+      "week_pts": 88,
+      "week_rank": 9
+    },
+    {
+      "rank": 22,
+      "name": "MCSunshine",
+      "pts": 774,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 90,
+      "week_rank": 5
+    },
+    {
+      "rank": 23,
+      "name": "LHarris24",
+      "pts": 773,
+      "wins": 88,
+      "losses": 47,
+      "week_pts": 81,
+      "week_rank": 32
+    },
+    {
+      "rank": 24,
+      "name": "Phoolonthehill",
+      "pts": 771,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 82,
+      "week_rank": 28
+    },
+    {
+      "rank": 25,
+      "name": "Fat Lazy American",
+      "pts": 771,
+      "wins": 89,
+      "losses": 46,
+      "week_pts": 77,
+      "week_rank": 44
+    },
+    {
+      "rank": 26,
+      "name": "ddeev65",
+      "pts": 768,
+      "wins": 84,
+      "losses": 51,
+      "week_pts": 87,
+      "week_rank": 12
+    },
+    {
+      "rank": 27,
+      "name": "Michael Weld",
+      "pts": 766,
+      "wins": 91,
+      "losses": 44,
+      "week_pts": 80,
+      "week_rank": 36
+    },
+    {
+      "rank": 28,
+      "name": "To The Top 🌞🦅",
+      "pts": 761,
+      "wins": 85,
+      "losses": 50,
+      "week_pts": 89,
+      "week_rank": 7
+    },
+    {
+      "rank": 29,
+      "name": "KillerKa$h",
+      "pts": 758,
+      "wins": 87,
+      "losses": 48,
+      "week_pts": 80,
+      "week_rank": 39
+    },
+    {
+      "rank": 30,
+      "name": "SpiEagles",
+      "pts": 756,
+      "wins": 86,
+      "losses": 49,
+      "week_pts": 96,
+      "week_rank": 3
+    },
+    {
+      "rank": 31,
+      "name": "Onahunch",
+      "pts": 753,
+      "wins": 83,
+      "losses": 52,
+      "week_pts": 84,
+      "week_rank": 20
+    },
+    {
+      "rank": 32,
+      "name": "Boss Lady",
+      "pts": 752,
+      "wins": 88,
+      "losses": 47,
+      "week_pts": 82,
+      "week_rank": 25
+    },
+    {
+      "rank": 33,
+      "name": "Regstoriches",
+      "pts": 752,
+      "wins": 84,
+      "losses": 51,
+      "week_pts": 81,
+      "week_rank": 31
+    },
+    {
+      "rank": 34,
+      "name": "Cole’s picks",
+      "pts": 748,
+      "wins": 89,
+      "losses": 46,
+      "week_pts": 78,
+      "week_rank": 43
+    },
+    {
+      "rank": 35,
+      "name": "Brett's Best",
+      "pts": 747,
+      "wins": 86,
+      "losses": 49,
+      "week_pts": 84,
+      "week_rank": 19
+    },
+    {
+      "rank": 36,
+      "name": "DeVonta's Inferno",
+      "pts": 744,
+      "wins": 85,
+      "losses": 50,
+      "week_pts": 81,
+      "week_rank": 35
+    },
+    {
+      "rank": 37,
+      "name": "The Really Rottens",
+      "pts": 736,
+      "wins": 81,
+      "losses": 52,
+      "week_pts": 86,
+      "week_rank": 14
+    },
+    {
+      "rank": 38,
+      "name": "JohnnyRegs33$",
+      "pts": 736,
+      "wins": 81,
+      "losses": 54,
+      "week_pts": 82,
+      "week_rank": 27
+    },
+    {
+      "rank": 39,
+      "name": "Cream",
+      "pts": 730,
+      "wins": 89,
+      "losses": 46,
+      "week_pts": 86,
+      "week_rank": 13
+    },
+    {
+      "rank": 40,
+      "name": "Blood Thirsty",
+      "pts": 727,
+      "wins": 76,
+      "losses": 59,
+      "week_pts": 65,
+      "week_rank": 52
+    },
+    {
+      "rank": 41,
+      "name": "Rokens Wild Stallions",
+      "pts": 726,
+      "wins": 83,
+      "losses": 52,
+      "week_pts": 72,
+      "week_rank": 49
+    },
+    {
+      "rank": 42,
+      "name": "I love milk",
+      "pts": 724,
+      "wins": 82,
+      "losses": 53,
+      "week_pts": 82,
+      "week_rank": 26
+    },
+    {
+      "rank": 43,
+      "name": "ShannyG",
+      "pts": 721,
+      "wins": 82,
+      "losses": 53,
+      "week_pts": 81,
+      "week_rank": 30
+    },
+    {
+      "rank": 44,
+      "name": "Karen McGuckin",
+      "pts": 717,
+      "wins": 85,
+      "losses": 50,
+      "week_pts": 80,
+      "week_rank": 37
+    },
+    {
+      "rank": 45,
+      "name": "Crushin With KFC",
+      "pts": 717,
+      "wins": 84,
+      "losses": 51,
+      "week_pts": 80,
+      "week_rank": 40
+    },
+    {
+      "rank": 46,
+      "name": "🦅🏈🍀Irish Kate 🍀🏈🦅",
+      "pts": 715,
+      "wins": 79,
+      "losses": 56,
+      "week_pts": 74,
+      "week_rank": 47
+    },
+    {
+      "rank": 47,
+      "name": "Better late than never",
+      "pts": 706,
+      "wins": 85,
+      "losses": 48,
+      "week_pts": 90,
+      "week_rank": 6
+    },
+    {
+      "rank": 48,
+      "name": "TB2026",
+      "pts": 706,
+      "wins": 83,
+      "losses": 52,
+      "week_pts": 62,
+      "week_rank": 53
+    },
+    {
+      "rank": 49,
+      "name": "Cechmeout",
+      "pts": 699,
+      "wins": 82,
+      "losses": 52,
+      "week_pts": 87,
+      "week_rank": 11
+    },
+    {
+      "rank": 50,
+      "name": "It's Always Runny in Phila",
+      "pts": 680,
+      "wins": 78,
+      "losses": 57,
+      "week_pts": 98,
+      "week_rank": 1
+    },
+    {
+      "rank": 51,
+      "name": "TRegNJ",
+      "pts": 680,
+      "wins": 76,
+      "losses": 57,
+      "week_pts": 66,
+      "week_rank": 51
+    },
+    {
+      "rank": 52,
+      "name": "Patsuggs",
+      "pts": 625,
+      "wins": 79,
+      "losses": 54,
+      "week_pts": 94,
+      "week_rank": 4
+    },
+    {
+      "rank": 53,
+      "name": "UseToBeCarr",
+      "pts": 581,
+      "wins": 70,
+      "losses": 65,
+      "week_pts": 75,
+      "week_rank": 46
+    },
+    {
+      "rank": 54,
+      "name": "Ro Ro",
+      "pts": 572,
+      "wins": 63,
+      "losses": 72,
+      "week_pts": 0,
+      "week_rank": 54
+    }
+  ]
+}
