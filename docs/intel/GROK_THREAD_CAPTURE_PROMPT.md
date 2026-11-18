@@ -17,9 +17,9 @@ You are extracting NFL betting intel from X/Twitter posts for a betting-research
 
 For EACH URL below, open the post AND the author's full self-reply thread (every tweet the same author posted under it), read every attached image/graphic, and — if the post links to a video (X video, YouTube) or an article — use the linked content too. Do not rely on the first tweet alone.
 
-Return exactly TWO things, in this order.
+Return exactly TWO things, in this order, both in the chat (you cannot attach files). Never skip part 1, even if it has only the header row.
 
-### 1) One CSV file named `grok-twitter-picks-{DATE}.csv`
+### 1) The CSV for `grok-twitter-picks-{DATE}.csv`, as plain text inside ONE ```csv code block
 Header row exactly:
 `author,tweet_url,bet_type,team_or_market,market,selection,line,odds,rationale`
 
@@ -41,7 +41,7 @@ One row per individual bet. Rules:
 - ONLY picks the author is making or recommending. Do NOT include public-betting splits ("80% of money on…"), line-move reports, other people's picks the author is quoting, or recaps of games already played.
 - Skip anything about games already played before {DATE} and anything that is not NFL (college, other sports).
 - If a thread has no concrete bet, include no rows for it (list it in section 2 instead).
-- Plain CSV only: no markdown, no code fences, no blank lines, and every row must have all 9 columns.
+- Inside that code block: plain CSV only, with no markdown, no extra fences and no blank lines; every row must have all 9 columns. Put nothing else in the block.
 
 ### 2) A short Markdown summary (in the chat, not a file)
 A table with one row per URL: `handle | tweet_url | picks captured | source used (tweet / thread / image / video / article) | notes`.

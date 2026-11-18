@@ -115,7 +115,7 @@ Fantasy Sports approval again, which took weeks last time. The steps:
 ## 6. Cautions
 
 - Never print, log or commit `.env` values or `.nfl/yahoo/tokens.json`. Never pass `YAHOO_SCOPE`.
-- **Secret rotation:** the client secret was exposed in chat on 2026-08-18 and recorded as not rotated (AUDIT-CX-014,
-  last noted 2026-09-03). Confirm it has been rotated before giving another agent access. After a rotation, update `.env`;
-  existing tokens keep refreshing because the refresh call sends the current secret.
+- **Secret rotation (AUDIT-CX-014): done.** The client secret was exposed in chat on 2026-08-18; Andy confirmed on
+  2026-10-27 that it has been rotated. After any future rotation, update `.env`; existing tokens keep refreshing because
+  the refresh call sends the current secret.
 - Keep Yahoo calls on a schedule (the Survivor sync and Weekly Archive tasks), not polling loops. Yahoo rate limits aren't documented.

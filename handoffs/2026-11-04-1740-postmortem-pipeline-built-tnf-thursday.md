@@ -62,3 +62,9 @@ Post-mortem tooling + backfill:
   scripts/toolbox.mjs  data/official-picks/ai-proposals/2026-w09.json  CLAUDE.md AGENTS.md docs/NFL_WEEKLY_CARD_PROCESS.md
   handoffs/2026-11-04-1740-postmortem-pipeline-built-tnf-thursday.md
 (Leave out `*.bak-*`, `*.prev-*`, `__pycache__`, `work/w9/w09-seed-proposals.json` is optional.)
+
+## Update 6:30 PM PT
+- Week 5: 9 PENDING legs settled in the wagers ledger from box scores (Andy OK; ticket results unchanged; backup `*.bak-claude-20261104-w5-pending-legs`).
+- Supabase `user_bankroll_bets` synced by Andy (296 rows; verified: W8 50, W9 5 incl. Q5/N1/N2a/N2b, W5 legs settled). Closes Week 8 open item 4.
+- Committed and pushed by Andy: 5a8b5ae (tooling), ace6944 (backfill/W8 rebuild/W9 AI record), c1f7caa (ledger) -> origin `b0747be..c1f7caa`.
+- Repo housekeeping: stale `.git/**/*.lock` files (from the remote bridge, which can't delete) make `git gc` fail on every commit; Andy to clear them on Windows.

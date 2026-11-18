@@ -26,6 +26,8 @@
 
 ## Storage & Data
 
+- **Usage rebuild time is not source freshness:** A usage build can succeed after its source download fails. Check the downloader's actual dependencies before prescribing a refresh, retain the source CSV timestamp and hash in derived outputs, and gate freshness on that source timestamp rather than the rebuild time.
+
 - **Spread-only filtering must preserve the argument:** Removing other markets from SuperContest must not replace substantive pick reasoning with generic cover definitions. Every AI proposal and alternate needs a cited Pitch and Pushback, including conflicting evidence and source dates.
 - **Current prop menus must not inherit archived prices:** Select BEO and DKP captures by timestamp and week; preserve each row's side and threshold semantics. A missing current offer stays missing. Prediction contracts are labeled before fees and excluded from sportsbook best-price ladders.
 

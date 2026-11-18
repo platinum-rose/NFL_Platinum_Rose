@@ -6,6 +6,33 @@ are actually free to use on a new ticket.
 Lived in `~/pp/` on the device VM through Week 2 and was wiped when the VM recycled
 its scratch space — hence living in the repo now.
 
+## DraftKings Predictions capture
+
+Start the dedicated browser when needed, then capture the current week's board:
+
+```powershell
+npm run props:dkp:launch
+npm run dkp
+```
+
+To capture one game, pass its team abbreviations after `--`:
+
+```powershell
+npm run dkp -- --game CHI@SEA
+```
+
+The week is detected automatically. To select a week explicitly:
+
+```powershell
+npm run dkp -- --game CHI@SEA --week 8
+```
+
+`dkp`, `rundkprops`, and `props:dkp:cron` all run the event-feed capture with
+`--keep-raw`. They preserve raw feed evidence and apply the event-feed acceptance
+gate before writing a master. Complete any browser verification manually before
+capture. The existing Windows scheduled-task registration still targets the
+legacy scraper directly; changing these npm aliases does not change that task.
+
 ## Live capture (agent-assisted)
 
 Board dumps (below) are pasted text. `betonline-live-parser.mjs` and its Bookmaker
@@ -81,3 +108,20 @@ BEO emits 13 player-market section headers. Any header the parser doesn't recogn
 used to be invisible to it, so its rows silently continued the *previous* market —
 that's how "Pass Attempts 32+" once surfaced as a passing-TD line. `beo.py` now
 enumerates all 13 and hard-stops on anything unknown. Keep that behaviour.
+
+## BetOnline Prop Shop ladders (`runbolladders.cmd`) — added 2026-11-12 (Claude Team 2)
+
+Captures the Prop Shop / Props Builder ladders (e.g. Skattebo 41+ rush -400, Reese 8+ tackles+assists -173) for one game or the whole board. Replaces `bol-propshop-capture.mjs`, whose API replay is refused with `403 invalid_security_headers`.
+
+```
+.\runbolladders.cmd --game "WAS @ NYG"   # one game (abbreviations or full names)
+.\runbolladders.cmd                      # every game in the All Games dropdown
+.\runbolladders.cmd --probe              # page text, clickable labels and a screenshot only
+```
+
+- Uses the `.chrome-bol` Chrome on port 9223 (launched if missing; must be logged in) and the shared BOL lock.
+- Opens the Prop Shop app (troya.xyz, signed URL taken from the iframe) as its own page so no click can navigate BetOnline away; falls back to the iframe (`--in-frame` forces it).
+- Selects the game in **All Games**, opens the **All Markets** tab, opens every collapsed section and clicks **VIEW MORE** until every player is listed (about 30 s per game). `--all-tabs` also walks Passing / Rushing / Receiving / Defense / Over/Under / Touchdowns as a cross-check. Read-only: never clicks a price or the bet slip.
+- Covers passing yards/completions/TDs/attempts/INTs, rushing yards, carries, receiving yards, receptions, tackles+assists, sacks (defenders), interceptions and TD scorers. No "QB sacked" market exists in the Prop Shop. A player missing everywhere usually has his markets suspended at that moment: rerun later.
+- Output: `data/generated/props/bol-ladders-<date>_<hhmm>.json` (`rows`: game, tab, stat, player, team, threshold, line, odds), `.raw.txt` (screen text per tab; copy in `data/research-intel/source-evidence/`), `.api.json` (the app's own responses).
+- Diagnostics (step trail, screenshots on failure): `data/generated/props/diagnostics/bol-ladders-*`.

@@ -201,7 +201,20 @@ Run after the last game of the week (usually Tuesday morning, after MNF). Script
    Legacy manual path: write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
    season-to-date table in every earlier post-mortem, and close the week in the recommendation ledger
    (`docs/claude-project-dev/recommendation-ledger-2026.md` and the claude.ai DEV project copy).
+8b. **BEO futures snapshot (automated 2026-11-06).** Tuesday cadence step 9 (or on its own `node scripts/toolbox.mjs --cadence futures`;
+   by hand `npm run futures:bol`) runs `scripts/props/cron-bol-futures-scrape.mjs` -> `data/generated/futures/betonline-futures-<stamp>.{raw.txt,json}`
+   + `data/odds/BEO_futures_<MMDD_HHMM>.md`. Why Tuesday: BetOnline takes futures down during games (they were off the board after W9 TNF,
+   so no Week 9 Friday pull). The step launches the `.chrome-bol` profile (port 9223) if needed; if the hourly line capture holds the shared
+   BOL lock it retries once after 3 minutes, and fails the step when no new file lands.
 9. **Findings.** Append `[claude]` lines to `reports/analysis/w1-3-deep/FINDINGS.md` (append-only, shared with Codex)
    for anything that crossed 2 SE or reversed.
 10. **Needs Andy's explicit OK, every time:** Supabase writes, the Bankroll sync
    (`scripts/sync-placed-wagers-to-bankroll.mjs`), and any account action.
+
+## Report archive (permanent; added 2026-11-07)
+`dist/` is Vite's output folder and `vite build` empties it. On 2026-11-02 that wiped every Master Intel / SuperContest packet for Weeks 1-8. Reports are now kept permanently in `reports/intel/packets-archive/<season>-w<NN>/<YYYY-MM-DD-HHMM>-<label>/`, each folder with a `MANIFEST.json` (sha256 per file). Nothing there is overwritten or deleted.
+- `build.py` archives every build (`-build`). `export_pdf.py` adds the PDF to the snapshot whose html it printed.
+- `vite.config.js` archives every `dist/nfl_week*_master_packet*` folder before `vite build` (`-pre-vite-build`) and stops the build if it can't.
+- The copy actually sent to clients: `python scripts/master-intel/packet_archive.py --week N --label sent-to-clients --file <path>` (one `--file` per file).
+- List everything: `python scripts/master-intel/packet_archive.py --list [--week N]`.
+- The archive folder is tracked by git (not ignored). Commit it with each week's scoped batch.
