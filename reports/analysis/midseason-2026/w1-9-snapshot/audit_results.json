@@ -1,0 +1,409 @@
+{
+ "generated": "2026-11-13",
+ "a1_correlation": {
+  "W1-4": {
+   "cash_tickets": 118,
+   "independent_clusters": 44,
+   "tickets_in_shared_clusters": 87,
+   "stake_in_shared": 1288.75,
+   "stake_total": 1694.34,
+   "largest_cluster": 22
+  },
+  "W5-9": {
+   "cash_tickets": 135,
+   "independent_clusters": 26,
+   "tickets_in_shared_clusters": 123,
+   "stake_in_shared": 1754.35,
+   "stake_total": 2179.35,
+   "largest_cluster": 29
+  },
+  "W1-9": {
+   "cash_tickets": 253,
+   "independent_clusters": 70,
+   "tickets_in_shared_clusters": 210,
+   "stake_in_shared": 3043.1,
+   "stake_total": 3873.69,
+   "largest_cluster": 29
+  },
+  "largest": [
+   {
+    "week": 8,
+    "cash_tickets": 29,
+    "won": 2,
+    "net": 305.83,
+    "shared_legs": [
+     "antonio williams recv",
+     "baker mayfield pass",
+     "bhayshul tuten td",
+     "bryce young int",
+     "bucky irving td",
+     "cam ward int"
+    ]
+   },
+   {
+    "week": 5,
+    "cash_tickets": 23,
+    "won": 0,
+    "net": -338.8,
+    "shared_legs": [
+     "amon-ra st. brown tds",
+     "bijan robinson rush",
+     "bijan robinson td",
+     "brock purdy pass",
+     "chase brown tds",
+     "christian mccaffrey td"
+    ]
+   },
+   {
+    "week": 3,
+    "cash_tickets": 22,
+    "won": 0,
+    "net": -331.93,
+    "shared_legs": [
+     "bo nix int",
+     "case keenum int",
+     "d'andre swift recv",
+     "d'andre swift rush",
+     "dak prescott pass",
+     "dontayvion wicks recv"
+    ]
+   },
+   {
+    "week": 7,
+    "cash_tickets": 19,
+    "won": 0,
+    "net": -200.53,
+    "shared_legs": [
+     "a.j. brown recv",
+     "aj barner td",
+     "bryce young pass",
+     "bucky irving td",
+     "christian watson td",
+     "colston loveland td"
+    ]
+   },
+   {
+    "week": 2,
+    "cash_tickets": 17,
+    "won": 1,
+    "net": -268.68,
+    "shared_legs": [
+     "cam skattebo rush",
+     "christian mccaffrey td",
+     "colby parkinson recv",
+     "davante adams recv",
+     "devin singletary recv",
+     "game_total"
+    ]
+   }
+  ],
+  "pairwise": {
+   "W1-4": {
+    "legs": 677,
+    "legs_also_on_another_ticket": 283,
+    "pct": 0.418,
+    "same_week_pairs": 1772,
+    "pairs_sharing_a_leg": 138,
+    "pair_pct": 0.078
+   },
+   "W5-9": {
+    "legs": 733,
+    "legs_also_on_another_ticket": 405,
+    "pct": 0.553,
+    "same_week_pairs": 1803,
+    "pairs_sharing_a_leg": 197,
+    "pair_pct": 0.109
+   }
+  }
+ },
+ "a2_price_calibration": {
+  "bins": [
+   {
+    "implied": "0%-5%",
+    "n": 163,
+    "implied_avg": 0.018,
+    "hit_rate": 0.012,
+    "wins": 2,
+    "expected_wins": 3.0
+   },
+   {
+    "implied": "5%-15%",
+    "n": 49,
+    "implied_avg": 0.077,
+    "hit_rate": 0.102,
+    "wins": 5,
+    "expected_wins": 3.8
+   },
+   {
+    "implied": "15%-30%",
+    "n": 18,
+    "implied_avg": 0.264,
+    "hit_rate": 0.222,
+    "wins": 4,
+    "expected_wins": 4.7
+   },
+   {
+    "implied": "30%-45%",
+    "n": 12,
+    "implied_avg": 0.323,
+    "hit_rate": 0.083,
+    "wins": 1,
+    "expected_wins": 3.9
+   },
+   {
+    "implied": "45%-60%",
+    "n": 8,
+    "implied_avg": 0.533,
+    "hit_rate": 0.625,
+    "wins": 5,
+    "expected_wins": 4.3
+   },
+   {
+    "implied": "60%-100%",
+    "n": 3,
+    "implied_avg": 0.707,
+    "hit_rate": 1.0,
+    "wins": 3,
+    "expected_wins": 2.1
+   }
+  ],
+  "totals": {
+   "n": 253,
+   "wins": 20,
+   "expected_wins": 21.8,
+   "W1-4": {
+    "n": 118,
+    "wins": 7,
+    "expected_wins": 8.1
+   },
+   "W5-9": {
+    "n": 135,
+    "wins": 13,
+    "expected_wins": 13.6
+   }
+  }
+ },
+ "a5_bootstrap_cash": {
+  "W1-4 all cash": {
+   "n_tickets": 118,
+   "n_clusters": 44,
+   "net": -1316.94,
+   "p05": -2164.53,
+   "p95": -613.94,
+   "p_net_le_0": 1.0
+  },
+  "W5-9 all cash": {
+   "n_tickets": 135,
+   "n_clusters": 26,
+   "net": 1094.45,
+   "p05": -1136.05,
+   "p95": 4278.31,
+   "p_net_le_0": 0.301
+  },
+  "W5-9 without the W6 9-team hit": {
+   "n_tickets": 134,
+   "n_clusters": 26,
+   "net": -153.78,
+   "p05": -1269.37,
+   "p95": 990.19,
+   "p_net_le_0": 0.591
+  },
+  "Game-line parlays (W1-9)": {
+   "n_tickets": 72,
+   "n_clusters": 23,
+   "net": 490.03,
+   "p05": -1383.74,
+   "p95": 3583.47,
+   "p_net_le_0": 0.373
+  },
+  "2-leg tickets": {
+   "n_tickets": 21,
+   "n_clusters": 19,
+   "net": -265.93,
+   "p05": -428.4,
+   "p95": -91.7,
+   "p_net_le_0": 0.993
+  },
+  "3-leg tickets": {
+   "n_tickets": 16,
+   "n_clusters": 11,
+   "net": -154.71,
+   "p05": -204.9,
+   "p95": -104.81,
+   "p_net_le_0": 1.0
+  },
+  "4-team master RRs": {
+   "n_tickets": 5,
+   "n_clusters": 5,
+   "net": -440.53,
+   "p05": -525.0,
+   "p95": -271.59,
+   "p_net_le_0": 1.0
+  },
+  "BetOnline cash": {
+   "n_tickets": 112,
+   "n_clusters": 37,
+   "net": -712.57,
+   "p05": -912.81,
+   "p95": -532.89,
+   "p_net_le_0": 1.0
+  },
+  "Bookmaker cash": {
+   "n_tickets": 109,
+   "n_clusters": 36,
+   "net": -68.49,
+   "p05": -2371.23,
+   "p95": 3229.59,
+   "p_net_le_0": 0.564
+  },
+  "_nine_team_ticket": {
+   "id": "bet_20261015_bkr_740291356_9team_parlay_sunday",
+   "net": 1248.23
+  }
+ },
+ "a5_bootstrap_experts": {
+  "article: VSiN": {
+   "n": 127,
+   "units": -14.4,
+   "p05": -31.3,
+   "p95": 3.2,
+   "p_le_0": 0.913
+  },
+  "expert_feed: BettingPros": {
+   "n": 87,
+   "units": -13.7,
+   "p05": -28.3,
+   "p95": 1.0,
+   "p_le_0": 0.938
+  },
+  "expert_feed: Action Network": {
+   "n": 85,
+   "units": -18.6,
+   "p05": -32.5,
+   "p95": -4.7,
+   "p_le_0": 0.985
+  },
+  "article: Pro Football Talk": {
+   "n": 83,
+   "units": 7.6,
+   "p05": -3.9,
+   "p95": 19.0,
+   "p_le_0": 0.135
+  },
+  "article: Twitter/X Bookmarks (Personal)": {
+   "n": 62,
+   "units": 4.8,
+   "p05": -6.6,
+   "p95": 16.3,
+   "p_le_0": 0.262
+  },
+  "expert_feed: Sharp or Square": {
+   "n": 45,
+   "units": -7.3,
+   "p05": -17.8,
+   "p95": 3.1,
+   "p_le_0": 0.88
+  },
+  "expert_feed: Even Money": {
+   "n": 38,
+   "units": -1.7,
+   "p05": -11.3,
+   "p95": 7.8,
+   "p_le_0": 0.558
+  },
+  "article: BettingPros": {
+   "n": 38,
+   "units": -2.2,
+   "p05": -11.5,
+   "p95": 7.1,
+   "p_le_0": 0.653
+  }
+ },
+ "a5_bootstrap_markets": {
+  "spread": {
+   "n": 379,
+   "units": -38.0,
+   "p05": -68.4,
+   "p95": -7.1,
+   "p_le_0": 0.98
+  },
+  "total": {
+   "n": 91,
+   "units": 15.0,
+   "p05": 0.6,
+   "p95": 29.3,
+   "p_le_0": 0.046
+  },
+  "moneyline": {
+   "n": 162,
+   "units": -3.0,
+   "p05": -21.1,
+   "p95": 15.6,
+   "p_le_0": 0.602
+  },
+  "receptions": {
+   "n": 30,
+   "units": 0.8,
+   "p05": -8.3,
+   "p95": 9.9,
+   "p_le_0": 0.453
+  },
+  "anytime_td": {
+   "n": 159,
+   "units": -8.5,
+   "p05": -36.2,
+   "p95": 19.3,
+   "p_le_0": 0.697
+  }
+ },
+ "a5_bootstrap_podcasts": {
+  "Action Network": {
+   "n": 160,
+   "units": -44.6,
+   "p05": -68.6,
+   "p95": -18.6,
+   "p_le_0": 0.997,
+   "record": "51-109"
+  },
+  "BettingPros": {
+   "n": 113,
+   "units": 10.3,
+   "p05": -7.2,
+   "p95": 28.2,
+   "p_le_0": 0.171,
+   "record": "62-50"
+  },
+  "YouTube Discovery": {
+   "n": 65,
+   "units": -8.6,
+   "p05": -21.0,
+   "p95": 3.7,
+   "p_le_0": 0.881,
+   "record": "28-34"
+  },
+  "Sharp or Square": {
+   "n": 43,
+   "units": 3.8,
+   "p05": -6.5,
+   "p95": 13.5,
+   "p_le_0": 0.285,
+   "record": "24-18"
+  },
+  "Ross Tucker": {
+   "n": 42,
+   "units": -13.4,
+   "p05": -22.9,
+   "p95": -3.8,
+   "p_le_0": 0.992,
+   "record": "15-27"
+  },
+  "VSiN": {
+   "n": 20,
+   "units": 0.9,
+   "p05": -6.7,
+   "p95": 8.4,
+   "p_le_0": 0.406,
+   "record": "11-9"
+  }
+ }
+}

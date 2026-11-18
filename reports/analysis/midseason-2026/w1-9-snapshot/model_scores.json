@@ -1,0 +1,192 @@
+{
+ "fair-lines-w08-sat.json": {
+  "week": 8,
+  "games": 13,
+  "ats_by_edge": {
+   "0.5": [
+    5,
+    11
+   ],
+   "1": [
+    1,
+    4
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    4,
+    9
+   ],
+   "2": [
+    1,
+    2
+   ]
+  },
+  "brier_model": 0.2557,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 11.66,
+  "margin_mae_market": 11.46
+ },
+ "fair-lines-w08-synth.fri.json": {
+  "week": 8,
+  "games": 13,
+  "ats_by_edge": {
+   "0.5": [
+    5,
+    11
+   ],
+   "1": [
+    1,
+    4
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    4,
+    9
+   ],
+   "2": [
+    1,
+    2
+   ]
+  },
+  "brier_model": 0.2557,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 11.51,
+  "margin_mae_market": 11.31
+ },
+ "fair-lines-w08-synth.json": {
+  "week": 8,
+  "games": 13,
+  "ats_by_edge": {
+   "0.5": [
+    6,
+    10
+   ],
+   "1": [
+    1,
+    4
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    2,
+    7
+   ],
+   "2": [
+    1,
+    2
+   ]
+  },
+  "brier_model": 0.2512,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 11.51,
+  "margin_mae_market": 11.46
+ },
+ "fair-lines-w08.json": {
+  "week": 8,
+  "games": 13,
+  "ats_by_edge": {
+   "0.5": [
+    5,
+    10
+   ],
+   "1": [
+    5,
+    10
+   ],
+   "2": [
+    0,
+    2
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    0,
+    4
+   ],
+   "2": [
+    0,
+    1
+   ]
+  },
+  "brier_model": 0.259,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 11.69,
+  "margin_mae_market": 11.42
+ },
+ "fair-lines-w09.fri.json": {
+  "week": 9,
+  "games": 14,
+  "ats_by_edge": {
+   "0.5": [
+    6,
+    8
+   ],
+   "1": [
+    5,
+    6
+   ],
+   "2": [
+    2,
+    2
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    4,
+    8
+   ],
+   "2": [
+    2,
+    4
+   ]
+  },
+  "brier_model": 0.2337,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 7.64,
+  "margin_mae_market": 8.25
+ },
+ "fair-lines-w09.json": {
+  "week": 9,
+  "games": 14,
+  "ats_by_edge": {
+   "0.5": [
+    8,
+    10
+   ],
+   "1": [
+    4,
+    5
+   ],
+   "2": [
+    1,
+    1
+   ]
+  },
+  "ou_by_edge": {
+   "1": [
+    4,
+    8
+   ],
+   "2": [
+    1,
+    3
+   ]
+  },
+  "brier_model": 0.2326,
+  "brier_coinflip": 0.25,
+  "margin_mae_fair": 7.65,
+  "margin_mae_market": 8.25
+ },
+ "epa_matchup_model_walkforward_w5_9": {
+  "slope": 0.391,
+  "intercept": -0.48,
+  "games": 72,
+  "weeks": "5-9",
+  "r": 0.367,
+  "mae_model": 9.9,
+  "mae_market": 9.35,
+  "r_model_vs_market": 0.797
+ }
+}

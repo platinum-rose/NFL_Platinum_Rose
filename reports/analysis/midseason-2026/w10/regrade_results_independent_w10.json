@@ -1,0 +1,623 @@
+{
+ "week": 10,
+ "method": "Independent grader (separate agent, no access to our key) on the 61-pick blind sample, from ESPN summaries fetched 2026-11-17 (regrade_boxscores/). Adjudicated against regrade_key_ours_w10.json.",
+ "result": {
+  "picks": 61,
+  "agree": 60,
+  "adjudicated_to_ours": 1,
+  "grading_errors_found": 0
+ },
+ "picks": [
+  {
+   "id": "w10s001",
+   "grade": "L",
+   "stat": "43",
+   "detail": "BUF 31-NYJ 12 total 43 vs Over 51",
+   "game": "BUF@NYJ",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s002",
+   "grade": "W",
+   "stat": "4",
+   "detail": "Breece Hall 4 rec vs Over 2.5",
+   "game": "BUF@NYJ",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s003",
+   "grade": "W",
+   "stat": "74",
+   "detail": "Kittle 74 rec yds vs 30+",
+   "game": "SF@DAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s004",
+   "grade": "W",
+   "stat": "2",
+   "detail": "Skattebo 2 rush TDs (found in WSH@NYG, NYG)",
+   "game": "WSH@NYG",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s005",
+   "grade": "W",
+   "stat": "+17",
+   "detail": "JAX won by 17 (40-23) vs -9.5",
+   "game": "JAX@TEN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s006",
+   "grade": "L",
+   "stat": "-8",
+   "detail": "LV lost by 8 (13-21) vs +6.5",
+   "game": "SEA@LV",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s007",
+   "grade": "L",
+   "stat": "1",
+   "detail": "Boswell 1/1 FG vs 2+",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s008",
+   "grade": "W",
+   "stat": "11",
+   "detail": "Warner 11 total tackles vs 9+",
+   "game": "SF@DAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s009",
+   "grade": "L",
+   "stat": "1",
+   "detail": "McCarthy 1 pass TD vs 2+ (found in WSH@NYG, NYG)",
+   "game": "WSH@NYG",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s010",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Jefferson 0 TDs (9 rec 74 yds)",
+   "game": "MIN@GB",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s011",
+   "grade": "W",
+   "stat": "+17",
+   "detail": "JAX won by 17 vs contest -10.5",
+   "game": "JAX@TEN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s012",
+   "grade": "L",
+   "stat": "-20",
+   "detail": "GB lost 10-30 vs -3",
+   "game": "MIN@GB",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s013",
+   "grade": "W",
+   "stat": "+3",
+   "detail": "CLE won 27-24 vs +4.5",
+   "game": "HOU@CLE",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s014",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Kyren Williams 0 rush/rec TDs",
+   "game": "LAR@ARI",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s015",
+   "grade": "L",
+   "stat": "-8",
+   "detail": "LV lost by 8 vs +7",
+   "game": "SEA@LV",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s016",
+   "grade": "W",
+   "stat": "+20",
+   "detail": "MIN won by 20 vs +3",
+   "game": "MIN@GB",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s017",
+   "grade": "L",
+   "stat": "15",
+   "detail": "Warren 15 rush yds vs 60+",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s018",
+   "grade": "W",
+   "stat": "45",
+   "detail": "DET 35-NE 10 total 45 vs Under 50 (graded the lean)",
+   "game": "NE@DET",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s019",
+   "grade": "W",
+   "stat": "4",
+   "detail": "Burrow 4 pass TDs vs 3+ (found in PIT@CIN)",
+   "game": "PIT@CIN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s020",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Kyren Williams 0 TDs",
+   "game": "LAR@ARI",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s021",
+   "grade": "W",
+   "stat": "1",
+   "detail": "Lamb 1 rec TD",
+   "game": "SF@DAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s022",
+   "grade": "L",
+   "stat": "4",
+   "detail": "Ty Johnson 4 rec yds vs Over 15.5",
+   "game": "BUF@NYJ",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s023",
+   "grade": "W",
+   "stat": "40",
+   "detail": "LAR 34-ARI 6 total 40 vs Under 45.5",
+   "game": "LAR@ARI",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s024",
+   "grade": "W",
+   "stat": "+28",
+   "detail": "LAR won by 28 vs -7.5",
+   "game": "LAR@ARI",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s025",
+   "grade": "W",
+   "stat": "+22",
+   "detail": "KC won 35-13 vs -3",
+   "game": "KC@ATL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s026",
+   "grade": "W",
+   "stat": "2",
+   "detail": "Metcalf 2 rec vs Under 4.5",
+   "game": "PIT@CIN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s027",
+   "grade": "W",
+   "stat": "1",
+   "detail": "McCarthy 1 pass TD vs Over 0.5",
+   "game": "WSH@NYG",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s028",
+   "grade": "W",
+   "stat": "+20",
+   "detail": "MIN won by 20 vs +3.5",
+   "game": "MIN@GB",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s029",
+   "grade": "W",
+   "stat": "293",
+   "detail": "McCarthy 293 pass yds vs 210+",
+   "game": "WSH@NYG",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s030",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Burrow 0 INT vs 1+",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s031",
+   "grade": "L",
+   "stat": "24-27",
+   "detail": "HOU lost 24-27 (ML)",
+   "game": "HOU@CLE",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s032",
+   "grade": "W",
+   "stat": "2",
+   "detail": "Henry 2 rush TDs vs 2+",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s033",
+   "grade": "W",
+   "stat": "+17",
+   "detail": "JAX won by 17 vs -9.5",
+   "game": "JAX@TEN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s034",
+   "grade": "L",
+   "stat": "200",
+   "detail": "Bryce Young 200 pass yds vs Over 244.5 (found in CAR@NO)",
+   "game": "CAR@NO",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s035",
+   "grade": "W",
+   "stat": "2",
+   "detail": "Patterson 2/2 FG vs 2+",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s036",
+   "grade": "W",
+   "stat": "7",
+   "detail": "Lamb 7 rec vs 6+",
+   "game": "SF@DAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s037",
+   "grade": "W",
+   "stat": "+17",
+   "detail": "JAX won by 17 vs -9.5",
+   "game": "JAX@TEN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s038",
+   "grade": "W",
+   "stat": "+22",
+   "detail": "KC won by 22 vs contest -3.5",
+   "game": "KC@ATL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s039",
+   "grade": "W",
+   "stat": "+3",
+   "detail": "CAR won 20-17 at NO vs +2 (found CAR@NO)",
+   "game": "CAR@NO",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s040",
+   "grade": "W",
+   "stat": "+8",
+   "detail": "SEA won by 8 vs -6.5",
+   "game": "SEA@LV",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s041",
+   "grade": "W",
+   "stat": "94",
+   "detail": "Charbonnet 94 rush yds vs Over 66.5 (found in SEA@LV)",
+   "game": "SEA@LV",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s042",
+   "grade": "L",
+   "stat": "1",
+   "detail": "D. Washington 1 rec vs 3+",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s043",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Ja'Marr Chase 0 TDs (11-231)",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s044",
+   "grade": "W",
+   "stat": "13",
+   "detail": "Styles 13 total tackles vs 7+",
+   "game": "WSH@NYG",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s045",
+   "grade": "W",
+   "stat": "105",
+   "detail": "O. Hampton 105 rush yds vs 25+ (found in LAC@BAL)",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s046",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Mendoza 0 INT vs 1+",
+   "game": "SEA@LV",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s047",
+   "grade": "W",
+   "stat": "+22",
+   "detail": "KC won by 22 vs -3",
+   "game": "KC@ATL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s048",
+   "grade": "W",
+   "stat": "42",
+   "detail": "Bateman 42 rec yds vs 25+ (found in LAC@BAL)",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s049",
+   "grade": "W",
+   "stat": "8",
+   "detail": "Andrews 8 rec vs 3+",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s050",
+   "grade": "W",
+   "stat": "249",
+   "detail": "Daniels 249 pass yds vs 213+ (found in WSH@NYG)",
+   "game": "WSH@NYG",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s051",
+   "grade": "L",
+   "stat": "Q4 ARI 0-LAR 3",
+   "detail": "4th-qtr spread from linescores: ARI -3 +2.5 = -0.5",
+   "game": "LAR@ARI",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s052",
+   "grade": "L",
+   "stat": "-3",
+   "detail": "BAL lost 20-23 vs -3.5",
+   "game": "LAC@BAL",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s053",
+   "grade": "L",
+   "stat": "200",
+   "detail": "Bryce Young 200 pass yds vs Over 244.5",
+   "game": "CAR@NO",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s054",
+   "grade": "L",
+   "stat": "-3",
+   "detail": "HOU lost by 3 vs -4.5",
+   "game": "HOU@CLE",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s055",
+   "grade": "L",
+   "stat": "0",
+   "detail": "Vidal 0 rush yds (2 att) vs 20+ (found in LAC@BAL)",
+   "game": "LAC@BAL",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s056",
+   "grade": "W",
+   "stat": "61",
+   "detail": "Ja'Kobi Lane 61 rec yds vs 20+ (found in LAC@BAL)",
+   "game": "LAC@BAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s057",
+   "grade": "W",
+   "stat": "94",
+   "detail": "Charbonnet 94 rush yds vs Over 65.5",
+   "game": "SEA@LV",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s058",
+   "grade": "U",
+   "stat": null,
+   "detail": "No game named; a bare total cannot be matched to one of 14 games",
+   "game": "unknown",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L",
+   "adjudication": "Sample omitted the game; paper ledger has it as PIT @ CIN. Final PIT@CIN total 56 > 48.5 from the ESPN summary, so L. Independent U was a sample-construction gap, not a grading disagreement."
+  },
+  {
+   "id": "w10s059",
+   "grade": "W",
+   "stat": "3",
+   "detail": "McCaffrey 3 TDs (1 rush, 2 rec) vs 2+ (found in SF@DAL)",
+   "game": "SF@DAL",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  },
+  {
+   "id": "w10s060",
+   "grade": "L",
+   "stat": "18-38",
+   "detail": "PIT lost 18-38 (ML)",
+   "game": "PIT@CIN",
+   "ours": "L",
+   "agree": true,
+   "adjudicated": "L"
+  },
+  {
+   "id": "w10s061",
+   "grade": "W",
+   "stat": "1",
+   "detail": "Cam Ward 1 INT vs 1+ (box score name \"Cam Ward\")",
+   "game": "JAX@TEN",
+   "ours": "W",
+   "agree": true,
+   "adjudicated": "W"
+  }
+ ]
+}

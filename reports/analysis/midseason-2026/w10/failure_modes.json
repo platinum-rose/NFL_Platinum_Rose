@@ -1,0 +1,1911 @@
+{
+ "rec_yds_overs": {
+  "placed_w1_9": {
+   "w": 74,
+   "l": 61,
+   "rate": 0.548,
+   "ci": [
+    0.464,
+    0.63
+   ],
+   "n": 135,
+   "small_n": false,
+   "priced": 48,
+   "avg_breakeven": 0.551,
+   "priced_rate": 0.458
+  },
+  "placed_w10": {
+   "w": 5,
+   "l": 8,
+   "rate": 0.385,
+   "ci": [
+    0.177,
+    0.645
+   ],
+   "n": 13,
+   "small_n": true,
+   "priced": 2,
+   "avg_breakeven": 0.622,
+   "priced_rate": 0.0
+  },
+  "placed_all": {
+   "w": 79,
+   "l": 69,
+   "rate": 0.534,
+   "ci": [
+    0.454,
+    0.612
+   ],
+   "n": 148,
+   "small_n": false,
+   "priced": 50,
+   "avg_breakeven": 0.554,
+   "priced_rate": 0.44
+  },
+  "placed_by_threshold": {
+   "under 40": {
+    "w": 39,
+    "l": 33,
+    "rate": 0.542,
+    "ci": [
+     0.427,
+     0.652
+    ],
+    "n": 72,
+    "small_n": false,
+    "priced": 25,
+    "avg_breakeven": 0.556,
+    "priced_rate": 0.36
+   },
+   "40-69": {
+    "w": 35,
+    "l": 27,
+    "rate": 0.565,
+    "ci": [
+     0.441,
+     0.681
+    ],
+    "n": 62,
+    "small_n": false,
+    "priced": 20,
+    "avg_breakeven": 0.556,
+    "priced_rate": 0.55
+   },
+   "70+": {
+    "w": 5,
+    "l": 9,
+    "rate": 0.357,
+    "ci": [
+     0.163,
+     0.612
+    ],
+    "n": 14,
+    "small_n": true,
+    "priced": 5,
+    "avg_breakeven": 0.531,
+    "priced_rate": 0.4
+   }
+  },
+  "paper_ai_all": {
+   "w": 25,
+   "l": 27,
+   "rate": 0.481,
+   "ci": [
+    0.351,
+    0.613
+   ],
+   "n": 52,
+   "small_n": false
+  },
+  "paper_ai_w10": {
+   "w": 9,
+   "l": 10,
+   "rate": 0.474,
+   "ci": [
+    0.273,
+    0.683
+   ],
+   "n": 19,
+   "small_n": true
+  },
+  "ai_recs_overs": {
+   "w": 10,
+   "l": 11,
+   "rate": 0.476,
+   "ci": [
+    0.283,
+    0.676
+   ],
+   "n": 21,
+   "small_n": false
+  },
+  "ai_recs_unders": {
+   "w": 5,
+   "l": 5,
+   "rate": 0.5,
+   "ci": [
+    0.237,
+    0.763
+   ],
+   "n": 10,
+   "small_n": true
+  },
+  "experts": {
+   "w": 6,
+   "l": 9,
+   "rate": 0.4,
+   "ci": [
+    0.198,
+    0.643
+   ],
+   "n": 15,
+   "small_n": true
+  },
+  "prop_screen_w9_overs": {
+   "w": 25,
+   "l": 45,
+   "rate": 0.357,
+   "ci": [
+    0.255,
+    0.474
+   ],
+   "n": 70,
+   "small_n": false
+  },
+  "prop_screen_w9_unders": {
+   "w": 20,
+   "l": 27,
+   "rate": 0.426,
+   "ci": [
+    0.295,
+    0.567
+   ],
+   "n": 47,
+   "small_n": false
+  },
+  "receptions_overs_placed": {
+   "w": 104,
+   "l": 72,
+   "rate": 0.591,
+   "ci": [
+    0.517,
+    0.661
+   ],
+   "n": 176,
+   "small_n": false,
+   "priced": 56,
+   "avg_breakeven": 0.584,
+   "priced_rate": 0.518
+  },
+  "margins_lost": [
+   -13,
+   -12,
+   -12,
+   -12,
+   -12,
+   -11,
+   -10,
+   -10,
+   -10,
+   -10,
+   -9,
+   -8,
+   -7,
+   -7,
+   -6,
+   -6,
+   -5,
+   -4,
+   -4,
+   -3,
+   -2,
+   -2,
+   -2,
+   -1,
+   0
+  ]
+ },
+ "atd_by_role": {
+  "all": {
+   "w": 134,
+   "l": 171,
+   "rate": 0.439,
+   "ci": [
+    0.385,
+    0.495
+   ],
+   "n": 305,
+   "small_n": false,
+   "priced": 111,
+   "avg_breakeven": 0.449,
+   "priced_rate": 0.432
+  },
+  "WR / TE / other": {
+   "w": 57,
+   "l": 99,
+   "rate": 0.365,
+   "ci": [
+    0.294,
+    0.443
+   ],
+   "n": 156,
+   "small_n": false,
+   "priced": 60,
+   "avg_breakeven": 0.367,
+   "priced_rate": 0.383
+  },
+  "committee / backup RB (15-55%)": {
+   "w": 20,
+   "l": 14,
+   "rate": 0.588,
+   "ci": [
+    0.422,
+    0.736
+   ],
+   "n": 34,
+   "small_n": false,
+   "priced": 13,
+   "avg_breakeven": 0.446,
+   "priced_rate": 0.462
+  },
+  "lead RB (55%+ of RB carries, prior 4 wks)": {
+   "w": 39,
+   "l": 32,
+   "rate": 0.549,
+   "ci": [
+    0.434,
+    0.66
+   ],
+   "n": 71,
+   "small_n": false,
+   "priced": 31,
+   "avg_breakeven": 0.609,
+   "priced_rate": 0.452
+  },
+  "no prior games (rookie/returning/W1)": {
+   "w": 18,
+   "l": 26,
+   "rate": 0.409,
+   "ci": [
+    0.277,
+    0.556
+   ],
+   "n": 44,
+   "small_n": false,
+   "priced": 7,
+   "avg_breakeven": 0.451,
+   "priced_rate": 0.714
+  },
+  "committee_w10": [
+   [
+    "Cam Skattebo",
+    "W"
+   ],
+   [
+    "Rachaad White",
+    "L"
+   ],
+   [
+    "Zach Charbonnet",
+    "L"
+   ],
+   [
+    "Kyren Williams",
+    "L"
+   ],
+   [
+    "Christian McCaffrey",
+    "W"
+   ],
+   [
+    "Bhayshul Tuten",
+    "W"
+   ],
+   [
+    "Blake Corum",
+    "W"
+   ],
+   [
+    "Quinshon Judkins",
+    "W"
+   ]
+  ],
+  "by_role_w5_10": {
+   "WR / TE / other": {
+    "w": 36,
+    "l": 70,
+    "rate": 0.34,
+    "ci": [
+     0.256,
+     0.434
+    ],
+    "n": 106,
+    "small_n": false,
+    "priced": 31,
+    "avg_breakeven": 0.391,
+    "priced_rate": 0.323
+   },
+   "committee / backup RB (15-55%)": {
+    "w": 18,
+    "l": 9,
+    "rate": 0.667,
+    "ci": [
+     0.478,
+     0.814
+    ],
+    "n": 27,
+    "small_n": false,
+    "priced": 6,
+    "avg_breakeven": 0.506,
+    "priced_rate": 0.667
+   },
+   "lead RB (55%+ of RB carries, prior 4 wks)": {
+    "w": 32,
+    "l": 21,
+    "rate": 0.604,
+    "ci": [
+     0.469,
+     0.724
+    ],
+    "n": 53,
+    "small_n": false,
+    "priced": 18,
+    "avg_breakeven": 0.608,
+    "priced_rate": 0.5
+   },
+   "no prior games (rookie/returning/W1)": {
+    "w": 4,
+    "l": 5,
+    "rate": 0.444,
+    "ci": [
+     0.189,
+     0.733
+    ],
+    "n": 9,
+    "small_n": true,
+    "priced": 2,
+    "avg_breakeven": 0.463,
+    "priced_rate": 1.0
+   }
+  }
+ },
+ "tackles_by_spread": {
+  "all": {
+   "w": 40,
+   "l": 22,
+   "rate": 0.645,
+   "ci": [
+    0.521,
+    0.753
+   ],
+   "n": 62,
+   "small_n": false,
+   "priced": 26,
+   "avg_breakeven": 0.58,
+   "priced_rate": 0.731
+  },
+  "big favorite (-7 or more)": {
+   "w": 4,
+   "l": 2,
+   "rate": 0.667,
+   "ci": [
+    0.3,
+    0.903
+   ],
+   "n": 6,
+   "small_n": true,
+   "priced": 4,
+   "avg_breakeven": 0.599,
+   "priced_rate": 0.75
+  },
+  "favorite (-1 to -6.5)": {
+   "w": 19,
+   "l": 6,
+   "rate": 0.76,
+   "ci": [
+    0.566,
+    0.885
+   ],
+   "n": 25,
+   "small_n": false,
+   "priced": 10,
+   "avg_breakeven": 0.605,
+   "priced_rate": 0.8
+  },
+  "underdog / pick": {
+   "w": 17,
+   "l": 14,
+   "rate": 0.548,
+   "ci": [
+    0.378,
+    0.708
+   ],
+   "n": 31,
+   "small_n": false,
+   "priced": 12,
+   "avg_breakeven": 0.553,
+   "priced_rate": 0.667
+  },
+  "big_fav_legs": [
+   [
+    2,
+    "Zack Baun",
+    "PHI",
+    -7.0,
+    8,
+    "4",
+    "L"
+   ],
+   [
+    2,
+    "Josiah Trotter",
+    "TB",
+    -8.5,
+    8,
+    "13",
+    "W"
+   ],
+   [
+    3,
+    "Drake Thomas",
+    "SEA",
+    -8.5,
+    7,
+    "9",
+    "W"
+   ],
+   [
+    4,
+    "Blake Cashman",
+    "MIN",
+    -10.0,
+    8,
+    "8",
+    "W"
+   ],
+   [
+    4,
+    "Ernest Jones IV",
+    "SEA",
+    -7.0,
+    8,
+    "12",
+    "W"
+   ],
+   [
+    10,
+    "Quentin Lake",
+    "LAR",
+    -8.5,
+    6,
+    "2",
+    "L"
+   ]
+  ]
+ },
+ "milestones": {
+  "notch_definition": {
+   "rush_yds": 10,
+   "rec_yds": 10,
+   "pass_yds": 25,
+   "rush_rec_yds": 10,
+   "rec": 1,
+   "carries": 1,
+   "tackles": 1,
+   "completions": 1,
+   "pass_att": 1,
+   "pass_td": 1,
+   "fgm": 1
+  },
+  "w1_10": {
+   "Kicker FGs": {
+    "n": 19,
+    "lost": 9,
+    "lost_by_one_notch": 8,
+    "won": 10,
+    "won_by_under_one_notch": 6,
+    "rate_now": 0.526,
+    "rate_one_notch_lower": 0.947
+   },
+   "Passing TDs": {
+    "n": 82,
+    "lost": 31,
+    "lost_by_one_notch": 20,
+    "won": 51,
+    "won_by_under_one_notch": 24,
+    "rate_now": 0.622,
+    "rate_one_notch_lower": 0.866
+   },
+   "QB volume": {
+    "n": 50,
+    "lost": 21,
+    "lost_by_one_notch": 4,
+    "won": 29,
+    "won_by_under_one_notch": 3,
+    "rate_now": 0.58,
+    "rate_one_notch_lower": 0.66
+   },
+   "Receptions": {
+    "n": 171,
+    "lost": 69,
+    "lost_by_one_notch": 29,
+    "won": 102,
+    "won_by_under_one_notch": 26,
+    "rate_now": 0.596,
+    "rate_one_notch_lower": 0.766
+   },
+   "Tackles+Ast": {
+    "n": 62,
+    "lost": 22,
+    "lost_by_one_notch": 7,
+    "won": 40,
+    "won_by_under_one_notch": 7,
+    "rate_now": 0.645,
+    "rate_one_notch_lower": 0.758
+   },
+   "Receiving yds": {
+    "n": 143,
+    "lost": 66,
+    "lost_by_one_notch": 18,
+    "won": 77,
+    "won_by_under_one_notch": 11,
+    "rate_now": 0.538,
+    "rate_one_notch_lower": 0.664
+   },
+   "Rushing yds": {
+    "n": 80,
+    "lost": 32,
+    "lost_by_one_notch": 13,
+    "won": 48,
+    "won_by_under_one_notch": 10,
+    "rate_now": 0.6,
+    "rate_one_notch_lower": 0.762
+   },
+   "QB rushing yds": {
+    "n": 19,
+    "lost": 14,
+    "lost_by_one_notch": 8,
+    "won": 5,
+    "won_by_under_one_notch": 1,
+    "rate_now": 0.263,
+    "rate_one_notch_lower": 0.684
+   },
+   "Carries": {
+    "n": 29,
+    "lost": 11,
+    "lost_by_one_notch": 2,
+    "won": 18,
+    "won_by_under_one_notch": 5,
+    "rate_now": 0.621,
+    "rate_one_notch_lower": 0.69
+   },
+   "Rush+rec yds": {
+    "n": 3,
+    "lost": 2,
+    "lost_by_one_notch": 1,
+    "won": 1,
+    "won_by_under_one_notch": 1,
+    "rate_now": 0.333,
+    "rate_one_notch_lower": 0.667
+   }
+  },
+  "w10": {
+   "Passing TDs": {
+    "n": 11,
+    "lost": 4,
+    "lost_by_one_notch": 3,
+    "won": 7,
+    "won_by_under_one_notch": 1,
+    "rate_now": 0.636,
+    "rate_one_notch_lower": 0.909
+   },
+   "Receptions": {
+    "n": 18,
+    "lost": 6,
+    "lost_by_one_notch": 1,
+    "won": 12,
+    "won_by_under_one_notch": 4,
+    "rate_now": 0.667,
+    "rate_one_notch_lower": 0.722
+   },
+   "Tackles+Ast": {
+    "n": 9,
+    "lost": 2,
+    "lost_by_one_notch": 0,
+    "won": 7,
+    "won_by_under_one_notch": 1,
+    "rate_now": 0.778,
+    "rate_one_notch_lower": 0.778
+   },
+   "Rushing yds": {
+    "n": 19,
+    "lost": 7,
+    "lost_by_one_notch": 2,
+    "won": 12,
+    "won_by_under_one_notch": 1,
+    "rate_now": 0.632,
+    "rate_one_notch_lower": 0.737
+   },
+   "Receiving yds": {
+    "n": 13,
+    "lost": 8,
+    "lost_by_one_notch": 2,
+    "won": 5,
+    "won_by_under_one_notch": 0,
+    "rate_now": 0.385,
+    "rate_one_notch_lower": 0.538
+   },
+   "Kicker FGs": {
+    "n": 4,
+    "lost": 1,
+    "lost_by_one_notch": 1,
+    "won": 3,
+    "won_by_under_one_notch": 2,
+    "rate_now": 0.75,
+    "rate_one_notch_lower": 1.0
+   },
+   "Carries": {
+    "n": 5,
+    "lost": 3,
+    "lost_by_one_notch": 1,
+    "won": 2,
+    "won_by_under_one_notch": 2,
+    "rate_now": 0.4,
+    "rate_one_notch_lower": 0.6
+   },
+   "QB volume": {
+    "n": 7,
+    "lost": 3,
+    "lost_by_one_notch": 1,
+    "won": 4,
+    "won_by_under_one_notch": 0,
+    "rate_now": 0.571,
+    "rate_one_notch_lower": 0.714
+   }
+  },
+  "total_w1_10": {
+   "n": 658,
+   "won": 381,
+   "lost_by_one_notch": 110,
+   "won_by_under_one_notch": 94
+  },
+  "total_w10": {
+   "n": 86,
+   "won": 52,
+   "lost_by_one_notch": 11,
+   "won_by_under_one_notch": 11
+  },
+  "dkp_only_w10": {
+   "n": 73,
+   "won": 45,
+   "lost_by_one_notch": 9,
+   "won_by_under_one_notch": 9
+  },
+  "tickets_lost_only_on_one_notch_misses": {
+   "w1_10": 11,
+   "w10": [
+    "20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampt"
+   ],
+   "by_week": {
+    "2": 2,
+    "3": 1,
+    "8": 6,
+    "9": 1,
+    "10": 1
+   },
+   "potential_payout_forgone": 1823.4
+  },
+  "dkp_notch_price_cost_w10": {}
+ },
+ "public_sides": {
+  "weeks_with_splits": [
+   1,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "games": 134,
+  "market": {
+   "money side when money% - bets% gap >= 10": {
+    "record": "18-16",
+    "rate": 0.529,
+    "ci": [
+     0.367,
+     0.685
+    ],
+    "small_n": false
+   },
+   "public spread side (60%+ of bets)": {
+    "record": "46-44",
+    "rate": 0.511,
+    "ci": [
+     0.41,
+     0.612
+    ],
+    "small_n": false
+   },
+   "public spread side (70%+ of bets)": {
+    "record": "25-23",
+    "rate": 0.521,
+    "ci": [
+     0.383,
+     0.655
+    ],
+    "small_n": false
+   },
+   "public total side (65%+ of bets)": {
+    "record": "40-34",
+    "rate": 0.541,
+    "ci": [
+     0.428,
+     0.649
+    ],
+    "small_n": false
+   }
+  },
+  "our_spread_legs": {
+   "with the public (55%+ of bets on our side)": {
+    "w": 35,
+    "l": 28,
+    "rate": 0.556,
+    "ci": [
+     0.433,
+     0.672
+    ],
+    "n": 63,
+    "small_n": false,
+    "priced": 57,
+    "avg_breakeven": 0.537,
+    "priced_rate": 0.526
+   },
+   "against the public (45% or less on our side)": {
+    "w": 24,
+    "l": 21,
+    "rate": 0.533,
+    "ci": [
+     0.391,
+     0.671
+    ],
+    "n": 45,
+    "small_n": false,
+    "priced": 37,
+    "avg_breakeven": 0.537,
+    "priced_rate": 0.568
+   },
+   "split (45-55%)": {
+    "w": 13,
+    "l": 12,
+    "rate": 0.52,
+    "ci": [
+     0.335,
+     0.7
+    ],
+    "n": 25,
+    "small_n": false,
+    "priced": 22,
+    "avg_breakeven": 0.531,
+    "priced_rate": 0.591
+   }
+  }
+ },
+ "weather_totals": {
+  "games": {
+   "breezy (wind 15-25)": {
+    "unders": "4-2",
+    "n": 6,
+    "avg_total_minus_close": -8.3,
+    "small_n": true
+   },
+   "calm outdoor": {
+    "unders": "25-34",
+    "n": 59,
+    "avg_total_minus_close": 1.9,
+    "small_n": false
+   },
+   "indoor / roof": {
+    "unders": "1-0",
+    "n": 1,
+    "avg_total_minus_close": -1.5,
+    "small_n": true
+   },
+   "windy (wind 25+ km/h or gust 40+)": {
+    "unders": "0-2",
+    "n": 2,
+    "avg_total_minus_close": 2.5,
+    "small_n": true
+   }
+  },
+  "windy_games": [
+   [
+    8,
+    "NE@MIA",
+    32.0,
+    37.8,
+    41.5,
+    43.0,
+    "review_required"
+   ],
+   [
+    9,
+    "TB@CHI",
+    14.2,
+    42.1,
+    47.5,
+    51.0,
+    "review_required"
+   ]
+  ],
+  "our_total_legs": {
+   "calm or indoor | Over": {
+    "w": 10,
+    "l": 7,
+    "rate": 0.588,
+    "ci": [
+     0.36,
+     0.784
+    ],
+    "n": 17,
+    "small_n": true,
+    "priced": 15,
+    "avg_breakeven": 0.568,
+    "priced_rate": 0.533
+   },
+   "calm or indoor | Under": {
+    "w": 5,
+    "l": 14,
+    "rate": 0.263,
+    "ci": [
+     0.118,
+     0.488
+    ],
+    "n": 19,
+    "small_n": true,
+    "priced": 16,
+    "avg_breakeven": 0.564,
+    "priced_rate": 0.312
+   },
+   "windy/breezy (15+ km/h) | Under": {
+    "w": 4,
+    "l": 3,
+    "rate": 0.571,
+    "ci": [
+     0.25,
+     0.842
+    ],
+    "n": 7,
+    "small_n": true,
+    "priced": 6,
+    "avg_breakeven": 0.553,
+    "priced_rate": 0.667
+   }
+  },
+  "all_total_legs": {
+   "under": {
+    "w": 23,
+    "l": 34,
+    "rate": 0.404,
+    "ci": [
+     0.286,
+     0.533
+    ],
+    "n": 57,
+    "small_n": false,
+    "priced": 46,
+    "avg_breakeven": 0.552,
+    "priced_rate": 0.435
+   },
+   "over": {
+    "w": 16,
+    "l": 15,
+    "rate": 0.516,
+    "ci": [
+     0.348,
+     0.68
+    ],
+    "n": 31,
+    "small_n": false,
+    "priced": 22,
+    "avg_breakeven": 0.565,
+    "priced_rate": 0.545
+   }
+  }
+ },
+ "qb_int": {
+  "our_legs": {
+   "w": 36,
+   "l": 20,
+   "rate": 0.643,
+   "ci": [
+    0.512,
+    0.755
+   ],
+   "n": 56,
+   "small_n": false,
+   "priced": 16,
+   "avg_breakeven": 0.549,
+   "priced_rate": 0.562
+  },
+  "by_period": {
+   "W1-4": {
+    "w": 14,
+    "l": 9,
+    "rate": 0.609,
+    "ci": [
+     0.408,
+     0.778
+    ],
+    "n": 23,
+    "small_n": false,
+    "priced": 12,
+    "avg_breakeven": 0.552,
+    "priced_rate": 0.583
+   },
+   "W5-9": {
+    "w": 14,
+    "l": 7,
+    "rate": 0.667,
+    "ci": [
+     0.454,
+     0.828
+    ],
+    "n": 21,
+    "small_n": false,
+    "priced": 3,
+    "avg_breakeven": 0.532,
+    "priced_rate": 0.333
+   },
+   "W10": {
+    "w": 8,
+    "l": 4,
+    "rate": 0.667,
+    "ci": [
+     0.391,
+     0.862
+    ],
+    "n": 12,
+    "small_n": true,
+    "priced": 1,
+    "avg_breakeven": 0.565,
+    "priced_rate": 1.0
+   }
+  },
+  "league_base_rate_qb_15plus_att": {
+   "with_int": 163,
+   "qb_games": 303,
+   "rate": 0.538
+  },
+  "p_value_vs_league_base": 0.074,
+  "priced": {
+   "n": 16,
+   "won": 9,
+   "avg_breakeven": 0.549,
+   "units": 0.62,
+   "p_value_vs_price": 0.561
+  },
+  "by_qb": [
+   [
+    "Cam Ward",
+    "3-1"
+   ],
+   [
+    "Jordan Love",
+    "4-0"
+   ],
+   [
+    "Justin Herbert",
+    "3-1"
+   ],
+   [
+    "Aaron Rodgers",
+    "2-1"
+   ],
+   [
+    "Bo Nix",
+    "2-1"
+   ],
+   [
+    "Bryce Young",
+    "2-1"
+   ],
+   [
+    "Matthew Stafford",
+    "2-1"
+   ],
+   [
+    "Sam Darnold",
+    "3-0"
+   ],
+   [
+    "Case Keenum",
+    "0-2"
+   ],
+   [
+    "Jameis Winston",
+    "1-1"
+   ],
+   [
+    "Malik Willis",
+    "0-2"
+   ],
+   [
+    "Michael Penix Jr.",
+    "1-1"
+   ],
+   [
+    "Tanner McKee",
+    "2-0"
+   ],
+   [
+    "Brock Purdy",
+    "1-0"
+   ]
+  ],
+  "all_placed_not_unique": {
+   "w": 42,
+   "l": 25,
+   "rate": 0.627,
+   "ci": [
+    0.507,
+    0.733
+   ],
+   "n": 67,
+   "small_n": false,
+   "priced": 20,
+   "avg_breakeven": 0.542,
+   "priced_rate": 0.45
+  }
+ },
+ "leg_count": {
+  "1": {
+   "tickets": 10,
+   "won": 4,
+   "legs": 10,
+   "legs_won": 4,
+   "one_leg_short": 6,
+   "two_short": 0,
+   "leg_rate": 0.4,
+   "avg_legs": 1.0,
+   "cash_rate": 0.4,
+   "expected_cash_rate_if_independent": 0.4,
+   "expected_one_short_if_independent": 0.6,
+   "one_short_rate": 0.6
+  },
+  "2": {
+   "tickets": 24,
+   "won": 5,
+   "legs": 46,
+   "legs_won": 21,
+   "one_leg_short": 14,
+   "two_short": 5,
+   "leg_rate": 0.457,
+   "avg_legs": 1.9,
+   "cash_rate": 0.208,
+   "expected_cash_rate_if_independent": 0.2225,
+   "expected_one_short_if_independent": 0.508,
+   "one_short_rate": 0.583
+  },
+  "3": {
+   "tickets": 18,
+   "won": 0,
+   "legs": 52,
+   "legs_won": 15,
+   "one_leg_short": 7,
+   "two_short": 3,
+   "leg_rate": 0.288,
+   "avg_legs": 2.9,
+   "cash_rate": 0.0,
+   "expected_cash_rate_if_independent": 0.0276,
+   "expected_one_short_if_independent": 0.196,
+   "one_short_rate": 0.389
+  },
+  "4": {
+   "tickets": 21,
+   "won": 4,
+   "legs": 82,
+   "legs_won": 48,
+   "one_leg_short": 5,
+   "two_short": 4,
+   "leg_rate": 0.585,
+   "avg_legs": 3.9,
+   "cash_rate": 0.19,
+   "expected_cash_rate_if_independent": 0.1236,
+   "expected_one_short_if_independent": 0.342,
+   "one_short_rate": 0.238
+  },
+  "5-6": {
+   "tickets": 109,
+   "won": 3,
+   "legs": 605,
+   "legs_won": 310,
+   "one_leg_short": 19,
+   "two_short": 25,
+   "leg_rate": 0.512,
+   "avg_legs": 5.6,
+   "cash_rate": 0.028,
+   "expected_cash_rate_if_independent": 0.0244,
+   "expected_one_short_if_independent": 0.129,
+   "one_short_rate": 0.174
+  },
+  "7-8": {
+   "tickets": 82,
+   "won": 0,
+   "legs": 628,
+   "legs_won": 324,
+   "one_leg_short": 6,
+   "two_short": 13,
+   "leg_rate": 0.516,
+   "avg_legs": 7.7,
+   "cash_rate": 0.0,
+   "expected_cash_rate_if_independent": 0.0063,
+   "expected_one_short_if_independent": 0.045,
+   "one_short_rate": 0.073
+  },
+  "9+": {
+   "tickets": 10,
+   "won": 1,
+   "legs": 97,
+   "legs_won": 57,
+   "one_leg_short": 1,
+   "two_short": 0,
+   "leg_rate": 0.588,
+   "avg_legs": 9.7,
+   "cash_rate": 0.1,
+   "expected_cash_rate_if_independent": 0.0058,
+   "expected_one_short_if_independent": 0.039,
+   "one_short_rate": 0.1
+  },
+  "reference_at_57pct": {
+   "3": 0.1852,
+   "4": 0.1056,
+   "5": 0.0602,
+   "6": 0.0343,
+   "7": 0.0195,
+   "8": 0.0111
+  }
+ },
+ "dkp_pricing": {
+  "n": 84,
+  "max_multiple": 480.6,
+  "top": [
+   {
+    "week": 7,
+    "id": "20261025_dkp_45451260_8pick_7e_atd_lottery",
+    "legs": 8,
+    "multiple": 480.6,
+    "per_leg_decimal": 2.164,
+    "games": 7,
+    "max_same_game": 2,
+    "same_team_def_legs": 0,
+    "boost": 0.0,
+    "displayed_prob": null,
+    "result": "loss"
+   },
+   {
+    "week": 7,
+    "id": "20261025_dkp_45868275_8pick_boost30_rebuild_no_rodgers",
+    "legs": 8,
+    "multiple": 306.11,
+    "per_leg_decimal": 2.045,
+    "games": 8,
+    "max_same_game": 1,
+    "same_team_def_legs": 0,
+    "boost": 0.0,
+    "displayed_prob": null,
+    "result": "loss"
+   },
+   {
+    "week": 8,
+    "id": "20261101_dkp_snf6_139960_boost20_alejandro_split",
+    "legs": 6,
+    "multiple": 139.96,
+    "per_leg_decimal": 2.279,
+    "games": 1,
+    "max_same_game": 6,
+    "same_team_def_legs": 0,
+    "boost": 20.0,
+    "displayed_prob": null,
+    "result": "loss"
+   },
+   {
+    "week": 10,
+    "id": "20261115_dkp_3pick_first_td_cook_hubbard_dhenry",
+    "legs": 3,
+    "multiple": 132.2,
+    "per_leg_decimal": 5.094,
+    "games": 3,
+    "max_same_game": 1,
+    "same_team_def_legs": 0,
+    "boost": 0.0,
+    "displayed_prob": 0.7,
+    "result": "loss"
+   },
+   {
+    "week": 7,
+    "id": "20261026_dkp_46920838_8pick_mnf_dal_phi",
+    "legs": 8,
+    "multiple": 116.8,
+    "per_leg_decimal": 1.813,
+    "games": 1,
+    "max_same_game": 8,
+    "same_team_def_legs": 1,
+    "boost": 0.0,
+    "displayed_prob": null,
+    "result": "loss"
+   },
+   {
+    "week": 10,
+    "id": "20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_hen",
+    "legs": 7,
+    "multiple": 114.85,
+    "per_leg_decimal": 1.969,
+    "games": 1,
+    "max_same_game": 7,
+    "same_team_def_legs": 1,
+    "boost": 0.0,
+    "displayed_prob": 0.9,
+    "result": "loss"
+   },
+   {
+    "week": 7,
+    "id": "20261022_dkp_43564438_7pick_tier3_boost25_ne_chi",
+    "legs": 7,
+    "multiple": 107.86,
+    "per_leg_decimal": 1.952,
+    "games": 1,
+    "max_same_game": 7,
+    "same_team_def_legs": 0,
+    "boost": 0.0,
+    "displayed_prob": null,
+    "result": "loss"
+   },
+   {
+    "week": 7,
+    "id": "20261022_dkp_43579067_6pick_tier3_ne_chi",
+    "legs": 6,
+    "multiple": 104.4,
+    "per_leg_decimal": 2.17,
+    "games": 1,
+    "max_same_game": 6,
+    "same_team_def_legs": 0,
+    "boost": 0.0,
+    "displayed_prob": null,
+    "result": "loss"
+   }
+  ],
+  "by_shape": {
+   "multi game | 3 legs": {
+    "n": 2,
+    "median_multiple": 132.2,
+    "min": 24.28,
+    "max": 132.2,
+    "median_per_leg_decimal": 5.094,
+    "won": 0
+   },
+   "multi game | 4 legs": {
+    "n": 1,
+    "median_multiple": 13.48,
+    "min": 13.48,
+    "max": 13.48,
+    "median_per_leg_decimal": 1.916,
+    "won": 0
+   },
+   "multi game | 5-6 legs": {
+    "n": 11,
+    "median_multiple": 28.67,
+    "min": 15.59,
+    "max": 46.29,
+    "median_per_leg_decimal": 1.847,
+    "won": 2
+   },
+   "multi game | 7-8 legs": {
+    "n": 12,
+    "median_multiple": 58.66,
+    "min": 28.39,
+    "max": 480.6,
+    "median_per_leg_decimal": 1.71,
+    "won": 0
+   },
+   "single game | 1 legs": {
+    "n": 4,
+    "median_multiple": 4.44,
+    "min": 1.85,
+    "max": 4.92,
+    "median_per_leg_decimal": 4.444,
+    "won": 0
+   },
+   "single game | 2 legs": {
+    "n": 6,
+    "median_multiple": 3.13,
+    "min": 2.78,
+    "max": 3.69,
+    "median_per_leg_decimal": 1.771,
+    "won": 1
+   },
+   "single game | 3 legs": {
+    "n": 3,
+    "median_multiple": 6.71,
+    "min": 4.45,
+    "max": 62.32,
+    "median_per_leg_decimal": 1.886,
+    "won": 0
+   },
+   "single game | 4 legs": {
+    "n": 5,
+    "median_multiple": 9.35,
+    "min": 6.62,
+    "max": 55.4,
+    "median_per_leg_decimal": 1.748,
+    "won": 1
+   },
+   "single game | 5-6 legs": {
+    "n": 26,
+    "median_multiple": 29.2,
+    "min": 6.21,
+    "max": 139.96,
+    "median_per_leg_decimal": 1.814,
+    "won": 1
+   },
+   "single game | 7-8 legs": {
+    "n": 14,
+    "median_multiple": 62.3,
+    "min": 18.84,
+    "max": 116.8,
+    "median_per_leg_decimal": 1.69,
+    "won": 0
+   }
+  },
+  "same_team_def": {
+   "two_plus": [
+    [
+     "20261029_dkp_tnf_7pick_car_gb_boost20",
+     7,
+     32.02,
+     1.641
+    ],
+    [
+     "20261101_dkp_snf8_66400_andy_solo_final",
+     8,
+     66.47,
+     1.69
+    ]
+   ],
+   "median_per_leg_two_plus": 1.69,
+   "median_per_leg_single_game_other": 1.771
+  },
+  "displayed_prob_vs_price": [
+   [
+    "20261031_dkp_5pick_atd_stafford_was_boos",
+    28.67,
+    3.6,
+    3.5
+   ],
+   [
+    "20261031_dkp_6pick_aaa_tuten_irving_alle",
+    40.65,
+    2.3,
+    2.5
+   ],
+   [
+    "20261031_dkp_8pick_combo_72940_boost10_a",
+    73.01,
+    1.4,
+    1.4
+   ],
+   [
+    "20261101_dkp_5pick_23201_boost20_alejand",
+    23.29,
+    4.8,
+    4.3
+   ],
+   [
+    "20261101_dkp_6pick_26800_alejandro_split",
+    26.85,
+    3.5,
+    3.7
+   ],
+   [
+    "20261101_dkp_amanda_solo_3pick_2200",
+    4.45,
+    21,
+    22.5
+   ],
+   [
+    "20261101_dkp_snf8_66400_andy_solo",
+    66.47,
+    1.4,
+    1.5
+   ],
+   [
+    "20261101_dkp_snf8_66400_andy_solo_final",
+    66.47,
+    1.4,
+    1.5
+   ],
+   [
+    "20261102_dkp_mnf_sea35_u485_2pick_boost",
+    3.69,
+    29,
+    27.1
+   ],
+   [
+    "20261102_dkp_mnf_sea35_single",
+    1.85,
+    52,
+    54.1
+   ],
+   [
+    "20261108_fdp_6pick_gibbs2td_charbonnet_o",
+    39.76,
+    2.6,
+    2.5
+   ],
+   [
+    "20261108_dkp_8pick_alshaair_cousins_mins",
+    52.89,
+    2.1,
+    1.9
+   ]
+  ]
+ },
+ "round_robins": {
+  "2-team RR": {
+   "tickets": 12,
+   "won": 5,
+   "staked": 250.95,
+   "net": -21.23,
+   "by_week": [
+    [
+     1,
+     -28.0
+    ],
+    [
+     2,
+     1.39
+    ],
+    [
+     2,
+     24.88
+    ],
+    [
+     3,
+     14.21
+    ],
+    [
+     4,
+     -17.72
+    ],
+    [
+     4,
+     14.64
+    ],
+    [
+     5,
+     -7.79
+    ],
+    [
+     5,
+     -15.0
+    ],
+    [
+     7,
+     -20.0
+    ],
+    [
+     7,
+     -1.48
+    ],
+    [
+     8,
+     -9.9
+    ],
+    [
+     10,
+     23.54
+    ]
+   ]
+  },
+  "4-team master RR": {
+   "tickets": 6,
+   "won": 1,
+   "staked": 630.0,
+   "net": -368.95,
+   "by_week": [
+    [
+     1,
+     -105.0
+    ],
+    [
+     2,
+     -105.0
+    ],
+    [
+     3,
+     -105.0
+    ],
+    [
+     4,
+     -20.53
+    ],
+    [
+     5,
+     -105.0
+    ],
+    [
+     10,
+     71.58
+    ]
+   ]
+  }
+ },
+ "island_tiers": {
+  "Tier 1": {
+   "tickets": 3,
+   "won": 1,
+   "staked": 29.87,
+   "net": 53.36,
+   "median_decimal": 8.4,
+   "expected_wins_at_price": 0.35,
+   "avg_legs": 4.0,
+   "legs": {
+    "w": 6,
+    "l": 6,
+    "rate": 0.5,
+    "ci": [
+     0.254,
+     0.746
+    ],
+    "n": 12,
+    "small_n": true,
+    "priced": 4,
+    "avg_breakeven": 0.59,
+    "priced_rate": 0.25
+   }
+  },
+  "Tier 2": {
+   "tickets": 3,
+   "won": 0,
+   "staked": 21.47,
+   "net": -21.47,
+   "median_decimal": 23.0,
+   "expected_wins_at_price": 0.15,
+   "avg_legs": 5.0,
+   "legs": {
+    "w": 9,
+    "l": 6,
+    "rate": 0.6,
+    "ci": [
+     0.357,
+     0.802
+    ],
+    "n": 15,
+    "small_n": true,
+    "priced": 4,
+    "avg_breakeven": 0.467,
+    "priced_rate": 0.25
+   }
+  },
+  "Tier 3": {
+   "tickets": 3,
+   "won": 0,
+   "staked": 20.0,
+   "net": -20.0,
+   "median_decimal": 111.0,
+   "expected_wins_at_price": 0.03,
+   "avg_legs": 6.0,
+   "legs": {
+    "w": 9,
+    "l": 9,
+    "rate": 0.5,
+    "ci": [
+     0.29,
+     0.71
+    ],
+    "n": 18,
+    "small_n": true,
+    "priced": 11,
+    "avg_breakeven": 0.442,
+    "priced_rate": 0.455
+   }
+  },
+  "moonshot/lottery": {
+   "tickets": 7,
+   "won": 0,
+   "staked": 44.99,
+   "net": -44.99,
+   "median_decimal": 96.0,
+   "expected_wins_at_price": 0.09,
+   "avg_legs": 5.9,
+   "legs": {
+    "w": 19,
+    "l": 22,
+    "rate": 0.463,
+    "ci": [
+     0.321,
+     0.613
+    ],
+    "n": 41,
+    "small_n": false,
+    "priced": 21,
+    "avg_breakeven": 0.449,
+    "priced_rate": 0.333
+   }
+  },
+  "untiered": {
+   "tickets": 70,
+   "won": 3,
+   "staked": 526.45,
+   "net": -160.5,
+   "median_decimal": 55.0,
+   "expected_wins_at_price": 2.59,
+   "avg_legs": 6.2,
+   "legs": {
+    "w": 236,
+    "l": 195,
+    "rate": 0.548,
+    "ci": [
+     0.5,
+     0.594
+    ],
+    "n": 431,
+    "small_n": false,
+    "priced": 154,
+    "avg_breakeven": 0.531,
+    "priced_rate": 0.539
+   }
+  }
+ },
+ "island_by_odds_band": {
+  "under +400": {
+   "tickets": 2,
+   "won": 1,
+   "staked": 15.0,
+   "net": 6.94,
+   "median_decimal": 4.8,
+   "expected_wins_at_price": 0.52,
+   "avg_legs": 3.5,
+   "legs": {
+    "w": 6,
+    "l": 1,
+    "rate": 0.857,
+    "ci": [
+     0.487,
+     0.974
+    ],
+    "n": 7,
+    "small_n": true,
+    "priced": 0,
+    "avg_breakeven": null,
+    "priced_rate": null
+   }
+  },
+  "+400 to +1500": {
+   "tickets": 13,
+   "won": 3,
+   "staked": 119.88,
+   "net": 307.36,
+   "median_decimal": 11.4,
+   "expected_wins_at_price": 1.25,
+   "avg_legs": 4.6,
+   "legs": {
+    "w": 40,
+    "l": 19,
+    "rate": 0.678,
+    "ci": [
+     0.551,
+     0.783
+    ],
+    "n": 59,
+    "small_n": false,
+    "priced": 14,
+    "avg_breakeven": 0.608,
+    "priced_rate": 0.429
+   }
+  },
+  "+1500 to +5000": {
+   "tickets": 26,
+   "won": 0,
+   "staked": 220.72,
+   "net": -220.72,
+   "median_decimal": 29.0,
+   "expected_wins_at_price": 0.98,
+   "avg_legs": 5.9,
+   "legs": {
+    "w": 82,
+    "l": 67,
+    "rate": 0.55,
+    "ci": [
+     0.47,
+     0.628
+    ],
+    "n": 149,
+    "small_n": false,
+    "priced": 35,
+    "avg_breakeven": 0.519,
+    "priced_rate": 0.571
+   }
+  },
+  "+5000 up": {
+   "tickets": 45,
+   "won": 0,
+   "staked": 287.18,
+   "net": -287.18,
+   "median_decimal": 106.0,
+   "expected_wins_at_price": 0.46,
+   "avg_legs": 6.7,
+   "legs": {
+    "w": 151,
+    "l": 151,
+    "rate": 0.5,
+    "ci": [
+     0.444,
+     0.556
+    ],
+    "n": 302,
+    "small_n": false,
+    "priced": 145,
+    "avg_breakeven": 0.507,
+    "priced_rate": 0.49
+   }
+  }
+ },
+ "core_split_backtest": {
+  "method": "Walk-forward. For week k: prop categories at 57%+ with n>=20 on unique placed legs through week k-1 (top 5). Pool = that week's placed legs in those categories with decimal <= 2.5 (unpriced legs assumed 1.80). 20,000 random 3- and 4-leg combos, different players, 3+ games. Payout = product of leg decimals: no SGP haircut, legs treated as independent.",
+  "weeks": [
+   {
+    "week": 5,
+    "strong_categories": [
+     "Passing TDs",
+     "QB INT thrown",
+     "Tackles+Ast",
+     "Rushing yds"
+    ],
+    "pool": 21,
+    "pool_hit": 0.524,
+    "3leg": {
+     "combos": 7949,
+     "cash_rate": 0.052,
+     "avg_decimal": 5.8,
+     "roi": -0.691
+    },
+    "4leg": {
+     "combos": 11817,
+     "cash_rate": 0.026,
+     "avg_decimal": 9.99,
+     "roi": -0.743
+    }
+   },
+   {
+    "week": 6,
+    "strong_categories": [
+     "Passing TDs",
+     "Tackles+Ast"
+    ],
+    "pool": 7,
+    "pool_hit": 0.429,
+    "3leg": {
+     "combos": 14285,
+     "cash_rate": 0.042,
+     "avg_decimal": 4.86,
+     "roi": -0.782
+    },
+    "4leg": {
+     "combos": 14195,
+     "cash_rate": 0.0,
+     "avg_decimal": 8.51,
+     "roi": -1.0
+    }
+   },
+   {
+    "week": 7,
+    "strong_categories": [
+     "Tackles+Ast",
+     "Passing TDs"
+    ],
+    "pool": 17,
+    "pool_hit": 0.588,
+    "3leg": {
+     "combos": 14647,
+     "cash_rate": 0.112,
+     "avg_decimal": 5.83,
+     "roi": -0.348
+    },
+    "4leg": {
+     "combos": 16485,
+     "cash_rate": 0.059,
+     "avg_decimal": 10.5,
+     "roi": -0.381
+    }
+   },
+   {
+    "week": 8,
+    "strong_categories": [
+     "Passing TDs",
+     "Tackles+Ast",
+     "Carries",
+     "QB INT thrown"
+    ],
+    "pool": 34,
+    "pool_hit": 0.676,
+    "3leg": {
+     "combos": 15316,
+     "cash_rate": 0.301,
+     "avg_decimal": 5.6,
+     "roi": 0.645
+    },
+    "4leg": {
+     "combos": 18266,
+     "cash_rate": 0.193,
+     "avg_decimal": 9.94,
+     "roi": 0.867
+    }
+   },
+   {
+    "week": 9,
+    "strong_categories": [
+     "QB INT thrown",
+     "Carries",
+     "Tackles+Ast",
+     "Passing TDs"
+    ],
+    "pool": 16,
+    "pool_hit": 0.75,
+    "3leg": {
+     "combos": 10593,
+     "cash_rate": 0.332,
+     "avg_decimal": 5.83,
+     "roi": 0.935
+    },
+    "4leg": {
+     "combos": 14262,
+     "cash_rate": 0.248,
+     "avg_decimal": 10.5,
+     "roi": 1.601
+    }
+   },
+   {
+    "week": 10,
+    "strong_categories": [
+     "Carries",
+     "QB INT thrown",
+     "Passing TDs",
+     "Tackles+Ast",
+     "Receptions"
+    ],
+    "pool": 58,
+    "pool_hit": 0.638,
+    "3leg": {
+     "combos": 14793,
+     "cash_rate": 0.216,
+     "avg_decimal": 6.04,
+     "roi": 0.274
+    },
+    "4leg": {
+     "combos": 17924,
+     "cash_rate": 0.146,
+     "avg_decimal": 10.92,
+     "roi": 0.553
+    }
+   }
+  ],
+  "avg_cash_rate": {
+   "3": 0.176,
+   "4": 0.112
+  },
+  "avg_roi": {
+   "3": 0.006,
+   "4": 0.15
+  },
+  "actual_alejandro_w5_10": {
+   "tickets": 27,
+   "cashed": 1,
+   "avg_legs": 5.8,
+   "staked": 274.74,
+   "net": 334.26
+  }
+ }
+}

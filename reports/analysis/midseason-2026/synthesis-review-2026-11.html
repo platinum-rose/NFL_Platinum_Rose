@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How intel becomes recommendations: review against outcomes (Weeks 5-10)</title><style>body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;max-width:1080px;margin:28px auto;padding:0 18px;color:#1c1f24;background:#fff}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:20px;margin-top:34px;border-bottom:2px solid #9b1b30;padding-bottom:4px}h3{font-size:16px;margin-top:24px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:10px 0 18px;font-size:13.5px}th,td{border:1px solid #d5d8dd;padding:5px 8px;text-align:left;vertical-align:top}
+th{background:#f3f4f6}tr:nth-child(even) td{background:#fafafa}code,pre{font:12.5px Consolas,monospace;background:#f3f4f6;border-radius:3px}code{padding:1px 4px}pre{padding:10px;overflow-x:auto}
+@media(prefers-color-scheme:dark){body{background:#14161a;color:#e6e8eb}th{background:#22262c}td,th{border-color:#3a3f47}tr:nth-child(even) td{background:#1a1d22}code,pre{background:#22262c}}
+@media print{body{max-width:none;margin:0}h2{break-after:avoid}table{break-inside:auto}tr{break-inside:avoid}}</style></head><body>
+<h1>How intel becomes recommendations: review against outcomes (Weeks 5-10)</h1>
+<p>Platinum Rose · written Mon 11/16 by Claude (Fable run) · proposals only; nothing changes until Andy approves. P12 (re-audit after W13) stands.</p>
+<p>Evidence: <code>w10/synth_calibration.json</code>, <code>w10/failure_modes.json</code>, <code>w10/dkp_pricing.json</code>, <code>w10/p_rules_oos.json</code>, <code>w10/a4_clv.json</code>, each written by the script of the same name. Hit rates use unique positions (a leg on five tickets counts once) unless stated. n &lt; 20 is directional only. Audits cited: A1 correlation, A2 calibration, A3 rule dates, A4 closing line, A5 bootstrap/intervals, A6 leakage.</p>
+<h2>Executive summary</h2>
+<p><strong>Top 5 changes</strong></p>
+<ol>
+<li><strong>Cap cash tickets at 4 legs, and build them from the four categories that held up out of sample</strong> (QB INT, passing TDs, receptions, tackles). 5-or-more-leg cash tickets are 4 of 198 this season; at the 57% a leg we actually hit, a 7-leg ticket cashes 2% of the time.</li>
+<li><strong>Play a side or total only when the fair line shows an edge of 2 points or more.</strong> Synthesis recommendations with a 2+ point edge went 24-13 (65%); under 2 points, 34-39.</li>
+<li><strong>Flip the prop default from Overs to Unders.</strong> Synthesis prop Overs went 41-64 (39% against a 54% break-even, -27.9u); prop Unders went 29-16 (64%, +11.0u). The W9 prop screen said the same (Unders +5.9u, Overs -43.4u).</li>
+<li><strong>Enforce the overlap cap in the build script, not by memory.</strong> W10 was the first week under P3 and overlap rose to 64% of legs; Derrick Henry sat on 5 of 6 MNF tickets.</li>
+<li><strong>Stop writing probabilities that all say 52%.</strong> 61 of 78 graded synthesis probabilities sit between 50% and 55% and they hit 47.5%. Replace the A/B/C tier with a stated edge and a required reason code, and score it weekly.</li>
+</ol>
+<p><strong>3 sources to lean on more</strong></p>
+<ul>
+<li>The analytics-first fair lines and margin simulator: beat the market line two weeks running (14-5 ATS at edge ≥ 0.5). Recommendations that cite the model and no expert went 16-10 (+13.4u).</li>
+<li>Andy's own QB INT / passing TD / tackles reads: 64%, 65% and 63% on 56 to 100 legs each, all confirmed in W10.</li>
+<li>Defender tackle legs on teams favored by less than a touchdown: 19-6 (underdogs 17-14).</li>
+</ul>
+<p><strong>3 to cut or down-weight</strong></p>
+<ul>
+<li>Expert spread picks and "best bets" (-48.5u on 441; best bets 67-88), plus the Action Network, Ross Tucker and VSiN picks (each now a loss with an interval that excludes zero).</li>
+<li>First-TD and WR/TE anytime-TD legs sourced from prediction-market prices: recommendations citing a Kalshi/DKP reference went 7-26.</li>
+<li>Receiving-yard Overs at 70+ yards (5-9) and every expert or screen receiving-yard Over (experts 6-9, W9 screen 25-45).</li>
+</ul>
+<h2>1. Stage by stage: what each step added and where it lost</h2>
+<div class="tw"><table><thead><tr><th>Stage</th><th>What it produced</th><th>Accuracy</th><th>Added or lost</th></tr></thead><tbody>
+<tr><td>Captures (lines, props, splits, weather, markets)</td><td>inputs</td><td>fresh except Saturday's article review (83 h) and props intel (29 h); DKP feed has no QB INT or FG rows</td><td>Lost: the best prop category cannot be priced from the feed</td></tr>
+<tr><td>Intel: experts, podcasts, X</td><td>1,396 graded article/expert picks (W4-10), 665 podcast picks</td><td>spreads 46% (-48.5u); totals +9.4u (not distinguishable); podcasts overall negative</td><td><strong>Lost</strong> on sides. Adds nothing measurable beyond the closing line</td></tr>
+<tr><td>Models: fair lines + simulator</td><td>28 games (W9-10)</td><td>margin error 0.5-0.6 points better than the market both weeks; 14-5 ATS at edge ≥ 0.5</td><td><strong>Added.</strong> The only stage that beat the market</td></tr>
+<tr><td>Models: prop screen (W9), tackle board</td><td>377 screen props; 62 tackle legs</td><td>screen -36u overall, Unders +5.9u; tackles 65%</td><td>Added on Unders and tackles only</td></tr>
+<tr><td>Synthesis: per-game recommendations (W7, W8, W10)</td><td>449 graded</td><td>B tier 47% vs 52.5% break-even (-8.8u); C tier 35% vs 37% (-28.3u)</td><td><strong>Lost</strong> overall. Tiers sort hit rate but neither tier beats its price. W10 alone: B 4-1, C 16-13</td></tr>
+<tr><td>Synthesis: Master Intel pitches</td><td>26 (W7-10)</td><td>15-11; W10 8-2</td><td>Added in W9-10, after the switch to fair lines</td></tr>
+<tr><td>What Andy placed</td><td>1,948 legs</td><td>props: Andy-only 52%, AI-backed 54%; sides/totals: Andy-only 58%, AI-backed 47%</td><td>Andy's own sides and totals beat the AI-backed ones over the season (W5-10: 60% vs 53%), partly because his include more moneyline favorites. Construction then loses it: 58% legs in W10, 3 of 39 tickets</td></tr>
+</tbody></table></div>
+<h2>2. Attribution: which inputs pushed the picks that hit</h2>
+<p>Each recommendation's <code>reasons</code> text was tagged by input family (regex in <code>synth_calibration.py</code>). Passes excluded.</p>
+<div class="tw"><table><thead><tr><th>Input cited</th><th>Record</th><th>Rate</th><th>Break-even</th><th>Units</th></tr></thead><tbody>
+<tr><td>Simulator / fair line</td><td>27-20</td><td>57%</td><td>49%</td><td><strong>+13.4</strong></td></tr>
+<tr><td>Weather (n &lt; 20)</td><td>7-4</td><td>64%</td><td>53%</td><td>+2.3</td></tr>
+<tr><td>Splits / money</td><td>17-17</td><td>50%</td><td>50%</td><td>+1.0</td></tr>
+<tr><td>Defense matchup</td><td>38-41</td><td>48%</td><td>52%</td><td>-6.9</td></tr>
+<tr><td>Injury / role news</td><td>46-55</td><td>46%</td><td>46%</td><td>-4.1</td></tr>
+<tr><td>Expert / podcast</td><td>21-29</td><td>42%</td><td>46%</td><td>-5.9</td></tr>
+<tr><td>Usage / FTN / EPA</td><td>51-76</td><td>40%</td><td>46%</td><td>-17.6</td></tr>
+<tr><td>Line move / price</td><td>11-19</td><td>37%</td><td>47%</td><td>-9.1</td></tr>
+<tr><td>Prediction-market reference</td><td>7-26</td><td>21%</td><td>29%</td><td><strong>-13.7</strong></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>Mix</th><th>Record</th><th>Units</th></tr></thead><tbody>
+<tr><td>Model cited, no expert</td><td>16-10 (62%)</td><td>+13.4</td></tr>
+<tr><td>Model and expert both cited</td><td>11-10</td><td>0.0</td></tr>
+<tr><td>Expert cited, no model</td><td>10-19 (34%)</td><td>-5.9</td></tr>
+<tr><td>Neither (mostly TD scorers and usage-based props)</td><td>121-223 (35%)</td><td>-44.6</td></tr>
+</tbody></table></div>
+<p>Where a good input was diluted: when an expert agreed with the model the record was no better than a coin flip, and expert-only picks lost. Usage/FTN reasoning is the most-cited family and the second-worst: on sides and totals it went 5-13. Number of input families cited does not help beyond two (two families 37-39; three 16-23; four or more 13-13).</p>
+<p>Edge size is what separates sides and totals: <strong>edge 2+ points 24-13 (+9.2u); 1 to 1.9 points 18-22; under 1 point 16-17.</strong></p>
+<h2>3. Failure modes, each tested</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>Hypothesis</th><th>Evidence</th><th>n</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>1</td><td>Receiving-yard Overs lose</td><td>Placed: 79-69 (53%); priced legs 22-28 against a 55% break-even. W10 5-8. By threshold: under 40 yds 39-33, 40-69 yds 35-27, <strong>70+ yds 5-9</strong>. AI paper 25-27; synthesis recs 10-11; experts 6-9; W9 screen Overs 25-45. Receptions Overs for comparison: 104-72 (59%)</td><td>148 placed</td><td><strong>Real as "no edge"</strong>, a loss at 70+ and whenever the pick comes from an expert or the screen. Not a disaster category for Andy's own low rungs</td></tr>
+<tr><td>2</td><td>Committee-RB and backup ATDs lose</td><td>By role over the prior 4 weeks: lead RB 39-32 (55%); <strong>committee/backup RB 20-14 (59%)</strong>; <strong>WR/TE/other 57-99 (37%)</strong>; no prior games 18-26. W10 committee backs went 5-3</td><td>305</td><td><strong>Rejected.</strong> The weak ATD legs are receivers and tight ends, not committee backs. Priced WR/TE legs: 38% hit vs 37% break-even, so they are fair-priced lottery legs that kill parlays</td></tr>
+<tr><td>3</td><td>Defender tackles fail on big favorites</td><td>Team favored by 7+: 4-2. Favored by less than 7: <strong>19-6 (76%)</strong>. Underdog or pick: 17-14 (55%). Lake (LAR -8.5, 2 tackles) is one of the two misses</td><td>62</td><td><strong>Not shown</strong> (n = 6). The surprise runs the other way: underdog defenders are the weaker group</td></tr>
+<tr><td>4</td><td>Milestones are set one notch too high</td><td>Of 658 Over/milestone legs, 381 won (58%). <strong>110 losses were within one notch</strong> (10 yards, or 1 catch/carry/tackle/TD); one notch lower lifts the hit rate to 75%. But 94 wins cleared by less than a notch. DKP charges about 22% of the price for one 10-yard notch (+12 points of implied probability); our legs gained 13 to 16 points from it on rushing and receiving yards. 11 tickets lost only on one-notch misses (6 in W8, 1 in W10)</td><td>658</td><td><strong>Real but small.</strong> One notch lower is roughly fair on yardage, slightly better than fair on rushing. It matters for cashing 3-4 leg tickets, not for edge</td></tr>
+<tr><td>5</td><td>Fading the public works</td><td>Public spread side (60%+ of bets): 46-44. At 70%+: 25-23. Money-vs-bets gap ≥ 10: money side 18-16. Our spread legs with the public 35-28, against it 24-21</td><td>134 games</td><td><strong>No signal either way.</strong> Stop spending capture and reasoning on splits</td></tr>
+<tr><td>6</td><td>Totals in wind or weather</td><td>Windy games (25+ km/h or gusts 40+): 2 games, both went over. Breezy (15-25): unders 4-2, average 8.3 points under the close. Our Unders in calm or indoor games: <strong>5-14</strong>; in breezy games 4-3. All total Unders 23-34 (40%)</td><td>68 games</td><td><strong>Not enough windy games to test.</strong> The real finding: Unders without a weather reason lose</td></tr>
+<tr><td>7</td><td>QB INT is real</td><td>36-20 (64%) unique; 67% in W10, 61% W1-4, 67% W5-9. League base rate for QBs with 15+ attempts: 54%. P(36 of 56 at the league rate) = 7%. Priced legs: 9-7 at a 55% break-even (+0.6u)</td><td>56</td><td><strong>Probably real selection skill, not yet proven as profit.</strong> Andy picks QBs who throw picks 10 points more often than average, but only 16 legs have a recorded price</td></tr>
+</tbody></table></div>
+<h2>4. Construction</h2>
+<p><strong>Leg count.</strong> Cash tickets, no round robins:</p>
+<div class="tw"><table><thead><tr><th>Legs</th><th>Tickets</th><th>Won</th><th>Leg rate</th><th>Cash rate</th><th>Expected if legs were independent</th><th>One leg short</th></tr></thead><tbody>
+<tr><td>2</td><td>24</td><td>5</td><td>46%</td><td>21%</td><td>22%</td><td>58%</td></tr>
+<tr><td>3</td><td>18</td><td>0</td><td>29%</td><td>0%</td><td>3%</td><td>39%</td></tr>
+<tr><td>4</td><td>21</td><td>4</td><td>59%</td><td>19%</td><td>12%</td><td>24%</td></tr>
+<tr><td>5-6</td><td>109</td><td>3</td><td>51%</td><td>2.8%</td><td>2.4%</td><td>17%</td></tr>
+<tr><td>7-8</td><td>82</td><td>0</td><td>52%</td><td>0%</td><td>0.6%</td><td>7%</td></tr>
+<tr><td>9+</td><td>10</td><td>1</td><td>59%</td><td>10%</td><td>0.6%</td><td>10%</td></tr>
+</tbody></table></div>
+<p>At 57% a leg: 3 legs 18.5%, 4 legs 10.6%, 5 legs 6.0%, 6 legs 3.4%, 7 legs 2.0%, 8 legs 1.1%. 201 of 274 cash tickets had 5 or more legs. The 3-leg row is the first-TD and 2+ TD packs.</p>
+<p><strong>Overlap (P3).</strong> W10: 64% of legs on more than one ticket, one cluster of 31 tickets. MNF: Henry on 5 tickets; he scored twice on 10 carries for 10 yards, so every TD leg won and every yardage leg lost. One ticket lost on Henry legs alone; the others also missed elsewhere.</p>
+<p><strong>DKP combo pricing.</strong> 84 DKP tickets. There is no cap: the largest payout was 480.6x (W7 8-pick), W10's largest 132.2x.</p>
+<div class="tw"><table><thead><tr><th>Shape</th><th>Tickets</th><th>Median payout</th><th>Per-leg price (decimal)</th><th>Won</th></tr></thead><tbody>
+<tr><td>Single game, 4 legs</td><td>5</td><td>9.4x</td><td>1.75</td><td>1</td></tr>
+<tr><td>Single game, 5-6 legs</td><td>26</td><td>29.2x</td><td>1.81</td><td>1</td></tr>
+<tr><td>Single game, 7-8 legs</td><td>14</td><td>62.3x</td><td>1.69</td><td>0</td></tr>
+<tr><td>Multi game, 5-6 legs</td><td>11</td><td>28.7x</td><td>1.85</td><td>2</td></tr>
+<tr><td>Multi game, 7-8 legs</td><td>12</td><td>58.7x</td><td>1.71</td><td>0</td></tr>
+</tbody></table></div>
+<p>Against the product of the legs' own single prices (W10, same-day feed, 4 tickets fully priced; directional): DKP paid 72% to 95% of the independent product, including boosts. Tickets with two defensive legs from one team priced at 1.69 a leg against 1.77 for other single-game tickets (2 tickets). DKP's displayed probability matches its price within half a point on all 12 tickets checked: the "probability" is just the price. The feed cannot price QB INT, FG or reception milestones, so this map stays thin until that is fixed (pipeline audit, fix 2).</p>
+<p><strong>Round robins.</strong> 2-team RRs: 12 tickets, 5 won, -$21.23 on $250.95 (break-even). 4-team master RRs: 6 tickets, 1 won, -$368.95 on $630.</p>
+<p><strong>Island tiers vs their own odds bands.</strong> 86 Island tickets; only 9 carry a tier label, so the tier template is not what gets placed. By price instead:</p>
+<div class="tw"><table><thead><tr><th>Price band</th><th>Tickets</th><th>Won</th><th>Expected at the price</th><th>Net</th><th>Leg rate</th></tr></thead><tbody>
+<tr><td>under +400 (n &lt; 20)</td><td>2</td><td>1</td><td>0.5</td><td>+$6.94</td><td>86%</td></tr>
+<tr><td>+400 to +1500 (n &lt; 20)</td><td>13</td><td>3</td><td>1.3</td><td><strong>+$307.36</strong></td><td>68%</td></tr>
+<tr><td>+1500 to +5000</td><td>26</td><td>0</td><td>1.0</td><td>-$220.72</td><td>55%</td></tr>
+<tr><td>+5000 and up</td><td>45</td><td>0</td><td>0.5</td><td>-$287.18</td><td>50%</td></tr>
+</tbody></table></div>
+<p>71 of 86 Island tickets were priced past +1500 and none cashed. The Tier 1 band is the only one that has paid.</p>
+<p><strong>Alejandro "core split" backtest (W5-10).</strong> Walk-forward: for each week, categories at 57%+ on 20+ legs through the prior week; pool = that week's placed legs in those categories; 20,000 random combos from 3+ games; payout = product of leg prices (unpriced legs assumed -125), no correlation and no SGP haircut.</p>
+<div class="tw"><table><thead><tr><th>Week</th><th>Categories in force</th><th>Pool (hit rate)</th><th>3-leg cash rate</th><th>4-leg cash rate</th></tr></thead><tbody>
+<tr><td>5</td><td>passing TDs, QB INT, tackles, rushing yds</td><td>21 (52%)</td><td>5%</td><td>3%</td></tr>
+<tr><td>6 (n &lt; 20)</td><td>passing TDs, tackles</td><td>7 (43%)</td><td>4%</td><td>0%</td></tr>
+<tr><td>7 (n &lt; 20)</td><td>tackles, passing TDs</td><td>17 (59%)</td><td>11%</td><td>6%</td></tr>
+<tr><td>8</td><td>passing TDs, tackles, carries, QB INT</td><td>34 (68%)</td><td>30%</td><td>19%</td></tr>
+<tr><td>9 (n &lt; 20)</td><td>QB INT, carries, tackles, passing TDs</td><td>16 (75%)</td><td>33%</td><td>25%</td></tr>
+<tr><td>10</td><td>carries, QB INT, passing TDs, tackles, receptions</td><td>58 (64%)</td><td>22%</td><td>15%</td></tr>
+<tr><td><strong>Average</strong></td><td></td><td></td><td><strong>17.6%</strong> at about +470</td><td><strong>11.2%</strong> at about +900</td></tr>
+</tbody></table></div>
+<p>Average return: 3-leg +0.6%, 4-leg +15%, with three losing weeks then three winning ones. That is break-even within noise, against the actual splits' 1 cash in 27 tickets at 5.8 legs. <strong>The core split does not create an edge; it turns a 4% ticket into an 18% ticket at the same expected value.</strong> Worth doing for that reason, at +300 to +600.</p>
+<h2>5. Calibration of the synthesizer itself</h2>
+<p><strong>Tiers</strong> (W7, W8, W10; 449 graded; no A-tier pick has been graded):</p>
+<div class="tw"><table><thead><tr><th>Tier</th><th>Record</th><th>Hit rate</th><th>Avg break-even</th><th>Units</th><th>Read</th></tr></thead><tbody>
+<tr><td>B</td><td>41-46</td><td>47%</td><td>52.5%</td><td>-8.8</td><td>below its price</td></tr>
+<tr><td>C</td><td>117-216</td><td>35%</td><td>37%</td><td>-28.3</td><td>below its price; first TD alone is 11-82 (-17.3u)</td></tr>
+<tr><td>PASS (graded as if played)</td><td>9-20</td><td>31%</td><td>52%</td><td>-11.8</td><td><strong>the passes were right</strong></td></tr>
+<tr><td>B sides/totals (n &lt; 20)</td><td>8-7</td><td>53%</td><td>51.5%</td><td>+0.5</td><td></td></tr>
+<tr><td>B props</td><td>25-26</td><td>49%</td><td>54%</td><td>-4.5</td><td></td></tr>
+<tr><td>C TD scorers</td><td>53-143</td><td>27%</td><td>26%</td><td>-12.8</td><td>fair-priced lottery legs</td></tr>
+<tr><td>"Standalone preferred" flag</td><td>38-45</td><td>46%</td><td>43%</td><td><strong>+7.8</strong></td><td>the flag carries information</td></tr>
+<tr><td>"Parlay leg only" flag</td><td>89-172</td><td>34%</td><td>41%</td><td>-55.3</td><td></td></tr>
+</tbody></table></div>
+<p>The tiers rank correctly (B &gt; C &gt; PASS) and W10 was the best week (B 4-1, C 16-13), but a tier does not tell you whether the price is beaten. The "standalone preferred" flag does.</p>
+<p><strong>Probabilities</strong> (78 graded with a <code>model_prob</code>):</p>
+<div class="tw"><table><thead><tr><th>Stated probability</th><th>n</th><th>Average stated</th><th>Hit rate</th></tr></thead><tbody>
+<tr><td>under 45% (n &lt; 20)</td><td>4</td><td>37%</td><td>50%</td></tr>
+<tr><td>50-55%</td><td>61</td><td>52.8%</td><td><strong>47.5%</strong></td></tr>
+<tr><td>55-60% (n &lt; 20)</td><td>10</td><td>56.5%</td><td>60%</td></tr>
+</tbody></table></div>
+<p>Brier 0.2516 against 0.2500 for a coin flip and 0.2520 for the price-implied probability. By week: W7 0.256, W8 0.262, W10 0.243. Picks where the stated probability beat the price went 28-29. <strong>The probabilities do not separate winners from losers yet</strong>; almost all of them are the simulator's 51-55% on sides and totals. Only 7 tickets before W10 and 8 of 41 in W10 carry any estimate.</p>
+<p><strong>Proposed recalibration</strong></p>
+<ol>
+<li>Replace A/B/C with two numbers on every recommendation: <code>edge_pts</code> (sides/totals) or <code>edge_prob</code> (props: stated probability minus the no-vig price), and a <code>basis</code> code from a fixed list (model, usage, matchup, news, expert, market). No number, no recommendation.</li>
+<li>Shrink every stated probability halfway to the no-vig market price until 200 graded picks show a Brier score below the market's. In practice: a 55% claim against a 51% market becomes 53%.</li>
+<li>Publish thresholds, not tiers: sides/totals play at edge ≥ 2 points; props play at edge ≥ 4 points of probability; anything else is listed as a lean and never used as a cash parlay leg.</li>
+<li>First TD, 2+ TD and WR/TE anytime TD are never tiered. They go in a separate "lottery (promo only)" list.</li>
+<li>Tuesday post-mortem prints the reliability table above for the season to date; the rule in 2 is lifted or tightened from that table, not by feel.</li>
+</ol>
+<h2>6. Recommendations for Weeks 11-18</h2>
+<p>Ranked by expected value to pick accuracy. "Effect" is the expected change in the relevant hit rate or cash rate. Confidence reflects sample size and whether the finding survived W10 out of sample.</p>
+<div class="tw"><table><thead><tr><th>#</th><th>Change</th><th>Evidence (n)</th><th>Audits</th><th>Expected effect</th><th>Confidence</th><th>Type</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Cash tickets: 4 legs maximum; 5-6 legs only on DKP; 7+ promo only</strong> (tightens R9-1)</td><td>5+ leg cash tickets 4 of 198; 7+ without the one hit 0 of 101, -$1,143; W10 7+ went 0 of 15 with legs at 62% (274 tickets)</td><td>A2, A3, A5</td><td>ticket cash rate from about 3% to 10-18% at 57% legs</td><td><strong>High</strong></td><td>card construction</td></tr>
+<tr><td>2</td><td><strong>Sides/totals need a fair-line edge of 2+ points</strong> to be a straight bet or a cash parlay leg; 1-2 points is a lean</td><td>edge 2+ 24-13; below 2, 34-39 (95 recs); fair lines 14-5 ATS at edge ≥ 0.5 over 2 weeks</td><td>A5, A6</td><td>sides/totals from about 50% to 58-62%</td><td>Medium</td><td>synthesis rule</td></tr>
+<tr><td>3</td><td><strong>Props: Unders first.</strong> An Over needs a named volume reason and may not be a receiving-yard Over at 70+</td><td>recs: Overs 41-64, Unders 29-16 (150); W9 screen Overs 91-130, Unders 86-70 (377); placed prop Unders 14-8</td><td>A5</td><td>prop recommendations from 39% to 50%+</td><td>Medium-high</td><td>synthesis rule, model input</td></tr>
+<tr><td>4</td><td><strong>Build cash tickets from the "core four": QB INT, passing TDs, receptions, tackles</strong> (3-4 legs, +300 to +600), including the Alejandro split</td><td>all four at 60-65% on 56-201 legs; 36-18 in W10 out of sample; backtest cash rate 18% (3-leg)</td><td>A3, A5</td><td>Alejandro split cash rate from 4% to about 15-18%, at break-even EV</td><td>Medium</td><td>card construction</td></tr>
+<tr><td>5</td><td><strong>Enforce overlap at build time</strong>: <code>check_overlap.py</code> blocks a 3rd ticket on one player (any stat) or one game total; the card shows the block</td><td>W10: 64% of legs shared, 31-ticket cluster, Henry on 5 tickets (223 legs)</td><td>A1</td><td>fewer all-or-nothing Sundays; no hit-rate change</td><td><strong>High</strong></td><td>card construction</td></tr>
+<tr><td>6</td><td><strong>Expert spreads, best bets, Action Network, Ross Tucker, VSiN: out of pick weighting.</strong> Expert totals drop from tiebreaker to flag</td><td>spreads -48.5u (441), interval excludes zero; W10 27-35; totals W10 6-11; expert-only recs 10-19</td><td>A5</td><td>removes a 42-47% input from sides</td><td><strong>High</strong></td><td>source weights</td></tr>
+<tr><td>7</td><td><strong>WR/TE anytime TD, first TD, 2+ TD: promo tickets only.</strong> RB anytime TD (lead or committee) stays allowed under +350</td><td>WR/TE ATD 57-99 (156); RB ATD 59-46 (105); first TD 2-19; recs citing a market reference 7-26</td><td>A5</td><td>cash-leg ATD rate from 45% to about 56%</td><td>Medium-high</td><td>synthesis rule, card construction</td></tr>
+<tr><td>8</td><td><strong>Replace tiers with edge + basis code; shrink probabilities halfway to the market</strong> (section 5)</td><td>Brier 0.252 vs 0.250 (78); tiers below their price (449)</td><td>A2</td><td>calibration becomes measurable; no immediate hit-rate change</td><td>High (that it is needed)</td><td>synthesis rule</td></tr>
+<tr><td>9</td><td><strong>Island: Tier 1 band only for cash (+400 to +1500, 4-5 legs).</strong> Tiers 2-3 promo</td><td>+400 to +1500: 3 of 13, +$307; past +1500: 0 of 71, -$508</td><td>A2, A5</td><td>Island cash rate from 5% to about 15-20%</td><td>Medium (13 tickets)</td><td>card construction</td></tr>
+<tr><td>10</td><td><strong>Total Unders need a stated reason</strong> (wind 15+ km/h, a fair-total edge of 2+, or a QB downgrade). No "public is on the Over" Unders</td><td>Unders 23-34; in calm/indoor games 5-14; public total side 40-34</td><td>A5</td><td>total Unders from 40% toward 50%</td><td>Medium</td><td>synthesis rule</td></tr>
+<tr><td>11</td><td><strong>Stop buying points on parlay legs</strong> unless it crosses 3 or 7</td><td>188 bought/alt legs: 78-76, no better than main lines (93 legs, +0.12 CLV)</td><td>A4</td><td>better parlay prices at the same hit rate</td><td>Medium</td><td>card construction</td></tr>
+<tr><td>12</td><td><strong>Yardage milestones: take one notch lower on rushing legs when the ticket has 3-4 legs</strong>; leave receiving yards and long tickets alone</td><td>rushing 60% to 76% one notch lower for 22% of the price (80 legs)</td><td>A5</td><td>rushing legs +16 points of hit rate at a fair price</td><td>Low-medium</td><td>card construction</td></tr>
+<tr><td>13</td><td><strong>Drop splits and "public fade" as a reason; cut the capture to twice on game days</strong></td><td>public side 46-44; our with/against 35-28 vs 24-21 (134 games)</td><td>A5</td><td>none on accuracy; less noise in the reasons</td><td>High</td><td>capture, source weights</td></tr>
+<tr><td>14</td><td><strong>Fix the capture gaps that block measurement</strong>: DKP feed QB INT/FG/reception rows; leg prices on DKP tickets; Saturday refresh of article review and props intel; closing-line step on Tuesday</td><td>163 of 232 W10 legs unpriced; 11 of 24 DKP tickets partly unpriceable</td><td>A2, A4, A6</td><td>enables every calibration above</td><td>High</td><td>capture</td></tr>
+<tr><td>15</td><td><strong>Keep C5 (no master RRs), P1, P2 as approved</strong></td><td>master RR 1 of 6, -$369; 2-leg -$362; BEO 0 of 116</td><td>A5</td><td>—</td><td>High</td><td>card construction</td></tr>
+</tbody></table></div>
+<p>Not recommended: any rule about defenders on big favorites (6 legs), committee backs (the data points the other way), or wind (2 games).</p>
+<p>Decisions for Andy are listed as yes/no questions in the handoff.</p>
+</body></html>

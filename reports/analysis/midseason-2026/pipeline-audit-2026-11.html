@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pipeline and capture audit (November 2026)</title><style>body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;max-width:1080px;margin:28px auto;padding:0 18px;color:#1c1f24;background:#fff}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:20px;margin-top:34px;border-bottom:2px solid #9b1b30;padding-bottom:4px}h3{font-size:16px;margin-top:24px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:10px 0 18px;font-size:13.5px}th,td{border:1px solid #d5d8dd;padding:5px 8px;text-align:left;vertical-align:top}
+th{background:#f3f4f6}tr:nth-child(even) td{background:#fafafa}code,pre{font:12.5px Consolas,monospace;background:#f3f4f6;border-radius:3px}code{padding:1px 4px}pre{padding:10px;overflow-x:auto}
+@media(prefers-color-scheme:dark){body{background:#14161a;color:#e6e8eb}th{background:#22262c}td,th{border-color:#3a3f47}tr:nth-child(even) td{background:#1a1d22}code,pre{background:#22262c}}
+@media print{body{max-width:none;margin:0}h2{break-after:avoid}table{break-inside:auto}tr{break-inside:avoid}}</style></head><body>
+<h1>Pipeline and capture audit (November 2026)</h1>
+<p>Platinum Rose · written Mon 11/16 by Claude (Fable run) · audit and propose only. Nothing below was applied except the closing-line capture, which sits on branch <code>claude/closing-line-capture-2026-11</code> (commit <code>a9784148</code>) for Andy's review.</p>
+<p>Evidence scripts: <code>w10/regrade_ledger.py</code>, <code>w10/bankroll_reconcile.py</code>, <code>w10/a4_clv.py</code>, <code>w10/dkp_pricing.py</code>. Log reads are from <code>logs/*.log</code> on 11/16 10 PM PT. GitHub workflow run history was not checked (no GitHub credentials on the bridge): workflow rows show the schedule only.</p>
+<h2>1. The three findings that matter most</h2>
+<ol>
+<li><strong>The nightly settler that mis-grades Unders is <code>scripts/reconcile-settlement.mjs</code>, not <code>settle_from_mobile_state.py</code>.</strong> It runs every night at 2:30 AM PT from <code>scripts/windows/hidden-tasks/settlement-reconciliation.cmd</code> (45 runs logged since September) and writes the ledger without <code>--dry-run</code>. Its player-prop branch ignores direction: <code>actual &gt; line ? 'WON' : ... 'LOST'</code> (line 143). Every prop Under is graded as an Over. It also leaves any market it doesn't know (carries, completions, 2+ TD, first TD, kicker props, <code>anytime_td</code>) as PENDING, counts only rushing/receiving/defensive TDs for anytime TD (no return TDs), and settles a ticket as a loss on the strength of a wrong leg grade. The W10 legs it touched carry no <code>grading_note</code>, which is how it was traced: <code>settle_from_mobile_state.py</code> always writes one. The mobile tracker's own grader handles <code>direction: under</code> correctly.</li>
+<li><strong>The ledger's leg grades are clean today.</strong> An independent re-grade of 1,930 NFL legs (W1-10) from cached ESPN box scores disagrees with the stored grade on 2 legs. One is real: W5 Cameron Thomas "1+ Sacks" is stored PUSH with 0.5 sacks and should be LOST (ticket lost anyway). The other is the W10 2H spread, which the stored grade has right. No ticket result is wrong. Every Under leg from W1-9 with a numeric stat matches. So the leg-type hit rates in the post-mortem can be trusted; they come from the weekly pipeline's re-grade, not from the settler.</li>
+<li><strong>There is no single definition of "season bankroll" in code.</strong> No script reads <code>bankroll_exempt</code>. The handoff numbers were computed by hand in chat. Section 4 shows what each one was.</li>
+</ol>
+<h2>2. Task inventory</h2>
+<p>Status key: OK / degraded / broken / unused. "Feeds synthesis" = read by the Saturday synthesis queue, the Master Intel pull or the card builder.</p>
+<h3>Windows scheduled tasks (<code>scripts/windows/hidden-tasks/*.cmd</code>, set up by <code>scripts/setup-*.ps1</code>)</h3>
+<div class="tw"><table><thead><tr><th>Task</th><th>Purpose</th><th>Output</th><th>Last log write</th><th>Feeds synthesis</th><th>Status</th></tr></thead><tbody>
+<tr><td>settlement-reconciliation</td><td>nightly ESPN grade + settle of placed tickets</td><td>ledger, <code>docs/tracked-wagers/reconciliation-latest.*</code></td><td>11/16 2:30 AM</td><td>no (writes the ledger)</td><td><strong>broken</strong> (Under legs inverted; see 1)</td></tr>
+<tr><td>toolbox-tuesday</td><td>odds/schedule refresh, roster audit, post-mortem, BEO futures, dossiers</td><td>many</td><td>11/10</td><td>yes</td><td><strong>degraded</strong>: <code>UnicodeEncodeError</code> (cp1252, U+2212) in the 11/10 log; post-mortem step needs the UTF-8 fix confirmed on the next run</td></tr>
+<tr><td>toolbox-wednesday / -pm</td><td>intel intake, bookmarks</td><td><code>data/intel</code>, <code>data/twitter</code></td><td>11/11</td><td>yes</td><td>OK (278 of 318 bookmarks skipped as non-target: noisy, not wrong)</td></tr>
+<tr><td>toolbox-thursday</td><td>TNF prep, live market lines</td><td><code>data/supercontest/live-market-comparison.json</code></td><td>11/12</td><td>partly</td><td><strong>degraded</strong>: live-market step fails until that week's SuperContest lines are saved (79 failures logged)</td></tr>
+<tr><td>toolbox-friday / -saturday / -sunday / -monday</td><td>cadence builds</td><td>reports, queues, trackers</td><td>11/13, 11/14, 11/15, 11/10</td><td>yes</td><td>OK</td></tr>
+<tr><td>weekly-archive</td><td>week archive + <code>team-weeks.csv</code></td><td><code>data/archive/2026/week-NN</code></td><td>11/12</td><td>yes (post-mortems)</td><td>OK, but W10 not archived as of 11/16 (runs Thursday): the Tuesday post-mortem graders that read the archive path cannot run before then</td></tr>
+<tr><td>research-intel-sync</td><td>research intel cron</td><td><code>data/research-intel</code></td><td>11/16 10 PM</td><td>yes</td><td>OK</td></tr>
+<tr><td>grok-thread-scanner</td><td>X thread scan</td><td><code>.nfl/reports</code></td><td>11/16 10 PM</td><td>yes (narratives)</td><td>OK (2.7 MB log: rotate)</td></tr>
+<tr><td>live-tracker-builder, live-odds-sync, screenshot-watcher</td><td>trackers</td><td><code>public/</code></td><td>11/16</td><td>no</td><td>OK</td></tr>
+<tr><td>player-availability-sync</td><td>injuries/statuses</td><td><code>data/player-availability/latest.json</code></td><td>11/16 3:30 PM</td><td>yes</td><td><strong>degraded</strong>: FantasyPros injuries API "fetch failed"; one write failed with a file lock</td></tr>
+<tr><td>daily-brief</td><td>daily brief</td><td>report</td><td>11/16</td><td>no</td><td>OK</td></tr>
+<tr><td>podcast-ingestion-sync</td><td>podcast download + AssemblyAI transcripts</td><td><code>data/podcasts</code></td><td><strong>10/14</strong></td><td>was</td><td><strong>broken / unused</strong>: AssemblyAI balance negative since 10/14. Podcast picks now come from the Gemini/Antigravity sweeps. Disable the task</td></tr>
+<tr><td>twitter-bookmarks-sync</td><td>bookmarks</td><td><code>data/twitter</code></td><td><strong>10/15</strong></td><td>was</td><td><strong>unused</strong> as its own task (0 ingested on last runs; the Wednesday toolbox step does the work)</td></tr>
+<tr><td>twitter-harvester-daemon</td><td>X harvester</td><td>—</td><td><strong>10/1</strong></td><td>no</td><td><strong>unused</strong></td></tr>
+<tr><td>yahoo-survivor-sync</td><td>survivor standings</td><td><code>data/survivor</code></td><td>11/16 5 PM</td><td>no</td><td><strong>unused</strong>: Yahoo returns 500, and Andy's survivor entries are eliminated. Disable</td></tr>
+<tr><td>fantasy-waiver-sync</td><td>waivers</td><td><code>data/fantasy</code></td><td>11/11</td><td>no</td><td>OK (Yahoo Fantasy API otherwise still blocked for the archive capture)</td></tr>
+</tbody></table></div>
+<h3>GitHub workflows (<code>.github/workflows/</code>, schedule in UTC; run history not verified)</h3>
+<div class="tw"><table><thead><tr><th>Workflow</th><th>Schedule</th><th>Paid API</th><th>Feeds synthesis</th><th>Note</th></tr></thead><tbody>
+<tr><td>game-odds-ingest</td><td>Sun x4, Mon pre-MNF, Tue-Sat daily</td><td>TheOddsAPI</td><td>yes (schedule cache, fair lines)</td><td>Only source of closing lines until now, and only in Supabase. Closing lines are now free from ESPN (section 5)</td></tr>
+<tr><td>futures-odds-ingest</td><td>Tue, Fri</td><td>TheOddsAPI</td><td>no (futures)</td><td>keep</td></tr>
+<tr><td>betting-splits-ingest</td><td>every 2 h Sun/Mon/Thu</td><td>none</td><td>yes</td><td>Splits showed no edge (review report, public sides 46-44): 36 runs a week is more than the signal is worth. Cut to 2 a day on game days</td></tr>
+<tr><td>injury-ingest</td><td>Mon/Wed/Thu</td><td>none</td><td>yes</td><td>duplicates player-availability-sync</td></tr>
+<tr><td>research-intel-ingest</td><td>daily + Thu + Sun</td><td>LLM</td><td>yes</td><td>duplicates the local research-intel-sync task</td></tr>
+<tr><td>podcast-ingest</td><td>Tue-Fri</td><td>AssemblyAI/LLM</td><td>was</td><td>same dead path as the local task: check it is not still billing</td></tr>
+<tr><td>pick-extraction</td><td>manual</td><td>LLM</td><td>yes</td><td>OK</td></tr>
+<tr><td>nfl-auto-grade, props-auto-grade</td><td>hourly Sun/Mon/Thu nights</td><td>none</td><td>no</td><td>grades Supabase picks; a third grader beside the tracker and the reconciler</td></tr>
+<tr><td>nfl-daily-brief, weekly-update, nfl-roster-refresh, intel-to-vault-sync</td><td>daily / weekly</td><td>LLM (brief)</td><td>partly</td><td>OK</td></tr>
+<tr><td>nflverse-data-refresh, stats-to-vault-sync</td><td>once a year (Mar 1)</td><td>none</td><td>yes</td><td>in-season nflverse refresh is done by the Tuesday toolbox instead</td></tr>
+<tr><td>x-sharp-ingest</td><td>schedule commented out</td><td>Grok</td><td>—</td><td>unused</td></tr>
+<tr><td>odds-ingest, ci, deploy, smoke-test</td><td>manual / push</td><td>—</td><td>—</td><td>not capture</td></tr>
+</tbody></table></div>
+<h3>Capture buttons (Toolbox app, CDP ports 9222-9224; Andy runs them on Windows)</h3>
+<div class="tw"><table><thead><tr><th>Capture</th><th>Status</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>BKR live / gamelines / sportsbook</td><td>OK, needs manual login</td><td>3 captures W10 (11/13-15)</td></tr>
+<tr><td>BEO live + Props Builder</td><td>OK when run by hand</td><td>Props Builder raw on 11/14 and 11/15 only: the scheduled sync still skips it</td></tr>
+<tr><td>DKP event feed</td><td><strong>degraded</strong></td><td>Slow (~1 game a minute). <strong>No QB INT rows and no kicker FG rows in any feed file</strong> (W6, W8, W10 all 0); receptions are O/U only, no milestones. 11 of 24 W10 DKP tickets had a leg the feed could not price</td></tr>
+<tr><td>Kalshi props</td><td>OK</td><td>1 file W10</td></tr>
+</tbody></table></div>
+<h2>3. Freshness for the W10 Saturday synthesis (A6)</h2>
+<p>Queue built Sat 11/14 7:45 PM PT. Age of each input at build time:</p>
+<div class="tw"><table><thead><tr><th>Input</th><th>Age</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>BKR game lines, Master Intel pull, weather, availability, projected starters, roster vet</td><td>3-4 h</td><td>fresh</td></tr>
+<tr><td>podcast picks</td><td>7 h</td><td>fresh</td></tr>
+<tr><td>slate, AN openers, AN primer, secondary matchups, power ratings</td><td>23-24 h</td><td>fine (weekly inputs)</td></tr>
+<tr><td><strong>prediction markets, props intel, FTN context</strong></td><td><strong>29 h</strong></td><td>stale for a Saturday-night build: props intel predates Saturday's line moves</td></tr>
+<tr><td><strong>article intel review</strong></td><td><strong>83 h</strong></td><td>stale: Wednesday's review fed Saturday's synthesis</td></tr>
+<tr><td>SuperContest lines</td><td>56 h</td><td>fine (fixed contest lines)</td></tr>
+</tbody></table></div>
+<p>No input was newer than the build (no leakage). W8 and W9 queues were not re-audited beyond the W9 check in the first post-mortem (clean).</p>
+<h2>4. Bankroll reconciliation</h2>
+<p><code>w10/bankroll_reconcile.py</code> sums the settled ledger eight ways. The handoff numbers come out as follows.</p>
+<div class="tw"><table><thead><tr><th>Quoted number</th><th>What it actually is</th><th>Reproduces?</th></tr></thead><tbody>
+<tr><td>W10 bankroll <strong>-$226.68</strong></td><td><code>profit_usd</code> × Andy's share, excluding <code>bankroll_exempt</code>, week 10</td><td>yes</td></tr>
+<tr><td>"bankroll-exempt <strong>+$548.15</strong>"</td><td>the <strong>season</strong> total of exempt tickets before MNF (W8-10), not a W10 number. After the $10 FDP loss on MNF it is <strong>+$538.15</strong></td><td>yes</td></tr>
+<tr><td>season <strong>-$490.35</strong> (pre-MNF)</td><td>the same recipe gives <strong>-$589.35</strong> pre-MNF. The quoted figure is exactly $99.00 higher; no script, doc or note explains the $99</td><td><strong>no</strong></td></tr>
+<tr><td>season -$554.83 (post-MNF)</td><td>-$490.35 carried forward. Same recipe on today's ledger: <strong>-$653.83</strong></td><td>no</td></tr>
+<tr><td>"ledger sum about -$312.76"</td><td>same recipe, but the 14 split tickets that have <code>is_split</code> and no <code>ownership_shares</code> (mostly W8) are counted 100% Andy's</td><td>yes, but wrong: it gives Andy all of Alejandro's W8 winnings</td></tr>
+</tbody></table></div>
+<p>Why no figure is safe to quote yet:</p>
+<ul>
+<li><strong>14 split tickets have no <code>ownership_shares</code></strong> (+$474 profit between them). Counting them at 50% vs 100% moves the season by $341.</li>
+<li><strong>45 promo-funded tickets (+$196 profit) and 31 cash-flagged DK Predictions tickets are not marked exempt</strong>, though Andy's rule is that DKP is off the bankroll and booked at the account's real-money result. In W10 the TNF DKP tickets are exempt and the Sunday/MNF ones are not. With every DKP/Pick6 ticket excluded, W10 is <strong>-$62.07</strong> and the season <strong>-$800.15</strong>.</li>
+<li>The post-mortem scorecard (<code>lib.is_cash</code>) uses a third rule: cash-funded tickets at full ticket value, no shares, no exemptions (W1-10 <strong>-$532.11</strong> excluding the legacy fill).</li>
+<li>4 W1 tickets have no <code>profit_usd</code>; one W9 ticket (<code>cash+bonus</code>) has profit -$5 against a $7.50 stake.</li>
+</ul>
+<p>Proposed fix (not applied): one function, <code>scripts/lib/bankroll.mjs</code>, used by the tracker, the settlement statements and the post-mortem, with the rule Andy confirms in decision 1 of the handoff; plus a one-time backfill of <code>ownership_shares</code> and <code>bankroll_exempt</code>.</p>
+<h2>5. Closing lines (audit A4): built, on a branch</h2>
+<p>ESPN's public game summary already carries DraftKings open and close numbers (<code>pickcenter</code>), and the post-mortem caches those summaries. So closing lines for <strong>all 150 games of W1-10 were already on disk</strong>; nothing needed Supabase or TheOddsAPI.</p>
+<ul>
+<li><code>scripts/closing-lines/capture_closing_lines.py</code> writes <code>data/official-picks/closing-lines-2026.json</code> (150 games) and <code>closing-line-values-2026.json</code> (705 side/total legs from the placed and paper ledgers). Read-only on the ledgers (hash checked before and after). 8 unit tests pass.</li>
+<li>Sanity check against our own BKR captures (W9 Sat, W10 Fri, 27 games): spread within 1 point on 24, mean gap 0.63; total mean gap 0.54.</li>
+<li>Not wired into <code>toolbox.mjs</code> (that file has uncommitted changes of Andy's). The two-line Tuesday hook is in <code>scripts/closing-lines/README.md</code>.</li>
+<li>Diff for review: <code>git diff eef3603e claude/closing-line-capture-2026-11</code> (3 new files, 387 lines, no existing file touched).</li>
+</ul>
+<p>A4 result on the history it recovered is in the post-mortem, section 6b.</p>
+<h2>6. Ranked fixes (by effect on pick accuracy first)</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>Fix</th><th>Why</th><th>How (not applied)</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Stop <code>reconcile-settlement.mjs</code> writing the ledger</strong></td><td>It corrupts Under legs and half-settles tickets every night; hand corrections are then needed (44 legs in W10)</td><td>In <code>settlement-reconciliation.cmd</code> add <code>--dry-run</code>; or patch <code>gradeLeg</code>: <code>const under = String(leg.direction || '').toLowerCase() === 'under' || /\bunder\b/i.test(leg.selection);</code> and return <code>under ? (actual &lt; line ? 'WON' : actual === line ? 'PUSH' : 'LOST') : (...)</code>. Better: delete its grader and import the mobile tracker's <code>gradeLeg</code>, so there is one grader</td></tr>
+<tr><td>2</td><td>Add QB INT, kicker FG and reception milestones to the DKP feed parser</td><td>QB INT is the best prop category (64%) and the feed cannot price it; 11 of 24 W10 DKP tickets had an unpriced leg, which blocks calibration and price checks</td><td><code>scripts/props/draftkings-prediction-dump-parse.mjs</code>: map the "Interceptions Thrown", "Field Goals Made" and "Receptions X+" market names (they currently fall into <code>other</code>, 187 rows on 11/15)</td></tr>
+<tr><td>3</td><td>Re-run article review and props intel on Saturday before the synthesis queue</td><td>Saturday synthesis used an 83-hour-old article review and 29-hour-old props intel</td><td>add both to <code>toolbox --cadence saturday</code> ahead of the queue build; fail the preflight if either is older than 24 h</td></tr>
+<tr><td>4</td><td>Wire the closing-line step into Tuesday</td><td>CLV is the only accuracy signal that doesn't need hundreds of results</td><td>hook in the README of the branch</td></tr>
+<tr><td>5</td><td>One bankroll function + backfill of shares/exempt flags</td><td>No season ROI can be quoted until then</td><td>section 4</td></tr>
+<tr><td>6</td><td>Log leg prices on DKP tickets at placement</td><td>163 of 232 W10 legs have no price, so leg-level break-even can't be judged</td><td>at logging time, copy the feed price for each leg into <code>legs[].price</code> with <code>price_source: dkp_feed</code></td></tr>
+<tr><td>7</td><td>Disable dead tasks: podcast-ingestion-sync, twitter-bookmarks-sync, twitter-harvester-daemon, yahoo-survivor-sync, x-sharp-ingest</td><td>No output since October (or failing); the podcast path can still spend AssemblyAI money if topped up</td><td><code>Disable-ScheduledTask</code>; comment the cron in <code>podcast-ingest.yml</code></td></tr>
+<tr><td>8</td><td>Cut betting-splits-ingest from every 2 h to twice on game days; drop injury-ingest.yml (duplicate of the local availability sync)</td><td>Splits add nothing measurable (review report); duplicate captures</td><td>edit the two cron blocks</td></tr>
+<tr><td>9</td><td>Let the Tuesday post-mortem graders read <code>reports/bets/season-recap/wNgamesum.json</code> when the archive folder is missing</td><td><code>grade_podcast_picks.py</code> and <code>grade_experts.py</code> cannot run until Thursday's archive; this run needed a wrapper</td><td>2-line path fallback (as done in <code>grade_experts.py</code> here)</td></tr>
+<tr><td>10</td><td>Rotate <code>grok-thread-scanner.log</code>, <code>twitter-bookmarks-sync.log</code> (34 MB), <code>twitter-harvester-daemon.log</code> (14 MB)</td><td>housekeeping</td><td>—</td></tr>
+</tbody></table></div>
+<h2>7. Known suspects: status</h2>
+<div class="tw"><table><thead><tr><th>Suspect</th><th>Finding</th></tr></thead><tbody>
+<tr><td>BKR capture needs a manual login</td><td>still true; captures ran 11/13-15</td></tr>
+<tr><td>DKP capture ~1 game/min</td><td>still true (13 games on 11/14)</td></tr>
+<tr><td>Scheduled BOL sync skips Props Builder</td><td>still true: Props Builder files exist only for the hand-run captures</td></tr>
+<tr><td>DKP feed spread rows team-flipped (W6)</td><td><strong>not reproduced</strong>: W6, W8 and W10 feeds show the favorite with the negative line. But spread rows carry <code>team: null</code> (name only in <code>label</code>), so any consumer keying on <code>team</code> will mis-join</td></tr>
+<tr><td>No QB INT markets in some DKP feeds</td><td>worse: <strong>none in any feed</strong> (fix 2)</td></tr>
+<tr><td>Futures ledger path warning in the partner tracker build</td><td>not re-tested</td></tr>
+<tr><td>Yahoo Fantasy API blocked</td><td>still failing (500 on survivor group); archive capture still blocked</td></tr>
+<tr><td>Falsy-zero bug in <code>src/lib/predictionMarkets.js</code></td><td>fixed 9/26 (comment at line 14); the one remaining <code>|| 0</code> (custom fee) is harmless</td></tr>
+<tr><td>Season bankroll doesn't reconcile</td><td>section 4</td></tr>
+<tr><td>Settler inverts Unders</td><td>section 1; earlier weeks are clean</td></tr>
+<tr><td><code>.git/objects/maintenance.lock</code></td><td>left by the 11/16 8:37 PM commit, not by this run; rename it to <code>.git/stale-maintenance-lock</code> if git complains</td></tr>
+<tr><td>Prompt says W11 TNF is "HOU @ IND"</td><td>ESPN and the tracker have <strong>IND @ HOU</strong> (the 9-team's HOU -9.5 leg is a home favorite)</td></tr>
+</tbody></table></div>
+</body></html>

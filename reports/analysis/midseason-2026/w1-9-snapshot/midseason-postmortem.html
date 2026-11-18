@@ -1,0 +1,485 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026 Mid-season post-mortem · Platinum Rose</title><style>
+:root{--ink:#1f2430;--mute:#6b7280;--line:#e5e7eb;--red:#b23b3b;--green:#2f7d4f;--rose:#a3204a;--bg:#eef0f3;--tint:#f6e6ec}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);font-size:14px;line-height:1.55}
+.wrap{max-width:980px;margin:0 auto;padding:28px}.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px 36px}
+.kicker{color:var(--rose);font-weight:700;letter-spacing:.12em;font-size:11px}
+h1{font-size:28px;margin:6px 0 4px}h2{font-size:17px;margin:30px 0 10px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink)}
+h1+p{color:var(--mute);font-size:12.5px}
+.tw{overflow-x:auto;margin:8px 0 6px}table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 7px;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fafbfc}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:#f3f4f6;padding:1px 4px;border-radius:3px}
+li{margin:4px 0}strong{color:#111}
+@media (max-width:640px){.wrap{padding:12px}.card{padding:18px 14px}h1{font-size:22px}table{font-size:12px}}
+</style></head><body><div class="wrap"><div class="card"><div class="kicker">PLATINUM ROSE · MID-SEASON POST-MORTEM</div><h1>2026 mid-season post-mortem (Weeks 1-9)</h1>
+<p>Platinum Rose · written Fri 11/13 by Claude · data through MNF Week 9 (BUF @ MIN) · W10 TNF not included.
+Inputs: <code>picks.jsonl</code> (3,085 graded picks), <code>tickets.jsonl</code> (318 placed tickets), <code>expert_grades.jsonl</code>, weekly podcast grade files,
+<code>model_scores.json</code>, <code>audit_results.json</code> (new model audit, script <code>audit.py</code>). Independent blind re-grade of 140 picks agreed on 138.</p>
+<p><strong>Approved by Andy Fri 11/13: P1, P2, P3, P6</strong> (in force from Week 10 Sunday as rules version 2026-W10-r2). The other proposals still need his OK. Proposals are in section 7, each tagged with the audit checks it passed.</p>
+<h2>1. Bottom line</h2>
+<ol>
+<li><strong>The season is -$222 on cash, and the W5-9 turnaround is not yet distinguishable from luck.</strong> W1-4 lost $1,317 (90% interval -$2,165 to -$614: a real loss). W5-9 made $1,094, but the interval runs from -$1,136 to +$4,278, and without the one W6 9-team hit (+$1,248) W5-9 is -$154 with a 59% chance of being a loss.</li>
+<li><strong>Our tickets hit about as often as their prices imply, not more.</strong> 253 cash tickets won 20 times; their prices implied 21.8 wins (vig included). W5-9: 13 wins vs 13.6 implied. There is no sign yet that ticket selection beats the market.</li>
+<li><strong>Most of our tickets are the same bet.</strong> In W5-9, 55% of placed legs also sat on another ticket that week (42% in W1-4). That makes the record look larger and steadier than it is, and it is why one good or bad Sunday swings the season.</li>
+<li><strong>What is real (intervals that exclude zero):</strong> same-game side+total 2-teamers and first-TD/2+TD three-packs lose; master round robins lose; BetOnline long-shot prop parlays lose (0 for 112, though only 2.7 wins were expected at their prices); expert spread picks lose (-38u on 379); expert total picks win (+15u on 91); the Action Network and Ross Tucker podcasts lose; the W9 analytics-first fair lines beat the market line (one week only).</li>
+<li><strong>What is not yet real:</strong> the BettingPros podcast edge (+10 to +14u, 17% chance it's zero or worse), PFT's straight-up record, game-line parlays overall, Bookmaker, and every prop-screen finding (one week).</li>
+</ol>
+<h2>2. Cash results with uncertainty (cluster bootstrap, 10,000 resamples; tickets that share a leg resample together)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Slice</th>
+<th>Tickets</th>
+<th>Independent clusters</th>
+<th>Net</th>
+<th>90% interval</th>
+<th>P(net ≤ 0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1-4</td>
+<td>118</td>
+<td>44</td>
+<td>-$1,316.94</td>
+<td>-$2,165 to -$614</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>W5-9</td>
+<td>135</td>
+<td>26</td>
+<td>+$1,094.45</td>
+<td>-$1,136 to +$4,278</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>W5-9 without the W6 9-team (+$1,248)</td>
+<td>134</td>
+<td>26</td>
+<td>-$153.78</td>
+<td>-$1,269 to +$990</td>
+<td>59%</td>
+</tr>
+<tr>
+<td>Game-line parlays (W1-9)</td>
+<td>72</td>
+<td>23</td>
+<td>+$490.03</td>
+<td>-$1,384 to +$3,583</td>
+<td>37%</td>
+</tr>
+<tr>
+<td>2-leg tickets</td>
+<td>21</td>
+<td>19</td>
+<td>-$265.93</td>
+<td>-$428 to -$92</td>
+<td>99%</td>
+</tr>
+<tr>
+<td>3-leg tickets (0 of 16 won)</td>
+<td>16</td>
+<td>11</td>
+<td>-$154.71</td>
+<td>-$205 to -$105</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>4-team master round robins (0 of 5)</td>
+<td>5</td>
+<td>5</td>
+<td>-$440.53</td>
+<td>-$525 to -$272</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>BetOnline cash (0 of 112)</td>
+<td>112</td>
+<td>37</td>
+<td>-$712.57</td>
+<td>-$913 to -$533</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Bookmaker cash (14 of 109)</td>
+<td>109</td>
+<td>36</td>
+<td>-$68.49</td>
+<td>-$2,371 to +$3,230</td>
+<td>56%</td>
+</tr>
+</tbody>
+</table></div>
+<p>By leg count (interim): 4-leg +$110, 5-6 leg +$90, 7+ +$684 (the one 9-team hit). DK Predictions +$513 and Pick6 +$97 are promo/exempt.</p>
+<h2>3. Price calibration (A2): do our tickets beat their own odds?</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Implied chance (from the price)</th>
+<th>Tickets</th>
+<th>Won</th>
+<th>Expected at the price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>under 5% (long-shot parlays)</td>
+<td>163</td>
+<td>2</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>5-15%</td>
+<td>49</td>
+<td>5</td>
+<td>3.8</td>
+</tr>
+<tr>
+<td>15-30%</td>
+<td>18</td>
+<td>4</td>
+<td>4.7</td>
+</tr>
+<tr>
+<td>30-45%</td>
+<td>12</td>
+<td>1</td>
+<td>3.9</td>
+</tr>
+<tr>
+<td>45-60%</td>
+<td>8</td>
+<td>5</td>
+<td>4.3</td>
+</tr>
+<tr>
+<td>60%+</td>
+<td>3</td>
+<td>3</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><strong>All</strong></td>
+<td><strong>253</strong></td>
+<td><strong>20</strong></td>
+<td><strong>21.8</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Long shots (under 5%) are 64% of all cash tickets and won 2 times against 3 expected: that bucket alone carries the season's variance. Only 7 tickets ever recorded my own pre-bet probability estimate, too few to calibrate me; proposal P9 fixes that.</p>
+<h2>4. Correlation (A1)</h2>
+<ul>
+<li>W1-4: 677 placed legs, 42% of them on more than one ticket the same week; 8% of same-week ticket pairs share a leg.</li>
+<li><strong>W5-9: 733 legs, 55% shared; 11% of pairs share a leg.</strong> Correlation went up as volume per slate went up.</li>
+<li>Biggest clusters (tickets linked through shared legs): W8 29 tickets (2 won, +$306); W5 23 tickets (0 won, -$339); W3 22 (0 won, -$332); W7 19 (0 won, -$201); W2 17 (1 won, -$269). A whole Sunday rides on a handful of players (TD scorers, QB passing, one RB's rushing).</li>
+<li>W10 TNF did it again: Okonkwo receptions on 3 tickets, Skattebo rushing on 3, Styles/Reese tackles on several.</li>
+</ul>
+<h2>5. Ranked sources (what to lean on, keep as a flag, or cut)</h2>
+<p>Records are graded at the stated line/price (-110 when none). Intervals: 90% bootstrap of units. n &lt; 20 = directional only.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Source / model</th>
+<th>Record or score</th>
+<th>Units</th>
+<th>90% interval</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Fair lines, analytics-first (W9)</strong></td>
+<td>margin error 7.65 vs market 8.25 (14 games); 8-2 ATS at edge ≥ 0.5; Brier 0.233 vs 0.250</td>
+<td>n/a</td>
+<td>model better by 0.2 to 1.0 pts/game</td>
+<td><strong>Lean on</strong> (one week: keep testing)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Expert totals (articles/feeds)</strong></td>
+<td>61% (n 91)</td>
+<td>+15.0</td>
+<td>+0.6 to +29.3</td>
+<td><strong>Lean on as tiebreaker</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>BettingPros podcast</td>
+<td>64-47 (voided-inactive rule) / 62-50 (house rule)</td>
+<td>+10.3 to +14.3</td>
+<td>-7.2 to +28.2</td>
+<td>Keep, modest weight</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Pro Football Talk (articles)</td>
+<td>57-25 straight up, mostly favorites</td>
+<td>+7.6</td>
+<td>-3.9 to +19.0</td>
+<td>Flag (fair-priced favorites)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sharp or Square podcast</td>
+<td>24-18 to 26-18</td>
+<td>+3.8</td>
+<td>-6.5 to +13.5</td>
+<td>Keep, neutral weight</td>
+</tr>
+<tr>
+<td>6</td>
+<td>X/Twitter bookmarks (articles layer)</td>
+<td>n 62</td>
+<td>+4.8</td>
+<td>-6.6 to +16.3</td>
+<td>Keep as flag</td>
+</tr>
+<tr>
+<td>7</td>
+<td>VSiN podcast</td>
+<td>11-8</td>
+<td>+0.9 to +1.9</td>
+<td>-6.7 to +8.4</td>
+<td>Neutral (small n)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Even Money podcast feed</td>
+<td>n 38</td>
+<td>-1.7</td>
+<td>-11.3 to +7.8</td>
+<td>Neutral</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Kalshi game-winner snapshots</td>
+<td>Brier 0.225 vs closing spread 0.216 (270 team-games)</td>
+<td>n/a</td>
+<td>worse than the close</td>
+<td>Flag only</td>
+</tr>
+<tr>
+<td>10</td>
+<td>EPA matchup model (walk-forward W5-9)</td>
+<td>error 9.9 vs market 9.35 (72 games)</td>
+<td>n/a</td>
+<td>worse than market</td>
+<td>Matchup flags only, not a line</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Fair lines, expert-blended synthesis (W8)</td>
+<td>error 11.5 vs 11.3; Brier 0.251-0.259</td>
+<td>n/a</td>
+<td>no edge (P 60% worse)</td>
+<td><strong>Retired</strong> (replaced W9)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>W9 prop hit-rate screen</td>
+<td>377 props, -36u; Unders +5.9u, Overs -43.4u; edge ≥ 10 +5.4u</td>
+<td>-36</td>
+<td>one week</td>
+<td>Use only Unders / edge ≥ 10, directional</td>
+</tr>
+<tr>
+<td>13</td>
+<td>VSiN articles</td>
+<td>n 127</td>
+<td>-14.4</td>
+<td>-31.3 to +3.2</td>
+<td>Downweight</td>
+</tr>
+<tr>
+<td>14</td>
+<td>BettingPros expert feed (non-podcast)</td>
+<td>n 87</td>
+<td>-13.7</td>
+<td>-28.3 to +1.0</td>
+<td>Downweight</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Ross Tucker podcast</td>
+<td>15-27 (house rule) / 23-23 (voided)</td>
+<td>-7.4 to -13.4</td>
+<td>-22.9 to -3.8</td>
+<td><strong>Cut</strong> for picks; keep straight-up for pools context</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Expert spread picks (all outlets)</strong></td>
+<td>46.8% (n 379)</td>
+<td>-38.0</td>
+<td>-68.4 to -7.1</td>
+<td><strong>Cut</strong> as a signal; dissent only</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Action Network expert feed</td>
+<td>n 85</td>
+<td>-18.6</td>
+<td>-32.5 to -4.7</td>
+<td><strong>Cut</strong></td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>Action Network podcasts</strong> (Brandon Anderson 27-58, alt ladders + TD long shots)</td>
+<td>51-109 to 57-101</td>
+<td>-31 to -45</td>
+<td>-68.6 to -18.6</td>
+<td><strong>Cut</strong></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Podcast anytime-TD picks</td>
+<td>10-54</td>
+<td>-32</td>
+<td>(all negative)</td>
+<td><strong>Cut</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Experts' own "best bets" went 57-70 (-17.5u), worse than their other picks: no extra weight for the label. Individuals worth tracking (n ≥ 12): Scott Bogman 12-6, Andrew Erickson 16-12, Fezzik 20-12, The Prop Dealer 10-3; fade list: Steve Makinen 13-22, Gilles Gallant 2-17, Cody Brown 8-15.
+Client-facing pitches: Master Intel 7-9 (W9 3-1), SuperContest 12-10 at contest lines (W9 5-1). Pools: upset flips 9 of 16 at ~42% market chance; all in slots 1-6.</p>
+<h2>6. Leg types (placed legs, n 1,713)</h2>
+<p>Strong: passing TDs 64.7% (85), QB INT thrown 61% (54), moneyline 60% (199), receptions 59.6% (178), tackles+assists 59.6% (57; unplaced AI tackles 16 of 20), QB volume 59.6% (52).
+Weak-looking but fine: <strong>anytime TD 45.1% (375 legs)</strong> is priced at plus money; the 134 legs with a recorded price beat break-even in every price band (section 7, P6). Weak: 2+ TDs 24%, first TD 5.6% (18), sacks 31.6% (38), total Unders 40.6% (64), QB rushing 38.9%. Andy-built 52.1% vs AI-backed 50.9%: no difference.</p>
+<h2>6b. Model audit status (from Rusty Bill's 8-prompt checklist; full table in PLAN.md)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Audit</th>
+<th>Status</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1 Correlation</td>
+<td>Done</td>
+<td>55% of W5-9 legs shared across tickets; weekly mega-clusters</td>
+</tr>
+<tr>
+<td>A2 Calibration</td>
+<td>Partial</td>
+<td>Tickets hit at their implied rate (20 vs 21.8); my own estimates not logged (7 tickets)</td>
+</tr>
+<tr>
+<td>A3 Rule/version dates</td>
+<td>Done</td>
+<td>Leg floor -350 from W9; R9-1 and C2-C5 from W10. <strong>All W1-9 support for those rules is in-sample (hindsight)</strong>: W10+ results are their first real test</td>
+</tr>
+<tr>
+<td>A4 CLV at price taken</td>
+<td><strong>Blocked</strong></td>
+<td>Closing lines live only in Supabase <code>game_odds_snapshots</code>; not on disk. Fix in P9</td>
+</tr>
+<tr>
+<td>A5 Bootstrap</td>
+<td>Done</td>
+<td>Sections 2 and 5</td>
+</tr>
+<tr>
+<td>A6 Leakage</td>
+<td>Done, clean</td>
+<td>W9 fair lines: 14 games, TNF excluded, built Fri before Sunday kickoffs, compared to the BKR line at build time. Podcast picks graded at the spoken line</td>
+</tr>
+</tbody>
+</table></div>
+<h2>7. Proposed changes for Weeks 11-18 (need Andy's OK; audits passed in brackets)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Change</th>
+<th>Evidence</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td><strong>Same-game side+total 2-teamers only when the fair line backs both legs</strong> (edge ≥ 1.5 pts each); first-TD and 2+TD three-packs promo-only</td>
+<td>17 of 21 two-leg tickets were same-game spread+total combos (legs 20/41, 5 won vs 7.3 expected, -$266); 3-leg 0/16 is mostly first-TD/2+TD trifectas [A2, A5]</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>P2</td>
+<td><strong>BetOnline: no cash long-shot prop parlays</strong> (5+ legs); use BEO for bonus/reload-funded plays and straight bets where its price is best</td>
+<td>112 tickets, median price ~+8,500, avg 6.3 legs; 2.7 wins expected, 0 won (~7% chance); BEO legs hit 46% vs 53% elsewhere [A2, A5]</td>
+<td>Medium-high</td>
+</tr>
+<tr>
+<td>P3</td>
+<td><strong>Correlation cap:</strong> at most 2 tickets per slate may share a player-stat leg (or a game total); the card builder flags overlaps before buying; post-mortems grade clusters, not tickets</td>
+<td>55% shared legs; mega-clusters [A1]</td>
+<td>High</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Sides/totals come from the analytics-first fair lines; expert spread picks are dissent only, expert totals a tiebreaker</td>
+<td>fair lines W9 [A5, A6]; spreads -38u, totals +15u [A5]</td>
+<td>Medium (fair lines: 1 week)</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>Podcast intake: cut Action Network (incl. Brandon's Playground ladders) and podcast ATD long shots from pick weighting; keep BettingPros and Sharp or Square; Ross Tucker straight-up for pools only</td>
+<td>[A5]</td>
+<td>Medium-high</td>
+</tr>
+<tr>
+<td>P6</td>
+<td><strong>Keep ATD legs priced under +350; first TD, 2+ TD and podcast ATD long shots are promo-only</strong></td>
+<td>priced ATD legs: under even 31/54 (57%), +100-199 22/44 (50% vs ~40% break-even), +200-349 10/26 (38% vs ~29%), +350 up 2/10; podcast ATD picks 10-54</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>Props: prefer Unders, receptions, tackles+assists, passing TDs, QB INTs; receiving-yard Overs only at the screen's edge ≥ 10</td>
+<td>leg rates; prop screen (1 week, directional)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>Keep C5 (no master round robins) and R9-1 (cash max 6 legs; 7+ promo)</td>
+<td>RR 0/5 [A5]; R9-1 untested: re-check at W14 [A3]</td>
+<td>High / to be tested</td>
+</tr>
+<tr>
+<td>P9</td>
+<td><strong>Process:</strong> (a) stamp each AI proposal and ticket with the rules + model version; (b) record my estimated probability on every proposal; (c) at Tuesday grading, store the DK closing line next to each single-game side/total ticket</td>
+<td>enables A2, A3, A4</td>
+<td>High</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>Kalshi and the EPA model stay as flags, not inputs to the line</td>
+<td>[A5]</td>
+<td>High</td>
+</tr>
+<tr>
+<td>P11</td>
+<td>Pools: keep evidence-backed upset flips in low-confidence slots (1-6)</td>
+<td>9 of 16 at ~42%</td>
+<td>Low-medium</td>
+</tr>
+<tr>
+<td>P12</td>
+<td>Re-run this audit after W13 (4 more weeks) before any further rule change</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h2>8. Gaps and caveats</h2>
+<ul>
+<li>Podcast records differ by grading rule: the interim (inactive players voided) vs the weekly grade files (house rule: absent player = loss). Both shown; the verdicts don't change.</li>
+<li>W4 podcasts missing; Grok picks only W7-9; fair lines only W8-9.</li>
+<li>Bootstrap intervals by cluster treat each week's linked tickets as one unit, so they are honest about correlation but wide.</li>
+<li>CLV (A4) cannot be measured until closing lines are stored with the ledger (P9c).</li>
+</ul></div></div></body></html>

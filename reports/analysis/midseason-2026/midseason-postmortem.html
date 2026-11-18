@@ -1,0 +1,171 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026 mid-season post-mortem (Weeks 1-10)</title><style>body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;max-width:1080px;margin:28px auto;padding:0 18px;color:#1c1f24;background:#fff}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:20px;margin-top:34px;border-bottom:2px solid #9b1b30;padding-bottom:4px}h3{font-size:16px;margin-top:24px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:10px 0 18px;font-size:13.5px}th,td{border:1px solid #d5d8dd;padding:5px 8px;text-align:left;vertical-align:top}
+th{background:#f3f4f6}tr:nth-child(even) td{background:#fafafa}code,pre{font:12.5px Consolas,monospace;background:#f3f4f6;border-radius:3px}code{padding:1px 4px}pre{padding:10px;overflow-x:auto}
+@media(prefers-color-scheme:dark){body{background:#14161a;color:#e6e8eb}th{background:#22262c}td,th{border-color:#3a3f47}tr:nth-child(even) td{background:#1a1d22}code,pre{background:#22262c}}
+@media print{body{max-width:none;margin:0}h2{break-after:avoid}table{break-inside:auto}tr{break-inside:avoid}}</style></head><body>
+<h1>2026 mid-season post-mortem (Weeks 1-10)</h1>
+<p>Platinum Rose · updated Mon 11/16 by Claude (Fable run) · data through MNF Week 10 (LAC 23, BAL 20). The W1-9 version is kept as <code>midseason-postmortem.md.bak-w1-9-20261116</code> and in <code>w1-9-snapshot/</code>.</p>
+<p>Inputs: <code>picks.jsonl</code> (3,540 graded picks), <code>tickets.jsonl</code> (360 placed tickets), <code>expert_grades.jsonl</code>, weekly podcast grade files, <code>model_scores.json</code>, <code>audit_results.json</code>, and the new <code>w10/*.json</code> files (each has the script that made it beside it).</p>
+<p>Money below is the pick-accuracy lens: cash-funded tickets at full ticket value, legacy NCAA fill excluded. It is not the official bankroll; that needs a ruling (pipeline audit, section 4).</p>
+<h2>What changed with Week 10 (one page)</h2>
+<p><strong>Week 10: 39 cash tickets, 3 won, -$309.62.</strong> Legs hit 58% (137-98), the third straight week near 60%, and the week still lost because 28 of the 39 tickets had 5 or more legs.</p>
+<div class="tw"><table><thead><tr><th></th><th>Before (W1-9)</th><th>After W10</th><th>Read</th></tr></thead><tbody>
+<tr><td>Season cash net</td><td>-$222</td><td><strong>-$532</strong> (90% interval -$2,994 to +$2,709)</td><td>not distinguishable from zero</td></tr>
+<tr><td>W5 onward</td><td>+$1,094</td><td><strong>+$785</strong>; without the W6 9-team hit <strong>-$463</strong> (74% chance that is a real loss)</td><td>the turnaround now rests even more on one ticket</td></tr>
+<tr><td>Tickets won vs wins implied by their prices</td><td>20 vs 21.8</td><td><strong>23 vs 26.1</strong></td><td>still no sign that ticket selection beats the price</td></tr>
+<tr><td>7+ leg cash tickets other than the W6 hit</td><td>0 of 86</td><td><strong>0 of 101, -$1,143</strong> (interval -$1,603 to -$728)</td><td><strong>real</strong>. W10 added 15 more losers (-$141) with legs at 62%</td></tr>
+<tr><td>Legs shared across tickets</td><td>55% (W5-9)</td><td><strong>64% in W10</strong>; 31 of 39 cash tickets were one linked cluster</td><td>overlap got worse the week after P3 was approved</td></tr>
+<tr><td>Fair lines (analytics-first)</td><td>1 week: error 7.65 vs market 8.25</td><td><strong>2 weeks: W10 error 9.91 vs 10.46</strong>; 14-5 against the spread at edge ≥ 0.5</td><td>holding up out of sample</td></tr>
+<tr><td>Expert totals</td><td>61% (+15u): "lean on"</td><td><strong>W10 6-11</strong>; season +9.4u, interval now -6.8 to +25.6</td><td><strong>downgraded</strong>: no longer distinguishable from zero</td></tr>
+<tr><td>Expert spreads</td><td>46.8% (-38u)</td><td><strong>W10 27-35</strong>; season -48.5u (interval -81 to -14)</td><td><strong>real</strong>, confirmed out of sample</td></tr>
+<tr><td>Receiving-yard Overs (placed)</td><td>54%</td><td><strong>W10 5-9</strong>; season 52% vs ~55% break-even</td><td>P7's warning confirmed</td></tr>
+<tr><td>QB INT, tackles, passing TDs, receptions</td><td>60-65%</td><td><strong>W10: 9-4, 10-3, 10-5, 14-9</strong></td><td>all four held out of sample</td></tr>
+<tr><td>Master Intel pitches</td><td>7-9</td><td><strong>W10 8-2</strong> (15-11)</td><td>best week; small sample</td></tr>
+<tr><td>SuperContest (Andy's locked five)</td><td>20-24-1</td><td><strong>W10 4-1</strong> (24-25-1)</td><td>coin flip so far</td></tr>
+</tbody></table></div>
+<p>Three new findings:</p>
+<ol>
+<li><strong>Under legs were never corrupted in the ledger.</strong> The settler bug is real but lives in a different script than the one blamed, and every earlier week's grades check out (pipeline audit, section 1).</li>
+<li><strong>Closing lines for all 150 games were already on disk</strong> inside the cached ESPN summaries. Audit A4 is unblocked: on main-line bets Andy's number beat the close 43 times, tied 32, lost 18 (average +0.12 points). Two-thirds of side/total legs are bought points or alt lines, which is where the old impression of "beating the number" came from.</li>
+<li><strong>The rules approved for W10 were mostly not followed.</strong> P3 (overlap), R9-1 (max 6 legs) and C5 (no master round robin) were all broken on cash tickets. The tickets that broke R9-1 went 0 for 15.</li>
+</ol>
+<h2>1. Cash results with uncertainty (cluster bootstrap, 10,000 resamples; tickets that share a leg resample together)</h2>
+<div class="tw"><table><thead><tr><th>Slice</th><th>Tickets</th><th>Clusters</th><th>Net</th><th>90% interval</th><th>P(net ≤ 0)</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>W1-4</td><td>118</td><td>44</td><td>-$1,316.94</td><td>-$2,165 to -$614</td><td>100%</td><td>real loss</td></tr>
+<tr><td>W5-9</td><td>135</td><td>26</td><td>+$1,094.45</td><td>-$1,136 to +$4,278</td><td>30%</td><td>not distinguishable</td></tr>
+<tr><td><strong>W10</strong></td><td>39</td><td>4</td><td><strong>-$309.62</strong></td><td>-$655 to -$116</td><td>100%</td><td>one cluster: a single bad week, not a trend</td></tr>
+<tr><td>W5-10</td><td>174</td><td>30</td><td>+$784.83</td><td>-$1,498 to +$4,017</td><td>36%</td><td>not distinguishable</td></tr>
+<tr><td>W5-10 without the W6 9-team</td><td>173</td><td>30</td><td>-$463.40</td><td>-$1,623 to +$717</td><td>74%</td><td>leaning loss</td></tr>
+<tr><td>W1-10</td><td>292</td><td>74</td><td>-$532.11</td><td>-$2,994 to +$2,709</td><td>66%</td><td>not distinguishable</td></tr>
+<tr><td>7+ legs, without the W6 9-team</td><td>101</td><td>31</td><td>-$1,142.81</td><td>-$1,603 to -$728</td><td>100%</td><td><strong>real</strong></td></tr>
+<tr><td>2-leg tickets</td><td>24</td><td>22</td><td>-$362.22</td><td>-$530 to -$182</td><td>100%</td><td><strong>real</strong></td></tr>
+<tr><td>3-leg tickets (0 of 18)</td><td>18</td><td>12</td><td>-$174.71</td><td>-$230 to -$125</td><td>100%</td><td><strong>real</strong></td></tr>
+<tr><td>4-team master round robins (1 of 6)</td><td>6</td><td>6</td><td>-$368.95</td><td>-$630 to -$100</td><td>99%</td><td><strong>real</strong></td></tr>
+<tr><td>BetOnline cash (0 of 116)</td><td>116</td><td>39</td><td>-$745.22</td><td>-$943 to -$568</td><td>100%</td><td><strong>real</strong></td></tr>
+<tr><td>Bookmaker cash</td><td>119</td><td>39</td><td>-$102.91</td><td>-$2,421 to +$3,207</td><td>57%</td><td>not distinguishable</td></tr>
+<tr><td>Island SGP ladders</td><td>86</td><td>26</td><td>-$193.60</td><td>-$591 to +$337</td><td>77%</td><td>not distinguishable</td></tr>
+<tr><td>Game-line parlays</td><td>78</td><td>25</td><td>+$390.74</td><td>-$1,489 to +$3,516</td><td>40%</td><td>not distinguishable</td></tr>
+</tbody></table></div>
+<h2>2. Product split</h2>
+<p>Full-ticket dollars. Views overlap (an Alejandro DKP 7-pick is in two rows). "Expected wins" = sum of 1/price over priced tickets. n &lt; 20 is directional only.</p>
+<p><strong>Week 10</strong></p>
+<div class="tw"><table><thead><tr><th>Product</th><th>Tickets</th><th>Won</th><th>Staked</th><th>Net</th><th>Legs</th><th>Leg rate</th><th>Expected wins</th></tr></thead><tbody>
+<tr><td>Andy solo cash tickets (no RRs, no legacy fill)</td><td>27</td><td>1</td><td>$326.78</td><td>-$304.84</td><td>84-61</td><td>58%</td><td>2.9</td></tr>
+<tr><td>Alejandro splits (n &lt; 20)</td><td>10</td><td>0</td><td>$99.90</td><td>-$99.90 (Andy's half -$49.95)</td><td>37-28</td><td>57%</td><td>0.4</td></tr>
+<tr><td>DKP pick-combos, 2-4 legs (n &lt; 20)</td><td>3</td><td>0</td><td>$49.69</td><td>-$49.69</td><td>5-4</td><td>56%</td><td>0.4</td></tr>
+<tr><td>DKP pick-combos, 5-6 legs (n &lt; 20)</td><td>8</td><td>0</td><td>$79.94</td><td>-$79.94</td><td>25-21</td><td>54%</td><td>0.4</td></tr>
+<tr><td>DKP pick-combos, 7+ legs (n &lt; 20)</td><td>13</td><td>0</td><td>$129.86</td><td>-$129.86</td><td>56-40</td><td>58%</td><td>0.3</td></tr>
+<tr><td>BKR round robins (n &lt; 20)</td><td>2</td><td>2</td><td>$125.00</td><td>+$95.12</td><td>9-3</td><td>75%</td><td>n/a</td></tr>
+<tr><td>BKR open-spot fill (legacy, off the 2026 bankroll)</td><td>1</td><td>1</td><td>$37.50</td><td>+$361.93</td><td>4-0</td><td>—</td><td>0.1</td></tr>
+<tr><td>Island 3-tier tickets (TNF/SNF/MNF) (n &lt; 20)</td><td>13</td><td>1</td><td>$124.86</td><td>-$102.92</td><td>48-29</td><td>62%</td><td>0.9</td></tr>
+<tr><td>AI paper: TNF/Island builds (n &lt; 20)</td><td>15</td><td>4</td><td>15u</td><td>+21.5u</td><td>32-20</td><td>62%</td><td>2.4</td></tr>
+<tr><td>AI paper: Master Intel templates (n &lt; 20)</td><td>16</td><td>1</td><td>16u</td><td>-8.1u</td><td>42-33</td><td>56%</td><td>0.9</td></tr>
+<tr><td>SuperContest: Andy's locked five</td><td>5 picks</td><td>4-1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>SuperContest: AI pitches</td><td>7 picks</td><td>4-3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p><strong>Weeks 1-10</strong></p>
+<div class="tw"><table><thead><tr><th>Product</th><th>Tickets</th><th>Won</th><th>Staked</th><th>Net</th><th>Legs</th><th>Leg rate</th><th>Expected wins</th></tr></thead><tbody>
+<tr><td>Andy solo cash tickets</td><td>243</td><td>16</td><td>$3,164.74</td><td>-$371.25</td><td>690-662</td><td>51%</td><td>20.9</td></tr>
+<tr><td>Alejandro splits (W8-10)</td><td>27</td><td>1</td><td>$274.74</td><td>+$334.26 (Andy's share +$68.13)</td><td>87-69</td><td>56%</td><td>1.0</td></tr>
+<tr><td>DKP pick-combos, 2-4 legs</td><td>21</td><td>2</td><td>$228.45</td><td>-$61.22</td><td>30-25</td><td>55%</td><td>4.3</td></tr>
+<tr><td>DKP pick-combos, 5-6 legs</td><td>37</td><td>3</td><td>$348.77</td><td>+$399.23</td><td>124-87</td><td>59%</td><td>1.8</td></tr>
+<tr><td>DKP pick-combos, 7+ legs</td><td>26</td><td>0</td><td>$234.85</td><td>-$234.85</td><td>113-84</td><td>57%</td><td>0.5</td></tr>
+<tr><td>BKR round robins (n &lt; 20)</td><td>18</td><td>6</td><td>$880.95</td><td>-$390.18</td><td>49-62</td><td>44%</td><td>n/a</td></tr>
+<tr><td>BKR open-spot parlays (n &lt; 20)</td><td>5</td><td>1</td><td>$147.50</td><td>+$251.93</td><td>13-8</td><td>62%</td><td>0.3</td></tr>
+<tr><td>Island 3-tier tickets</td><td>86</td><td>4</td><td>$642.78</td><td>-$193.60</td><td>280-242</td><td>54%</td><td>3.2</td></tr>
+<tr><td>AI paper: TNF/Island builds</td><td>56</td><td>10</td><td>56u</td><td>+11.1u (38 priced)</td><td>122-91</td><td>57%</td><td>4.7</td></tr>
+<tr><td>AI paper: card templates (W2-9)</td><td>95</td><td>11</td><td>95u</td><td>-27.9u (57 priced)</td><td>196-208</td><td>49%</td><td>13.6</td></tr>
+<tr><td>SuperContest: Andy's locked five</td><td>50 picks</td><td>24-25-1</td><td>—</td><td>—</td><td>—</td><td>49% (36% to 63%)</td><td>—</td></tr>
+<tr><td>SuperContest: AI pitches (W7-10)</td><td>29 picks</td><td>16-13</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p>Reads: DKP 5-6 leg combos are the only DKP shape that has paid (3 wins against 1.8 expected); DKP 7+ is 0 of 26. The Alejandro split record is one W8 win; W10 was 0 of 10 at 6.5 legs a ticket. Pools: Duma has paid $50 (entry covered); W10 pool picks were not re-scored in this run.</p>
+<h2>3. Leg types (placed legs, n 1,948; each leg counted on every ticket it sat on)</h2>
+<div class="tw"><table><thead><tr><th>Category</th><th>W1-9</th><th>W10</th><th>W1-10</th><th>Rate</th><th>95% interval</th></tr></thead><tbody>
+<tr><td>Anytime TD</td><td>169-206</td><td>25-29</td><td>194-235</td><td>45%</td><td>41-50%</td></tr>
+<tr><td>Moneyline</td><td>120-79</td><td>8-1</td><td>128-80</td><td>62%</td><td>55-68%</td></tr>
+<tr><td>Receptions</td><td>106-72</td><td>14-9</td><td>120-81</td><td>60%</td><td>53-66%</td></tr>
+<tr><td>Receiving yards</td><td>79-68</td><td><strong>5-9</strong></td><td>84-77</td><td>52%</td><td>45-60%</td></tr>
+<tr><td>Spread (dog)</td><td>70-79</td><td>2-5</td><td>72-84</td><td>46%</td><td>39-54%</td></tr>
+<tr><td>Spread (favorite)</td><td>50-35</td><td>16-6</td><td>66-41</td><td>62%</td><td>52-70%</td></tr>
+<tr><td>Passing TDs</td><td>55-30</td><td>10-5</td><td>65-35</td><td>65%</td><td>55-74%</td></tr>
+<tr><td>Rushing yards</td><td>38-32</td><td>16-8</td><td>54-40</td><td>57%</td><td>47-67%</td></tr>
+<tr><td>Total Under</td><td>26-38</td><td>5-4</td><td>31-42</td><td>42%</td><td>32-54%</td></tr>
+<tr><td>Tackles + assists</td><td>34-23</td><td>10-3</td><td>44-26</td><td>63%</td><td>51-73%</td></tr>
+<tr><td>QB INT thrown</td><td>33-21</td><td>9-4</td><td>42-25</td><td>63%</td><td>51-73%</td></tr>
+<tr><td>QB volume (yards, completions, attempts)</td><td>31-21</td><td>4-4</td><td>35-25</td><td>58%</td><td>46-70%</td></tr>
+<tr><td>Total Over</td><td>17-18</td><td>5-2</td><td>22-20</td><td>52%</td><td>38-67%</td></tr>
+<tr><td>Sacks</td><td>12-26</td><td>1-1</td><td>13-27</td><td>33%</td><td>20-48%</td></tr>
+<tr><td>Carries</td><td>16-11</td><td>2-3</td><td>18-14</td><td>56%</td><td>39-72%</td></tr>
+<tr><td>2+ TD</td><td>6-19</td><td>1-0</td><td>7-19</td><td>27%</td><td>14-46%</td></tr>
+<tr><td>Kicker FGs</td><td>9-8</td><td>3-1</td><td>12-9</td><td>57%</td><td>37-76%</td></tr>
+<tr><td>First TD</td><td>1-17</td><td>1-2</td><td>2-19</td><td>10%</td><td>3-29%</td></tr>
+<tr><td>QB rushing yards (n &lt; 20)</td><td>7-11</td><td>0-0</td><td>7-11</td><td>39%</td><td>20-61%</td></tr>
+</tbody></table></div>
+<p>W10 out of sample: the four categories P7 preferred (receptions, tackles, passing TDs, QB INT) went <strong>36-18 (67%)</strong> as unique positions; every other prop went 45-39 (54%); receiving-yard Overs 5-8. Dog spreads went 0-5 as unique positions while favorites went 9-4.</p>
+<h2>4. Sources and models with W10 added</h2>
+<div class="tw"><table><thead><tr><th>Source / model</th><th>Through W9</th><th>W10</th><th>Now</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Fair lines, analytics-first</strong></td><td>W9: error 7.65 vs market 8.25; 8-2 ATS at edge ≥ 0.5</td><td>error 9.91 vs 10.46; 6-3 ATS at edge ≥ 0.5 (5-2 at ≥ 1, 3-1 at ≥ 2); totals 6-2 at edge ≥ 2; Brier 0.234 vs 0.250</td><td>14-5 ATS over two weeks</td><td><strong>Lean on.</strong> Two weeks, 28 games: still directional</td></tr>
+<tr><td>Master Intel pitches</td><td>7-9</td><td><strong>8-2</strong></td><td>15-11</td><td>first week built on synthesis fair lines with a stated edge</td></tr>
+<tr><td>SuperContest AI pitches</td><td>12-10</td><td>4-3</td><td>16-13</td><td>neutral</td></tr>
+<tr><td>Expert totals</td><td>55-35 (+15u)</td><td><strong>6-11 (-5.6u)</strong></td><td>+9.4u, interval -6.8 to +25.6, P(≤0) 18%</td><td><strong>Downgrade</strong> from "lean on" to "flag"</td></tr>
+<tr><td>Expert spreads</td><td>173-197 (-38u)</td><td>27-35 (-10.5u)</td><td>-48.5u, interval -81 to -14</td><td><strong>Cut</strong> (confirmed)</td></tr>
+<tr><td>Experts' "best bets"</td><td>57-70</td><td>10-18</td><td>67-88</td><td>no extra weight (confirmed)</td></tr>
+<tr><td>BettingPros podcast</td><td>+10 to +14u</td><td>14-15 (-1.8u)</td><td>76-65, +8.5u, interval -11 to +28</td><td>keep, modest weight; not distinguishable</td></tr>
+<tr><td>Sharp or Square podcast</td><td>+3.8u</td><td>4-6</td><td>28-24, +1.5u</td><td>neutral</td></tr>
+<tr><td>Ross Tucker podcast</td><td>15-27</td><td>5-12 (-7.5u)</td><td>20-39, -20.8u, interval -32 to -9</td><td><strong>Cut</strong> (real)</td></tr>
+<tr><td>Action Network podcasts</td><td>51-109</td><td>1-7 (10 picks got through)</td><td>52-116, -50.7u, interval -75 to -25</td><td><strong>Cut</strong> (real). Check the intake filter: P5 said these should not reach pick weighting</td></tr>
+<tr><td>VSiN articles</td><td>-14.4u</td><td>10-18 (-8.9u)</td><td>-23.3u, interval -42 to -4</td><td><strong>Cut</strong> (now real)</td></tr>
+<tr><td>Action Network expert feed</td><td>-18.6u</td><td>—</td><td>-19.6u, interval -34 to -6</td><td><strong>Cut</strong> (real)</td></tr>
+<tr><td>Pro Football Talk</td><td>+7.6u</td><td>8-4</td><td>+7.7u, interval -4.6 to +19.8</td><td>flag (fair-priced favorites)</td></tr>
+<tr><td>Kalshi game winners</td><td>Brier 0.225 vs 0.216 close</td><td>0.190 vs 0.189</td><td>0.231 vs 0.213 (298 team-games)</td><td>flag only (confirmed)</td></tr>
+<tr><td>Podcast props (yardage/count)</td><td>—</td><td>3-11</td><td>—</td><td>no weight</td></tr>
+</tbody></table></div>
+<h2>5. P1-P12 scored out of sample on Week 10</h2>
+<p>Everything W1-9 said about these rules was in-sample (audit A3). W10 is one week and one cluster of tickets: each row is a single observation, not a proof. "Counterfactual" assumes the stake stays in the pocket.</p>
+<div class="tw"><table><thead><tr><th>#</th><th>Rule</th><th>W10 tickets or picks it touches</th><th>Counterfactual</th><th>Verdict</th><th>Audits</th></tr></thead><tbody>
+<tr><td>P1</td><td>Same-game side+total 2-leggers only with fair-line backing; TD three-packs promo only</td><td>2 two-leggers (SNF PIT +4.5/Over, MNF live 2H), 0 won, -$54.29; 1 first-TD three-pack, -$10</td><td>+$64.29</td><td><strong>Lock in</strong></td><td>A2, A5</td></tr>
+<tr><td>P2</td><td>No BetOnline cash prop parlays with 5+ legs</td><td>2 tickets (6-leg TNF, 8-leg ATD), -$17.65. BEO cash is now 0 of 116</td><td>+$17.65</td><td><strong>Lock in</strong></td><td>A2, A5</td></tr>
+<tr><td>P3</td><td>At most 2 tickets per slate share a player-stat leg or game total</td><td><strong>Not followed.</strong> 11 tickets were a 3rd-or-later use; 64% of legs were shared. Henry sat on 5 tickets (-$49.95). Dropping the 11: +$21.32, or +$92.90 if the hedged master round robin is kept</td><td>+$21 to +$93</td><td><strong>Lock in, and enforce at build time</strong>: <code>scripts/cards/check_overlap.py</code> exists but did not stop the buys</td><td>A1</td></tr>
+<tr><td>P4</td><td>Sides/totals from the fair lines; expert spreads dissent only; expert totals tiebreaker</td><td>Fair lines 6-3 ATS; expert spreads 27-35; expert totals 6-11</td><td>—</td><td><strong>Lock in the fair lines; revise: drop the totals tiebreaker</strong></td><td>A5, A6</td></tr>
+<tr><td>P5</td><td>Cut Action Network and podcast ATD long shots; keep BettingPros, Sharp or Square; Ross Tucker for pools only</td><td>AN 1-7, Ross Tucker 5-12, BettingPros 14-15, podcast TD picks 1-4</td><td>—</td><td><strong>Lock in</strong></td><td>A5</td></tr>
+<tr><td>P6</td><td>ATD legs under +350; first TD and 2+ TD promo only</td><td>ATD 19-21 as unique positions; only 11 had a price (5-6). Two cash tickets carried a first-TD or 2+ TD leg, both lost (-$20)</td><td>+$20</td><td><strong>Lock in; revise</strong> with the role finding: WR/TE anytime TDs are the weak ones (synthesis review)</td><td>A5</td></tr>
+<tr><td>P7</td><td>Prefer receptions, tackles, passing TDs, QB INT, Unders; receiving-yard Overs only with a big screen edge</td><td>Preferred four 36-18; receiving-yard Overs 5-8; prop Unders 3-2</td><td>—</td><td><strong>Lock in</strong></td><td>A5</td></tr>
+<tr><td>P8a</td><td>C5: no master round robins</td><td><strong>Broken once</strong>: the 8-team master RR by 4s cashed +$71.58 after a live hedge. Season 1 of 6, -$369</td><td>-$71.58</td><td><strong>Keep.</strong> One hedged win does not offset five full losses</td><td>A5</td></tr>
+<tr><td>P8b</td><td>R9-1: cash tickets max 6 legs</td><td><strong>Broken on 15 tickets</strong>: 0 won, -$140.51, with legs at 62%</td><td>+$140.51</td><td><strong>Lock in</strong>: first out-of-sample test passed</td><td>A3, A5</td></tr>
+<tr><td>P9</td><td>Version stamps, a probability on every proposal, closing line stored</td><td>52 of 66 W10 game recommendations carry a probability; 8 of 41 tickets have an estimate in the notes; 0 tickets carry a rules version. Closing lines: built this run</td><td>—</td><td><strong>Lock in; finish</strong> (a) and (b)</td><td>—</td></tr>
+<tr><td>P10</td><td>Kalshi and the EPA model as flags only</td><td>Kalshi 0.190 vs 0.189</td><td>—</td><td><strong>Lock in</strong></td><td>A5</td></tr>
+<tr><td>P11</td><td>Pools: upset flips in low-confidence slots</td><td>not re-scored for W10</td><td>—</td><td><strong>Open</strong></td><td>—</td></tr>
+<tr><td>P12</td><td>Re-audit after W13</td><td>—</td><td>—</td><td>stands</td><td>—</td></tr>
+</tbody></table></div>
+<p>If every lock-in rule above had been followed in W10 (P1, P2, P6, R9-1; P3 overlaps with them), the cash loss would have been <strong>-$94.82</strong> instead of -$309.62, on 20 tickets instead of 39 (19 tickets, -$214.80, would not have been placed).</p>
+<h2>6. Audits</h2>
+<div class="tw"><table><thead><tr><th>Audit</th><th>Status</th><th>W10 update</th></tr></thead><tbody>
+<tr><td>A1 Correlation</td><td>Done</td><td>W10: 223 legs, <strong>64% also on another ticket</strong>; 11% of ticket pairs share a leg; 31 of 39 cash tickets form one cluster. Most reused: Henry TD (5), Hubbard TD (4), Warren TD (4), Burrow passing (4), BUF@NYJ and PIT@CIN totals (4 each)</td></tr>
+<tr><td>A2 Calibration</td><td>Done for prices; partial for estimates</td><td>Tickets: 23 wins vs 26.1 implied (W10: 3 vs 4.3). Synthesizer probabilities (78 graded, W7/8/10): Brier 0.252 vs 0.250 for a coin flip; 61 of 78 sit between 50% and 55% and hit 47.5%. They carry no information yet (synthesis review, section 5)</td></tr>
+<tr><td>A3 Rule dates</td><td>Done</td><td>W10 is the first out-of-sample week for C2-C5, R9-1 and P1-P7</td></tr>
+<tr><td>A4 CLV</td><td><strong>Unblocked</strong></td><td>section 6b</td></tr>
+<tr><td>A5 Bootstrap</td><td>Done</td><td>sections 1 and 4</td></tr>
+<tr><td>A6 Leakage</td><td>Done, clean</td><td>W10 synthesis inputs all predate the build; two were stale (article review 83 h, props intel 29 h)</td></tr>
+</tbody></table></div>
+<h3>6b. Closing-line value (A4)</h3>
+<p>Source: DraftKings close from ESPN's game summary, 150 of 150 games. 464 unique placed side/total legs matched. Method and test: <code>scripts/closing-lines/</code> on branch <code>claude/closing-line-capture-2026-11</code>; analysis <code>w10/a4_clv.py</code>.</p>
+<div class="tw"><table><thead><tr><th>Slice</th><th>Legs</th><th>Beat the close</th><th>Tied</th><th>Worse</th><th>Avg CLV</th><th>Record when beat / tied / worse</th></tr></thead><tbody>
+<tr><td><strong>Main lines</strong> (price -118 to +105, not live)</td><td>93</td><td>43</td><td>32</td><td>18</td><td><strong>+0.12 pts</strong></td><td>20-21 / 11-21 / 10-8</td></tr>
+<tr><td>Spreads, main lines</td><td>75</td><td>32</td><td>29</td><td>14</td><td>+0.09</td><td>16-14 / 11-18 / 8-6</td></tr>
+<tr><td>Totals, main lines (n &lt; 20)</td><td>18</td><td>11</td><td>3</td><td>4</td><td>+0.25</td><td>4-7 / 0-3 / 2-2</td></tr>
+<tr><td>Bought points, alt lines, live (not comparable)</td><td>188</td><td>157</td><td>25</td><td>6</td><td>+1.36</td><td>78-76</td></tr>
+<tr><td>Moneylines (implied probability)</td><td>159</td><td>74</td><td>—</td><td>49</td><td>+0.35 pts of probability</td><td>—</td></tr>
+<tr><td>AI paper, main lines</td><td>56</td><td>15</td><td>24</td><td>17</td><td>+0.08</td><td>—</td></tr>
+</tbody></table></div>
+<p>Reads: on like-for-like prices Andy beats the close more often than not, by a small margin. It is the first positive process signal that does not depend on results, and it is small: +0.12 points is worth roughly half a percent of win rate. 188 of 281 point-spread and total legs were bought to a better number, which costs price and showed no better record (78-76). The AI paper lines show no CLV: they are written at the current number, usually late in the week.</p>
+<h2>7. Gaps and caveats</h2>
+<ul>
+<li>W10 is one correlated week. Its out-of-sample "tests" are single observations.</li>
+<li>Product rows use full-ticket dollars. The official bankroll needs Andy's ruling on DKP, promo and split tickets before any season ROI is quoted (pipeline audit, section 4).</li>
+<li>The W10 prop screen was not run, so P7's "screen edge ≥ 10" clause is untested since W9.</li>
+<li>Pools and Grok/X picks were not re-scored for W10.</li>
+<li>The independent blind re-grade of 61 W10 picks was started but not finished in this session (see the handoff).</li>
+<li>Changes for Weeks 11-18 are in <code>synthesis-review-2026-11.md</code>. Nothing changes until Andy approves.</li>
+</ul>
+</body></html>

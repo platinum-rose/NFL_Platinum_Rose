@@ -1,0 +1,65 @@
+{
+ "leg_mismatches": [
+  {
+   "week": 5,
+   "ticket": "bet_20261011_betonline_snf_island_6leg",
+   "sel": "Cameron Thomas 1+ Sacks",
+   "dir": "over",
+   "line": 0.5,
+   "need": 1,
+   "stored": "PUSH",
+   "regrade": "LOST",
+   "actual": "0.5",
+   "stored_actual": 0.5,
+   "ticket_result": "loss",
+   "note": ""
+  },
+  {
+   "week": 10,
+   "ticket": "bet_20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5",
+   "sel": "Los Angeles Chargers +3.5 2nd Half",
+   "dir": "cover",
+   "line": 3.5,
+   "need": null,
+   "stored": "LOST",
+   "regrade": "WON",
+   "actual": "LAC 23-20",
+   "stored_actual": "2H LAC 6 - BAL 10 (-4 vs +3.5)",
+   "ticket_result": "loss",
+   "note": "ESPN 401873065 box score (LAC 23, BAL 20 final)"
+  }
+ ],
+ "ticket_mismatches": [],
+ "stats": {
+  "1:legs": 135,
+  "2:legs": 212,
+  "3:legs": 206,
+  "4:legs": 171,
+  "5:legs": 213,
+  "5:mismatch": 1,
+  "6:legs": 179,
+  "7:legs": 222,
+  "8:legs": 241,
+  "9:legs": 119,
+  "10:legs": 232,
+  "10:mismatch": 1,
+  "10:stored_PENDING": 1
+ },
+ "ungradable": {
+  "(1, 'cfb', 'skip')": 1,
+  "(10, 'ml', 'no box score')": 1,
+  "(10, 'other', 'skip')": 2,
+  "(10, 'spread', 'no box score')": 2,
+  "(6, 'spread', 'team not resolved')": 1,
+  "(7, 'other', 'skip')": 4,
+  "(7, 'spread', 'no box score')": 3,
+  "(7, 'spread', 'team not resolved')": 1,
+  "(8, 'atd', 'no box score')": 2,
+  "(8, 'other', 'skip')": 3,
+  "(8, 'pass_yds', 'no box score')": 2,
+  "(8, 'rec', 'no box score')": 2,
+  "(8, 'rec_yds', 'no box score')": 3,
+  "(9, 'other', 'skip')": 4,
+  "(9, 'spread', 'no box score')": 1
+ }
+}

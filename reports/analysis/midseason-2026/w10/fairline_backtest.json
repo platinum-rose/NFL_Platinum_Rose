@@ -1,0 +1,6271 @@
+{
+ "method": "Fair-line model backtest, Weeks 3-10 (2026), as-of inputs only. Read-only on every input.",
+ "games": 118,
+ "summary": {
+  "A: in-season FTN": {
+   "side_tue": {
+    "2+": {
+     "W": 14,
+     "L": 11,
+     "P": 0,
+     "pct": 56.0,
+     "units_at_110": 1.9
+    },
+    "1-1.9": {
+     "W": 8,
+     "L": 14,
+     "P": 0,
+     "pct": 36.4,
+     "units_at_110": -7.4
+    },
+    "<1": {
+     "W": 19,
+     "L": 18,
+     "P": 2,
+     "pct": 51.4,
+     "units_at_110": -0.8
+    },
+    "all": {
+     "W": 41,
+     "L": 43,
+     "P": 2,
+     "pct": 48.8,
+     "units_at_110": -6.3
+    }
+   },
+   "side_open": {
+    "2+": {
+     "W": 24,
+     "L": 12,
+     "P": 0,
+     "pct": 66.7,
+     "units_at_110": 10.8
+    },
+    "1-1.9": {
+     "W": 7,
+     "L": 8,
+     "P": 0,
+     "pct": 46.7,
+     "units_at_110": -1.8
+    },
+    "<1": {
+     "W": 18,
+     "L": 17,
+     "P": 0,
+     "pct": 51.4,
+     "units_at_110": -0.7
+    },
+    "all": {
+     "W": 49,
+     "L": 37,
+     "P": 0,
+     "pct": 57.0,
+     "units_at_110": 8.3
+    }
+   },
+   "side_close": {
+    "2+": {
+     "W": 15,
+     "L": 13,
+     "P": 0,
+     "pct": 53.6,
+     "units_at_110": 0.7
+    },
+    "1-1.9": {
+     "W": 6,
+     "L": 12,
+     "P": 0,
+     "pct": 33.3,
+     "units_at_110": -7.2
+    },
+    "<1": {
+     "W": 22,
+     "L": 18,
+     "P": 0,
+     "pct": 55.0,
+     "units_at_110": 2.2
+    },
+    "all": {
+     "W": 43,
+     "L": 43,
+     "P": 0,
+     "pct": 50.0,
+     "units_at_110": -4.3
+    }
+   },
+   "total_tue": {
+    "2+": {
+     "W": 8,
+     "L": 13,
+     "P": 0,
+     "pct": 38.1,
+     "units_at_110": -6.3
+    },
+    "1-1.9": {
+     "W": 13,
+     "L": 18,
+     "P": 0,
+     "pct": 41.9,
+     "units_at_110": -6.8
+    },
+    "<1": {
+     "W": 20,
+     "L": 14,
+     "P": 0,
+     "pct": 58.8,
+     "units_at_110": 4.6
+    },
+    "all": {
+     "W": 41,
+     "L": 45,
+     "P": 0,
+     "pct": 47.7,
+     "units_at_110": -8.5
+    }
+   },
+   "total_open": {
+    "2+": {
+     "W": 13,
+     "L": 9,
+     "P": 0,
+     "pct": 59.1,
+     "units_at_110": 3.1
+    },
+    "1-1.9": {
+     "W": 18,
+     "L": 14,
+     "P": 0,
+     "pct": 56.2,
+     "units_at_110": 2.6
+    },
+    "<1": {
+     "W": 12,
+     "L": 17,
+     "P": 3,
+     "pct": 41.4,
+     "units_at_110": -6.7
+    },
+    "all": {
+     "W": 43,
+     "L": 40,
+     "P": 3,
+     "pct": 51.8,
+     "units_at_110": -1.0
+    }
+   },
+   "total_close": {
+    "2+": {
+     "W": 11,
+     "L": 15,
+     "P": 0,
+     "pct": 42.3,
+     "units_at_110": -5.5
+    },
+    "1-1.9": {
+     "W": 11,
+     "L": 14,
+     "P": 0,
+     "pct": 44.0,
+     "units_at_110": -4.4
+    },
+    "<1": {
+     "W": 21,
+     "L": 14,
+     "P": 0,
+     "pct": 60.0,
+     "units_at_110": 5.6
+    },
+    "all": {
+     "W": 43,
+     "L": 43,
+     "P": 0,
+     "pct": 50.0,
+     "units_at_110": -4.3
+    }
+   },
+   "clv_side_2plus": {
+    "none": 8,
+    "toward": 9,
+    "away": 8
+   },
+   "clv_side_all": {
+    "none": 29,
+    "toward": 28,
+    "away": 29
+   },
+   "games": 86
+  },
+  "B: preseason DVOA": {
+   "side_tue": {
+    "2+": {
+     "W": 10,
+     "L": 5,
+     "P": 1,
+     "pct": 66.7,
+     "units_at_110": 4.5
+    },
+    "1-1.9": {
+     "W": 4,
+     "L": 4,
+     "P": 1,
+     "pct": 50.0,
+     "units_at_110": -0.4
+    },
+    "<1": {
+     "W": 4,
+     "L": 3,
+     "P": 0,
+     "pct": 57.1,
+     "units_at_110": 0.7
+    },
+    "all": {
+     "W": 18,
+     "L": 12,
+     "P": 2,
+     "pct": 60.0,
+     "units_at_110": 4.8
+    }
+   },
+   "side_open": {
+    "2+": {
+     "W": 10,
+     "L": 6,
+     "P": 0,
+     "pct": 62.5,
+     "units_at_110": 3.4
+    },
+    "1-1.9": {
+     "W": 6,
+     "L": 5,
+     "P": 0,
+     "pct": 54.5,
+     "units_at_110": 0.5
+    },
+    "<1": {
+     "W": 5,
+     "L": 0,
+     "P": 0,
+     "pct": 100.0,
+     "units_at_110": 5.0
+    },
+    "all": {
+     "W": 21,
+     "L": 11,
+     "P": 0,
+     "pct": 65.6,
+     "units_at_110": 8.9
+    }
+   },
+   "side_close": {
+    "2+": {
+     "W": 7,
+     "L": 9,
+     "P": 1,
+     "pct": 43.8,
+     "units_at_110": -2.9
+    },
+    "1-1.9": {
+     "W": 6,
+     "L": 1,
+     "P": 1,
+     "pct": 85.7,
+     "units_at_110": 4.9
+    },
+    "<1": {
+     "W": 3,
+     "L": 3,
+     "P": 1,
+     "pct": 50.0,
+     "units_at_110": -0.3
+    },
+    "all": {
+     "W": 16,
+     "L": 13,
+     "P": 3,
+     "pct": 55.2,
+     "units_at_110": 1.7
+    }
+   },
+   "total_tue": {
+    "2+": {
+     "W": 3,
+     "L": 10,
+     "P": 0,
+     "pct": 23.1,
+     "units_at_110": -8.0
+    },
+    "1-1.9": {
+     "W": 3,
+     "L": 3,
+     "P": 0,
+     "pct": 50.0,
+     "units_at_110": -0.3
+    },
+    "<1": {
+     "W": 4,
+     "L": 8,
+     "P": 1,
+     "pct": 33.3,
+     "units_at_110": -4.8
+    },
+    "all": {
+     "W": 10,
+     "L": 21,
+     "P": 1,
+     "pct": 32.3,
+     "units_at_110": -13.1
+    }
+   },
+   "total_open": {
+    "2+": {
+     "W": 7,
+     "L": 12,
+     "P": 0,
+     "pct": 36.8,
+     "units_at_110": -6.2
+    },
+    "1-1.9": {
+     "W": 4,
+     "L": 2,
+     "P": 0,
+     "pct": 66.7,
+     "units_at_110": 1.8
+    },
+    "<1": {
+     "W": 3,
+     "L": 3,
+     "P": 1,
+     "pct": 50.0,
+     "units_at_110": -0.3
+    },
+    "all": {
+     "W": 14,
+     "L": 17,
+     "P": 1,
+     "pct": 45.2,
+     "units_at_110": -4.7
+    }
+   },
+   "total_close": {
+    "2+": {
+     "W": 3,
+     "L": 10,
+     "P": 0,
+     "pct": 23.1,
+     "units_at_110": -8.0
+    },
+    "1-1.9": {
+     "W": 2,
+     "L": 5,
+     "P": 0,
+     "pct": 28.6,
+     "units_at_110": -3.5
+    },
+    "<1": {
+     "W": 5,
+     "L": 7,
+     "P": 0,
+     "pct": 41.7,
+     "units_at_110": -2.7
+    },
+    "all": {
+     "W": 10,
+     "L": 22,
+     "P": 0,
+     "pct": 31.2,
+     "units_at_110": -14.2
+    }
+   },
+   "clv_side_2plus": {
+    "away": 3,
+    "none": 9,
+    "toward": 4
+   },
+   "clv_side_all": {
+    "away": 11,
+    "none": 14,
+    "toward": 7
+   },
+   "games": 32
+  },
+  "ALL": {
+   "side_tue": {
+    "2+": {
+     "W": 24,
+     "L": 16,
+     "P": 1,
+     "pct": 60.0,
+     "units_at_110": 6.4
+    },
+    "1-1.9": {
+     "W": 12,
+     "L": 18,
+     "P": 1,
+     "pct": 40.0,
+     "units_at_110": -7.8
+    },
+    "<1": {
+     "W": 23,
+     "L": 21,
+     "P": 2,
+     "pct": 52.3,
+     "units_at_110": -0.1
+    },
+    "all": {
+     "W": 59,
+     "L": 55,
+     "P": 4,
+     "pct": 51.8,
+     "units_at_110": -1.5
+    }
+   },
+   "side_open": {
+    "2+": {
+     "W": 34,
+     "L": 18,
+     "P": 0,
+     "pct": 65.4,
+     "units_at_110": 14.2
+    },
+    "1-1.9": {
+     "W": 13,
+     "L": 13,
+     "P": 0,
+     "pct": 50.0,
+     "units_at_110": -1.3
+    },
+    "<1": {
+     "W": 23,
+     "L": 17,
+     "P": 0,
+     "pct": 57.5,
+     "units_at_110": 4.3
+    },
+    "all": {
+     "W": 70,
+     "L": 48,
+     "P": 0,
+     "pct": 59.3,
+     "units_at_110": 17.2
+    }
+   },
+   "side_close": {
+    "2+": {
+     "W": 22,
+     "L": 22,
+     "P": 1,
+     "pct": 50.0,
+     "units_at_110": -2.2
+    },
+    "1-1.9": {
+     "W": 12,
+     "L": 13,
+     "P": 1,
+     "pct": 48.0,
+     "units_at_110": -2.3
+    },
+    "<1": {
+     "W": 25,
+     "L": 21,
+     "P": 1,
+     "pct": 54.3,
+     "units_at_110": 1.9
+    },
+    "all": {
+     "W": 59,
+     "L": 56,
+     "P": 3,
+     "pct": 51.3,
+     "units_at_110": -2.6
+    }
+   },
+   "total_tue": {
+    "2+": {
+     "W": 11,
+     "L": 23,
+     "P": 0,
+     "pct": 32.4,
+     "units_at_110": -14.3
+    },
+    "1-1.9": {
+     "W": 16,
+     "L": 21,
+     "P": 0,
+     "pct": 43.2,
+     "units_at_110": -7.1
+    },
+    "<1": {
+     "W": 24,
+     "L": 22,
+     "P": 1,
+     "pct": 52.2,
+     "units_at_110": -0.2
+    },
+    "all": {
+     "W": 51,
+     "L": 66,
+     "P": 1,
+     "pct": 43.6,
+     "units_at_110": -21.6
+    }
+   },
+   "total_open": {
+    "2+": {
+     "W": 20,
+     "L": 21,
+     "P": 0,
+     "pct": 48.8,
+     "units_at_110": -3.1
+    },
+    "1-1.9": {
+     "W": 22,
+     "L": 16,
+     "P": 0,
+     "pct": 57.9,
+     "units_at_110": 4.4
+    },
+    "<1": {
+     "W": 15,
+     "L": 20,
+     "P": 4,
+     "pct": 42.9,
+     "units_at_110": -7.0
+    },
+    "all": {
+     "W": 57,
+     "L": 57,
+     "P": 4,
+     "pct": 50.0,
+     "units_at_110": -5.7
+    }
+   },
+   "total_close": {
+    "2+": {
+     "W": 14,
+     "L": 25,
+     "P": 0,
+     "pct": 35.9,
+     "units_at_110": -13.5
+    },
+    "1-1.9": {
+     "W": 13,
+     "L": 19,
+     "P": 0,
+     "pct": 40.6,
+     "units_at_110": -7.9
+    },
+    "<1": {
+     "W": 26,
+     "L": 21,
+     "P": 0,
+     "pct": 55.3,
+     "units_at_110": 2.9
+    },
+    "all": {
+     "W": 53,
+     "L": 65,
+     "P": 0,
+     "pct": 44.9,
+     "units_at_110": -18.5
+    }
+   },
+   "clv_side_2plus": {
+    "away": 11,
+    "none": 17,
+    "toward": 13
+   },
+   "clv_side_all": {
+    "away": 40,
+    "none": 43,
+    "toward": 35
+   },
+   "games": 118
+  }
+ },
+ "by_week": {
+  "3": {
+   "games": 16,
+   "side_tue_2plus": {
+    "W": 3,
+    "L": 5,
+    "P": 1,
+    "pct": 37.5,
+    "units_at_110": -2.5
+   },
+   "side_tue_all": {
+    "W": 6,
+    "L": 9,
+    "P": 1,
+    "pct": 40.0,
+    "units_at_110": -3.9
+   }
+  },
+  "4": {
+   "games": 16,
+   "side_tue_2plus": {
+    "W": 7,
+    "L": 0,
+    "P": 0,
+    "pct": 100.0,
+    "units_at_110": 7.0
+   },
+   "side_tue_all": {
+    "W": 12,
+    "L": 3,
+    "P": 1,
+    "pct": 80.0,
+    "units_at_110": 8.7
+   }
+  },
+  "5": {
+   "games": 15,
+   "side_tue_2plus": {
+    "W": 5,
+    "L": 3,
+    "P": 0,
+    "pct": 62.5,
+    "units_at_110": 1.7
+   },
+   "side_tue_all": {
+    "W": 7,
+    "L": 7,
+    "P": 1,
+    "pct": 50.0,
+    "units_at_110": -0.7
+   }
+  },
+  "6": {
+   "games": 14,
+   "side_tue_2plus": {
+    "W": 2,
+    "L": 3,
+    "P": 0,
+    "pct": 40.0,
+    "units_at_110": -1.3
+   },
+   "side_tue_all": {
+    "W": 7,
+    "L": 7,
+    "P": 0,
+    "pct": 50.0,
+    "units_at_110": -0.7
+   }
+  },
+  "7": {
+   "games": 14,
+   "side_tue_2plus": {
+    "W": 0,
+    "L": 2,
+    "P": 0,
+    "pct": 0.0,
+    "units_at_110": -2.2
+   },
+   "side_tue_all": {
+    "W": 4,
+    "L": 9,
+    "P": 1,
+    "pct": 30.8,
+    "units_at_110": -5.9
+   }
+  },
+  "8": {
+   "games": 14,
+   "side_tue_2plus": {
+    "W": 2,
+    "L": 3,
+    "P": 0,
+    "pct": 40.0,
+    "units_at_110": -1.3
+   },
+   "side_tue_all": {
+    "W": 4,
+    "L": 10,
+    "P": 0,
+    "pct": 28.6,
+    "units_at_110": -7.0
+   }
+  },
+  "9": {
+   "games": 15,
+   "side_tue_2plus": {
+    "W": 2,
+    "L": 0,
+    "P": 0,
+    "pct": 100.0,
+    "units_at_110": 2.0
+   },
+   "side_tue_all": {
+    "W": 8,
+    "L": 7,
+    "P": 0,
+    "pct": 53.3,
+    "units_at_110": 0.3
+   }
+  },
+  "10": {
+   "games": 14,
+   "side_tue_2plus": {
+    "W": 3,
+    "L": 0,
+    "P": 0,
+    "pct": 100.0,
+    "units_at_110": 3.0
+   },
+   "side_tue_all": {
+    "W": 11,
+    "L": 3,
+    "P": 0,
+    "pct": 78.6,
+    "units_at_110": 7.7
+   }
+  }
+ },
+ "rows": [
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "ATL@GB",
+   "model_line": -13.18,
+   "base_total": 42.0,
+   "home_margin": -21.0,
+   "total": 49.0,
+   "side_tue": {
+    "line": -6.0,
+    "edge": 3.59,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 0.75,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -7.5,
+    "edge": 2.84,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 2.25,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -4.5,
+    "edge": 4.34,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 0.75,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "CAR@CLE",
+   "model_line": 8.93,
+   "base_total": 54.8,
+   "home_margin": 3.0,
+   "total": 39.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 3.22,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 6.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 3.72,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 39.5,
+    "edge": 7.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 3.22,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 6.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "CIN@PIT",
+   "model_line": 3.51,
+   "base_total": 35.5,
+   "home_margin": 3.0,
+   "total": 57.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 0.0,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 3.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 1.0,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 6.0,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 0.0,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 3.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "HOU@IND",
+   "model_line": -2.39,
+   "base_total": 55.0,
+   "home_margin": 2.0,
+   "total": 36.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 2.45,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 5.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 1.95,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 4.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 1.95,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 6.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "KC@MIA",
+   "model_line": 7.9,
+   "base_total": 48.0,
+   "home_margin": -14.0,
+   "total": 34.0,
+   "side_tue": {
+    "line": 11.5,
+    "edge": 1.8,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 0.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 7.0,
+    "edge": 0.45,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 1.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 10.0,
+    "edge": 1.05,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 1.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "LAC@BUF",
+   "model_line": -9.56,
+   "base_total": 54.8,
+   "home_margin": 8.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": -7.0,
+    "edge": 1.28,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 2.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 3.53,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 3.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.0,
+    "edge": 1.28,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 2.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "NYJ@DET",
+   "model_line": -5.82,
+   "base_total": 50.8,
+   "home_margin": 7.0,
+   "total": 55.0,
+   "side_tue": {
+    "line": -6.5,
+    "edge": 0.34,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 1.12,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -9.5,
+    "edge": 1.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 3.12,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -7.0,
+    "edge": 0.59,
+    "pick": "away",
+    "result": "P"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 0.62,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "SEA@WAS",
+   "model_line": 23.02,
+   "base_total": 41.0,
+   "home_margin": 2.0,
+   "total": 64.0,
+   "side_tue": {
+    "line": 7.0,
+    "edge": 8.01,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 0.25,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 3.5,
+    "edge": 9.76,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 2.75,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 8.5,
+    "edge": 7.26,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 0.25,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "TEN@NYG",
+   "model_line": -5.18,
+   "base_total": 39.8,
+   "home_margin": 5.0,
+   "total": 19.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.84,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 0.38,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 1.09,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 2.88,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 1.34,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 37.5,
+    "edge": 1.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "NE@JAX",
+   "model_line": 6.37,
+   "base_total": 30.8,
+   "home_margin": 29.0,
+   "total": 41.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 4.69,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 7.38,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 3.94,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 7.38,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 4.69,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 7.88,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "ARI@SF",
+   "model_line": -14.54,
+   "base_total": 40.0,
+   "home_margin": 6.0,
+   "total": 66.0,
+   "side_tue": {
+    "line": -8.5,
+    "edge": 3.02,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 3.75,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -11.5,
+    "edge": 1.52,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 3.25,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.5,
+    "edge": 3.52,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 48.5,
+    "edge": 4.25,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "MIN@TB",
+   "model_line": 12.04,
+   "base_total": 43.8,
+   "home_margin": -7.0,
+   "total": 39.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 5.27,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 6.77,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 0.12,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 6.77,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 0.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "BAL@DAL",
+   "model_line": 10.89,
+   "base_total": 52.5,
+   "home_margin": -3.0,
+   "total": 65.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 3.95,
+    "pick": "away",
+    "result": "P"
+   },
+   "total_tue": {
+    "line": 52.5,
+    "edge": 0.0,
+    "pick": "under",
+    "result": "P"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 4.2,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 52.5,
+    "edge": 0.0,
+    "pick": "under",
+    "result": "P"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 3.95,
+    "pick": "away",
+    "result": "P"
+   },
+   "total_close": {
+    "line": 54.5,
+    "edge": 1.0,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "LV@NO",
+   "model_line": -1.54,
+   "base_total": 45.5,
+   "home_margin": -8.0,
+   "total": 62.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 0.73,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 1.0,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 0.73,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 42.5,
+    "edge": 1.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 0.98,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 0.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "LAR@DEN",
+   "model_line": 6.04,
+   "base_total": 35.5,
+   "home_margin": 4.0,
+   "total": 56.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 1.77,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 5.0,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 1.77,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 5.0,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 3.77,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 4.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 3,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "PHI@CHI",
+   "model_line": -17.85,
+   "base_total": 49.5,
+   "home_margin": 20.0,
+   "total": 34.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 10.43,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 2.5,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 8.18,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 1.5,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 10.43,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 3.5,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "PIT@CLE",
+   "model_line": -1.97,
+   "base_total": 39.7,
+   "home_margin": 3.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 2.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 0.58,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 2.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 40.5,
+    "edge": 0.42,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 2.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 0.58,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "IND@WAS",
+   "model_line": 0.35,
+   "base_total": 55.0,
+   "home_margin": -17.0,
+   "total": 43.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 1.57,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 3.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.93,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 3.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 2.07,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 4.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "ARI@NYG",
+   "model_line": 0.69,
+   "base_total": 40.8,
+   "home_margin": 12.0,
+   "total": 60.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 0.41,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 1.83,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -7.0,
+    "edge": 3.84,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 2.33,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 0.91,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 1.33,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "DAL@HOU",
+   "model_line": 0.13,
+   "base_total": 49.8,
+   "home_margin": -4.0,
+   "total": 64.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 1.31,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 1.17,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 1.31,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 1.17,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 1.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 48.5,
+    "edge": 0.67,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "GB@TB",
+   "model_line": -6.27,
+   "base_total": 48.0,
+   "home_margin": -3.0,
+   "total": 31.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 4.88,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 39.5,
+    "edge": 4.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 3.88,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 4.38,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 4.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "JAX@CIN",
+   "model_line": 5.17,
+   "base_total": 43.5,
+   "home_margin": -5.0,
+   "total": 39.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 3.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 51.5,
+    "edge": 4.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 3.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 51.5,
+    "edge": 4.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 3.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 51.5,
+    "edge": 4.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "LAR@PHI",
+   "model_line": 6.16,
+   "base_total": 41.3,
+   "home_margin": -4.0,
+   "total": 44.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 1.58,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 1.08,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 2.33,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 3.08,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 0.83,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 0.58,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "NE@BUF",
+   "model_line": -1.88,
+   "base_total": 44.3,
+   "home_margin": -3.0,
+   "total": 55.0,
+   "side_tue": {
+    "line": -7.0,
+    "edge": 2.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 2.08,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 0.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 2.58,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.0,
+    "edge": 2.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 2.58,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "NYJ@CHI",
+   "model_line": -11.25,
+   "base_total": 44.5,
+   "home_margin": 11.0,
+   "total": 35.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 3.88,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 1.0,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -8.5,
+    "edge": 1.38,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 3.88,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 0.5,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "TEN@BAL",
+   "model_line": -11.95,
+   "base_total": 44.3,
+   "home_margin": 6.0,
+   "total": 42.0,
+   "side_tue": {
+    "line": -11.5,
+    "edge": 0.22,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 0.42,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -8.5,
+    "edge": 1.72,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 1.58,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -11.5,
+    "edge": 0.22,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 1.42,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "MIA@MIN",
+   "model_line": -7.16,
+   "base_total": 39.0,
+   "home_margin": 5.0,
+   "total": 25.0,
+   "side_tue": {
+    "line": -11.5,
+    "edge": 2.17,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 0.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -7.5,
+    "edge": 0.17,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 2.25,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -10.0,
+    "edge": 1.42,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 0.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "DEN@SF",
+   "model_line": -6.97,
+   "base_total": 46.3,
+   "home_margin": 10.0,
+   "total": 38.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 1.99,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 0.08,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 2.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 0.08,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 1.99,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 48.5,
+    "edge": 1.08,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "KC@LV",
+   "model_line": 3.2,
+   "base_total": 46.7,
+   "home_margin": -3.0,
+   "total": 57.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 0.65,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 0.42,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 5.5,
+    "edge": 1.15,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 1.58,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 0.15,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 0.42,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "LAC@SEA",
+   "model_line": -10.18,
+   "base_total": 40.8,
+   "home_margin": 7.0,
+   "total": 53.0,
+   "side_tue": {
+    "line": -7.0,
+    "edge": 1.59,
+    "pick": "home",
+    "result": "P"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.83,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 3.59,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 2.33,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.0,
+    "edge": 1.59,
+    "pick": "home",
+    "result": "P"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 1.33,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "DET@CAR",
+   "model_line": -2.12,
+   "base_total": 60.0,
+   "home_margin": 6.0,
+   "total": 58.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 2.81,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 4.75,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 3.0,
+    "edge": 2.56,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 7.25,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 2.81,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 52.5,
+    "edge": 3.75,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 4,
+   "tier": "B: preseason DVOA",
+   "dvoa_source": "FO 2026 preseason projection",
+   "game": "ATL@NO",
+   "model_line": -5.93,
+   "base_total": 47.2,
+   "home_margin": -21.0,
+   "total": 69.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 1.47,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 0.67,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 1.72,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 0.83,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 2.22,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 48.5,
+    "edge": 0.67,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "TB@DAL",
+   "model_line": -2.17,
+   "base_total": 50.8,
+   "home_margin": -8.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": -8.5,
+    "edge": 3.17,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 1.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 0.67,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 52.5,
+    "edge": 0.88,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -8.5,
+    "edge": 3.17,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 0.62,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "PHI@JAX",
+   "model_line": -15.66,
+   "base_total": 40.6,
+   "home_margin": 2.0,
+   "total": 36.0,
+   "side_tue": {
+    "line": -6.5,
+    "edge": 4.58,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.94,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 9.08,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 1.94,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -7.5,
+    "edge": 4.08,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 0.44,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "CIN@MIA",
+   "model_line": 6.61,
+   "base_total": 41.1,
+   "home_margin": -7.0,
+   "total": 55.0,
+   "side_tue": {
+    "line": 7.0,
+    "edge": 0.2,
+    "pick": "home",
+    "result": "P"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.69,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 5.5,
+    "edge": 0.55,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 3.69,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 7.5,
+    "edge": 0.45,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 2.19,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "CLE@NYJ",
+   "model_line": -0.81,
+   "base_total": 42.0,
+   "home_margin": 5.0,
+   "total": 29.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.84,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 39.5,
+    "edge": 1.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.34,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 38.5,
+    "edge": 1.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 0.84,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 1.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "HOU@TEN",
+   "model_line": 3.3,
+   "base_total": 41.4,
+   "home_margin": -23.0,
+   "total": 29.0,
+   "side_tue": {
+    "line": 6.5,
+    "edge": 1.6,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 1.44,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 3.5,
+    "edge": 0.1,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 1.06,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 6.5,
+    "edge": 1.6,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 37.5,
+    "edge": 1.94,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "IND@PIT",
+   "model_line": -3.47,
+   "base_total": 46.2,
+   "home_margin": 12.0,
+   "total": 56.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.49,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 0.88,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 0.49,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.62,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 0.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 1.88,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "LV@NE",
+   "model_line": 1.3,
+   "base_total": 42.6,
+   "home_margin": 28.0,
+   "total": 62.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 2.4,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 1.44,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -8.5,
+    "edge": 4.9,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.44,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 2.4,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 1.44,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "MIN@NO",
+   "model_line": 7.0,
+   "base_total": 46.2,
+   "home_margin": -10.0,
+   "total": 36.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 2.75,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 1.88,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 2.75,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 0.88,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 2.25,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 2.38,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "NYG@WAS",
+   "model_line": 1.8,
+   "base_total": 46.4,
+   "home_margin": 0.0,
+   "total": 54.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 2.65,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 1.44,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 2.15,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 1.06,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 2.65,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 2.44,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "CHI@GB",
+   "model_line": 11.56,
+   "base_total": 44.4,
+   "home_margin": 24.0,
+   "total": 38.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 4.28,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 0.56,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 7.28,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 2.56,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 5.03,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 1.06,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "DEN@LAC",
+   "model_line": 7.0,
+   "base_total": 42.6,
+   "home_margin": -6.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 1.75,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.06,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 4.75,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 0.94,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 2.0,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 0.06,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "DET@ARI",
+   "model_line": 2.09,
+   "base_total": 56.2,
+   "home_margin": -24.0,
+   "total": 66.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 1.2,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 54.5,
+    "edge": 0.88,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 8.5,
+    "edge": 3.2,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 3.38,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 1.2,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 55.5,
+    "edge": 0.38,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "SF@SEA",
+   "model_line": 7.83,
+   "base_total": 45.5,
+   "home_margin": -3.0,
+   "total": 61.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 5.42,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 1.0,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 5.67,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 5.42,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "BAL@ATL",
+   "model_line": 1.59,
+   "base_total": 50.0,
+   "home_margin": -7.0,
+   "total": 53.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 2.54,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 3.25,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 1.46,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 0.75,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 2.29,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 2.75,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 5,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W4 (export 10/09)",
+   "game": "BUF@LAR",
+   "model_line": -4.41,
+   "base_total": 50.2,
+   "home_margin": -3.0,
+   "total": 71.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.96,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 54.5,
+    "edge": 2.12,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 0.71,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 53.5,
+    "edge": 1.62,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 0.46,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 55.5,
+    "edge": 2.62,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "SEA@DEN",
+   "model_line": 2.52,
+   "base_total": 44.7,
+   "home_margin": 3.0,
+   "total": 31.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 0.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 2.1,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 0.01,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 0.6,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 0.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 2.1,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "HOU@JAX",
+   "model_line": -8.49,
+   "base_total": 41.5,
+   "home_margin": -3.0,
+   "total": 65.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 2.74,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 4.99,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 41.5,
+    "edge": 0.0,
+    "pick": "under",
+    "result": "P"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 2.99,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "BAL@CLE",
+   "model_line": 4.8,
+   "base_total": 47.0,
+   "home_margin": 3.0,
+   "total": 23.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 0.15,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 2.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 6.5,
+    "edge": 0.85,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 1.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 0.9,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 3.25,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "CAR@PHI",
+   "model_line": 4.85,
+   "base_total": 49.1,
+   "home_margin": -11.0,
+   "total": 39.0,
+   "side_tue": {
+    "line": -1.5,
+    "edge": 3.17,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 3.82,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -6.5,
+    "edge": 5.67,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 2.82,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 0.92,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 39.5,
+    "edge": 4.82,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "CHI@ATL",
+   "model_line": -1.15,
+   "base_total": 45.6,
+   "home_margin": -8.0,
+   "total": 54.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 2.08,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 49.5,
+    "edge": 1.95,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 3.0,
+    "edge": 2.08,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.95,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 1.33,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 2.45,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "NO@NYG",
+   "model_line": -1.61,
+   "base_total": 48.4,
+   "home_margin": -7.0,
+   "total": 61.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 1.55,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 1.45,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 0.45,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.45,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 1.55,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 0.95,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "NYJ@NE",
+   "model_line": -7.22,
+   "base_total": 39.3,
+   "home_margin": 7.0,
+   "total": 45.0,
+   "side_tue": {
+    "line": -7.5,
+    "edge": 0.14,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 2.1,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -9.5,
+    "edge": 1.14,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 42.5,
+    "edge": 1.6,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.5,
+    "edge": 0.14,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 1.6,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "PIT@TB",
+   "model_line": -0.17,
+   "base_total": 43.2,
+   "home_margin": -7.0,
+   "total": 45.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 1.34,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 1.35,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.66,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.15,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 1.34,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 37.5,
+    "edge": 2.85,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "TEN@IND",
+   "model_line": -6.45,
+   "base_total": 42.9,
+   "home_margin": -6.0,
+   "total": 46.0,
+   "side_tue": {
+    "line": -7.0,
+    "edge": 0.27,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 0.8,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 1.48,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 2.8,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -6.5,
+    "edge": 0.02,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 0.3,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "ARI@LAR",
+   "model_line": -12.61,
+   "base_total": 50.9,
+   "home_margin": -2.0,
+   "total": 34.0,
+   "side_tue": {
+    "line": -12.5,
+    "edge": 0.05,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 52.5,
+    "edge": 0.8,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -13.5,
+    "edge": 0.45,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 2.2,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -13.5,
+    "edge": 0.45,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 51.5,
+    "edge": 0.3,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "BUF@LV",
+   "model_line": 4.46,
+   "base_total": 56.6,
+   "home_margin": -3.0,
+   "total": 63.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 0.02,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 53.5,
+    "edge": 1.55,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 6.5,
+    "edge": 1.02,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 4.55,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 5.5,
+    "edge": 0.52,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 54.5,
+    "edge": 1.05,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "LAC@KC",
+   "model_line": -15.44,
+   "base_total": 45.7,
+   "home_margin": 16.0,
+   "total": 28.0,
+   "side_tue": {
+    "line": -8.5,
+    "edge": 3.47,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 1.59,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 6.47,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 0.41,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -7.5,
+    "edge": 3.97,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 2.09,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "DAL@GB",
+   "model_line": -5.02,
+   "base_total": 49.0,
+   "home_margin": 10.0,
+   "total": 36.0,
+   "side_tue": {
+    "line": -1.5,
+    "edge": 1.76,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 52.5,
+    "edge": 1.75,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 1.01,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 51.5,
+    "edge": 1.25,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 3.26,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 54.5,
+    "edge": 2.75,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 6,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13)",
+   "game": "WAS@SF",
+   "model_line": -18.5,
+   "base_total": 51.1,
+   "home_margin": 6.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": -7.5,
+    "edge": 5.5,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 0.3,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -5.5,
+    "edge": 6.5,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 50.5,
+    "edge": 0.3,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -7.5,
+    "edge": 5.5,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 51.5,
+    "edge": 0.2,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "NE@CHI",
+   "model_line": 0.33,
+   "base_total": 43.2,
+   "home_margin": 6.0,
+   "total": 54.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 1.67,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 3.67,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.92,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 2.17,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 1.67,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 3.67,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "PIT@NO",
+   "model_line": 5.3,
+   "base_total": 49.6,
+   "home_margin": -6.0,
+   "total": 26.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 0.9,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 2.54,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 1.4,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 42.5,
+    "edge": 3.54,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 1.15,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 3.54,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "CIN@BAL",
+   "model_line": -2.05,
+   "base_total": 47.7,
+   "home_margin": -22.0,
+   "total": 48.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 0.47,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 51.5,
+    "edge": 1.9,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 0.72,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 52.5,
+    "edge": 2.4,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 2.53,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 0.6,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "CLE@TEN",
+   "model_line": 4.75,
+   "base_total": 36.8,
+   "home_margin": -3.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 1.62,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 0.88,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 3.62,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 40.5,
+    "edge": 1.88,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 1.12,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 37.5,
+    "edge": 0.38,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "IND@MIN",
+   "model_line": -10.24,
+   "base_total": 43.0,
+   "home_margin": 6.0,
+   "total": 26.0,
+   "side_tue": {
+    "line": -6.5,
+    "edge": 1.87,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 0.73,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 3.62,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 2.27,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -6.5,
+    "edge": 1.87,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 0.73,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "MIA@NYJ",
+   "model_line": -7.51,
+   "base_total": 39.7,
+   "home_margin": -3.0,
+   "total": 53.0,
+   "side_tue": {
+    "line": -4.5,
+    "edge": 1.5,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 0.6,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 2.5,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 41.5,
+    "edge": 0.9,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 2.0,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 39.5,
+    "edge": 0.1,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "NYG@HOU",
+   "model_line": -8.38,
+   "base_total": 46.9,
+   "home_margin": -6.0,
+   "total": 48.0,
+   "side_tue": {
+    "line": -10.0,
+    "edge": 0.81,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 2.21,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -5.5,
+    "edge": 1.44,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 1.71,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -10.0,
+    "edge": 0.81,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 1.71,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "SF@ATL",
+   "model_line": 6.98,
+   "base_total": 48.5,
+   "home_margin": 9.0,
+   "total": 49.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 1.99,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 1.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 1.24,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 2.5,
+    "edge": 2.24,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 0.5,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "TB@CAR",
+   "model_line": -4.96,
+   "base_total": 48.3,
+   "home_margin": -30.0,
+   "total": 56.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.73,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 1.91,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 3.23,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.41,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 0.98,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 1.91,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "DEN@ARI",
+   "model_line": 4.32,
+   "base_total": 45.2,
+   "home_margin": -14.0,
+   "total": 46.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 0.09,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 0.88,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 7.5,
+    "edge": 1.59,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 0.88,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 0.09,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 0.38,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "GB@DET",
+   "model_line": -1.29,
+   "base_total": 52.2,
+   "home_margin": 3.0,
+   "total": 37.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 0.86,
+    "pick": "away",
+    "result": "P"
+   },
+   "total_tue": {
+    "line": 53.5,
+    "edge": 0.65,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.11,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 50.5,
+    "edge": 0.85,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 1.11,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 55.5,
+    "edge": 1.65,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "LAR@LV",
+   "model_line": 2.31,
+   "base_total": 49.8,
+   "home_margin": -14.0,
+   "total": 56.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 1.1,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 1.12,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 7.5,
+    "edge": 2.6,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 1.62,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 0.6,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 0.12,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "KC@SEA",
+   "model_line": 2.37,
+   "base_total": 44.8,
+   "home_margin": 17.0,
+   "total": 23.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 2.43,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 42.5,
+    "edge": 1.15,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 2.68,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 0.35,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 2.68,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 0.65,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 7,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W5 (export 10/13; no newer export before W7 kickoff)",
+   "game": "DAL@PHI",
+   "model_line": 0.03,
+   "base_total": 46.1,
+   "home_margin": -17.0,
+   "total": 59.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 2.23,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 0.79,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.0,
+    "edge": 1.52,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 1.21,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 2.23,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 1.29,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "CAR@GB",
+   "model_line": -2.14,
+   "base_total": 47.7,
+   "home_margin": 8.0,
+   "total": 46.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.68,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 0.39,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -7.0,
+    "edge": 2.43,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.11,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 0.68,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 0.11,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "ARI@DAL",
+   "model_line": -6.88,
+   "base_total": 51.4,
+   "home_margin": -3.0,
+   "total": 63.0,
+   "side_tue": {
+    "line": -6.5,
+    "edge": 0.19,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 54.5,
+    "edge": 1.57,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -10.5,
+    "edge": 1.81,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 0.93,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -7.0,
+    "edge": 0.06,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 54.5,
+    "edge": 1.57,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "ATL@TB",
+   "model_line": -1.49,
+   "base_total": 46.9,
+   "home_margin": 16.0,
+   "total": 16.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.51,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 0.21,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 1.51,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 0.21,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 0.51,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 1.71,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "BAL@BUF",
+   "model_line": -4.27,
+   "base_total": 54.7,
+   "home_margin": 26.0,
+   "total": 46.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.38,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 53.5,
+    "edge": 0.58,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 0.88,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 51.5,
+    "edge": 1.58,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 0.63,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 54.5,
+    "edge": 0.08,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "CLE@PIT",
+   "model_line": -5.08,
+   "base_total": 40.7,
+   "home_margin": 21.0,
+   "total": 33.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.79,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 39.5,
+    "edge": 0.61,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -5.5,
+    "edge": 0.21,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 39.5,
+    "edge": 0.61,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 0.79,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 1.11,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "IND@JAX",
+   "model_line": -11.98,
+   "base_total": 45.4,
+   "home_margin": 35.0,
+   "total": 49.0,
+   "side_tue": {
+    "line": -7.5,
+    "edge": 2.24,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 0.57,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 3.74,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 2.07,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -10.5,
+    "edge": 0.74,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 0.07,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "LV@NYJ",
+   "model_line": -3.08,
+   "base_total": 47.6,
+   "home_margin": -5.0,
+   "total": 71.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 2.29,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 1.07,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.79,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 41.5,
+    "edge": 3.07,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 0.79,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 0.57,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "MIN@DET",
+   "model_line": 1.33,
+   "base_total": 45.7,
+   "home_margin": 4.0,
+   "total": 34.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 2.16,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 0.42,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 2.91,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.92,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 2.41,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 0.08,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "TEN@CIN",
+   "model_line": -15.5,
+   "base_total": 42.6,
+   "home_margin": 7.0,
+   "total": 79.0,
+   "side_tue": {
+    "line": -10.0,
+    "edge": 2.75,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.95,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -6.5,
+    "edge": 4.5,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 3.45,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -13.5,
+    "edge": 1.0,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 1.45,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "LAC@LAR",
+   "model_line": -13.0,
+   "base_total": 43.6,
+   "home_margin": 15.0,
+   "total": 33.0,
+   "side_tue": {
+    "line": -6.5,
+    "edge": 3.25,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 0.46,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 4.75,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 2.46,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -6.5,
+    "edge": 3.25,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 0.96,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "KC@DEN",
+   "model_line": 2.55,
+   "base_total": 40.9,
+   "home_margin": 4.0,
+   "total": 52.0,
+   "side_tue": {
+    "line": 1.5,
+    "edge": 0.53,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 0.32,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 2.03,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 1.32,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 2.03,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 0.32,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "NE@MIA",
+   "model_line": 8.09,
+   "base_total": 42.9,
+   "home_margin": -5.0,
+   "total": 43.0,
+   "side_tue": {
+    "line": 7.5,
+    "edge": 0.29,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 44.5,
+    "edge": 0.8,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 7.0,
+    "edge": 0.54,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.3,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 7.0,
+    "edge": 0.54,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 41.5,
+    "edge": 0.7,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "PHI@WAS",
+   "model_line": -2.14,
+   "base_total": 46.9,
+   "home_margin": 17.0,
+   "total": 37.0,
+   "side_tue": {
+    "line": -4.5,
+    "edge": 1.18,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 3.2,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 2.32,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 0.2,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -5.5,
+    "edge": 1.68,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 3.2,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 8,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W7 (export 10/28)",
+   "game": "CHI@SEA",
+   "model_line": -4.11,
+   "base_total": 44.0,
+   "home_margin": -17.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": -3.0,
+    "edge": 0.56,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.25,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 0.19,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 1.75,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.0,
+    "edge": 0.56,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 1.25,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "JAX@BAL",
+   "model_line": 7.11,
+   "base_total": 45.8,
+   "home_margin": -23.0,
+   "total": 43.0,
+   "side_tue": {
+    "line": 9.5,
+    "edge": 1.2,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 2.15,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 5.8,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 49.5,
+    "edge": 1.85,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 9.5,
+    "edge": 1.2,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 2.65,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "CIN@ATL",
+   "model_line": 3.26,
+   "base_total": 48.5,
+   "home_margin": -17.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": 3.0,
+    "edge": 0.13,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 52.5,
+    "edge": 2.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 0.62,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 0.0,
+    "pick": "under",
+    "result": "P"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 0.13,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 52.5,
+    "edge": 2.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "CLE@NO",
+   "model_line": 1.74,
+   "base_total": 44.9,
+   "home_margin": 1.0,
+   "total": 45.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 2.12,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 0.71,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 2.62,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 41.5,
+    "edge": 1.71,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -4.5,
+    "edge": 3.12,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 43.5,
+    "edge": 0.71,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "DAL@IND",
+   "model_line": 2.85,
+   "base_total": 50.9,
+   "home_margin": -4.0,
+   "total": 50.0,
+   "side_tue": {
+    "line": 6.0,
+    "edge": 1.57,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 51.5,
+    "edge": 0.28,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 1.5,
+    "edge": 0.68,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 52.5,
+    "edge": 0.78,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 0.82,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 51.5,
+    "edge": 0.28,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "DEN@CAR",
+   "model_line": 0.2,
+   "base_total": 47.6,
+   "home_margin": -5.0,
+   "total": 47.0,
+   "side_tue": {
+    "line": 2.5,
+    "edge": 1.15,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 2.03,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 3.0,
+    "edge": 1.4,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 42.5,
+    "edge": 2.53,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 1.4,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 1.53,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "DET@MIA",
+   "model_line": 6.49,
+   "base_total": 48.6,
+   "home_margin": -10.0,
+   "total": 28.0,
+   "side_tue": {
+    "line": 7.0,
+    "edge": 0.25,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 0.93,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 6.5,
+    "edge": 0.0,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.57,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 6.5,
+    "edge": 0.0,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 0.93,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "LAR@WAS",
+   "model_line": 6.6,
+   "base_total": 47.0,
+   "home_margin": -7.0,
+   "total": 33.0,
+   "side_tue": {
+    "line": 5.5,
+    "edge": 0.55,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 47.5,
+    "edge": 0.26,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 1.05,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 50.5,
+    "edge": 1.76,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 1.05,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 0.26,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "NYG@PHI",
+   "model_line": 2.76,
+   "base_total": 44.3,
+   "home_margin": -8.0,
+   "total": 30.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 0.37,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 39.5,
+    "edge": 2.42,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -5.5,
+    "edge": 4.13,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 44.5,
+    "edge": 0.08,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 0.12,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 2.92,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "NYJ@KC",
+   "model_line": -8.06,
+   "base_total": 43.7,
+   "home_margin": 23.0,
+   "total": 47.0,
+   "side_tue": {
+    "line": -9.5,
+    "edge": 0.72,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.42,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -9.5,
+    "edge": 0.72,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 41.5,
+    "edge": 1.08,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -8.5,
+    "edge": 0.22,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 1.92,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "HOU@LAC",
+   "model_line": 7.12,
+   "base_total": 43.5,
+   "home_margin": -22.0,
+   "total": 66.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 1.31,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 1.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 4.31,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 0.0,
+    "pick": "under",
+    "result": "P"
+   },
+   "side_close": {
+    "line": 5.5,
+    "edge": 0.81,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 1.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "LV@SF",
+   "model_line": -12.84,
+   "base_total": 52.2,
+   "home_margin": 21.0,
+   "total": 55.0,
+   "side_tue": {
+    "line": -10.0,
+    "edge": 1.42,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 51.5,
+    "edge": 0.34,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -8.5,
+    "edge": 2.17,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 2.84,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -8.5,
+    "edge": 2.17,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 51.5,
+    "edge": 0.34,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "ARI@SEA",
+   "model_line": -10.51,
+   "base_total": 47.3,
+   "home_margin": 14.0,
+   "total": 20.0,
+   "side_tue": {
+    "line": -10.5,
+    "edge": 0.01,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 2.91,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -13.5,
+    "edge": 1.49,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 0.91,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -9.5,
+    "edge": 0.51,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 3.41,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "GB@NE",
+   "model_line": -3.11,
+   "base_total": 42.6,
+   "home_margin": -18.0,
+   "total": 72.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.31,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.97,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.81,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 1.97,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 0.19,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 44.5,
+    "edge": 0.97,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "TB@CHI",
+   "model_line": -1.78,
+   "base_total": 43.9,
+   "home_margin": 3.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": -6.0,
+    "edge": 2.11,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.28,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 0.86,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 2.28,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -6.5,
+    "edge": 2.36,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 1.78,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 9,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W8 (export 11/05)",
+   "game": "BUF@MIN",
+   "model_line": 1.03,
+   "base_total": 46.2,
+   "home_margin": -17.0,
+   "total": 29.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 1.24,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 0.36,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 3.0,
+    "edge": 0.99,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 1.14,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 1.24,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 46.5,
+    "edge": 0.14,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "WAS@NYG",
+   "model_line": -1.54,
+   "base_total": 45.5,
+   "home_margin": -3.0,
+   "total": 45.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.48,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 41.5,
+    "edge": 2.0,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.02,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 1.0,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -1.5,
+    "edge": 0.02,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 2.5,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "NE@DET",
+   "model_line": -0.82,
+   "base_total": 48.9,
+   "home_margin": 25.0,
+   "total": 45.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.84,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 51.5,
+    "edge": 1.3,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 0.34,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 0.2,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 0.84,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 0.8,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "BUF@NYJ",
+   "model_line": 8.75,
+   "base_total": 50.2,
+   "home_margin": -19.0,
+   "total": 43.0,
+   "side_tue": {
+    "line": 8.5,
+    "edge": 0.12,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 50.5,
+    "edge": 0.16,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 7.0,
+    "edge": 0.87,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 46.5,
+    "edge": 1.84,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 8.5,
+    "edge": 0.12,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 50.5,
+    "edge": 0.16,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "CAR@NO",
+   "model_line": 3.61,
+   "base_total": 51.2,
+   "home_margin": -3.0,
+   "total": 37.0,
+   "side_tue": {
+    "line": -1.5,
+    "edge": 2.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 1.34,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 2.56,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 3.84,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 1.5,
+    "edge": 1.06,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 48.5,
+    "edge": 1.34,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "HOU@CLE",
+   "model_line": 4.4,
+   "base_total": 44.9,
+   "home_margin": 3.0,
+   "total": 51.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 0.05,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 39.5,
+    "edge": 2.7,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 0.05,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 38.5,
+    "edge": 3.2,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 4.5,
+    "edge": 0.05,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 2.2,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "JAX@TEN",
+   "model_line": 15.66,
+   "base_total": 43.3,
+   "home_margin": -17.0,
+   "total": 63.0,
+   "side_tue": {
+    "line": 10.5,
+    "edge": 2.58,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 46.5,
+    "edge": 1.59,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 2.5,
+    "edge": 6.58,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 1.09,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 10.5,
+    "edge": 2.58,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 45.5,
+    "edge": 1.09,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "none"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "KC@ATL",
+   "model_line": 5.95,
+   "base_total": 44.4,
+   "home_margin": -22.0,
+   "total": 48.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 1.23,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 45.5,
+    "edge": 0.55,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 4.5,
+    "edge": 0.73,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 0.55,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.0,
+    "edge": 1.48,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 47.5,
+    "edge": 1.55,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "MIA@IND",
+   "model_line": -0.81,
+   "base_total": 44.4,
+   "home_margin": 2.0,
+   "total": 46.0,
+   "side_tue": {
+    "line": -2.5,
+    "edge": 0.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 1.97,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -6.5,
+    "edge": 2.84,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 1.53,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -5.5,
+    "edge": 2.34,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 37.5,
+    "edge": 3.47,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "MIN@GB",
+   "model_line": -3.92,
+   "base_total": 39.0,
+   "home_margin": -20.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": -5.5,
+    "edge": 0.79,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 0.76,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -4.5,
+    "edge": 0.29,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 45.5,
+    "edge": 3.26,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -2.5,
+    "edge": 0.71,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 42.5,
+    "edge": 1.76,
+    "pick": "under",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "LAR@ARI",
+   "model_line": 9.18,
+   "base_total": 46.0,
+   "home_margin": -28.0,
+   "total": 40.0,
+   "side_tue": {
+    "line": 9.5,
+    "edge": 0.16,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 40.5,
+    "edge": 2.75,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 10.5,
+    "edge": 0.66,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.75,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": 8.5,
+    "edge": 0.34,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 38.5,
+    "edge": 3.75,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "SEA@LV",
+   "model_line": 7.27,
+   "base_total": 48.3,
+   "home_margin": -8.0,
+   "total": 34.0,
+   "side_tue": {
+    "line": 3.5,
+    "edge": 1.89,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 43.5,
+    "edge": 2.42,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_open": {
+    "line": 7.0,
+    "edge": 0.14,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 43.5,
+    "edge": 2.42,
+    "pick": "over",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 6.5,
+    "edge": 0.39,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 40.5,
+    "edge": 3.92,
+    "pick": "over",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "SF@DAL",
+   "model_line": 9.25,
+   "base_total": 51.2,
+   "home_margin": -6.0,
+   "total": 86.0,
+   "side_tue": {
+    "line": 4.5,
+    "edge": 2.37,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 55.5,
+    "edge": 2.14,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -1.5,
+    "edge": 5.37,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 52.5,
+    "edge": 0.64,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": 3.5,
+    "edge": 2.87,
+    "pick": "away",
+    "result": "W"
+   },
+   "total_close": {
+    "line": 55.5,
+    "edge": 2.14,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "away"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "PIT@CIN",
+   "model_line": -4.15,
+   "base_total": 46.2,
+   "home_margin": 20.0,
+   "total": 56.0,
+   "side_tue": {
+    "line": -3.5,
+    "edge": 0.32,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_tue": {
+    "line": 48.5,
+    "edge": 1.16,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_open": {
+    "line": -3.5,
+    "edge": 0.32,
+    "pick": "home",
+    "result": "W"
+   },
+   "total_open": {
+    "line": 47.5,
+    "edge": 0.66,
+    "pick": "under",
+    "result": "L"
+   },
+   "side_close": {
+    "line": -4.5,
+    "edge": 0.18,
+    "pick": "away",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 49.5,
+    "edge": 1.66,
+    "pick": "under",
+    "result": "L"
+   },
+   "clv_side": "toward"
+  },
+  {
+   "week": 10,
+   "tier": "A: in-season FTN",
+   "dvoa_source": "FTN through W9 (export 11/11 pm)",
+   "game": "LAC@BAL",
+   "model_line": -9.19,
+   "base_total": 44.9,
+   "home_margin": -3.0,
+   "total": 43.0,
+   "side_tue": {
+    "line": -5.5,
+    "edge": 1.85,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_tue": {
+    "line": 38.5,
+    "edge": 3.18,
+    "pick": "over",
+    "result": "W"
+   },
+   "side_open": {
+    "line": -2.5,
+    "edge": 3.35,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_open": {
+    "line": 48.5,
+    "edge": 1.82,
+    "pick": "under",
+    "result": "W"
+   },
+   "side_close": {
+    "line": -3.5,
+    "edge": 2.85,
+    "pick": "home",
+    "result": "L"
+   },
+   "total_close": {
+    "line": 39.5,
+    "edge": 2.68,
+    "pick": "over",
+    "result": "W"
+   },
+   "clv_side": "away"
+  }
+ ]
+}

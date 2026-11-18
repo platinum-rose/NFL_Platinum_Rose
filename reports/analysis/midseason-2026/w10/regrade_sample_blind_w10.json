@@ -1,0 +1,675 @@
+{
+ "week": 10,
+ "season": 2026,
+ "rules": "Grade W (won), L (lost), P (push) or U (cannot be graded from the box score). House rules: 'N+' needs stat >= N; Over needs stat > line, Under needs stat < line, equal = push; a player absent from the final box score = L (say so in the note); anytime TD = rushing + receiving + return + defensive TDs (passing TDs do not count); spreads are from the picked team's side; totals use the final combined score; moneyline with no price is graded straight up; SuperContest pitches use the contest line shown in the pick text; tackles = total tackles (solo + assists).",
+ "games": [
+  {
+   "game": "WSH@NYG",
+   "espn_event": "401873052"
+  },
+  {
+   "game": "NE@DET",
+   "espn_event": "401873053"
+  },
+  {
+   "game": "BUF@NYJ",
+   "espn_event": "401873054"
+  },
+  {
+   "game": "CAR@NO",
+   "espn_event": "401873055"
+  },
+  {
+   "game": "HOU@CLE",
+   "espn_event": "401873056"
+  },
+  {
+   "game": "JAX@TEN",
+   "espn_event": "401873057"
+  },
+  {
+   "game": "KC@ATL",
+   "espn_event": "401873058"
+  },
+  {
+   "game": "MIA@IND",
+   "espn_event": "401873059"
+  },
+  {
+   "game": "MIN@GB",
+   "espn_event": "401873060"
+  },
+  {
+   "game": "LAR@ARI",
+   "espn_event": "401873061"
+  },
+  {
+   "game": "SEA@LV",
+   "espn_event": "401873062"
+  },
+  {
+   "game": "SF@DAL",
+   "espn_event": "401873063"
+  },
+  {
+   "game": "PIT@CIN",
+   "espn_event": "401873064"
+  },
+  {
+   "game": "LAC@BAL",
+   "espn_event": "401873065"
+  }
+ ],
+ "sample": [
+  {
+   "id": "w10s001",
+   "layer": "expert",
+   "game": "BUF@NYJ",
+   "espn_event": "401873054",
+   "pick": "OVER",
+   "direction": null,
+   "line": 51,
+   "market": "total"
+  },
+  {
+   "id": "w10s002",
+   "layer": "expert",
+   "game": "BUF@NYJ",
+   "espn_event": "401873054",
+   "pick": "Breece Hall OVER 2.5 receptions",
+   "direction": null,
+   "line": 2.5,
+   "market": "receptions"
+  },
+  {
+   "id": "w10s003",
+   "layer": "placed_leg",
+   "game": "SF @ DAL",
+   "espn_event": "401873063",
+   "pick": "George Kittle 30+ Receiving Yards",
+   "direction": "over",
+   "line": 29.5,
+   "market": null
+  },
+  {
+   "id": "w10s004",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Cam Skattebo Anytime TD",
+   "direction": null,
+   "line": 1,
+   "market": null
+  },
+  {
+   "id": "w10s005",
+   "layer": "expert",
+   "game": "JAX@TEN",
+   "espn_event": "401873057",
+   "pick": "Jacksonville Jaguars",
+   "direction": null,
+   "line": -9.5,
+   "market": "spread"
+  },
+  {
+   "id": "w10s006",
+   "layer": "podcast",
+   "game": "SEA@LV",
+   "espn_event": "401873062",
+   "pick": "LV +6.5",
+   "direction": null,
+   "line": 6.5,
+   "market": null
+  },
+  {
+   "id": "w10s007",
+   "layer": "placed_leg",
+   "game": "PIT @ CIN",
+   "espn_event": "401873064",
+   "pick": "Chris Boswell 2+ Field Goals Made",
+   "direction": "over",
+   "line": 1.5,
+   "market": null
+  },
+  {
+   "id": "w10s008",
+   "layer": "placed_leg",
+   "game": "SF @ DAL",
+   "espn_event": "401873063",
+   "pick": "Fred Warner 9+ Tackles + Assists",
+   "direction": "over",
+   "line": 8.5,
+   "market": null
+  },
+  {
+   "id": "w10s009",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "J.J. McCarthy 2+ Passing TDs",
+   "direction": null,
+   "line": 2.0,
+   "market": null
+  },
+  {
+   "id": "w10s010",
+   "layer": "podcast",
+   "game": "MIN@GB",
+   "espn_event": "401873060",
+   "pick": "Justin Jefferson anytime TD +155",
+   "direction": null,
+   "line": null,
+   "market": null
+  },
+  {
+   "id": "w10s011",
+   "layer": "pitch_supercontest",
+   "game": "JAX@TEN",
+   "espn_event": "401873057",
+   "pick": "JAX -10.5 (contest line)",
+   "direction": null,
+   "line": null,
+   "market": null
+  },
+  {
+   "id": "w10s012",
+   "layer": "expert",
+   "game": "MIN@GB",
+   "espn_event": "401873060",
+   "pick": "Green Bay Packers | Green Bay Packers -3",
+   "direction": null,
+   "line": -3.0,
+   "market": "spread"
+  },
+  {
+   "id": "w10s013",
+   "layer": "pitch_master",
+   "game": "HOU@CLE",
+   "espn_event": "401873056",
+   "pick": "CLE +4.5 (-110)",
+   "direction": null,
+   "line": null,
+   "market": null
+  },
+  {
+   "id": "w10s014",
+   "layer": "placed_leg",
+   "game": "LAR @ ARI",
+   "espn_event": "401873061",
+   "pick": "Kyren Williams Anytime TD Scorer",
+   "direction": "over",
+   "line": 0.5,
+   "market": null
+  },
+  {
+   "id": "w10s015",
+   "layer": "expert",
+   "game": "SEA@LV",
+   "espn_event": "401873062",
+   "pick": "LV 7",
+   "direction": null,
+   "line": 7,
+   "market": "spread"
+  },
+  {
+   "id": "w10s016",
+   "layer": "expert",
+   "game": "MIN@GB",
+   "espn_event": "401873060",
+   "pick": "Vikings +3 | Vikings +3",
+   "direction": null,
+   "line": 3.0,
+   "market": "spread"
+  },
+  {
+   "id": "w10s017",
+   "layer": "placed_leg",
+   "game": "PIT @ CIN",
+   "espn_event": "401873064",
+   "pick": "Jaylen Warren 60+ Rushing Yards",
+   "direction": "over",
+   "line": 59.5,
+   "market": null
+  },
+  {
+   "id": "w10s018",
+   "layer": "game_rec",
+   "game": "NE@DET",
+   "espn_event": "401873053",
+   "pick": "PASS; lean Under 50",
+   "direction": "under",
+   "line": 50.0,
+   "market": null
+  },
+  {
+   "id": "w10s019",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Joe Burrow 3+ pass TDs",
+   "direction": null,
+   "line": 3.0,
+   "market": null
+  },
+  {
+   "id": "w10s020",
+   "layer": "expert",
+   "game": "LAR@ARI",
+   "espn_event": "401873061",
+   "pick": "Kyren Williams: Kyren Williams - anytime TD Kyren Williams",
+   "direction": null,
+   "line": 0.5,
+   "market": "anytime_td"
+  },
+  {
+   "id": "w10s021",
+   "layer": "expert",
+   "game": "SF@DAL",
+   "espn_event": "401873063",
+   "pick": "CeeDee Lamb: CeeDee Lamb - touchdowns OVER",
+   "direction": null,
+   "line": 0.5,
+   "market": "anytime_td"
+  },
+  {
+   "id": "w10s022",
+   "layer": "game_rec",
+   "game": "BUF@NYJ",
+   "espn_event": "401873054",
+   "pick": "Ty Johnson receiving yards Over 15.5",
+   "direction": "over",
+   "line": 15.5,
+   "market": null
+  },
+  {
+   "id": "w10s023",
+   "layer": "podcast",
+   "game": "LAR@ARI",
+   "espn_event": "401873061",
+   "pick": "LAR@ARI Under 45.5",
+   "direction": null,
+   "line": 45.5,
+   "market": null
+  },
+  {
+   "id": "w10s024",
+   "layer": "podcast",
+   "game": "LAR@ARI",
+   "espn_event": "401873061",
+   "pick": "LAR -7.5",
+   "direction": null,
+   "line": -7.5,
+   "market": null
+  },
+  {
+   "id": "w10s025",
+   "layer": "expert",
+   "game": "KC@ATL",
+   "espn_event": "401873058",
+   "pick": "KC -3",
+   "direction": null,
+   "line": -3,
+   "market": "spread"
+  },
+  {
+   "id": "w10s026",
+   "layer": "expert",
+   "game": "PIT@CIN",
+   "espn_event": "401873064",
+   "pick": "DK Metcalf UNDER 4.5 receptions",
+   "direction": null,
+   "line": 4.5,
+   "market": "receptions"
+  },
+  {
+   "id": "w10s027",
+   "layer": "placed_leg",
+   "game": "WAS @ NYG",
+   "espn_event": "401873052",
+   "pick": "Over 0.5 J.J. McCarthy Passing TD",
+   "direction": "over",
+   "line": 0.5,
+   "market": null
+  },
+  {
+   "id": "w10s028",
+   "layer": "expert",
+   "game": "MIN@GB",
+   "espn_event": "401873060",
+   "pick": "Minnesota Vikings",
+   "direction": null,
+   "line": 3.5,
+   "market": "spread"
+  },
+  {
+   "id": "w10s029",
+   "layer": "placed_leg",
+   "game": "WAS @ NYG",
+   "espn_event": "401873052",
+   "pick": "J.J. McCarthy 210+ Passing Yards",
+   "direction": "over",
+   "line": 209.5,
+   "market": null
+  },
+  {
+   "id": "w10s030",
+   "layer": "placed_leg",
+   "game": "PIT @ CIN",
+   "espn_event": "401873064",
+   "pick": "Joe Burrow 1+ Interceptions Thrown",
+   "direction": "over",
+   "line": 0.5,
+   "market": null
+  },
+  {
+   "id": "w10s031",
+   "layer": "expert",
+   "game": "HOU@CLE",
+   "espn_event": "401873056",
+   "pick": "Houston Texans | Texans to win (predicted 20-16)",
+   "direction": null,
+   "line": null,
+   "market": "moneyline"
+  },
+  {
+   "id": "w10s032",
+   "layer": "placed_leg",
+   "game": "LAC @ BAL",
+   "espn_event": "401873065",
+   "pick": "Derrick Henry 2+ TDs",
+   "direction": "over",
+   "line": 1.5,
+   "market": null
+  },
+  {
+   "id": "w10s033",
+   "layer": "podcast",
+   "game": "JAX@TEN",
+   "espn_event": "401873057",
+   "pick": "JAX -9.5",
+   "direction": null,
+   "line": -9.5,
+   "market": null
+  },
+  {
+   "id": "w10s034",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Bryce Young over 244.5 pass yds",
+   "direction": null,
+   "line": 244.5,
+   "market": null
+  },
+  {
+   "id": "w10s035",
+   "layer": "placed_leg",
+   "game": "LAC @ BAL",
+   "espn_event": "401873065",
+   "pick": "Riley Patterson 2+ Field Goals Made",
+   "direction": "over",
+   "line": 1.5,
+   "market": null
+  },
+  {
+   "id": "w10s036",
+   "layer": "placed_leg",
+   "game": "SF @ DAL",
+   "espn_event": "401873063",
+   "pick": "CeeDee Lamb 6+ Receptions",
+   "direction": "over",
+   "line": 5.5,
+   "market": null
+  },
+  {
+   "id": "w10s037",
+   "layer": "expert",
+   "game": "JAX@TEN",
+   "espn_event": "401873057",
+   "pick": "Jacksonville Jaguars",
+   "direction": null,
+   "line": -9.5,
+   "market": "spread"
+  },
+  {
+   "id": "w10s038",
+   "layer": "pitch_supercontest",
+   "game": "KC@ATL",
+   "espn_event": "401873058",
+   "pick": "KC -3.5 (contest line)",
+   "direction": null,
+   "line": null,
+   "market": null
+  },
+  {
+   "id": "w10s039",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "CAR +2",
+   "direction": null,
+   "line": 2.0,
+   "market": null
+  },
+  {
+   "id": "w10s040",
+   "layer": "game_rec",
+   "game": "SEA@LV",
+   "espn_event": "401873062",
+   "pick": "SEA -6.5",
+   "direction": "over",
+   "line": -6.5,
+   "market": null
+  },
+  {
+   "id": "w10s041",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Zach Charbonnet over 66.5 rush yds",
+   "direction": null,
+   "line": 66.5,
+   "market": null
+  },
+  {
+   "id": "w10s042",
+   "layer": "placed_leg",
+   "game": "PIT @ CIN",
+   "espn_event": "401873064",
+   "pick": "Darnell Washington 3+ Receptions",
+   "direction": "over",
+   "line": 2.5,
+   "market": null
+  },
+  {
+   "id": "w10s043",
+   "layer": "expert",
+   "game": "PIT@CIN",
+   "espn_event": "401873064",
+   "pick": "Ja'Marr Chase: Ja'Marr Chase - touchdowns OVER",
+   "direction": null,
+   "line": 0.5,
+   "market": "anytime_td"
+  },
+  {
+   "id": "w10s044",
+   "layer": "placed_leg",
+   "game": "WAS @ NYG",
+   "espn_event": "401873052",
+   "pick": "Sonny Styles 7+ Tackles + Assists",
+   "direction": "over",
+   "line": 6.5,
+   "market": null
+  },
+  {
+   "id": "w10s045",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Omarion Hampton 25+ rush yds",
+   "direction": null,
+   "line": 25.0,
+   "market": null
+  },
+  {
+   "id": "w10s046",
+   "layer": "placed_leg",
+   "game": "SEA @ LV",
+   "espn_event": "401873062",
+   "pick": "Fernando Mendoza 1+ Interceptions Thrown",
+   "direction": "over",
+   "line": 0.5,
+   "market": null
+  },
+  {
+   "id": "w10s047",
+   "layer": "pitch_master",
+   "game": "KC@ATL",
+   "espn_event": "401873058",
+   "pick": "KC -3 (-108)",
+   "direction": null,
+   "line": null,
+   "market": null
+  },
+  {
+   "id": "w10s048",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Rashod Bateman 25+ rec yds",
+   "direction": null,
+   "line": 25.0,
+   "market": null
+  },
+  {
+   "id": "w10s049",
+   "layer": "placed_leg",
+   "game": "LAC @ BAL",
+   "espn_event": "401873065",
+   "pick": "Mark Andrews 3+ Receptions",
+   "direction": "over",
+   "line": 2.5,
+   "market": null
+  },
+  {
+   "id": "w10s050",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Jayden Daniels 213+ Passing Yards",
+   "direction": null,
+   "line": 213.0,
+   "market": null
+  },
+  {
+   "id": "w10s051",
+   "layer": "podcast",
+   "game": "LAR@ARI",
+   "espn_event": "401873061",
+   "pick": "ARI fourth_quarter_spread ARI 2.5",
+   "direction": null,
+   "line": 2.5,
+   "market": null
+  },
+  {
+   "id": "w10s052",
+   "layer": "podcast",
+   "game": "LAC@BAL",
+   "espn_event": "401873065",
+   "pick": "BAL -3.5",
+   "direction": null,
+   "line": -3.5,
+   "market": null
+  },
+  {
+   "id": "w10s053",
+   "layer": "game_rec",
+   "game": "CAR@NO",
+   "espn_event": "401873055",
+   "pick": "Bryce Young passing yards Over 244.5",
+   "direction": "over",
+   "line": 244.5,
+   "market": null
+  },
+  {
+   "id": "w10s054",
+   "layer": "expert",
+   "game": "HOU@CLE",
+   "espn_event": "401873056",
+   "pick": "HOU -4.5",
+   "direction": null,
+   "line": -4.5,
+   "market": "spread"
+  },
+  {
+   "id": "w10s055",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Kimani Vidal 20+ rush yds",
+   "direction": null,
+   "line": 20.0,
+   "market": null
+  },
+  {
+   "id": "w10s056",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Ja'Kobi Lane 20+ rec yds",
+   "direction": null,
+   "line": 20.0,
+   "market": null
+  },
+  {
+   "id": "w10s057",
+   "layer": "placed_leg",
+   "game": "SEA @ LV",
+   "espn_event": "401873062",
+   "pick": "Zach Charbonnet Over 65.5 Rushing Yards",
+   "direction": "over",
+   "line": 65.5,
+   "market": null
+  },
+  {
+   "id": "w10s058",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Total Under 48.5",
+   "direction": null,
+   "line": 48.5,
+   "market": null
+  },
+  {
+   "id": "w10s059",
+   "layer": "paper_leg",
+   "game": null,
+   "espn_event": null,
+   "pick": "Christian McCaffrey 2+ Touchdowns",
+   "direction": null,
+   "line": 2.0,
+   "market": null
+  },
+  {
+   "id": "w10s060",
+   "layer": "expert",
+   "game": "PIT@CIN",
+   "espn_event": "401873064",
+   "pick": "PIT",
+   "direction": null,
+   "line": null,
+   "market": "moneyline"
+  },
+  {
+   "id": "w10s061",
+   "layer": "placed_leg",
+   "game": "JAX @ TEN",
+   "espn_event": "401873057",
+   "pick": "Cameron Ward 1+ Interceptions Thrown",
+   "direction": "over",
+   "line": 0.5,
+   "market": null
+  }
+ ]
+}

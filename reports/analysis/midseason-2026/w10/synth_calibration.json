@@ -1,0 +1,1944 @@
+{
+ "recs_total": {
+  "all": 560,
+  "graded": 449,
+  "by_week": {
+   "7": {
+    "w": 62,
+    "l": 119,
+    "rate": 0.343,
+    "ci": [
+     0.277,
+     0.414
+    ],
+    "units": -38.7,
+    "avg_breakeven": 0.417,
+    "priced": 175,
+    "small_n": false
+   },
+   "8": {
+    "w": 76,
+    "l": 129,
+    "rate": 0.371,
+    "ci": [
+     0.308,
+     0.439
+    ],
+    "units": -7.5,
+    "avg_breakeven": 0.377,
+    "priced": 202,
+    "small_n": false
+   },
+   "10": {
+    "w": 20,
+    "l": 14,
+    "rate": 0.588,
+    "ci": [
+     0.422,
+     0.736
+    ],
+    "units": 9.1,
+    "avg_breakeven": 0.494,
+    "priced": 33,
+    "small_n": false
+   }
+  }
+ },
+ "by_tier": {
+  "A": {
+   "w": 0,
+   "l": 0,
+   "rate": null,
+   "ci": [
+    0.0,
+    1.0
+   ],
+   "units": 0,
+   "avg_breakeven": null,
+   "priced": 0,
+   "small_n": true
+  },
+  "B": {
+   "w": 41,
+   "l": 46,
+   "rate": 0.471,
+   "ci": [
+    0.37,
+    0.575
+   ],
+   "units": -8.8,
+   "avg_breakeven": 0.525,
+   "priced": 84,
+   "small_n": false
+  },
+  "C": {
+   "w": 117,
+   "l": 216,
+   "rate": 0.351,
+   "ci": [
+    0.302,
+    0.404
+   ],
+   "units": -28.3,
+   "avg_breakeven": 0.372,
+   "priced": 326,
+   "small_n": false
+  },
+  "PASS": {
+   "w": 9,
+   "l": 20,
+   "rate": 0.31,
+   "ci": [
+    0.173,
+    0.492
+   ],
+   "units": -11.8,
+   "avg_breakeven": 0.523,
+   "priced": 24,
+   "small_n": false
+  },
+  "other": {
+   "w": 0,
+   "l": 0,
+   "rate": null,
+   "ci": [
+    0.0,
+    1.0
+   ],
+   "units": 0,
+   "avg_breakeven": null,
+   "priced": 0,
+   "small_n": true
+  }
+ },
+ "by_tier_week": {
+  "B W7": {
+   "w": 20,
+   "l": 25,
+   "rate": 0.444,
+   "ci": [
+    0.309,
+    0.588
+   ],
+   "units": -7.9,
+   "avg_breakeven": 0.538,
+   "priced": 44,
+   "small_n": false
+  },
+  "B W8": {
+   "w": 17,
+   "l": 20,
+   "rate": 0.459,
+   "ci": [
+    0.31,
+    0.616
+   ],
+   "units": -3.7,
+   "avg_breakeven": 0.51,
+   "priced": 36,
+   "small_n": false
+  },
+  "B W10": {
+   "w": 4,
+   "l": 1,
+   "rate": 0.8,
+   "ci": [
+    0.376,
+    0.964
+   ],
+   "units": 2.7,
+   "avg_breakeven": 0.511,
+   "priced": 4,
+   "small_n": true
+  },
+  "C W7": {
+   "w": 42,
+   "l": 94,
+   "rate": 0.309,
+   "ci": [
+    0.237,
+    0.391
+   ],
+   "units": -30.8,
+   "avg_breakeven": 0.376,
+   "priced": 131,
+   "small_n": false
+  },
+  "C W8": {
+   "w": 59,
+   "l": 109,
+   "rate": 0.351,
+   "ci": [
+    0.283,
+    0.426
+   ],
+   "units": -3.8,
+   "avg_breakeven": 0.349,
+   "priced": 166,
+   "small_n": false
+  },
+  "C W10": {
+   "w": 16,
+   "l": 13,
+   "rate": 0.552,
+   "ci": [
+    0.375,
+    0.716
+   ],
+   "units": 6.3,
+   "avg_breakeven": 0.491,
+   "priced": 29,
+   "small_n": false
+  }
+ },
+ "by_market": {
+  "moneyline": {
+   "w": 4,
+   "l": 3,
+   "rate": 0.571,
+   "ci": [
+    0.25,
+    0.842
+   ],
+   "units": 2.8,
+   "avg_breakeven": 0.425,
+   "priced": 7,
+   "small_n": true
+  },
+  "prop: ?": {
+   "w": 0,
+   "l": 0,
+   "rate": null,
+   "ci": [
+    0.0,
+    1.0
+   ],
+   "units": 0,
+   "avg_breakeven": null,
+   "priced": 0,
+   "small_n": true
+  },
+  "prop: atd": {
+   "w": 50,
+   "l": 71,
+   "rate": 0.413,
+   "ci": [
+    0.329,
+    0.502
+   ],
+   "units": 2.8,
+   "avg_breakeven": 0.402,
+   "priced": 121,
+   "small_n": false
+  },
+  "prop: carries": {
+   "w": 4,
+   "l": 3,
+   "rate": 0.571,
+   "ci": [
+    0.25,
+    0.842
+   ],
+   "units": 0.7,
+   "avg_breakeven": 0.512,
+   "priced": 7,
+   "small_n": true
+  },
+  "prop: completions": {
+   "w": 6,
+   "l": 6,
+   "rate": 0.5,
+   "ci": [
+    0.254,
+    0.746
+   ],
+   "units": -1.0,
+   "avg_breakeven": 0.556,
+   "priced": 12,
+   "small_n": true
+  },
+  "prop: fgm": {
+   "w": 0,
+   "l": 0,
+   "rate": null,
+   "ci": [
+    0.0,
+    1.0
+   ],
+   "units": 0,
+   "avg_breakeven": null,
+   "priced": 0,
+   "small_n": true
+  },
+  "prop: first_td": {
+   "w": 11,
+   "l": 82,
+   "rate": 0.118,
+   "ci": [
+    0.067,
+    0.2
+   ],
+   "units": -17.3,
+   "avg_breakeven": 0.133,
+   "priced": 92,
+   "small_n": false
+  },
+  "prop: int_thrown": {
+   "w": 2,
+   "l": 0,
+   "rate": 1.0,
+   "ci": [
+    0.342,
+    1
+   ],
+   "units": 1.6,
+   "avg_breakeven": 0.563,
+   "priced": 2,
+   "small_n": true
+  },
+  "prop: pass_td": {
+   "w": 13,
+   "l": 12,
+   "rate": 0.52,
+   "ci": [
+    0.335,
+    0.7
+   ],
+   "units": -1.1,
+   "avg_breakeven": 0.542,
+   "priced": 24,
+   "small_n": false
+  },
+  "prop: pass_yds": {
+   "w": 6,
+   "l": 6,
+   "rate": 0.5,
+   "ci": [
+    0.254,
+    0.746
+   ],
+   "units": -1.2,
+   "avg_breakeven": 0.565,
+   "priced": 12,
+   "small_n": true
+  },
+  "prop: rec": {
+   "w": 13,
+   "l": 22,
+   "rate": 0.371,
+   "ci": [
+    0.232,
+    0.537
+   ],
+   "units": -10.9,
+   "avg_breakeven": 0.546,
+   "priced": 35,
+   "small_n": false
+  },
+  "prop: rec_yds": {
+   "w": 15,
+   "l": 16,
+   "rate": 0.484,
+   "ci": [
+    0.32,
+    0.652
+   ],
+   "units": -3.3,
+   "avg_breakeven": 0.543,
+   "priced": 31,
+   "small_n": false
+  },
+  "prop: rush_yds": {
+   "w": 10,
+   "l": 10,
+   "rate": 0.5,
+   "ci": [
+    0.299,
+    0.701
+   ],
+   "units": -1.6,
+   "avg_breakeven": 0.557,
+   "priced": 20,
+   "small_n": false
+  },
+  "prop: tds": {
+   "w": 0,
+   "l": 3,
+   "rate": 0.0,
+   "ci": [
+    0,
+    0.562
+   ],
+   "units": -3.0,
+   "avg_breakeven": 0.261,
+   "priced": 3,
+   "small_n": true
+  },
+  "spread": {
+   "w": 13,
+   "l": 13,
+   "rate": 0.5,
+   "ci": [
+    0.321,
+    0.679
+   ],
+   "units": -0.9,
+   "avg_breakeven": 0.514,
+   "priced": 18,
+   "small_n": false
+  },
+  "total": {
+   "w": 11,
+   "l": 15,
+   "rate": 0.423,
+   "ci": [
+    0.255,
+    0.611
+   ],
+   "units": -4.6,
+   "avg_breakeven": 0.514,
+   "priced": 26,
+   "small_n": false
+  }
+ },
+ "by_tier_and_group": {
+  "B side/total": {
+   "w": 8,
+   "l": 7,
+   "rate": 0.533,
+   "ci": [
+    0.301,
+    0.752
+   ],
+   "units": 0.5,
+   "avg_breakeven": 0.515,
+   "priced": 12,
+   "small_n": true
+  },
+  "B prop": {
+   "w": 25,
+   "l": 26,
+   "rate": 0.49,
+   "ci": [
+    0.359,
+    0.623
+   ],
+   "units": -4.5,
+   "avg_breakeven": 0.544,
+   "priced": 51,
+   "small_n": false
+  },
+  "B TD scorer": {
+   "w": 8,
+   "l": 13,
+   "rate": 0.381,
+   "ci": [
+    0.208,
+    0.591
+   ],
+   "units": -4.8,
+   "avg_breakeven": 0.485,
+   "priced": 21,
+   "small_n": false
+  },
+  "C side/total": {
+   "w": 20,
+   "l": 24,
+   "rate": 0.455,
+   "ci": [
+    0.317,
+    0.599
+   ],
+   "units": -3.2,
+   "avg_breakeven": 0.498,
+   "priced": 39,
+   "small_n": false
+  },
+  "C prop": {
+   "w": 44,
+   "l": 49,
+   "rate": 0.473,
+   "ci": [
+    0.375,
+    0.574
+   ],
+   "units": -12.3,
+   "avg_breakeven": 0.549,
+   "priced": 92,
+   "small_n": false
+  },
+  "C TD scorer": {
+   "w": 53,
+   "l": 143,
+   "rate": 0.27,
+   "ci": [
+    0.213,
+    0.337
+   ],
+   "units": -12.8,
+   "avg_breakeven": 0.264,
+   "priced": 195,
+   "small_n": false
+  }
+ },
+ "passes_if_played": {
+  "spread": {
+   "w": 2,
+   "l": 0,
+   "rate": 1.0,
+   "ci": [
+    0.342,
+    1
+   ],
+   "units": 1.8,
+   "avg_breakeven": 0.527,
+   "priced": 2,
+   "small_n": true
+  },
+  "total": {
+   "w": 4,
+   "l": 7,
+   "rate": 0.364,
+   "ci": [
+    0.152,
+    0.646
+   ],
+   "units": -3.3,
+   "avg_breakeven": 0.521,
+   "priced": 11,
+   "small_n": true
+  },
+  "moneyline": {
+   "w": 1,
+   "l": 2,
+   "rate": 0.333,
+   "ci": [
+    0.061,
+    0.792
+   ],
+   "units": -1.4,
+   "avg_breakeven": 0.599,
+   "priced": 2,
+   "small_n": true
+  },
+  "prop": {
+   "w": 2,
+   "l": 11,
+   "rate": 0.154,
+   "ci": [
+    0.043,
+    0.422
+   ],
+   "units": -8.9,
+   "avg_breakeven": 0.507,
+   "priced": 9,
+   "small_n": true
+  }
+ },
+ "prop_direction": {
+  "overs": {
+   "w": 41,
+   "l": 64,
+   "rate": 0.39,
+   "ci": [
+    0.303,
+    0.486
+   ],
+   "units": -27.9,
+   "avg_breakeven": 0.544,
+   "priced": 104,
+   "small_n": false
+  },
+  "unders": {
+   "w": 29,
+   "l": 16,
+   "rate": 0.644,
+   "ci": [
+    0.498,
+    0.768
+   ],
+   "units": 11.0,
+   "avg_breakeven": 0.519,
+   "priced": 45,
+   "small_n": false
+  }
+ },
+ "flags": {
+  "standalone_preferred": {
+   "w": 38,
+   "l": 45,
+   "rate": 0.458,
+   "ci": [
+    0.355,
+    0.565
+   ],
+   "units": 7.8,
+   "avg_breakeven": 0.428,
+   "priced": 82,
+   "small_n": false
+  },
+  "parlay_leg_ok_only": {
+   "w": 89,
+   "l": 172,
+   "rate": 0.341,
+   "ci": [
+    0.286,
+    0.4
+   ],
+   "units": -55.3,
+   "avg_breakeven": 0.408,
+   "priced": 257,
+   "small_n": false
+  },
+  "supercontest_candidate": {
+   "w": 27,
+   "l": 52,
+   "rate": 0.342,
+   "ci": [
+    0.247,
+    0.452
+   ],
+   "units": -8.5,
+   "avg_breakeven": 0.413,
+   "priced": 71,
+   "small_n": false
+  }
+ },
+ "model_prob": {
+  "n": 78,
+  "brier_model": 0.2516,
+  "brier_coinflip": 0.25,
+  "n_priced": 70,
+  "brier_model_priced": 0.2537,
+  "brier_price_implied": 0.252,
+  "reliability": [
+   {
+    "bin": "0.00-0.45",
+    "n": 4,
+    "avg_prob": 0.374,
+    "hit": 0.5
+   },
+   {
+    "bin": "0.45-0.50",
+    "n": 2,
+    "avg_prob": 0.477,
+    "hit": 0.5
+   },
+   {
+    "bin": "0.50-0.55",
+    "n": 61,
+    "avg_prob": 0.528,
+    "hit": 0.475
+   },
+   {
+    "bin": "0.55-0.60",
+    "n": 10,
+    "avg_prob": 0.565,
+    "hit": 0.6
+   },
+   {
+    "bin": "0.60-0.70",
+    "n": 1,
+    "avg_prob": 0.62,
+    "hit": 1.0
+   }
+  ],
+  "by_week": {
+   "7": {
+    "n": 29,
+    "brier": 0.2557
+   },
+   "8": {
+    "n": 17,
+    "brier": 0.2618
+   },
+   "10": {
+    "n": 32,
+    "brier": 0.2425
+   }
+  },
+  "edge_positive": {
+   "w": 28,
+   "l": 29,
+   "rate": 0.491,
+   "ci": [
+    0.366,
+    0.617
+   ],
+   "units": -0.8,
+   "avg_breakeven": 0.506,
+   "priced": 57,
+   "small_n": false
+  },
+  "edge_negative": {
+   "w": 7,
+   "l": 6,
+   "rate": 0.538,
+   "ci": [
+    0.291,
+    0.768
+   ],
+   "units": 0.3,
+   "avg_breakeven": 0.531,
+   "priced": 13,
+   "small_n": true
+  },
+  "edge_ge_3pts": {
+   "w": 8,
+   "l": 8,
+   "rate": 0.5,
+   "ci": [
+    0.28,
+    0.72
+   ],
+   "units": -0.1,
+   "avg_breakeven": 0.489,
+   "priced": 16,
+   "small_n": true
+  }
+ },
+ "edge_pts": {
+  "<1": {
+   "w": 16,
+   "l": 17,
+   "rate": 0.485,
+   "ci": [
+    0.325,
+    0.648
+   ],
+   "units": -2.0,
+   "avg_breakeven": 0.51,
+   "priced": 28,
+   "small_n": false
+  },
+  "1-1.9": {
+   "w": 18,
+   "l": 22,
+   "rate": 0.45,
+   "ci": [
+    0.307,
+    0.602
+   ],
+   "units": -5.4,
+   "avg_breakeven": 0.518,
+   "priced": 37,
+   "small_n": false
+  },
+  "2+": {
+   "w": 24,
+   "l": 13,
+   "rate": 0.649,
+   "ci": [
+    0.488,
+    0.782
+   ],
+   "units": 9.2,
+   "avg_breakeven": 0.518,
+   "priced": 36,
+   "small_n": false
+  }
+ },
+ "by_input_tag": {
+  "simulator / fair line": {
+   "w": 27,
+   "l": 20,
+   "rate": 0.574,
+   "ci": [
+    0.433,
+    0.705
+   ],
+   "units": 13.4,
+   "avg_breakeven": 0.489,
+   "priced": 42,
+   "small_n": false
+  },
+  "injury / role news": {
+   "w": 46,
+   "l": 55,
+   "rate": 0.455,
+   "ci": [
+    0.362,
+    0.552
+   ],
+   "units": -4.1,
+   "avg_breakeven": 0.46,
+   "priced": 98,
+   "small_n": false
+  },
+  "usage / FTN / EPA": {
+   "w": 51,
+   "l": 76,
+   "rate": 0.402,
+   "ci": [
+    0.32,
+    0.489
+   ],
+   "units": -17.6,
+   "avg_breakeven": 0.464,
+   "priced": 127,
+   "small_n": false
+  },
+  "defense matchup": {
+   "w": 38,
+   "l": 41,
+   "rate": 0.481,
+   "ci": [
+    0.374,
+    0.589
+   ],
+   "units": -6.9,
+   "avg_breakeven": 0.519,
+   "priced": 79,
+   "small_n": false
+  },
+  "expert / podcast": {
+   "w": 21,
+   "l": 29,
+   "rate": 0.42,
+   "ci": [
+    0.294,
+    0.558
+   ],
+   "units": -5.9,
+   "avg_breakeven": 0.456,
+   "priced": 46,
+   "small_n": false
+  },
+  "prediction market ref": {
+   "w": 7,
+   "l": 26,
+   "rate": 0.212,
+   "ci": [
+    0.107,
+    0.378
+   ],
+   "units": -13.7,
+   "avg_breakeven": 0.292,
+   "priced": 33,
+   "small_n": false
+  },
+  "line move / price": {
+   "w": 11,
+   "l": 19,
+   "rate": 0.367,
+   "ci": [
+    0.219,
+    0.545
+   ],
+   "units": -9.1,
+   "avg_breakeven": 0.469,
+   "priced": 27,
+   "small_n": false
+  },
+  "splits / money": {
+   "w": 17,
+   "l": 17,
+   "rate": 0.5,
+   "ci": [
+    0.341,
+    0.659
+   ],
+   "units": 1.0,
+   "avg_breakeven": 0.501,
+   "priced": 33,
+   "small_n": false
+  },
+  "weather": {
+   "w": 7,
+   "l": 4,
+   "rate": 0.636,
+   "ci": [
+    0.354,
+    0.848
+   ],
+   "units": 2.3,
+   "avg_breakeven": 0.526,
+   "priced": 10,
+   "small_n": true
+  }
+ },
+ "by_input_tag_sides_totals": {
+  "simulator / fair line": {
+   "w": 19,
+   "l": 15,
+   "rate": 0.559,
+   "ci": [
+    0.395,
+    0.711
+   ],
+   "units": 4.8,
+   "avg_breakeven": 0.493,
+   "priced": 29,
+   "small_n": false
+  },
+  "injury / role news": {
+   "w": 13,
+   "l": 14,
+   "rate": 0.481,
+   "ci": [
+    0.307,
+    0.66
+   ],
+   "units": -1.8,
+   "avg_breakeven": 0.514,
+   "priced": 25,
+   "small_n": false
+  },
+  "usage / FTN / EPA": {
+   "w": 5,
+   "l": 13,
+   "rate": 0.278,
+   "ci": [
+    0.125,
+    0.509
+   ],
+   "units": -8.5,
+   "avg_breakeven": 0.518,
+   "priced": 18,
+   "small_n": true
+  },
+  "defense matchup": {
+   "w": 5,
+   "l": 6,
+   "rate": 0.455,
+   "ci": [
+    0.213,
+    0.72
+   ],
+   "units": -1.3,
+   "avg_breakeven": 0.511,
+   "priced": 11,
+   "small_n": true
+  },
+  "expert / podcast": {
+   "w": 14,
+   "l": 17,
+   "rate": 0.452,
+   "ci": [
+    0.292,
+    0.622
+   ],
+   "units": -3.9,
+   "avg_breakeven": 0.509,
+   "priced": 27,
+   "small_n": false
+  },
+  "prediction market ref": {
+   "w": 0,
+   "l": 0,
+   "rate": null,
+   "ci": [
+    0.0,
+    1.0
+   ],
+   "units": 0,
+   "avg_breakeven": null,
+   "priced": 0,
+   "small_n": true
+  },
+  "line move / price": {
+   "w": 9,
+   "l": 10,
+   "rate": 0.474,
+   "ci": [
+    0.273,
+    0.683
+   ],
+   "units": -1.6,
+   "avg_breakeven": 0.515,
+   "priced": 17,
+   "small_n": true
+  },
+  "splits / money": {
+   "w": 16,
+   "l": 16,
+   "rate": 0.5,
+   "ci": [
+    0.336,
+    0.664
+   ],
+   "units": 1.0,
+   "avg_breakeven": 0.498,
+   "priced": 31,
+   "small_n": false
+  },
+  "weather": {
+   "w": 6,
+   "l": 2,
+   "rate": 0.75,
+   "ci": [
+    0.409,
+    0.929
+   ],
+   "units": 3.6,
+   "avg_breakeven": 0.516,
+   "priced": 7,
+   "small_n": true
+  }
+ },
+ "by_input_tag_props": {
+  "simulator / fair line": {
+   "w": 8,
+   "l": 5,
+   "rate": 0.615,
+   "ci": [
+    0.355,
+    0.823
+   ],
+   "units": 8.6,
+   "avg_breakeven": 0.479,
+   "priced": 13,
+   "small_n": true
+  },
+  "injury / role news": {
+   "w": 33,
+   "l": 41,
+   "rate": 0.446,
+   "ci": [
+    0.338,
+    0.559
+   ],
+   "units": -2.3,
+   "avg_breakeven": 0.441,
+   "priced": 73,
+   "small_n": false
+  },
+  "usage / FTN / EPA": {
+   "w": 46,
+   "l": 63,
+   "rate": 0.422,
+   "ci": [
+    0.334,
+    0.516
+   ],
+   "units": -9.1,
+   "avg_breakeven": 0.455,
+   "priced": 109,
+   "small_n": false
+  },
+  "defense matchup": {
+   "w": 33,
+   "l": 35,
+   "rate": 0.485,
+   "ci": [
+    0.371,
+    0.602
+   ],
+   "units": -5.6,
+   "avg_breakeven": 0.521,
+   "priced": 68,
+   "small_n": false
+  },
+  "expert / podcast": {
+   "w": 7,
+   "l": 12,
+   "rate": 0.368,
+   "ci": [
+    0.191,
+    0.59
+   ],
+   "units": -2.0,
+   "avg_breakeven": 0.38,
+   "priced": 19,
+   "small_n": true
+  },
+  "prediction market ref": {
+   "w": 7,
+   "l": 26,
+   "rate": 0.212,
+   "ci": [
+    0.107,
+    0.378
+   ],
+   "units": -13.7,
+   "avg_breakeven": 0.292,
+   "priced": 33,
+   "small_n": false
+  },
+  "line move / price": {
+   "w": 2,
+   "l": 9,
+   "rate": 0.182,
+   "ci": [
+    0.051,
+    0.477
+   ],
+   "units": -7.5,
+   "avg_breakeven": 0.39,
+   "priced": 10,
+   "small_n": true
+  },
+  "splits / money": {
+   "w": 1,
+   "l": 1,
+   "rate": 0.5,
+   "ci": [
+    0.095,
+    0.905
+   ],
+   "units": -0.1,
+   "avg_breakeven": 0.553,
+   "priced": 2,
+   "small_n": true
+  },
+  "weather": {
+   "w": 1,
+   "l": 2,
+   "rate": 0.333,
+   "ci": [
+    0.061,
+    0.792
+   ],
+   "units": -1.3,
+   "avg_breakeven": 0.55,
+   "priced": 3,
+   "small_n": true
+  }
+ },
+ "by_number_of_input_families": {
+  "0": {
+   "w": 48,
+   "l": 105,
+   "rate": 0.314,
+   "ci": [
+    0.246,
+    0.391
+   ],
+   "units": -9.9,
+   "avg_breakeven": 0.339,
+   "priced": 151,
+   "small_n": false
+  },
+  "1": {
+   "w": 44,
+   "l": 82,
+   "rate": 0.349,
+   "ci": [
+    0.272,
+    0.436
+   ],
+   "units": -22.2,
+   "avg_breakeven": 0.4,
+   "priced": 123,
+   "small_n": false
+  },
+  "2": {
+   "w": 37,
+   "l": 39,
+   "rate": 0.487,
+   "ci": [
+    0.378,
+    0.597
+   ],
+   "units": 2.9,
+   "avg_breakeven": 0.455,
+   "priced": 75,
+   "small_n": false
+  },
+  "3": {
+   "w": 16,
+   "l": 23,
+   "rate": 0.41,
+   "ci": [
+    0.271,
+    0.566
+   ],
+   "units": -6.6,
+   "avg_breakeven": 0.498,
+   "priced": 35,
+   "small_n": false
+  },
+  "4+": {
+   "w": 13,
+   "l": 13,
+   "rate": 0.5,
+   "ci": [
+    0.321,
+    0.679
+   ],
+   "units": -1.3,
+   "avg_breakeven": 0.52,
+   "priced": 26,
+   "small_n": false
+  }
+ },
+ "model_vs_expert_mix": {
+  "model_without_expert": {
+   "w": 16,
+   "l": 10,
+   "rate": 0.615,
+   "ci": [
+    0.425,
+    0.776
+   ],
+   "units": 13.4,
+   "avg_breakeven": 0.473,
+   "priced": 24,
+   "small_n": false
+  },
+  "model_and_expert": {
+   "w": 11,
+   "l": 10,
+   "rate": 0.524,
+   "ci": [
+    0.324,
+    0.717
+   ],
+   "units": 0.0,
+   "avg_breakeven": 0.51,
+   "priced": 18,
+   "small_n": false
+  },
+  "expert_without_model": {
+   "w": 10,
+   "l": 19,
+   "rate": 0.345,
+   "ci": [
+    0.199,
+    0.527
+   ],
+   "units": -5.9,
+   "avg_breakeven": 0.421,
+   "priced": 28,
+   "small_n": false
+  },
+  "neither": {
+   "w": 121,
+   "l": 223,
+   "rate": 0.352,
+   "ci": [
+    0.303,
+    0.404
+   ],
+   "units": -44.6,
+   "avg_breakeven": 0.392,
+   "priced": 340,
+   "small_n": false
+  }
+ },
+ "fair_vs_expert": {
+  "summary": {
+   "expert consensus side, all games": "0-4",
+   "model vs experts (model side)": "2-0",
+   "no expert consensus": "12-5",
+   "no expert consensus [W8 blended model]": "5-5"
+  },
+  "games": [
+   {
+    "week": 8,
+    "game": "LV@NYJ",
+    "market_home_line": -1.5,
+    "fair_home_line": -1.7,
+    "edge": 0.2,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 8,
+    "game": "ARI@DAL",
+    "market_home_line": -7.0,
+    "fair_home_line": -8.2,
+    "edge": 1.2,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 8,
+    "game": "ATL@TB",
+    "market_home_line": -2.5,
+    "fair_home_line": -2.4,
+    "edge": -0.1,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "CLE@PIT",
+    "market_home_line": -3.5,
+    "fair_home_line": -4.6,
+    "edge": 1.1,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "IND@JAX",
+    "market_home_line": -10.0,
+    "fair_home_line": -11.4,
+    "edge": 1.4,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "BAL@BUF",
+    "market_home_line": -3.0,
+    "fair_home_line": -4.0,
+    "edge": 1.0,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "MIN@DET",
+    "market_home_line": -3.5,
+    "fair_home_line": -0.4,
+    "edge": -3.1,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "TEN@CIN",
+    "market_home_line": -12.5,
+    "fair_home_line": -15.0,
+    "edge": 2.5,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 8,
+    "game": "LAC@LAR",
+    "market_home_line": -6.5,
+    "fair_home_line": -8.2,
+    "edge": 1.7,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "NE@MIA",
+    "market_home_line": 7.0,
+    "fair_home_line": 8.2,
+    "edge": -1.2,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "KC@DEN",
+    "market_home_line": 1.5,
+    "fair_home_line": 1.5,
+    "edge": 0.0,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "PHI@WSH",
+    "market_home_line": -6.0,
+    "fair_home_line": -4.3,
+    "edge": -1.7,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 8,
+    "game": "CHI@SEA",
+    "market_home_line": -3.0,
+    "fair_home_line": -1.7,
+    "edge": -1.3,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "CIN@ATL",
+    "market_home_line": 3,
+    "fair_home_line": 3.9,
+    "edge": -0.9,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "NYG@PHI",
+    "market_home_line": 3,
+    "fair_home_line": 3.6,
+    "edge": -0.6,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "DEN@CAR",
+    "market_home_line": 2.5,
+    "fair_home_line": 1.4,
+    "edge": 1.1,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "DET@MIA",
+    "market_home_line": 6,
+    "fair_home_line": 6.2,
+    "edge": -0.2,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "NYJ@KC",
+    "market_home_line": -9.5,
+    "fair_home_line": -9.0,
+    "edge": -0.5,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 9,
+    "game": "CLE@NO",
+    "market_home_line": -3,
+    "fair_home_line": -1.1,
+    "edge": -1.9,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "LAR@WSH",
+    "market_home_line": 4,
+    "fair_home_line": 5.3,
+    "edge": -1.3,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "DAL@IND",
+    "market_home_line": 4.5,
+    "fair_home_line": 3.7,
+    "edge": 0.8,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 9,
+    "game": "HOU@LAC",
+    "market_home_line": 5,
+    "fair_home_line": 5.9,
+    "edge": -0.9,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "LV@SF",
+    "market_home_line": -10,
+    "fair_home_line": -11.2,
+    "edge": 1.2,
+    "model_side": "home",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 9,
+    "game": "ARI@SEA",
+    "market_home_line": -9,
+    "fair_home_line": -9.0,
+    "edge": 0.0,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 9,
+    "game": "GB@NE",
+    "market_home_line": -3,
+    "fair_home_line": -2.6,
+    "edge": -0.4,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "TB@CHI",
+    "market_home_line": -6,
+    "fair_home_line": -3.4,
+    "edge": -2.6,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 9,
+    "game": "BUF@MIN",
+    "market_home_line": 3,
+    "fair_home_line": 2.8,
+    "edge": 0.2,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "WSH@NYG",
+    "market_home_line": -2.5,
+    "fair_home_line": -2.3,
+    "edge": -0.2,
+    "model_side": null,
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "NE@DET",
+    "market_home_line": -3.0,
+    "fair_home_line": -2.2,
+    "edge": -0.8,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 10,
+    "game": "KC@ATL",
+    "market_home_line": 3.0,
+    "fair_home_line": 4.7,
+    "edge": -1.7,
+    "model_side": "away",
+    "expert_picks": {
+     "away": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "HOU@CLE",
+    "market_home_line": 4.5,
+    "fair_home_line": 4.5,
+    "edge": 0.0,
+    "model_side": null,
+    "expert_picks": {
+     "away": 1
+    },
+    "expert_side": null,
+    "covered": "home"
+   },
+   {
+    "week": 10,
+    "game": "MIN@GB",
+    "market_home_line": -2.5,
+    "fair_home_line": -3.5,
+    "edge": 1.0,
+    "model_side": "home",
+    "expert_picks": {
+     "home": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "JAX@TEN",
+    "market_home_line": 11.0,
+    "fair_home_line": 13.6,
+    "edge": -2.6,
+    "model_side": "away",
+    "expert_picks": {
+     "home": 2
+    },
+    "expert_side": "home",
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "MIA@IND",
+    "market_home_line": -4.5,
+    "fair_home_line": -3.4,
+    "edge": -1.1,
+    "model_side": "away",
+    "expert_picks": {},
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "CAR@NO",
+    "market_home_line": -2.0,
+    "fair_home_line": 0.8,
+    "edge": -2.8,
+    "model_side": "away",
+    "expert_picks": {
+     "away": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "BUF@NYJ",
+    "market_home_line": 8.0,
+    "fair_home_line": 8.4,
+    "edge": -0.4,
+    "model_side": null,
+    "expert_picks": {
+     "home": 2
+    },
+    "expert_side": "home",
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "SEA@LV",
+    "market_home_line": 6.5,
+    "fair_home_line": 7.4,
+    "edge": -0.9,
+    "model_side": "away",
+    "expert_picks": {
+     "home": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "LAR@ARI",
+    "market_home_line": 9.5,
+    "fair_home_line": 9.8,
+    "edge": -0.3,
+    "model_side": null,
+    "expert_picks": {
+     "away": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "SF@DAL",
+    "market_home_line": 4.0,
+    "fair_home_line": 6.4,
+    "edge": -2.4,
+    "model_side": "away",
+    "expert_picks": {
+     "home": 2
+    },
+    "expert_side": "home",
+    "covered": "away"
+   },
+   {
+    "week": 10,
+    "game": "PIT@CIN",
+    "market_home_line": -3.5,
+    "fair_home_line": -3.8,
+    "edge": 0.3,
+    "model_side": null,
+    "expert_picks": {
+     "away": 2
+    },
+    "expert_side": "away",
+    "covered": "home"
+   },
+   {
+    "week": 10,
+    "game": "LAC@BAL",
+    "market_home_line": -4.0,
+    "fair_home_line": -6.3,
+    "edge": 2.3,
+    "model_side": "home",
+    "expert_picks": {
+     "home": 1
+    },
+    "expert_side": null,
+    "covered": "away"
+   }
+  ]
+ },
+ "origin": {
+  "W1-9 | Player props | Andy-only": {
+   "w": 381,
+   "l": 366,
+   "rate": 0.51,
+   "ci": [
+    0.474,
+    0.546
+   ],
+   "small_n": false
+  },
+  "W1-9 | Player props | AI-backed (placed)": {
+   "w": 125,
+   "l": 110,
+   "rate": 0.532,
+   "ci": [
+    0.468,
+    0.595
+   ],
+   "small_n": false
+  },
+  "W1-9 | Player props | AI unplaced": {
+   "w": 80,
+   "l": 88,
+   "rate": 0.476,
+   "ci": [
+    0.402,
+    0.551
+   ],
+   "small_n": false
+  },
+  "W1-9 | Sides & totals | Andy-only": {
+   "w": 121,
+   "l": 87,
+   "rate": 0.582,
+   "ci": [
+    0.514,
+    0.647
+   ],
+   "small_n": false
+  },
+  "W1-9 | Sides & totals | AI-backed (placed)": {
+   "w": 80,
+   "l": 96,
+   "rate": 0.455,
+   "ci": [
+    0.383,
+    0.528
+   ],
+   "small_n": false
+  },
+  "W1-9 | Sides & totals | AI unplaced": {
+   "w": 15,
+   "l": 19,
+   "rate": 0.441,
+   "ci": [
+    0.289,
+    0.605
+   ],
+   "small_n": false
+  },
+  "W10 | Player props | Andy-only": {
+   "w": 77,
+   "l": 63,
+   "rate": 0.55,
+   "ci": [
+    0.467,
+    0.63
+   ],
+   "small_n": false
+  },
+  "W10 | Player props | AI-backed (placed)": {
+   "w": 4,
+   "l": 0,
+   "rate": 1.0,
+   "ci": [
+    0.51,
+    1
+   ],
+   "small_n": true
+  },
+  "W10 | Player props | AI unplaced": {
+   "w": 1,
+   "l": 0,
+   "rate": 1.0,
+   "ci": [
+    0.207,
+    1
+   ],
+   "small_n": true
+  },
+  "W10 | Sides & totals | Andy-only": {
+   "w": 17,
+   "l": 11,
+   "rate": 0.607,
+   "ci": [
+    0.424,
+    0.764
+   ],
+   "small_n": false
+  },
+  "W10 | Sides & totals | AI-backed (placed)": {
+   "w": 5,
+   "l": 1,
+   "rate": 0.833,
+   "ci": [
+    0.436,
+    0.97
+   ],
+   "small_n": true
+  },
+  "W10 | Sides & totals | AI unplaced": {
+   "w": 1,
+   "l": 1,
+   "rate": 0.5,
+   "ci": [
+    0.095,
+    0.905
+   ],
+   "small_n": true
+  },
+  "W1-10 | Player props | Andy-only": {
+   "w": 458,
+   "l": 429,
+   "rate": 0.516,
+   "ci": [
+    0.483,
+    0.549
+   ],
+   "small_n": false
+  },
+  "W1-10 | Player props | AI-backed (placed)": {
+   "w": 129,
+   "l": 110,
+   "rate": 0.54,
+   "ci": [
+    0.476,
+    0.602
+   ],
+   "small_n": false
+  },
+  "W1-10 | Player props | AI unplaced": {
+   "w": 81,
+   "l": 88,
+   "rate": 0.479,
+   "ci": [
+    0.405,
+    0.554
+   ],
+   "small_n": false
+  },
+  "W1-10 | Sides & totals | Andy-only": {
+   "w": 138,
+   "l": 98,
+   "rate": 0.585,
+   "ci": [
+    0.521,
+    0.646
+   ],
+   "small_n": false
+  },
+  "W1-10 | Sides & totals | AI-backed (placed)": {
+   "w": 85,
+   "l": 97,
+   "rate": 0.467,
+   "ci": [
+    0.396,
+    0.539
+   ],
+   "small_n": false
+  },
+  "W1-10 | Sides & totals | AI unplaced": {
+   "w": 16,
+   "l": 20,
+   "rate": 0.444,
+   "ci": [
+    0.295,
+    0.604
+   ],
+   "small_n": false
+  },
+  "W5-10 | Player props | Andy-only": {
+   "w": 327,
+   "l": 265,
+   "rate": 0.552,
+   "ci": [
+    0.512,
+    0.592
+   ],
+   "small_n": false
+  },
+  "W5-10 | Player props | AI-backed (placed)": {
+   "w": 60,
+   "l": 47,
+   "rate": 0.561,
+   "ci": [
+    0.466,
+    0.651
+   ],
+   "small_n": false
+  },
+  "W5-10 | Player props | AI unplaced": {
+   "w": 38,
+   "l": 39,
+   "rate": 0.494,
+   "ci": [
+    0.385,
+    0.603
+   ],
+   "small_n": false
+  },
+  "W5-10 | Sides & totals | Andy-only": {
+   "w": 98,
+   "l": 64,
+   "rate": 0.605,
+   "ci": [
+    0.528,
+    0.677
+   ],
+   "small_n": false
+  },
+  "W5-10 | Sides & totals | AI-backed (placed)": {
+   "w": 37,
+   "l": 33,
+   "rate": 0.529,
+   "ci": [
+    0.413,
+    0.641
+   ],
+   "small_n": false
+  },
+  "W5-10 | Sides & totals | AI unplaced": {
+   "w": 11,
+   "l": 10,
+   "rate": 0.524,
+   "ci": [
+    0.324,
+    0.717
+   ],
+   "small_n": false
+  }
+ }
+}

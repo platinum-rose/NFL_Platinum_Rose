@@ -1,0 +1,2186 @@
+{
+ "summary": {
+  "n": 270,
+  "brier_kalshi": [
+   0.2253,
+   270
+  ],
+  "brier_spread_implied": [
+   0.2156,
+   270
+  ],
+  "reliability": {
+   "10-20%": "1/8",
+   "20-30%": "10/35",
+   "30-40%": "29/77",
+   "40-50%": "9/16",
+   "50-60%": "11/18",
+   "60-70%": "35/58",
+   "70-80%": "21/34",
+   "80-90%": "19/24"
+  },
+  "note": "Kalshi price from the last stored snapshot on or before game day (snapshots are irregular, often 1-4 days early). Each game appears twice (both teams)."
+ },
+ "rows": [
+  {
+   "week": 1,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.19714816153420778,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.3150871690837551,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "TEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.17,
+   "p_spread": 0.15865525393145707,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.6305586598182363,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.5442358810453114,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "CHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.72,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.3283606432818852,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.6849128309162449,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.21835001536137888,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "IND",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.3418543937003952,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "DET",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.75,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.36944134018176367,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.7705746740352664,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "MIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.5442358810453114,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.5442358810453114,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "DEN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.57,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.26446846661124007,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.5442358810453114,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "NO",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.61,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.73553153338876,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.6979517285214231,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "DAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.69,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.6716393567181148,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.3418543937003952,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "PHI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.38,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.73553153338876,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "SEA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.78,
+   "p_spread": 0.7591913433207376,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.6716393567181148,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.7705746740352664,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.4557641189546886,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "KC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.81,
+   "p_spread": 0.73553153338876,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.6305586598182363,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "GB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.26446846661124007,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.15865525393145707,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.30204827147857694,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "ARI",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.22,
+   "p_spread": 0.24080865667926238,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.73553153338876,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.26446846661124007,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "TB",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.3,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.73553153338876,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.7816499846386211,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "JAX",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.84,
+   "p_spread": 0.7591913433207376,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "NYJ",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.2,
+   "p_spread": 0.26446846661124007,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4557641189546886,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.2294253259647337,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "NYG",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.4557641189546886,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.5442358810453114,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.7705746740352664,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "HOU",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.7,
+   "p_spread": 0.6581456062996047,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "CAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.44,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.17724223843665593,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.2294253259647337,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.2294253259647337,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "MIA",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.26,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.36944134018176367,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4557641189546886,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "ATL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.3283606432818852,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.26446846661124007,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.6581456062996047,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "WAS",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.34,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.73553153338876,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.8028518384657922,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.5879295521290574,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "BAL",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.56,
+   "p_spread": 0.24080865667926238,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.4557641189546886,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.8413447460685429,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "LAR",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.67,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.73553153338876,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.6849128309162449,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.30204827147857694,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.289257360753972,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.3150871690837551,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "LAC",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.32,
+   "p_spread": 0.3418543937003952,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.8227577615633441,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "SF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.8,
+   "p_spread": 0.73553153338876,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3150871690837551,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3418543937003952,
+   "won": 0
+  },
+  {
+   "week": 7,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.4557641189546886,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "LV",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.21,
+   "p_spread": 0.26446846661124007,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6305586598182363,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.30204827147857694,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4120704478709426,
+   "won": 0
+  },
+  {
+   "week": 8,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "NE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.26446846661124007,
+   "won": 0
+  },
+  {
+   "week": 2,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.26446846661124007,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 1
+  },
+  {
+   "week": 5,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.42654189431596573,
+   "won": 0
+  },
+  {
+   "week": 6,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.3977176056694844,
+   "won": 0
+  },
+  {
+   "week": 9,
+   "team": "CLE",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.39,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 1,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.6849128309162449,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.36944134018176367,
+   "won": 0
+  },
+  {
+   "week": 3,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.5734581056840342,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "PIT",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.45,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5442358810453114,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6581456062996047,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6979517285214231,
+   "won": 1
+  },
+  {
+   "week": 4,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6979517285214231,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.3977176056694844,
+   "won": 1
+  },
+  {
+   "week": 6,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6581456062996047,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "BUF",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 1,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6022823943305156,
+   "won": 1
+  },
+  {
+   "week": 2,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.4120704478709426,
+   "won": 1
+  },
+  {
+   "week": 3,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.6022823943305156,
+   "won": 0
+  },
+  {
+   "week": 4,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5734581056840342,
+   "won": 0
+  },
+  {
+   "week": 5,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.710742639246028,
+   "won": 1
+  },
+  {
+   "week": 7,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  },
+  {
+   "week": 8,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.8413447460685429,
+   "won": 1
+  },
+  {
+   "week": 9,
+   "team": "CIN",
+   "snap": "-11-06.jso",
+   "p_kalshi": 0.62,
+   "p_spread": 0.5879295521290574,
+   "won": 1
+  }
+ ]
+}

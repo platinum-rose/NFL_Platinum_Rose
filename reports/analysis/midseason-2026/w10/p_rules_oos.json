@@ -1,0 +1,938 @@
+{
+ "W10_cash_baseline": {
+  "tickets": 39,
+  "won": 3,
+  "staked": 551.68,
+  "net": -309.62
+ },
+ "P1": {
+  "same_game_side_total_2leg": {
+   "rule_hits": {
+    "tickets": 2,
+    "won": 0,
+    "staked": 54.29,
+    "net": -54.29,
+    "ids": [
+     "20261115_dkp_2pick_solo_snf_pit_p4_5_over45_5",
+     "20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5"
+    ]
+   },
+   "w10_net_if_not_placed": -255.33,
+   "delta": 54.29,
+   "note": "same-game side+total 2-leggers placed for cash"
+  },
+  "td_three_packs": {
+   "rule_hits": {
+    "tickets": 1,
+    "won": 0,
+    "staked": 10.0,
+    "net": -10.0,
+    "ids": [
+     "20261115_dkp_3pick_first_td_cook_hubbard_dhenry"
+    ]
+   },
+   "w10_net_if_not_placed": -299.62,
+   "delta": 10.0,
+   "note": "first-TD / 2+TD 3-packs placed for cash"
+  },
+  "other_2leg": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 42.0,
+   "net": -42.0,
+   "ids": [
+    "20261115_bkr_2team_teaser_ne_p8_5_buf_m2"
+   ]
+  }
+ },
+ "P2": {
+  "rule_hits": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 17.65,
+   "net": -17.65,
+   "ids": [
+    "20261112_betonline_1014711408_tnf_6leg_prop_parlay",
+    "20261115_beo_8leg_atd_gibbs_bijan_javonte_hubbard_tuten_kyren_chas"
+   ]
+  },
+  "w10_net_if_not_placed": -291.97,
+  "delta": 17.65,
+  "note": "BEO cash prop parlays with 5+ legs",
+  "all_beo_cash": {
+   "tickets": 4,
+   "won": 0,
+   "staked": 32.65,
+   "net": -32.65,
+   "ids": [
+    "20261112_betonline_1014711408_tnf_6leg_prop_parlay",
+    "20261115_beo_8leg_atd_gibbs_bijan_javonte_hubbard_tuten_kyren_chas",
+    "20261115_beo_1015545207_ne_det_4leg_sgp",
+    "20261113_beo_1014724720_gb_m3_happy_hour"
+   ]
+  }
+ },
+ "P3": {
+  "rule_hits": {
+   "tickets": 11,
+   "won": 1,
+   "staked": 197.9,
+   "net": -21.32,
+   "ids": [
+    "20261112_dkp_4pick_tnf_rain_run_lb_tackles_andy_solo",
+    "20261112_dkp_6pick_tnf_s4_passing_variant_andy_solo",
+    "20261115_bkr_741847132_master_8team_parlay",
+    "20261115_bkr_741847133_master_rr_4s",
+    "20261115_bkr_sgpplus_8leg_kc_sf_buf_hubbard_pitcin_o465_ward_int",
+    "20261115_dkp_3pick_first_td_cook_hubbard_dhenry",
+    "20261115_dkp_7pick_alejandro_kyren_burrow_higgins_javonte_deebo_be",
+    "20261115_dkp_8pick_solo_bernard_dwash_gesicki_warren_cmc_kittle_la",
+    "20261115_dkp_6pick_solo_snf_higgins_warren_dwash3_burrow_int_burro",
+    "20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harri",
+    "20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo"
+   ]
+  },
+  "w10_net_if_not_placed": -288.3,
+  "delta": 21.32,
+  "note": "tickets that would have been the 3rd+ use of a player-stat leg or game total (first two by time kept)",
+  "most_reused": [
+   [
+    "derrick henry td",
+    5
+   ],
+   [
+    "chuba hubbard td",
+    4
+   ],
+   [
+    "BUF @ NYJ",
+    4
+   ],
+   [
+    "PIT @ CIN",
+    4
+   ],
+   [
+    "jaylen warren td",
+    4
+   ],
+   [
+    "joe burrow pass",
+    4
+   ],
+   [
+    "j.j. mccarthy pass",
+    3
+   ],
+   [
+    "cameron skattebo rush",
+    3
+   ],
+   [
+    "chigoziem okonkwo recv",
+    3
+   ],
+   [
+    "kyren williams td",
+    3
+   ],
+   [
+    "javonte williams td",
+    3
+   ],
+   [
+    "derrick henry rush",
+    3
+   ],
+   [
+    "omarion hampton rush",
+    3
+   ],
+   [
+    "chig okonkwo recv",
+    2
+   ]
+  ],
+  "legs_shared_pct": 0.636,
+  "henry_mnf_cluster": {
+   "tickets": 5,
+   "won": 0,
+   "staked": 49.95,
+   "net": -49.95,
+   "ids": [
+    "20261115_dkp_3pick_first_td_cook_hubbard_dhenry",
+    "20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simps",
+    "20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19at",
+    "20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harri",
+    "20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo"
+   ],
+   "lost_only_on_henry_legs": 1
+  }
+ },
+ "P4": {
+  "fair_lines_w10": {
+   "week": 10,
+   "games": 14,
+   "ats_by_edge": {
+    "0.5": [
+     6,
+     9
+    ],
+    "1": [
+     5,
+     7
+    ],
+    "2": [
+     3,
+     4
+    ]
+   },
+   "ou_by_edge": {
+    "1": [
+     6,
+     12
+    ],
+    "2": [
+     6,
+     8
+    ],
+    "3": [
+     2,
+     3
+    ]
+   },
+   "brier_model": 0.2344,
+   "brier_coinflip": 0.25,
+   "margin_mae_fair": 9.91,
+   "margin_mae_market": 10.46
+  },
+  "fair_lines_w9": {
+   "week": 9,
+   "games": 14,
+   "ats_by_edge": {
+    "0.5": [
+     8,
+     10
+    ],
+    "1": [
+     4,
+     5
+    ],
+    "2": [
+     1,
+     1
+    ]
+   },
+   "ou_by_edge": {
+    "1": [
+     4,
+     8
+    ],
+    "2": [
+     1,
+     3
+    ]
+   },
+   "brier_model": 0.2326,
+   "brier_coinflip": 0.25,
+   "margin_mae_fair": 7.65,
+   "margin_mae_market": 8.25
+  },
+  "expert_spreads": {
+   "w10": {
+    "w": 27,
+    "l": 35,
+    "pct": 0.435,
+    "units": -10.5,
+    "ci": [
+     0.319,
+     0.559
+    ],
+    "small_n": false
+   },
+   "w4_9": {
+    "w": 173,
+    "l": 197,
+    "pct": 0.468,
+    "units": -38.0,
+    "ci": [
+     0.417,
+     0.518
+    ],
+    "small_n": false
+   }
+  },
+  "expert_totals": {
+   "w10": {
+    "w": 6,
+    "l": 11,
+    "pct": 0.353,
+    "units": -5.6,
+    "ci": [
+     0.173,
+     0.587
+    ],
+    "small_n": true
+   },
+   "w4_9": {
+    "w": 55,
+    "l": 35,
+    "pct": 0.611,
+    "units": 15.0,
+    "ci": [
+     0.508,
+     0.705
+    ],
+    "small_n": false
+   }
+  },
+  "expert_best_bets": {
+   "w10": {
+    "w": 10,
+    "l": 18,
+    "pct": 0.357,
+    "units": -8.9,
+    "ci": [
+     0.207,
+     0.542
+    ],
+    "small_n": false
+   },
+   "w4_9": {
+    "w": 57,
+    "l": 70,
+    "pct": 0.449,
+    "units": -17.5,
+    "ci": [
+     0.365,
+     0.536
+    ],
+    "small_n": false
+   }
+  },
+  "expert_by_outlet_w10": {
+   "BettingPros": {
+    "w": 26,
+    "l": 22,
+    "pct": 0.542,
+    "units": 4.7,
+    "ci": [
+     0.403,
+     0.674
+    ],
+    "small_n": false
+   },
+   "Daniel Jeremiah & Bucky Brooks (Daniel Jeremiah & Bucky Brooks)": {
+    "w": 8,
+    "l": 5,
+    "pct": 0.615,
+    "units": 0.1,
+    "ci": [
+     0.355,
+     0.823
+    ],
+    "small_n": true
+   },
+   "Even Money": {
+    "w": 5,
+    "l": 6,
+    "pct": 0.455,
+    "units": -1.5,
+    "ci": [
+     0.213,
+     0.72
+    ],
+    "small_n": true
+   },
+   "Pro Football Talk": {
+    "w": 8,
+    "l": 4,
+    "pct": 0.667,
+    "units": 0.1,
+    "ci": [
+     0.391,
+     0.862
+    ],
+    "small_n": true
+   },
+   "Twitter/X Bookmarks (Personal)": {
+    "w": 16,
+    "l": 17,
+    "pct": 0.485,
+    "units": -2.5,
+    "ci": [
+     0.325,
+     0.648
+    ],
+    "small_n": false
+   },
+   "VSiN": {
+    "w": 10,
+    "l": 18,
+    "pct": 0.357,
+    "units": -8.9,
+    "ci": [
+     0.207,
+     0.542
+    ],
+    "small_n": false
+   }
+  }
+ },
+ "P5": {
+  "by_outlet": {
+   "Warren Sharp": {
+    "W": 1,
+    "L": 1,
+    "units": -0.091,
+    "n": 6
+   },
+   "BettingPros": {
+    "W": 14,
+    "L": 15,
+    "units": -1.799,
+    "n": 41
+   },
+   "Sharp or Square": {
+    "W": 4,
+    "L": 6,
+    "units": -2.364,
+    "n": 10
+   },
+   "Action Network": {
+    "W": 1,
+    "L": 7,
+    "units": -6.091,
+    "n": 10
+   },
+   "Ross Tucker": {
+    "W": 5,
+    "L": 12,
+    "units": -7.455,
+    "n": 17
+   }
+  },
+  "by_market": {
+   "anytime/first TD": {
+    "W": 1,
+    "L": 4,
+    "units": -2.96,
+    "n": 5
+   },
+   "side/total": {
+    "W": 21,
+    "L": 26,
+    "units": -6.911,
+    "n": 49
+   },
+   "player yardage/count": {
+    "W": 3,
+    "L": 11,
+    "units": -7.929,
+    "n": 30
+   }
+  },
+  "overall": {
+   "W": 25,
+   "L": 41,
+   "P": 0,
+   "ungradable": 18,
+   "units": -17.8,
+   "n": 84
+  },
+  "by_expert": {
+   "Sharp or Square (both hosts)": {
+    "W": 2,
+    "L": 3,
+    "units": -1.182,
+    "n": 5
+   },
+   "BettingPros (speaker not attributable)": {
+    "W": 4,
+    "L": 6,
+    "units": -2.364,
+    "n": 10
+   },
+   "Andrew Erickson": {
+    "W": 2,
+    "L": 5,
+    "units": -3.051,
+    "n": 12
+   },
+   "Ross Tucker": {
+    "W": 2,
+    "L": 5,
+    "units": -3.182,
+    "n": 7
+   },
+   "Steve Fezzik": {
+    "W": 3,
+    "L": 7,
+    "units": -4.273,
+    "n": 10
+   }
+  }
+ },
+ "P6": {
+  "atd_priced_w10": {
+   "+100-199": {
+    "w": 0,
+    "n": 2,
+    "rate": 0.0,
+    "breakeven": 0.394
+   },
+   "under even": {
+    "w": 5,
+    "n": 8,
+    "rate": 0.625,
+    "breakeven": 0.643
+   },
+   "+200-349": {
+    "w": 0,
+    "n": 1,
+    "rate": 0.0,
+    "breakeven": 0.333
+   }
+  },
+  "atd_priced_w1_9": {
+   "under even": {
+    "w": 28,
+    "n": 51,
+    "rate": 0.549,
+    "breakeven": 0.616
+   },
+   "+100-199": {
+    "w": 20,
+    "n": 44,
+    "rate": 0.455,
+    "breakeven": 0.409
+   },
+   "+350 up": {
+    "w": 1,
+    "n": 9,
+    "rate": 0.111,
+    "breakeven": 0.162
+   },
+   "+200-349": {
+    "w": 8,
+    "n": 23,
+    "rate": 0.348,
+    "breakeven": 0.309
+   }
+  },
+  "atd_priced_all": {
+   "under even": {
+    "w": 33,
+    "n": 59,
+    "rate": 0.559,
+    "breakeven": 0.619
+   },
+   "+100-199": {
+    "w": 20,
+    "n": 46,
+    "rate": 0.435,
+    "breakeven": 0.409
+   },
+   "+350 up": {
+    "w": 1,
+    "n": 9,
+    "rate": 0.111,
+    "breakeven": 0.162
+   },
+   "+200-349": {
+    "w": 8,
+    "n": 24,
+    "rate": 0.333,
+    "breakeven": 0.31
+   }
+  },
+  "atd_all_w10_unique": {
+   "w": 19,
+   "n": 40
+  },
+  "td_longshot_cash_tickets_w10": {
+   "tickets": 2,
+   "won": 0,
+   "staked": 20.0,
+   "net": -20.0,
+   "ids": [
+    "20261115_dkp_3pick_first_td_cook_hubbard_dhenry",
+    "20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19at"
+   ]
+  }
+ },
+ "P7": {
+  "preferred_cats_w10": {
+   "w": 36,
+   "l": 18,
+   "rate": 0.667,
+   "ci": [
+    0.534,
+    0.778
+   ],
+   "small_n": false
+  },
+  "prop_unders_w10": {
+   "w": 3,
+   "l": 2,
+   "rate": 0.6,
+   "ci": [
+    0.231,
+    0.882
+   ],
+   "small_n": true
+  },
+  "prop_unders_w1_10": {
+   "w": 14,
+   "l": 8,
+   "rate": 0.636,
+   "ci": [
+    0.43,
+    0.803
+   ],
+   "small_n": false
+  },
+  "rec_yds_overs_w10": {
+   "w": 5,
+   "l": 8,
+   "rate": 0.385,
+   "ci": [
+    0.177,
+    0.645
+   ],
+   "small_n": true
+  },
+  "rec_yds_overs_w1_9": {
+   "w": 75,
+   "l": 63,
+   "rate": 0.543,
+   "ci": [
+    0.46,
+    0.624
+   ],
+   "small_n": false
+  },
+  "other_props_w10": {
+   "w": 45,
+   "l": 39,
+   "rate": 0.536,
+   "ci": [
+    0.43,
+    0.638
+   ],
+   "small_n": false
+  },
+  "by_cat_w10": {
+   "2+ TD": {
+    "w": 1,
+    "l": 0,
+    "rate": 1.0,
+    "ci": [
+     0.207,
+     1
+    ],
+    "small_n": true
+   },
+   "Anytime TD": {
+    "w": 19,
+    "l": 21,
+    "rate": 0.475,
+    "ci": [
+     0.329,
+     0.625
+    ],
+    "small_n": false
+   },
+   "Carries": {
+    "w": 2,
+    "l": 3,
+    "rate": 0.4,
+    "ci": [
+     0.118,
+     0.769
+    ],
+    "small_n": true
+   },
+   "First TD": {
+    "w": 1,
+    "l": 2,
+    "rate": 0.333,
+    "ci": [
+     0.061,
+     0.792
+    ],
+    "small_n": true
+   },
+   "Kicker FGs": {
+    "w": 3,
+    "l": 1,
+    "rate": 0.75,
+    "ci": [
+     0.301,
+     0.954
+    ],
+    "small_n": true
+   },
+   "Moneyline (dog)": {
+    "w": 2,
+    "l": 1,
+    "rate": 0.667,
+    "ci": [
+     0.208,
+     0.939
+    ],
+    "small_n": true
+   },
+   "Moneyline (fav)": {
+    "w": 3,
+    "l": 0,
+    "rate": 1.0,
+    "ci": [
+     0.438,
+     1
+    ],
+    "small_n": true
+   },
+   "Passing TDs": {
+    "w": 7,
+    "l": 4,
+    "rate": 0.636,
+    "ci": [
+     0.354,
+     0.848
+    ],
+    "small_n": true
+   },
+   "QB INT thrown": {
+    "w": 8,
+    "l": 4,
+    "rate": 0.667,
+    "ci": [
+     0.391,
+     0.862
+    ],
+    "small_n": true
+   },
+   "QB rushing yds": {
+    "w": 1,
+    "l": 0,
+    "rate": 1.0,
+    "ci": [
+     0.207,
+     1
+    ],
+    "small_n": true
+   },
+   "QB volume": {
+    "w": 4,
+    "l": 4,
+    "rate": 0.5,
+    "ci": [
+     0.215,
+     0.785
+    ],
+    "small_n": true
+   },
+   "Receiving yds": {
+    "w": 5,
+    "l": 8,
+    "rate": 0.385,
+    "ci": [
+     0.177,
+     0.645
+    ],
+    "small_n": true
+   },
+   "Receptions": {
+    "w": 13,
+    "l": 8,
+    "rate": 0.619,
+    "ci": [
+     0.409,
+     0.792
+    ],
+    "small_n": false
+   },
+   "Rushing yds": {
+    "w": 13,
+    "l": 7,
+    "rate": 0.65,
+    "ci": [
+     0.433,
+     0.819
+    ],
+    "small_n": false
+   },
+   "Sacks": {
+    "w": 1,
+    "l": 1,
+    "rate": 0.5,
+    "ci": [
+     0.095,
+     0.905
+    ],
+    "small_n": true
+   },
+   "Spread (dog)": {
+    "w": 0,
+    "l": 5,
+    "rate": 0.0,
+    "ci": [
+     0,
+     0.434
+    ],
+    "small_n": true
+   },
+   "Spread (fav)": {
+    "w": 9,
+    "l": 4,
+    "rate": 0.692,
+    "ci": [
+     0.424,
+     0.873
+    ],
+    "small_n": true
+   },
+   "Tackles+Ast": {
+    "w": 8,
+    "l": 2,
+    "rate": 0.8,
+    "ci": [
+     0.49,
+     0.943
+    ],
+    "small_n": true
+   },
+   "Total Over": {
+    "w": 4,
+    "l": 1,
+    "rate": 0.8,
+    "ci": [
+     0.376,
+     0.964
+    ],
+    "small_n": true
+   },
+   "Total Under": {
+    "w": 2,
+    "l": 2,
+    "rate": 0.5,
+    "ci": [
+     0.15,
+     0.85
+    ],
+    "small_n": true
+   }
+  }
+ },
+ "P8": {
+  "C5_master_rr": {
+   "rule_hits": {
+    "tickets": 1,
+    "won": 1,
+    "staked": 105.0,
+    "net": 71.58,
+    "ids": [
+     "20261115_bkr_741847133_master_rr_4s"
+    ]
+   },
+   "w10_net_if_not_placed": -381.2,
+   "delta": -71.58,
+   "note": "master round robin placed despite C5"
+  },
+  "R9_1_seven_plus": {
+   "rule_hits": {
+    "tickets": 15,
+    "won": 0,
+    "staked": 140.51,
+    "net": -140.51,
+    "ids": [
+     "20261112_dkp_7pick_tnf_skattebo_white_td_tackles_andy_solo",
+     "20261112_dkp_8pick_tnf_lottery_likely_okonkwo_td_andy_solo",
+     "20261114_dkp_7pick_alejandro_mendoza_charbonnet_kittle_flournoy_ky",
+     "20261114_dkp_8pick_alejandro_shough_cousins_watson_cook_jsn_javont",
+     "20261115_bkr_741847132_master_8team_parlay",
+     "20261115_beo_8leg_atd_gibbs_bijan_javonte_hubbard_tuten_kyren_chas",
+     "20261115_bkr_sgpplus_8leg_kc_sf_buf_hubbard_pitcin_o465_ward_int",
+     "20261115_dkp_8pick_alejandro_cmc_lake_beck_dak_emmett_love_burrow_",
+     "20261115_dkp_7pick_alejandro_love_int_mendoza_rice_olave_judkins_d",
+     "20261115_dkp_7pick_alejandro_kyren_burrow_higgins_javonte_deebo_be",
+     "20261115_dkp_7pick_solo_purdy_dakint_warner9_mcbride_mumpfield_cha",
+     "20261115_dkp_8pick_solo_bernard_dwash_gesicki_warren_cmc_kittle_la",
+     "20261116_dkp_7pick_solo_mnf_bal45_henry70_herbert20_henryatd_simps",
+     "20261116_dkp_7pick_solo_mnf_t3_henry2td_henry100_roquan8_henry19at",
+     "20261116_dkp_7pick_solo_mnf_green_sack_herbert_int_hampton20_harri"
+    ]
+   },
+   "w10_net_if_not_placed": -169.11,
+   "delta": 140.51,
+   "note": "cash tickets with 7+ legs",
+   "legs": {
+    "w": 69,
+    "l": 42,
+    "rate": 0.622,
+    "ci": [
+     0.529,
+     0.706
+    ],
+    "small_n": false
+   }
+  },
+  "six_or_fewer_non_rr": {
+   "tickets": 22,
+   "won": 1,
+   "staked": 286.17,
+   "net": -264.23,
+   "ids": [
+    "20261111_fdp_tnf_sgc4_skattebo_mccarthy_daniels_okonkwo_andy_solo",
+    "20261112_betonline_1014711408_tnf_6leg_prop_parlay",
+    "20261112_dkp_4pick_tnf_rain_run_lb_tackles_andy_solo",
+    "20261112_dkp_6pick_tnf_s4_passing_variant_andy_solo",
+    "20261114_dkp_6pick_alejandro_concepcion_jefferson_love_geno_hubbar",
+    "20261114_dkp_5pick_alejandro_maye_goff_gibbs80_henry4_gibbsatd",
+    "20261114_bkr_6leg_unders_kc_gb_cin_cap_alejandro_split",
+    "20261114_bkr_6leg_unders_kc_gb_cin_cap_andy_solo_double",
+    "20261115_bkr_741847526_sc_5team_parlay",
+    "20261115_bkr_5leg_props_cook_taylor_olave_rice_collins",
+    "20261115_beo_1015545207_ne_det_4leg_sgp",
+    "20261115_bkr_2team_teaser_ne_p8_5_buf_m2",
+    "20261113_beo_1014724720_gb_m3_happy_hour",
+    "20261115_dkp_3pick_first_td_cook_hubbard_dhenry",
+    "20261115_dkp_5pick_alejandro_taylor_corum_purdy_warren_ward_int_bo",
+    "20261115_dkp_6pick_alejandro_cmc60_corum_lake6_jsn8_mendoza_lamb",
+    "20261115_dkp_6pick_solo_snf_higgins_warren_dwash3_burrow_int_burro",
+    "20261115_dkp_2pick_solo_snf_pit_p4_5_over45_5",
+    "20261115_dkp_6pick_solo_snf_lotto_dwash_gesicki_warren60_burrow270",
+    "20261116_dkp_6pick_solo_mnf_t2_patterson2fg_andrews3_roquan8_hampt",
+    "20261116_fdp_mnf_sgc3_henry_td_hampton195_henry595_andy_solo",
+    "20261116_bkr_741947214_mnf_live_2h_sgp_u215_lac_p3_5"
+   ]
+  }
+ },
+ "P9": {
+  "w10_recs": 66,
+  "with_model_prob": 52,
+  "tickets": 41,
+  "tickets_with_estimate_in_notes": 8,
+  "tickets_with_rules_version": 0,
+  "tickets_with_closing_line": 0
+ },
+ "P10": {
+  "w10_team_games": 28,
+  "brier_kalshi_w10": 0.1895,
+  "brier_spread_w10": 0.1888,
+  "brier_kalshi_all": 0.2305,
+  "brier_spread_all": 0.2131,
+  "n_all": 298
+ },
+ "pitches": {
+  "master W7": "3-5",
+  "master W8": "1-3",
+  "master W9": "3-1",
+  "master W10": "8-2",
+  "supercontest W7": "4-4",
+  "supercontest W8": "3-5",
+  "supercontest W9": "5-1",
+  "supercontest W10": "4-3"
+ }
+}
