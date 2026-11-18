@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pre-buy rules check for a week's tickets (rules version 2026-W11-r1, approved by Andy 11/17).
+"""Pre-buy rules check for a week's tickets (rules version 2026-W11-r2, approved by Andy 11/17).
 Run it on the proposed tickets BEFORE anything is placed; exit code 1 means a ticket must be cut or changed.
 
 S5  (was P3) correlation cap: at most 2 tickets per slate may carry the same PLAYER (any stat: yards, TD, receptions all
@@ -10,6 +10,11 @@ P1  cash same-game side+total 2-teamer -> needs a fair-line edge >= 1.5 on BOTH 
 P2  no cash prop parlays of 5+ legs at BetOnline.
 P6  cash: no first-TD / 2+TD legs; anytime TD only when priced under +350.
 C5 (no master round robins) retired 11/17.
+Rules version 2026-W11-r2 (Andy 11/17 7 PM):
+S21 cash Island tickets (card_section / title says Island) only in the +400 to +1500 band; Tiers 2-3 promo only.
+S16 cash tickets and the Alejandro split are built from the core four (QB INT, passing TDs, receptions, tackles),
+    3-4 legs at +300 to +600 (note only: a ticket outside that shape is flagged for a look, not blocked).
+S24 3-4 leg cash tickets take rushing-yard milestones one notch lower (note only: confirm the lower rung).
 Cash = real-money funded (promo / free-bet funding is not cash). bankroll_exempt does NOT make a ticket non-cash.
 
 Reads the ledger (data/official-picks/user-placed-wagers-2026.json) for the week, plus optional candidate tickets:
@@ -109,6 +114,26 @@ for w in W:
             p = price(l)
             if p is not None and p >= 350: problems.append(f'P6 {tag}: "{sel}" at +{p:.0f} (ATD must be under +350)')
             elif p is None: notes.append(f'P6 {tag}: "{sel}" has no leg price recorded; confirm it is under +350')
+    od = price(w) if w.get('odds_american') or w.get('price') else None
+    title = ' '.join(str(w.get(k) or '') for k in ('card_section', 'game_title', 'name', 'ticket_type'))
+    if re.search(r'\bisland\b', title, re.I):
+        if od is None: notes.append(f'S21 {tag}: Island cash ticket with no price recorded; cash only at +400 to +1500')
+        elif not (400 <= od <= 1500): problems.append(f'S21 {tag}: Island cash ticket at {od:+.0f} (cash band +400 to +1500; Tiers 2-3 promo only)')
+    CORE = {'int', 'tackles'}
+    def core(l):
+        mk = (l.get('market') or '').lower(); sel = (l.get('selection') or '').lower()
+        return FAM.get(mk) in CORE or mk in ('receptions', 'passing_tds', 'passing_touchdowns') or bool(re.search(r'\b(int|interception|tackle|reception|pass(ing)? td)', sel))
+    alej = (w.get('ownership_shares') or {}).get('Alejandro') or 'alejandro' in json.dumps(w.get('ownership_type') or '').lower()
+    if props and (alej or not rr):
+        off = [l.get('selection') for l in props if not core(l)]
+        shape_ok = 3 <= n <= 4 and (od is None or 300 <= od <= 600)
+        if (off or not shape_ok) and (alej or len(props) == len(legs)):
+            notes.append(f'S16 {tag}{" (Alejandro split)" if alej else ""}: core-four build is 3-4 legs at +300 to +600; this one is {n} legs' +
+                         (f' at {od:+.0f}' if od is not None else '') + (f', non-core legs: {", ".join(map(str, off))}' if off else ''))
+    if 3 <= n <= 4:
+        for l in legs:
+            if (l.get('market') or '').lower() == 'rushing_yards' or re.search(r'rush(ing)? y', l.get('selection') or '', re.I):
+                notes.append(f'S24 {tag}: "{l.get("selection")}" — confirm it is one notch below the main rushing milestone')
     if len(legs) == 2 and len({norm_game(l.get("game")) for l in legs}) == 1:
         mks = {(l.get('market') or '').lower() for l in legs}
         if 'total' in mks and mks & {'spread', 'moneyline'}:
@@ -119,7 +144,7 @@ for slate, keys in sorted(by_slate.items(), key=lambda kv: str(kv[0])):
             problems.append(f'S5 slate {slate}: "{" ".join(x for x in k[1:] if x)}" ({k[0]}) is on {len(ids)} tickets: ' + ', '.join(sorted(ids)))
         elif len(ids) == 2:
             notes.append(f'S5 slate {slate}: "{" ".join(x for x in k[1:] if x)}" ({k[0]}) on 2 tickets (at the cap)')
-print(f'Week {a.week}: {len(W)} tickets checked' + (f' on {a.date}' if a.date else '') + ' (rules 2026-W11-r1)')
+print(f'Week {a.week}: {len(W)} tickets checked' + (f' on {a.date}' if a.date else '') + ' (rules 2026-W11-r2)')
 for p in problems: print('  BREAK  ' + p)
 for n in notes: print('  check  ' + n)
 if not problems: print('  OK: no rule broken')
