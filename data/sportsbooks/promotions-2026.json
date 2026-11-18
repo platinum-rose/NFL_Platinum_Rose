@@ -51,8 +51,9 @@
           "week": 5,
           "result": "BUF 37-34 OT W at LAR (10/12)",
           "amount_usd": 10,
-          "status": "received_unused",
-          "note": "Andy 2026-10-15: credit landed; not used in Week 6, held for a later week."
+          "status": "received_used",
+          "note": "Andy 2026-10-15: credit landed; not used in Week 6, held for a later week.",
+          "applied_to": "bet_20261102_betonline_1011560847_chi_sea_2h_over_freebet ($20 free bet with a second credit, 2H Over 23.5, pending)"
         }
       ],
       "use": "Free roll on a side/total at -110. Each winner pays $9.09.",
@@ -71,6 +72,16 @@
           "source": "bet_20261004_betonline_1002306890_ne_buf_spread",
           "applied_against": "bills_sb ticket 996987591 ($9.09 cash BUF SB boost)",
           "remaining_to_offset_usd": 0.39
+        }
+      ],
+      "usage_log": [
+        {
+          "date": "2026-11-02",
+          "amount_usd": 20,
+          "credits_used": 2,
+          "assumed_credits": "Week 5 + Week 6 (FIFO; Andy to confirm)",
+          "applied_to": "bet_20261102_betonline_1011560847_chi_sea_2h_over_freebet (CHI/SEA 2H Over 23.5 -115, pending)",
+          "win_destination": "BUF futures portfolio ($17.39 if it wins)"
         }
       ]
     },

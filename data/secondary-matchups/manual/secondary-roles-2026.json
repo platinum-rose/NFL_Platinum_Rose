@@ -72,6 +72,42 @@
   },
   {
     "team": "ARI",
+    "player_name": "Kalen King",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "ARI depth-chart starter per ESPN 2026-11-14; default tier - verify."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Kei'Trel Clark",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "ARI depth-chart starter per ESPN 2026-11-07; default tier - verify."
+  },
+  {
+    "team": "ARI",
     "player_name": "Max Melton",
     "position": "CB",
     "role": "outside_cb1",
@@ -162,22 +198,20 @@
   },
   {
     "team": "ATL",
-    "player_name": "Jessie Bates III",
+    "player_name": "DeMarcco Hellams",
     "position": "S",
-    "role": "free_safety",
+    "role": "strong_safety",
     "side": "middle",
-    "impact_tier": "elite",
+    "impact_tier": "starter",
     "receiver_archetypes_impacted": [
-      "field_stretcher",
-      "post_cross_boost"
+      "te_middle"
     ],
     "weakness_tags": [
-      "deep_pass_boost",
-      "post_cross_boost"
+      "te_middle_boost"
     ],
-    "source": "manual_seed_2026",
-    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-    "notes": "ATL Elite Centerfield FS."
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "ATL depth-chart starter per ESPN 2026-11-14; default tier - verify."
   },
   {
     "team": "ATL",
@@ -324,20 +358,20 @@
   },
   {
     "team": "BUF",
-    "player_name": "C.J. Gardner-Johnson",
+    "player_name": "Amani Hooker",
     "position": "S",
-    "role": "free_safety",
+    "role": "strong_safety",
     "side": "middle",
     "impact_tier": "starter",
     "receiver_archetypes_impacted": [
-      "field_stretcher"
+      "te_middle"
     ],
     "weakness_tags": [
-      "deep_pass_boost"
+      "te_middle_boost"
     ],
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
-    "notes": "BUF depth-chart starter per ESPN 2026-09-27; default tier - verify."
+    "notes": "TEN depth-chart starter per ESPN 2026-09-27; default tier - verify. [moved from TEN per ESPN roster 2026-11-14]"
   },
   {
     "team": "BUF",
@@ -372,6 +406,23 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "BUF depth-chart starter per ESPN 2026-09-27; default tier - verify."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Damar Hamlin",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "BUF depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "BUF",
@@ -477,6 +528,24 @@
     "source": "manual_seed_2026",
     "source_url": "https://www.ourlads.com/nfl-depth-charts/",
     "notes": "CAR Lockdown CB1."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Malcolm DeWalt IV",
+    "position": "DB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "CAR depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "CAR",
@@ -950,6 +1019,23 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "DAL depth-chart starter per ESPN 2026-10-02; default tier - verify."
+  },
+  {
+    "team": "DAL",
+    "player_name": "P.J. Locke",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "DAL depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "DEN",
@@ -1494,6 +1580,25 @@
   },
   {
     "team": "JAX",
+    "player_name": "Jessie Bates III",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher",
+      "post_cross_boost"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Elite Centerfield FS. [moved from ATL per ESPN roster 2026-11-14]"
+  },
+  {
+    "team": "JAX",
     "player_name": "Jourdan Lewis",
     "position": "CB",
     "role": "slot_cb",
@@ -1526,6 +1631,23 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "JAX depth-chart starter per ESPN 2026-09-27; default tier - verify."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Rayuan Lane III",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "JAX depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "JAX",
@@ -1595,6 +1717,24 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "KC depth-chart starter per ESPN 2026-09-27; default tier - verify."
+  },
+  {
+    "team": "KC",
+    "player_name": "Jadon Canady",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "KC depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "KC",
@@ -1739,6 +1879,23 @@
     "notes": "LAC depth-chart starter per ESPN 2026-09-27; default tier - verify."
   },
   {
+    "team": "LAC",
+    "player_name": "Tony Jefferson",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "LAC depth-chart starter per ESPN 2026-11-07; default tier - verify."
+  },
+  {
     "team": "LAR",
     "player_name": "Jaylen Watson",
     "position": "CB",
@@ -1754,6 +1911,24 @@
     "source": "manual_seed_2026",
     "source_url": "https://www.ourlads.com/nfl-depth-charts/",
     "notes": "KC Physical CB2. [moved from KC per ESPN roster 2026-09-27]"
+  },
+  {
+    "team": "LAR",
+    "player_name": "Josh Wallace",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "LAR depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "LAR",
@@ -2279,6 +2454,23 @@
   },
   {
     "team": "NO",
+    "player_name": "Martin Emerson Jr.",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "NO depth-chart starter per ESPN 2026-11-07; default tier - verify."
+  },
+  {
+    "team": "NO",
     "player_name": "Quincy Riley",
     "position": "CB",
     "role": "outside_cb2",
@@ -2293,6 +2485,23 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "NO depth-chart starter per ESPN 2026-09-27; default tier - verify."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Ar'Darius Washington",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "NYG depth-chart starter per ESPN 2026-11-14; default tier - verify."
   },
   {
     "team": "NYG",
@@ -2362,6 +2571,24 @@
     "source": "manual_seed_2026",
     "source_url": "https://www.ourlads.com/nfl-depth-charts/",
     "notes": "MIA Top Tier Free Safety. [moved from MIA per ESPN roster 2026-09-27]"
+  },
+  {
+    "team": "NYG",
+    "player_name": "Paulson Adebo",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "NYG depth-chart starter per ESPN 2026-11-07; default tier - verify."
   },
   {
     "team": "NYG",
@@ -2573,6 +2800,23 @@
   },
   {
     "team": "PIT",
+    "player_name": "DeShon Elliott",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "PIT depth-chart starter per ESPN 2026-11-07; default tier - verify."
+  },
+  {
+    "team": "PIT",
     "player_name": "Jalen Ramsey",
     "position": "CB",
     "role": "outside_cb1",
@@ -2767,6 +3011,23 @@
   },
   {
     "team": "SF",
+    "player_name": "Malik Mustapha",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "SF depth-chart starter per ESPN 2026-11-14; default tier - verify."
+  },
+  {
+    "team": "SF",
     "player_name": "Marques Sigle",
     "position": "S",
     "role": "strong_safety",
@@ -2926,23 +3187,6 @@
   },
   {
     "team": "TEN",
-    "player_name": "Amani Hooker",
-    "position": "S",
-    "role": "strong_safety",
-    "side": "middle",
-    "impact_tier": "starter",
-    "receiver_archetypes_impacted": [
-      "te_middle"
-    ],
-    "weakness_tags": [
-      "te_middle_boost"
-    ],
-    "source": "espn_depth_chart_2026",
-    "source_url": "https://www.espn.com/nfl/team/depth/",
-    "notes": "TEN depth-chart starter per ESPN 2026-09-27; default tier - verify."
-  },
-  {
-    "team": "TEN",
     "player_name": "Cor'Dale Flott",
     "position": "CB",
     "role": "outside_cb2",
@@ -3009,6 +3253,23 @@
     "source": "espn_depth_chart_2026",
     "source_url": "https://www.espn.com/nfl/team/depth/",
     "notes": "TEN depth-chart starter per ESPN 2026-09-27; default tier - verify."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Tony Adams",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "espn_depth_chart_2026",
+    "source_url": "https://www.espn.com/nfl/team/depth/",
+    "notes": "TEN depth-chart starter per ESPN 2026-11-14; default tier - verify."
   },
   {
     "team": "WAS",
