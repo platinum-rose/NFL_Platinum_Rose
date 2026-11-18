@@ -26,14 +26,14 @@ Produce Andy's research-grade recommendation for one game, built on every intel 
 - **Pass `sides`**: a recommendation on the **spread**, the **total** and the **moneyline / straight-up winner**, plus SuperContest and pool notes.
 - **Pass `props`**: up to 8 **player props** priced on a real captured book row, plus Anytime-TD and First-TD candidates (Andy always wants 7e ATD 7-leg and 8a First-TD candidates, even when the playbook would cut them).
 
-Each market gets either a pick or an honest **PASS**. A pass with a reason is better than a thin pick. These are proposals Andy reacts to; the card/ticket stage is separate.
+**The spread and the total ALWAYS get a direction** (Andy, 2026-11-17): either a **PLAY** (passes the gates in section 4) or a **LEAN** (the side you would take, with its edge and basis, that does not pass the gates). Never leave a side or total blank or PASS. Moneyline and props may be **PASS**. These are proposals Andy reacts to; the card/ticket stage is separate.
 
 Hard prohibitions (the only binding rules): no wagers or sportsbook clicks; no TheOddsAPI; no Supabase writes; no paid model/API calls (Gemini, AssemblyAI, OpenAI); no edits to ledgers, portfolio, official picks, wagers or bankroll files; no tickets or stakes (no `ticket`, `stake`, `wager_amount`, `bet_slip`, `payout` keys); no git add/commit/reset/clean/stash/push. The checkout is shared: write ONLY the output files in section 7. Do not rerun the roster gate (parallel agents race on its file).
 
 ## 2. Gate notes (advisory only — Andy's standing rule)
 
 One quick pass, then record results in a "Gate notes" section and `gate_notes[]`. Never stop or shorten the run.
-1. Packet `missing_inputs[]`: note each; cap any market that depends on the missing input at tier C.
+1. Packet `missing_inputs[]`: note each; any market that depends on the missing input is at most a LEAN.
 2. Roster: the queue's `roster_vet` block (status, age). If not PASS or stale, treat affected players as unverified and omit their props.
 3. Kickoff: if passed, write a labeled retrospective with no forward pick.
 4. **Never state a player's team, role or status from memory.** Use the packet (`qb_operator_notes` first — those are Andy-confirmed — then availability/projected starters). If a player looks wrong or is missing from ESPN rosters, do one quick web search before deciding. `player-availability/latest.json` has known misclassification bugs.
@@ -45,7 +45,8 @@ One quick pass, then record results in a "Gate notes" section and `gate_notes[]`
 
 - `market`: BKR current line text (Andy's paste, captured time in the source header). **Price from the NEWEST Bookmaker number available**: if the per-game BKR prop-board file (`prop_boards.bookmaker.path`, `capturedAt`) has game spread/total rows newer than the paste, use those and cite both timestamps. Then the Action Network opener (the season's line-movement baseline — label it "AN open"), SuperContest locked line. Compute opener→current movement and BKR vs contest-line gaps.
 - `power_ratings`, `prediction_markets` (Kalshi/Polymarket context only, never an execution venue), FTN team context via `ftn_team_context_selector` (weekly-only by design; never request a refresh), `secondary_matchups`, team dossiers (`team_dossiers` md paths).
-- `splits`: bets% vs money% (Action Network). A money-vs-bets gap of 10+ points is a sharp-money flag; say which side the money is on.
+- `splits`: bets% vs money% (Action Network). **Context only (rule S6/S13): never a reason for a pick**, including "sharp money" or "fade the public" arguments (public side went 46-44; neither direction showed an edge).
+- **Source policy (packet `source_policy`, rule S6):** rows tagged `context_only` (expert spreads/moneylines/teasers, best bets, Action Network, Ross Tucker, VSiN) never count toward a pick or appear in its reasons; `flag_only` (expert totals) may mark a total as worth a look, never support it. Expert player props count as before.
 - `expert_picks_pull`, `article_selections`, `article_notes`, `pick_signals`, `news_notes`, `props_intel_articles`: verify every expert/article is about THIS matchup and THIS week before citing (drop prior-week pieces). Name experts on both sides. Analyst leads were priced at publish time: reprice against BKR and say how far the line moved.
 - `youtube_picks_approved`: approved by Andy as signals. The same pick from the same show in both the audio and YouTube pipelines is ONE opinion (no consensus boost). 4th-quarter, alt-line, SGP and teaser legs are not comparable to the full-game number.
 - `weather` (Open-Meteo forecast). Retractable roofs (ATL, HOU, ARI, and any others noted) decided game-day: weather is moot if closed. Stade de France is open-air.
@@ -55,7 +56,13 @@ One quick pass, then record results in a "Gate notes" section and `gate_notes[]`
 
 - **Simulator:** `node scripts/intel/margin-simulator.mjs --selftest`, then `--home-line <BKR home spread> --total <BKR total> [--margin-adj X] [--total-adj Y]`. You supply judgment adjustments (home-positive points) with a stated reason each. **The simulator re-centres on the line you pass**, so `--margin-adj`/`--total-adj` mean "my view minus the market at that line" — for the SuperContest side, run it again with `--home-line` = the contest line and the same view expressed vs that line; soft cap 2.0, hard cap 3.0. Report baseline vs adjusted cover/over probabilities. Props, team totals, SGPs and teasers have no calibrated joint model: never present them as model probabilities.
 - **Fair line:** state your fair spread and fair total, and the edge in points vs BKR (and vs the SuperContest line for the side).
-- **Tiers:** `A` (strong: multiple independent signals agree, edge ≥1.5 pts or crosses a key number), `B` (solid lean), `C` (thin / conflicted / price-sensitive), `PASS`. Give the **price-sensitivity line**: the number at which the pick turns into a pass (e.g. "playable to -3 -120; pass at -3.5").
+- **Status, not tiers (rules S14, S20, S22; Andy 2026-11-17).** No A/B/C. Every market carries `status` PLAY / LEAN / PASS, a number and a basis:
+  - **Spread: PLAY** only when the fair-line edge vs BKR is **2.0+ points** (fair line = halfway between market and your model view, as in the fair-lines script). Otherwise **LEAN** in the direction of your edge. A PLAY is a flat-stake straight bet; a LEAN is never a cash parlay leg. Backtest note: W3-10 2+ edges went 24-16, not yet proven; say so if the edge is model-only.
+  - **Total: the model's fair total is NOT a reason** (backtest: fair-total edge 2+ went 11-23). An **Under PLAY** needs wind 15+ km/h or a named QB downgrade; an **Over PLAY** needs a named non-model reason (injury, pace, weather). Otherwise **LEAN**, with the reason you lean that way.
+  - **Props: PLAY** only when your probability beats the no-vig price by **4+ points**; otherwise LEAN or PASS. ATD/First-TD candidates are listed as asked but WR/TE ATD, first TD and 2+ TD are promo-only.
+  - **Number and basis on every line:** `edge_pts` (sides/totals) or `edge_prob` (props), and ONE `basis` from: model, usage, matchup, news, expert, market (`expert` only for props; see source policy).
+  - **Probabilities:** shrink every stated probability halfway to the no-vig market (a 55% read against a 51% market is stated as 53%). Report the raw number too.
+  - Give the **price-sensitivity line**: the number at which a PLAY becomes a LEAN (e.g. "PLAY to -3 -120; LEAN at -3.5").
 - **Card-fit flags** (help the card stage, no stakes): `supercontest_candidate` (y/n, at the contest line), `straight_up_winner` + `pool_confidence` 1–16 (BUK BUK is straight-up; confidence pools rank), `parlay_leg_ok` (y/n and why), `standalone_preferred` (y when the edge is large — the TNF lesson: don't bury the best-margin reads inside long parlays).
 - **Counter-case is required** for every pick: what makes the other side right.
 - Every non-trivial claim carries `[Source: path or packet field, timestamp]`. No auditable source → Ambiguity section, not the thesis.
@@ -63,7 +70,7 @@ One quick pass, then record results in a "Gate notes" section and `gate_notes[]`
 ## 5. Report structure (markdown)
 
 1. Header: game, pass, as-of PT, kickoff, packet built_at, roster_vet status.
-2. **Recommendation box** (top): one line per market — `SPREAD: <pick @ BKR line/price> | tier | fair line | edge | playable-to` ; same for `TOTAL`, `MONEYLINE/SU`; then `SuperContest`, `Pool (SU / confidence)`. Props pass: a table — player, market, line, price, book, capturedAt, projection/basis, tier, parlay_leg_ok; then ATD and First-TD candidates.
+2. **Recommendation box** (top): one line per market — `SPREAD: <pick @ BKR line/price> | PLAY or LEAN | basis | fair line | edge | play-to` ; same for `TOTAL`, `MONEYLINE/SU`; then `SuperContest`, `Pool (SU / confidence)`. Props pass: a table — player, market, line, price, book, capturedAt, projection/basis, status, edge_prob, parlay_leg_ok; then ATD and First-TD candidates.
 3. Game script (how the game likely plays out).
 4. QB / availability (with "if out/in" scenarios).
 5. Market: opener→current, BKR vs contest line, splits with sharp flags.
@@ -81,7 +88,7 @@ Return a summary of 8 lines or fewer: the recommendation box lines, top 2 risks,
 ## 7. Outputs (create dirs; never overwrite another game's file)
 
 - Report: `reports/intel/games/<SEASON>-w<WW>-game-<AWAY>_at_<HOME>-<PASS>.md`
-- Structured: `data/research-intel/proposed/games-w<WW>/<SEASON>-w<WW>-game-<AWAY>_at_<HOME>-<PASS>.json` with keys: `game, pass, generated_at, packet_built_at, recommendations[]` (each: `market` [spread|total|moneyline|player_prop|atd|first_td], `selection`, `line`, `price`, `book`, `captured_at`, `tier`, `fair_line`, `edge_pts`, `playable_to`, `model_prob` (sim only, null for props), `supercontest_candidate`, `straight_up_winner`, `pool_confidence`, `parlay_leg_ok`, `standalone_preferred`, `reasons[]`, `counter_case`), `adjustments{margin_adj,total_adj,reasons}`, `sim_runs`, `sources[]`, `ambiguities[]`, `delta_checklist[]`, `gate_notes[]`. No forbidden keys.
+- Structured: `data/research-intel/proposed/games-w<WW>/<SEASON>-w<WW>-game-<AWAY>_at_<HOME>-<PASS>.json` with keys: `game, pass, generated_at, packet_built_at, recommendations[]` (each: `market` [spread|total|moneyline|player_prop|atd|first_td], `selection`, `line`, `price`, `book`, `captured_at`, `tier` (now PLAY | LEAN | PASS; side and total are never PASS), `basis`, `fair_line`, `edge_pts`, `edge_prob` (props), `playable_to`, `model_prob_raw`, `model_prob` (shrunk halfway to the no-vig price; sim only, null for props), `supercontest_candidate`, `straight_up_winner`, `pool_confidence`, `parlay_leg_ok`, `standalone_preferred`, `reasons[]`, `counter_case`), `adjustments{margin_adj,total_adj,reasons}`, `sim_runs`, `sources[]`, `ambiguities[]`, `delta_checklist[]`, `gate_notes[]`. No forbidden keys.
 - Run log: append ONE line to `reports/intel/games/<SEASON>-w<WW>-game-RUNLOG.md`: `UTC | GAME | PASS | COMPLETE | headline picks/tiers | files`.
 
 Do not commit; the coordinating session stages named files.
