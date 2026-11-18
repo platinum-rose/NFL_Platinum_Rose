@@ -7,7 +7,7 @@ import fs from 'node:fs';
 const arg = (k) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : null; };
 const IN = arg('--in'), DATE = arg('--date'), WEEK = arg('--week');
 if (!IN || !DATE || !WEEK) { console.error('usage: --in <dump.txt> --date YYYY-MM-DD --week N'); process.exit(1); }
-const raw = fs.readFileSync(IN, 'utf8').split('\n');
+const raw = fs.readFileSync(IN, 'utf8').split(/\r?\n/); // tolerate CRLF dumps (Windows)
 const PM = [['Passing Yards','pass_yds'],['Pass Completions','pass_cmp'],['Passing Touchdowns','pass_td'],['Receptions','rec'],['Receiving Yards','rec_yds'],['Rushing Yards','rush_yds'],['Carries','carries']];
 const TD = { 'Player To Score 1st Touchdown':'first_td','Player To Score 1+ Touchdown':'atd_1_plus','Player To Score 2+ Touchdown':'td_2_plus','Player To Score 3+ Touchdown':'td_3_plus' };
 const PERIOD = [['First Half','first_half_lines'],['Second Half','second_half_lines'],['First Quarter','first_quarter_lines'],['Second Quarter','second_quarter_lines'],['Third Quarter','third_quarter_lines'],['Fourth Quarter','fourth_quarter_lines']];
@@ -15,7 +15,7 @@ const odds = (s) => (s == null ? null : Number(s));
 const events = []; let ev = null, sec = null, secIdx = -1;
 for (const line of raw) {
   const [k, ...rest] = line.split('|'); const v = rest.join('|');
-  if (k === 'EVENT') { const [name, url, at] = rest; ev = { event: name, eventUrl: 'https://be.bookmaker.eu' + url, capturedAt: at, rows: [] }; events.push(ev); secIdx = -1; continue; }
+  if (k === 'EVENT') { const [name, url, at] = rest; ev = { event: name, eventUrl: url.startsWith('http') ? url : 'https://be.bookmaker.eu' + url, capturedAt: at, rows: [] }; events.push(ev); secIdx = -1; continue; }
   if (!ev) continue;
   if (k === 'T') {
     secIdx++; const t = v.replace(/^.{2,40}?\svs\s.{2,40}?\s*:\s*/i, '');
