@@ -290,11 +290,23 @@ async function runCadence(day) {
       break;
 
     case 'saturday':
-      console.log(`${c.cyan}1. Checking Official Pick Inbox...${c.reset}`);
+      // 2026-11-17 (Andy, audit decision 10): refresh article review and props intel BEFORE the Saturday
+      // synthesis queue (W10's used an 83-hour-old review). build-game-synthesis-queue.py now refuses
+      // weekend builds when either is older than 24 h. Both are free (local files, read-only Supabase, ESPN).
+      {
+        const since = new Date();
+        since.setHours(0, 0, 0, 0);
+        since.setDate(since.getDate() - ((since.getDay() + 5) % 7));
+        console.log(`${c.cyan}1. Rebuilding Article Intel Review (since ${since.toISOString()})...${c.reset}`);
+        await run('node', ['scripts/build-article-intel-review.js', '--since', since.toISOString()]);
+      }
+      console.log(`${c.cyan}2. Rebuilding Player Props Intel...${c.reset}`);
+      await run('node', ['scripts/build-player-props-intel.js']);
+      console.log(`${c.cyan}3. Checking Official Pick Inbox...${c.reset}`);
       await run('node', ['scripts/official-pick-ledger.js', 'inbox']);
-      console.log(`${c.cyan}2. Final Pre-Sunday Market Lines CLV Check...${c.reset}`);
+      console.log(`${c.cyan}4. Final Pre-Sunday Market Lines CLV Check...${c.reset}`);
       await run('node', ['scripts/sync-live-market-lines.mjs']);
-      console.log(`${c.cyan}3. Syncing Placed Wagers & Cloud Bankroll...${c.reset}`);
+      console.log(`${c.cyan}5. Syncing Placed Wagers & Cloud Bankroll...${c.reset}`);
       await run('node', ['scripts/sync-placed-wagers-to-bankroll.mjs']);
       break;
 
