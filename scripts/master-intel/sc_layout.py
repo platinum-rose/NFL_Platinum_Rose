@@ -20,7 +20,7 @@ def H(s):
 
 
 def spread_safe(text):
-    t = str(text or '')
+    t = re.sub(r'\s+', ' ', html.unescape(str(text or '')))   # collapse newlines/nbsp first: 'under\n22' must fail too
     return not any(re.search(p, t) for p, _ in FORBIDDEN)
 
 

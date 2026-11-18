@@ -16,6 +16,9 @@ Steps (read-only on the wagers ledger and paper ledger; never places, settles, s
   9 work/wN/postmortem_wN.md index; ends with the "max 3 rules for next week" prompt
 """
 import argparse, datetime, glob, json, os, shutil, subprocess, sys, urllib.request
+for _s in (sys.stdout, sys.stderr):  # Task Scheduler logs to a cp1252 console; keep U+2212 etc. from crashing the run
+    try: _s.reconfigure(encoding='utf-8', errors='replace')
+    except Exception: pass
 D = os.path.dirname(os.path.abspath(__file__)); RECAP = os.path.abspath(os.path.join(D, '..'))
 ROOT = os.path.abspath(os.path.join(RECAP, '..', '..', '..'))
 PY = sys.executable

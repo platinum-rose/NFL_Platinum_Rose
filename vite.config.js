@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from "path"
 import { spawn } from 'node:child_process'
+import { protectReportPackets } from './scripts/master-intel/protect-report-packets.mjs'
 
 // Auto-launches the local Platinum Rose AI inbox/ledger server (scripts/official-pick-inbox-server.js,
 // normally started manually via "Launch Platinum Rose Inbox.cmd" or `npm run official:picks:serve`)
@@ -43,7 +44,11 @@ function officialPicksInboxServerPlugin() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => {
+  // `vite build` empties dist/. Save every report packet there to the permanent archive first
+  // (reports/intel/packets-archive/); throws (stopping the build) if it can't.
+  if (command === 'build') protectReportPackets(__dirname)
+  return {
   plugins: [react(), officialPicksInboxServerPlugin()],
 
   base: '/platinum-rose-app/',
@@ -74,4 +79,5 @@ export default defineConfig({
       },
     },
   },
+  }
 })

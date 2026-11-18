@@ -74,7 +74,7 @@ def main():
                         ml={k: v['odds'] for k, v in ((aw, ma), (hm, mh)) if v},
                         carried_from_before_cutoff=any([sp_c, to_c, ma_c, mh_c]))
     cut_pt = cut_dt.astimezone(PT)
-    label = f"Action Network open, {cut_pt.strftime('%a %-m/%-d')} {cut_pt.strftime('%-I:%M %p')} PT"
+    label = f"Action Network open, {cut_pt:%a} {cut_pt.month}/{cut_pt.day} {cut_pt.hour % 12 or 12}:{cut_pt:%M %p} PT"  # portable: no %-m/%-I (Windows)
     doc = dict(schema='actionnetwork_openers_v1', season=a.season, week=a.week, cutoff_utc=cut + 'Z', label=label,
                pulled_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
                source=f'{API}/scoreboard/nfl + {API}/markets/event/<id>/history, book_id {OPEN_BOOK} ("Open")',

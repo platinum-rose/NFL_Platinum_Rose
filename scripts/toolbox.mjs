@@ -17,7 +17,7 @@
  */
 
 import { spawn } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync, statSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { createInterface } from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
@@ -155,6 +155,33 @@ async function showStatus() {
   }
 }
 
+/**
+ * BEO futures snapshot (2026-11-06). BetOnline pulls futures during games (TNF), so the weekly snapshot runs Tuesday.
+ * The scraper launches the .chrome-bol profile (port 9223) itself. If the hourly line capture holds the shared BOL lock,
+ * it exits 0 without writing, so success = a new betonline-futures-*.json; otherwise wait and retry once.
+ */
+async function runFuturesSnapshot() {
+  const dir = path.join(ROOT, 'data', 'generated', 'futures');
+  const newest = () => {
+    try {
+      return readdirSync(dir).filter((f) => /^betonline-futures-.*\.json$/.test(f) && !f.includes('.dry'))
+        .map((f) => statSync(path.join(dir, f)).mtimeMs).reduce((a, b) => Math.max(a, b), 0);
+    } catch { return 0; }
+  };
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const before = newest();
+    const ok = await runCmd('node', ['scripts/props/cron-bol-futures-scrape.mjs']);
+    if (ok && newest() > before) return true;
+    if (!ok) return false; // scraper/gate error: raw dump kept, see log
+    if (attempt === 1) {
+      console.log(`${c.yellow}  No new futures file (BOL lock busy?). Retrying in 3 minutes...${c.reset}`);
+      await new Promise((r) => setTimeout(r, 180000));
+    }
+  }
+  console.log(`${c.red}  Futures snapshot not written. Run by hand: npm run futures:bol${c.reset}`);
+  return false;
+}
+
 /** Week to post-mortem: --week N if given, else the week before the current NFL week (Tuesday reports the new week). */
 function postmortemWeek() {
   const i = process.argv.indexOf('--week');
@@ -205,6 +232,19 @@ async function runCadence(day) {
         console.log(`${c.cyan}8. Post-mortem Week ${pmWeek} (box scores, grader cross-check, scorecard, rules check, season-recap page)...${c.reset}`);
         await run(repoPython(), ['reports/bets/season-recap/scripts/postmortem.py', '--week', String(pmWeek), '--fetch']);
       }
+      // 2026-11-06: weekly BEO futures snapshot. Futures came down during W9 TNF before a Friday pull, so it moves to Tuesday.
+      console.log(`${c.cyan}9. BetOnline futures snapshot (SB / conference / division / awards / win totals)...${c.reset}`);
+      results.push(await runFuturesSnapshot());
+      // 2026-11-13 (Andy): team dossiers must be complete every week (Final Gate A2). After step 8, which caches the ESPN box scores:
+      // nflverse games/team_stats (append-only) -> team profile snapshots + standings -> dossiers for the new week.
+      console.log(`${c.cyan}10. Team-input refresh + team dossiers for the new week (gate A2)...${c.reset}`);
+      await run(repoPython(), ['scripts/intel/weekly_team_refresh.py', '--week', String(postmortemWeek())]);
+      break;
+
+    case 'futures':
+      // Re-run the futures snapshot on its own: node scripts/toolbox.mjs --cadence futures
+      console.log(`${c.cyan}1. BetOnline futures snapshot...${c.reset}`);
+      results.push(await runFuturesSnapshot());
       break;
 
     case 'postmortem': {
@@ -232,6 +272,9 @@ async function runCadence(day) {
       }
       console.log(`${c.cyan}4. Processing Twitter/X Bookmarks...${c.reset}`);
       await run('node', ['agents/twitter-bookmarks-agent.js']); // live: Andy 2026-10-07 (bookmark sync already runs live; dedups)
+      // 2026-11-13 (Andy): Action Network openers (line-move baseline, Final Gate L3) every Wednesday morning. Read-only; re-running is safe.
+      console.log(`${c.cyan}5. Action Network openers (line-move baseline, gate L3)...${c.reset}`);
+      await run(repoPython(), ['scripts/master-intel/actionnetwork_openers.py', '--week', String(getNFLWeekInfo(new Date()).week)]);
       break;
 
     case 'wednesday-pm':
@@ -332,7 +375,7 @@ async function runCadence(day) {
       break;
 
     default:
-      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets, postmortem.${c.reset}`);
+      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets, postmortem, futures.${c.reset}`);
   }
 
   return results.every(Boolean);
@@ -458,6 +501,7 @@ Usage:
   node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets
   node scripts/toolbox.mjs --cadence sunday --no-launch   # build the tracker without opening a browser (scheduled runs)
   node scripts/toolbox.mjs --cadence postmortem [--week 9] [--force] [--no-page]   # weekly post-mortem (also step 8 of tuesday)
+  node scripts/toolbox.mjs --cadence futures         # BetOnline futures snapshot (also step 9 of tuesday)
   node scripts/toolbox.mjs --generate-tracker       # Generates public/live-tracker-sunday.html
   node scripts/toolbox.mjs --launch-tracker         # Launches sunday tracker in browser
   node scripts/toolbox.mjs --reconcile [--dry-run]  # Grades wagers and reconciles split ledger

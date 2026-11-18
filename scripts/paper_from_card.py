@@ -32,14 +32,14 @@ PROPS = [
     (r'longest reception', 'longest_reception', 'longest_reception'),
     (r'pass(?:ing)? TDs?\b|pass TD', 'passing_touchdowns', 'passing_touchdowns'),
     (r'passing yds|passing yards', 'passing_yards', 'passing_yards'),
-    (r'rushing yds|rushing yards', 'rushing_yards', 'rushing_yards'),
+    (r'rush(?:ing)? yds|rushing yards', 'rushing_yards', 'rushing_yards'),
     (r'receiving yds|receiving yards', 'receiving_yards', 'receiving_yards'),
     (r'completions', 'pass_completions', 'pass_completions'),
     (r'interceptions thrown|\bINT\b', 'pass_interceptions', 'interceptions_thrown'),
     (r'sacks taken', 'sacks_taken', 'sacks_taken'),
     (r'tackles \+ assists|tackles and assists', 'tackles_assists', 'tackles_combined'),
     (r'\bsacks?\b', 'sacks', 'sacks'),
-    (r'carries|rushing attempts', 'carries', 'carries'),
+    (r'carries|rush(?:ing)? attempts', 'carries', 'carries'),
     (r'receptions', 'receptions', 'receptions'),
     (r'first TD', 'first_touchdown', 'first_touchdown'),
     (r'anytime TD', 'anytime_touchdown', 'touchdowns'),
@@ -101,6 +101,9 @@ def leg_from(row, n, tid, starts):
     ou = re.search(r'\b(Over|Under|O|U)\s?(\d+(?:\.\d+)?)', mkt, re.I)
     direction = ('over' if ou.group(1).lower() in ('over', 'o') else 'under') if ou else None
     line = float(ou.group(2)) if ou else None
+    if not ou:  # 'N+' thresholds (e.g. 'rush yds 79+') = over N-0.5
+        plus = re.search(r'(\d+(?:\.\d+)?)\+\s*$', mkt)
+        if plus: line, direction = float(plus.group(1)) - 0.5, 'over'
     # game total
     if re.fullmatch(r'(Over|Under) \d+(\.\d+)?', mkt):
         L.update(team=f'{away}/{home}', opponent='', market='total', line=line, direction=direction, target_stat='total')

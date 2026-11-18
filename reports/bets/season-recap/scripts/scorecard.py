@@ -60,8 +60,10 @@ def projections(week):
         p = os.path.join(ROOT, 'reports', 'intel', f'w{week:02d}-model', name)
         if os.path.exists(p):
             out = {}
-            for g in json.load(open(p, encoding='utf-8')):
-                T, Mh = g.get('fair_total'), g.get('fair_home_line')
+            data = json.load(open(p, encoding='utf-8'))
+            if isinstance(data, dict): data = data.get('games') or []  # W9+ format: {meta, games}; home spread in fair_line
+            for g in data:
+                T, Mh = g.get('fair_total'), g.get('fair_home_line', g.get('fair_line'))
                 if T is None or Mh is None: continue
                 m = -Mh; out[g['game'].replace(' ', '')] = (round((T - m) / 2, 1), round((T + m) / 2, 1))
             return out, os.path.relpath(p, ROOT)

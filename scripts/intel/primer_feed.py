@@ -34,7 +34,7 @@ for n in notes['notes']:
 wk_dates = set()
 for g in main['games']:
     d = g.get('kickoffEt', '')[:10]
-    if d: wk_dates.add(datetime.date.fromisoformat(d).strftime('%-m/%-d/%y'))
+    if d: _d = datetime.date.fromisoformat(d); wk_dates.add(f'{_d.month}/{_d.day}/{_d:%y}')   # portable (Windows has no %-m)
 for s in extra.get('systems', []):
     for p in s.get('plays') or []:
         if p['date'] not in wk_dates: continue

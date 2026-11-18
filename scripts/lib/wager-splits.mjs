@@ -10,7 +10,9 @@ export function wagerSplit(wager) {
   if (!Number.isInteger(count) || count < 2 || !(fraction > 0 && fraction <= 1)) {
     throw new Error(`Invalid split metadata: ${wager.id}`);
   }
-  const stake = Number(wager.cash_risk_usd ?? wager.stake_usd ?? 0);
+  // Andy 2026-11-08: a split partner owes his share of the ticket's face stake even when Andy
+  // funded it with promo credit or free money; he never benefits from Andy's promos.
+  const stake = Math.max(Number(wager.cash_risk_usd || 0), Number(wager.stake_usd || 0), Number(wager.promo_credit_stake_usd || 0));
   const payout = Number(wager.potential_payout_usd ?? (stake + Number(wager.potential_profit_usd || 0)));
   const contribution = Number(partner?.contribution_usd ?? (stake * fraction));
   const payoutCents = Math.round(payout * 100);

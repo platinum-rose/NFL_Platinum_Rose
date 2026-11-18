@@ -57,6 +57,19 @@ const newest = (dir, re) => {
   } catch { return null; }
 };
 function stamp(p, j) {
+  if (/^data\/generated\/player-usage-trends-\d{4}\.json$/.test(p)) {
+    // A rebuild is not a source refresh. Legacy outputs lack provenance, so
+    // use the older of their build time and the source CSV's modification time.
+    const sourceStamp = j?.source_generated_at || j?.source?.modified_at;
+    if (sourceStamp) {
+      const t = new Date(sourceStamp);
+      return Number.isNaN(+t) ? null : t;
+    }
+    const sourceTime = mtime('data/vault-seed/nflverse/player_stats_weekly.csv');
+    const built = new Date(j?.generated_at);
+    if (!sourceTime) return null;
+    return !Number.isNaN(+built) && built < sourceTime ? built : sourceTime;
+  }
   const cands = [j?.generated_at, j?.meta?.generated_at, j?.captured_at, j?.updated_at, j?.pulled_at, j?.as_of, j?.recorded_at];
   const s = cands.find(Boolean);
   const t = s ? new Date(s) : null;

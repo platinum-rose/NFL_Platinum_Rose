@@ -44,6 +44,13 @@ def main():
                footer_template='<div style="font-size:8px;width:100%;text-align:center;color:#64748b;">Platinum Rose Master Intel — for entertainment purposes only — page <span class="pageNumber"></span> of <span class="totalPages"></span></div>')
         b.close()
     print(f'wrote {pdf}')
+    try:  # keep the PDF with its build in the permanent archive (dist/ is wiped by `vite build`)
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import packet_archive
+        d = packet_archive.attach_pdf(pdf)
+        if d: print(f'archived -> {d}')
+    except Exception as e:
+        print(f'WARNING: PDF not archived ({e}); run packet_archive.py by hand')
 
 if __name__ == '__main__':
     main()

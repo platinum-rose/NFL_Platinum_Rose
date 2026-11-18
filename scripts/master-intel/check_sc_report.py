@@ -91,7 +91,10 @@ def check(week, season, out_dir=None):
         if i not in ids: fails.append(f'layout: missing #{i} ({label})')
     for t, label in REQUIRED_TEXT.items():
         if t not in raw: fails.append(f'layout: missing {label}')
-    for wk in range(1, week + 1):
+    # Require the current-week review only once all contest games are final.
+    sides = rep.get("sides") or []
+    current_week_complete = bool(sides) and all(s.get("result") in ("Win", "Loss", "Push") for s in sides)
+    for wk in range(1, week + (1 if current_week_complete else 0)):
         if f'sc-week-review-{wk}' not in ids: fails.append(f'season review: missing Week {wk} post-mortem (#sc-week-review-{wk})')
     if 'Amanda Rose' not in text: fails.append('standings: Amanda Rose not shown')
     # v4 layout (Andy, locked 2026-10-31)

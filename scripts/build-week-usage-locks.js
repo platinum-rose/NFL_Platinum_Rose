@@ -40,7 +40,8 @@
 //     [--weekly <path>] [--dry-run]
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getTeamAbbreviation } from '../src/lib/teams.js';
@@ -91,13 +92,19 @@ const num = (v) => { if (v === '' || v == null || v === 'NA') return null; const
 
 async function loadTable(p) {
   const raw = await readFile(p, 'utf8');
+  const sourceStat = await stat(p);
   const rows = parseCSV(raw);
   const header = rows[0];
-  return rows.slice(1).filter((r) => r.length === header.length).map((r) => {
+  const records = rows.slice(1).filter((r) => r.length === header.length).map((r) => {
     const obj = {};
     header.forEach((h, i) => { obj[h] = r[i]; });
     return obj;
   });
+  return { rows: records, source: {
+    path: path.relative(ROOT, path.resolve(p)).replaceAll('\\', '/'),
+    modified_at: sourceStat.mtime.toISOString(),
+    sha256: createHash('sha256').update(raw).digest('hex'),
+  } };
 }
 
 async function readJsonSafe(p, fallback) {
@@ -128,9 +135,9 @@ const CONFIDENCE = {
 async function run() {
   console.log(`\n[${new Date().toISOString()}] WeekUsageLocksAgent start (season=${SEASON})`);
 
-  let rows;
+  let rows, source;
   try {
-    rows = await loadTable(WEEKLY_PATH);
+    ({ rows, source } = await loadTable(WEEKLY_PATH));
   } catch (err) {
     console.warn(`  Could not read ${WEEKLY_PATH}: ${err.message} -- skipping (no player_stats_weekly.csv yet?)`);
     return;
@@ -232,6 +239,8 @@ async function run() {
       season: SEASON,
       week: latestWeek,
       generated_at: new Date().toISOString(),
+      source_generated_at: source.modified_at,
+      source,
     },
     players,
   };
@@ -258,6 +267,8 @@ async function run() {
     season: SEASON,
     week: latestWeek,
     generated_at: new Date().toISOString(),
+    source_generated_at: source.modified_at,
+    source,
     players: weekUsageTable,
   }, null, 2)}\n`);
   console.log(`  Archived ${weekUsageTable.length} player usage row(s) -> ${historyPath}`);
@@ -281,6 +292,8 @@ async function run() {
   }
   trends.last_updated_week = latestWeek;
   trends.generated_at = new Date().toISOString();
+  trends.source_generated_at = source.modified_at;
+  trends.source = source;
   await mkdir(path.dirname(TRENDS_PATH), { recursive: true });
   await writeFile(TRENDS_PATH, `${JSON.stringify(trends, null, 2)}\n`);
   console.log(`  Updated trend history (${Object.keys(trends.players).length} player(s) tracked) -> ${TRENDS_PATH}`);

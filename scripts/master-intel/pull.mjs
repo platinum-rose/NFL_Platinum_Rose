@@ -50,7 +50,12 @@ let exclusions = [];
 try { exclusions = (JSON.parse(fs.readFileSync('data/research-intel/week-exclusions.json', 'utf8'))[String(WEEK)]) || []; } catch {}
 const exRefs = new Map(exclusions.filter(e => e.event_ref).map(e => [e.event_ref, e.reason]));
 const expertEx = exclusions.filter(e => e.expert);
-const isExpertExcluded = (r) => expertEx.find(e => e.expert === r.expert && e.selection === r.selection && (!e.visitor || e.visitor === r.visitor) && (!e.home || e.home === r.home));
+const isExpertExcludedWeek = (r) => expertEx.find(e => e.expert === r.expert && e.selection === r.selection && (!e.visitor || e.visitor === r.visitor) && (!e.home || e.home === r.home));
+// Season-wide expert exclusions (data/expert-tracking/excluded-experts-2026.json; Andy's call, e.g. Brandon Anderson 11/13).
+let seasonEx = [];
+try { seasonEx = JSON.parse(fs.readFileSync('data/expert-tracking/excluded-experts-2026.json', 'utf8')).experts || []; } catch {}
+const isExpertExcluded = (r) => isExpertExcludedWeek(r)
+  || ((x) => x && { reason: `season-wide exclusion: ${x.name} (${x.reason})` })(seasonEx.find(x => (r.expert || '').toLowerCase().includes(x.name.toLowerCase())));
 const dedupedSignals = dedupeSignals(rawSignals);
 
 // The loaders (--replace) re-insert rows with captured_at = now, so a Week 2 tweet loaded today looks like a Week ${WEEK} signal.

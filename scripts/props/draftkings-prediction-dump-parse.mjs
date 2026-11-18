@@ -165,8 +165,37 @@ export function resolveTeamForPlayer(playerName, awayTeam, homeTeam) {
     }
   }
 
+  // 4. ESPN full rosters (every player, depth included). Added 2026-11-04: roster-map-latest.json only carries ~845
+  //    fantasy-relevant players, so depth backs (Jaydon Blue, DeeJay Dallas...) failed the gate every week.
+  //    Accepted only when the roster team is one of this event's two teams, so a same-name player elsewhere can't leak in.
+  const espn = espnRosterTeams(playerName);
+  if (espn.length) {
+    const inEvent = espn.filter((t) => eventHasTeam(awayTeam, t) || eventHasTeam(homeTeam, t));
+    if (inEvent.length === 1) return normalizeTeamAbbr(inEvent[0]);
+  }
+
   // Explicitly return null if unresolved. NEVER guess or default to away/home team!
   return null;
+}
+
+const ESPN_FULL_ROSTERS_PATH = path.join(REPO_ROOT, 'data', 'nfl-rosters', 'espn-full-rosters-latest.json');
+let ESPN_FULL = null;
+function espnRosterTeams(name) {
+  if (ESPN_FULL === null) {
+    try { ESPN_FULL = JSON.parse(fs.readFileSync(ESPN_FULL_ROSTERS_PATH, 'utf8')).players || {}; } catch { ESPN_FULL = {}; }
+  }
+  const strip = (n) => n.replace(/\s+(Jr\.|Sr\.|II|III|IV|V)$/, '');
+  const rows = ESPN_FULL[name] || ESPN_FULL[strip(name)] || [];
+  return [...new Set(rows.map((r) => r.team).filter(Boolean))];
+}
+const TEAM_NICK = { ARI: 'cardinals', ATL: 'falcons', BAL: 'ravens', BUF: 'bills', CAR: 'panthers', CHI: 'bears', CIN: 'bengals', CLE: 'browns',
+  DAL: 'cowboys', DEN: 'broncos', DET: 'lions', GB: 'packers', HOU: 'texans', IND: 'colts', JAX: 'jaguars', KC: 'chiefs', LV: 'raiders',
+  LAC: 'chargers', LAR: 'rams', MIA: 'dolphins', MIN: 'vikings', NE: 'patriots', NO: 'saints', NYG: 'giants', NYJ: 'jets', PHI: 'eagles',
+  PIT: 'steelers', SF: '49ers', SEA: 'seahawks', TB: 'buccaneers', TEN: 'titans', WAS: 'commanders', WSH: 'commanders' };
+function eventHasTeam(display, abbr) {
+  if (!display || !abbr) return false;
+  const nick = TEAM_NICK[String(abbr).toUpperCase()];
+  return !!nick && String(display).toLowerCase().includes(nick);
 }
 
 export const MONTH_MAP = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };

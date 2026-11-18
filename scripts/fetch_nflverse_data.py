@@ -25,7 +25,9 @@ Requirements:
 
 `nfl_data_py` is used when available, but is archived and cannot currently be
 installed on Python 3.14 because it pins NumPy 1.x. For schedules/games, this
-script falls back to nflverse's maintained public games.csv feed.
+script falls back to nflverse's maintained public games.csv feed. Player/team
+stats and weekly rosters download public release assets directly, with CSV
+fallback when a parquet engine is unavailable.
 """
 
 from __future__ import annotations
@@ -124,14 +126,28 @@ _NFLDATA_GAMES_CSV = (
 
 
 def _read_parquets(url_tmpl: str, years: list[int], label: str) -> "pd.DataFrame":  # noqa: F821
-    """Download one parquet per year and concat; skip years that 404."""
+    """Read public releases without nfl_data_py; require the newest requested year."""
     import pandas as pd
     frames = []
-    for yr in years:
+    newest_year = max(years)
+    for yr in sorted(set(years), reverse=True):
         url = url_tmpl.format(yr)
         try:
-            frames.append(pd.read_parquet(url))
+            try:
+                frame = pd.read_parquet(url)
+            except ImportError:
+                # Python installations without pyarrow/fastparquet can read
+                # the same published dataset as CSV using existing pandas.
+                from urllib.request import Request, urlopen
+                csv_url = url.removesuffix(".parquet") + ".csv"
+                with urlopen(Request(csv_url, headers={"User-Agent": "PlatinumRose-data-fetch"}), timeout=30) as response:
+                    frame = pd.read_csv(response, low_memory=False)
+            if frame.empty:
+                raise ValueError("empty release asset")
+            frames.append(frame)
         except Exception as exc:
+            if yr == newest_year:
+                raise RuntimeError(f"Required {label} {yr} failed: {exc}") from exc
             _log(f"[yellow]  ↷  {label} {yr} skipped — {str(exc)[:80]}[/yellow]")
     if not frames:
         raise RuntimeError(f"No data fetched for {label} — all years failed")
@@ -354,15 +370,16 @@ def run(
         return 1
 
     selected = [d for d in DATASETS if not selected_names or d["name"] in selected_names]
-    # schedules/games have a direct public-CSV fallback. Keep an explicit error
-    # for the remaining datasets, which still call nfl_data_py APIs directly.
-    needs_nfl_data_py = [d["name"] for d in selected if d["name"] not in {"schedules", "games"}]
+    # Only these fetchers still call the archived library. Public-release
+    # fetchers (including player_stats_weekly) must remain usable without it.
+    legacy_datasets = {"ftn_charting", "pbp_team_join", "espn_data", "snap_counts", "depth_charts"}
+    needs_nfl_data_py = [d["name"] for d in selected if d["name"] in legacy_datasets]
     if needs_nfl_data_py:
         try:
             import nfl_data_py  # noqa: F401
         except ImportError:
             print("ERROR: nfl_data_py not installed for dataset(s): " + ", ".join(needs_nfl_data_py))
-            print("       Run only schedules/games with the public-CSV fallback, or use a Python environment compatible with nfl_data_py.")
+            print("       Select public-release datasets, or use a Python environment compatible with nfl_data_py.")
             return 1
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

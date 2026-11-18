@@ -32,6 +32,12 @@ by_team = {}
 for gid, g in by_gid.items():
     by_team[g['visitor']] = gid; by_team[g['home']] = gid
 roster = (json.load(open(os.path.join(ROOT, 'data/nfl-rosters/roster-map-latest.json'), encoding='utf-8')) or {}).get('players', {})
+# Season-wide expert exclusions (Andy's call; e.g. Brandon Anderson 2026-11-13): picks/leans go to dropped with the reason.
+try: EXCL = json.load(open(os.path.join(ROOT, 'data/expert-tracking/excluded-experts-2026.json'), encoding='utf-8')).get('experts', [])
+except (OSError, ValueError): EXCL = []
+def excluded(speaker):
+    sp = (speaker or '').lower()
+    return next((x for x in EXCL if x['name'].lower() in sp), None)
 
 def sgn(x):
     return f'{x:+g}'
@@ -48,7 +54,7 @@ def pick_text(p, game):
         return f'{player} {s}{line:g} {m}' if line is not None else f'{player} {m} {side}'.strip()
     return f'{team or ""} {m} {side} {line if line is not None else ""}'.strip()
 
-picks, dropped, context, notes = [], [], [], []
+picks, dropped, context, notes, leans = [], [], [], [], []  # leans: 2026-11-05
 used = []
 for f in sorted(glob.glob(os.path.join(STG, 'youtube-*.json'))):
     vid = os.path.basename(f)[8:-5]
@@ -72,6 +78,8 @@ for f in sorted(glob.glob(os.path.join(STG, 'youtube-*.json'))):
     for p in rows:
         url = f"https://www.youtube.com/watch?v={vid}&t={int(p.get('source_timestamp') or 0)}s"
         base = dict(episode=f'youtube-{vid}', show=show, speaker=p.get('speaker'), timestamp_url=url, rationale=p.get('rationale'))
+        if excluded(p.get('speaker')):
+            dropped.append(dict(base, raw=p, reason=f"season-wide exclusion: {excluded(p.get('speaker'))['name']}")); continue
         m = p.get('market')
         if m == 'pickem_pick':
             context.append(f"Pick'em (straight-up) — {p.get('speaker')}: {p.get('team')} wins [{vid}]"); continue
@@ -98,19 +106,25 @@ for f in sorted(glob.glob(os.path.join(STG, 'youtube-*.json'))):
         g = by_gid[game]
         raw = dict(team=team, player=pl, market=m, side=p.get('side'), line=p.get('line'), price=p.get('price'))
         row = dict(base, raw=raw, pick=pick_text(dict(p, team=team), game), price=p.get('price'), week=a.week, game=game,
-                   kickoff_utc=g.get('kickoff_utc'), verify=verify, note=None, quote=p.get('quote'))
+                   kickoff_utc=g.get('kickoff_utc'), verify=verify, note=p.get('note'), quote=p.get('quote'),
+                   units=p.get('units'), best_bet=(True if p.get('best_bet') else None))  # 2026-11-05: carry units / best_bet from staging (Pass 2a audit)
         if p.get('line') is None and m in ('spread', 'total'):
             row['note'] = 'line not stated by speaker; reprice before any use'
         picks.append(row)
+    for ln in (d.get('leans') or []):  # 2026-11-05: leans[] from staging (soft opinions kept out of picks)
+        if excluded(ln.get('speaker')): continue
+        leans.append(dict(episode=f'youtube-{vid}', show=show, speaker=ln.get('speaker'), game=ln.get('game'), team=ln.get('team'),
+                          market=ln.get('market'), side=ln.get('side'), line=ln.get('line'), quote=ln.get('quote'), rationale=ln.get('rationale'),
+                          timestamp_url=f"https://www.youtube.com/watch?v={vid}&t={int(ln.get('source_timestamp') or 0)}s"))
     for n in (d.get('analysis_notes') or []):
         n = dict(n); n.setdefault('episode', f'youtube-{vid}'); n.setdefault('show', show)
         notes.append(n)
 
 out = dict(generated_at=datetime.datetime.utcnow().isoformat() + 'Z', week=a.week, season=a.season, status='pending_andy_review',
            source=f'Antigravity zero-cost caption extraction, {len(used)} episodes staged (not promoted anywhere): ' + '; '.join(f'{v} ({n})' for v, _, n in used),
-           picks=picks, dropped=dropped, context=context, analysis_notes=notes)
+           picks=picks, leans=leans, dropped=dropped, context=context, analysis_notes=notes)
 path = os.path.join(ROOT, f'data/podcasts/youtube-extracted-picks-{a.season}-w{WW}.json')
 json.dump(out, open(path, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 c = collections.Counter(p['game'] for p in picks)
-print(f'wrote {path}: picks={len(picks)} dropped={len(dropped)} context={len(context)} notes={len(notes)} episodes={len(used)}')
+print(f'wrote {path}: picks={len(picks)} leans={len(leans)} dropped={len(dropped)} context={len(context)} notes={len(notes)} episodes={len(used)}')
 print('by game:', dict(c))

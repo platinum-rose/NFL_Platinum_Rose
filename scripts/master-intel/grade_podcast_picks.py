@@ -76,6 +76,7 @@ def nonpass_tds(p):
                'defensive.defensiveTouchdowns', 'interceptions.interceptionTouchdowns'))
 
 def ou(val, side, line):
+    if line is None: return 'ungradable'  # W9 Pass 2 rule: line null when the speaker states none (2026-11-10)
     if val == line: return 'P'
     over = val > line
     return 'W' if (over if side in ('OVER', 'YES') else not over) else 'L'
@@ -94,7 +95,8 @@ def grade(pk, g):
         adj = margin + line
         return ('W' if adj > 0 else 'L' if adj < 0 else 'P'), f'{tm} {sc[tm]:.0f}-{sc[opp]:.0f} ({line:+g})', None
     if m == 'total':
-        tot = sum(sc.values()); return ou(tot, side, line), f'total {tot:.0f} vs {line}', None
+        tot = sum(sc.values()); res = ou(tot, side, line)
+        return res, (f'total {tot:.0f}; line not stated by speaker' if res == 'ungradable' else f'total {tot:.0f} vs {line}'), None
     if m == 'team_total':
         tm = T(r.get('team')); return ou(sc[tm], side, line), f'{tm} {sc[tm]:.0f} vs {line}', None
     if m == 'survivor_pick':
@@ -106,7 +108,7 @@ def grade(pk, g):
         ok = g['half'][a] > g['half'][ho] and sc[b] > sc[fo]
         return ('W' if ok else 'L'), f"half {a} {g['half'][a]:.0f}-{g['half'][ho]:.0f}; final {b} {sc[b]:.0f}-{sc[fo]:.0f}", None
     if m in ('super_bowl_winner',):
-        return 'ungradable', 'futures market, not decided by a Week 8 box score', None
+        return 'ungradable', 'futures market, not decided by a weekly box score', None
     # player props
     name = r.get('player'); p = g['players'].get(norm(name))
     if m == 'first_touchdown':
