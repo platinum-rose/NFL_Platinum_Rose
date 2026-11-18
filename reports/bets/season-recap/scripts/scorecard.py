@@ -25,6 +25,19 @@ import ai_record  # noqa: E402
 e = html.escape
 
 
+def official_bankroll(week):
+    """Official bankroll from the one shared rule (scripts/lib/bankroll.mjs, Andy 2026-11-17). None if node fails."""
+    import subprocess
+    try:
+        r = subprocess.run(['node', os.path.join(ROOT, 'scripts', 'lib', 'bankroll.mjs'), '--json', '--week', str(week)],
+                           capture_output=True, text=True, timeout=60, cwd=ROOT)
+        s = json.loads(r.stdout)
+    except Exception as ex:  # noqa: BLE001
+        print(f'official bankroll unavailable: {ex}', file=sys.stderr); return None
+    wk = next((b for b in s['weeks'] if b['week'] == week), dict(bankroll=0, counted_tickets=0, exempt_andy=0, exempt_tickets=0))
+    return dict(week=wk, season=s['season'], rule=s['rule'], warnings=s['warnings'])
+
+
 def money(x): return ('+' if x >= 0 else '−') + f'${abs(x):,.2f}'
 
 
@@ -62,6 +75,7 @@ def build(week, legs_path, paper_path):
     L = json.load(open(legs_path)) if legs_path and os.path.exists(legs_path) else None
     PP = json.load(open(paper_path)) if paper_path and os.path.exists(paper_path) else []
     out = dict(week=week, open_tickets=open_)
+    out['official_bankroll'] = official_bankroll(week)
     # 1 cash net
     out['cash'] = dict(agg(cash, lambda w: 'all').get('all') or dict(tickets=0, won=0, staked=0, returned=0, net=0))
     dk = [w for w in cash if (w.get('book') or '').lower().startswith('draftkings')]
@@ -158,7 +172,8 @@ def to_html(o):
                         f'<p class="sub">Cash tickets as tagged (promo, bonus and free-bet tickets excluded). {len(o["open_tickets"])} ticket(s) still open.</p>']
     H.append('<div class="panel"><h4>1 · Cash net</h4>' + tab(['Tickets', 'Won', 'Staked', 'Returned', 'Net'],
              [(c['tickets'], c['won'], f"${c['staked']:.2f}", f"${c['returned']:.2f}", netc(c['net']))]) +
-             (f'<p class="sub">DraftKings Predictions inside that: {c["draftkings_predictions"]["tickets"]} tickets, net {money(c["draftkings_predictions"]["net"])}.</p>' if c.get('draftkings_predictions') else '') + '</div>')
+             (f'<p class="sub">DraftKings Predictions inside that: {c["draftkings_predictions"]["tickets"]} tickets, net {money(c["draftkings_predictions"]["net"])}.</p>' if c.get('draftkings_predictions') else '') +
+             (f'<p class="sub">Official bankroll (one rule: DKP, Pick6 and FDP off; Andy\'s share of splits): week {money(o["official_bankroll"]["week"]["bankroll"])}, season {money(o["official_bankroll"]["season"]["bankroll"])}. Exempt tickets, Andy\'s share: week {money(o["official_bankroll"]["week"]["exempt_andy"])}.</p>' if o.get('official_bankroll') else '') + '</div>')
     H.append('<div class="two"><div class="panel"><h4>2 · Legs per ticket vs tickets won</h4>' + tab(['Legs', 'Tickets', 'Won', 'Staked', 'Returned', 'Net'], fam_rows(o['by_legs'])) + '</div>')
     H.append('<div class="panel"><h4>3 · P&amp;L by ticket family</h4>' + tab(['Family', 'Tickets', 'Won', 'Staked', 'Returned', 'Net'], fam_rows(o['by_family'])) + '</div></div>')
     av = o.get('ai_vs_andy')
@@ -194,6 +209,8 @@ def to_html(o):
 def to_md(o):
     c = o['cash']; m = [f"# Week {o['week']} scorecard", '', f"Open tickets: {len(o['open_tickets'])}", '', '## 1 Cash net',
                         f"{c['tickets']} cash tickets, {c['won']} won, staked ${c['staked']:.2f}, returned ${c['returned']:.2f}, net **{money(c['net'])}**."]
+    ob = o.get('official_bankroll')
+    if ob: m += ['', f"Official bankroll (scripts/lib/bankroll.mjs): week **{money(ob['week']['bankroll'])}** on {ob['week']['counted_tickets']} counted tickets; season {money(ob['season']['bankroll'])}. Exempt (DKP/Pick6/FDP and flagged), Andy's share: week {money(ob['week']['exempt_andy'])}, season {money(ob['season']['exempt_andy'])}."]
     def t(B): return ['| | Tickets | Won | Staked | Returned | Net |', '|---|---:|---:|---:|---:|---:|'] + [f"| {k} | {b['tickets']} | {b['won']} | ${b['staked']:.2f} | ${b['returned']:.2f} | {money(b['net'])} |" for k, b in B.items()]
     m += ['', '## 2 Legs per ticket vs tickets won'] + t(o['by_legs']) + ['', '## 3 P&L by family'] + t(o['by_family'])
     av = o.get('ai_vs_andy')
