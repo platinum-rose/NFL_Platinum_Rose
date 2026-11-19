@@ -47,7 +47,7 @@ export function labelField(label) {
 }
 
 // candidates: [{ text, label, top, selectorField? }] from the page scan -> reading
-export function classify(cands) {
+export function classify(cands, opts = {}) {
   const out = { balance: null, available: null, pending: null, free_play: null };
   const used = [];
   for (const f of FIELDS) {                       // explicit selector overrides first
@@ -63,6 +63,8 @@ export function classify(cands) {
   if (out.balance === null) {                     // one unlabelled amount in the top bar = the balance
     const top = [...new Set(cands.filter((c) => !c.selectorField && c.top < 160 && parseMoney(c.text) !== null).map((c) => parseMoney(c.text)))];
     if (top.length === 1) { out.balance = top[0]; used.push({ field: 'balance', via: 'only_header_amount' }); }
+    else if (top.length > 1 && opts.unlabelled === 'last') { out.balance = top[top.length - 1]; out.other_header_amounts = top.slice(0, -1); used.push({ field: 'balance', via: 'last_header_amount' }); }
+    else if (top.length > 1 && opts.unlabelled === 'largest') { out.balance = Math.max(...top); out.other_header_amounts = top.filter((v) => v !== out.balance); used.push({ field: 'balance', via: 'largest_header_amount' }); }
     else if (out.available !== null) { out.balance = out.available; used.push({ field: 'balance', via: 'available' }); }
   }
   return { ...out, used };
@@ -75,16 +77,22 @@ function scanPage(sel) {
     return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none'; };
   const txt = (el) => (el?.innerText || el?.textContent || '').replace(/\s+/g, ' ').trim();
   const out = [];
+  const all = [];   // every element, including inside open shadow roots
+  const walk = (root) => { for (const el of root.querySelectorAll('*')) { all.push(el); if (el.shadowRoot) walk(el.shadowRoot); } };
+  walk(document);
+  const qsa = (css) => all.filter((el) => { try { return el.matches(css); } catch { return false; } });
   for (const [field, css] of Object.entries(sel || {})) {
-    try { for (const el of document.querySelectorAll(css)) if (vis(el)) out.push({ text: txt(el), label: field, top: el.getBoundingClientRect().top, selectorField: field }); } catch {}
+    if (!['balance', 'available', 'pending', 'free_play'].includes(field)) continue;
+    try { for (const el of qsa(css)) if (vis(el)) out.push({ text: txt(el), label: field, top: el.getBoundingClientRect().top, selectorField: field }); } catch {}
   }
   const zone = '[class*="balance" i],[class*="account" i],[class*="wallet" i],[class*="user" i],[data-testid*="balance" i],[aria-label*="balance" i],header,nav,[class*="header" i],[role="banner"]';
-  const roots = new Set([...document.querySelectorAll(zone)].filter(vis));
+  const roots = new Set(qsa(zone).filter(vis));
   // anything else in the top 160 px of the page
-  for (const el of document.querySelectorAll('body *')) { const r = el.getBoundingClientRect(); if (r.top >= 0 && r.top < 160 && r.height < 120 && el.children.length <= 3 && vis(el)) roots.add(el); }
+  for (const el of all) { const r = el.getBoundingClientRect(); if (r.top >= 0 && r.top < 160 && r.height < 120 && el.children.length <= 3 && vis(el)) roots.add(el); }
   const seen = new Set();
   for (const root of roots) {
-    const leaves = [root, ...root.querySelectorAll('*')].filter((el) => {
+    const kids = []; const w2 = (r) => { for (const el of r.querySelectorAll('*')) { kids.push(el); if (el.shadowRoot) w2(el.shadowRoot); } }; w2(root.shadowRoot || root);
+    const leaves = [root, ...kids].filter((el) => {
       if (seen.has(el) || !vis(el)) return false;
       const t = txt(el); if (!money.test(t) || t.length > 80) return false;
       return ![...el.children].some((ch) => money.test(txt(ch)));   // deepest element holding the amount
@@ -99,11 +107,13 @@ function scanPage(sel) {
         label = (sib && txt(sib).length < 40 ? txt(sib) : '') || (pt.length < 60 ? pt.replace(amt, ' ').trim() : '') || label;
         if (p.getAttribute && (p.getAttribute('aria-label') || p.getAttribute('title'))) label = p.getAttribute('aria-label') || p.getAttribute('title');
       }
-      out.push({ text: amt, label: label.slice(0, 60), top: Math.round(el.getBoundingClientRect().top) });
+      const r = el.getBoundingClientRect();
+      out.push({ text: amt, label: label.slice(0, 60), top: Math.round(r.top), left: Math.round(r.left), html: (el.parentElement?.outerHTML || el.outerHTML).slice(0, 400) });
     }
   }
+  out.sort((a, b) => (a.top - b.top) || ((a.left ?? 0) - (b.left ?? 0)));
   const body = txt(document.body);
-  const loggedOut = !out.length && [...document.querySelectorAll('button,a,[role="button"]')].some((el) => vis(el) && /^(log ?in|sign ?in|join( now)?|register|sign up)$/i.test(txt(el)));
+  const loggedOut = !out.length && (/\/login\b/i.test(location.pathname) || qsa('button,a,[role="button"]').some((el) => vis(el) && /^(log ?in|sign ?in|join( now)?|register|sign up)$/i.test(txt(el))));
   return { cands: out.slice(0, 40), loggedOut, header: body.slice(0, 2500) };
 }
 
@@ -116,16 +126,27 @@ export async function recordBookBalance(page, { book, script, quiet = false } = 
     await Promise.race([(async () => {
       rec.url = page.url();
       const sel = readJson(SELECTORS, {})[book] || {};
-      let scan = await page.evaluate(scanPage, sel);
-      if (!scan.cands.length && !scan.loggedOut) { await page.waitForTimeout(2500); scan = await page.evaluate(scanPage, sel); } // header can render late
-      const r = classify(scan.cands);
+      const scanAll = async () => {   // main page plus child frames (some books render the account bar in an iframe)
+        const main = await page.evaluate(scanPage, sel);
+        for (const fr of page.frames()) {
+          if (fr === page.mainFrame() || fr.url() === 'about:blank' || fr.isDetached()) continue;
+          const sub = await fr.evaluate(scanPage, sel).catch(() => null);
+          if (sub?.cands?.length) main.cands.push(...sub.cands.map((c) => ({ ...c, frame: fr.url().slice(0, 80) })));
+        }
+        return main;
+      };
+      let scan = await scanAll();
+      if (!scan.cands.length && !scan.loggedOut) { await page.waitForTimeout(2500); scan = await scanAll(); } // header can render late
+      const r = classify(scan.cands, { unlabelled: sel.unlabelled });
       Object.assign(rec, { balance: r.balance, available: r.available, pending: r.pending, free_play: r.free_play, read_via: r.used });
+      if (r.other_header_amounts) rec.other_header_amounts = r.other_header_amounts;
       rec.status = r.balance !== null ? 'ok' : scan.loggedOut ? 'logged_out' : 'not_found';
       if (rec.status !== 'ok') {
         fs.mkdirSync(DIAG, { recursive: true });
         const base = path.join(DIAG, `balance-${String(book).toLowerCase().replace(/\W+/g, '-')}-${at.replace(/[:.]/g, '-')}`);
         fs.writeFileSync(base + '.json', JSON.stringify({ ...rec, candidates: scan.cands, header_text: scan.header }, null, 2));
-        await page.screenshot({ path: base + '.png', clip: { x: 0, y: 0, width: 1400, height: 220 } }).catch(() => {});
+        const w = await page.evaluate(() => window.innerWidth).catch(() => 1400);
+        await page.screenshot({ path: base + '.png', clip: { x: 0, y: 0, width: w, height: 220 } }).catch(() => {});
         rec.diagnostics = path.relative(ROOT, base + '.json').replace(/\\/g, '/');
       }
     })(), new Promise((_, rej) => setTimeout(() => rej(new Error('balance read timed out')), 8000))]);
