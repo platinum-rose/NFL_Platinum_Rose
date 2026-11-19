@@ -337,6 +337,7 @@ This is the AI side of the Tuesday post-mortem (AI-backed vs Andy-only vs unplac
 - Selection highlight: `selection:bg-[#00d2be] selection:text-black`
 
 ## Reference Docs (load on demand)
+- `docs/OPERATIONS_MAP.md` — Betting operations map: capture commands and ports, ledgers, rules and pre-buy checks, futures, pools, bankroll reconciliation; **load at session start for any betting, capture, ledger, futures or pool task**
 - `docs/ARCHITECTURE.md` — Component/hook/lib internals; load when editing any `src/` file
 - `docs/PIPELINE_AGENTS.md` — GHA pipeline agent system, workflows, Supabase tables; load when working in `agents/` or `.github/`
 - `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md` — canonical Antigravity exhaustive extraction source contract; load before synthesizing betting recommendations or reporting podcast/article coverage gaps
@@ -355,6 +356,7 @@ This is the AI side of the Tuesday post-mortem (AI-backed vs Andy-only vs unplac
 
 ### Session Start Protocol (Targeted Read)
 1. **Root State Read**: Read `HANDOFF.md`. Treat it as the current-state index, not a transcript.
+   - **Cloud sessions working through the device bridge** don't auto-load this file: read `CLAUDE.md` and `docs/OPERATIONS_MAP.md` explicitly before starting betting or capture work.
 2. **Git State Verification**: Run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`.
 3. **Choose the handoff mode**:
    - **Standard handoff:** read only the dated handoff linked for the active lane.
