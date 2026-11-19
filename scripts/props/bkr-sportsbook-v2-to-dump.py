@@ -10,7 +10,7 @@ import json, re, sys
 ODDS = re.compile(r'^([+-]\d+|EV|EVEN)$')
 PERIODS = ('First Half', 'Second Half', 'First Quarter', 'Second Quarter', 'Third Quarter', 'Fourth Quarter')
 def o(x): return '+100' if x in ('EV', 'EVEN') else x
-def sp(x): return '+0' if x.upper() in ('PK', 'PICK') else x
+def sp(x): return '+0' if (x or '').upper() in ('PK', 'PICK') else x
 
 def game_block(away, home, lines, title):
     """AWAY / HOME, MONEY LINE, TOTAL, SPREAD, name1, name2, <count>, ml1, ml2, Ov X, o, Un X, o, sp1, o, sp2, o (column-major)."""
@@ -18,7 +18,7 @@ def game_block(away, home, lines, title):
     if rest and re.match(r'^\+\d+$', rest[0]) and len(rest) >= 11: rest = rest[1:]   # "+16" more-markets counter
     ml1, ml2, ov, oo, un, uo, s1, so1, s2, so2 = (rest + [None] * 10)[:10]
     out = [f'T|{title}']
-    if s1 and so1: out += [f'I|{n1} {sp(s1)}{o(so1)}', f'I|{n2} {sp(s2)}{o(so2)}']
+    if s1 and so1 and s2 and so2: out += [f'I|{n1} {sp(s1)}{o(so1)}', f'I|{n2} {sp(s2)}{o(so2)}']   # 2026-11-19: skip a half-posted spread
     if ov and ov.startswith('Ov '): out += [f'I|Over {ov[3:]}{o(oo)}', f'I|Under {un[3:]}{o(uo)}']
     if ml1 and ODDS.match(ml1): out += ['I|Money Line', f'I|{n1} {o(ml1)}', f'I|{n2} {o(ml2)}']
     return out
