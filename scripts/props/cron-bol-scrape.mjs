@@ -17,6 +17,7 @@ import { randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { chromium } from '@playwright/test';
 import { parseBetOnlineDump } from './betonline-prop-dump-parse.mjs';
+import { recordBookBalance } from './book-balance.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -285,6 +286,7 @@ async function run() {
       // Wait for board to render
       console.log('⏳ Waiting for NFL matchup board to render...');
       await capturePage.waitForSelector('a[href*="/sportsbook/football/nfl/game/"]', { timeout: 30000 });
+      await recordBookBalance(capturePage, { book: 'BetOnline', script: 'cron-bol-scrape' });
 
       targetGames = await capturePage.evaluate(() => {
         const rows = Array.from(document.querySelectorAll('a[href*="/sportsbook/football/nfl/game/"]'));

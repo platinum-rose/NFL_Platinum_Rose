@@ -21,6 +21,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { chromium } from '@playwright/test';
+import { recordBookBalance } from './book-balance.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -87,9 +88,11 @@ async function discoverFuturesLinks(page) {
   });
 }
 
+let BALANCE_DONE = false;
 async function capturePage(page, url) {
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(8000);
+  if (!BALANCE_DONE) { BALANCE_DONE = true; await recordBookBalance(page, { book: 'Bookmaker', script: 'cron-bkr-futures-scrape' }); }
   // Scroll to the bottom in steps so lazy sections render, then expand collapsed headers once.
   for (let i = 0; i < 15; i++) {
     const done = await page.evaluate(() => { window.scrollBy(0, 1500); return window.innerHeight + window.scrollY >= document.body.scrollHeight - 5; });

@@ -21,6 +21,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { acquireLock, releaseLock } from './cron-bol-scrape.mjs';
+import { recordBookBalance } from './book-balance.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const LOCK_FILE = path.join(ROOT, '.chrome-bol', 'bol-scraper.lock');
@@ -301,6 +302,7 @@ async function main() {
     const f = await appFrame(page);
     if (!f) throw new Error('Prop Shop iframe (troya.xyz) never loaded: check that the BetOnline Chrome is logged in.');
     await page.waitForTimeout(4000);
+    await recordBookBalance(page, { book: 'BetOnline', script: 'bol-propshop-ladders' });
     // Load the Prop Shop app as the page itself (same signed URL), so no click can navigate the BetOnline page away.
     const appUrl = f.url();
     step(`app url ${appUrl.slice(0, 60)}...`);

@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { chromium } from '@playwright/test';
+import { recordBookBalance } from './book-balance.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -355,6 +356,7 @@ async function run() {
         if (info.loginForm) console.log('   Looks logged out: sign in in the BKR Chrome window (port 9222) and rerun.');
         throw new Error('NFL board did not render.');
       }
+      await recordBookBalance(page, { book: 'Bookmaker', script: 'cron-bkr-scrape' });
       if (PROBE_TAB) {
         // Open the first NFL game, inspect the market-tab labels, click PASSING YDS (or the first stat tab) and dump the result.
         const marks = await markPropsLinks(page, scheduleFor(weekNum));

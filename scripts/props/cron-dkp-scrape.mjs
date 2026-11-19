@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { spawn, spawnSync } from 'node:child_process';
 import { chromium } from '@playwright/test';
+import { recordBookBalance } from './book-balance.mjs';
 import {
   parseDraftKingsPredictionsDump,
   validateAcceptanceGate,
@@ -275,6 +276,7 @@ async function run() {
       await capturePage.goto('https://predictions.draftkings.com/en/markets/football/nfl?category=games&subcategory=game-lines', { waitUntil: 'domcontentloaded', timeout: 45000 });
       await capturePage.waitForSelector('main', { timeout: 30000 });
       await capturePage.waitForTimeout(2500);
+      await recordBookBalance(capturePage, { book: 'DraftKings Predictions', script: 'cron-dkp-scrape' });
       gameLinesText = await capturePage.evaluate(() => document.body.innerText);
       console.log(`✅ Captured Game Lines board (${gameLinesText.length} chars)`);
 

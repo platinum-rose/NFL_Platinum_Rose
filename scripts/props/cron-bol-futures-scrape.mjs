@@ -23,6 +23,7 @@ import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { acquireLock, releaseLock } from './cron-bol-scrape.mjs';
 import { writeImportFile } from './beo-futures-to-imports.mjs';
+import { recordBookBalance } from './book-balance.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -263,6 +264,7 @@ async function capturePages(urls, discover) {
       // SPA settle: wait for network idle, then a fixed extra wait (sidebar live odds satisfy the check above too early)
       await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
       await page.waitForTimeout(PROBE ? 10000 : 6000);
+      if (seen.size === 1) await recordBookBalance(page, { book: 'BetOnline', script: 'cron-bol-futures-scrape' });
       if (PROBE) {
         const probe = await page.evaluate(() => {
           const odds = /(^|\n)\s*[+\-\u2212]\d{3,5}\s*(?=\n|$)/g;

@@ -27,6 +27,7 @@
 // ==============================================================================
 
 import fs from 'node:fs';
+import { recordBookBalance } from './book-balance.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -294,6 +295,7 @@ async function discoverSlateEvents(browser) {
   try {
     await page.goto(SLATE_URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(5000);
+    await recordBookBalance(page, { book: 'DraftKings Predictions', script: 'dkp-event-feed-capture' });
     for (let i = 0; i < 6; i++) { await page.mouse.wheel(0, 3000); await page.waitForTimeout(500); }
     const hrefs = await page.evaluate(() => Array.from(document.querySelectorAll('a[href*="/event/"]')).map(a => a.href));
     return [...new Set(hrefs)].map(h => ({ url: h, id: eventIdFromInput(h) })).filter(e => e.id);
@@ -327,7 +329,12 @@ async function main() {
     console.log(`\nDKP event-feed capture - Week ${weekNum} (${dateStr})${dry ? ' [dry run]' : ''}`);
 
     let targets;
-    if (arg('--event')) targets = arg('--event').split(',').map(v => ({ url: v.trim(), id: eventIdFromInput(v) })).filter(t => t.id);
+    if (arg('--event')) {
+      targets = arg('--event').split(',').map(v => ({ url: v.trim(), id: eventIdFromInput(v) })).filter(t => t.id);
+      const bp = await browser.contexts()[0].newPage();   // slate discovery is skipped, so read the balance on its own tab
+      try { await bp.goto(SLATE_URL, { waitUntil: 'domcontentloaded', timeout: 45000 }); await bp.waitForTimeout(4000); await recordBookBalance(bp, { book: 'DraftKings Predictions', script: 'dkp-event-feed-capture' }); }
+      catch (e) { console.log(`💰 DraftKings Predictions balance not read (${e.message})`); } finally { await bp.close().catch(() => {}); }
+    }
     else {
       targets = await discoverSlateEvents(browser);
       console.log(`Discovered ${targets.length} event link(s) on the slate.`);
