@@ -1,5 +1,10 @@
 # NFL_Dashboard — Current Handoff
 
+## Pick up here — November 19, 2026 16:30 PT: Week 11 TNF placed / pools, futures, bankroll (Team 1 -> Team 2)
+
+Read `CLAUDE.md` and `docs/OPERATIONS_MAP.md`, then `handoffs/2026-11-19-1630-week11-tnf-placed-pools-futures-bankroll-START-HERE.md`.
+Branch: claude/w5-prop-cards-2026-10-11. TNF: 3 tickets placed and logged; settle after the game. Open: BKR ledger fixes (Andy's OK), Circa futures prices, W11 fair lines + Sunday card. `data/bankroll/` is private and gitignored.
+
 ## Pick up here — November 16, 2026 20:40 PT: Week 10 MNF final / Week 11 open
 
 Read `handoffs/2026-11-16-2040-claude-w10-mnf-final-settle-next-START-HERE.md` first.

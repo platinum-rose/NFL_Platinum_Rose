@@ -146,3 +146,7 @@ data/archive/**/drafts/raw/
 # Mobile Live Tracker grading snapshot (regenerated every run)
 /public/live-tracker-mobile-state.json
 /public/hedge-alerts.json
+
+# Book account balances, deposits/withdrawals and raw book histories: private, never pushed (repo is public). Andy 2026-11-19.
+data/bankroll/*
+!data/bankroll/balance-selectors.json
