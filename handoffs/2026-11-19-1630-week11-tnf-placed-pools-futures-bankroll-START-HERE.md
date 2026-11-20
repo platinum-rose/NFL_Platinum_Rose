@@ -10,8 +10,9 @@ Repo `E:\dev\projects\NFL_Dashboard` (bridge: `$HOME/mnt/dev/projects/NFL_Dashbo
 | 1016875939: Jones o0.5 INT / Jones o0.5 pass TD / Hutchinson 3+ rec / Schultz o29.5 rec yds | BetOnline | $10 | $70 | cash |
 | DKP 4-pick: Taylor 60+ rush / Hutchinson 3+ / Lassiter 4+ solo tkl / Bullock 3+ solo tkl (+20% boost) | DKP | $9.94 | $158.81 | promo (DKP winnings balance) |
 | DKP 7-pick: Stroud 290+ / Collins ATD + 7+ rec / Pitre 5+ T+A / Boutte 20+ / Shrader (IND K) 1+ FG / HOU ML (+20% combo boost) | DKP | $9.98 | $394.00 | promo |
+| FDP Same Game Combo 26.3x: Dell ATD / Taylor ATD / McGowan o14.5 rush yds / Stroud o1.5 pass TD / Hutchinson o2.5 rec / HOU win (placed 4:30 PM) | FanDuel Predicts | $5 bonus ($0 cost) | $114.73 (profit only) | promo, bankroll-exempt |
 - **Proposed, not placed** (`data/official-picks/candidates-w11-tnf-final.json`): D = BKR cash $10, Taylor o13.5 carries +109 / Stroud o251.5 pass yds -110 / Treadwell u2.5 rec -126 (~+616); E = DKP promo ~$5, Treadwell u2.5 rec / McGowan u6.5 carries / Will Anderson 4+ T+A / Burks u16.5 rec yds (~+1247). Andy had not pasted slips. A DK sportsbook social post link he sent (`.../social/post/8d10694d...`) could not be read (blocked); ask for a screenshot.
-- Slate caps (S5) reached: Hutchinson, Taylor, Stroud, Treadwell (if D/E are placed).
+- Slate caps (S5): Hutchinson is now on 3 tickets (over the cap of 2, via the FDP bonus ticket); Taylor, Stroud, Treadwell (if D/E are placed).
 - Injury notes: Woody Marks OUT (Montgomery lead back), HOU without Harrison Jr., Brevin Jordan, Danielle Hunter; IND without Ward, Mallory, likely Sauce Gardner. **Hutchinson has a new hamstring tag**: confirm he's active (on 2 placed tickets). Official inactives were not posted when this was written.
 - Write-up: `reports/bets/2026-w11-tnf-island-stacks.md`. Settle after the game from the box score (grade, then Andy's OK to apply).
 - Method notes: screen props with snap-count-filtered history (nflverse PBP + snap counts, now through W10; `node scripts/fetch-nflverse.mjs`), shrink halfway to the no-vig price, PLAY at 4+ pts. Defensive "Tackles" at DKP = solo tackles.
