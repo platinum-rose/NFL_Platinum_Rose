@@ -23,6 +23,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import site_extras as SX   # Super Contest page, Props Lab legs + prices, teaser extras, bookmarks (2026-10-04)
+import research_evidence
 
 # page file, section box id, short nav title, part
 PAGES = [
@@ -341,6 +342,8 @@ def main(src):
         except Exception:
             pass
     XC = SX.load(week, built_date) if built_date and week != '?' else None
+    prop_research, expert_research = research_evidence.render(XC) if XC else ('', '')
+    public_picks = research_evidence.render_public_source_picks(XC) if XC else ''
     side = soup.find('div', class_='side-toc')
     cont = soup.find('div', class_='container')
     kids = [c for c in cont.children if getattr(c, 'name', None)]
@@ -415,6 +418,17 @@ def main(src):
                 out_.append(el)
                 if el.name == 'h2':
                     out_.append(asof)
+                    if XC and XC['M'].get('status') == 'friday_provisional':
+                        out_.append(soup_of('<p>Friday snapshot. Prices are dated. Check for a fresh quote and lineup before using any proposal.</p>').p)
+                    links = []
+                    if public_picks:
+                        links.append('<a href="experts.html#public-source-picks">Public-source picks</a>')
+                    if prop_research:
+                        links.append('<a href="props.html#research-props">Player prop research</a>')
+                    if expert_research:
+                        links.append('<a href="experts.html#research-experts">Expert picks by matchup</a>')
+                    if links:
+                        out_.append(soup_of('<p class="no-bm">' + ' · '.join(links) + '</p>').p)
             # Everything collapsed on arrival (Andy 2026-10-04); straight-bet filter rebuilt below.
             for el in out_:
                 for d in (el.find_all('details') if hasattr(el, 'find_all') else []):
@@ -624,13 +638,26 @@ def main(src):
                 keep = [k for k in kill if getattr(k, 'get', None) and k.get('id') in ('props-by-position', 'td-menu')]   # card §7f / §7g (2026-10-24)
                 for k in keep:
                     kill.remove(k); new.append(k.extract())
-                new.append(soup_of(SX.props_lab(XC)).div)
+                if prop_research:
+                    new.insert(0, soup_of(prop_research).section)
+                if XC['M'].get('status') != 'friday_provisional':
+                    new.append(soup_of(SX.props_lab(XC)).div)
+                elif not prop_research:
+                    new.insert(0, soup_of('<p>No prop research rows passed the saved quote and roster checks.</p>').p)
                 kill[0].insert_before(new)
                 for k in kill:
                     k.extract()
                 h2 = next((x for x in pages['props.html']['frag'] if x.name == 'h2'), None)
                 if h2:
-                    h2.string = '2. Props Lab: Card Stacks, Recommended Legs, Best Prices & Prop Boards'
+                    h2.string = ('2. Props Lab' if XC['M'].get('status') == 'friday_provisional'
+                                 else '2. Props Lab: Card Stacks, Recommended Legs, Best Prices & Prop Boards')
+        if (expert_research or public_picks) and 'experts.html' in pages:
+            panel = next((x for x in pages['experts.html']['frag'] if x.get('id') == 'section-7-box'), None)
+            if panel:
+                if expert_research:
+                    panel.insert(0, soup_of(expert_research).section)
+                if public_picks:
+                    panel.insert(0, soup_of(public_picks).section)
         if 'teasers.html' in pages:
             th = next((x for x in pages['teasers.html']['frag'] if x.get('id') == 'section-3-box'), None)
             if th:

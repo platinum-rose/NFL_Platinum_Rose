@@ -1,5 +1,11 @@
 # NFL_Dashboard — Current Handoff
 
+## Pick up here — November 21, 2026 · Week 11 Intel finalization (Codex → Claude)
+
+Reconcile live Git in `E:/dev/projects/NFL_Dashboard`, then read
+[`handoffs/2026-11-21-week11-intel-finalization-START-HERE.md`](handoffs/2026-11-21-week11-intel-finalization-START-HERE.md).
+The Saturday research HTML is ready for review. The official Saturday gate was RED at the last check, so finalization starts with the evidence refresh and matchup deltas.
+
 ## Pick up here — November 19, 2026 16:30 PT: Week 11 TNF placed / pools, futures, bankroll (Team 1 -> Team 2)
 
 Read `CLAUDE.md` and `docs/OPERATIONS_MAP.md`, then `handoffs/2026-11-19-1630-week11-tnf-placed-pools-futures-bankroll-START-HERE.md`.
