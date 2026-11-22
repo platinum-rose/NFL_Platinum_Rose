@@ -97,7 +97,7 @@ function main() {
     let inDone     = false;
 
     for (const line of lines) {
-      if (/^## Done/i.test(line))  inDone = true;
+      if (/^##\s.*\bdone\b/i.test(line))  inDone = true;
       else if (/^## /.test(line))  inDone = false;
       if (!inDone) filtered.push(line);
     }
@@ -110,7 +110,10 @@ function main() {
   const memory = safeRead(MEMORY_FILE);
   if (memory) sections.push(`---\n\n${formatMemory(memory)}`);
 
-  if (sections.length > 0) process.stdout.write(sections.join('\n\n') + '\n');
+  const MAX = 3000; // lean-session cap (2026-11-22)
+  let out = sections.join('\n\n');
+  if (out.length > MAX) out = out.slice(0, MAX) + '\n\n_[session-start output capped at 3 KB; see HANDOFF.md / TASK_BOARD.md]_';
+  if (sections.length > 0) process.stdout.write(out + '\n');
 }
 
 try {

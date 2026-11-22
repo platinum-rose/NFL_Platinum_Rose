@@ -2,50 +2,69 @@
   "hooks": {
     "SessionStart": [
       {
-        "type": "command",
-        "command": "node hooks/scripts/session-start.js"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/scripts/session-start.js"
+          }
+        ]
       }
     ],
     "Stop": [
       {
-        "type": "command",
-        "command": "node hooks/scripts/check-console-log.js"
-      },
-      {
-        "type": "command",
-        "command": "node hooks/scripts/check-secrets.js"
-      },
-      {
-        "type": "command",
-        "command": "node hooks/scripts/session-end.js"
-      },
-      {
-        "type": "command",
-        "command": "node hooks/scripts/build-handoff.js"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/scripts/check-console-log.js"
+          },
+          {
+            "type": "command",
+            "command": "node hooks/scripts/check-secrets.js"
+          },
+          {
+            "type": "command",
+            "command": "node hooks/scripts/session-end.js"
+          },
+          {
+            "type": "command",
+            "command": "node hooks/scripts/build-handoff.js"
+          }
+        ]
       }
     ],
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "type": "command",
-        "command": "node hooks/scripts/commit-quality.js"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/scripts/commit-quality.js"
+          }
+        ]
       },
       {
         "matcher": "Write|Edit",
-        "type": "command",
-        "command": "node hooks/scripts/protect-hot-files.js"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/scripts/protect-hot-files.js"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
-        "type": "command",
-        "command": "node hooks/scripts/quality-gate.js"
-      },
-      {
-        "matcher": "Edit|Write",
-        "type": "command",
-        "command": "node hooks/scripts/localstorage-guard.js"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/scripts/quality-gate.js"
+          },
+          {
+            "type": "command",
+            "command": "node hooks/scripts/localstorage-guard.js"
+          }
+        ]
       }
     ]
   }
