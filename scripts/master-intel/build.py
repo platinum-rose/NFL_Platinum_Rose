@@ -168,7 +168,7 @@ def controls(cls, label):
             f'  <button class="btn-toggle" onclick="toggleRollups(\'{cls}\', false)">Collapse {label}</button>', '</div>', '']
 
 def _pnum(x):
-    f = round(float(x), 1)
+    f = float(x)
     return int(f) if f == int(f) else f
 
 _POS_MAP = None
@@ -583,8 +583,12 @@ def finalize_report(L, gaps):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
     ap.add_argument('--season', type=int, default=2026); ap.add_argument('--no-export', action='store_true'); ap.add_argument('--allow-empty-card', action='store_true', help='build even with no synthesis digest and no card (the report will show 0 bets and an empty Props Lab)')
+    ap.add_argument('--standings-date', type=datetime.date.fromisoformat, help='Use the supplied SuperContest standings snapshot for this date independently of the sportsbook capture date.')
     ap.add_argument('--allow-roster-issues', action='store_true', help='build even if the roster gate fails (needs Andy OK; issues are printed in the report)')
     a = ap.parse_args(); W, WW, D = a.week, f'{a.week:02d}', a.date
+    standings_path = ROOT / f'data/supercontest/standings-week-{WW}-{a.standings_date or D}.md'
+    if a.standings_date and not standings_path.is_file():
+        ap.error(f'No SuperContest standings snapshot found at {standings_path.relative_to(ROOT)}')
     gaps = []
     sched = [g for g in J('public/schedule.json', []) if g.get('week') == W and g.get('season') == a.season and g.get('season_type') == 2]
     now = datetime.datetime.now(datetime.timezone.utc)
@@ -623,6 +627,13 @@ def main():
         import twitter_picks as _tp; yt = _tp.merge(yt, str(ROOT), a.season, WW)
     except Exception as _e:
         gaps.append(f'Twitter video picks not merged: {_e}')
+    XI = None  # 2026-11-21: reviewed podcasts into the expert pool + per-game model/sim/conditions panel
+    try:
+        import extra_inputs as _xi
+        yt = _xi.merge_reviewed_podcasts(yt, str(ROOT), a.season, WW, gaps)
+        XI = _xi.load_context(str(ROOT), a.season, WW, gaps)
+    except Exception as _e:
+        gaps.append(f'Extra inputs (reviewed podcasts, model/sim panel) not loaded: {_e}')
     if not yt: gaps.append('No cleaned YouTube pick digest this week.')
     # W7+ YouTube files use a flat schema (team/player/market/side/line/price); normalize to the pick/raw shape used below
     for _p in (yt.get('picks', []) if yt else []):
@@ -638,6 +649,10 @@ def main():
         _ep = str(_p.get('episode') or '').replace('youtube-', '')
         _p.setdefault('timestamp_url', f"https://www.youtube.com/watch?v={_ep}&t={int(_p.get('source_timestamp') or 0)}s" if _ep else None)
         _p.setdefault('verify', None); _p.setdefault('show', _p.get('show') or 'YouTube'); _p.setdefault('speaker', _p.get('speaker') or 'YouTube')
+    for _p in (yt.get('picks', []) if yt else []):  # 2026-11-21: a present-but-None speaker crashed cite(); fill and disclose
+        if not _p.get('speaker'):
+            _p['speaker'] = _p.get('expert') or _p.get('analyst') or _p.get('source') or 'Unknown Expert'
+            gaps.append(f"Pick without a speaker name labeled '{_p['speaker']}': {_p.get('game') or _p.get('event') or '?'} {_p.get('pick') or ''}".strip())
     avail = (J('data/player-availability/latest.json', {}) or {}).get('events', [])
     sec = (J('data/secondary-matchups/latest.json', {}) or {}).get('matchups', [])
     dk_source, dk = market_captures.dkp_events(W, D)
@@ -661,12 +676,19 @@ def main():
     SCNOTE = load_ticket_notes(ROOT / nar_p, 'SUPERCONTEST')
     # Carry the stage gate and synthesis caveats into the existing Known Gaps section.
     gate_paths = list((ROOT / 'reports/intel/gates').glob(f'w{WW}-final-gate-*.json'))
+    gate = {}
     if gate_paths:
         gate = J(max(gate_paths, key=lambda p: p.stat().st_mtime), {}) or {}
         for check in gate.get('checks', []):
             if check.get('status') == 'WARN' or (check.get('level') == 'ADVISORY' and check.get('status') == 'FAIL'):
                 detail = re.sub(r'\s+', ' ', str(check.get('detail') or '')).strip()
                 gaps.append(f"{gate.get('stage', 'Weekly').title()} gate advisory {check['id']} — {check['title']}: {detail}")
+    friday_provisional = gate.get('stage') == 'friday' and gate.get('verdict') == 'PROVISIONAL'
+    sat_provisional = gate.get('stage') == 'saturday' and gate.get('verdict') not in (None, 'PASS', 'GREEN')  # 2026-11-21
+    sat_fails = [c['id'] for c in gate.get('checks', []) if c.get('status') == 'FAIL' and c.get('level') != 'ADVISORY']
+    stale_friday_splits = friday_provisional and any(
+        check.get('id') == 'L5' and check.get('status') != 'PASS' for check in gate.get('checks', [])
+    )
     if (ROOT / nar_p).exists():
         gap_block = re.search(r'^## GAPS\s*\n(.*?)(?=^## |\Z)', (ROOT / nar_p).read_text(encoding='utf-8'), re.M | re.S)
         if gap_block:
@@ -723,7 +745,10 @@ def main():
         if _n_ov: print(f'betting splits: overlaid fresher spread/total splits for {_n_ov} games from public/betting_splits.json ({_lt.astimezone(PT):%a %H:%M PT})')
     except Exception as _e:
         print('betting splits overlay skipped:', _e)
-    if not SPL: gaps.append(f'No Action Network betting splits for Week {a.week} in the pull (game_splits has 0 rows); bets-vs-money bars and big-money signals are empty.')
+    if stale_friday_splits:
+        SPL.clear()
+    elif not SPL:
+        gaps.append(f'No Action Network betting splits for Week {a.week} in the pull (game_splits has 0 rows); bets-vs-money bars and big-money signals are empty.')
 
     # ---------- consensus ----------
     ids = {g['id']: g for g in live}
@@ -920,8 +945,9 @@ def main():
                                         first_seen=now_iso, splits_at=sp_.get('captured_at'))
             rec.update(active=True, last_line=x['line'], last_price=x['price'], last_bets=x['bets'], last_money=x['money'], last_seen=now_iso)
             FLAGS[k_] = rec; x['flag'] = rec
-    flag_p.parent.mkdir(parents=True, exist_ok=True)
-    json.dump(FLAGS, open(flag_p, 'w'), indent=1)
+    if not stale_friday_splits:
+        flag_p.parent.mkdir(parents=True, exist_ok=True)
+        json.dump(FLAGS, open(flag_p, 'w'), indent=1)
     def sig_label(x, line=None, price=None):
         ln_ = x['line'] if line is None else line; pr_ = x['price'] if price is None else price
         if x['market'] == 'moneyline': return f"{x['side']} ML {pr_:+d}" if pr_ is not None else f"{x['side']} ML"
@@ -1100,7 +1126,8 @@ def main():
             rows_.append((kick.get(gid_) or datetime.datetime.max.replace(tzinfo=PT), f"| {glink(gid_) if gid_ in ids else esc(x_['game'])} | {typ_} | **{esc(pick_)}** | {esc(px_)} | {(m_.group(1) + '%') if m_ else '—'} | {esc(x_['tier'])} | {esc(risk_)} |"))
         rows_.sort(key=lambda t: t[0])
         return roll(cls, rid, f'🟡 Leans: not elevated to Platinum Rose recommendations ({len(SOFT)})') + [
-            'These sides and totals have a model lean but did **not** clear the Platinum Rose evidence bar (model edge, an independent expert or sharp signal on the same side, and no serious contrary evidence). They are shown for reference and for building your own tickets; they carry no Pitch and are not our recommendations. Confidence is the simulator\'s cover/total probability from the per-game syntheses.', '',
+            ('These Friday matchup leans did not meet all requirements for a provisional recommendation.' if friday_provisional else
+             'These sides and totals have a model lean but did **not** clear the Platinum Rose evidence bar (model edge, an independent expert or sharp signal on the same side, and no serious contrary evidence). They are shown for reference and for building your own tickets; they carry no Pitch and are not our recommendations. Confidence is the simulator\'s cover/total probability from the per-game syntheses.'), '',
             '| Game | Type | Lean | Price | Confidence | Tier | Risk |', '|---|---|---|---|---|---|---|'] + [r_ for _, r_ in rows_] + RE
 
     # ---- expert registry anchors (used by §4 and §7 citations) ----
@@ -1220,6 +1247,7 @@ def main():
         return None, None
     def pool_add(gid, text, price, book, tier, why, src):
         if gid not in ids: return
+        if friday_provisional and not (str(src).startswith('card: ') or src == 'card lean'): return
         _inj_n, _inj_st = pool_inj_player(gid, text)
         if _inj_n:
             POOL_INJ_SKIP[gid] += 1; POOL_INJ_NAMES[gid].add(f'{_inj_n} ({_inj_st})'); return
@@ -1289,8 +1317,11 @@ def main():
     try: asof_txt = pt12(datetime.datetime.fromisoformat((_bkr0.get('capturedAt') or '').replace('Z', '+00:00')))
     except Exception: asof_txt = f'{D}' if _bkr0 else 'NO BOOKMAKER CAPTURE (placeholder; see Known Gaps)'
     L += [logo_css(), f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
-          "## What to bet this week, why we like it, and what every expert and betting market is saying",
-          (f'### Built {pt12(datetime.datetime.now(PT))} · BKR prop snapshot as of {asof_txt}; game lines use Andy-supplied board (capture time not stated)' if bkr_user_board.get('games') else f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip'),
+          ("## Friday provisional research · Matchup leans and saved market evidence" if friday_provisional else
+           "## What to bet this week, why we like it, and what every expert and betting market is saying"),
+          (f'### Built {pt12(datetime.datetime.now(PT))} (Friday provisional) · Prices from Bookmaker as of {asof_txt} — saved reference capture' if friday_provisional else
+           f'### Built {pt12(datetime.datetime.now(PT))} · BKR prop snapshot as of {asof_txt}; game lines use Andy-supplied board (capture time not stated)' if bkr_user_board.get('games') else
+           f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip'),
           '']
     L += roll('section-top', 'inputs-box', '🧾 Data inputs &amp; freshness — what this report was built from') + [
           '| Input | Coverage | Navigation & Details |', '|---|---|---|',
@@ -1322,9 +1353,14 @@ def main():
     L += roll('section-top', 'slate-status-box', f'🚨 Slate Status — {datetime.datetime.now(PT).strftime("%a %b %d, %H:%M PT")}', False) + [
           '<div style="font-size: 0.9rem; margin-bottom: 10px;"><strong>What is the Slate Status?</strong> A quick snapshot of the news that changes how to read this report: games already played, quarterback changes, where the big-money bettors are putting their money, and players the sportsbook has taken off its menu (usually an injury or lineup question). Check it before placing anything.</div>',
           '<div class="status-banner" style="background: var(--bg); border: 1px solid var(--border); border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 10px; color: var(--text); font-size: 0.92rem; line-height: 1.55;">',
+          ('<div><strong>Friday provisional:</strong> Late injury and QB checks remain open. Score baselines come from the saved market. '
+           'Any selections shown use dated captures and require a fresh price and lineup check.</div>' if friday_provisional else ''),
+          (f'<div><strong>Saturday provisional:</strong> the Saturday final gate is {esc(str(gate.get("verdict")))} on {esc(", ".join(sat_fails) or "open items")}. '
+           'Not for final use, PDF export or publication. Rebuild after Sunday inactives and fresh captures.</div>' if sat_provisional else ''),
           f"<div>• <strong>Played:</strong> {'; '.join(results) or 'none yet'}. <strong>{len(live)} games remain.</strong></div>",
           f"<div>• <strong>Quarterback changes (out or doubtful):</strong> {', '.join(qb_notes) or 'none'}.</div>",
-          f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or ('none' if SPL else 'not available yet — no Action Network splits this week')}. Full detail in §2.</div>",
+          ('<div>• <strong>Action Network splits:</strong> Stale. See the game write-ups for dated context.</div>' if stale_friday_splits else
+           f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or ('none' if SPL else 'not available yet — no Action Network splits this week')}. Full detail in §2.</div>"),
           f"<div>• <strong>Pulled from the Bookmaker menu (listed without odds — check status):</strong> {'; '.join(pulled_all) or 'none'}.</div>",
           '<div>• <strong>Known data gaps:</strong> __GAPS__ — details in §11.</div>',
           '<div>• <strong>How to use this page:</strong> 💡 hover or tap an underlined column header for its definition; click a header to sort; use the buttons on each section to open or close it.</div>',
@@ -1448,18 +1484,22 @@ def main():
             seen_glance.add((gid_, 'Total'))
             glance_kind.append('Total')
 
-    if glance_pills:
+    if glance_pills or friday_provisional:
         L += [
             '<div class="at-a-glance-bar">',
             '  <div class="at-a-glance-header">',
             '    <span class="at-a-glance-title">⚡ At-a-Glance Card Leans &amp; Quick Links</span>',
-            '    <span style="font-size: 11.5px; color: var(--muted);">Tap pick for write-up · Tap <b>+ Card</b> to build your weekend card</span>',
+            ('    <span style="font-size: 11.5px; color: var(--muted);">Tap pick for write-up · Tap <b>+ Card</b> to build your weekend card</span>'
+             if glance_pills else '    <span style="font-size: 11.5px; color: var(--muted);">Friday provisional research</span>'),
             '  </div>',
         ]
         for _k, _lbl in (('Side', 'Sides'), ('Total', 'Totals')):
             _grp = [p for p, k in zip(glance_pills, glance_kind) if k == _k]
             if _grp:
                 L += [f'  <div class="glance-group-label">{_lbl} <span>({len(_grp)})</span></div>', '  <div class="at-a-glance-pills">'] + [f'    {p}' for p in _grp] + ['  </div>']
+        if not glance_pills:
+            lean_link = f' <a href="#rec-leans">Review the {len(SOFT)} matchup leans.</a>' if SOFT else ''
+            L += [f'  <p>No Friday selections cleared the recommendation threshold.{lean_link}</p>']
         L += ['</div>', '']
 
     straight = [r for r in RANKED if r['type'] in ('Side', 'Total')]
@@ -1512,6 +1552,9 @@ def main():
         if gwhy(gid): L += ['', f"🧠 **Why:** {esc(gwhy(gid))}"]
         L += ['', f"[Full game write-up →](#{gsid(gid)}) · [all expert picks →](#experts-{slug(gid)})"] + RE
     L += ['</div>'] + RE
+    if XI:  # 2026-11-21: Gun to my head, right below the Platinum Rose straight bets (Andy) - docs/specs/GUN_TO_MY_HEAD_PICKS_SPEC.md
+        try: L += _xi.gtmh_section(str(ROOT), a.season, WW)
+        except Exception as _e: print(f'WARN gtmh section: {_e}')
     L += soft_block('rec-leans', 'section-rec')
     singles = [t for t in TK if not ticket_is_props(t) and t['name'].lower().startswith('single')]
     parl = [t for t in TK if not ticket_is_props(t) and t not in singles]; stacks = [t for t in TK if ticket_is_props(t)]
@@ -1643,7 +1686,11 @@ def main():
         PBP += roll('section-2', 'td-menu', '🏈 Touchdown menu — one anytime TD per team, one first TD per game', True) + [_intro, '', _td, '', '</div>', '</details>', '']
     _inj_note = (['', f"*Injury filter (Andy, 2026-11-14): {sum(POOL_INJ_SKIP.values())} prop suggestions left out because the player is listed Questionable, Doubtful or Out: "
                   + '; '.join(f"{g_}: {', '.join(sorted(v_))}" for g_, v_ in sorted(POOL_INJ_NAMES.items())) + '.*', ''] if POOL_INJ_SKIP else [])
-    L += ['', '<a id="prop-pool"></a>'] + PBP + ['### 🧰 Build your own: actionable props pool', ''] + _inj_note + [
+    GPROPS = []
+    if XI:  # 2026-11-21: Gun to my head props (top 5 per matchup), first in Props Lab
+        try: GPROPS = _xi.gtmh_props_section(str(ROOT), a.season, WW)
+        except Exception as _e: print(f'WARN gtmh props: {_e}')
+    L += ['', '<a id="prop-pool"></a>'] + GPROPS + PBP + ['### 🧰 Build your own: actionable props pool', ''] + _inj_note + [
           'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed, grouped by prop category and then by matchup so you can build your own stacks. **"Card"** rows passed our build rules; **"expert"** rows are calls we have not checked ourselves.', '',
           '**Jump to a category:** ' + ' · '.join(f"[{lab} ({sum(1 for g in pool_games for p in POOL[g['id']] if prop_category(p)[0] == ck)})](#props-cat-{ck.lower()})" for ck, lab in (('TDs','Touchdowns'),('Passing','Passing'),('Rushing','Rushing'),('Receiving','Receiving'),('DEF','Defense'),('Kicking','Kicking'),('Other','Other')) if any(prop_category(p)[0] == ck for g in pool_games for p in POOL[g['id']])), '']
     _kc = collections.Counter(p['kind'] for g in pool_games for p in POOL[g['id']])
@@ -2283,7 +2330,8 @@ def main():
           + ''.join(f'<button type="button" class="gg-chip" data-f="{d_}">{d_}</button>' for d_ in _days)
           + '</div><label class="gg-sort">Sort <select id="gg-sort" aria-label="Sort games"><option value="kick">Kickoff</option><option value="conf">Confidence</option></select></label></div>'
           + '<div class="gg-cards">' + ''.join(_cards) + '</div>'
-          + '<p class="gg-note">Confidence is our estimated chance the lean cashes (pushes excluded); break-even at -110 is 52.4%. Tap a game for the full write-up.</p></div>', '']
+          + ('<p class="gg-note">Confidence estimates are unavailable for this Friday pass. Tap a game for the full write-up.</p></div>' if friday_provisional else
+             '<p class="gg-note">Confidence is our estimated chance the lean cashes (pushes excluded); break-even at -110 is 52.4%. Tap a game for the full write-up.</p></div>'), '']
     icons = {'game script': '📖', 'why the card leans this way': '🧠', 'what breaks it': '⚠️', 'what the experts are saying': '🎙️'}
     for g in sched:
         gid = g['id']; A, H = g['visitor'], g['home']
@@ -2292,6 +2340,9 @@ def main():
         head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {matchup(gid)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" · Proj {proj_txt(gid)}") if proj_txt(gid) and not g['done'] else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
         L += [f'<a id="{gsid(gid)}"></a>'] + roll('section-7', gsid(gid) + '-box', head)
         if g['done']: L += ['<em>Played before this build; excluded from every slot.</em>'] + ROLL_END; continue
+        if XI:
+            try: L += _xi.panel(XI, gid, A, H)
+            except Exception as _e: print(f'WARN model panel {gid}: {_e}')
         b = G.get(gid); nar = NAR.get(gid) or {}
         anch = dict(EXPANCH.get(gid, {}))
         for al, tgt in ALIAS_EXP.items():
@@ -2325,8 +2376,9 @@ def main():
                     cov = f_ if fav_margin > -sp_ else (dog_ if fav_margin < -sp_ else 'push')
                     ctx.append(f"projected margin {w_[0]} by {round(w_[1] - l_[1], 1):g} → covers: {cov} ({f_} {sp_:+g})")
                     ctx.append(f"total {round(s1 + s2, 1):g} vs {tt_} → {'Over' if s1 + s2 > tt_ else 'Under' if s1 + s2 < tt_ else 'push'}")
-                L.append(f'<div style="font-size: 1.08rem; font-weight: 700; margin-bottom: 4px;">🎯 Projected final: {w_[0]} {w_[1]}, {l_[0]} {l_[1]}</div>')
-                if ctx: L.append(f'<div style="font-size: 0.86rem; opacity: 0.85; margin-bottom: 8px;">{gloss_html(" · ".join(ctx), set())}</div>')
+                score_label = 'Captured market-implied score' if friday_provisional else 'Projected final'
+                L.append(f'<div style="font-size: 1.08rem; font-weight: 700; margin-bottom: 4px;">🎯 {score_label}: {w_[0]} {w_[1]}, {l_[0]} {l_[1]}</div>')
+                if ctx and not friday_provisional: L.append(f'<div style="font-size: 0.86rem; opacity: 0.85; margin-bottom: 8px;">{gloss_html(" · ".join(ctx), set())}</div>')
             o = OPEN.get(gid)
             if o and b:
                 mv = []
@@ -2430,6 +2482,7 @@ def main():
             pulled = sorted({r['player'] for r in rows if not r['available'] and r.get('player')})
             if pulled: gitems['Prop'].append((None, gp_line('Listed without odds (check status)', 'Bookmaker', esc(', '.join(pulled)))))
         if POOL.get(gid): gitems['Prop'].append((None, f'<li><a href="#props-{slug(gid)}">🧰 All actionable props for this game →</a></li>'))
+        L += [f'<a id="experts-{slug(gid)}"></a>']
         def camps(kind_, a_key, a_lbl, b_key, b_lbl):
             its_ = gitems[kind_]
             ca_ = [h_ for s_, h_ in its_ if s_ == a_key]; cb_ = [h_ for s_, h_ in its_ if s_ == b_key]; co_ = [h_ for s_, h_ in its_ if s_ not in (a_key, b_key)]
@@ -2708,6 +2761,8 @@ def main():
         survivor=[dict(rank=i + 1, team=t_, game=gid_, win_chance=round(p_, 4), **{k: v for k, v in (spt.get(t_) or {}).items()}) for i, (p_, t_, gid_) in enumerate(cands[:12])],
         trends=[dict(game=z['gid'], type=z['kind'], trend=z['txt'], points_to=z['pick'], source=z['src']) for z in TR],
         known_gaps=gaps, market_captures=capture_sources)
+    if friday_provisional:
+        export.update(status='friday_provisional', projection_basis='captured_bookmaker_lines')
     json.dump(export, open(md.with_suffix('.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False, default=_j)
     print(f'wrote {md} ({len(L)} lines)')
     sys.path.insert(0, str(Path(__file__).parent))
@@ -2864,6 +2919,8 @@ def main():
          '- **Why the contest line matters:** the contest locks its lines early in the week, while sportsbook lines keep moving. When the contest gives our side a better number than the market does now, that is free value. When it gives a worse number, we are paying for it, and it matters most around **3 and 7**, the most common winning margins.'] + RE
     played = [z for z in SIDES if z['result']]
     S += roll('sc-top', 'sc-status', f'🚨 Contest status — Week {W}', True) + [
+         (f"- **Friday provisional research.** Late injury and QB checks remain open. Friday comparison prices are dated separately in the pitches. Bookmaker comparisons and score baselines use the snapshot from {asof_txt}." if friday_provisional else ''),
+         ("- **Action Network splits:** Stale. Excluded from contest ranking." if stale_friday_splits else ''),
          f"- **Season so far:** {wins}–{losses}" + (f"–{pushes}" if pushes else '') + f" ({season_pts:g} of {season_n} points)" + ''.join(f" · Week {wk}: {sum(1 for r in rs if r['result']=='Win')}–{sum(1 for r in rs if r['result']=='Loss')}" for wk, rs in HIST) + '. [Review →](#sc-review)',
          f"- **Already played this week:** " + ('; '.join(f"{matchup(z['gid'], False)} — {z['side']} {z['lc']:+g} **{z['result']}**" for z in played if z['result'] == 'Win') or 'none') + '.',
          f"- **Dashboard AI proposal ({len(card_sc)} sides):** " + ' · '.join(f"{tl(t_)}**{t_} {l_:+g}**" for t_, l_ in card_sc) + (f" (alternate: {card_alt[0][0]} {card_alt[0][1]:+g})" if card_alt else '') + '.',
@@ -2903,10 +2960,16 @@ def main():
             out += RE
         if thesis:
             source_path = f"reports/intel/games/{a.season}-w{WW}-game-{gid.replace('@', '_at_')}-sides.md"
-            out += [f'<div class="sc-thesis-sources" style="font-size:.85em;color:var(--muted)">',
+            out.append('<div class="sc-thesis-sources" style="font-size:.85em;color:var(--muted)">')
+            if friday_provisional or thesis.get('sources'):   # 2026-11-21: saved sources win (refs 3-6 had no anchors)
+                out.extend(f'<p id="{prefix}-source-{esc(ref)}"><b>[{esc(ref)}]</b> {esc(source)}</p>'
+                           for ref, source in thesis.get('sources', {}).items())
+            else:
+                out += [
                     f'<p id="{prefix}-source-1"><b>[1] Saved Friday matchup synthesis, {esc(gid)}.</b> Game script, quantitative analysis, expert agreement, market history and counter-case. Includes dossier/FTN/nflverse figures, attributed expert recommendations and saved simulation results. Source: <code>{esc(source_path)}</code>. Figures describe that snapshot; no simulation was rerun for this update.</p>',
                     f'<p id="{prefix}-source-2"><b>[2] Saturday Week {W} review, {esc(gid)}.</b> Game section, Saturday market/news recheck and contest notes in <code>{esc(nar_p)}</code>; latest supplied BKR spread is displayed above. These notes update Friday information where explicitly stated. The analyst score projection is qualitative.</p>',
-                    '</div>', '']
+                ]
+            out += ['</div>', '']
         return out
     def _spl_when(sp_):
         try: return datetime.datetime.fromisoformat(str(sp_.get('captured_at'))).astimezone(PT).strftime('%a %H:%M PT')
@@ -2925,7 +2988,8 @@ def main():
         head = f"{tag} {tl(t_)}{FULL_NAME(t_)} {z['lc']:+g} — {matchup(z['gid'], False)} · {z['g']['k'].astimezone(PT):%a %H:%M PT}"
         out += roll('sc-five', f"sc5-{slug(t_)}", head, True)
         _nf, _na = sc_expert_counts(z)
-        out += [scl4.plain_summary(z), scl4.stat_tiles(z, _nf, _na, proj_txt(z['gid']), tl), '']
+        out += [scl4.plain_summary(z, market_implied=friday_provisional),
+                scl4.stat_tiles(z, _nf, _na, proj_txt(z['gid']), tl, market_implied=friday_provisional), '']
         _ps4 = sc_pitch_sections(z)
         _k4 = next((i_ for i_, l_ in enumerate(_ps4) if isinstance(l_, str) and l_.startswith('<div class="sc-thesis-sources"')), len(_ps4))
         _sp4 = SPL.get(z['gid']) or {}
@@ -3052,7 +3116,8 @@ def main():
                 + '</div></div>')
         S += ['<div class="sp-grid">' + ''.join(cards) + '</div>']
     else:
-        S += ['No betting splits were posted for this week yet.']
+        S += ['Action Network splits are stale. The dated figures remain in the matchup research.' if stale_friday_splits else
+              'No betting splits were posted for this week yet.']
     S += RE
     # 3. expert panel
     S += ['', '<a id="sc-experts"></a>', '## 3. The Expert Panel: Who Is on Which Side', '',
@@ -3171,7 +3236,7 @@ def main():
         else: tag = 'Not recommended'
         stats = (f"Best side <b>{best['side']} {scl4.ln(best['lc'])}</b> · rank <b>#{best.get('rank', '—')}</b> · value <b>{scl4.pts(best['val'])}</b> · "
                  f"room <b>{scl4.pts(best['cush'])}</b> · experts <b>{len(SC_CONS[gid].get(best['side'], set()))}–{len(SC_CONS[gid].get(best['opp'], set()))}</b>")
-        line4 = f"Contest {f_['side']} {scl4.ln(f_['lc'])} · sportsbook {scl4.ln(f_['lm']) if f_['lm'] is not None else '—'}" + (f" · projected {proj_txt(gid)}" if proj_txt(gid) else '')
+        line4 = f"Contest {f_['side']} {scl4.ln(f_['lc'])} · sportsbook {scl4.ln(f_['lm']) if f_['lm'] is not None else '—'}" + (f" · {'market-implied' if friday_provisional else 'projected'} {proj_txt(gid)}" if proj_txt(gid) else '')
         _cards4.append(scl4.gg_card(f"sc-game-{slug(gid)}", cat, day, int(g['k'].timestamp()), best.get('rank', 99),
                                     best['val'] if best['val'] is not None else 0, best['cush'] if best['cush'] is not None else -99,
                                     g['k'].astimezone(PT).strftime('%a %H:%M PT'), html.escape(tag), f"{tl(A_)}{A_} @ {tl(H_)}{H_}", html.escape(line4), stats))
@@ -3229,7 +3294,7 @@ def main():
                 links4 += [(f"👍 {z['side']} Pitch", f"#sc5-{slug(z['side'])}-pitch"), (f"👎 {z['side']} Pushback", f"#sc5-{slug(z['side'])}-pushback")]
         _pjd4 = dict((NAR.get(gid) or {}).get('proj') or [])
         _pjh4 = (f"{tl(A_)}{A_} {_pjd4[A_]:g} <span class='sc4-pj-dash'>–</span> {_pjd4[H_]:g} {H_}{tl(H_)}" if A_ in _pjd4 and H_ in _pjd4 else '')
-        S += [scl4.game_header4(A_, H_, {A_: _tinfo4(za), H_: _tinfo4(zh)}, ranks4, links4, len(live_sides), tl, FULL_NAME, _pjh4), '']
+        S += [scl4.game_header4(A_, H_, {A_: _tinfo4(za), H_: _tinfo4(zh)}, ranks4, links4, len(live_sides), tl, FULL_NAME, _pjh4, market_implied=friday_provisional), '']
         _sp4 = SPL.get(gid) or {}
         _spb4 = scl4.splits_block(A_, H_, H_, _sp4, tl, _spl_when(_sp4)) if _sp4 else ''
         if _spb4: S += [_spb4, '']
@@ -3242,7 +3307,8 @@ def main():
             proj4 = f"Projected final: {html.escape(str(w_[0]))} {w_[1]}, {html.escape(str(l_[0]))} {l_[1]}"
             if f_['cush'] is not None:
                 cov_ = f_['side'] if f_['cush'] > 0 else (d_['side'] if f_['cush'] < 0 else 'a push')
-                ctx4 = f"Projected margin {w_[0]} by {round(w_[1] - l_[1], 1):g} against the contest line {f_['side']} {scl4.ln(f_['lc'])}: covers {cov_}."
+                margin_label = 'Captured market-implied margin' if friday_provisional else 'Projected margin'
+                ctx4 = f"{margin_label} {w_[0]} by {round(w_[1] - l_[1], 1):g} against the contest line {f_['side']} {scl4.ln(f_['lc'])}: covers {cov_}."
         o4 = OPEN.get(gid); b4 = G.get(gid) or {}
         if o4 and b4:
             for t_ in (A_, H_):
@@ -3269,7 +3335,6 @@ def main():
         if _context and scl4.spread_safe(_context): S += [f"**Contest note:** {esc(_context)}", '']
         S += RE
     # 5. review + rules
-    standings_path = ROOT / f'data/supercontest/standings-week-{WW}-{D}.md'
     if not standings_path.exists():
         snapshots = sorted(p for p in (ROOT / 'data/supercontest').glob(f'standings-week-{WW}-{a.season}-*.md') if p.stem[-10:] <= D)
         if snapshots: standings_path = snapshots[-1]
@@ -3278,6 +3343,13 @@ def main():
     ai_review = json.loads(ai_review_path.read_text(encoding='utf-8')) if ai_review_path.exists() else {}
     review_weeks = ai_review.get('weeks', [])
     graded_weeks = [r for r in review_weeks if r.get('status') == 'graded']
+    if friday_provisional:
+        recorded_weeks = {int(row['week']) for row in review_weeks}
+        review_weeks = sorted(review_weeks + [
+            dict(week=wk, status='review_gap', source=f'data/supercontest/locked-card-week-{wk}.json and saved ESPN final box scores',
+                 note='The saved contest review has no graded Dashboard AI entry for this week.')
+            for wk, _ in HIST if wk not in recorded_weeks
+        ], key=lambda row: int(row['week']))
     source_note = ''
     S += ['', '<a id="sc-review"></a>', '## 5. SuperContest Standings & Season Review', '']
     if standings_lines:
@@ -3419,7 +3491,8 @@ def main():
     json.dump(dict(schema='supercontest_report_v1', season=a.season, week=W, built_at=datetime.datetime.now(PT).isoformat(), contest_lines_source=scl.get('source'),
                    our_five=[dict(team=t_, line=l_, note=SCNOTE.get(t_, ''), reasoning=SC_PITCH.get(t_, {})) for t_, l_ in card_sc], alternates=[dict(team=t_, line=l_, reasoning=SC_PITCH.get(t_, {})) for t_, l_ in card_alt],
                    season_record=dict(wins=wins, losses=losses, pushes=pushes, points=season_pts, weeks=[dict(week=wk, picks=rs) for wk, rs in HIST]),
-                   sides=[{k: z[k] for k in ('gid', 'side', 'opp', 'lc', 'lm', 'marg', 'cush', 'val', 'key', 'nf', 'na', 'bm', 'score', 'result', 'fav')} | dict(rank=z.get('rank'), stars=(z['lean']['conf'] if z['lean'] else None)) for z in SIDES]),
+                   sides=[{k: z[k] for k in ('gid', 'side', 'opp', 'lc', 'lm', 'marg', 'cush', 'val', 'key', 'nf', 'na', 'bm', 'score', 'result', 'fav')} | dict(rank=z.get('rank'), stars=(z['lean']['conf'] if z['lean'] else None)) for z in SIDES],
+                   **(dict(status='friday_provisional', projection_basis='captured_bookmaker_lines') if friday_provisional else {})),
               open(smd.with_suffix('.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False, default=_j)
     print(f'wrote {smd}')
     if not a.no_export:

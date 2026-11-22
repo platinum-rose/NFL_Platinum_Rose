@@ -1,0 +1,2065 @@
+{
+ "generated_at": "2026-11-22T04:20:19.056Z",
+ "version": 2,
+ "method": "analyzeGame (scripts/intel/margin-simulator.mjs, calibration data/research-intel/proposed/2026-w05-historical-market-calibration.json). Main view = Bookmaker 5:43 pm PT line moved 50% toward the team-strength model (SRS/DVOA/net YPP), then each probability blended 50/50 with the market probability (no-vig from both Bookmaker prices; contest lines use the market-only sim). Analytics sensitivity = the same pipeline with an FTN EPA matchup projection (offense EPA/play + opponent defense EPA/play allowed, each vs league mean and regressed 50% toward it, times the offense's plays/game, plus 1.5 home edge; neutral site 0). FTN team tables through Week 9. No QB, injury or weather adjustments in either view.",
+ "league": {
+  "ppg": 23.121875,
+  "mean": {
+   "off_epa": -0.010500000000000002,
+   "off_succ": 42.771875,
+   "off_exp": 9.028125000000003,
+   "off_conv": 41.340625,
+   "off_to": 1.6531250000000004,
+   "off_pass": 0.048718750000000005,
+   "off_rush": -0.10065625,
+   "off_press": 29.356250000000003,
+   "off_sack": 6.3,
+   "plays": 62.35937500000001,
+   "def_epa": -0.012312499999999999,
+   "def_succ": 42.753125,
+   "def_exp": 8.959374999999998,
+   "def_conv": 41.09374999999999,
+   "def_to": 1.68125,
+   "def_pass": 0.04946875000000001,
+   "def_rush": -0.10006250000000001,
+   "def_press": 29.38437500000001,
+   "def_sack": 6.28125
+  }
+ },
+ "games": {
+  "MIA@BUF": {
+   "market_line": -16,
+   "market_total": 44.5,
+   "model_line": -15.63,
+   "model_total": 47.67,
+   "center_line": -15.82,
+   "center_total": 46.08,
+   "home_cover_xp": 0.49382681545894724,
+   "over_xp": 0.5239770598456409,
+   "home_cover_xp_single": 0.4943336576380014,
+   "over_xp_single": 0.5479541196912818,
+   "home_win": 0.8748534375782671,
+   "away_cover_xp": 0.5061731845410528,
+   "under_xp": 0.4760229401543591,
+   "analytics": {
+    "proj_home_line": -10.31,
+    "proj_total": 52,
+    "home_pts": 31.2,
+    "away_pts": 20.8,
+    "center_line": -13.15,
+    "center_total": 48.25,
+    "home_cover_xp": 0.453260828530476,
+    "over_xp": 0.5561881826054831
+   },
+   "prices": {
+    "spread": {
+     "BUF": [
+      -16,
+      -105
+     ],
+     "MIA": [
+      16,
+      -111
+     ]
+    },
+    "total": {
+     "Over": [
+      44.5,
+      -108
+     ],
+     "Under": [
+      44.5,
+      -108
+     ]
+    }
+   },
+   "matchup": {
+    "away": "MIA",
+    "home": "BUF",
+    "teams": {
+     "MIA": {
+      "off_epa": -0.067,
+      "off_succ": 38.4,
+      "off_exp": 10.2,
+      "off_conv": 43.4,
+      "off_to": 2,
+      "off_pass": -0.018,
+      "off_rush": -0.133,
+      "off_press": 35.1,
+      "off_sack": 9.3,
+      "plays": 56.3,
+      "def_epa": 0.081,
+      "def_succ": 47,
+      "def_exp": 9.6,
+      "def_conv": 52.8,
+      "def_to": 1.1,
+      "def_pass": 0.264,
+      "def_rush": -0.121,
+      "def_press": 26.7,
+      "def_sack": 4.9,
+      "gp": 8,
+      "ppg": 16.444,
+      "through": 8
+     },
+     "BUF": {
+      "off_epa": 0.121,
+      "off_succ": 46.3,
+      "off_exp": 13.1,
+      "off_conv": 47.6,
+      "off_to": 1.74,
+      "off_pass": 0.253,
+      "off_rush": -0.032,
+      "off_press": 33.9,
+      "off_sack": 6.1,
+      "plays": 64.8,
+      "def_epa": -0.01,
+      "def_succ": 43.9,
+      "def_exp": 9.4,
+      "def_conv": 41.6,
+      "def_to": 2.4,
+      "def_pass": 0.046,
+      "def_rush": -0.113,
+      "def_press": 35.6,
+      "def_sack": 5.2,
+      "gp": 8,
+      "ppg": 31.889,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "MIA": {
+      "off_epa": 25,
+      "off_succ": 29,
+      "off_exp": 6,
+      "off_conv": 12,
+      "off_to": 24,
+      "off_pass": 23,
+      "off_rush": 21,
+      "off_press": 28,
+      "off_sack": 30,
+      "plays": 32,
+      "def_epa": 30,
+      "def_succ": 32,
+      "def_exp": 20,
+      "def_conv": 32,
+      "def_to": 25,
+      "def_pass": 32,
+      "def_rush": 11,
+      "def_press": 25,
+      "def_sack": 27
+     },
+     "BUF": {
+      "off_epa": 4,
+      "off_succ": 7,
+      "off_exp": 1,
+      "off_conv": 5,
+      "off_to": 21,
+      "off_pass": 4,
+      "off_rush": 10,
+      "off_press": 25,
+      "off_sack": 18,
+      "plays": 9,
+      "def_epa": 16,
+      "def_succ": 22,
+      "def_exp": 16,
+      "def_conv": 16,
+      "def_to": 5,
+      "def_pass": 16,
+      "def_rush": 13,
+      "def_press": 3,
+      "def_sack": 21
+     }
+    }
+   }
+  },
+  "NO@CHI": {
+   "market_line": -11.5,
+   "market_total": 48,
+   "model_line": -10.72,
+   "model_total": 47.94,
+   "center_line": -11.11,
+   "center_total": 47.97,
+   "home_cover_xp": 0.4931956043168957,
+   "over_xp": 0.5017913934895142,
+   "home_cover_xp_single": 0.48861709119622737,
+   "over_xp_single": 0.4991304272283606,
+   "home_win": 0.8052007513144858,
+   "away_cover_xp": 0.5068043956831043,
+   "under_xp": 0.4982086065104858,
+   "analytics": {
+    "proj_home_line": -6.16,
+    "proj_total": 46.09,
+    "home_pts": 26.1,
+    "away_pts": 20,
+    "center_line": -8.83,
+    "center_total": 47.05,
+    "home_cover_xp": 0.4603487951978552,
+    "over_xp": 0.4873127137106537
+   },
+   "prices": {
+    "spread": {
+     "CHI": [
+      -11.5,
+      -107
+     ],
+     "NO": [
+      11.5,
+      -109
+     ]
+    },
+    "total": {
+     "Over": [
+      48,
+      -110
+     ],
+     "Under": [
+      48,
+      -106
+     ]
+    }
+   },
+   "matchup": {
+    "away": "NO",
+    "home": "CHI",
+    "teams": {
+     "NO": {
+      "off_epa": -0.037,
+      "off_succ": 41.7,
+      "off_exp": 6.9,
+      "off_conv": 47.7,
+      "off_to": 2.06,
+      "off_pass": 0.016,
+      "off_rush": -0.132,
+      "off_press": 29.2,
+      "off_sack": 5.8,
+      "plays": 66.6,
+      "def_epa": 0.03,
+      "def_succ": 45.4,
+      "def_exp": 10.3,
+      "def_conv": 46.4,
+      "def_to": 1,
+      "def_pass": 0.091,
+      "def_rush": -0.059,
+      "def_press": 25.7,
+      "def_sack": 7.4,
+      "gp": 8,
+      "ppg": 22.444,
+      "through": 8
+     },
+     "CHI": {
+      "off_epa": 0.011,
+      "off_succ": 46.3,
+      "off_exp": 9.6,
+      "off_conv": 46.9,
+      "off_to": 2.05,
+      "off_pass": 0.093,
+      "off_rush": -0.093,
+      "off_press": 34.4,
+      "off_sack": 5.6,
+      "plays": 70.6,
+      "def_epa": -0.058,
+      "def_succ": 39.9,
+      "def_exp": 9.9,
+      "def_conv": 23.8,
+      "def_to": 1.7,
+      "def_pass": -0.036,
+      "def_rush": -0.097,
+      "def_press": 31.9,
+      "def_sack": 8.6,
+      "gp": 9,
+      "ppg": 26.778,
+      "through": 9
+     }
+    },
+    "ranks": {
+     "NO": {
+      "off_epa": 20,
+      "off_succ": 18,
+      "off_exp": 30,
+      "off_conv": 4,
+      "off_to": 26,
+      "off_pass": 21,
+      "off_rush": 20,
+      "off_press": 17,
+      "off_sack": 15,
+      "plays": 4,
+      "def_epa": 22,
+      "def_succ": 26,
+      "def_exp": 27,
+      "def_conv": 28,
+      "def_to": 29,
+      "def_pass": 21,
+      "def_rush": 23,
+      "def_press": 27,
+      "def_sack": 8
+     },
+     "CHI": {
+      "off_epa": 13,
+      "off_succ": 8,
+      "off_exp": 12,
+      "off_conv": 6,
+      "off_to": 25,
+      "off_pass": 12,
+      "off_rush": 16,
+      "off_press": 27,
+      "off_sack": 13,
+      "plays": 1,
+      "def_epa": 10,
+      "def_succ": 4,
+      "def_exp": 23,
+      "def_conv": 1,
+      "def_to": 16,
+      "def_pass": 7,
+      "def_rush": 18,
+      "def_press": 9,
+      "def_sack": 3
+     }
+    }
+   }
+  },
+  "TEN@DAL": {
+   "market_line": -7,
+   "market_total": 55,
+   "model_line": -7.7,
+   "model_total": 50.96,
+   "center_line": -7.35,
+   "center_total": 52.98,
+   "home_cover_xp": 0.5106811424365683,
+   "over_xp": 0.4684723662676934,
+   "home_cover_xp_single": 0.5102209684151838,
+   "over_xp_single": 0.43694473253538674,
+   "home_win": 0.7268551210528394,
+   "away_cover_xp": 0.48931885756343174,
+   "under_xp": 0.5315276337323066,
+   "analytics": {
+    "proj_home_line": -6.54,
+    "proj_total": 52.34,
+    "home_pts": 29.4,
+    "away_pts": 22.9,
+    "center_line": -6.77,
+    "center_total": 53.67,
+    "home_cover_xp": 0.5021780400316258,
+    "over_xp": 0.47924967108206473
+   },
+   "prices": {
+    "spread": {
+     "DAL": [
+      -7,
+      -113
+     ],
+     "TEN": [
+      7,
+      -103
+     ]
+    },
+    "total": {
+     "Over": [
+      55,
+      -108
+     ],
+     "Under": [
+      55,
+      -108
+     ]
+    }
+   },
+   "matchup": {
+    "away": "TEN",
+    "home": "DAL",
+    "teams": {
+     "TEN": {
+      "off_epa": -0.088,
+      "off_succ": 41.7,
+      "off_exp": 7.3,
+      "off_conv": 36.5,
+      "off_to": 1.55,
+      "off_pass": -0.096,
+      "off_rush": -0.076,
+      "off_press": 26.1,
+      "off_sack": 4.6,
+      "plays": 56.6,
+      "def_epa": 0.056,
+      "def_succ": 46.1,
+      "def_exp": 10.2,
+      "def_conv": 45,
+      "def_to": 1.9,
+      "def_pass": 0.169,
+      "def_rush": -0.097,
+      "def_press": 22.5,
+      "def_sack": 6.5,
+      "gp": 8,
+      "ppg": 18.556,
+      "through": 8
+     },
+     "DAL": {
+      "off_epa": 0.092,
+      "off_succ": 46.3,
+      "off_exp": 8.2,
+      "off_conv": 48.1,
+      "off_to": 1.02,
+      "off_pass": 0.155,
+      "off_rush": -0.017,
+      "off_press": 27.8,
+      "off_sack": 3.8,
+      "plays": 65.2,
+      "def_epa": 0.084,
+      "def_succ": 45.4,
+      "def_exp": 9.8,
+      "def_conv": 48.8,
+      "def_to": 1,
+      "def_pass": 0.167,
+      "def_rush": -0.031,
+      "def_press": 30.7,
+      "def_sack": 5.1,
+      "gp": 9,
+      "ppg": 28.6,
+      "through": 9
+     }
+    },
+    "ranks": {
+     "TEN": {
+      "off_epa": 27,
+      "off_succ": 19,
+      "off_exp": 28,
+      "off_conv": 25,
+      "off_to": 17,
+      "off_pass": 25,
+      "off_rush": 12,
+      "off_press": 10,
+      "off_sack": 7,
+      "plays": 31,
+      "def_epa": 25,
+      "def_succ": 30,
+      "def_exp": 26,
+      "def_conv": 25,
+      "def_to": 12,
+      "def_pass": 29,
+      "def_rush": 19,
+      "def_press": 31,
+      "def_sack": 14
+     },
+     "DAL": {
+      "off_epa": 6,
+      "off_succ": 9,
+      "off_exp": 23,
+      "off_conv": 3,
+      "off_to": 4,
+      "off_pass": 10,
+      "off_rush": 8,
+      "off_press": 14,
+      "off_sack": 5,
+      "plays": 8,
+      "def_epa": 31,
+      "def_succ": 25,
+      "def_exp": 22,
+      "def_conv": 31,
+      "def_to": 28,
+      "def_pass": 28,
+      "def_rush": 31,
+      "def_press": 12,
+      "def_sack": 23
+     }
+    }
+   }
+  },
+  "TB@DET": {
+   "market_line": -3.5,
+   "market_total": 47,
+   "model_line": -3.23,
+   "model_total": 46.44,
+   "center_line": -3.37,
+   "center_total": 46.72,
+   "home_cover_xp": 0.49820368393126957,
+   "over_xp": 0.5012238042014314,
+   "home_cover_xp_single": 0.4964073678625391,
+   "over_xp_single": 0.49130629194491027,
+   "home_win": 0.6258026590727346,
+   "away_cover_xp": 0.5017963160687304,
+   "under_xp": 0.4987761957985686,
+   "analytics": {
+    "proj_home_line": 0.01,
+    "proj_total": 43.42,
+    "home_pts": 21.7,
+    "away_pts": 21.7,
+    "center_line": -1.75,
+    "center_total": 45.21,
+    "home_cover_xp": 0.4767732078926392,
+    "over_xp": 0.47761642342750643
+   },
+   "prices": {
+    "spread": {
+     "DET": [
+      -3.5,
+      -108
+     ],
+     "TB": [
+      3.5,
+      -108
+     ]
+    },
+    "total": {
+     "Over": [
+      47,
+      -113
+     ],
+     "Under": [
+      47,
+      -103
+     ]
+    }
+   },
+   "matchup": {
+    "away": "TB",
+    "home": "DET",
+    "teams": {
+     "TB": {
+      "off_epa": -0.109,
+      "off_succ": 40.4,
+      "off_exp": 9.6,
+      "off_conv": 36.8,
+      "off_to": 2.31,
+      "off_pass": -0.196,
+      "off_rush": -0.015,
+      "off_press": 36.2,
+      "off_sack": 9.2,
+      "plays": 62.4,
+      "def_epa": -0.173,
+      "def_succ": 39.8,
+      "def_exp": 6.9,
+      "def_conv": 35.7,
+      "def_to": 3.4,
+      "def_pass": -0.166,
+      "def_rush": -0.185,
+      "def_press": 32,
+      "def_sack": 5,
+      "gp": 9,
+      "ppg": 22.444,
+      "through": 9
+     },
+     "DET": {
+      "off_epa": 0.084,
+      "off_succ": 48.1,
+      "off_exp": 10.7,
+      "off_conv": 42.3,
+      "off_to": 0.76,
+      "off_pass": 0.211,
+      "off_rush": -0.086,
+      "off_press": 24.4,
+      "off_sack": 6.4,
+      "plays": 65.5,
+      "def_epa": 0.065,
+      "def_succ": 43.2,
+      "def_exp": 10.8,
+      "def_conv": 48,
+      "def_to": 1.5,
+      "def_pass": 0.163,
+      "def_rush": -0.141,
+      "def_press": 30.7,
+      "def_sack": 7.5,
+      "gp": 8,
+      "ppg": 28.556,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "TB": {
+      "off_epa": 28,
+      "off_succ": 25,
+      "off_exp": 13,
+      "off_conv": 24,
+      "off_to": 27,
+      "off_pass": 30,
+      "off_rush": 7,
+      "off_press": 30,
+      "off_sack": 29,
+      "plays": 16,
+      "def_epa": 1,
+      "def_succ": 3,
+      "def_exp": 3,
+      "def_conv": 6,
+      "def_to": 1,
+      "def_pass": 2,
+      "def_rush": 2,
+      "def_press": 8,
+      "def_sack": 26
+     },
+     "DET": {
+      "off_epa": 7,
+      "off_succ": 4,
+      "off_exp": 5,
+      "off_conv": 14,
+      "off_to": 2,
+      "off_pass": 5,
+      "off_rush": 14,
+      "off_press": 5,
+      "off_sack": 20,
+      "plays": 7,
+      "def_epa": 28,
+      "def_succ": 18,
+      "def_exp": 28,
+      "def_conv": 30,
+      "def_to": 20,
+      "def_pass": 27,
+      "def_rush": 8,
+      "def_press": 13,
+      "def_sack": 7
+     }
+    }
+   }
+  },
+  "ARI@KC": {
+   "market_line": -16,
+   "market_total": 41,
+   "model_line": -16.35,
+   "model_total": 45.48,
+   "center_line": -16.18,
+   "center_total": 43.24,
+   "home_cover_xp": 0.49378541469013104,
+   "over_xp": 0.5337310276819731,
+   "home_cover_xp_single": 0.5054279722374051,
+   "over_xp_single": 0.5696879379263822,
+   "home_win": 0.8800018149759216,
+   "away_cover_xp": 0.506214585309869,
+   "under_xp": 0.4662689723180269,
+   "analytics": {
+    "proj_home_line": -10.82,
+    "proj_total": 50.07,
+    "home_pts": 30.4,
+    "away_pts": 19.6,
+    "center_line": -13.41,
+    "center_total": 45.54,
+    "home_cover_xp": 0.451482647516354,
+    "over_xp": 0.5683055522011383
+   },
+   "prices": {
+    "spread": {
+     "KC": [
+      -16,
+      100
+     ],
+     "ARI": [
+      16,
+      -116
+     ]
+    },
+    "total": {
+     "Over": [
+      41,
+      -107
+     ],
+     "Under": [
+      41,
+      -109
+     ]
+    }
+   },
+   "matchup": {
+    "away": "ARI",
+    "home": "KC",
+    "teams": {
+     "ARI": {
+      "off_epa": -0.04,
+      "off_succ": 42.8,
+      "off_exp": 5.8,
+      "off_conv": 40.8,
+      "off_to": 1.15,
+      "off_pass": -0.027,
+      "off_rush": -0.065,
+      "off_press": 27.9,
+      "off_sack": 5.9,
+      "plays": 67.6,
+      "def_epa": 0.073,
+      "def_succ": 42.5,
+      "def_exp": 9.1,
+      "def_conv": 42.6,
+      "def_to": 1.1,
+      "def_pass": 0.255,
+      "def_rush": -0.138,
+      "def_press": 24.1,
+      "def_sack": 6.2,
+      "gp": 9,
+      "ppg": 18.4,
+      "through": 9
+     },
+     "KC": {
+      "off_epa": 0.118,
+      "off_succ": 48.2,
+      "off_exp": 10.8,
+      "off_conv": 43.6,
+      "off_to": 1.22,
+      "off_pass": 0.157,
+      "off_rush": 0.062,
+      "off_press": 29.7,
+      "off_sack": 3.8,
+      "plays": 61.5,
+      "def_epa": -0.064,
+      "def_succ": 40.1,
+      "def_exp": 7.5,
+      "def_conv": 38.9,
+      "def_to": 1.8,
+      "def_pass": -0.005,
+      "def_rush": -0.155,
+      "def_press": 32.2,
+      "def_sack": 4.2,
+      "gp": 8,
+      "ppg": 26.333,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "ARI": {
+      "off_epa": 21,
+      "off_succ": 14,
+      "off_exp": 31,
+      "off_conv": 15,
+      "off_to": 7,
+      "off_pass": 24,
+      "off_rush": 11,
+      "off_press": 15,
+      "off_sack": 16,
+      "plays": 2,
+      "def_epa": 29,
+      "def_succ": 13,
+      "def_exp": 14,
+      "def_conv": 18,
+      "def_to": 24,
+      "def_pass": 31,
+      "def_rush": 9,
+      "def_press": 28,
+      "def_sack": 16
+     },
+     "KC": {
+      "off_epa": 5,
+      "off_succ": 3,
+      "off_exp": 4,
+      "off_conv": 11,
+      "off_to": 8,
+      "off_pass": 9,
+      "off_rush": 2,
+      "off_press": 19,
+      "off_sack": 6,
+      "plays": 21,
+      "def_epa": 9,
+      "def_succ": 5,
+      "def_exp": 7,
+      "def_conv": 12,
+      "def_to": 15,
+      "def_pass": 11,
+      "def_rush": 6,
+      "def_press": 7,
+      "def_sack": 31
+     }
+    }
+   }
+  },
+  "PIT@PHI": {
+   "market_line": 4,
+   "market_total": 37.5,
+   "model_line": 7.41,
+   "model_total": 41.61,
+   "center_line": 5.7,
+   "center_total": 39.56,
+   "home_cover_xp": 0.48326917066615493,
+   "over_xp": 0.5145618370989372,
+   "home_cover_xp_single": 0.4531622043606674,
+   "over_xp_single": 0.5619119271596632,
+   "home_win": 0.29649448380260757,
+   "away_cover_xp": 0.5167308293338451,
+   "under_xp": 0.4854381629010628,
+   "analytics": {
+    "proj_home_line": 5.76,
+    "proj_total": 41.58,
+    "home_pts": 17.9,
+    "away_pts": 23.7,
+    "center_line": 4.88,
+    "center_total": 39.54,
+    "home_cover_xp": 0.49459911214873986,
+    "over_xp": 0.5142952187847691
+   },
+   "prices": {
+    "spread": {
+     "PHI": [
+      4,
+      -114
+     ],
+     "PIT": [
+      -4,
+      -102
+     ]
+    },
+    "total": {
+     "Over": [
+      37.5,
+      106
+     ],
+     "Under": [
+      37.5,
+      -124
+     ]
+    }
+   },
+   "matchup": {
+    "away": "PIT",
+    "home": "PHI",
+    "teams": {
+     "PIT": {
+      "off_epa": -0.044,
+      "off_succ": 41.1,
+      "off_exp": 9.3,
+      "off_conv": 39.4,
+      "off_to": 1.38,
+      "off_pass": -0.109,
+      "off_rush": 0.067,
+      "off_press": 26.6,
+      "off_sack": 7.2,
+      "plays": 63.5,
+      "def_epa": -0.073,
+      "def_succ": 41.3,
+      "def_exp": 9,
+      "def_conv": 38.1,
+      "def_to": 2,
+      "def_pass": -0.028,
+      "def_rush": -0.156,
+      "def_press": 22.3,
+      "def_sack": 8.2,
+      "gp": 8,
+      "ppg": 22,
+      "through": 8
+     },
+     "PHI": {
+      "off_epa": -0.146,
+      "off_succ": 35.5,
+      "off_exp": 5.5,
+      "off_conv": 35.6,
+      "off_to": 1.46,
+      "off_pass": -0.142,
+      "off_rush": -0.154,
+      "off_press": 36,
+      "off_sack": 8.4,
+      "plays": 60.8,
+      "def_epa": 0.062,
+      "def_succ": 43.3,
+      "def_exp": 9.7,
+      "def_conv": 44.6,
+      "def_to": 0.5,
+      "def_pass": 0.141,
+      "def_rush": -0.039,
+      "def_press": 28,
+      "def_sack": 4.8,
+      "gp": 9,
+      "ppg": 16.444,
+      "through": 9
+     }
+    },
+    "ranks": {
+     "PIT": {
+      "off_epa": 22,
+      "off_succ": 21,
+      "off_exp": 16,
+      "off_conv": 20,
+      "off_to": 11,
+      "off_pass": 27,
+      "off_rush": 1,
+      "off_press": 13,
+      "off_sack": 21,
+      "plays": 11,
+      "def_epa": 8,
+      "def_succ": 11,
+      "def_exp": 13,
+      "def_conv": 9,
+      "def_to": 9,
+      "def_pass": 8,
+      "def_rush": 5,
+      "def_press": 32,
+      "def_sack": 4
+     },
+     "PHI": {
+      "off_epa": 30,
+      "off_succ": 30,
+      "off_exp": 32,
+      "off_conv": 27,
+      "off_to": 13,
+      "off_pass": 29,
+      "off_rush": 25,
+      "off_press": 29,
+      "off_sack": 25,
+      "plays": 23,
+      "def_epa": 27,
+      "def_succ": 19,
+      "def_exp": 21,
+      "def_conv": 23,
+      "def_to": 32,
+      "def_pass": 25,
+      "def_rush": 27,
+      "def_press": 20,
+      "def_sack": 30
+     }
+    }
+   }
+  },
+  "BAL@CAR": {
+   "market_line": -3,
+   "market_total": 43.5,
+   "model_line": -3.34,
+   "model_total": 48.68,
+   "center_line": -3.17,
+   "center_total": 46.09,
+   "home_cover_xp": 0.49177496048204183,
+   "over_xp": 0.5390402886089025,
+   "home_cover_xp_single": 0.5048804896321915,
+   "over_xp_single": 0.5780805772178051,
+   "home_win": 0.5939217713166463,
+   "away_cover_xp": 0.5082250395179582,
+   "under_xp": 0.4609597113910975,
+   "analytics": {
+    "proj_home_line": -1.7,
+    "proj_total": 49.53,
+    "home_pts": 25.6,
+    "away_pts": 23.9,
+    "center_line": -2.35,
+    "center_total": 46.52,
+    "home_cover_xp": 0.48001441247323534,
+    "over_xp": 0.5453873323260492
+   },
+   "prices": {
+    "spread": {
+     "CAR": [
+      -3,
+      102
+     ],
+     "BAL": [
+      3,
+      -117
+     ]
+    },
+    "total": {
+     "Over": [
+      43.5,
+      -108
+     ],
+     "Under": [
+      43.5,
+      -108
+     ]
+    }
+   },
+   "matchup": {
+    "away": "BAL",
+    "home": "CAR",
+    "teams": {
+     "BAL": {
+      "off_epa": -0.022,
+      "off_succ": 43.6,
+      "off_exp": 9.5,
+      "off_conv": 37.2,
+      "off_to": 1.68,
+      "off_pass": 0.035,
+      "off_rush": -0.09,
+      "off_press": 33.6,
+      "off_sack": 7.9,
+      "plays": 59.7,
+      "def_epa": 0.012,
+      "def_succ": 44.2,
+      "def_exp": 7.7,
+      "def_conv": 41.7,
+      "def_to": 0.7,
+      "def_pass": 0.076,
+      "def_rush": -0.08,
+      "def_press": 27.1,
+      "def_sack": 5.2,
+      "gp": 9,
+      "ppg": 20.9,
+      "through": 9
+     },
+     "CAR": {
+      "off_epa": 0.018,
+      "off_succ": 42.4,
+      "off_exp": 9.3,
+      "off_conv": 39.5,
+      "off_to": 1.52,
+      "off_pass": 0.084,
+      "off_rush": -0.11,
+      "off_press": 32.6,
+      "off_sack": 7.4,
+      "plays": 66,
+      "def_epa": 0.051,
+      "def_succ": 45.6,
+      "def_exp": 7.5,
+      "def_conv": 46.6,
+      "def_to": 1.2,
+      "def_pass": 0.117,
+      "def_rush": -0.037,
+      "def_press": 26.6,
+      "def_sack": 3.5,
+      "gp": 8,
+      "ppg": 24.333,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "BAL": {
+      "off_epa": 17,
+      "off_succ": 13,
+      "off_exp": 14,
+      "off_conv": 23,
+      "off_to": 20,
+      "off_pass": 18,
+      "off_rush": 15,
+      "off_press": 24,
+      "off_sack": 24,
+      "plays": 25,
+      "def_epa": 19,
+      "def_succ": 24,
+      "def_exp": 8,
+      "def_conv": 17,
+      "def_to": 31,
+      "def_pass": 20,
+      "def_rush": 21,
+      "def_press": 22,
+      "def_sack": 20
+     },
+     "CAR": {
+      "off_epa": 12,
+      "off_succ": 16,
+      "off_exp": 15,
+      "off_conv": 19,
+      "off_to": 15,
+      "off_pass": 13,
+      "off_rush": 17,
+      "off_press": 22,
+      "off_sack": 23,
+      "plays": 6,
+      "def_epa": 24,
+      "def_succ": 28,
+      "def_exp": 6,
+      "def_conv": 29,
+      "def_to": 23,
+      "def_pass": 23,
+      "def_rush": 29,
+      "def_press": 26,
+      "def_sack": 32
+     }
+    }
+   }
+  },
+  "NYJ@LAC": {
+   "market_line": -3,
+   "market_total": 42,
+   "model_line": 3.31,
+   "model_total": 43.68,
+   "center_line": 0.15,
+   "center_total": 42.84,
+   "home_cover_xp": 0.46100614541484963,
+   "over_xp": 0.5131018086979959,
+   "home_cover_xp_single": 0.4108709743717465,
+   "over_xp_single": 0.5262036173959919,
+   "home_win": 0.5073534216370398,
+   "away_cover_xp": 0.5389938545851504,
+   "under_xp": 0.48689819130200407,
+   "analytics": {
+    "proj_home_line": 4.56,
+    "proj_total": 39.88,
+    "home_pts": 17.7,
+    "away_pts": 22.2,
+    "center_line": 0.78,
+    "center_total": 40.94,
+    "home_cover_xp": 0.4523846306247224,
+    "over_xp": 0.48342367584267565
+   },
+   "prices": {
+    "spread": {
+     "LAC": [
+      -3,
+      -113
+     ],
+     "NYJ": [
+      3,
+      -103
+     ]
+    },
+    "total": {
+     "Over": [
+      42,
+      -108
+     ],
+     "Under": [
+      42,
+      -108
+     ]
+    }
+   },
+   "matchup": {
+    "away": "NYJ",
+    "home": "LAC",
+    "teams": {
+     "NYJ": {
+      "off_epa": -0.008,
+      "off_succ": 44.3,
+      "off_exp": 9.8,
+      "off_conv": 37.9,
+      "off_to": 1.13,
+      "off_pass": 0.084,
+      "off_rush": -0.139,
+      "off_press": 23.2,
+      "off_sack": 8.9,
+      "plays": 59.2,
+      "def_epa": 0.022,
+      "def_succ": 45.8,
+      "def_exp": 9.1,
+      "def_conv": 43.7,
+      "def_to": 1.4,
+      "def_pass": 0.161,
+      "def_rush": -0.142,
+      "def_press": 23.7,
+      "def_sack": 7.1,
+      "gp": 9,
+      "ppg": 19.4,
+      "through": 9
+     },
+     "LAC": {
+      "off_epa": -0.244,
+      "off_succ": 34.9,
+      "off_exp": 7.8,
+      "off_conv": 35.4,
+      "off_to": 3.21,
+      "off_pass": -0.242,
+      "off_rush": -0.248,
+      "off_press": 37.6,
+      "off_sack": 10.4,
+      "plays": 62.4,
+      "def_epa": -0.02,
+      "def_succ": 42.8,
+      "def_exp": 9.9,
+      "def_conv": 36.8,
+      "def_to": 2.3,
+      "def_pass": 0.059,
+      "def_rush": -0.108,
+      "def_press": 29.4,
+      "def_sack": 5.1,
+      "gp": 8,
+      "ppg": 16,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "NYJ": {
+      "off_epa": 15,
+      "off_succ": 12,
+      "off_exp": 10,
+      "off_conv": 22,
+      "off_to": 6,
+      "off_pass": 14,
+      "off_rush": 23,
+      "off_press": 4,
+      "off_sack": 28,
+      "plays": 26,
+      "def_epa": 20,
+      "def_succ": 29,
+      "def_exp": 15,
+      "def_conv": 21,
+      "def_to": 22,
+      "def_pass": 26,
+      "def_rush": 7,
+      "def_press": 30,
+      "def_sack": 10
+     },
+     "LAC": {
+      "off_epa": 32,
+      "off_succ": 32,
+      "off_exp": 26,
+      "off_conv": 28,
+      "off_to": 32,
+      "off_pass": 32,
+      "off_rush": 31,
+      "off_press": 32,
+      "off_sack": 31,
+      "plays": 14,
+      "def_epa": 14,
+      "def_succ": 15,
+      "def_exp": 24,
+      "def_conv": 7,
+      "def_to": 6,
+      "def_pass": 18,
+      "def_rush": 16,
+      "def_press": 16,
+      "def_sack": 24
+     }
+    }
+   }
+  },
+  "LV@DEN": {
+   "market_line": -10.5,
+   "market_total": 40.5,
+   "model_line": -7.72,
+   "model_total": 48.33,
+   "center_line": -9.11,
+   "center_total": 44.42,
+   "home_cover_xp": 0.4744007338299022,
+   "over_xp": 0.5585215772767965,
+   "home_cover_xp_single": 0.459942784117757,
+   "over_xp_single": 0.617043154553593,
+   "home_win": 0.7678365006693149,
+   "away_cover_xp": 0.5255992661700978,
+   "under_xp": 0.4414784227232035,
+   "analytics": {
+    "proj_home_line": -4.6,
+    "proj_total": 48.27,
+    "home_pts": 26.4,
+    "away_pts": 21.8,
+    "center_line": -7.55,
+    "center_total": 44.38,
+    "home_cover_xp": 0.4523356109523292,
+    "over_xp": 0.5580416765476504
+   },
+   "prices": {
+    "spread": {
+     "DEN": [
+      -10.5,
+      -103
+     ],
+     "LV": [
+      10.5,
+      -113
+     ]
+    },
+    "total": {
+     "Over": [
+      40.5,
+      -108
+     ],
+     "Under": [
+      40.5,
+      -108
+     ]
+    }
+   },
+   "matchup": {
+    "away": "LV",
+    "home": "DEN",
+    "teams": {
+     "LV": {
+      "off_epa": -0.026,
+      "off_succ": 41.5,
+      "off_exp": 7.7,
+      "off_conv": 44.1,
+      "off_to": 1.42,
+      "off_pass": 0.105,
+      "off_rush": -0.235,
+      "off_press": 30.9,
+      "off_sack": 3.2,
+      "plays": 62.4,
+      "def_epa": 0.084,
+      "def_succ": 46.9,
+      "def_exp": 11.4,
+      "def_conv": 46.2,
+      "def_to": 2.1,
+      "def_pass": 0.185,
+      "def_rush": -0.041,
+      "def_press": 33.2,
+      "def_sack": 6,
+      "gp": 9,
+      "ppg": 25.1,
+      "through": 9
+     },
+     "DEN": {
+      "off_epa": -0.019,
+      "off_succ": 38.5,
+      "off_exp": 6.9,
+      "off_conv": 35.9,
+      "off_to": 1.33,
+      "off_pass": 0.026,
+      "off_rush": -0.084,
+      "off_press": 26.2,
+      "off_sack": 3.2,
+      "plays": 58.3,
+      "def_epa": -0.014,
+      "def_succ": 40.9,
+      "def_exp": 9.4,
+      "def_conv": 43.2,
+      "def_to": 1.8,
+      "def_pass": 0,
+      "def_rush": -0.038,
+      "def_press": 32.4,
+      "def_sack": 6.7,
+      "gp": 9,
+      "ppg": 22,
+      "through": 9
+     }
+    },
+    "ranks": {
+     "LV": {
+      "off_epa": 18,
+      "off_succ": 20,
+      "off_exp": 27,
+      "off_conv": 10,
+      "off_to": 12,
+      "off_pass": 11,
+      "off_rush": 29,
+      "off_press": 20,
+      "off_sack": 3,
+      "plays": 15,
+      "def_epa": 32,
+      "def_succ": 31,
+      "def_exp": 32,
+      "def_conv": 27,
+      "def_to": 8,
+      "def_pass": 30,
+      "def_rush": 26,
+      "def_press": 5,
+      "def_sack": 17
+     },
+     "DEN": {
+      "off_epa": 16,
+      "off_succ": 28,
+      "off_exp": 29,
+      "off_conv": 26,
+      "off_to": 10,
+      "off_pass": 20,
+      "off_rush": 13,
+      "off_press": 11,
+      "off_sack": 2,
+      "plays": 28,
+      "def_epa": 15,
+      "def_succ": 10,
+      "def_exp": 17,
+      "def_conv": 19,
+      "def_to": 14,
+      "def_pass": 12,
+      "def_rush": 28,
+      "def_press": 6,
+      "def_sack": 12
+     }
+    }
+   }
+  },
+  "JAX@NYG": {
+   "market_line": 5.5,
+   "market_total": 46,
+   "model_line": 9.95,
+   "model_total": 45.11,
+   "center_line": 7.73,
+   "center_total": 45.56,
+   "home_cover_xp": 0.46970508574793035,
+   "over_xp": 0.49193431214527417,
+   "home_cover_xp_single": 0.43941017149586065,
+   "over_xp_single": 0.4860945068529842,
+   "home_win": 0.2543044616044094,
+   "away_cover_xp": 0.5302949142520696,
+   "under_xp": 0.5080656878547258,
+   "analytics": {
+    "proj_home_line": 5.75,
+    "proj_total": 46.58,
+    "home_pts": 20.4,
+    "away_pts": 26.2,
+    "center_line": 5.63,
+    "center_total": 46.29,
+    "home_cover_xp": 0.49828458864816216,
+    "over_xp": 0.5034108681004157
+   },
+   "prices": {
+    "spread": {
+     "NYG": [
+      5.5,
+      -108
+     ],
+     "JAX": [
+      -5.5,
+      -108
+     ]
+    },
+    "total": {
+     "Over": [
+      46,
+      -107
+     ],
+     "Under": [
+      46,
+      -109
+     ]
+    }
+   },
+   "matchup": {
+    "away": "JAX",
+    "home": "NYG",
+    "teams": {
+     "JAX": {
+      "off_epa": 0.145,
+      "off_succ": 46.5,
+      "off_exp": 10,
+      "off_conv": 46.1,
+      "off_to": 1.06,
+      "off_pass": 0.268,
+      "off_rush": 0.006,
+      "off_press": 24.4,
+      "off_sack": 5.2,
+      "plays": 58.9,
+      "def_epa": -0.121,
+      "def_succ": 40.6,
+      "def_exp": 7,
+      "def_conv": 34.9,
+      "def_to": 2.6,
+      "def_pass": -0.081,
+      "def_rush": -0.186,
+      "def_press": 30.3,
+      "def_sack": 5.2,
+      "gp": 8,
+      "ppg": 29.889,
+      "through": 8
+     },
+     "NYG": {
+      "off_epa": -0.006,
+      "off_succ": 39.9,
+      "off_exp": 8.5,
+      "off_conv": 43.1,
+      "off_to": 1.88,
+      "off_pass": 0.075,
+      "off_rush": -0.118,
+      "off_press": 29.4,
+      "off_sack": 8.7,
+      "plays": 66.4,
+      "def_epa": -0.039,
+      "def_succ": 40.2,
+      "def_exp": 8.9,
+      "def_conv": 37.6,
+      "def_to": 1.9,
+      "def_pass": 0.006,
+      "def_rush": -0.108,
+      "def_press": 29.1,
+      "def_sack": 5.5,
+      "gp": 8,
+      "ppg": 22.556,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "JAX": {
+      "off_epa": 2,
+      "off_succ": 6,
+      "off_exp": 8,
+      "off_conv": 7,
+      "off_to": 5,
+      "off_pass": 2,
+      "off_rush": 5,
+      "off_press": 6,
+      "off_sack": 12,
+      "plays": 27,
+      "def_epa": 3,
+      "def_succ": 9,
+      "def_exp": 4,
+      "def_conv": 5,
+      "def_to": 3,
+      "def_pass": 4,
+      "def_rush": 1,
+      "def_press": 15,
+      "def_sack": 22
+     },
+     "NYG": {
+      "off_epa": 14,
+      "off_succ": 27,
+      "off_exp": 20,
+      "off_conv": 13,
+      "off_to": 23,
+      "off_pass": 16,
+      "off_rush": 18,
+      "off_press": 18,
+      "off_sack": 27,
+      "plays": 5,
+      "def_epa": 11,
+      "def_succ": 7,
+      "def_exp": 12,
+      "def_conv": 8,
+      "def_to": 10,
+      "def_pass": 13,
+      "def_rush": 17,
+      "def_press": 18,
+      "def_sack": 19
+     }
+    }
+   }
+  },
+  "MIN@SF": {
+   "market_line": -3.5,
+   "market_total": 46.5,
+   "model_line": -7.01,
+   "model_total": 43.28,
+   "center_line": -5.26,
+   "center_total": 44.89,
+   "home_cover_xp": 0.5127939409938248,
+   "over_xp": 0.4767134113142916,
+   "home_cover_xp_single": 0.5469184506557574,
+   "over_xp_single": 0.4512009400661472,
+   "home_win": 0.6724891542223878,
+   "away_cover_xp": 0.4872060590061752,
+   "under_xp": 0.5232865886857083,
+   "analytics": {
+    "proj_home_line": -7.97,
+    "proj_total": 41.02,
+    "home_pts": 24.5,
+    "away_pts": 16.5,
+    "center_line": -5.74,
+    "center_total": 43.76,
+    "home_cover_xp": 0.5191844857374351,
+    "over_xp": 0.45978147466806324
+   },
+   "prices": {
+    "spread": {
+     "SF": [
+      -3.5,
+      102
+     ],
+     "MIN": [
+      3.5,
+      -117
+     ]
+    },
+    "total": {
+     "Over": [
+      46.5,
+      -109
+     ],
+     "Under": [
+      46.5,
+      -107
+     ]
+    }
+   },
+   "matchup": {
+    "away": "MIN",
+    "home": "SF",
+    "teams": {
+     "MIN": {
+      "off_epa": -0.178,
+      "off_succ": 35.4,
+      "off_exp": 8.5,
+      "off_conv": 35,
+      "off_to": 1.52,
+      "off_pass": -0.11,
+      "off_rush": -0.274,
+      "off_press": 26.5,
+      "off_sack": 8.6,
+      "plays": 57.6,
+      "def_epa": -0.15,
+      "def_succ": 37.1,
+      "def_exp": 8.6,
+      "def_conv": 33.9,
+      "def_to": 2.5,
+      "def_pass": -0.18,
+      "def_rush": -0.113,
+      "def_press": 40.1,
+      "def_sack": 10.7,
+      "gp": 8,
+      "ppg": 19.556,
+      "through": 8
+     },
+     "SF": {
+      "off_epa": 0.173,
+      "off_succ": 51.8,
+      "off_exp": 12.3,
+      "off_conv": 54,
+      "off_to": 1.46,
+      "off_pass": 0.304,
+      "off_rush": 0.011,
+      "off_press": 22.3,
+      "off_sack": 3,
+      "plays": 59.9,
+      "def_epa": -0.074,
+      "def_succ": 42.9,
+      "def_exp": 4.7,
+      "def_conv": 41,
+      "def_to": 1.6,
+      "def_pass": -0.013,
+      "def_rush": -0.175,
+      "def_press": 27,
+      "def_sack": 4.9,
+      "gp": 8,
+      "ppg": 31.222,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "MIN": {
+      "off_epa": 31,
+      "off_succ": 31,
+      "off_exp": 19,
+      "off_conv": 29,
+      "off_to": 16,
+      "off_pass": 28,
+      "off_rush": 32,
+      "off_press": 12,
+      "off_sack": 26,
+      "plays": 29,
+      "def_epa": 2,
+      "def_succ": 1,
+      "def_exp": 11,
+      "def_conv": 3,
+      "def_to": 4,
+      "def_pass": 1,
+      "def_rush": 14,
+      "def_press": 1,
+      "def_sack": 1
+     },
+     "SF": {
+      "off_epa": 1,
+      "off_succ": 1,
+      "off_exp": 2,
+      "off_conv": 2,
+      "off_to": 14,
+      "off_pass": 1,
+      "off_rush": 3,
+      "off_press": 2,
+      "off_sack": 1,
+      "plays": 24,
+      "def_epa": 7,
+      "def_succ": 16,
+      "def_exp": 1,
+      "def_conv": 14,
+      "def_to": 19,
+      "def_pass": 10,
+      "def_rush": 4,
+      "def_press": 23,
+      "def_sack": 28
+     }
+    }
+   }
+  },
+  "CIN@WAS": {
+   "market_line": 6,
+   "market_total": 54,
+   "model_line": 10.24,
+   "model_total": 49.44,
+   "center_line": 8.12,
+   "center_total": 51.72,
+   "home_cover_xp": 0.464716834297798,
+   "over_xp": 0.47395365114807564,
+   "home_cover_xp_single": 0.44057498505354864,
+   "over_xp_single": 0.4290602956442666,
+   "home_win": 0.24679075402058157,
+   "away_cover_xp": 0.535283165702202,
+   "under_xp": 0.5260463488519244,
+   "analytics": {
+    "proj_home_line": 3.91,
+    "proj_total": 51.08,
+    "home_pts": 23.6,
+    "away_pts": 27.5,
+    "center_line": 4.96,
+    "center_total": 52.54,
+    "home_cover_xp": 0.5089579357748956,
+    "over_xp": 0.48664399460311386
+   },
+   "prices": {
+    "spread": {
+     "WAS": [
+      6,
+      -103
+     ],
+     "CIN": [
+      -6,
+      -113
+     ]
+    },
+    "total": {
+     "Over": [
+      54,
+      -117
+     ],
+     "Under": [
+      54,
+      100
+     ]
+    }
+   },
+   "matchup": {
+    "away": "CIN",
+    "home": "WAS",
+    "teams": {
+     "CIN": {
+      "off_epa": 0.122,
+      "off_succ": 49.9,
+      "off_exp": 9.2,
+      "off_conv": 54.9,
+      "off_to": 1.64,
+      "off_pass": 0.261,
+      "off_rush": -0.146,
+      "off_press": 25.5,
+      "off_sack": 4.7,
+      "plays": 61.1,
+      "def_epa": 0,
+      "def_succ": 43.5,
+      "def_exp": 11,
+      "def_conv": 45.5,
+      "def_to": 2.2,
+      "def_pass": 0.026,
+      "def_rush": -0.046,
+      "def_press": 28.4,
+      "def_sack": 7.2,
+      "gp": 8,
+      "ppg": 30.889,
+      "through": 8
+     },
+     "WAS": {
+      "off_epa": -0.032,
+      "off_succ": 40.3,
+      "off_exp": 9,
+      "off_conv": 32.5,
+      "off_to": 0.4,
+      "off_pass": 0.028,
+      "off_rush": -0.137,
+      "off_press": 33.4,
+      "off_sack": 6.3,
+      "plays": 62.4,
+      "def_epa": 0.023,
+      "def_succ": 45.4,
+      "def_exp": 7.7,
+      "def_conv": 44.6,
+      "def_to": 1.9,
+      "def_pass": 0.069,
+      "def_rush": -0.059,
+      "def_press": 27.2,
+      "def_sack": 5.1,
+      "gp": 8,
+      "ppg": 21.778,
+      "through": 8
+     }
+    },
+    "ranks": {
+     "CIN": {
+      "off_epa": 3,
+      "off_succ": 2,
+      "off_exp": 17,
+      "off_conv": 1,
+      "off_to": 19,
+      "off_pass": 3,
+      "off_rush": 24,
+      "off_press": 7,
+      "off_sack": 8,
+      "plays": 22,
+      "def_epa": 17,
+      "def_succ": 21,
+      "def_exp": 30,
+      "def_conv": 26,
+      "def_to": 7,
+      "def_pass": 14,
+      "def_rush": 25,
+      "def_press": 19,
+      "def_sack": 9
+     },
+     "WAS": {
+      "off_epa": 19,
+      "off_succ": 26,
+      "off_exp": 18,
+      "off_conv": 32,
+      "off_to": 1,
+      "off_pass": 19,
+      "off_rush": 22,
+      "off_press": 23,
+      "off_sack": 19,
+      "plays": 17,
+      "def_epa": 21,
+      "def_succ": 27,
+      "def_exp": 9,
+      "def_conv": 24,
+      "def_to": 13,
+      "def_pass": 19,
+      "def_rush": 24,
+      "def_press": 21,
+      "def_sack": 25
+     }
+    }
+   }
+  }
+ },
+ "recs": [
+  {
+   "game": "NYJ@LAC",
+   "kind": "pick",
+   "side": "away",
+   "line": -3,
+   "price": -103,
+   "p_cover_xp": 0.5389938545851505,
+   "p_cover_xp_single": 0.5891290256282535,
+   "p_market": 0.48885868354204737,
+   "break_even": 0.5073891625615764,
+   "edge_pct": 0.03160469202357408,
+   "analytics_p_cover_xp": 0.5476153693752777,
+   "analytics_edge_pct": 0.04022620681370126
+  },
+  {
+   "game": "JAX@NYG",
+   "kind": "lean",
+   "side": "away",
+   "line": 5.5,
+   "price": -108,
+   "p_cover_xp": 0.5302949142520696,
+   "p_cover_xp_single": 0.5605898285041394,
+   "p_market": 0.5,
+   "break_even": 0.5192307692307693,
+   "edge_pct": 0.011064145021300376,
+   "analytics_p_cover_xp": 0.5017154113518378,
+   "analytics_edge_pct": -0.017515357878931437
+  },
+  {
+   "game": "PIT@PHI",
+   "kind": "lean",
+   "side": "away",
+   "line": 4,
+   "price": -102,
+   "p_cover_xp": 0.516730829333845,
+   "p_cover_xp_single": 0.5468377956393325,
+   "p_market": 0.4866238630283574,
+   "break_even": 0.504950495049505,
+   "edge_pct": 0.01178033428434,
+   "analytics_p_cover_xp": 0.5054008878512601,
+   "analytics_edge_pct": 0.0004503928017551839
+  },
+  {
+   "game": "CIN@WAS",
+   "kind": "lean",
+   "side": "away",
+   "line": 6,
+   "price": -113,
+   "p_cover_xp": 0.535283165702202,
+   "p_cover_xp_single": 0.5594250149464514,
+   "p_market": 0.5111413164579527,
+   "break_even": 0.5305164319248826,
+   "edge_pct": 0.0047667337773193985,
+   "analytics_p_cover_xp": 0.49104206422510444,
+   "analytics_edge_pct": -0.03947436769977819
+  },
+  {
+   "game": "MIN@SF",
+   "kind": "lean",
+   "side": "under",
+   "line": 46.5,
+   "price": -107,
+   "p_cover_xp": 0.5232865886857084,
+   "p_cover_xp_single": 0.5487990599338528,
+   "p_market": 0.49777411743756406,
+   "break_even": 0.5169082125603864,
+   "edge_pct": 0.006378376125321994,
+   "analytics_p_cover_xp": 0.5402185253319368,
+   "analytics_edge_pct": 0.02331031277155038
+  },
+  {
+   "game": "NO@CHI",
+   "kind": "lean",
+   "side": "under",
+   "line": 48,
+   "price": -106,
+   "p_cover_xp": 0.49820860651048576,
+   "p_cover_xp_single": 0.5008695727716395,
+   "p_market": 0.49554764024933207,
+   "break_even": 0.5145631067961165,
+   "edge_pct": -0.016354500285630735,
+   "analytics_p_cover_xp": 0.5126872862893462,
+   "analytics_edge_pct": -0.001875820506770265
+  }
+ ],
+ "supercontest": [
+  {
+   "game": "TB@DET",
+   "pick": "TB +7",
+   "p_win": 0.5691725140907153,
+   "p_push": 0.05494509546918333,
+   "p_loss": 0.37588239044010113,
+   "p_win_xp": 0.6022639651537364,
+   "exp_points": 0.596645061825307,
+   "single_exp_points": 0.5984178042102074,
+   "analytics_exp_points": 0.6174806043045112,
+   "analytics_p_win_xp": 0.6242207657747211
+  },
+  {
+   "game": "TEN@DAL",
+   "pick": "TEN +8",
+   "p_win": 0.510712722049703,
+   "p_push": 0.024975784741673557,
+   "p_loss": 0.4643114932086232,
+   "p_win_xp": 0.523794910995511,
+   "exp_points": 0.5232006144205398,
+   "single_exp_points": 0.5183154630432346,
+   "analytics_exp_points": 0.5313234699700633,
+   "analytics_p_win_xp": 0.5321264899332572
+  },
+  {
+   "game": "NYJ@LAC",
+   "pick": "NYJ +3.5",
+   "p_win": 0.5545303348571835,
+   "p_push": 0,
+   "p_loss": 0.4454696651428166,
+   "p_win_xp": 0.5545303348571835,
+   "exp_points": 0.5545303348571835,
+   "single_exp_points": 0.5957513029275138,
+   "analytics_exp_points": 0.5624910216154827,
+   "analytics_p_win_xp": 0.5624910216154828
+  },
+  {
+   "game": "MIN@SF",
+   "pick": "SF -3",
+   "p_win": 0.49523729102273484,
+   "p_push": 0.0819808271471436,
+   "p_loss": 0.4227818818301213,
+   "p_win_xp": 0.5394629062960905,
+   "exp_points": 0.5362277045963066,
+   "single_exp_points": 0.5593140452159054,
+   "analytics_exp_points": 0.5424973286816277,
+   "analytics_p_win_xp": 0.5462791533871665
+  },
+  {
+   "game": "MIA@BUF",
+   "pick": "MIA +16.5",
+   "p_win": 0.5178365568473144,
+   "p_push": 0,
+   "p_loss": 0.48216344315268544,
+   "p_win_xp": 0.5178365568473146,
+   "exp_points": 0.5178365568473144,
+   "single_exp_points": 0.5205947483458947,
+   "analytics_exp_points": 0.5571942595377369,
+   "analytics_p_win_xp": 0.5571942595377368
+  },
+  {
+   "game": "BAL@CAR",
+   "pick": "CAR -2.5 (alt)",
+   "p_win": 0.5153552942459187,
+   "p_push": 0,
+   "p_loss": 0.48464470575408125,
+   "p_win_xp": 0.5153552942459187,
+   "exp_points": 0.5153552942459187,
+   "single_exp_points": 0.5175913471371015,
+   "analytics_exp_points": 0.5045678868915268,
+   "analytics_p_win_xp": 0.5045678868915268
+  },
+  {
+   "game": "LV@DEN",
+   "pick": "DEN -10 (alt)",
+   "p_win": 0.4818057715010692,
+   "p_push": 0.02524895705427329,
+   "p_loss": 0.4929452714446577,
+   "p_win_xp": 0.4942859769044593,
+   "exp_points": 0.49443025002820584,
+   "single_exp_points": 0.4744304508503739,
+   "analytics_exp_points": 0.4723131143216042,
+   "analytics_p_win_xp": 0.4715975828204324
+  }
+ ],
+ "contest_rank": [
+  {
+   "side": "TB +7",
+   "exp_points": 0.596645061825307,
+   "analytics_exp_points": 0.6174806043045112
+  },
+  {
+   "side": "NYJ +3.5",
+   "exp_points": 0.5545303348571835,
+   "analytics_exp_points": 0.5624910216154827
+  },
+  {
+   "side": "SF -3",
+   "exp_points": 0.5362277045963066,
+   "analytics_exp_points": 0.5424973286816277
+  },
+  {
+   "side": "TEN +8",
+   "exp_points": 0.5232006144205398,
+   "analytics_exp_points": 0.5313234699700633
+  },
+  {
+   "side": "MIA +16.5",
+   "exp_points": 0.5178365568473144,
+   "analytics_exp_points": 0.5571942595377369
+  },
+  {
+   "side": "JAX -6",
+   "exp_points": 0.5167779157505479,
+   "analytics_exp_points": 0.48810669059200923
+  },
+  {
+   "side": "CIN -6.5",
+   "exp_points": 0.5154309657283039,
+   "analytics_exp_points": 0.47215419886703497
+  },
+  {
+   "side": "CAR -2.5",
+   "exp_points": 0.5153552942459187,
+   "analytics_exp_points": 0.5045678868915268
+  },
+  {
+   "side": "PIT -4.5",
+   "exp_points": 0.5095183283346681,
+   "analytics_exp_points": 0.49839838724133534
+  },
+  {
+   "side": "NO +11.5",
+   "exp_points": 0.5056914544018863,
+   "analytics_exp_points": 0.5385382635209265
+  },
+  {
+   "side": "LV +10",
+   "exp_points": 0.5055697499717944,
+   "analytics_exp_points": 0.527686885678396
+  },
+  {
+   "side": "KC -16",
+   "exp_points": 0.5026421797364135,
+   "analytics_exp_points": 0.46144395776721275
+  },
+  {
+   "side": "ARI +16",
+   "exp_points": 0.4973578202635866,
+   "analytics_exp_points": 0.5385560422327874
+  },
+  {
+   "side": "DEN -10",
+   "exp_points": 0.49443025002820584,
+   "analytics_exp_points": 0.4723131143216042
+  },
+  {
+   "side": "CHI -11.5",
+   "exp_points": 0.49430854559811366,
+   "analytics_exp_points": 0.46146173647907285
+  },
+  {
+   "side": "PHI +4.5",
+   "exp_points": 0.4904816716653316,
+   "analytics_exp_points": 0.5016016127586648
+  },
+  {
+   "side": "BAL +2.5",
+   "exp_points": 0.48464470575408125,
+   "analytics_exp_points": 0.49543211310847335
+  },
+  {
+   "side": "WAS +6.5",
+   "exp_points": 0.4845690342716965,
+   "analytics_exp_points": 0.5278458011329659
+  },
+  {
+   "side": "NYG +6",
+   "exp_points": 0.48322208424945223,
+   "analytics_exp_points": 0.5118933094079905
+  },
+  {
+   "side": "BUF -16.5",
+   "exp_points": 0.48216344315268544,
+   "analytics_exp_points": 0.44280574046226323
+  },
+  {
+   "side": "DAL -8",
+   "exp_points": 0.47679938557946,
+   "analytics_exp_points": 0.4686765300299369
+  },
+  {
+   "side": "MIN +3",
+   "exp_points": 0.4637722954036931,
+   "analytics_exp_points": 0.4575026713183719
+  },
+  {
+   "side": "LAC -3.5",
+   "exp_points": 0.4454696651428166,
+   "analytics_exp_points": 0.4375089783845172
+  },
+  {
+   "side": "DET -7",
+   "exp_points": 0.4033549381746928,
+   "analytics_exp_points": 0.38251939569548876
+  }
+ ]
+}

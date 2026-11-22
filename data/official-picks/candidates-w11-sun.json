@@ -1,0 +1,666 @@
+[
+ {
+  "id": "Morning Parlay (slot 3)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+754",
+  "card_section": "## 4. Game-market parlay templates \u2014 $10 each",
+  "legs": [
+   {
+    "game": "PIT @ PHI",
+    "selection": "PIT -4",
+    "market": "spread",
+    "price": "-102"
+   },
+   {
+    "game": "NO @ CHI",
+    "selection": "Under 48",
+    "market": "total",
+    "price": "-106"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "JAX ML",
+    "market": "moneyline",
+    "price": "-252"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "SF ML",
+    "market": "moneyline",
+    "price": "-170"
+   }
+  ]
+ },
+ {
+  "id": "Afternoon Parlay (slot 4)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+671",
+  "card_section": "## 4. Game-market parlay templates \u2014 $10 each",
+  "legs": [
+   {
+    "game": "BAL @ CAR",
+    "selection": "CAR ML",
+    "market": "moneyline",
+    "price": "-144"
+   },
+   {
+    "game": "PIT @ PHI",
+    "selection": "PIT ML",
+    "market": "moneyline",
+    "price": "-205"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "JAX -5.5",
+    "market": "spread",
+    "price": "-108"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "SF ML",
+    "market": "moneyline",
+    "price": "-170"
+   }
+  ]
+ },
+ {
+  "id": "Hybrid Parlay (slot 5)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+1291",
+  "card_section": "## 4. Game-market parlay templates \u2014 $10 each",
+  "legs": [
+   {
+    "game": "PIT @ PHI",
+    "selection": "PIT -4",
+    "market": "spread",
+    "price": "-102"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "JAX -5.5",
+    "market": "spread",
+    "price": "-108"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "CIN -6",
+    "market": "spread",
+    "price": "-113"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Under 46.5",
+    "market": "total",
+    "price": "-107"
+   }
+  ]
+ },
+ {
+  "id": "SuperContest 4-Team Parlay (slot 6, ticket A)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+1392",
+  "card_section": "## 4b. SuperContest tickets and round robins",
+  "legs": [
+   {
+    "game": "TEN @ DAL",
+    "selection": "TEN +7",
+    "market": "spread",
+    "price": "-103"
+   },
+   {
+    "game": "NYJ @ LAC",
+    "selection": "NYJ +3",
+    "market": "spread",
+    "price": "-103"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "SF -3.5",
+    "market": "spread",
+    "price": "+102"
+   },
+   {
+    "game": "MIA @ BUF",
+    "selection": "MIA +16",
+    "market": "spread",
+    "price": "-111"
+   }
+  ]
+ },
+ {
+  "id": "SuperContest 2-Team Round Robin (slot 6, ticket B)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "card_section": "## 4b. SuperContest tickets and round robins",
+  "round_robin": {
+   "teams_per_combination": 2
+  },
+  "legs": [
+   {
+    "game": "TB @ DET",
+    "selection": "TB +3.5",
+    "market": "spread",
+    "price": "-108"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "TEN +7",
+    "market": "spread",
+    "price": "-103"
+   },
+   {
+    "game": "NYJ @ LAC",
+    "selection": "NYJ +3",
+    "market": "spread",
+    "price": "-103"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "SF -3.5",
+    "market": "spread",
+    "price": "+102"
+   },
+   {
+    "game": "MIA @ BUF",
+    "selection": "MIA +16",
+    "market": "spread",
+    "price": "-111"
+   }
+  ]
+ },
+ {
+  "id": "Dog ML Round Robin (slot 2, by 2s)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "card_section": "## 4b. SuperContest tickets and round robins",
+  "round_robin": {
+   "teams_per_combination": 2
+  },
+  "legs": [
+   {
+    "game": "NYJ @ LAC",
+    "selection": "NYJ ML",
+    "market": "moneyline",
+    "price": "+147"
+   },
+   {
+    "game": "LV @ DEN",
+    "selection": "LV ML",
+    "market": "moneyline",
+    "price": "+413"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "TEN ML",
+    "market": "moneyline",
+    "price": "+304"
+   },
+   {
+    "game": "TB @ DET",
+    "selection": "TB ML",
+    "market": "moneyline",
+    "price": "+185"
+   },
+   {
+    "game": "NO @ CHI",
+    "selection": "NO ML",
+    "market": "moneyline",
+    "price": "+455"
+   }
+  ]
+ },
+ {
+  "id": "7a Morning 6-Leg (BEO template)",
+  "book": "BEO",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+4997",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "BAL @ CAR",
+    "selection": "Chuba Hubbard Over 75.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-115"
+   },
+   {
+    "game": "MIA @ BUF",
+    "selection": "Ty Johnson Over 1.5 receptions",
+    "market": "rec",
+    "price": "-137"
+   },
+   {
+    "game": "NO @ CHI",
+    "selection": "D'Andre Swift Over 64.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-114"
+   },
+   {
+    "game": "PIT @ PHI",
+    "selection": "Joe Milton III Under 0.5 passing TDs",
+    "market": "pass_td",
+    "price": "+130"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "Over 3.5 game field goals",
+    "market": "game_fg_total",
+    "price": "-105"
+   },
+   {
+    "game": "ARI @ KC",
+    "selection": "Travis Kelce Over 41.5 receiving yards",
+    "market": "rec_yds",
+    "price": "-115"
+   }
+  ]
+ },
+ {
+  "id": "7b Afternoon/Night 4-Leg (BEO template)",
+  "book": "BEO",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+1107",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "NYJ @ LAC",
+    "selection": "Braelon Allen Over 33.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-115"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "Malik Nabers Under 68.5 receiving yards",
+    "market": "rec_yds",
+    "price": "-115"
+   },
+   {
+    "game": "LV @ DEN",
+    "selection": "Jonah Coleman Over 22.5 receiving yards",
+    "market": "rec_yds",
+    "price": "-118"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Brock Purdy Under 31.5 pass attempts",
+    "market": "pass_att",
+    "price": "-115"
+   }
+  ]
+ },
+ {
+  "id": "7d Hybrid 8-Leg (BEO template, promo)",
+  "book": "BEO",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+18457",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "BAL @ CAR",
+    "selection": "Justice Hill Over 13.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-112"
+   },
+   {
+    "game": "MIA @ BUF",
+    "selection": "Over 5.5 game touchdowns",
+    "market": "game_td_total",
+    "price": "+115"
+   },
+   {
+    "game": "NO @ CHI",
+    "selection": "Juwan Johnson Under 20.5 receiving yards",
+    "market": "rec_yds",
+    "price": "-106"
+   },
+   {
+    "game": "PIT @ PHI",
+    "selection": "Jaylen Warren Over 65.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-115"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "Tony Pollard Over 19.5 receiving yards",
+    "market": "rec_yds",
+    "price": "-114"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "J.J. McCarthy Under 1.5 passing TDs",
+    "market": "pass_td",
+    "price": "-204"
+   },
+   {
+    "game": "LV @ DEN",
+    "selection": "Courtland Sutton Over 3.5 receptions",
+    "market": "rec",
+    "price": "+139"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Samaje Perine Over 20.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-114"
+   }
+  ]
+ },
+ {
+  "id": "7e Anytime TD 7-Leg (promo)",
+  "book": "DKP",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+16115",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "NO @ CHI",
+    "selection": "D'Andre Swift anytime TD",
+    "market": "atd_1_plus",
+    "price": "-133"
+   },
+   {
+    "game": "PIT @ PHI",
+    "selection": "Jaylen Warren anytime TD",
+    "market": "atd_1_plus",
+    "price": "+138"
+   },
+   {
+    "game": "BAL @ CAR",
+    "selection": "Derrick Henry anytime TD",
+    "market": "atd_1_plus",
+    "price": "-113"
+   },
+   {
+    "game": "LV @ DEN",
+    "selection": "Courtland Sutton anytime TD",
+    "market": "atd_1_plus",
+    "price": "+194"
+   },
+   {
+    "game": "JAX @ NYG",
+    "selection": "Bhayshul Tuten anytime TD",
+    "market": "atd_1_plus",
+    "price": "+104"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "Tony Pollard anytime TD",
+    "market": "atd_1_plus",
+    "price": "-117"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Chase Brown anytime TD",
+    "market": "atd_1_plus",
+    "price": "-117"
+   }
+  ]
+ },
+ {
+  "id": "8a First TD 3-Leg (promo)",
+  "book": "DKP",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+7840",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "TB @ DET",
+    "selection": "Jahmyr Gibbs first TD",
+    "market": "first_td",
+    "price": "+300"
+   },
+   {
+    "game": "ARI @ KC",
+    "selection": "Emmett Johnson first TD",
+    "market": "first_td",
+    "price": "+317"
+   },
+   {
+    "game": "MIA @ BUF",
+    "selection": "James Cook first TD",
+    "market": "first_td",
+    "price": "+376"
+   }
+  ]
+ },
+ {
+  "id": "8b 2+ TD 3-Leg (promo)",
+  "book": "DKP",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+4017",
+  "card_section": "## 5. Prop pool and cross-game templates",
+  "legs": [
+   {
+    "game": "TB @ DET",
+    "selection": "Jahmyr Gibbs 2+ TDs",
+    "market": "td_2_plus",
+    "price": "+223"
+   },
+   {
+    "game": "ARI @ KC",
+    "selection": "Emmett Johnson 2+ TDs",
+    "market": "td_2_plus",
+    "price": "+257"
+   },
+   {
+    "game": "TEN @ DAL",
+    "selection": "Javonte Williams 2+ TDs",
+    "market": "td_2_plus",
+    "price": "+257"
+   }
+  ]
+ },
+ {
+  "id": "SNF Tier 1 (MIN@SF)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-22",
+  "price": "+948",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "MIN @ SF",
+    "selection": "Deebo Samuel Sr. Under 14.5 longest reception",
+    "market": "longest_rec",
+    "price": "-115"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Jauan Jennings Under 12.5 longest reception",
+    "market": "longest_rec",
+    "price": "-130"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Kaelon Black Over 28.5 rushing yards",
+    "market": "rush_yds",
+    "price": "-115"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Christian McCaffrey anytime TD",
+    "market": "atd_1_plus",
+    "price": "-144"
+   }
+  ]
+ },
+ {
+  "id": "SNF Tier 2 (MIN@SF)",
+  "book": "BKR",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+2344",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "MIN @ SF",
+    "selection": "Brock Purdy Under 1.5 passing TDs",
+    "market": "pass_td",
+    "price": "-101"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Under 46.5",
+    "market": "total",
+    "price": "-107"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Justin Jefferson anytime TD",
+    "market": "atd_1_plus",
+    "price": "+122"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Aaron Jones anytime TD",
+    "market": "atd_1_plus",
+    "price": "+186"
+   }
+  ]
+ },
+ {
+  "id": "SNF Tier 3 Moonshot (MIN@SF)",
+  "book": "BKR",
+  "cash": false,
+  "date": "2026-11-22",
+  "price": "+15776",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "MIN @ SF",
+    "selection": "Christian McCaffrey first TD",
+    "market": "first_td",
+    "price": "+488"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "Justin Jefferson 2+ TDs",
+    "market": "td_2_plus",
+    "price": "+900"
+   },
+   {
+    "game": "MIN @ SF",
+    "selection": "George Kittle anytime TD",
+    "market": "atd_1_plus",
+    "price": "+170"
+   }
+  ]
+ },
+ {
+  "id": "MNF Tier 1 (CIN@WAS)",
+  "book": "BKR",
+  "cash": true,
+  "date": "2026-11-23",
+  "price": "+1138",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "CIN @ WAS",
+    "selection": "Samaje Perine Over 6.5 carries",
+    "market": "carries",
+    "price": "-102"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Joe Burrow Over 2.5 passing TDs",
+    "market": "pass_td",
+    "price": "-127"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Chase Brown anytime TD",
+    "market": "atd_1_plus",
+    "price": "-117"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "CIN -6",
+    "market": "spread",
+    "price": "-113"
+   }
+  ]
+ },
+ {
+  "id": "MNF Tier 2 (CIN@WAS)",
+  "book": "BKR",
+  "cash": false,
+  "date": "2026-11-23",
+  "price": "+1959",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "CIN @ WAS",
+    "selection": "Jayden Daniels Over 223.5 passing yards",
+    "market": "pass_yds",
+    "price": "-114"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Ja'Marr Chase anytime TD",
+    "market": "atd_1_plus",
+    "price": "-133"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Tee Higgins anytime TD",
+    "market": "atd_1_plus",
+    "price": "+113"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Stefon Diggs anytime TD",
+    "market": "atd_1_plus",
+    "price": "+194"
+   }
+  ]
+ },
+ {
+  "id": "MNF Tier 3 Moonshot (CIN@WAS)",
+  "book": "BKR",
+  "cash": false,
+  "date": "2026-11-23",
+  "price": "+11104",
+  "card_section": "## 6. Island games (slot 9): SNF MIN@SF and MNF CIN@WAS",
+  "legs": [
+   {
+    "game": "CIN @ WAS",
+    "selection": "Ja'Marr Chase 2+ TDs",
+    "market": "td_2_plus",
+    "price": "+456"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Tee Higgins first TD",
+    "market": "first_td",
+    "price": "+733"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "CIN ML",
+    "market": "moneyline",
+    "price": "-283"
+   },
+   {
+    "game": "CIN @ WAS",
+    "selection": "Joe Burrow Over 2.5 passing TDs",
+    "market": "pass_td",
+    "price": "-127"
+   }
+  ]
+ }
+]

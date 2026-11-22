@@ -530,7 +530,10 @@ def render(ctx):
         boards.append(matchup(gid, 'prop-research', content))
     props = ''
     if boards:
-        props = ('<section id="research-props" class="no-bm"><h3>Player prop research</h3>'
+        props = ('<section id="research-props" class="no-bm"><h3>Player prop research reference (not picks)</h3>'
+                 '<p><b>How to read this:</b> these are saved research rows, not recommendations. For playable leans see the Gun to my head rows in the <a href="#props-recommended">Props Pool &amp; Ladder Board</a> at the top of this page (filter: Gun to my head leans). '
+                 'In the Research assessment column, <b>Reference only</b> means the quoted price is a DraftKings Predictions contract captured Thursday (before fees), shown for comparison, not as a number to bet; '
+                 '<b>PASS</b> means the Friday screen found no edge at that price because no calibrated player projection exists. PASS is not a prediction that the Over or Under loses.</p>'
                  f'<p>{prop_count} prop screens across {len(boards)} matchups, {sum(map(len, articles.values()))} reviewed article picks, '
                  f'{sum(map(len, podcasts.values()))} reviewed podcast picks, and {sum(map(len, social.values()))} reviewed social-source legs. '
                  'Usage and role notes reflect their saved research dates. '

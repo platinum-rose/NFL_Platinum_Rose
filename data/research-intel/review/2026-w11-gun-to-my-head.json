@@ -1,0 +1,2629 @@
+{
+ "schema": "gun_to_my_head_v1",
+ "season": 2026,
+ "week": 11,
+ "as_of": "2026-11-21T21:51:01-08:00",
+ "generated_at": "2026-11-21T21:51:01-08:00",
+ "spec": "docs/specs/GUN_TO_MY_HEAD_PICKS_SPEC.md",
+ "label": "Lean · No Platinum Rose endorsement",
+ "official_gate": {
+  "stage": "saturday",
+  "verdict": "RED",
+  "failing": [
+   "S2"
+  ]
+ },
+ "inputs": {
+  "bkr": {
+   "path": "data/generated/props/bookmaker-live-2026-11-21-week11.json",
+   "sha256": "c6a0d32b17a5aa7b"
+  },
+  "bol": {
+   "path": "data/generated/props/betonline-live-2026-11-22-week11.json",
+   "sha256": "69f5099ba5ff3e12"
+  },
+  "dkp": {
+   "path": "data/generated/props/draftkings-predictions-feed-2026-11-19-week11.json",
+   "sha256": "3f5042a685f24c78"
+  },
+  "open": {
+   "path": "data/odds/actionnetwork-openers-2026-w11.json",
+   "sha256": "5db8ea86d899d77a"
+  },
+  "sim": {
+   "path": "reports/intel/w11-model/sim-w11-sat.json",
+   "sha256": "9db9011bb7b3dee0"
+  },
+  "flags": {
+   "path": "data/generated/master-intel/big-money-flags-2026-w11.json",
+   "sha256": "309ba54a075b3778"
+  },
+  "avail": {
+   "path": "data/player-availability/latest.json",
+   "sha256": "f9fcc06b87e45c4d"
+  },
+  "qb": {
+   "path": "reports/intel/w11-qb-injury-news-check-2026-11-21.md",
+   "sha256": "03972809bcbb0515"
+  },
+  "verified": {
+   "path": "data/generated/master-intel/w11-expert-verified.json",
+   "sha256": "5b697c7758dfe65f"
+  },
+  "yt": {
+   "path": "data/podcasts/youtube-extracted-picks-2026-w11.json",
+   "sha256": "f0bdd8eaa09e91e3"
+  },
+  "podcasts": {
+   "path": "data/intel/articles/2026-w11/reviewed-podcast-picks.json",
+   "sha256": "f4e7aa03ac3f1bbd"
+  },
+  "grok": {
+   "path": "data/vault-seed/manual/grok-week11-threads",
+   "sha256": null
+  },
+  "wx": {
+   "path": "data/research-intel/review/2026-w11-weather-venue.json",
+   "sha256": "c6cf7fd988ccd037"
+  },
+  "sched": {
+   "path": "public/schedule.json",
+   "sha256": "57a699668e9ee7c7"
+  },
+  "card": {
+   "path": "reports/bets/2026-w11-card.md",
+   "sha256": "1b2b3c7d73186677"
+  }
+ },
+ "source_ids": {
+  "bkr-0543": "data/generated/props/bookmaker-live-2026-11-21-week11.json",
+  "bol-0546": "data/generated/props/betonline-live-2026-11-22-week11.json",
+  "dkp-thu": "data/generated/props/draftkings-predictions-feed-2026-11-19-week11.json",
+  "an-openers": "data/odds/actionnetwork-openers-2026-w11.json",
+  "sim-model": "reports/intel/w11-model/sim-w11-sat.json (main view)",
+  "sim-analytics": "reports/intel/w11-model/sim-w11-sat.json (analytics view)",
+  "ftn-w9": "data/generated/team-dossiers/2026-w11/*.json (FTN team tables through Week 9)",
+  "espn-injuries": "data/player-availability/latest.json",
+  "qb-check": "reports/intel/w11-qb-injury-news-check-2026-11-21.md",
+  "expert-pool": "data/generated/master-intel/w11-expert-verified.json + data/podcasts/youtube-extracted-picks-2026-w11.json + data/intel/articles/2026-w11/reviewed-podcast-picks.json + data/vault-seed/manual/grok-week11-threads/*.csv",
+  "weather": "data/research-intel/review/2026-w11-weather-venue.json",
+  "an-splits": "Action Network splits (Sat 8:37 AM, in the master packet)",
+  "big-money": "data/generated/master-intel/big-money-flags-2026-w11.json",
+  "schedule": "public/schedule.json"
+ },
+ "tier_counts": {
+  "Coin flip": 4,
+  "Lean": 16,
+  "Strong lean": 3,
+  "Official pick": 1
+ },
+ "calls": [
+  {
+   "id": "gtmh-w11-ARI@KC-side",
+   "game": "ARI@KC",
+   "away": "ARI",
+   "home": "KC",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Josh Johnson preparing to start (Beck Q): if Beck starts instead, recheck the ARI@KC calls."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model KC -16.4; the sim centers halfway from the market, a 0.2-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": null,
+     "detail": "Opened KC -16, now KC -16: no meaningful move.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects KC -10.8 (ARI 19.6, KC 30.4).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "home",
+     "detail": "Arizona is expected to start backup Josh Johnson (Carson Beck questionable, did not practice Friday).",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "2 independent expert calls on ARI (Dave Tuley, Ross Tucker), 2 on KC (BettingPros, Pat Fitzmaurice); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": null,
+   "evidence_tier": "Coin flip",
+   "n_for": 1,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": null,
+   "tier": "Coin flip",
+   "call": "Coin flip",
+   "books": [],
+   "best": null,
+   "sim_p": null,
+   "break_even": null,
+   "tips": [
+    "ARI +17.5 or better → Lean ARI",
+    "KC -15 or better → Lean KC",
+    "Or a resolved condition: Josh Johnson preparing to start (Beck Q): if Beck starts instead, recheck the ARI@KC calls."
+   ],
+   "best_case": {
+    "ARI": [
+     "Matchup analytics (FTN EPA): FTN EPA matchup projects KC -10.8 (ARI 19.6, KC 30.4). [sim-analytics, ftn-w9]"
+    ],
+    "KC": [
+     "Availability: Arizona is expected to start backup Josh Johnson (Carson Beck questionable, did not practice Friday). [espn-injuries, qb-check]"
+    ]
+   },
+   "for": [],
+   "against": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects KC -10.8 (ARI 19.6, KC 30.4). [sim-analytics, ftn-w9]",
+    "Availability: Arizona is expected to start backup Josh Johnson (Carson Beck questionable, did not practice Friday). [espn-injuries, qb-check]"
+   ],
+   "why": "The evidence does not separate the two sides: 1 family each way. No side is named."
+  },
+  {
+   "id": "gtmh-w11-ARI@KC-total",
+   "game": "ARI@KC",
+   "away": "ARI",
+   "home": "KC",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Josh Johnson preparing to start (Beck Q): if Beck starts instead, recheck the ARI@KC calls."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "over",
+     "detail": "Team-strength model total 45.5 vs 41; after removing the slate-wide model lean (+1.1) the gap is +3.4.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": null,
+     "detail": "Total opened 41, now 41: no meaningful move.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "over",
+     "detail": "FTN EPA matchup projects 50.1; after the slate-wide lean (+1.4) the gap is +7.7.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "under",
+     "detail": "0 independent expert calls on the Over, 5 on the Under (Andrew Erickson, Ross Tucker, Skooshi, Steve Fezzik…).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Weather review shows no material impact.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "over",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "over",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Over 41 (-107) · Sat 5:43 PM PT",
+    "BetOnline Over 41 (-105) · Sat 5:46 PM PT",
+    "DK Predictions Over 39.5 (-133) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 41,
+    "price": -105,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "Over 41",
+   "sim_p": 0.5337310276819731,
+   "break_even": 0.5169082125603864,
+   "sim_at": "Bookmaker Over 41 (-107)",
+   "holds_to": "holds to 42.5",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 45.5 vs 41; after removing the slate-wide model lean (+1.1) the gap is +3.4. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 50.1; after the slate-wide lean (+1.4) the gap is +7.7. [sim-analytics, ftn-w9]"
+   ],
+   "against": [
+    "Expert consensus: 0 independent expert calls on the Over, 5 on the Under (Andrew Erickson, Ross Tucker, Skooshi, Steve Fezzik…). [expert-pool]"
+   ],
+   "why": "2 of 7 evidence families point to Over 41 (Model (double-shrunk sim), Matchup analytics (FTN EPA)); 1 point the other way. The double-shrunk sim gives it 53.4% (pushes excluded) vs a 51.7% break-even at Bookmaker Over 41 (-107)."
+  },
+  {
+   "id": "gtmh-w11-BAL@CAR-side",
+   "game": "BAL@CAR",
+   "away": "BAL",
+   "home": "CAR",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model CAR -3.3; the sim centers halfway from the market, a 0.2-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened CAR -2.5, now CAR -3: the move favors CAR.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": null,
+     "detail": "FTN EPA matchup projects CAR -1.7 (BAL 23.9, CAR 25.6); within 1.5 points of the line.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "home",
+     "detail": "Baltimore starts Jacoby Brissett with Lamar Jackson on IR and is missing CB Marlon Humphrey, DT Nnamdi Madubuike and S Jaylinn Hawkins.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "away",
+     "detail": "4 independent expert calls on BAL (Action Network, BettingPros, Skooshi, Steve Makinen), 0 on CAR.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "home",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "CAR -2.5 (alternate)",
+   "call_direction": "home",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker CAR -3 (+102) · Sat 5:43 PM PT",
+    "BetOnline CAR -2.5 (-119) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": -2.5,
+    "price": -119,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "CAR -3",
+   "sim_p": 0.49177496048204183,
+   "break_even": 0.49504950495049505,
+   "sim_at": "Bookmaker CAR -3 (+102)",
+   "holds_to": "holds to -3",
+   "for": [
+    "Availability: Baltimore starts Jacoby Brissett with Lamar Jackson on IR and is missing CB Marlon Humphrey, DT Nnamdi Madubuike and S Jaylinn Hawkins. [espn-injuries, qb-check]",
+    "Market movement: Opened CAR -2.5, now CAR -3: the move favors CAR. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Expert consensus: 4 independent expert calls on BAL (Action Network, BettingPros, Skooshi, Steve Makinen), 0 on CAR. [expert-pool]"
+   ],
+   "why": "2 of 7 evidence families point to CAR -3 (Availability, Market movement); 1 point the other way. The double-shrunk sim gives it 49.2% (pushes excluded) vs a 49.5% break-even at Bookmaker CAR -3 (+102)."
+  },
+  {
+   "id": "gtmh-w11-BAL@CAR-total",
+   "game": "BAL@CAR",
+   "away": "BAL",
+   "home": "CAR",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "over",
+     "detail": "Team-strength model total 48.7 vs 43.5; after removing the slate-wide model lean (+1.1) the gap is +4.1.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "under",
+     "detail": "Total opened 44.5, now 43.5: the move favors the Under.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "over",
+     "detail": "FTN EPA matchup projects 49.5; after the slate-wide lean (+1.4) the gap is +4.7.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "1 independent expert calls on the Over (Zachary Cohen), 0 on the Under; a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": "under",
+     "detail": "Weather review flags it (review_required): 41% rain chance, gusts 13 mph at kickoff.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": null,
+   "evidence_tier": "Coin flip",
+   "n_for": 2,
+   "n_against": 2,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": null,
+   "tier": "Coin flip",
+   "call": "Coin flip",
+   "books": [],
+   "best": null,
+   "sim_p": null,
+   "break_even": null,
+   "tips": [
+    "Under 46.5 or better → Lean Under"
+   ],
+   "best_case": {
+    "Over": [
+     "Model (double-shrunk sim): Team-strength model total 48.7 vs 43.5; after removing the slate-wide model lean (+1.1) the gap is +4.1. [sim-model]",
+     "Matchup analytics (FTN EPA): FTN EPA matchup projects 49.5; after the slate-wide lean (+1.4) the gap is +4.7. [sim-analytics, ftn-w9]"
+    ],
+    "Under": [
+     "Market movement: Total opened 44.5, now 43.5: the move favors the Under. [an-openers, bkr-0543]",
+     "Situational: Weather review flags it (review_required): 41% rain chance, gusts 13 mph at kickoff. [weather]"
+    ]
+   },
+   "for": [],
+   "against": [
+    "Model (double-shrunk sim): Team-strength model total 48.7 vs 43.5; after removing the slate-wide model lean (+1.1) the gap is +4.1. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 49.5; after the slate-wide lean (+1.4) the gap is +4.7. [sim-analytics, ftn-w9]",
+    "Market movement: Total opened 44.5, now 43.5: the move favors the Under. [an-openers, bkr-0543]"
+   ],
+   "why": "The evidence does not separate the two sides: 2 families each way. No side is named."
+  },
+  {
+   "id": "gtmh-w11-MIA@BUF-side",
+   "game": "MIA@BUF",
+   "away": "MIA",
+   "home": "BUF",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model BUF -15.6; the sim centers halfway from the market, a 0.2-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "away",
+     "detail": "Opened BUF -16.5, now BUF -16: the move favors MIA.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects BUF -10.3 (MIA 20.8, BUF 31.2).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "home",
+     "detail": "Miami starts Kyle McCord with Malik Willis on IR (QB downgrade); Buffalo has CB Christian Benford out.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "away",
+     "detail": "3 independent expert calls on MIA (Andrew Erickson, Dave Tuley, Kendra Middleton), 0 on BUF.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "MIA +16.5",
+   "call_direction": "away",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker MIA +16 (-111) · Sat 5:43 PM PT",
+    "BetOnline MIA +16.5 (-110) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 16.5,
+    "price": -110,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "MIA +16",
+   "sim_p": 0.5061731845410528,
+   "break_even": 0.5260663507109005,
+   "sim_at": "Bookmaker MIA +16 (-111)",
+   "holds_to": "holds to +13 or further (3-point search limit)",
+   "for": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects BUF -10.3 (MIA 20.8, BUF 31.2). [sim-analytics, ftn-w9]",
+    "Expert consensus: 3 independent expert calls on MIA (Andrew Erickson, Dave Tuley, Kendra Middleton), 0 on BUF. [expert-pool]",
+    "Market movement: Opened BUF -16.5, now BUF -16: the move favors MIA. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Availability: Miami starts Kyle McCord with Malik Willis on IR (QB downgrade); Buffalo has CB Christian Benford out. [espn-injuries, qb-check]"
+   ],
+   "why": "3 of 7 evidence families point to MIA +16 (Matchup analytics (FTN EPA), Expert consensus, Market movement); 1 point the other way. The double-shrunk sim gives it 50.6% (pushes excluded) vs a 52.6% break-even at Bookmaker MIA +16 (-111)."
+  },
+  {
+   "id": "gtmh-w11-MIA@BUF-total",
+   "game": "MIA@BUF",
+   "away": "MIA",
+   "home": "BUF",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "over",
+     "detail": "Team-strength model total 47.7 vs 44.5; after removing the slate-wide model lean (+1.1) the gap is +2.1.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "under",
+     "detail": "Total opened 47.5, now 44.5: the move favors the Under.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "over",
+     "detail": "FTN EPA matchup projects 52.0; after the slate-wide lean (+1.4) the gap is +6.1.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 1 on the Under (Skooshi); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Weather review shows no material impact.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "over",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "over",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Over 44.5 (-108) · Sat 5:43 PM PT",
+    "BetOnline Over 44.5 (-112) · Sat 5:46 PM PT",
+    "DK Predictions Over 45.5 (+108) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 44.5,
+    "price": -108,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "Over 44.5",
+   "sim_p": 0.5239770598456409,
+   "break_even": 0.5192307692307693,
+   "sim_at": "Bookmaker Over 44.5 (-108)",
+   "holds_to": "holds to 45",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 47.7 vs 44.5; after removing the slate-wide model lean (+1.1) the gap is +2.1. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 52.0; after the slate-wide lean (+1.4) the gap is +6.1. [sim-analytics, ftn-w9]"
+   ],
+   "against": [
+    "Market movement: Total opened 47.5, now 44.5: the move favors the Under. [an-openers, bkr-0543]"
+   ],
+   "why": "2 of 7 evidence families point to Over 44.5 (Model (double-shrunk sim), Matchup analytics (FTN EPA)); 1 point the other way. The double-shrunk sim gives it 52.4% (pushes excluded) vs a 51.9% break-even at Bookmaker Over 44.5 (-108)."
+  },
+  {
+   "id": "gtmh-w11-NO@CHI-side",
+   "game": "NO@CHI",
+   "away": "NO",
+   "home": "CHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model CHI -10.7; the sim centers halfway from the market, a 0.4-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened CHI -10, now CHI -11.5: the move favors CHI.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects CHI -6.2 (NO 20.0, CHI 26.1).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "home",
+     "detail": "Three Saints offensive-line starters are out (Erik McCoy, Taliese Fuaga, Asim Richards); Chicago is without CB Kyler Gordon.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "2 independent expert calls on NO (Dave Tuley, Steve Fezzik), 2 on CHI (Chad Millman, Kendra Middleton); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "home",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "home",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker CHI -11.5 (-107) · Sat 5:43 PM PT",
+    "BetOnline CHI -11.5 (-113) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": -11.5,
+    "price": -107,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "CHI -11.5",
+   "sim_p": 0.4931956043168957,
+   "break_even": 0.5169082125603864,
+   "sim_at": "Bookmaker CHI -11.5 (-107)",
+   "holds_to": "holds to -11.5",
+   "for": [
+    "Availability: Three Saints offensive-line starters are out (Erik McCoy, Taliese Fuaga, Asim Richards); Chicago is without CB Kyler Gordon. [espn-injuries, qb-check]",
+    "Market movement: Opened CHI -10, now CHI -11.5: the move favors CHI. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects CHI -6.2 (NO 20.0, CHI 26.1). [sim-analytics, ftn-w9]"
+   ],
+   "why": "2 of 7 evidence families point to CHI -11.5 (Availability, Market movement); 1 point the other way. The double-shrunk sim gives it 49.3% (pushes excluded) vs a 51.7% break-even at Bookmaker CHI -11.5 (-107)."
+  },
+  {
+   "id": "gtmh-w11-NO@CHI-total",
+   "game": "NO@CHI",
+   "away": "NO",
+   "home": "CHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model total 47.9 vs 48; after removing the slate-wide model lean (+1.1) the gap is -1.2, below the 1.5-point threshold.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "under",
+     "detail": "Total opened 49, now 48: the move favors the Under.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 46.1; after the slate-wide lean (+1.4) the gap is -3.3.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "1 independent expert calls on the Over (Steve Makinen), 0 on the Under; a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": "under",
+     "detail": "Weather review flags it (review_required): 94% rain chance, gusts 14 mph at kickoff.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Strong lean",
+   "n_for": 3,
+   "n_against": 0,
+   "official": "Card lean (not elevated): Under 48 (weather lean, no model edge)",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Strong lean",
+   "books": [
+    "Bookmaker Under 48 (-106) · Sat 5:43 PM PT",
+    "BetOnline Under 48.5 (-112) · Sat 5:46 PM PT",
+    "DK Predictions Under 48.5 (-104) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 48.5,
+    "price": -112,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "Under 48",
+   "sim_p": 0.4982086065104858,
+   "break_even": 0.5145631067961165,
+   "sim_at": "Bookmaker Under 48 (-106)",
+   "holds_to": "holds to 45 or further (3-point search limit)",
+   "for": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 46.1; after the slate-wide lean (+1.4) the gap is -3.3. [sim-analytics, ftn-w9]",
+    "Market movement: Total opened 49, now 48: the move favors the Under. [an-openers, bkr-0543]",
+    "Situational: Weather review flags it (review_required): 94% rain chance, gusts 14 mph at kickoff. [weather]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "3 of 7 evidence families point to Under 48 (Matchup analytics (FTN EPA), Market movement, Situational); 0 point the other way. The double-shrunk sim gives it 49.8% (pushes excluded) vs a 51.5% break-even at Bookmaker Under 48 (-106)."
+  },
+  {
+   "id": "gtmh-w11-PIT@PHI-side",
+   "game": "PIT@PHI",
+   "away": "PIT",
+   "home": "PHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "away",
+     "detail": "Team-strength model PIT -7.4; the sim centers halfway from the market, a 1.7-point shift toward PIT.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened PHI +4.5, now PHI +4: the move favors PHI.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects PIT -5.8 (PIT 23.7, PHI 17.9).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "away",
+     "detail": "Philadelphia starts Joe Milton (his second start, QB downgrade); Pittsburgh is without LB Nick Herbig.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "2 independent expert calls on PIT (Andrew Erickson, Chad Millman), 2 on PHI (BettingPros, Matt Perrault); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 1,
+   "official": "Card lean (not elevated): PIT -4",
+   "supercontest": null,
+   "call_direction": "away",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker PIT -4 (-102) · Sat 5:43 PM PT",
+    "BetOnline PIT -4 (-104) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": -4,
+    "price": -102,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "PIT -4",
+   "sim_p": 0.5167308293338451,
+   "break_even": 0.504950495049505,
+   "sim_at": "Bookmaker PIT -4 (-102)",
+   "holds_to": "holds to -6",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model PIT -7.4; the sim centers halfway from the market, a 1.7-point shift toward PIT. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects PIT -5.8 (PIT 23.7, PHI 17.9). [sim-analytics, ftn-w9]",
+    "Availability: Philadelphia starts Joe Milton (his second start, QB downgrade); Pittsburgh is without LB Nick Herbig. [espn-injuries, qb-check]"
+   ],
+   "against": [
+    "Market movement: Opened PHI +4.5, now PHI +4: the move favors PHI. [an-openers, bkr-0543]"
+   ],
+   "why": "3 of 7 evidence families point to PIT -4 (Model (double-shrunk sim), Matchup analytics (FTN EPA), Availability); 1 point the other way. The double-shrunk sim gives it 51.7% (pushes excluded) vs a 50.5% break-even at Bookmaker PIT -4 (-102)."
+  },
+  {
+   "id": "gtmh-w11-PIT@PHI-total",
+   "game": "PIT@PHI",
+   "away": "PIT",
+   "home": "PHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "over",
+     "detail": "Team-strength model total 41.6 vs 37.5; after removing the slate-wide model lean (+1.1) the gap is +3.0.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "under",
+     "detail": "Total opened 38.5, now 37.5: the move favors the Under.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "over",
+     "detail": "FTN EPA matchup projects 41.6; after the slate-wide lean (+1.4) the gap is +2.7.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "under",
+     "detail": "0 independent expert calls on the Over, 4 on the Under (Ross Tucker, Skooshi, Steve Fezzik, Steve Fezzik & Ross Tucker).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": "under",
+     "detail": "Weather review flags it (review_required): 46% rain chance, gusts 16 mph at kickoff.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 2,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Under 37.5 (-124) · Sat 5:43 PM PT",
+    "BetOnline Under 37.5 (-113) · Sat 5:46 PM PT",
+    "DK Predictions Under 36.5 (+113) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 37.5,
+    "price": -113,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "Under 37.5",
+   "sim_p": 0.4854381629010628,
+   "break_even": 0.5535714285714286,
+   "sim_at": "Bookmaker Under 37.5 (-124)",
+   "holds_to": "holds to 34.5 or further (3-point search limit)",
+   "for": [
+    "Expert consensus: 0 independent expert calls on the Over, 4 on the Under (Ross Tucker, Skooshi, Steve Fezzik, Steve Fezzik & Ross Tucker). [expert-pool]",
+    "Market movement: Total opened 38.5, now 37.5: the move favors the Under. [an-openers, bkr-0543]",
+    "Situational: Weather review flags it (review_required): 46% rain chance, gusts 16 mph at kickoff. [weather]"
+   ],
+   "against": [
+    "Model (double-shrunk sim): Team-strength model total 41.6 vs 37.5; after removing the slate-wide model lean (+1.1) the gap is +3.0. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 41.6; after the slate-wide lean (+1.4) the gap is +2.7. [sim-analytics, ftn-w9]"
+   ],
+   "why": "3 of 7 evidence families point to Under 37.5 (Expert consensus, Market movement, Situational); 2 point the other way. The double-shrunk sim gives it 48.5% (pushes excluded) vs a 55.4% break-even at Bookmaker Under 37.5 (-124)."
+  },
+  {
+   "id": "gtmh-w11-TB@DET-side",
+   "game": "TB@DET",
+   "away": "TB",
+   "home": "DET",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Mayfield Questionable: the calls assume Baker Mayfield starts. If rookie Jalon Daniels starts, treat the TB@DET calls as Coin flips."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model DET -3.2; the sim centers halfway from the market, a 0.1-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "away",
+     "detail": "Opened DET -5.5, now DET -3.5: the move favors TB.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects a pick'em (TB 21.7, DET 21.7).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Tampa Bay is without S Antoine Winfield Jr.; Baker Mayfield is questionable (foot and thumb).",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "away",
+     "detail": "5 independent expert calls on TB (Dave Tuley, Doug Kezirian, Kendra Middleton, Simon Hunter…), 0 on DET.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 0,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "TB +7",
+   "call_direction": "away",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker TB +3.5 (-108) · Sat 5:43 PM PT",
+    "BetOnline TB +4 (-115) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 4,
+    "price": -115,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "TB +3.5",
+   "sim_p": 0.5017963160687304,
+   "break_even": 0.5192307692307693,
+   "sim_at": "Bookmaker TB +3.5 (-108)",
+   "holds_to": "holds to +0.5 or further (3-point search limit)",
+   "for": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects a pick'em (TB 21.7, DET 21.7). [sim-analytics, ftn-w9]",
+    "Expert consensus: 5 independent expert calls on TB (Dave Tuley, Doug Kezirian, Kendra Middleton, Simon Hunter…), 0 on DET. [expert-pool]",
+    "Market movement: Opened DET -5.5, now DET -3.5: the move favors TB. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "3 of 7 evidence families point to TB +3.5 (Matchup analytics (FTN EPA), Expert consensus, Market movement); 0 point the other way. The double-shrunk sim gives it 50.2% (pushes excluded) vs a 51.9% break-even at Bookmaker TB +3.5 (-108)."
+  },
+  {
+   "id": "gtmh-w11-TB@DET-total",
+   "game": "TB@DET",
+   "away": "TB",
+   "home": "DET",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Mayfield Questionable: the calls assume Baker Mayfield starts. If rookie Jalon Daniels starts, treat the TB@DET calls as Coin flips."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "under",
+     "detail": "Team-strength model total 46.4 vs 47; after removing the slate-wide model lean (+1.1) the gap is -1.7.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 46.5, now 47: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 43.4; after the slate-wide lean (+1.4) the gap is -4.9.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 1 on the Under (Jensen Lewis); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Indoor or covered stadium.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Under 47 (-103) · Sat 5:43 PM PT",
+    "BetOnline Under 47.5 (-112) · Sat 5:46 PM PT",
+    "DK Predictions Under 45.5 (-104) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 47.5,
+    "price": -112,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "Under 47",
+   "sim_p": 0.4987761957985686,
+   "break_even": 0.5073891625615764,
+   "sim_at": "Bookmaker Under 47 (-103)",
+   "holds_to": "holds to 47",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 46.4 vs 47; after removing the slate-wide model lean (+1.1) the gap is -1.7. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 43.4; after the slate-wide lean (+1.4) the gap is -4.9. [sim-analytics, ftn-w9]"
+   ],
+   "against": [
+    "Market movement: Total opened 46.5, now 47: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "why": "2 of 7 evidence families point to Under 47 (Model (double-shrunk sim), Matchup analytics (FTN EPA)); 1 point the other way. The double-shrunk sim gives it 49.9% (pushes excluded) vs a 50.7% break-even at Bookmaker Under 47 (-103)."
+  },
+  {
+   "id": "gtmh-w11-TEN@DAL-side",
+   "game": "TEN@DAL",
+   "away": "TEN",
+   "home": "DAL",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model DAL -7.7; the sim centers halfway from the market, a 0.4-point shift (below the 0.5-point threshold).",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "away",
+     "detail": "Opened DAL -7.5, now DAL -7: the move favors TEN.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": null,
+     "detail": "FTN EPA matchup projects DAL -6.5 (TEN 22.9, DAL 29.4); within 1.5 points of the line.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "away",
+     "detail": "Dallas is missing CB DaRon Bland, TE Jake Ferguson, S P.J. Locke, G Tyler Booker and WR Jonathan Mingo; Tennessee lost RB Tyjae Spears to IR.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "away",
+     "detail": "5 independent expert calls on TEN (Andrew Erickson, Dave Tuley, Kendra Middleton, Simon Hunter…), 1 on DAL (Steve Fezzik & Ross Tucker).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Strong lean",
+   "n_for": 3,
+   "n_against": 0,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "TEN +8",
+   "call_direction": "away",
+   "tier": "Strong lean",
+   "books": [
+    "Bookmaker TEN +7 (-103) · Sat 5:43 PM PT",
+    "BetOnline TEN +9 (-125) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 9,
+    "price": -125,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "TEN +7",
+   "sim_p": 0.48931885756343174,
+   "break_even": 0.5073891625615764,
+   "sim_at": "Bookmaker TEN +7 (-103)",
+   "holds_to": "holds to +4 or further (3-point search limit)",
+   "for": [
+    "Expert consensus: 5 independent expert calls on TEN (Andrew Erickson, Dave Tuley, Kendra Middleton, Simon Hunter…), 1 on DAL (Steve Fezzik & Ross Tucker). [expert-pool]",
+    "Availability: Dallas is missing CB DaRon Bland, TE Jake Ferguson, S P.J. Locke, G Tyler Booker and WR Jonathan Mingo; Tennessee lost RB Tyjae Spears to IR. [espn-injuries, qb-check]",
+    "Market movement: Opened DAL -7.5, now DAL -7: the move favors TEN. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "3 of 7 evidence families point to TEN +7 (Expert consensus, Availability, Market movement); 0 point the other way. The double-shrunk sim gives it 48.9% (pushes excluded) vs a 50.7% break-even at Bookmaker TEN +7 (-103)."
+  },
+  {
+   "id": "gtmh-w11-TEN@DAL-total",
+   "game": "TEN@DAL",
+   "away": "TEN",
+   "home": "DAL",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "under",
+     "detail": "Team-strength model total 51.0 vs 55; after removing the slate-wide model lean (+1.1) the gap is -5.1.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 53, now 55: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 52.3; after the slate-wide lean (+1.4) the gap is -4.0.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "3 independent expert calls on the Over (Ross Tucker, Steve Fezzik, Steve Fezzik & Ross Tucker), 2 on the Under (BettingPros, Pat Fitzmaurice); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Indoor or covered stadium.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Under 55 (-108) · Sat 5:43 PM PT",
+    "BetOnline Under 55 (-113) · Sat 5:46 PM PT",
+    "DK Predictions Under 54.5 (+104) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 55,
+    "price": -108,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "Under 55",
+   "sim_p": 0.5315276337323066,
+   "break_even": 0.5192307692307693,
+   "sim_at": "Bookmaker Under 55 (-108)",
+   "holds_to": "holds to 53",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 51.0 vs 55; after removing the slate-wide model lean (+1.1) the gap is -5.1. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 52.3; after the slate-wide lean (+1.4) the gap is -4.0. [sim-analytics, ftn-w9]"
+   ],
+   "against": [
+    "Market movement: Total opened 53, now 55: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "why": "2 of 7 evidence families point to Under 55 (Model (double-shrunk sim), Matchup analytics (FTN EPA)); 1 point the other way. The double-shrunk sim gives it 53.2% (pushes excluded) vs a 51.9% break-even at Bookmaker Under 55 (-108)."
+  },
+  {
+   "id": "gtmh-w11-NYJ@LAC-side",
+   "game": "NYJ@LAC",
+   "away": "NYJ",
+   "home": "LAC",
+   "kickoff_utc": "2026-11-22T21:05:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "away",
+     "detail": "Team-strength model NYJ -3.3; the sim centers halfway from the market, a 3.2-point shift toward NYJ.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "away",
+     "detail": "Opened LAC -3.5, now LAC -3: the move favors NYJ.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects NYJ -4.6 (NYJ 22.2, LAC 17.7).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Both sides are short: the Chargers lost S Kendall Williamson and CB Rodney Shelley (CBs Tarheeb Still and Isas Waxter questionable); the Jets are without WRs Omar Cooper Jr. and Isaiah Williams.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "away",
+     "detail": "3 independent expert calls on NYJ (Simon Hunter, Steve Fezzik, Steve Makinen), 1 on LAC (Zachary Cohen).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Strong lean",
+   "n_for": 4,
+   "n_against": 0,
+   "official": "Official pick: NYJ +3 (-103), Platinum Rose",
+   "supercontest": "NYJ +3.5",
+   "call_direction": "away",
+   "tier": "Official pick",
+   "note": "Evidence tally agrees.",
+   "books": [
+    "Bookmaker NYJ +3 (-103) · Sat 5:43 PM PT",
+    "BetOnline NYJ +3 (-107) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 3,
+    "price": -103,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "NYJ +3",
+   "sim_p": 0.5389938545851504,
+   "break_even": 0.5073891625615764,
+   "sim_at": "Bookmaker NYJ +3 (-103)",
+   "holds_to": "holds to PK or further (3-point search limit) on the evidence tally; the official pick has its own playable-to rule",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model NYJ -3.3; the sim centers halfway from the market, a 3.2-point shift toward NYJ. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects NYJ -4.6 (NYJ 22.2, LAC 17.7). [sim-analytics, ftn-w9]",
+    "Expert consensus: 3 independent expert calls on NYJ (Simon Hunter, Steve Fezzik, Steve Makinen), 1 on LAC (Zachary Cohen). [expert-pool]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "4 of 7 evidence families point to NYJ +3 (Model (double-shrunk sim), Matchup analytics (FTN EPA), Expert consensus, Market movement); 0 point the other way. The double-shrunk sim gives it 53.9% (pushes excluded) vs a 50.7% break-even at Bookmaker NYJ +3 (-103)."
+  },
+  {
+   "id": "gtmh-w11-NYJ@LAC-total",
+   "game": "NYJ@LAC",
+   "away": "NYJ",
+   "home": "LAC",
+   "kickoff_utc": "2026-11-22T21:05:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": null,
+     "detail": "Team-strength model total 43.7 vs 42; after removing the slate-wide model lean (+1.1) the gap is +0.6, below the 1.5-point threshold.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 40.5, now 42: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 39.9; after the slate-wide lean (+1.4) the gap is -3.5.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 0 on the Under; a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Indoor or covered stadium.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": null,
+   "evidence_tier": "Coin flip",
+   "n_for": 1,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": null,
+   "tier": "Coin flip",
+   "call": "Coin flip",
+   "books": [],
+   "best": null,
+   "sim_p": null,
+   "break_even": null,
+   "tips": [
+    "Over 41 or better → Lean Over",
+    "Under 44.5 or better → Lean Under"
+   ],
+   "best_case": {
+    "Over": [
+     "Market movement: Total opened 40.5, now 42: the move favors the Over. [an-openers, bkr-0543]"
+    ],
+    "Under": [
+     "Matchup analytics (FTN EPA): FTN EPA matchup projects 39.9; after the slate-wide lean (+1.4) the gap is -3.5. [sim-analytics, ftn-w9]"
+    ]
+   },
+   "for": [],
+   "against": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 39.9; after the slate-wide lean (+1.4) the gap is -3.5. [sim-analytics, ftn-w9]",
+    "Market movement: Total opened 40.5, now 42: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "why": "The evidence does not separate the two sides: 1 family each way. No side is named."
+  },
+  {
+   "id": "gtmh-w11-JAX@NYG-side",
+   "game": "JAX@NYG",
+   "away": "JAX",
+   "home": "NYG",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "away",
+     "detail": "Team-strength model JAX -9.9; the sim centers halfway from the market, a 2.2-point shift toward JAX.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened NYG +6.5, now NYG +5.5: the move favors NYG.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": null,
+     "detail": "FTN EPA matchup projects JAX -5.8 (JAX 26.2, NYG 20.4); within 1.5 points of the line.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "No material out identified in the saved Saturday checks.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "home",
+     "detail": "2 independent expert calls on JAX (Jeff, Kendra Middleton), 4 on NYG (Jensen Lewis, Simon Hunter, Steve Fezzik, Steve Makinen).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "home",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Card lean (not elevated): JAX -5.5",
+   "supercontest": null,
+   "call_direction": "home",
+   "tier": "Lean",
+   "official_conflict": "Disagrees with the card lean.",
+   "books": [
+    "Bookmaker NYG +5.5 (-108) · Sat 5:43 PM PT",
+    "BetOnline NYG +6 (-118) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 6,
+    "price": -118,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "NYG +5.5",
+   "sim_p": 0.46970508574793035,
+   "break_even": 0.5192307692307693,
+   "sim_at": "Bookmaker NYG +5.5 (-108)",
+   "holds_to": "holds to +4.5",
+   "for": [
+    "Expert consensus: 2 independent expert calls on JAX (Jeff, Kendra Middleton), 4 on NYG (Jensen Lewis, Simon Hunter, Steve Fezzik, Steve Makinen). [expert-pool]",
+    "Market movement: Opened NYG +6.5, now NYG +5.5: the move favors NYG. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Model (double-shrunk sim): Team-strength model JAX -9.9; the sim centers halfway from the market, a 2.2-point shift toward JAX. [sim-model]"
+   ],
+   "why": "2 of 7 evidence families point to NYG +5.5 (Expert consensus, Market movement); 1 point the other way. The double-shrunk sim gives it 47.0% (pushes excluded) vs a 51.9% break-even at Bookmaker NYG +5.5 (-108)."
+  },
+  {
+   "id": "gtmh-w11-JAX@NYG-total",
+   "game": "JAX@NYG",
+   "away": "JAX",
+   "home": "NYG",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "under",
+     "detail": "Team-strength model total 45.1 vs 46; after removing the slate-wide model lean (+1.1) the gap is -2.0.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "under",
+     "detail": "Total opened 46.5, now 46: the move favors the Under.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": null,
+     "detail": "FTN EPA matchup projects 46.6; after the slate-wide lean (+1.4) the gap is -0.8, inside the 2-point threshold.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 0 on the Under; a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": "under",
+     "detail": "Weather review flags it (review_required): 62% rain chance, gusts 11 mph at kickoff.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Strong lean",
+   "n_for": 3,
+   "n_against": 0,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Strong lean",
+   "books": [
+    "Bookmaker Under 46 (-109) · Sat 5:43 PM PT",
+    "BetOnline Under 46 (-110) · Sat 5:46 PM PT",
+    "DK Predictions Under 45.5 (+117) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 46,
+    "price": -109,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "Under 46",
+   "sim_p": 0.5080656878547258,
+   "break_even": 0.5215311004784688,
+   "sim_at": "Bookmaker Under 46 (-109)",
+   "holds_to": "holds to 43 or further (3-point search limit)",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 45.1 vs 46; after removing the slate-wide model lean (+1.1) the gap is -2.0. [sim-model]",
+    "Market movement: Total opened 46.5, now 46: the move favors the Under. [an-openers, bkr-0543]",
+    "Situational: Weather review flags it (review_required): 62% rain chance, gusts 11 mph at kickoff. [weather]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "3 of 7 evidence families point to Under 46 (Model (double-shrunk sim), Market movement, Situational); 0 point the other way. The double-shrunk sim gives it 50.8% (pushes excluded) vs a 52.2% break-even at Bookmaker Under 46 (-109)."
+  },
+  {
+   "id": "gtmh-w11-LV@DEN-side",
+   "game": "LV@DEN",
+   "away": "LV",
+   "home": "DEN",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Bowers and Gay are questionable: confirm at Sunday inactives."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "away",
+     "detail": "Team-strength model DEN -7.7; the sim centers halfway from the market, a 1.4-point shift toward LV.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened DEN -10, now DEN -10.5: the move favors DEN.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "away",
+     "detail": "FTN EPA matchup projects DEN -4.6 (LV 21.8, DEN 26.4).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "TE Brock Bowers and K Matt Gay are questionable for Las Vegas.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": "home",
+     "detail": "2 independent expert calls on LV (Dave Tuley, Kendra Middleton), 7 on DEN (BettingPros, Doug Kezirian, Jeff, Matt Perrault…).",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": null,
+   "evidence_tier": "Coin flip",
+   "n_for": 2,
+   "n_against": 2,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "DEN -10 (alternate)",
+   "call_direction": null,
+   "tier": "Coin flip",
+   "call": "Coin flip",
+   "books": [],
+   "best": null,
+   "sim_p": null,
+   "break_even": null,
+   "tips": [
+    "DEN -8.5 or better → Lean DEN",
+    "Or a resolved condition: Bowers and Gay are questionable: confirm at Sunday inactives."
+   ],
+   "best_case": {
+    "LV": [
+     "Model (double-shrunk sim): Team-strength model DEN -7.7; the sim centers halfway from the market, a 1.4-point shift toward LV. [sim-model]",
+     "Matchup analytics (FTN EPA): FTN EPA matchup projects DEN -4.6 (LV 21.8, DEN 26.4). [sim-analytics, ftn-w9]"
+    ],
+    "DEN": [
+     "Expert consensus: 2 independent expert calls on LV (Dave Tuley, Kendra Middleton), 7 on DEN (BettingPros, Doug Kezirian, Jeff, Matt Perrault…). [expert-pool]",
+     "Market movement: Opened DEN -10, now DEN -10.5: the move favors DEN. [an-openers, bkr-0543]"
+    ]
+   },
+   "for": [],
+   "against": [
+    "Model (double-shrunk sim): Team-strength model DEN -7.7; the sim centers halfway from the market, a 1.4-point shift toward LV. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects DEN -4.6 (LV 21.8, DEN 26.4). [sim-analytics, ftn-w9]",
+    "Expert consensus: 2 independent expert calls on LV (Dave Tuley, Kendra Middleton), 7 on DEN (BettingPros, Doug Kezirian, Jeff, Matt Perrault…). [expert-pool]"
+   ],
+   "why": "The evidence does not separate the two sides: 2 families each way. No side is named."
+  },
+  {
+   "id": "gtmh-w11-LV@DEN-total",
+   "game": "LV@DEN",
+   "away": "LV",
+   "home": "DEN",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [
+    "Bowers and Gay are questionable: confirm at Sunday inactives."
+   ],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "over",
+     "detail": "Team-strength model total 48.3 vs 40.5; after removing the slate-wide model lean (+1.1) the gap is +6.7.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 40, now 40.5: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "over",
+     "detail": "FTN EPA matchup projects 48.3; after the slate-wide lean (+1.4) the gap is +6.4.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 1 on the Under (ESPN NFL); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Weather review shows no material impact.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "over",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 0,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "over",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Over 40.5 (-108) · Sat 5:43 PM PT",
+    "BetOnline Over 40.5 (-110) · Sat 5:46 PM PT",
+    "DK Predictions Over 39.5 (-127) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 40.5,
+    "price": -108,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "Over 40.5",
+   "sim_p": 0.5585215772767965,
+   "break_even": 0.5192307692307693,
+   "sim_at": "Bookmaker Over 40.5 (-108)",
+   "holds_to": "holds to 43.5 or further (3-point search limit)",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 48.3 vs 40.5; after removing the slate-wide model lean (+1.1) the gap is +6.7. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 48.3; after the slate-wide lean (+1.4) the gap is +6.4. [sim-analytics, ftn-w9]",
+    "Market movement: Total opened 40, now 40.5: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "No specific counter-case in saved evidence."
+   ],
+   "why": "3 of 7 evidence families point to Over 40.5 (Model (double-shrunk sim), Matchup analytics (FTN EPA), Market movement); 0 point the other way. The double-shrunk sim gives it 55.9% (pushes excluded) vs a 51.9% break-even at Bookmaker Over 40.5 (-108)."
+  },
+  {
+   "id": "gtmh-w11-MIN@SF-side",
+   "game": "MIN@SF",
+   "away": "MIN",
+   "home": "SF",
+   "kickoff_utc": "2026-11-23T01:20:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "home",
+     "detail": "Team-strength model SF -7; the sim centers halfway from the market, a 1.8-point shift toward SF.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "home",
+     "detail": "Opened SF -3, now SF -3.5: the move favors SF.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "home",
+     "detail": "FTN EPA matchup projects SF -8 (MIN 16.5, SF 24.5).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "away",
+     "detail": "San Francisco is without WR Brandon Aiyuk and WR Mike Evans is questionable (top receivers); Kirk Cousins starts for Minnesota.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "3 independent expert calls on MIN (BettingPros, Matt Perrault, Steve Fezzik), 4 on SF (ESPN NFL, Kendra Middleton, SGPN on-air recap, Simon Hunter); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "MIN@SF is at a neutral site (Mexico City); no rest or travel edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "home",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": "SF -3",
+   "call_direction": "home",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker SF -3.5 (+102) · Sat 5:43 PM PT",
+    "BetOnline SF -3.5 (-102) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": -3.5,
+    "price": 102,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "SF -3.5",
+   "sim_p": 0.5127939409938248,
+   "break_even": 0.49504950495049505,
+   "sim_at": "Bookmaker SF -3.5 (+102)",
+   "holds_to": "holds to -6",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model SF -7; the sim centers halfway from the market, a 1.8-point shift toward SF. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects SF -8 (MIN 16.5, SF 24.5). [sim-analytics, ftn-w9]",
+    "Market movement: Opened SF -3, now SF -3.5: the move favors SF. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Availability: San Francisco is without WR Brandon Aiyuk and WR Mike Evans is questionable (top receivers); Kirk Cousins starts for Minnesota. [espn-injuries, qb-check]"
+   ],
+   "why": "3 of 7 evidence families point to SF -3.5 (Model (double-shrunk sim), Matchup analytics (FTN EPA), Market movement); 1 point the other way. The double-shrunk sim gives it 51.3% (pushes excluded) vs a 49.5% break-even at Bookmaker SF -3.5 (+102)."
+  },
+  {
+   "id": "gtmh-w11-MIN@SF-total",
+   "game": "MIN@SF",
+   "away": "MIN",
+   "home": "SF",
+   "kickoff_utc": "2026-11-23T01:20:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "under",
+     "detail": "Team-strength model total 43.3 vs 46.5; after removing the slate-wide model lean (+1.1) the gap is -4.3.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 46, now 46.5: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 41.0; after the slate-wide lean (+1.4) the gap is -6.8.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "2 independent expert calls on the Over (Jeff, Jensen Lewis), 1 on the Under (Steve Fezzik); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": "under",
+     "detail": "Weather review flags it (review_required): 61% rain chance, gusts 9 mph at kickoff.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 1,
+   "official": "Card lean (not elevated): Under 46.5",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Under 46.5 (-107) · Sat 5:43 PM PT",
+    "BetOnline Under 46.5 (-113) · Sat 5:46 PM PT",
+    "DK Predictions Under 45.5 (+113) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": 46.5,
+    "price": -107,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "Under 46.5",
+   "sim_p": 0.5232865886857083,
+   "break_even": 0.5169082125603864,
+   "sim_at": "Bookmaker Under 46.5 (-107)",
+   "holds_to": "holds to 43.5 or further (3-point search limit)",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 43.3 vs 46.5; after removing the slate-wide model lean (+1.1) the gap is -4.3. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 41.0; after the slate-wide lean (+1.4) the gap is -6.8. [sim-analytics, ftn-w9]",
+    "Situational: Weather review flags it (review_required): 61% rain chance, gusts 9 mph at kickoff. [weather]"
+   ],
+   "against": [
+    "Market movement: Total opened 46, now 46.5: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "why": "3 of 7 evidence families point to Under 46.5 (Model (double-shrunk sim), Matchup analytics (FTN EPA), Situational); 1 point the other way. The double-shrunk sim gives it 52.3% (pushes excluded) vs a 51.7% break-even at Bookmaker Under 46.5 (-107)."
+  },
+  {
+   "id": "gtmh-w11-CIN@WAS-side",
+   "game": "CIN@WAS",
+   "away": "CIN",
+   "home": "WAS",
+   "kickoff_utc": "2026-11-24T01:15:00.000Z",
+   "market": "side",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "away",
+     "detail": "Team-strength model CIN -10.2; the sim centers halfway from the market, a 2.1-point shift toward CIN.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "away",
+     "detail": "Opened WAS +4.5, now WAS +6: the move favors CIN.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "home",
+     "detail": "FTN EPA matchup projects CIN -3.9 (CIN 27.5, WAS 23.6).",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": "away",
+     "detail": "Washington lost OT Laremy Tunsil and RB Jacory Croskey-Merritt to IR.",
+     "sources": [
+      "espn-injuries",
+      "qb-check"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "2 independent expert calls on CIN (BettingPros, Matt Perrault), 2 on WAS (Chad Millman, Simon Hunter); a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "No rest, travel or short-week edge in the saved snapshot.",
+     "sources": [
+      "schedule"
+     ]
+    }
+   },
+   "evidence_direction": "away",
+   "evidence_tier": "Lean",
+   "n_for": 3,
+   "n_against": 1,
+   "official": "Card lean (not elevated): CIN -6",
+   "supercontest": null,
+   "call_direction": "away",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker CIN -6 (-113) · Sat 5:43 PM PT",
+    "BetOnline CIN -6.5 (+100) · Sat 5:46 PM PT"
+   ],
+   "best": {
+    "book": "Bookmaker",
+    "line": -6,
+    "price": -113,
+    "at": "Sat 5:43 PM PT"
+   },
+   "call": "CIN -6",
+   "sim_p": 0.535283165702202,
+   "break_even": 0.5305164319248826,
+   "sim_at": "Bookmaker CIN -6 (-113)",
+   "holds_to": "holds to -9 or further (3-point search limit)",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model CIN -10.2; the sim centers halfway from the market, a 2.1-point shift toward CIN. [sim-model]",
+    "Availability: Washington lost OT Laremy Tunsil and RB Jacory Croskey-Merritt to IR. [espn-injuries, qb-check]",
+    "Market movement: Opened WAS +4.5, now WAS +6: the move favors CIN. [an-openers, bkr-0543]"
+   ],
+   "against": [
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects CIN -3.9 (CIN 27.5, WAS 23.6). [sim-analytics, ftn-w9]"
+   ],
+   "why": "3 of 7 evidence families point to CIN -6 (Model (double-shrunk sim), Availability, Market movement); 1 point the other way. The double-shrunk sim gives it 53.5% (pushes excluded) vs a 53.1% break-even at Bookmaker CIN -6 (-113)."
+  },
+  {
+   "id": "gtmh-w11-CIN@WAS-total",
+   "game": "CIN@WAS",
+   "away": "CIN",
+   "home": "WAS",
+   "kickoff_utc": "2026-11-24T01:15:00.000Z",
+   "market": "total",
+   "endorsed": false,
+   "execution_eligible": false,
+   "conditions": [],
+   "families": {
+    "1": {
+     "name": "Model (double-shrunk sim)",
+     "direction": "under",
+     "detail": "Team-strength model total 49.4 vs 54; after removing the slate-wide model lean (+1.1) the gap is -5.7.",
+     "sources": [
+      "sim-model"
+     ]
+    },
+    "2": {
+     "name": "Market movement",
+     "direction": "over",
+     "detail": "Total opened 52, now 54: the move favors the Over.",
+     "sources": [
+      "an-openers",
+      "bkr-0543"
+     ]
+    },
+    "3": {
+     "name": "Money signals",
+     "direction": null,
+     "detail": "Splits are dated (Action Network Sat 8:37 AM; big-money flags from Tue 11/17 splits), so they count as context only.",
+     "sources": [
+      "an-splits",
+      "big-money"
+     ]
+    },
+    "4": {
+     "name": "Matchup analytics (FTN EPA)",
+     "direction": "under",
+     "detail": "FTN EPA matchup projects 51.1; after the slate-wide lean (+1.4) the gap is -4.3.",
+     "sources": [
+      "sim-analytics",
+      "ftn-w9"
+     ]
+    },
+    "5": {
+     "name": "Availability",
+     "direction": null,
+     "detail": "Availability is scored on the side only.",
+     "sources": [
+      "espn-injuries"
+     ]
+    },
+    "6": {
+     "name": "Expert consensus",
+     "direction": null,
+     "detail": "0 independent expert calls on the Over, 0 on the Under; a net margin of 2 is needed.",
+     "sources": [
+      "expert-pool"
+     ]
+    },
+    "7": {
+     "name": "Situational",
+     "direction": null,
+     "detail": "Weather review shows no material impact.",
+     "sources": [
+      "weather"
+     ]
+    }
+   },
+   "evidence_direction": "under",
+   "evidence_tier": "Lean",
+   "n_for": 2,
+   "n_against": 1,
+   "official": "Passed: no Platinum Rose pick or card lean on this market",
+   "supercontest": null,
+   "call_direction": "under",
+   "tier": "Lean",
+   "books": [
+    "Bookmaker Under 54 (+100) · Sat 5:43 PM PT",
+    "BetOnline Under 55 (-110) · Sat 5:46 PM PT",
+    "DK Predictions Under 54.5 (-117) · Thu 1:12 PM PT · stale, reference only, before fees"
+   ],
+   "best": {
+    "book": "BetOnline",
+    "line": 55,
+    "price": -110,
+    "at": "Sat 5:46 PM PT"
+   },
+   "call": "Under 54",
+   "sim_p": 0.5260463488519244,
+   "break_even": 0.5,
+   "sim_at": "Bookmaker Under 54 (+100)",
+   "holds_to": "holds to 52",
+   "for": [
+    "Model (double-shrunk sim): Team-strength model total 49.4 vs 54; after removing the slate-wide model lean (+1.1) the gap is -5.7. [sim-model]",
+    "Matchup analytics (FTN EPA): FTN EPA matchup projects 51.1; after the slate-wide lean (+1.4) the gap is -4.3. [sim-analytics, ftn-w9]"
+   ],
+   "against": [
+    "Market movement: Total opened 52, now 54: the move favors the Over. [an-openers, bkr-0543]"
+   ],
+   "why": "2 of 7 evidence families point to Under 54 (Model (double-shrunk sim), Matchup analytics (FTN EPA)); 1 point the other way. The double-shrunk sim gives it 52.6% (pushes excluded) vs a 50.0% break-even at Bookmaker Under 54 (+100)."
+  }
+ ]
+}

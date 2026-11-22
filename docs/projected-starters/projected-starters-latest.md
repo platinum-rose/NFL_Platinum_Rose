@@ -1,20 +1,20 @@
-# Projected Starters Snapshot - 2026-10-31
+# Projected Starters Snapshot - 2026-11-21
 
 > Local projected/likely-starter evidence only. This is research context, not a depth-chart source of truth and not a betting recommendation.
 
 Season: 2026
-Generated: 2026-10-31T21:45:24.597Z
-Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
+Generated: 2026-11-21T21:45:05.977Z
+Players: 173 | Teams with signals: 32 | Manual rows: 160 | Estimated rows: 23
 
 ## Coverage
 
 | Team | Status | Players | Missing |
 |---|---:|---:|---|
-| ARI | manual_and_estimated_signals | 34 | independent second-source depth-chart reconciliation |
-| ATL | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| BAL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| BUF | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
-| CAR | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| ARI | manual_and_estimated_signals | 35 | independent second-source depth-chart reconciliation |
+| ATL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| BAL | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| BUF | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
+| CAR | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
 | CHI | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | CIN | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | CLE | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
@@ -22,67 +22,89 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 | DEN | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | DET | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | GB | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation; Micah Parsons: withheld pending confirmation |
-| HOU | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| IND | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| JAX | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| HOU | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| IND | manual_and_estimated_signals | 5 | independent second-source depth-chart reconciliation |
+| JAX | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | KC | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | LAC | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| LAR | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| LV | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| MIA | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| MIN | manual_and_estimated_signals | 32 | independent second-source depth-chart reconciliation |
+| LAR | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| LV | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| MIA | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| MIN | manual_and_estimated_signals | 33 | independent second-source depth-chart reconciliation |
 | NE | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| NO | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| NO | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | NYG | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | NYJ | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| PHI | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| PHI | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
 | PIT | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| SEA | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| SEA | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | SF | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| TB | manual_and_estimated_signals | 33 | independent second-source depth-chart reconciliation |
-| TEN | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| TB | manual_and_estimated_signals | 34 | independent second-source depth-chart reconciliation |
+| TEN | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
 | WAS | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 
 ## ⚠ Needs Human Review
 
-34 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
+56 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
 
 | Team | Player | Pos | Role | Confidence | Why flagged |
 |---|---|---|---|---:|---|
+| ARI | Michael Wilson | WR | unavailable | 0.85 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR1. 7-8 targets each of Weeks 5-7. |
 | ARI | Baron Browning | LB | starter | 0.8 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LOLB1. |
 | ARI | Budda Baker | S | starter | 0.8 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SS1; groin, Questionable Week 7 then active. |
+| ARI | Kendrick Bourne | WR | unavailable | 0.8 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR1. 6-8 targets each of Weeks 5-7. |
 | ARI | Jayden Williams | OT | starter | 0.8 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LT1 (rookie); Paris Johnson Jr. on IR. |
+| ARI | Josh Johnson | QB | starter | 0.7 | RotoWire: Carson Beck is questionable but did not practice Friday; Josh Johnson is preparing to start Sunday for the Cardinals. |
 | ARI | Bam Knight | RB | rotation | 0.55 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Led the backfield Weeks 6-7 with Love out (15 and 7 carries). Role shrinks if Love returns. |
-| ARI | Jeremiyah Love | RB | starter | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Ourlads RB1 but marked O; OUT Weeks 6-7 (ankle). LaFleur said Monday he will practice Wednesday. Confirm Wed-Fri practice report. |
+| ARI | Jeremiyah Love | RB | unavailable | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. Ourlads RB1 but marked O; OUT Weeks 6-7 (ankle). LaFleur said Monday he will practice Wednesday. Confirm Wed-Fri practice report. |
 | ARI | Simi Fehoko | WR | starter | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LWR1 on Ourlads after Jalen Brooks' season-ending wrist surgery (announced 10/26); 0 targets Weeks 5-6, so his volume is unproven. |
 | ARI | Hayden Conner | G | rotation | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RG2; starts if Gaines stays out. |
-| ARI | Jon Gaines II | G | starter | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RG1 but OUT Week 7; Hayden Conner is RG2. |
-| ARI | Andrew Wingard | S | starter | 0.45 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. FS1 but OUT Week 7; Dadrion Taylor-Demerson is next. |
+| ARI | Jon Gaines II | G | unavailable | 0.5 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RG1 but OUT Week 7; Hayden Conner is RG2. |
+| ARI | Andrew Wingard | S | unavailable | 0.45 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. FS1 but OUT Week 7; Dadrion Taylor-Demerson is next. |
 | ARI | Walter Nolen III | DT | starter | 0.45 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LDE1 but OUT Week 7; L.J. Collier is next. |
 | ARI | Max Melton | CB | starter | 0.4 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LCB1 but OUT Week 7 (knee); Kei'Trel Clark is next. |
 | ARI | Elijah Higgins | TE | backup | 0.35 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. TE2; 3 targets each of Weeks 5-7. |
 | ARI | Reggie Virgil | WR | rotation | 0.35 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR2. |
+| ARI | Carson Beck | QB | backup | 0.3 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB3; back injury, inactive/emergency QB Week 7. UPDATE 2026-11-21: ESPN depth QB1 (scratch/w11-sat-espn-qb-depth.json); second str... |
 | ARI | Devin Duvernay | WR | backup | 0.2 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR2 and PR/KR. |
 | ARI | Evan Hull | RB | backup | 0.15 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RB4; signed from practice squad 10/24. Tuesday's estimated RB row for ARI is superseded by this chart. |
-| ARI | Gardner Minshew II | QB | backup | 0.15 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB2. |
-| ARI | Carson Beck | QB | backup | 0.05 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB3; back injury, inactive/emergency QB Week 7. |
-| CIN | Jordan Battle | S | competition_or_rotation | 0.5 | Jordan Battle UNKNOWN |
+| ARI | Gardner Minshew II | QB | unavailable | 0.15 | Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB2. |
+| ATL | C.J. Henderson | CB | roster_depth_signal | 0.42 | Henderson and the Falcons agreed to a two-year contract extension Friday. |
+| BAL | Lamar Jackson | QB | unavailable | 0.95 | Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| BUF | Dawson Knox | TE | likely_starter_or_primary | 0.7 | Knox will likely be the Bills' top tight end against the Dolphins on Sunday, given that Dalton Kincaid (thumb/ankle) is listed as doubtful for that contest, Maddy Glab of the Bills' official site reports. |
+| CAR | Marco Wilson | CB | roster_depth_signal | 0.42 | The Panthers signed Wilson from the practice squad to the active roster Monday, Darin Gantt of the team's official site reports. |
+| CIN | Jordan Battle | S | competition_or_rotation | 0.5 | Battle finished Sunday's 38-18 win over Pittsburgh with six tackles (four solo), one defensed pass and one forced fumble. |
+| IND | Riley Leonard | QB | unavailable | 0.5 | The Colts announced Friday that Leonard will act as Anthony Richardson's backup at quarterback, Stephen Holder of ESPN.com reports. |
+| LAR | Terrance Ferguson | TE | unavailable | 0.42 | Ferguson (hamstring/ankle) isn't ready to return to game action, but the Rams still plan to activate him from injured reserve before Week 12 and keep him on the active roster, Adam Grosbard of The Orange County Register reports. |
+| MIA | Malik Willis | QB | unavailable | 0.95 | Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| MIN | Kyler Murray | QB | unavailable | 0.9 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB1. Week 7: 14/24, 150 yds, 1 TD, 5 rushes for 39. |
+| MIN | Jordan Addison | WR | unavailable | 0.85 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RWR1. |
 | MIN | Jay Ward | CB | starter | 0.75 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. Nickel CB1 (ESPN lists S). |
-| MIN | Gavin Bartholomew | TE | backup | 0.35 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. TE2. |
+| MIN | Gavin Bartholomew | TE | backup | 0.5 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. TE2. |
 | MIN | Myles Price | WR | rotation | 0.3 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. SWR2 and PR/KR; head injury Week 7, returned in the 2nd quarter. |
 | MIN | Tai Felton | WR | backup | 0.25 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. LWR2. |
-| MIN | Demond Claiborne | RB | backup | 0.1 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB3; OUT Week 7. DeeJay Dallas (Tuesday's estimated MIN RB row) is on the practice squad per Ourlads, so that row... |
+| MIN | Demond Claiborne | RB | unavailable | 0.1 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RB3; OUT Week 7. DeeJay Dallas (Tuesday's estimated MIN RB row) is on the practice squad per Ourlads, so that row... |
 | MIN | Max Brosmer | QB | backup | 0.05 | Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB3; OUT Week 7. |
-| SEA | Emanuel Wilson | RB | starter | 0.8 | Week 7 2026 usage leader at RB for SEA (usage score 24.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| NO | Charlie Smyth | PK | roster_depth_signal | 0.42 | The Saints signed Smyth to a two-year contract Saturday, Michael McQuaid of NFL Ireland reports. |
+| NYG | Xavier Gipson | WR | roster_depth_signal | 0.42 | Gipson was signed by the Giants off of Philadelphia's practice squad Monday, Pat Leonard of the New York Daily News reports. |
+| PHI | Jalen Hurts | QB | unavailable | 0.95 | Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| PHI | Tanner McKee | QB | likely_starter_or_primary | 0.78 | McKee will remain in a backup role for Sunday's game against the Steelers after head coach Nick Sirianni announced Wednesday that Joe Milton will serve as the Eagles' starting quarterback for a second straight game, Jeff McLane of The Philadelphia Inquirer reports. |
+| PHI | Jaydon Blue | RB | roster_depth_signal | 0.42 | The Eagles signed Blue from their practice squad to their active roster Tuesday. |
+| PHI | Zach Ertz | TE | roster_depth_signal | 0.42 | The Eagles signed Ertz from the practice squad to the active roster Monday. |
+| SEA | Zach Charbonnet | RB | starter | 0.8 | Week 10 2026 usage leader at RB for SEA (usage score 20.0 vs runner-up 9.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| SEA | Sam Darnold | QB | unavailable | 0.7 | Head coach Mike Macdonald said Monday that he's "really optimistic" Darnold (quadriceps/ribs) will be able to get a full week's worth of practice coming out of the Seahawks' Week 11 bye and start their next game Sunday, Nov. 29, against the 49ers, John Boyle of the team's official site reports. |
 | TB | Emeka Egbuka | WR | starter | 0.6 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RWR1, but Ourlads marked him Out (O) for Week 7 and he had no Week 7 stats. Week 8 status unverified; check the practice report before any leg. |
 | TB | Luke Goedeke | OT | starter | 0.6 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RT, marked Out (O) for Week 7 by Ourlads; Justin Skule is the backup. |
-| TB | Antoine Winfield Jr. | S | starter | 0.55 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. FS, marked Out (O) for Week 7 by Ourlads; Ifeatu Melifonwu filled in. Check Week 8 status. |
+| TB | Antoine Winfield Jr. | S | unavailable | 0.55 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. FS, marked Out (O) for Week 7 by Ourlads; Ifeatu Melifonwu filled in. Check Week 8 status. |
 | TB | Ifeatu Melifonwu | S | rotation | 0.5 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. FS2; started Week 7 with Winfield out. |
 | TB | Tez Johnson | WR | rotation | 0.45 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RWR2 / PR. Starts if Egbuka is out. |
+| TB | Easton Stick | QB | roster_depth_signal | 0.42 | The Buccaneers signed Stick off their practice squad Monday, Scott Smith of the team's official site reports. |
 | TB | SirVocea Dennis | LB | backup | 0.3 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. MLB2. |
 | TB | Payne Durham | TE | backup | 0.3 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. TE2. |
 | TB | Sean Tucker | RB | backup | 0.3 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. RB3. Week 7: 7 carries, 52 yards. |
 | TB | Kameron Johnson | WR | backup | 0.25 | Ourlads TB depth chart (updated 10/26/2026 2:03 PM ET), cross-checked against the ESPN full roster 2026-10-26 and nflverse Week 6-7 usage. SWR2 / KR. |
+| TEN | Xavier Restrepo | WR | roster_depth_signal | 0.42 | Restrepo, whom the Titans signed off their practice squad Tuesday, could be in store for more playing time out of the slot moving forward after Tennessee placed Wan'Dale Robinson (ankle) on injured reserve, Mark Mihalko of USA Today reports. |
+| WAS | Jacory Croskey-Merritt | RB | unavailable | 0.8 | Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
 
 
 ## Named Status Review Gate
@@ -107,9 +129,6 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Chad Ryland (K): starter, starter 0.95, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: special_teams | Review: no
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. K1.
-- Jacoby Brissett (QB): starter, starter 0.9, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: qb_major | Review: no
-  - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. QB1. Week 7: 48 attempts, 7 rushes.
 - Hjalte Froholdt (C): starter, starter 0.9, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: no
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. C1.
@@ -122,8 +141,8 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Roy Lopez (DT): starter, starter 0.85, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: defensive_front_major | Review: no
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. NT1.
-- Michael Wilson (WR): starter, starter 0.85, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: skill_major | Review: no
+- Michael Wilson (WR): unavailable, starter 0.85, roster 0.9
+  - Tags: manual_projection, manual_all_position_depth_chart, availability_veto | Impact: skill_major | Review: yes
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RWR1. 7-8 targets each of Weeks 5-7.
 - Isaac Seumalo (G): starter, starter 0.85, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: no
@@ -146,27 +165,36 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Jack Gibbens (LB): starter, starter 0.8, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: idp_major | Review: no
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. WLB1.
-- Kendrick Bourne (WR): starter, starter 0.8, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: skill_major | Review: no
+- Kendrick Bourne (WR): unavailable, starter 0.8, roster 0.9
+  - Tags: manual_projection, manual_all_position_depth_chart, availability_veto | Impact: skill_major | Review: yes
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. SWR1. 6-8 targets each of Weeks 5-7.
 - Elijah Wilkinson (OT): starter, starter 0.8, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: no
   - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. RT1.
+- Jayden Williams (OT): starter, starter 0.8, roster 0.9
+  - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: yes
+  - Evidence: Ourlads ARI depth chart (updated 10/27/2026 5:21 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5-7 usage and local availability events. LT1 (rookie); Paris Johnson Jr. on IR.
 
 ### ATL
 
 - Bijan Robinson (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- C.J. Henderson (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: Henderson and the Falcons agreed to a two-year contract extension Friday.
 
 ### BAL
 
-- Lamar Jackson (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+- Lamar Jackson (QB): unavailable, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant, availability_veto | Impact: qb_major | Review: yes
   - Evidence: Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Tyler Huntley (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, weekly_usage_dominant | Impact: qb_major | Review: no
-  - Evidence: Week 7 2026 usage leader at QB for BAL (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jacoby Brissett (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Jacoby Brissett, Joe Fagnano, Kedon Slovis), captured Sat 11/21 ~11:46 am PT.
+- Derrick Henry (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
+  - Evidence: Week 10 2026 usage leader at RB for BAL (usage score 12.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### BUF
 
@@ -176,15 +204,24 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - James Cook (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Dawson Knox (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Knox will likely be the Bills' top tight end against the Dolphins on Sunday, given that Dalton Kincaid (thumb/ankle) is listed as doubtful for that contest, Maddy Glab of the Bills' official site reports.
 
 ### CAR
 
 - Bryce Young (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for CAR (usage score 37.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Chuba Hubbard (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
+  - Evidence: Week 10 2026 usage leader at RB for CAR (usage score 29.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Tommy Tremble (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for CAR (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Marco Wilson (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Panthers signed Wilson from the practice squad to the active roster Monday, Darin Gantt of the team's official site reports.
 
 ### CHI
 
@@ -205,7 +242,7 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
   - Evidence: Week 1 2026 usage leader at RB for CIN (usage score 19.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Jordan Battle (S): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: defensive_major | Review: yes
-  - Evidence: Jordan Battle UNKNOWN
+  - Evidence: Battle finished Sunday's 38-18 win over Pittsburgh with six tackles (four solo), one defensed pass and one forced fumble.
 
 ### CLE
 
@@ -254,9 +291,6 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - C.J. Stroud (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Woody Marks (RB): starter, starter 0.8, roster 0.85
-  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
-  - Evidence: Week 7 2026 usage leader at RB for HOU (usage score 19.5 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### IND
 
@@ -266,12 +300,21 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Jonathan Taylor (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for IND (usage score 21.0 vs runner-up 0.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Anthony Richardson Sr. (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: no
+  - Evidence: Head coach Shane Steichen announced Friday that Richardson will be the Colts' starting quarterback moving forward after the team waived Daniel Jones.
 - Tyler Warren (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Riley Leonard (QB): unavailable, starter 0.5, roster 0.6
+  - Tags: competition, availability_veto | Impact: qb_major | Review: yes
+  - Evidence: The Colts announced Friday that Leonard will act as Anthony Richardson's backup at quarterback, Stephen Holder of ESPN.com reports.
 
 ### JAX
 
+- Trevor Lawrence (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Trevor Lawrence, Quinn Ewers), captured Sat 11/21 ~11:46 am PT.
 - Bhayshul Tuten (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
@@ -281,9 +324,9 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Patrick Mahomes (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for KC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Kenneth Walker III (RB): starter, starter 0.8, roster 0.85
-  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
-  - Evidence: Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Emmett Johnson (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
+  - Evidence: Week 10 2026 usage leader at RB for KC (usage score 25.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### LAC
 
@@ -291,7 +334,7 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Omarion Hampton (RB): starter, starter 0.8, roster 0.85
-  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
+  - Tags: locked_starter, week1_usage_dominant, starter | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for LAC (usage score 12.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - David Njoku (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
@@ -302,18 +345,30 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Matthew Stafford (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Terrance Ferguson (TE): unavailable, starter 0.42, roster 0.6
+  - Tags: roster_signal, availability_veto | Impact: skill_major | Review: yes
+  - Evidence: Ferguson (hamstring/ankle) isn't ready to return to game action, but the Rams still plan to activate him from injured reserve before Week 12 and keep him on the active roster, Adam Grosbard of The Orange County Register reports.
 
 ### LV
 
+- Fernando Mendoza (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Fernando Mendoza, Aidan O'Connell), captured Sat 11/21 ~11:46 am PT.
 - Ashton Jeanty (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### MIA
 
-- Malik Willis (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+- Malik Willis (QB): unavailable, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant, availability_veto | Impact: qb_major | Review: yes
   - Evidence: Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Kyle McCord (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Kyle McCord, Brady Cook, Malik Willis), captured Sat 11/21 ~11:46 am PT.
+- Brady Cook (QB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: qb_major | Review: no
+  - Evidence: Cook was signed to the Dolphins' active roster Tuesday.
 
 ### MIN
 
@@ -326,8 +381,11 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Will Reichard (K): starter, starter 0.95, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: special_teams | Review: no
   - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. K1.
-- Kyler Murray (QB): starter, starter 0.9, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: qb_major | Review: no
+- Kirk Cousins (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Kirk Cousins, Kyler Murray, Carson Wentz), captured Sat 11/21 ~11:46 am PT.
+- Kyler Murray (QB): unavailable, starter 0.9, roster 0.9
+  - Tags: manual_projection, manual_all_position_depth_chart, availability_veto | Impact: qb_major | Review: yes
   - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. QB1. Week 7: 14/24, 150 yds, 1 TD, 5 rushes for 39.
 - T.J. Hockenson (TE): starter, starter 0.9, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: te_uncertain | Review: no
@@ -356,8 +414,8 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Joshua Metellus (S): starter, starter 0.85, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: secondary | Review: no
   - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. SS1.
-- Jordan Addison (WR): starter, starter 0.85, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: skill_major | Review: no
+- Jordan Addison (WR): unavailable, starter 0.85, roster 0.9
+  - Tags: manual_projection, manual_all_position_depth_chart, availability_veto | Impact: skill_major | Review: yes
   - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RWR1.
 - Blake Brandel (C): starter, starter 0.85, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: no
@@ -368,15 +426,12 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Will Fries (G): starter, starter 0.85, roster 0.9
   - Tags: manual_projection, manual_all_position_depth_chart | Impact: oline | Review: no
   - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. RG1.
-- Eric Wilson (LB): starter, starter 0.8, roster 0.9
-  - Tags: manual_projection, manual_all_position_depth_chart | Impact: idp_major | Review: no
-  - Evidence: Ourlads MIN depth chart (updated 10/26/2026 2:01 PM ET), cross-checked against the ESPN full roster 2026-10-26, nflverse Week 5 and 7 usage (Week 6 bye) and local availability events. WLB1.
 
 ### NE
 
-- Drake Maye (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
-  - Evidence: Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Tommy DeVito (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, weekly_usage_dominant, starter | Impact: qb_major | Review: no
+  - Evidence: Week 10 2026 usage leader at QB for NE (usage score 24.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Rhamondre Stevenson (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
@@ -386,18 +441,21 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Tyler Shough (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Charlie Smyth (PK): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: depth_only | Review: yes
+  - Evidence: The Saints signed Smyth to a two-year contract Saturday, Michael McQuaid of NFL Ireland reports.
 
 ### NYG
 
 - J.J. McCarthy (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, weekly_usage_dominant | Impact: qb_major | Review: no
-  - Evidence: Week 7 2026 usage leader at QB for NYG (usage score 28.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Jaxson Dart (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
-  - Evidence: Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+  - Evidence: Week 10 2026 usage leader at QB for NYG (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Cam Skattebo (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Xavier Gipson (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Gipson was signed by the Giants off of Philadelphia's practice squad Monday, Pat Leonard of the New York Daily News reports.
 
 ### NYJ
 
@@ -413,12 +471,21 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Saquon Barkley (RB): starter, starter 0.97, roster 0.97
   - Tags: locked_starter, workhorse | Impact: rb_major | Review: no
   - Evidence: Unquestioned RB1, workhorse role, no committee/competition -- verified by Andy 2026-09-15.
-- Jalen Hurts (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+- Jalen Hurts (QB): unavailable, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant, availability_veto | Impact: qb_major | Review: yes
   - Evidence: Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Tanner McKee (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, weekly_usage_dominant | Impact: qb_major | Review: no
-  - Evidence: Week 7 2026 usage leader at QB for PHI (usage score 35.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Joe Milton (QB): starter, starter 0.9, roster 0.95
+  - Tags: manual_projection, week11_qb_correction, starter | Impact: qb_major | Review: no
+  - Evidence: ESPN depth chart QB1 (Joe Milton, Tanner McKee, Cole Payton), captured Sat 11/21 ~11:46 am PT.
+- Tanner McKee (QB): likely_starter_or_primary, starter 0.78, roster 0.74
+  - Tags: starter, competition | Impact: qb_major | Review: yes
+  - Evidence: McKee will remain in a backup role for Sunday's game against the Steelers after head coach Nick Sirianni announced Wednesday that Joe Milton will serve as the Eagles' starting quarterback for a second straight game, Jeff McLane of The Philadelphia Inquirer reports.
+- Jaydon Blue (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Eagles signed Blue from their practice squad to their active roster Tuesday.
+- Zach Ertz (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Eagles signed Ertz from the practice squad to the active roster Monday.
 
 ### PIT
 
@@ -428,9 +495,12 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 
 ### SEA
 
-- Emanuel Wilson (RB): starter, starter 0.8, roster 0.85
+- Zach Charbonnet (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: yes
-  - Evidence: Week 7 2026 usage leader at RB for SEA (usage score 24.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+  - Evidence: Week 10 2026 usage leader at RB for SEA (usage score 20.0 vs runner-up 9.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Sam Darnold (QB): unavailable, starter 0.7, roster 0.66
+  - Tags: starter, availability_veto | Impact: qb_major | Review: yes
+  - Evidence: Head coach Mike Macdonald said Monday that he's "really optimistic" Darnold (quadriceps/ribs) will be able to get a full week's worth of practice coming out of the Seahawks' Week 11 bye and start their next game Sunday, Nov. 29, against the 49ers, John Boyle of the team's official site reports.
 
 ### SF
 
@@ -500,16 +570,22 @@ Players: 152 | Teams with signals: 32 | Manual rows: 151 | Estimated rows: 1
 - Cam Ward (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Tony Pollard (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
+  - Evidence: Week 10 2026 usage leader at RB for TEN (usage score 13.5 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Gunnar Helm (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Xavier Restrepo (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Restrepo, whom the Titans signed off their practice squad Tuesday, could be in store for more playing time out of the slot moving forward after Tennessee placed Wan'Dale Robinson (ankle) on injured reserve, Mark Mihalko of USA Today reports.
 
 ### WAS
 
 - Jayden Daniels (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for WAS (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Jacory Croskey-Merritt (RB): starter, starter 0.8, roster 0.85
-  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
+- Jacory Croskey-Merritt (RB): unavailable, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant, availability_veto | Impact: rb_major | Review: yes
   - Evidence: Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 

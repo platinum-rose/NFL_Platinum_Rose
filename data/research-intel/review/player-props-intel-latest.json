@@ -1,36 +1,1936 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-30T22:00:06.327Z",
-  "week": 8,
+  "generated_at": "2026-11-21T18:00:10.050Z",
+  "week": 11,
   "season": 2026,
   "summary": {
-    "articles_scanned": 503,
-    "total_props": 2,
-    "tier_1_props": 2,
-    "touchdown_props": 1,
-    "curated_parlays": 0,
-    "games_covered": 2
+    "articles_scanned": 497,
+    "total_props": 33,
+    "tier_1_props": 5,
+    "touchdown_props": 0,
+    "curated_parlays": 10,
+    "games_covered": 10
   },
-  "parlayCards": [],
+  "parlayCards": [
+    {
+      "id": "parlay__MIA_at_BUF__mia/buf_stack",
+      "title": "MIA/BUF Prop Stack SGP (MIA @ BUF)",
+      "game": "MIA @ BUF",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__13456__ray_davis__rushing_yards",
+          "player": "Ray Davis",
+          "team": "BUF",
+          "game": "MIA @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "19.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 13456,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+          "rationale": "Carnell Tate Over 65.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 11 Best Prop Bet: Mark Andrews Over 33.5 Receiving Yards (-108) It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+          "week": 11,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "BUF_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 19.5 Rushing Yards"
+        },
+        {
+          "id": "prop__13531__kyle_mccord__passing_yards",
+          "player": "Kyle McCord",
+          "team": "MIA",
+          "game": "MIA @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "passing_yards",
+          "category_label": "Passing Yards",
+          "stat_type": "passing",
+          "line": "190+",
+          "side": "over",
+          "price": "+106",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Caleb Douglas 50+ Receiving Yards ( -106 ) If you weren't aware, James Cook has been one of the NFL's best running backs this season. The Bills' tailback ranks second in rushing yards, trailing only Jahmyr Gibbs, while averaging a strong 5.2 yards per carry.",
+          "week": 11,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_yards",
+              "MIA_offense"
+            ],
+            "positive_correlations": [
+              "Caleb Douglas Receiving Yards"
+            ]
+          },
+          "selection": "Over 190+ Passing Yards"
+        },
+        {
+          "id": "prop__13531__caleb_douglas__receiving_yards",
+          "player": "Caleb Douglas",
+          "team": "MIA",
+          "game": "MIA @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "50+",
+          "side": "over",
+          "price": "-106",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "If you weren't aware, James Cook has been one of the NFL's best running backs this season. The Bills' tailback ranks second in rushing yards, trailing only Jahmyr Gibbs, while averaging a strong 5.2 yards per carry.",
+          "week": 11,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "MIA_offense"
+            ],
+            "positive_correlations": [
+              "Kyle McCord Passing Yards"
+            ]
+          },
+          "selection": "Over 50+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+652",
+      "payout_multiplier": "7.51x",
+      "payout_on_10": "$75.15",
+      "payout_on_25": "$187.88",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Josh Shepardson (Sharp Football), Dan Servodidio (BettingPros) for MIA @ BUF."
+    },
+    {
+      "id": "parlay__TEN_at_DAL__ten/dal_stack",
+      "title": "TEN/DAL Prop Stack SGP (TEN @ DAL)",
+      "game": "TEN @ DAL",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__13456__carnell_tate__receiving_yards",
+          "player": "Carnell Tate",
+          "team": "TEN",
+          "game": "TEN @ DAL",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "65.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 13456,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+          "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 11 Best Prop Bet: Mark Andrews Over 33.5 Receiving Yards (-108) It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+          "week": 11,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "TEN_offense"
+            ],
+            "positive_correlations": [
+              "Tony Pollard Receiving Yards"
+            ]
+          },
+          "selection": "Over 65.5 Receiving Yards"
+        },
+        {
+          "id": "prop__13531__tony_pollard__receiving_yards",
+          "player": "Tony Pollard",
+          "team": "TEN",
+          "game": "TEN @ DAL",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "85.5",
+          "side": "over",
+          "price": "-113",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: CeeDee Lamb 7+ Receptions ( -203 ) Leg 3: Ryan Flournoy Over 41.5 Receiving Yards ( -110 ) The Cowboys have the NFL's worst run defense, allowing a league-high 154.1 rushing yards per game. They're giving up 5.2 yards per carry, also the league's most.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "TEN_offense"
+            ],
+            "positive_correlations": [
+              "Carnell Tate Receiving Yards"
+            ]
+          },
+          "selection": "Over 85.5 Receiving Yards"
+        },
+        {
+          "id": "prop__13531__ceedee_lamb__receptions",
+          "player": "CeeDee Lamb",
+          "team": "DAL",
+          "game": "TEN @ DAL",
+          "game_slate": "Sunday Early Window",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "7+",
+          "side": "over",
+          "price": "-203",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Ryan Flournoy Over 41.5 Receiving Yards ( -110 ) The Cowboys have the NFL's worst run defense, allowing a league-high 154.1 rushing yards per game. They're giving up 5.2 yards per carry, also the league's most.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receptions",
+              "DAL_offense"
+            ],
+            "positive_correlations": [
+              "Ryan Flournoy Receiving Yards"
+            ]
+          },
+          "selection": "Over 7+ Receptions"
+        }
+      ],
+      "estimated_odds": "+428",
+      "payout_multiplier": "5.28x",
+      "payout_on_10": "$52.81",
+      "payout_on_25": "$132.03",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Josh Shepardson (Sharp Football), Dan Servodidio (BettingPros) for TEN @ DAL."
+    },
+    {
+      "id": "parlay__BAL_at_CAR__bal/car_stack",
+      "title": "BAL/CAR Prop Stack SGP (BAL @ CAR)",
+      "game": "BAL @ CAR",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__13456__mark_andrews__receiving_yards",
+          "player": "Mark Andrews",
+          "team": "BAL",
+          "game": "BAL @ CAR",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "33.5",
+          "side": "over",
+          "price": "-108",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 13456,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+          "rationale": "It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+          "week": 11,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "BAL_offense"
+            ],
+            "positive_correlations": [
+              "Jacoby Brissett Pass Attempts",
+              "Ja'Kobi Lane Receiving Yards"
+            ]
+          },
+          "selection": "Over 33.5 Receiving Yards"
+        },
+        {
+          "id": "prop__13531__jacoby_brissett__pass_attempts",
+          "player": "Jacoby Brissett",
+          "team": "BAL",
+          "game": "BAL @ CAR",
+          "game_slate": "Sunday Early Window",
+          "category": "pass_attempts",
+          "category_label": "Pass Attempts",
+          "stat_type": "passing",
+          "line": "34.5",
+          "side": "over",
+          "price": "-118",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Ja'Kobi Lane Over 35.5 Receiving Yards ( -114 ) Leg 3: Chuba Hubbard Under 72.5 Rushing Yards ( -114 ) In Jacoby Brissett's debut for Baltimore last week, the veteran quarterback chucked it 49 times. This is nothing new for Brissett, who's averaging 39.3 pass attempts per game this season.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "pass_attempts",
+              "BAL_offense"
+            ],
+            "positive_correlations": [
+              "Ja'Kobi Lane Receiving Yards",
+              "Mark Andrews Receiving Yards"
+            ]
+          },
+          "selection": "Over 34.5 Pass Attempts"
+        },
+        {
+          "id": "prop__13531__chuba_hubbard__rushing_yards",
+          "player": "Chuba Hubbard",
+          "team": "CAR",
+          "game": "BAL @ CAR",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "72.5",
+          "side": "under",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "In Jacoby Brissett's debut for Baltimore last week, the veteran quarterback chucked it 49 times. This is nothing new for Brissett, who's averaging 39.3 pass attempts per game this season.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "CAR_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Under 72.5 Rushing Yards"
+        }
+      ],
+      "estimated_odds": "+568",
+      "payout_multiplier": "6.68x",
+      "payout_on_10": "$66.79",
+      "payout_on_25": "$166.97",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Josh Shepardson (Sharp Football), Dan Servodidio (BettingPros) for BAL @ CAR."
+    },
+    {
+      "id": "parlay__NYJ_at_LAC__nyj/lac_stack",
+      "title": "NYJ/LAC Prop Stack SGP (NYJ @ LAC)",
+      "game": "NYJ @ LAC",
+      "game_slate": "Sunday Late Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__13531__omarion_hampton__rushing_yards",
+          "player": "Omarion Hampton",
+          "team": "LAC",
+          "game": "NYJ @ LAC",
+          "game_slate": "Sunday Late Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "60+",
+          "side": "over",
+          "price": "-150",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Justin Herbert Under 202.5 Passing Yards ( -113 ) Leg 3: Garrett Wilson 70+ Receiving Yards ( +109 ) Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "LAC_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 60+ Rushing Yards"
+        },
+        {
+          "id": "prop__13531__justin_herbert__passing_yards",
+          "player": "Justin Herbert",
+          "team": "LAC",
+          "game": "NYJ @ LAC",
+          "game_slate": "Sunday Late Window",
+          "category": "passing_yards",
+          "category_label": "Passing Yards",
+          "stat_type": "passing",
+          "line": "202.5",
+          "side": "under",
+          "price": "-113",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Garrett Wilson 70+ Receiving Yards ( +109 ) Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_yards",
+              "LAC_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Under 202.5 Passing Yards"
+        },
+        {
+          "id": "prop__13531__garrett_wilson__receiving_yards",
+          "player": "Garrett Wilson",
+          "team": "NYJ",
+          "game": "NYJ @ LAC",
+          "game_slate": "Sunday Late Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "70+",
+          "side": "over",
+          "price": "+109",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "NYJ_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 70+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+557",
+      "payout_multiplier": "6.57x",
+      "payout_on_10": "$65.66",
+      "payout_on_25": "$164.15",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Dan Servodidio (BettingPros) for NYJ @ LAC."
+    },
+    {
+      "id": "parlay__PIT_at_PHI__pit/phi_stack",
+      "title": "PIT/PHI Prop Stack SGP (PIT @ PHI)",
+      "game": "PIT @ PHI",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13531__jaylen_warren__rushing_yards",
+          "player": "Jaylen Warren",
+          "team": "PIT",
+          "game": "PIT @ PHI",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "66.5",
+          "side": "over",
+          "price": "-115",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Saquon Barkley 10+ Receiving Yards ( -121 ) Leg 3: Joe Milton 30+ Rushing Yards ( -145 ) Jaylen Warren is coming off his worst game of the season. The Bengals held him to just 15 rushing yards on seven carries in the Steelers' blowout loss.",
+          "week": 11,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "PIT_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 66.5 Rushing Yards"
+        },
+        {
+          "id": "prop__13531__saquon_barkley__receiving_yards",
+          "player": "Saquon Barkley",
+          "team": "PHI",
+          "game": "PIT @ PHI",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "10+",
+          "side": "over",
+          "price": "-121",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Joe Milton 30+ Rushing Yards ( -145 ) Jaylen Warren is coming off his worst game of the season. The Bengals held him to just 15 rushing yards on seven carries in the Steelers' blowout loss.",
+          "week": 11,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "PHI_offense"
+            ],
+            "positive_correlations": [
+              "Joe Milton Rushing Yards"
+            ]
+          },
+          "selection": "Over 10+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+241",
+      "payout_multiplier": "3.42x",
+      "payout_on_10": "$34.15",
+      "payout_on_25": "$85.38",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for PIT @ PHI."
+    },
+    {
+      "id": "parlay__NO_at_CHI__chi_stack",
+      "title": "CHI Prop Stack SGP (NO @ CHI)",
+      "game": "NO @ CHI",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13531__d_andre_swift__rushing_yards",
+          "player": "D'Andre Swift",
+          "team": "CHI",
+          "game": "NO @ CHI",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "60+",
+          "side": "over",
+          "price": "-154",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: D'Andre Swift 15+ Receiving Yards ( -127 ) Leg 3: Colston Loveland 50+ Receiving Yards ( -111 ) New Orleans presents one of the league's best matchups for opposing running backs. The Saints allow the fourth-most rushing yards and the fourth-most receiving yards per game to the position.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "CHI_offense"
+            ],
+            "positive_correlations": [
+              "D'Andre Swift Receiving Yards",
+              "Colston Loveland Receiving Yards"
+            ]
+          },
+          "selection": "Over 60+ Rushing Yards"
+        },
+        {
+          "id": "prop__13531__d_andre_swift__receiving_yards",
+          "player": "D'Andre Swift",
+          "team": "CHI",
+          "game": "NO @ CHI",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "15+",
+          "side": "over",
+          "price": "-127",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Colston Loveland 50+ Receiving Yards ( -111 ) New Orleans presents one of the league's best matchups for opposing running backs. The Saints allow the fourth-most rushing yards and the fourth-most receiving yards per game to the position.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "CHI_offense"
+            ],
+            "positive_correlations": [
+              "D'Andre Swift Rushing Yards",
+              "Colston Loveland Receiving Yards"
+            ]
+          },
+          "selection": "Over 15+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+195",
+      "payout_multiplier": "2.95x",
+      "payout_on_10": "$29.48",
+      "payout_on_25": "$73.70",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for NO @ CHI."
+    },
+    {
+      "id": "parlay__TB_at_DET__tb_stack",
+      "title": "TB Prop Stack SGP (TB @ DET)",
+      "game": "TB @ DET",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13531__cade_otton__receiving_yards",
+          "player": "Cade Otton",
+          "team": "TB",
+          "game": "TB @ DET",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "30+",
+          "side": "over",
+          "price": "-106",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Bucky Irving Over 16.5 Rushing Attempts ( -116 ) Leg 3: Jahmyr Gibbs Under 85.5 Rushing Yards ( -111 ) The Lions remain a favorable matchup for opposing tight ends. Detroit is allowing 81.3 receiving yards, 7.4 receptions, and 10.0 targets per game to TEs - all the most in the league.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "TB_offense"
+            ],
+            "positive_correlations": [
+              "Bucky Irving Rush Attempts"
+            ]
+          },
+          "selection": "Over 30+ Receiving Yards"
+        },
+        {
+          "id": "prop__13531__bucky_irving__rush_attempts",
+          "player": "Bucky Irving",
+          "team": "TB",
+          "game": "TB @ DET",
+          "game_slate": "Sunday Early Window",
+          "category": "rush_attempts",
+          "category_label": "Rush Attempts",
+          "stat_type": "rushing",
+          "line": "16.5",
+          "side": "over",
+          "price": "-116",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Jahmyr Gibbs Under 85.5 Rushing Yards ( -111 ) The Lions remain a favorable matchup for opposing tight ends. Detroit is allowing 81.3 receiving yards, 7.4 receptions, and 10.0 targets per game to TEs - all the most in the league.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rush_attempts",
+              "TB_offense"
+            ],
+            "positive_correlations": [
+              "Cade Otton Receiving Yards"
+            ]
+          },
+          "selection": "Over 16.5 Rush Attempts"
+        }
+      ],
+      "estimated_odds": "+262",
+      "payout_multiplier": "3.62x",
+      "payout_on_10": "$36.19",
+      "payout_on_25": "$90.48",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for TB @ DET."
+    },
+    {
+      "id": "parlay__ARI_at_KC__ari/kc_stack",
+      "title": "ARI/KC Prop Stack SGP (ARI @ KC)",
+      "game": "ARI @ KC",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13311__trey_mcbride__receptions",
+          "player": "Trey McBride",
+          "team": "ARI",
+          "game": "ARI @ KC",
+          "game_slate": "Sunday Early Window",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "5.5",
+          "side": "over",
+          "price": "-139",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Zachary Cohen (VSiN)",
+          "source_article_id": 13311,
+          "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-11-best-bets-predictions-and-player-props-from-zachary-cohen/",
+          "rationale": "vs. Chiefs Kyle McCord Over 29.5 Passing Attempts (-118) vs.",
+          "week": 11,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receptions",
+              "ARI_offense"
+            ],
+            "positive_correlations": [
+              "Trey McBride Receiving Yards"
+            ]
+          },
+          "selection": "Over 5.5 Receptions"
+        },
+        {
+          "id": "prop__13531__emmett_johnson__rushing_yards",
+          "player": "Emmett Johnson",
+          "team": "KC",
+          "game": "ARI @ KC",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "80+",
+          "side": "over",
+          "price": "-162",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Emmett Johnson 25+ Receiving Yards ( -148 ) Leg 3: Trey McBride 50+ Receiving Yards ( -116 ) With Kenneth Walker out last week, Emmett Johnson took full advantage of his lead-back role for Kansas City. The rookie exploded for 101 rushing yards on 22 carries and added 70 receiving yards on six catches.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "KC_offense"
+            ],
+            "positive_correlations": [
+              "Emmett Johnson Receiving Yards"
+            ]
+          },
+          "selection": "Over 80+ Rushing Yards"
+        }
+      ],
+      "estimated_odds": "+178",
+      "payout_multiplier": "2.78x",
+      "payout_on_10": "$27.81",
+      "payout_on_25": "$69.53",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Zachary Cohen (VSiN), Dan Servodidio (BettingPros) for ARI @ KC."
+    },
+    {
+      "id": "parlay__LV_at_DEN__lv/den_stack",
+      "title": "LV/DEN Prop Stack SGP (LV @ DEN)",
+      "game": "LV @ DEN",
+      "game_slate": "Sunday Late Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13531__jonah_coleman__rushing_yards",
+          "player": "Jonah Coleman",
+          "team": "DEN",
+          "game": "LV @ DEN",
+          "game_slate": "Sunday Late Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "60+",
+          "side": "over",
+          "price": "-199",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Ashton Jeanty 30+ Receiving Yards ( -108 ) Leg 3: Courtland Sutton Over 35.5 Receiving Yards ( -111 ) Jonah Coleman has fully taken over lead-back duties in Denver. The rookie had 17 carries last game, compared to just four for J.K.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "DEN_offense"
+            ],
+            "positive_correlations": [
+              "Courtland Sutton Receiving Yards"
+            ]
+          },
+          "selection": "Over 60+ Rushing Yards"
+        },
+        {
+          "id": "prop__13531__ashton_jeanty__receiving_yards",
+          "player": "Ashton Jeanty",
+          "team": "LV",
+          "game": "LV @ DEN",
+          "game_slate": "Sunday Late Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "30+",
+          "side": "over",
+          "price": "-108",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Courtland Sutton Over 35.5 Receiving Yards ( -111 ) Jonah Coleman has fully taken over lead-back duties in Denver. The rookie had 17 carries last game, compared to just four for J.K.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "LV_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 30+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+189",
+      "payout_multiplier": "2.89x",
+      "payout_on_10": "$28.94",
+      "payout_on_25": "$72.35",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for LV @ DEN."
+    },
+    {
+      "id": "parlay__JAX_at_NYG__nyg_stack",
+      "title": "NYG Prop Stack SGP (JAX @ NYG)",
+      "game": "JAX @ NYG",
+      "game_slate": "Sunday Late Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__13531__cam_skattebo__rushing_yards",
+          "player": "Cam Skattebo",
+          "team": "NYG",
+          "game": "JAX @ NYG",
+          "game_slate": "Sunday Late Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "54.5",
+          "side": "under",
+          "price": "-111",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 2: Isaiah Likely Under 49.5 Receiving Yards ( -110 ) Leg 3: Malik Nabers 60+ Receiving Yards ( -152 ) Cam Skattebo and Isaiah Likely have both been very productive lately. Skattebo has 78 and 144 rushing yards in his last two games, while regaining the Giants' lead-back role.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Isaiah Likely Receiving Yards"
+            ]
+          },
+          "selection": "Under 54.5 Rushing Yards"
+        },
+        {
+          "id": "prop__13531__isaiah_likely__receiving_yards",
+          "player": "Isaiah Likely",
+          "team": "NYG",
+          "game": "JAX @ NYG",
+          "game_slate": "Sunday Late Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "49.5",
+          "side": "under",
+          "price": "-110",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 13531,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+          "rationale": "Leg 3: Malik Nabers 60+ Receiving Yards ( -152 ) Cam Skattebo and Isaiah Likely have both been very productive lately. Skattebo has 78 and 144 rushing yards in his last two games, while regaining the Giants' lead-back role.",
+          "week": 11,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Cam Skattebo Rushing Yards"
+            ]
+          },
+          "selection": "Under 49.5 Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+263",
+      "payout_multiplier": "3.63x",
+      "payout_on_10": "$36.29",
+      "payout_on_25": "$90.72",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for JAX @ NYG."
+    }
+  ],
   "props": [
     {
-      "id": "prop__10101__gunnar_helm__receiving_yards",
-      "player": "Gunnar Helm",
-      "team": "TEN",
-      "game": "TEN @ CIN",
+      "id": "prop__13531__jaylen_warren__rushing_yards",
+      "player": "Jaylen Warren",
+      "team": "PIT",
+      "game": "PIT @ PHI",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "66.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Saquon Barkley 10+ Receiving Yards ( -121 ) Leg 3: Joe Milton 30+ Rushing Yards ( -145 ) Jaylen Warren is coming off his worst game of the season. The Bengals held him to just 15 rushing yards on seven carries in the Steelers' blowout loss.",
+      "week": 11,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "PIT_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__saquon_barkley__receiving_yards",
+      "player": "Saquon Barkley",
+      "team": "PHI",
+      "game": "PIT @ PHI",
       "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "15.5",
+      "line": "10+",
+      "side": "over",
+      "price": "-121",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Joe Milton 30+ Rushing Yards ( -145 ) Jaylen Warren is coming off his worst game of the season. The Bengals held him to just 15 rushing yards on seven carries in the Steelers' blowout loss.",
+      "week": 11,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "PHI_offense"
+        ],
+        "positive_correlations": [
+          "Joe Milton Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__joe_milton__rushing_yards",
+      "player": "Joe Milton",
+      "team": "PHI",
+      "game": "PIT @ PHI",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "30+",
+      "side": "over",
+      "price": "-145",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Jaylen Warren is coming off his worst game of the season. The Bengals held him to just 15 rushing yards on seven carries in the Steelers' blowout loss.",
+      "week": 11,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "PHI_offense"
+        ],
+        "positive_correlations": [
+          "Saquon Barkley Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__kyle_mccord__passing_yards",
+      "player": "Kyle McCord",
+      "team": "MIA",
+      "game": "MIA @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "190+",
+      "side": "over",
+      "price": "+106",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Caleb Douglas 50+ Receiving Yards ( -106 ) If you weren't aware, James Cook has been one of the NFL's best running backs this season. The Bills' tailback ranks second in rushing yards, trailing only Jahmyr Gibbs, while averaging a strong 5.2 yards per carry.",
+      "week": 11,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_yards",
+          "MIA_offense"
+        ],
+        "positive_correlations": [
+          "Caleb Douglas Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__caleb_douglas__receiving_yards",
+      "player": "Caleb Douglas",
+      "team": "MIA",
+      "game": "MIA @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "50+",
+      "side": "over",
+      "price": "-106",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "If you weren't aware, James Cook has been one of the NFL's best running backs this season. The Bills' tailback ranks second in rushing yards, trailing only Jahmyr Gibbs, while averaging a strong 5.2 yards per carry.",
+      "week": 11,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "MIA_offense"
+        ],
+        "positive_correlations": [
+          "Kyle McCord Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__d_andre_swift__rushing_yards",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NO @ CHI",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "60+",
+      "side": "over",
+      "price": "-154",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: D'Andre Swift 15+ Receiving Yards ( -127 ) Leg 3: Colston Loveland 50+ Receiving Yards ( -111 ) New Orleans presents one of the league's best matchups for opposing running backs. The Saints allow the fourth-most rushing yards and the fourth-most receiving yards per game to the position.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Receiving Yards",
+          "Colston Loveland Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__d_andre_swift__receiving_yards",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NO @ CHI",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "15+",
+      "side": "over",
+      "price": "-127",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Colston Loveland 50+ Receiving Yards ( -111 ) New Orleans presents one of the league's best matchups for opposing running backs. The Saints allow the fourth-most rushing yards and the fourth-most receiving yards per game to the position.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "Colston Loveland Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__colston_loveland__receiving_yards",
+      "player": "Colston Loveland",
+      "team": "CHI",
+      "game": "NO @ CHI",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "50+",
+      "side": "over",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "New Orleans presents one of the league's best matchups for opposing running backs. The Saints allow the fourth-most rushing yards and the fourth-most receiving yards per game to the position.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "D'Andre Swift Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__tony_pollard__receiving_yards",
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "game": "TEN @ DAL",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "85.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: CeeDee Lamb 7+ Receptions ( -203 ) Leg 3: Ryan Flournoy Over 41.5 Receiving Yards ( -110 ) The Cowboys have the NFL's worst run defense, allowing a league-high 154.1 rushing yards per game. They're giving up 5.2 yards per carry, also the league's most.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "TEN_offense"
+        ],
+        "positive_correlations": [
+          "Carnell Tate Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__ceedee_lamb__receptions",
+      "player": "CeeDee Lamb",
+      "team": "DAL",
+      "game": "TEN @ DAL",
+      "game_slate": "Sunday Early Window",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "7+",
+      "side": "over",
+      "price": "-203",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Ryan Flournoy Over 41.5 Receiving Yards ( -110 ) The Cowboys have the NFL's worst run defense, allowing a league-high 154.1 rushing yards per game. They're giving up 5.2 yards per carry, also the league's most.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "DAL_offense"
+        ],
+        "positive_correlations": [
+          "Ryan Flournoy Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__ryan_flournoy__receiving_yards",
+      "player": "Ryan Flournoy",
+      "team": "DAL",
+      "game": "TEN @ DAL",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "41.5",
+      "side": "over",
+      "price": "-110",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "The Cowboys have the NFL's worst run defense, allowing a league-high 154.1 rushing yards per game. They're giving up 5.2 yards per carry, also the league's most.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DAL_offense"
+        ],
+        "positive_correlations": [
+          "CeeDee Lamb Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__cade_otton__receiving_yards",
+      "player": "Cade Otton",
+      "team": "TB",
+      "game": "TB @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "30+",
+      "side": "over",
+      "price": "-106",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Bucky Irving Over 16.5 Rushing Attempts ( -116 ) Leg 3: Jahmyr Gibbs Under 85.5 Rushing Yards ( -111 ) The Lions remain a favorable matchup for opposing tight ends. Detroit is allowing 81.3 receiving yards, 7.4 receptions, and 10.0 targets per game to TEs - all the most in the league.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "TB_offense"
+        ],
+        "positive_correlations": [
+          "Bucky Irving Rush Attempts"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__bucky_irving__rush_attempts",
+      "player": "Bucky Irving",
+      "team": "TB",
+      "game": "TB @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "rush_attempts",
+      "category_label": "Rush Attempts",
+      "stat_type": "rushing",
+      "line": "16.5",
+      "side": "over",
+      "price": "-116",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Jahmyr Gibbs Under 85.5 Rushing Yards ( -111 ) The Lions remain a favorable matchup for opposing tight ends. Detroit is allowing 81.3 receiving yards, 7.4 receptions, and 10.0 targets per game to TEs - all the most in the league.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rush_attempts",
+          "TB_offense"
+        ],
+        "positive_correlations": [
+          "Cade Otton Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__jahmyr_gibbs__rushing_yards",
+      "player": "Jahmyr Gibbs",
+      "team": "DET",
+      "game": "TB @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "85.5",
+      "side": "under",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "The Lions remain a favorable matchup for opposing tight ends. Detroit is allowing 81.3 receiving yards, 7.4 receptions, and 10.0 targets per game to TEs - all the most in the league.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "DET_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__emmett_johnson__rushing_yards",
+      "player": "Emmett Johnson",
+      "team": "KC",
+      "game": "ARI @ KC",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "80+",
+      "side": "over",
+      "price": "-162",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Emmett Johnson 25+ Receiving Yards ( -148 ) Leg 3: Trey McBride 50+ Receiving Yards ( -116 ) With Kenneth Walker out last week, Emmett Johnson took full advantage of his lead-back role for Kansas City. The rookie exploded for 101 rushing yards on 22 carries and added 70 receiving yards on six catches.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "KC_offense"
+        ],
+        "positive_correlations": [
+          "Emmett Johnson Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__emmett_johnson__receiving_yards",
+      "player": "Emmett Johnson",
+      "team": "KC",
+      "game": "ARI @ KC",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "25+",
+      "side": "over",
+      "price": "-148",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Trey McBride 50+ Receiving Yards ( -116 ) With Kenneth Walker out last week, Emmett Johnson took full advantage of his lead-back role for Kansas City. The rookie exploded for 101 rushing yards on 22 carries and added 70 receiving yards on six catches.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "KC_offense"
+        ],
+        "positive_correlations": [
+          "Emmett Johnson Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__trey_mcbride__receiving_yards",
+      "player": "Trey McBride",
+      "team": "ARI",
+      "game": "ARI @ KC",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "50+",
+      "side": "over",
+      "price": "-116",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "With Kenneth Walker out last week, Emmett Johnson took full advantage of his lead-back role for Kansas City. The rookie exploded for 101 rushing yards on 22 carries and added 70 receiving yards on six catches.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "ARI_offense"
+        ],
+        "positive_correlations": [
+          "Trey McBride Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__jacoby_brissett__pass_attempts",
+      "player": "Jacoby Brissett",
+      "team": "BAL",
+      "game": "BAL @ CAR",
+      "game_slate": "Sunday Early Window",
+      "category": "pass_attempts",
+      "category_label": "Pass Attempts",
+      "stat_type": "passing",
+      "line": "34.5",
+      "side": "over",
+      "price": "-118",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Ja'Kobi Lane Over 35.5 Receiving Yards ( -114 ) Leg 3: Chuba Hubbard Under 72.5 Rushing Yards ( -114 ) In Jacoby Brissett's debut for Baltimore last week, the veteran quarterback chucked it 49 times. This is nothing new for Brissett, who's averaging 39.3 pass attempts per game this season.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "pass_attempts",
+          "BAL_offense"
+        ],
+        "positive_correlations": [
+          "Ja'Kobi Lane Receiving Yards",
+          "Mark Andrews Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__ja_kobi_lane__receiving_yards",
+      "player": "Ja'Kobi Lane",
+      "team": "BAL",
+      "game": "BAL @ CAR",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "35.5",
       "side": "over",
       "price": "-114",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 10101,
-      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-8-best-bets-predictions-and-player-props-from-zachary-cohen/",
-      "rationale": "vs. Bengals Week 7 Picks Texans -9.5 (-122) vs.",
-      "week": 8,
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Chuba Hubbard Under 72.5 Rushing Yards ( -114 ) In Jacoby Brissett's debut for Baltimore last week, the veteran quarterback chucked it 49 times. This is nothing new for Brissett, who's averaging 39.3 pass attempts per game this season.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "BAL_offense"
+        ],
+        "positive_correlations": [
+          "Jacoby Brissett Pass Attempts",
+          "Mark Andrews Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__chuba_hubbard__rushing_yards",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "game": "BAL @ CAR",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "72.5",
+      "side": "under",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "In Jacoby Brissett's debut for Baltimore last week, the veteran quarterback chucked it 49 times. This is nothing new for Brissett, who's averaging 39.3 pass attempts per game this season.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "CAR_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__omarion_hampton__rushing_yards",
+      "player": "Omarion Hampton",
+      "team": "LAC",
+      "game": "NYJ @ LAC",
+      "game_slate": "Sunday Late Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "60+",
+      "side": "over",
+      "price": "-150",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Justin Herbert Under 202.5 Passing Yards ( -113 ) Leg 3: Garrett Wilson 70+ Receiving Yards ( +109 ) Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "LAC_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__justin_herbert__passing_yards",
+      "player": "Justin Herbert",
+      "team": "LAC",
+      "game": "NYJ @ LAC",
+      "game_slate": "Sunday Late Window",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "202.5",
+      "side": "under",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Garrett Wilson 70+ Receiving Yards ( +109 ) Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_yards",
+          "LAC_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__garrett_wilson__receiving_yards",
+      "player": "Garrett Wilson",
+      "team": "NYJ",
+      "game": "NYJ @ LAC",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "70+",
+      "side": "over",
+      "price": "+109",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Omarion Hampton is coming off his best game of the season. The Chargers' running back gained 105 yards on 22 carries, averaging 4.8 yards per carry, in last week's victory over Baltimore.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NYJ_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__jonah_coleman__rushing_yards",
+      "player": "Jonah Coleman",
+      "team": "DEN",
+      "game": "LV @ DEN",
+      "game_slate": "Sunday Late Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "60+",
+      "side": "over",
+      "price": "-199",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Ashton Jeanty 30+ Receiving Yards ( -108 ) Leg 3: Courtland Sutton Over 35.5 Receiving Yards ( -111 ) Jonah Coleman has fully taken over lead-back duties in Denver. The rookie had 17 carries last game, compared to just four for J.K.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "Courtland Sutton Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__ashton_jeanty__receiving_yards",
+      "player": "Ashton Jeanty",
+      "team": "LV",
+      "game": "LV @ DEN",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "30+",
+      "side": "over",
+      "price": "-108",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Courtland Sutton Over 35.5 Receiving Yards ( -111 ) Jonah Coleman has fully taken over lead-back duties in Denver. The rookie had 17 carries last game, compared to just four for J.K.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "LV_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13531__courtland_sutton__receiving_yards",
+      "player": "Courtland Sutton",
+      "team": "DEN",
+      "game": "LV @ DEN",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "35.5",
+      "side": "over",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Jonah Coleman has fully taken over lead-back duties in Denver. The rookie had 17 carries last game, compared to just four for J.K.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "Jonah Coleman Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__cam_skattebo__rushing_yards",
+      "player": "Cam Skattebo",
+      "team": "NYG",
+      "game": "JAX @ NYG",
+      "game_slate": "Sunday Late Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "54.5",
+      "side": "under",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 2: Isaiah Likely Under 49.5 Receiving Yards ( -110 ) Leg 3: Malik Nabers 60+ Receiving Yards ( -152 ) Cam Skattebo and Isaiah Likely have both been very productive lately. Skattebo has 78 and 144 rushing yards in his last two games, while regaining the Giants' lead-back role.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": [
+          "Isaiah Likely Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__isaiah_likely__receiving_yards",
+      "player": "Isaiah Likely",
+      "team": "NYG",
+      "game": "JAX @ NYG",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "49.5",
+      "side": "under",
+      "price": "-110",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Leg 3: Malik Nabers 60+ Receiving Yards ( -152 ) Cam Skattebo and Isaiah Likely have both been very productive lately. Skattebo has 78 and 144 rushing yards in his last two games, while regaining the Giants' lead-back role.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": [
+          "Cam Skattebo Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13531__malik_nabers__receiving_yards",
+      "player": "Malik Nabers",
+      "team": "NYG",
+      "game": "JAX @ NYG",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "60+",
+      "side": "over",
+      "price": "-152",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 13531,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-11-2026/",
+      "rationale": "Cam Skattebo and Isaiah Likely have both been very productive lately. Skattebo has 78 and 144 rushing yards in his last two games, while regaining the Giants' lead-back role.",
+      "week": 11,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13456__ray_davis__rushing_yards",
+      "player": "Ray Davis",
+      "team": "BUF",
+      "game": "MIA @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "19.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 13456,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+      "rationale": "Carnell Tate Over 65.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 11 Best Prop Bet: Mark Andrews Over 33.5 Receiving Yards (-108) It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+      "week": 11,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "BUF_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__13456__carnell_tate__receiving_yards",
+      "player": "Carnell Tate",
+      "team": "TEN",
+      "game": "TEN @ DAL",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "65.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 13456,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 11 Best Prop Bet: Mark Andrews Over 33.5 Receiving Yards (-108) It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+      "week": 11,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -40,37 +1940,74 @@
           "receiving_yards",
           "TEN_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "Tony Pollard Receiving Yards"
+        ]
       }
     },
     {
-      "id": "prop__10101__drake_maye__passing_tds",
-      "player": "Drake Maye",
-      "team": "NE",
-      "game": "NE @ MIA",
-      "game_slate": "Sunday Late Window",
-      "category": "passing_tds",
-      "category_label": "Passing TDs",
-      "stat_type": "passing",
-      "line": "1.5",
+      "id": "prop__13456__mark_andrews__receiving_yards",
+      "player": "Mark Andrews",
+      "team": "BAL",
+      "game": "BAL @ CAR",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "33.5",
       "side": "over",
-      "price": "-115",
+      "price": "-108",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 13456,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-11-2026/",
+      "rationale": "It was revealed during the Week 10 Monday Night Football game that Mark Andrews broke his hand in Week 3. Well, that certainly helps explain how poorly he played from Week 3 through Week 9.",
+      "week": 11,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "BAL_offense"
+        ],
+        "positive_correlations": [
+          "Jacoby Brissett Pass Attempts",
+          "Ja'Kobi Lane Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__13311__trey_mcbride__receptions",
+      "player": "Trey McBride",
+      "team": "ARI",
+      "game": "ARI @ KC",
+      "game_slate": "Sunday Early Window",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "5.5",
+      "side": "over",
+      "price": "-139",
       "book": "DraftKings/FanDuel (per source article)",
       "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 10101,
-      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-8-best-bets-predictions-and-player-props-from-zachary-cohen/",
-      "rationale": "vs. Bears PARLAY: Vikings ML vs.",
-      "week": 8,
+      "source_article_id": 13311,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-11-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "vs. Chiefs Kyle McCord Over 29.5 Passing Attempts (-118) vs.",
+      "week": 11,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
       "parlay_utility": {
-        "role": "Passing Volume Anchor",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "passing_tds",
-          "NE_offense"
+          "receptions",
+          "ARI_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "Trey McBride Receiving Yards"
+        ]
       }
     }
   ]

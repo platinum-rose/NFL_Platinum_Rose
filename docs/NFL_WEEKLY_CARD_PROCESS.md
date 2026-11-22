@@ -96,6 +96,8 @@ Andy's decision after Week 3 (single $25.08 5-team parlay, #739360142): split th
 
 ## Build-day sequence
 
+> **Master Intel layout locked (Andy, 2026-11-22):** the Week 11 report layout and card-ticket format are the standard. See `docs/specs/MASTER_INTEL_LAYOUT_LOCK.md`; run `python scripts/master-intel/check_layout_lock.py --week <N>` after `build_site.py` and send only on PASS.
+
 1. **Pull the board.** Parse the week's `docs/Player_Prop_Odds_Weekly` files and `public/schedule.json` fresh
    — never reuse last week's parsed data. Confirm morning/afternoon/SNF game groupings from the real schedule,
    not assumption.

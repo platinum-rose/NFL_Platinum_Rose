@@ -5,6 +5,7 @@ Run every week, twice:
   python3 scripts/master-intel/final_gate_check.py --week 8 --stage friday
   python3 scripts/master-intel/final_gate_check.py --week 8 --stage saturday
 Options: --season 2026  --no-preflight (skip the node freshness table)  --json-only
+         --allow-provisional-qb-news (Friday only; explicit operator authorization)
 
 What it does (read-only except its own report + the manual-confirmation template):
   * checks every REQUIRED and ADVISORY input for the week (lines, rosters, injuries, analytics,
@@ -14,8 +15,11 @@ What it does (read-only except its own report + the manual-confirmation template
   * manual confirmations live in data/generated/master-intel/w<WW>-gate-manual.json
     (template created on first run; set each item true with a note when done);
   * writes reports/intel/gates/w<WW>-final-gate-<stage>.md (+ .json) and exits
-    0 = GREEN (no REQUIRED failures), 1 = RED.
+    0 = GREEN/PROVISIONAL (no other REQUIRED failures), 1 = RED.
 GREEN means: start agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md for that stage.
+PROVISIONAL means: a Friday build is authorized while QB/news items remain
+unresolved; label the report and recheck before Sunday kickoff. It never applies
+to the Saturday final build.
 ADVISORY warnings never block; they are listed in the report's gaps section.
 """
 import argparse, datetime as dt, glob, json, os, re, subprocess, sys
@@ -31,8 +35,11 @@ ap.add_argument('--stage', choices=['friday', 'saturday'], required=True)
 ap.add_argument('--season', type=int, default=2026)
 ap.add_argument('--no-preflight', action='store_true')
 ap.add_argument('--json-only', action='store_true')
+ap.add_argument('--allow-provisional-qb-news', action='store_true')
 a = ap.parse_args()
 W, WW, S, STAGE = a.week, f'{a.week:02d}', a.season, a.stage
+if a.allow_provisional_qb_news and a.stage != 'friday':
+    ap.error('--allow-provisional-qb-news is Friday-only; Saturday requires final confirmations.')
 NOW = dt.datetime.now(dt.timezone.utc)
 # max age in hours: (friday, saturday)
 AGE = dict(lines=(30, 8), splits=(30, 8), injuries=(24, 10), starters=(30, 14), pull=(30, 10),
@@ -201,9 +208,26 @@ add('E7', 'Expert & media intel', 'Article intel (VSiN, ESPN, Action Network, Be
     '' if art_ok else f'Refresh article ingest, then NODE_USE_ENV_PROXY=1 node scripts/master-intel/pull.mjs --week {W}')
 tts, tage = newest_ts(tw)
 tw_ok = len(tw) > 0 and tage <= maxage('injuries')
-add('E8', 'Expert & media intel', 'Twitter/X bookmark intel (text)', 'REQUIRED', 'PASS' if tw_ok else 'FAIL',
-    f'{len(tw)} bookmark signals; newest {tts} ({tage:.1f}h)' if tage < 1e8 else f'{len(tw)} bookmark signals',
-    '' if tw_ok else 'node scripts/twitter-bookmarks-cron.js (bookmark sync), then re-pull.')
+# A local, reviewed bookmark digest is an accepted evidence lane when the
+# capture was intentionally retained local-only.  It must still be fresh and
+# contain the structured Week header; an arbitrary Markdown file cannot clear
+# the gate.  This keeps a read-only capture from being forced through a cloud
+# sync merely to satisfy E8.
+local_tw_p = f'data/intel/articles/{S}-w{WW}/bookmark-text-intelligence-digest.md'
+local_tw_text = ''
+if os.path.exists(local_tw_p):
+    try:
+        with open(local_tw_p, encoding='utf-8') as f: local_tw_text = f.read()
+    except Exception:
+        local_tw_text = ''
+local_tw_ok = (os.path.exists(local_tw_p) and age_h(local_tw_p) <= maxage('injuries')
+               and f'Week {W} X Bookmark Text Intelligence Digest' in local_tw_text
+               and '## 1. Explicit Picks' in local_tw_text)
+tw_gate_ok = tw_ok or local_tw_ok
+add('E8', 'Expert & media intel', 'Twitter/X bookmark intel (text)', 'REQUIRED', 'PASS' if tw_gate_ok else 'FAIL',
+    f'{len(tw)} synced bookmark signals; newest {tts} ({tage:.1f}h)' if tw_ok else
+    (f'local reviewed digest: {local_tw_p} ({age_h(local_tw_p):.1f}h)' if local_tw_ok else f'{len(tw)} bookmark signals'),
+    '' if tw_gate_ok else 'node scripts/twitter-bookmarks-cron.js (bookmark sync), then re-pull, or save a fresh reviewed local bookmark digest.')
 mq_p = f'data/twitter/w{WW}-media-extraction-queue.json'
 mq = J(mq_p, {}) or {}
 pend = [i for i in (mq.get('items') or []) if i.get('status') == 'pending' and not str(i.get('relevance') or '').strip().lower().startswith('moot')]  # any pending item counts unless explicitly moot (relevance is free text)
@@ -224,7 +248,10 @@ for x in pull.get('expert') or []: corpus.append(('pull:expert', json.dumps(x)))
 for x in sig: corpus.append((f'pull:{x.get("source")}', json.dumps(x)))
 for x in ytj.get('picks') or []: corpus.append(('youtube', json.dumps(x)))
 for f in grok: corpus.append(('grok', open(f, encoding='utf-8', errors='ignore').read()))
-for f in glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json') + [bp, en, f'data/intel/extracted/{S}-w{WW}-primer-intel.json', f'data/intel/extracted/{S}-w{WW}-chrome-article-picks.json']:
+# 2026-11-21 (Andy OK'd): also read the reviewed podcast picks and the reviewed local X bookmark digest. Both are
+# approved evidence lanes (runbook §3 / E8) whose named-expert calls were otherwise invisible to E10.
+for f in glob.glob(f'data/twitter/twitter-video-picks-{S}-w{WW}.json') + [bp, en, f'data/intel/extracted/{S}-w{WW}-primer-intel.json', f'data/intel/extracted/{S}-w{WW}-chrome-article-picks.json',
+          f'data/intel/articles/{S}-w{WW}/reviewed-podcast-picks.json', f'data/intel/articles/{S}-w{WW}/bookmark-text-intelligence-digest.md']:
     if os.path.exists(f): corpus.append((os.path.basename(f), open(f, encoding='utf-8', errors='ignore').read()))
 found, missing = {}, []
 for e in exps:
@@ -258,8 +285,8 @@ for cid, pss, lvl in (('S1', 'sides', 'REQUIRED'), ('S2', 'props', 'REQUIRED' if
 # ---------- manual confirmations ----------
 mp = f'data/generated/master-intel/w{WW}-gate-manual.json'
 TEMPLATE = {
-  'news_flags_resolved': {'done': False, 'note': 'Trades, QB changes, pulled markets, late news checked by live search and reflected in packets/narratives', 'required': ['friday', 'saturday']},
-  'qb_status_confirmed': {'done': False, 'note': 'Every starting QB confirmed (team sites / insiders)', 'required': ['friday', 'saturday']},
+  'news_flags_resolved': {'done': False, 'note': 'Trades, QB changes, pulled markets and late news checked. RotoWire/Rotoworld are acceptable when current and source-attributed; record the sources and reflect material changes in packets/narratives.', 'required': ['friday', 'saturday']},
+  'qb_status_confirmed': {'done': False, 'note': 'Every starting QB checked against team/league reports or current, source-attributed RotoWire/Rotoworld. Do not clear on projection, rumor, conflicting reports or "trending" language; record sources.', 'required': ['friday', 'saturday']},
   'final_injury_reports_checked': {'done': False, 'note': "Friday's official designations (Out/Doubtful/Questionable) checked for every game", 'required': ['saturday']},
   'supercontest_report_reviewed': {'done': False, 'note': 'Andy has the Friday SC Intel report (the official five is NOT a prerequisite for either report)', 'required': []},
 }
@@ -268,12 +295,19 @@ if man is None:
     os.makedirs(os.path.dirname(mp), exist_ok=True)
     with open(mp, 'w', encoding='utf-8') as f: json.dump(TEMPLATE, f, indent=1)
     man = TEMPLATE
+provisional_open = []
 for k, v in man.items():
     req = STAGE in (v.get('required') or [])
     done = v.get('done') is True
+    deferred = (a.allow_provisional_qb_news and not done and
+                k in ('news_flags_resolved', 'qb_status_confirmed'))
+    if deferred:
+        provisional_open.append(k)
     add(f'M-{k}', 'Manual confirmations', k.replace('_', ' '), 'REQUIRED' if req else 'ADVISORY',
-        'PASS' if done else ('FAIL' if req else 'WARN'), (v.get('note') or '') + (f' — {v.get("by","")} {v.get("at","")}'.rstrip(' —') if done else ''),
-        '' if done else f'Set "done": true (+ "by", "at") in {mp} when confirmed.')
+        'PASS' if done else ('WARN' if deferred or not req else 'FAIL'),
+        (v.get('note') or '') + (f' — {v.get("by","")} {v.get("at","")}'.rstrip(' —') if done else '') +
+        (' — Friday provisional release authorized; must recheck before kickoff.' if deferred else ''),
+        '' if done else ('Recheck the named issue against current sources before Sunday kickoff.' if deferred else f'Set "done": true (+ "by", "at") in {mp} when confirmed.'))
 
 # ---------- preflight (freshness table) ----------
 pre = ''
@@ -287,18 +321,20 @@ if not a.no_preflight:
 # ---------- verdict + report ----------
 req_fail = [r for r in results if r['level'] == 'REQUIRED' and r['status'] == 'FAIL']
 warn = [r for r in results if r['status'] in ('WARN',) or (r['level'] == 'ADVISORY' and r['status'] == 'FAIL')]
-verdict = 'GREEN' if not req_fail else 'RED'
+verdict = 'RED' if req_fail else ('PROVISIONAL' if provisional_open else 'GREEN')
 os.makedirs('reports/intel/gates', exist_ok=True)
 base = f'reports/intel/gates/w{WW}-final-gate-{STAGE}'
 out = dict(schema='final_gate_check_v1', season=S, week=W, stage=STAGE, run_at=NOW.astimezone(PT).isoformat(), verdict=verdict,
-           games_remaining=REM, bkr_capture_date=BKR_DATE, expert_coverage=EXPERT_COVERAGE, required_failures=len(req_fail), warnings=len(warn), checks=results)
+           games_remaining=REM, bkr_capture_date=BKR_DATE, expert_coverage=EXPERT_COVERAGE, provisional_open=provisional_open,
+           required_failures=len(req_fail), warnings=len(warn), checks=results)
 with open(base + '.json', 'w', encoding='utf-8') as f: json.dump(out, f, indent=1)
 icon = {'PASS': '✅', 'WARN': '⚠️', 'FAIL': '❌'}
 L = [f'# Final Gate Check — {S} Week {W} — {STAGE.title()} run', '',
      f'Run {NOW.astimezone(PT).strftime("%a %b %d, %I:%M %p PT").replace(" 0", " ")} · games to play: {REM} · BKR capture date: {BKR_DATE}', '',
      f'## Verdict: **{verdict}** — {len(req_fail)} required failure(s), {len(warn)} advisory warning(s)', '',
      ('All REQUIRED gates pass → start `agents/dev/WEEKLY_INTEL_REPORT_RUN_PROMPT.md` with STAGE=' + STAGE + '.') if verdict == 'GREEN'
-     else 'Do NOT start the synthesis/report run. Fix the ❌ REQUIRED rows below (top first), then re-run this check.', '']
+     else ('Friday provisional build authorized: unresolved QB/news items are listed below and must be rechecked before Sunday kickoff.' if verdict == 'PROVISIONAL'
+           else 'Do NOT start the synthesis/report run. Fix the ❌ REQUIRED rows below (top first), then re-run this check.'), '']
 if req_fail:
     L += ['### Blocking items', ''] + [f'- ❌ **{r["id"]} {r["title"]}** — {r["detail"]}  \n  Fix: {r["fix"]}' for r in req_fail] + ['']
 grp = None
@@ -315,6 +351,8 @@ if pre:
 with open(base + '.md', 'w', encoding='utf-8') as f: f.write('\n'.join(L) + '\n')
 if not a.json_only:
     print(f'FINAL GATE {STAGE.upper()} W{W}: {verdict} — {len(req_fail)} required failure(s), {len(warn)} warning(s)')
-    for r in req_fail: print(f'  ❌ {r["id"]} {r["title"]}: {r["detail"][:160]}')
+    # Keep the console summary ASCII-safe for Windows PowerShell sessions that
+    # still default to cp1252. The Markdown report retains its visual icons.
+    for r in req_fail: print(f'  [FAIL] {r["id"]} {r["title"]}: {r["detail"][:160]}')
     print(f'Report: {base}.md')
-sys.exit(0 if verdict == 'GREEN' else 1)
+sys.exit(0 if verdict in ('GREEN', 'PROVISIONAL') else 1)

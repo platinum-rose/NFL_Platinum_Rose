@@ -635,15 +635,27 @@ def main(src):
                     for x in st.find_all(id=True):
                         x['id'] = 'pl-' + x['id']
                     new.append(st)
-                keep = [k for k in kill if getattr(k, 'get', None) and k.get('id') in ('props-by-position', 'td-menu')]   # card §7f / §7g (2026-10-24)
+                keep = [k for k in kill if getattr(k, 'get', None) and k.get('id') in ('props-by-position', 'td-menu')]   # 2026-11-21: props-gtmh grid dropped; its picks are rows in the board   # card §7f / §7g (2026-10-24)
                 for k in keep:
                     kill.remove(k); new.append(k.extract())
                 if prop_research:
                     new.insert(0, soup_of(prop_research).section)
                 if XC['M'].get('status') != 'friday_provisional':
                     new.append(soup_of(SX.props_lab(XC)).div)
+                    # 2026-11-21 (Andy): the filterable board leads Props Lab; card stacks, then the research reference table, follow
+                    _bd = new.find(id='props-lab-legs', recursive=False)
+                    if _bd is not None: new.insert(0, _bd.extract())
+                    _rs = new.find(id='research-props', recursive=False)
+                    if _rs is not None: new.append(_rs.extract())
                 elif not prop_research:
                     new.insert(0, soup_of('<p>No prop research rows passed the saved quote and roster checks.</p>').p)
+                # 2026-11-21: game pages link #props-<game>; that anchor lived in the dropped prop pool.
+                # Re-home it on the game's Gun to my head card (else its research block) on this page.
+                for _pre in ('gtmh-props-', 'prop-research-'):
+                    for _c in new.find_all(id=re.compile('^' + _pre)):
+                        _pid = 'props-' + _c['id'][len(_pre):]
+                        if new.find(id=_pid) is None:
+                            _c.insert_before(soup_of(f'<a id="{_pid}"></a>').a)
                 kill[0].insert_before(new)
                 for k in kill:
                     k.extract()

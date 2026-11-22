@@ -1,0 +1,235 @@
+{
+ "meta": {
+  "description": "Week 11 QB starter corrections. The weekly usage lock (week-usage-locks.json) only seeds QBs with dominant Week 10 usage, and the Week 8 manual depth files are stale. Delete or refresh after Week 11.",
+  "season": 2026,
+  "week": 11,
+  "built_by": "Claude (Saturday finalization, Andy request)",
+  "built_at": "2026-11-21",
+  "evidence_report": "reports/intel/w11-qb-injury-news-check-2026-11-21.md",
+  "espn_snapshot": "scratch/w11-sat-espn-qb-depth.json",
+  "caveats": [
+   "Research context only, not picks.",
+   "Starter role does not clear the QB gate; Andy confirms in chat."
+  ]
+ },
+ "players": [
+  {
+   "player_name": "Kyle McCord",
+   "team": "MIA",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 2,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/mia/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Kyle McCord, Brady Cook, Malik Willis), captured Sat 11/21 ~11:46 am PT."
+    },
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://www.lanacion.com.ar/usa/dolphins-backup-kyle-mccord-shows-promise-in-first-nfl-start-in-place-of-the-injured-malik-willis-nid16112026/",
+     "published_at": null,
+     "evidence": "Malik Willis on IR (11/16); McCord started Week 10 (AP)."
+    }
+   ],
+   "evidence": "Malik Willis on IR (11/16); McCord started Week 10 (AP).",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Joe Milton",
+   "team": "PHI",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 2,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/phi/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Joe Milton, Tanner McKee, Cole Payton), captured Sat 11/21 ~11:46 am PT."
+    },
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://www.foxsports.com/stories/nfl/joe-milton-stats-nick-sirianni-presser-steelers-eagles",
+     "published_at": null,
+     "evidence": "Sirianni confirmed Milton starts vs PIT (Wed 11/18); Jalen Hurts on IR. ESPN lists him as Joe Milton."
+    }
+   ],
+   "evidence": "Sirianni confirmed Milton starts vs PIT (Wed 11/18); Jalen Hurts on IR. ESPN lists him as Joe Milton.",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Jacoby Brissett",
+   "team": "BAL",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 2,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Jacoby Brissett, Joe Fagnano, Kedon Slovis), captured Sat 11/21 ~11:46 am PT."
+    },
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://www.panthers.com/news/know-your-foe-week-11-baltimore-ravens-carolina-panthers",
+     "published_at": null,
+     "evidence": "Acquired from ARI before the deadline; Lamar Jackson on IR (thumb)."
+    }
+   ],
+   "evidence": "Acquired from ARI before the deadline; Lamar Jackson on IR (thumb).",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Fernando Mendoza",
+   "team": "LV",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 1,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/lv/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Fernando Mendoza, Aidan O'Connell), captured Sat 11/21 ~11:46 am PT."
+    }
+   ],
+   "evidence": "ESPN depth QB1; no QB injury designation in the Sat 11:08 am PT feed.",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Trevor Lawrence",
+   "team": "JAX",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 1,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/jax/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Trevor Lawrence, Quinn Ewers), captured Sat 11/21 ~11:46 am PT."
+    }
+   ],
+   "evidence": "ESPN depth QB1; no QB injury designation in the Sat 11:08 am PT feed.",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Kirk Cousins",
+   "team": "MIN",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.9,
+   "roster_confidence": 0.95,
+   "source_count": 2,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/min/depthcharts",
+     "published_at": "2026-11-21T19:46:21Z",
+     "evidence": "ESPN depth chart QB1 (Kirk Cousins, Kyler Murray, Carson Wentz), captured Sat 11/21 ~11:46 am PT."
+    },
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://www.fox9.com/sports/how-to-watch-minnesota-vikings-san-francisco-49ers-nov-22-2026",
+     "published_at": null,
+     "evidence": "Started the Week 10 win at GB (FOX 9); Kyler Murray Out for Week 11."
+    }
+   ],
+   "evidence": "Started the Week 10 win at GB (FOX 9); Kyler Murray Out for Week 11.",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": false,
+   "confidence_basis": "manual_depth_chart"
+  },
+  {
+   "player_name": "Josh Johnson",
+   "team": "ARI",
+   "position": "QB",
+   "role": "starter",
+   "starter_confidence": 0.7,
+   "roster_confidence": 0.95,
+   "source_count": 2,
+   "sources": [
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://x.com/RotoWireNFL/status/2123930260072706457",
+     "published_at": "2026-11-21T00:03:29Z",
+     "evidence": "RotoWire: Carson Beck is questionable but did not practice Friday; Josh Johnson is preparing to start Sunday for the Cardinals."
+    },
+    {
+     "source": "qb-starters-2026-w11.json",
+     "source_type": "manual_depth_chart",
+     "source_url": "https://x.com/fantasycouch/status/2123946936550244760",
+     "published_at": "2026-11-21T01:09:45Z",
+     "evidence": "Fantasy Couch: ARI QB Carson Beck (back) is Questionable; Josh Johnson is set to start at QB @ KC."
+    }
+   ],
+   "evidence": "Projected starter from Friday-evening reports (RotoWire, Fantasy Couch). ESPN depth chart (Sat ~11:46 am PT) still lists Beck QB1, so this is a conflict. Confirm at inactives.",
+   "evidence_tags": [
+    "manual_projection",
+    "week11_qb_correction",
+    "qb_conflict"
+   ],
+   "impact_bucket": "qb_major",
+   "needs_human_review": true,
+   "confidence_basis": "manual_depth_chart"
+  }
+ ]
+}

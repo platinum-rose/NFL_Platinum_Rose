@@ -1,0 +1,31 @@
+{
+ "schema": "week_weather_venue_review_v1",
+ "season": 2026,
+ "week": 11,
+ "captured_at": "2026-11-21T19:40:00Z",
+ "provider": "Open-Meteo forecast API, hourly, timezone=UTC (read through Claude in Chrome; Windows shell request timed out)",
+ "source_url": "https://api.open-meteo.com/v1/forecast?latitude=42.7738,41.8623,39.0489,39.9008,35.2258,39.7439,40.8135,37.4030,38.9078&longitude=-78.7870,-87.6167,-94.4839,-75.1675,-80.8528,-105.0201,-74.0745,-121.9700,-76.8645&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&timezone=UTC&start_date=2026-11-22&end_date=2026-11-24",
+ "status": "research_context_only_not_picks",
+ "caveats": [
+  "Forecast, not observed conditions; refresh Sunday morning before any weather-dependent total.",
+  "Value is the forecast hour containing kickoff (UTC); stadium coordinates, not city centroids.",
+  "Domes/covered omitted: DAL (AT&T Stadium, retractable), DET (Ford Field, fixed dome), LAC (SoFi Stadium, covered canopy). IND@HOU already played (TNF).",
+  "Rain-probability flags at CHI (94%), NYG (62%), PHI (46%) and CAR (41%) come with 0-0.4 mm forecast amounts; treat as light-rain risk, not a weather downgrade.",
+  "Wind: ARI@KC gusts 39.6 km/h and CIN@WAS gusts 38.2 km/h sit just under the 40 km/h review threshold; recheck Sunday."
+ ],
+ "materiality_thresholds": "review_required if wind>=25 km/h or gusts>=40 km/h or precip prob>=40% or precip>=1 mm or temp<=0 C",
+ "rows": [
+  {"game": "MIA@BUF", "venue_team": "BUF", "kickoff_hour_utc": "2026-11-22T18", "temp_c": 18.9, "precip_prob_pct": 1, "precip_mm": 0, "wind_kmh": 20.6, "gust_kmh": 31.3, "materiality": "none", "note": "Highmark Stadium, open air"},
+  {"game": "NO@CHI", "venue_team": "CHI", "kickoff_hour_utc": "2026-11-22T18", "temp_c": 14.0, "precip_prob_pct": 94, "precip_mm": 0, "wind_kmh": 11.0, "gust_kmh": 22.7, "materiality": "review_required", "note": "Soldier Field, open air, lakefront; rain probability high, forecast amount 0 mm"},
+  {"game": "TEN@DAL", "venue_team": "DAL", "materiality": "none", "note": "AT&T Stadium, retractable roof"},
+  {"game": "TB@DET", "venue_team": "DET", "materiality": "none", "note": "Ford Field, dome"},
+  {"game": "ARI@KC", "venue_team": "KC", "kickoff_hour_utc": "2026-11-22T18", "temp_c": 7.0, "precip_prob_pct": 0, "precip_mm": 0, "wind_kmh": 23.7, "gust_kmh": 39.6, "materiality": "none", "note": "Arrowhead, open air; wind just under thresholds, recheck Sunday"},
+  {"game": "PIT@PHI", "venue_team": "PHI", "kickoff_hour_utc": "2026-11-22T18", "temp_c": 18.7, "precip_prob_pct": 46, "precip_mm": 0, "wind_kmh": 11.3, "gust_kmh": 26.3, "materiality": "review_required", "note": "Lincoln Financial Field, open air"},
+  {"game": "BAL@CAR", "venue_team": "CAR", "kickoff_hour_utc": "2026-11-22T18", "temp_c": 15.2, "precip_prob_pct": 41, "precip_mm": 0, "wind_kmh": 11.2, "gust_kmh": 21.6, "materiality": "review_required", "note": "Bank of America Stadium, open air"},
+  {"game": "NYJ@LAC", "venue_team": "LAC", "materiality": "none", "note": "SoFi Stadium, covered"},
+  {"game": "LV@DEN", "venue_team": "DEN", "kickoff_hour_utc": "2026-11-22T21", "temp_c": 6.8, "precip_prob_pct": 0, "precip_mm": 0, "wind_kmh": 5.5, "gust_kmh": 11.2, "materiality": "none", "note": "Empower Field at Mile High, open air, altitude"},
+  {"game": "JAX@NYG", "venue_team": "NYG", "kickoff_hour_utc": "2026-11-22T21", "temp_c": 15.5, "precip_prob_pct": 62, "precip_mm": 0.4, "wind_kmh": 8.4, "gust_kmh": 17.6, "materiality": "review_required", "note": "MetLife Stadium, open air; light rain possible"},
+  {"game": "MIN@SF", "venue_team": "SF", "kickoff_hour_utc": "2026-11-23T01", "temp_c": 17.6, "precip_prob_pct": 61, "precip_mm": 0.1, "wind_kmh": 3.1, "gust_kmh": 14.4, "materiality": "review_required", "note": "NEUTRAL SITE: Estadio Banorte, Mexico City (SF designated home), open air, elevation ~2,240 m (Open-Meteo grid 2,245 m). Venue per FOX 9 'Vikings vs. 49ers: How to watch' (fox9.com/sports/how-to-watch-minnesota-vikings-san-francisco-49ers-nov-22-2026). Forecast coordinates 19.3029,-99.1505 (separate request); not Levi's Stadium.", "source_url": "https://api.open-meteo.com/v1/forecast?latitude=19.3029&longitude=-99.1505&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&timezone=UTC&start_date=2026-11-23&end_date=2026-11-23"},
+  {"game": "CIN@WAS", "venue_team": "WAS", "kickoff_hour_utc": "2026-11-24T01", "temp_c": 11.8, "precip_prob_pct": 1, "precip_mm": 0, "wind_kmh": 14.7, "gust_kmh": 38.2, "materiality": "none", "note": "Northwest Stadium, open air (MNF); gusts near threshold"}
+ ]
+}

@@ -1,0 +1,26 @@
+import json
+p = 'reports/intel/master-pitches-2026-w11.json'
+d = json.load(open(p, encoding='utf-8'))
+d['as_of'] = '2026-11-21T18:15:00-08:00'
+d['method'] = 'Saturday provisional: baseline fair line vs Bookmaker 5:43 pm PT capture, ESPN injury feed (Sat 11:08 am PT) and reviewed expert/media intake. Andy approved the pick in chat.'
+d['picks']['NYJ@LAC|Side'] = {
+    'pick': 'NYJ +3 (-103)',
+    'pitch': [
+        {'text': 'The baseline fair line puts the Chargers at +0.2 at home, a 3.2-point Jets edge at +3, the largest model-vs-market gap on the Week 11 slate.', 'ref': [1]},
+        {'text': 'The Chargers secondary is thin: S Kendall Williamson and CB Rodney Shelley are out, LB Daiyan Henley is out, and CBs Tarheeb Still and Isas Waxter are questionable.', 'ref': [3]},
+        {'text': 'The Action Network opener was Chargers -3.5; Bookmaker (5:43 pm) and BetOnline (5:46 pm) both sit at -3, with Bookmaker paying -103 on the Jets.', 'ref': [2, 4]},
+    ],
+    'pushback': [
+        {'text': 'Geno Smith (ankle) was cleared to start per RotoWire, but the Jets are without WR Omar Cooper Jr. and WR Isaiah Williams; the passing game leans on Garrett Wilson and Adonai Mitchell.', 'ref': [3, 5]},
+        {'text': '75% of BetMGM money is on the Chargers -3 (John Ewing, Fri). A move to LAC -3.5 would cost the push protection; drop to a lean at +2.5 or on adverse lineup news.', 'ref': [5, 2]},
+    ],
+    'sources': {
+        '1': 'reports/intel/w11-model/fair-lines-w11.json — baseline fair line',
+        '2': 'data/generated/props/bookmaker-gamelines-2026-11-21-week11.raw.txt and data/generated/props/betonline-live-2026-11-22-week11.json — exact captured prices',
+        '3': 'data/player-availability/latest.json — ESPN injury feed, Sat 11:08 am PT',
+        '4': 'data/odds/actionnetwork-openers-2026-w11.json — opener',
+        '5': 'data/intel/articles/2026-w11/bookmark-text-intelligence-digest.md — RotoWire, Fantasy Couch and BetMGM split posts',
+    },
+}
+json.dump(d, open(p, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+print(list(d['picks']))

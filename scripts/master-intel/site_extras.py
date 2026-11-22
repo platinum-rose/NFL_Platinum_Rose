@@ -390,7 +390,9 @@ def sc_page(ctx):
                         bt, mn = (float(hb), float(hm)) if team == home else (100-float(hb), 100-float(hm))
                         text.append(f'<p><b>Saved spread splits:</b> {E(team)} {bt:g}% tickets / {mn:g}% money; {E(home if team == away else away)} {100-bt:g}% / {100-mn:g}%. Action Network, {E(sp.get("captured_at"))}. Sampled action is not a cover probability.</p>')
                 text.append('</div></details>')
-            text += [f'<p id="{aid(team, alt)}-source-1" class="muted-note">[1] Saved Friday matchup synthesis: reports/intel/games/{ctx["date"][:4]}-w{ctx["W"]}-game-{E(gid.replace("@", "_at_"))}-sides.md. Game script, quantitative, market, expert and counter-case sections; simulations were not rerun.</p>',
+            if thesis.get('sources'):   # 2026-11-21: render the saved sources so every cited [n] has an anchor
+                text += [f'<p id="{aid(team, alt)}-source-{E(str(ref))}" class="muted-note">[{E(str(ref))}] {E(src)}</p>' for ref, src in thesis['sources'].items()]
+            else: text += [f'<p id="{aid(team, alt)}-source-1" class="muted-note">[1] Saved Friday matchup synthesis: reports/intel/games/{ctx["date"][:4]}-w{ctx["W"]}-game-{E(gid.replace("@", "_at_"))}-sides.md. Game script, quantitative, market, expert and counter-case sections; simulations were not rerun.</p>',
                      f'<p id="{aid(team, alt)}-source-2" class="muted-note">[2] Saturday review: reports/intel/master-intel-narratives-{ctx["date"][:4]}-w{ctx["W"]}.md, {E(gid)} and market/news recheck sections. Current BKR spread appears above; qualitative projections are distinct from model probabilities.</p>']
         else:
             text.append(f'<p class="sc-why"><b>Why:</b> {E(reason or "Sourced pitch pending")}</p>')
@@ -708,7 +710,7 @@ def props_lab(ctx):
         src.setdefault('line', leg['line'])
         row = src.get('row') or {}
         who_key = re.sub(r'\s+', ' ', str(src.get('who') or '').strip().lower())
-        if src.get('kind') in ('card', 'lean'):
+        if src.get('kind') in ('card', 'lean', 'gtmh'):
             src_key = (src.get('kind'), who_key, str(src.get('what') or ''), str(src.get('line')))
         elif leg['mkey'] in YES:
             src_key = ('opinion', who_key)
@@ -728,6 +730,27 @@ def props_lab(ctx):
         skip = 'skip' in x['tier'].lower()
         c = add(x['gid'], x['leg'], dict(kind='lean', who='Platinum Rose synthesis', what=('skip' if skip else 'tier ' + x['tier']), tier=x['tier'], why=x['why']))
         if c: c['lean'] = 'skip' if skip else x['tier']
+    # 2026-11-21: Gun to my head props (top 5 per matchup) feed the locked board as rows, not a separate card grid
+    _GM = {'atd_1_plus': 'atd', 'longest_rec': 'long_rec', 'longest_rush': 'long_rush'}
+    _GB = {'BetOnline': 'BEO', 'Bookmaker': 'BKR', 'DK Predictions': 'DK', 'Kalshi': 'KAL'}
+    _gt = J(ROOT / f'data/research-intel/review/{ctx["date"][:4]}-w{int(ctx["week"]):02d}-gtmh-props.json', {}) or {}
+    for _gid, _gg in (_gt.get('games') or {}).items():
+        if _gid not in ctx['games']: continue
+        for p in _gg.get('picks', []):
+            mk = _GM.get(p.get('market'), p.get('market'))
+            if mk not in MNAME or mk == 'other': mk = 'other'
+            sd = 'yes' if mk in YES else str(p.get('side') or '').lower()
+            pl = p.get('player') or f"{_gid.replace('@', ' @ ')} game"
+            leg = dict(player=pl, mkey=mk, side=sd, line=None if mk in YES else p.get('line'))
+            if mk == 'other': leg['raw'] = p.get('label') or p.get('market', '').replace('_', ' ')
+            b = p.get('best') or {}
+            why = ' '.join(f"{ev.get('family')}{' (against)' if ev.get('direction') == 'against' else ''}: {ev.get('detail')}" for ev in p.get('evidence', []))
+            if p.get('conditions'): why += ' Conditions: ' + '; '.join(map(str, p['conditions']))
+            c = add(_gid, leg, dict(kind='gtmh', who='Gun to my head', what=p.get('tier'), tier=p.get('tier'), why=why,
+                                     price=b.get('price'), book=_GB.get(b.get('book'), b.get('book')), at=b.get('at'), fresh=b.get('fresh')))
+            if c:
+                c['gtmh'] = p.get('tier'); c['gtmh_best'] = (_GB.get(b.get('book')), b.get('price'), p.get('line'), b.get('fresh'))
+                if p.get('team'): c['team'] = p['team']
     for r in ctx['vrows']:
         if r.get('market') != 'prop': continue
         pl = (r.get('players') or [None])[0]
@@ -770,7 +793,7 @@ def props_lab(ctx):
         return f'{tm} {res} ({tm} {pj[tm]} – {opp} {pj.get(opp, "?")}, our projection)'
     # score, line, prices
     for k, c in clusters.items():
-        people = {s['who'] for s in c['src'] if s['kind'] not in ('card', 'lean')}
+        people = {s['who'] for s in c['src'] if s['kind'] not in ('card', 'lean', 'gtmh')}
         score = (3 if c['card'] else 0) + (0 if c['lean'] in (None, 'skip') else 2 if str(c['lean']).startswith('1') else 1.5) + len(people)
         if c.get('card_line') is not None: line = c['card_line']
         elif c['lines']:
@@ -782,6 +805,11 @@ def props_lab(ctx):
         c.update(score=score, line=line, people=sorted(people),
                 prices=best_prices(idx, c['gid'], leg) if c['mkey'] in MNAME and c['mkey'] not in ('other', 'long_rush', 'long_rec', 'long_pass', 'rr_yds', 'team_total') else {},
                  ctx_line=context(c), status=injury_status(ctx, c['gid'], c['player']))
+        if c.get('gtmh'):
+            c['score'] += 2 if c['gtmh'] == 'Strong lean' else 1
+            bk, px, gl, fr = c['gtmh_best']
+            if bk and px is not None and not (c['prices'].get(bk) or {}).get('exact'):
+                c['prices'][bk] = dict(odds=px, line=gl if gl is not None else c['line'], exact=True)
         if c['status'] in ('out', 'doubtful', 'injured reserve', 'ir'): c['score'] -= 10
         if c['lean'] == 'skip' and not c['card']: c['score'] -= 1
 
@@ -814,6 +842,8 @@ def props_lab(ctx):
             tdp['sub_clusters'].append(c)
             tdp['src'].extend(c['src'])
             if c['card']: tdp['card'] = c['card']
+            if c.get('gtmh') and tdp.get('gtmh') != 'Strong lean': tdp['gtmh'] = c['gtmh']
+            if c.get('team'): tdp.setdefault('team', c['team'])
             if c['lean'] and (not tdp['lean'] or str(c['lean']).startswith('1')): tdp['lean'] = c['lean']
             if not tdp.get('status'): tdp['status'] = c.get('status', '')
             if not tdp.get('ctx_line'): tdp['ctx_line'] = c.get('ctx_line', '')
@@ -826,7 +856,7 @@ def props_lab(ctx):
         for s in tdp['src']:
             row = s.get('row') or {}
             who = re.sub(r'\s+', ' ', str(s.get('who') or '').strip().lower())
-            if s.get('kind') in ('card', 'lean'):
+            if s.get('kind') in ('card', 'lean', 'gtmh'):
                 ksrc = (s.get('kind'), who, str(s.get('what') or ''), str(s.get('line')))
             elif s.get('row') and str(s['row'].get('selection') or '').lower().find('anytime') >= 0:
                 ksrc = ('opinion', who)
@@ -834,7 +864,7 @@ def props_lab(ctx):
                 ksrc = ('opinion', who, str(s.get('line')), str(row.get('selection') or '').strip().lower())
             unique_src.setdefault(ksrc, s)
         tdp['src'] = list(unique_src.values())
-        tdp['people'] = sorted({s['who'] for s in tdp['src'] if s['kind'] not in ('card', 'lean')})
+        tdp['people'] = sorted({s['who'] for s in tdp['src'] if s['kind'] not in ('card', 'lean', 'gtmh')})
         pr_comb = {}
         for sc in tdp['sub_clusters']:
             for b, v in (sc.get('prices') or {}).items():
@@ -922,6 +952,8 @@ def props_lab(ctx):
           '<div class="lf-row">',
           '<label class="lf-check"><input type="checkbox" id="lf-card"> Card legs only</label>',
           '<label class="lf-check"><input type="checkbox" id="lf-multi"> 2+ supporters</label>',
+          '<label class="lf-check"><input type="checkbox" id="lf-gtmh"> Gun to my head leans</label>',
+          '<label class="lf-check"><input type="checkbox" id="lf-strong"> Strong leans only</label>',
           '<label class="lf-check"><input type="checkbox" id="lf-priced" checked> Hide out / doubtful</label>',
           '<input type="search" id="lf-q" placeholder="Search player or team..." aria-label="Search player or team">',
           '<span class="lf-count" id="lf-count"></span>',
@@ -945,6 +977,7 @@ def props_lab(ctx):
     h.append(f'<div class="jump-to-game-bar" style="margin: 10px 0 18px 0; font-size: 12.5px; line-height: 1.8;"><strong>Filter by game:</strong> {" · ".join(game_pills)}</div>')
 
     # Categories Content
+    _anch = set()   # one #props-<game> anchor per game, on its first matchup group
     for cid, title, icon, _ in CATEGORIES:
         items = items_by_cat[cid]
         if not items:
@@ -958,7 +991,16 @@ def props_lab(ctx):
         _last_gid = None
         h.append(f'<details class="rollup-box section-pool prop-category-group" data-cat="{E(title)}" id="cat-{cid}" open>')
         h.append(f'<summary><span class="sum-text">{icon} {E(title)} — <span class="cat-count">{len(items)}</span> props</span></summary>')
-        h.append('<div class="rollup-content"><div class="props-cat-list">')
+        h.append('<div class="rollup-content">'
+                 '<div class="cat-tools no-bm" role="group" aria-label="Sort and filter this category">'
+                 '<label>Sort <select class="ct-sort"><option value="game">Matchup (kickoff)</option><option value="score">Strongest support</option>'
+                 '<option value="payout">Best payout</option><option value="short">Shortest price</option><option value="line-desc">Line: high to low</option>'
+                 '<option value="line-asc">Line: low to high</option><option value="player">Player A–Z</option></select></label>'
+                 '<label>Market <select class="ct-mkt"><option value="">All</option></select></label>'
+                 '<label>Side <select class="ct-side"><option value="">All</option></select></label>'
+                 '<label>Tier <select class="ct-tier"><option value="">All</option></select></label>'
+                 '<button type="button" class="btn-toggle ct-reset">Reset</button><span class="ct-n"></span></div>'
+                 '<div class="props-cat-list">')
 
         for c in items_sorted:
             player = c['player']
@@ -968,6 +1010,8 @@ def props_lab(ctx):
                 _last_gid = gid
                 _g0 = ctx['games'].get(gid) or {}
                 _n0 = sum(1 for x_ in items_sorted if x_['gid'] == gid)
+                if gid not in _anch:
+                    _anch.add(gid); h.append(f'<a id="props-{slug(gid)}"></a>')
                 h.append(f'<details class="cat-game-head" data-game="{E(gid)}"><summary>{E(_g0.get("away",""))} @ {E(_g0.get("home",""))} <small>{E(_g0.get("kickoff_pt",""))}</small> <span class="cg-count">{_n0}</span></summary><div class="props-game-list">')
             g = ctx['games'].get(gid) or {}
             away = g.get('away', '')
@@ -975,6 +1019,7 @@ def props_lab(ctx):
             ko = g.get('kickoff_pt', '')
             l_, f_ = nkey(player)
             tm = c.get('team') or (TEAMS and next((t for t, n in TEAMS.items() if n == player), None)) or teamof.get((gid, l_)) or (away if home else '')
+            if c.get('gtmh') and player.endswith(' game'): tm = ''   # game-level GTMH prop (total TDs / FGs): no team logo or chip
             mkey = c.get('mkey', 'other')
             side = c.get('side', 'over')
             score = c.get('score', 0)
@@ -984,13 +1029,16 @@ def props_lab(ctx):
             ctx_line = c.get('ctx_line', '')
             people = c.get('people', [])
             src = c.get('src', [])
-            nsup = len(people) + (1 if card else 0) + (1 if lean not in (None, 'skip') else 0)
+            nsup = len(people) + (1 if card else 0) + (1 if lean not in (None, 'skip') else 0) + (1 if c.get('gtmh') else 0)
             bad = status in ('out', 'doubtful', 'injured reserve', 'ir')
 
             flags = []
             if card: flags.append(f'<span class="leg-tag tag-card">card stack</span>')
             if lean and lean != 'skip': flags.append(f'<span class="leg-tag">lean {E(lean)}</span>')
             if lean == 'skip': flags.append('<span class="leg-tag tag-warn">synthesis skip</span>')
+            gt = c.get('gtmh')
+            if gt: flags.append(f'<span class="leg-tag tag-gtmh" title="Gun to my head lean: no Platinum Rose endorsement">🎯 GTMH {E(gt.lower())}</span>')
+            gt_only = bool(gt) and not card and not people and lean in (None, 'skip')
             if status: flags.append(f'<span class="leg-tag tag-warn">⚠ {E(status)}</span>')
 
             mkt_label = MNAME.get(mkey, mkey.replace('_', ' ').title())
@@ -1031,6 +1079,7 @@ def props_lab(ctx):
                 confidence_html = (f'<span class="prop-confidence" title="Evidence confidence from the named tier or distinct supporting sources">'
                                    f'{"★" * fill}{"☆" * (5 - fill)} <small>{rating:.1f}/5{(" · " + E(rating_note)) if rating_note else ""}</small></span>')
 
+            if gt_only: confidence_html = ''   # the star rating reads A-D tiers / named sources; the GTMH tier tag carries it
             rungs = get_ladder_rungs(c)
             rungs_html = []
             for r, is_base in rungs:
@@ -1040,14 +1089,14 @@ def props_lab(ctx):
                 mkt_str = MNAME.get(r.get('mk'), r.get('mk') or '')
                 pick_txt = f"{player} {r['label']} {mkt_str} ({odds_str} {r.get('book','')})".strip()
                 rungs_html.append(
-                    f'<button class="bm-btn ladder-rung{" rung-baseline" if is_base else ""}" type="button" '
+                    f'<button class="{"" if gt_only else "bm-btn "}ladder-rung{" rung-baseline" if is_base else ""}" type="button" '
                     f'data-pick="{E(pick_txt)}" data-ctx="{E(away)} @ {E(home)}" data-page="props" '
                     f'title="Add {E(pick_txt)} to card">'
                     f'<span class="rung-val">{E(r["label"])}</span>'
                     f'{f"<span class=\'rung-odds\'>{E(odds_str)}</span>" if odds_str else ""}'
                     f'{book_str}'
                     f'{star_str}'
-                    f'<span class="bm-icon">☆</span>'
+                    f'{"" if gt_only else "<span class=\'bm-icon\'>☆</span>"}'
                     f'</button>'
                 )
 
@@ -1067,6 +1116,11 @@ def props_lab(ctx):
             if ctx_line: whos.append(f'<li class="leg-ctx">📌 <b>Game context:</b> {E(ctx_line)}</li>')
             for s in src:
                 wy = (s.get('why') or '')[:220]
+                if s['kind'] == 'gtmh':
+                    px_ = f" · best {am(s['price'])} {E(s.get('book') or '')}" if s.get('price') is not None else ''
+                    at_ = f" ({E(s.get('at') or '')}{'' if s.get('fresh') else ', stale: recheck'})" if s.get('at') else ''
+                    whos.append(f'<li><b>🎯 Gun to my head</b> ({E(s.get("what", ""))}{px_}{at_}; no Platinum Rose endorsement): {E(s.get("why") or "")}</li>')
+                    continue
                 if s['kind'] in ('card', 'lean'):
                     whos.append(f'<li><b>{E(s["who"])}</b> ({E(s.get("what", ""))}): {E(wy)}</li>')
                 else:
@@ -1078,17 +1132,20 @@ def props_lab(ctx):
 
             card_id = f"prop-{slug(player)}-{slug(mkey)}-{slug(side)}"
             dat = (f'data-kind="{E(title)}" data-game="{E(gid)}" data-card="{1 if card else 0}" '
-                   f'data-sup="{nsup}" data-bad="{1 if bad else 0}" data-player="{E(player.lower())}" '
-                   f'data-team="{E(tm.lower() if tm else "")}"')
+                   f'data-sup="{nsup}" data-bad="{1 if bad else 0}" data-gtmh="{"strong" if gt == "Strong lean" else ("lean" if gt else "")}" data-player="{E(player.lower())}" '
+                   f'data-team="{E(tm.lower() if tm else "")}" '
+                   f'data-mkt="{E(mkt_label)}" data-side="{E((side or "").title())}" data-tier="{E(gt or ("Card" if card else ("Synthesis " + str(lean) if lean not in (None, "skip") else "Expert")))}" '
+                   f'data-score="{score:g}" data-ord="{_ord.get(gid, 99)}" data-odds="{best[1]["odds"] if best else ""}" '
+                   f'data-line="{"" if (c.get("card_line") if c.get("card_line") is not None else c.get("line")) is None else (c.get("card_line") if c.get("card_line") is not None else c.get("line"))}" data-pname="{E(player)}"')
 
             h.append(
-                f'<details class="prop-card leg bm-item" id="{card_id}" {dat}>'
+                f'<details class="prop-card leg {"no-bm" if gt_only else "bm-item"}" id="{card_id}" {dat}>'
                 f'<summary class="prop-card-summary">'
                 f'  <div class="prop-sum-left">'
                 f'    {tl(tm)}'
                 f'    <div class="prop-player-meta">'
                 f'      <span class="prop-player-name">{E(player)}</span>'
-                f'      <span class="prop-matchup-chip">{E(tm)} · {E(away)} @ {E(home)}</span>'
+                f'      <span class="prop-matchup-chip">{(E(tm) + " · ") if tm else ""}{E(away)} @ {E(home)}</span>'
                 f'    </div>'
                 f'    <span class="prop-mkt-tag">{E(mkt_label)}</span>'
                 f'    {" ".join(flags)}'
@@ -1108,7 +1165,7 @@ def props_lab(ctx):
                 f'  </div>'
                 f'  <div class="prop-ladder-wrap">'
                 f'    <div class="prop-ladder-header">'
-                f'      <span class="ladder-title">Pick your amount (tap to add to card):</span>'
+                f'      <span class="ladder-title">{"Ladder prices (Gun to my head leans are not added to My Card):" if gt_only else "Pick your amount (tap to add to card):"}</span>'
                 f'      <span class="ladder-hint">← horizontal ladder →</span>'
                 f'    </div>'
                 f'    <div class="prop-ladder-row">'
@@ -1390,7 +1447,7 @@ BOOKMARKS_CSS = r"""
 .sc-why,.sc-support{margin:4px 0;font-size:14px;line-height:1.5}.sc-support{color:var(--muted);font-size:13px}
 .muted-note{color:var(--muted);font-size:13px;line-height:1.5}
 .leg-tag{display:inline-block;margin:3px 4px 0 0;padding:1px 7px;border-radius:999px;border:1px solid var(--border);font-size:11px;color:var(--muted)}
-.leg-tag.tag-card{border-color:var(--accent);color:var(--accent)}.leg-tag.tag-warn{border-color:#f59e0b;color:#f59e0b}
+.leg-tag.tag-card{border-color:var(--accent);color:var(--accent)}.leg-tag.tag-gtmh{border-color:#a855f7;color:#a855f7}.leg-tag.tag-warn{border-color:#f59e0b;color:#f59e0b}
 .px-best{color:#22c55e;font-weight:800}.px-alt{color:var(--muted);font-size:12px}.px-none{color:var(--muted)}.px-best-cell{font-weight:800;white-space:nowrap}
 .leg-src{margin:0;padding-left:16px;font-size:12.5px;line-height:1.45}.leg-src .src{color:var(--muted)}
 .legs-table td{vertical-align:top}
@@ -1479,6 +1536,11 @@ tr.split-big td{background:rgba(250,204,21,.12)}tr.split-lean td{background:rgba
 .prop-category-group{margin:16px 0 24px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
 .prop-category-group summary{padding:12px 16px;font-size:15px;font-weight:800;cursor:pointer}
 .props-cat-list{display:grid;gap:10px;padding:12px 16px 16px}
+.cat-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:8px 16px 0;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--raised);font-size:12.5px}
+.cat-tools label{display:inline-flex;align-items:center;gap:5px;font-weight:700;color:var(--muted)}
+.cat-tools select{font:inherit;font-weight:600;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:7px;padding:3px 6px}
+.cat-tools .ct-n{margin-left:auto;color:var(--muted);font-size:12px}
+.cat-flat{display:grid;gap:8px}.cat-tools label[hidden],.cat-tools[hidden],.cat-flat[hidden]{display:none}
 .cat-game-head{border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:8px;background:var(--raised)}.cat-game-head>summary{cursor:pointer;padding:8px 12px;font-size:14px;font-weight:800;list-style:none}.cat-game-head>summary::-webkit-details-marker{display:none}.cat-game-head>summary::before{content:"▸ ";color:var(--muted)}.cat-game-head[open]>summary::before{content:"▾ "}.cat-game-head small{font-weight:600;color:var(--muted);margin-left:6px}.cg-count{float:right;font-size:12px;font-weight:800;padding:1px 9px;border-radius:999px;border:1px solid var(--border)}.cat-game-head[hidden]{display:none}.props-game-list{display:grid;gap:10px;padding:4px 10px 12px}
 .prop-card{border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;background:var(--bg);transition:all .15s ease;overflow:hidden}
 .prop-card:hover{border-color:var(--accent);box-shadow:0 3px 12px rgba(0,0,0,.2)}
@@ -1648,6 +1710,57 @@ BOOKMARKS_JS = r"""
     var kind = 'All';
     var selectedGame = 'All';
     var q = document.getElementById('lf-q'), card = document.getElementById('lf-card'), multi = document.getElementById('lf-multi'), priced = document.getElementById('lf-priced');
+    var gtmh = document.getElementById('lf-gtmh'), strong = document.getElementById('lf-strong');
+    function gok(l){ var v = l.getAttribute('data-gtmh') || ''; return (!gtmh || !gtmh.checked || v !== '') && (!strong || !strong.checked || v === 'strong'); }
+    function cok(cg, l){
+      var t = cg._ct; if (!t) return true;
+      return (!t.mkt.value || l.getAttribute('data-mkt') === t.mkt.value)
+        && (!t.side.value || l.getAttribute('data-side') === t.side.value)
+        && (!t.tier.value || l.getAttribute('data-tier') === t.tier.value);
+    }
+    function dec(o){ o = parseFloat(o); return isNaN(o) ? null : (o > 0 ? 1 + o / 100 : 1 + 100 / -o); }
+    function resort(cg){
+      var t = cg._ct; if (!t) return;
+      var list = cg.querySelector('.props-cat-list'), flat = t.flat, mode = t.sort.value;
+      if (mode === 'game'){
+        t.rows.forEach(function(r){ r._home.appendChild(r); });
+        flat.hidden = true; return;
+      }
+      var key = {
+        score: function(r){ return -(+r.getAttribute('data-score') || 0); },
+        payout: function(r){ var d = dec(r.getAttribute('data-odds')); return d === null ? 1e9 : -d; },
+        short: function(r){ var d = dec(r.getAttribute('data-odds')); return d === null ? 1e9 : d; },
+        'line-desc': function(r){ var v = parseFloat(r.getAttribute('data-line')); return isNaN(v) ? 1e9 : -v; },
+        'line-asc': function(r){ var v = parseFloat(r.getAttribute('data-line')); return isNaN(v) ? 1e9 : v; },
+        player: function(r){ return (r.getAttribute('data-pname') || '').toLowerCase(); }
+      }[mode];
+      t.rows.slice().sort(function(a, b){
+        var x = key(a), y = key(b);
+        if (x < y) return -1; if (x > y) return 1;
+        return (+a.getAttribute('data-ord')) - (+b.getAttribute('data-ord')) || a._i - b._i;
+      }).forEach(function(r){ flat.appendChild(r); });
+      flat.hidden = false;
+    }
+    document.querySelectorAll('.prop-category-group').forEach(function(cg){
+      var bar = cg.querySelector('.cat-tools'); if (!bar) return;
+      var rows = Array.prototype.slice.call(cg.querySelectorAll('.prop-card'));
+      var list = cg.querySelector('.props-cat-list');
+      var flat = document.createElement('div'); flat.className = 'props-game-list cat-flat'; flat.hidden = true;
+      list.insertBefore(flat, list.firstChild);
+      rows.forEach(function(r, i){ r._home = r.parentNode; r._i = i; });
+      var t = cg._ct = { rows: rows, flat: flat, sort: bar.querySelector('.ct-sort'), mkt: bar.querySelector('.ct-mkt'), side: bar.querySelector('.ct-side'), tier: bar.querySelector('.ct-tier'), n: bar.querySelector('.ct-n') };
+      [['mkt', 'data-mkt'], ['side', 'data-side'], ['tier', 'data-tier']].forEach(function(p){
+        var seen = {}; rows.forEach(function(r){ var v = r.getAttribute(p[1]); if (v) seen[v] = (seen[v] || 0) + 1; });
+        var ks = Object.keys(seen).sort();
+        ks.forEach(function(v){ var o = document.createElement('option'); o.value = v; o.textContent = v + ' (' + seen[v] + ')'; t[p[0]].appendChild(o); });
+        if (ks.length < 2) t[p[0]].parentNode.hidden = true;
+      });
+      if (!rows.length) bar.hidden = true;
+      t.sort.addEventListener('change', function(){ resort(cg); apply(); });
+      [t.mkt, t.side, t.tier].forEach(function(s){ s.addEventListener('change', apply); });
+      bar.querySelector('.ct-reset').addEventListener('click', function(){ t.sort.value = 'game'; t.mkt.value = ''; t.side.value = ''; t.tier.value = ''; resort(cg); apply(); });
+      bar.addEventListener('click', function(e){ e.stopPropagation(); });
+    });
     function apply(){
       var term = (q.value || '').trim().toLowerCase(), shown = 0;
       document.querySelectorAll('.prop-category-group').forEach(function(catGrp){
@@ -1660,6 +1773,7 @@ BOOKMARKS_JS = r"""
             && (!card.checked || l.getAttribute('data-card') === '1')
             && (!multi.checked || +l.getAttribute('data-sup') >= 2)
             && (!priced.checked || l.getAttribute('data-bad') !== '1')
+            && gok(l) && cok(catGrp, l)
             && (!term || l.getAttribute('data-player').indexOf(term) >= 0 || (l.getAttribute('data-team') || '').indexOf(term) >= 0);
           l.hidden = !ok;
           if (ok) n++;
@@ -1671,6 +1785,7 @@ BOOKMARKS_JS = r"""
           if (term && m) hd.open = true;
         });
         var c = catGrp.querySelector('.cat-count'); if (c) c.textContent = n;
+        if (catGrp._ct){ catGrp._ct.n.textContent = n + ' of ' + catGrp._ct.rows.length + ' shown'; if (!catGrp._ct.flat.hidden) catGrp._ct.flat.hidden = false; }
         var none = catGrp.querySelector('.cat-none'); if (none) none.hidden = n > 0;
         catGrp.hidden = (n === 0);
         shown += n;
@@ -1699,7 +1814,7 @@ BOOKMARKS_JS = r"""
         apply();
       });
     });
-    [card, multi, priced].forEach(function(x){ x.addEventListener('change', apply); });
+    [card, multi, priced, gtmh, strong].forEach(function(x){ if (x) x.addEventListener('change', apply); });
     if (q) q.addEventListener('input', function(){
       apply();
       if (q.value.trim()){

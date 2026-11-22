@@ -105,7 +105,7 @@ def dkp_events(week, date):
 
 def reference_boards(week, date):
     """Complete saved menus, separate from recommendations and priced by source."""
-    blocks = ['<section id="captured-market-menus"><h2>Latest captured menus — BKR, BEO, DKP and Kalshi</h2><p>Captured offers are reference material, not additional AI picks. Missing rows are not filled from older boards. DKP percentages are contract prices before fees, not sportsbook odds.</p>']
+    blocks = ['<section id="captured-market-menus"><h3>Latest captured menus — BKR, BEO, DKP and Kalshi</h3><p>Captured offers are reference material, not additional AI picks. Missing rows are not filled from older boards. DKP percentages are contract prices before fees, not sportsbook odds.</p>']
     for book, prefix in [('BKR', 'bookmaker-live'), ('BEO', 'betonline-live'), ('DKP', 'draftkings-predictions-live'), ('KAL', 'kalshi-props')]:
         path, data = newest(prefix, week, date)
         if data is None and book == 'DKP':  # 2026-11-14: event-feed capture fallback (see _feed_as_live)

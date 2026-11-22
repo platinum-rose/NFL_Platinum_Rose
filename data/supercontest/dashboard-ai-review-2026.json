@@ -7,7 +7,7 @@
     "loss": 0,
     "basis": "Five spread-only SuperContest picks at their frozen contest lines"
   },
-  "as_of_week": 7,
+  "as_of_week": 10,
   "weeks": [
     {
       "week": 1,
@@ -16,7 +16,13 @@
       "note": "The frozen Week 1 Dashboard card was recovered from dist/locked-card-week-1.json and graded against completed ESPN box scores. It is the same five spread selections as the saved official card.",
       "ai_score": 1,
       "official_score": 1,
-      "ai_picks": ["TB +3.5", "IND +3.5", "PIT -3.5", "DAL -3", "CAR +3"],
+      "ai_picks": [
+        "TB +3.5",
+        "IND +3.5",
+        "PIT -3.5",
+        "DAL -3",
+        "CAR +3"
+      ],
       "review": "Both frozen five-side cards went 1–4 (1 point). PIT -3.5 covered by 3.5 points; TB +3.5, IND +3.5, DAL -3, and CAR +3 failed to cover. Dallas lost 28–20 to the Giants, so DAL -3 is graded as a loss rather than left ungraded.",
       "dashboard_why": "The Dashboard five was TB +3.5, IND +3.5, PIT -3.5, DAL -3, and CAR +3. Only PIT covered. The underdog selections TB, IND, and CAR lost by 6, 18, and 22; DAL lost outright by 8. The saved results establish the score, while these outcomes show the card leaned too heavily on underdog sides and a Dallas favorite that lost outright.",
       "amanda_why": "Amanda's official five matched the saved Dashboard card. PIT -3.5 was the only winner; TB +3.5, IND +3.5, DAL -3, and CAR +3 lost. Dallas's completed 20–28 loss to the Giants makes DAL -3 a graded loss, bringing the official Week 1 card to 1–4 (1 point)."
@@ -26,8 +32,20 @@
       "status": "graded",
       "ai_score": 3,
       "official_score": 2,
-      "ai_picks": ["MIN +5.5", "DEN -2.5", "NYJ +3.5", "MIA +13.5", "WAS +4.5"],
-      "official_picks": ["LAC -6.5", "WAS +4", "MIA +14", "LAR -6.5", "DEN -2.5"],
+      "ai_picks": [
+        "MIN +5.5",
+        "DEN -2.5",
+        "NYJ +3.5",
+        "MIA +13.5",
+        "WAS +4.5"
+      ],
+      "official_picks": [
+        "LAC -6.5",
+        "WAS +4",
+        "MIA +14",
+        "LAR -6.5",
+        "DEN -2.5"
+      ],
       "review": "Dashboard side set went 3-2; MIN, DEN and NYJ covered. MIA and WAS lost by 22 and 17. Our official card went 2-3, losing LAC outright plus WAS and MIA; it retained the winning DEN and LAR sides.",
       "dashboard_why": "MIA +13.5 and WAS +4.5 were the two misses, losing by 22 and 17 points; MIN +5.5, DEN -2.5 and NYJ +3.5 covered.",
       "amanda_why": "LAC -6.5 lost outright, and WAS +4 and MIA +14 failed to cover. DEN -2.5 and LAR -6.5 were the two winners.",
@@ -38,8 +56,20 @@
       "status": "graded",
       "ai_score": 1,
       "official_score": 1,
-      "ai_picks": ["TEN +2.5", "NYJ +6.5", "CIN -3.5", "JAX -3", "SF -8.5"],
-      "official_picks": ["TEN +2.5", "PHI -4.5", "CIN -3.5", "JAX -3", "SF -8.5"],
+      "ai_picks": [
+        "TEN +2.5",
+        "NYJ +6.5",
+        "CIN -3.5",
+        "JAX -3",
+        "SF -8.5"
+      ],
+      "official_picks": [
+        "TEN +2.5",
+        "PHI -4.5",
+        "CIN -3.5",
+        "JAX -3",
+        "SF -8.5"
+      ],
       "review": "Both cards went 1-4. NYG beat TEN by 5, DET beat NYJ by 7 (the AI side missed by half a point), CIN lost outright, and SF won by only 6. JAX -3 was the lone winner on both. The PHI substitution also lost outright.",
       "dashboard_why": "The misses were TEN +2.5 (NYG won by 5), NYJ +6.5 (DET won by 7, a half-point ATS miss), CIN -3.5 (lost outright), and SF -8.5 (won by only 6). JAX -3 was the lone winner.",
       "amanda_why": "TEN +2.5, PHI -4.5, CIN -3.5 and SF -8.5 missed; NYG beat TEN by 5, PHI and CIN lost outright, and SF won by only 6. JAX -3 was the only winner.",
@@ -50,8 +80,20 @@
       "status": "graded",
       "ai_score": 3,
       "official_score": 4,
-      "ai_picks": ["ARI -2.5", "MIA +9.5", "LAR -3.5", "TEN +11.5", "DEN +2.5"],
-      "official_picks": ["SF -2.5", "ARI -1.5", "MIA +10.5", "LAR -3", "TEN +11.5"],
+      "ai_picks": [
+        "ARI -2.5",
+        "MIA +9.5",
+        "LAR -3.5",
+        "TEN +11.5",
+        "DEN +2.5"
+      ],
+      "official_picks": [
+        "SF -2.5",
+        "ARI -1.5",
+        "MIA +10.5",
+        "LAR -3",
+        "TEN +11.5"
+      ],
       "review": "Both cards missed ARI. Dashboard also missed DEN +2.5; the official card took SF -2.5 instead, which covered. The other three picks won on both cards.",
       "dashboard_why": "ARI -2.5 lost and DEN +2.5 did not cover; MIA +9.5, LAR -3.5 and TEN +11.5 covered.",
       "amanda_why": "ARI -1.5 was the only miss. SF -2.5, MIA +10.5, LAR -3 and TEN +11.5 covered.",
@@ -62,8 +104,20 @@
       "status": "graded",
       "ai_score": 3,
       "official_score": 0.5,
-      "ai_picks": ["TEN +7.5", "GB +3", "PIT -2.5", "BAL +3.5", "LAC +3.5"],
-      "official_picks": ["CIN -7", "ARI +5.5", "ATL -3.5", "LV +3.5", "NO +2.5"],
+      "ai_picks": [
+        "TEN +7.5",
+        "GB +3",
+        "PIT -2.5",
+        "BAL +3.5",
+        "LAC +3.5"
+      ],
+      "official_picks": [
+        "CIN -7",
+        "ARI +5.5",
+        "ATL -3.5",
+        "LV +3.5",
+        "NO +2.5"
+      ],
       "review": "Pick-by-pick regrade corrected the earlier summary: Dashboard scored 3-2 because BAL +3.5 covered, while our reconstructed official five scored 0-4-1, with CIN -7 pushing and the other four missing. The Dashboard set was the dated card proposal, not a placed ticket.",
       "dashboard_why": "TEN +7.5 and LAC +3.5 failed to cover; GB +3, PIT -2.5 and BAL +3.5 covered. Baltimore won outright 30-23 at Atlanta, so BAL +3.5 was a clear winner.",
       "amanda_why": "ARI +5.5, ATL -3.5, LV +3.5 and NO +2.5 missed. CIN -7 pushed; there were no winning selections in the saved five. Atlanta lost outright 30-23 to Baltimore, so ATL -3.5 did not cover.",
@@ -74,8 +128,20 @@
       "status": "graded",
       "ai_score": 3,
       "official_score": 4,
-      "ai_picks": ["CAR +1.5", "CLE +5.5", "ATL +3", "JAX -2.5", "GB -1.5"],
-      "official_picks": ["CLE +5.5", "CAR +1.5", "KC -7.5", "GB -1.5", "SF -7.5"],
+      "ai_picks": [
+        "CAR +1.5",
+        "CLE +5.5",
+        "ATL +3",
+        "JAX -2.5",
+        "GB -1.5"
+      ],
+      "official_picks": [
+        "CLE +5.5",
+        "CAR +1.5",
+        "KC -7.5",
+        "GB -1.5",
+        "SF -7.5"
+      ],
       "review": "The revised Dashboard five scored 3.0; the official five scored 4.0. CAR, CLE and GB were shared winners. The official card's KC side covered; SF -7.5 was its only miss. Dashboard ATL +3 and JAX -2.5 missed: CHI led ATL 31-7 before late scores, with ATL committing three turnovers, and HOU beat JAX 34-31 after a late go-ahead field goal. JAX's original projection used an unbacktested margin blend and the report flagged gusts.",
       "dashboard_why": "ATL +3 and JAX -2.5 were the misses. Chicago led Atlanta 31–7 before late scores and Atlanta committed three turnovers; Houston beat Jacksonville 34–31 on a late go-ahead field goal. JAX's original projection used an unbacktested margin blend and the report had flagged gusts. CAR, CLE and GB covered.",
       "amanda_why": "SF -7.5 was the lone miss. CAR, CLE, KC and GB covered; KC was the official-card difference versus the AI set.",
@@ -86,8 +152,20 @@
       "status": "graded",
       "ai_score": 3,
       "official_score": 3,
-      "ai_picks": ["CIN +2.5", "GB +3.5", "ATL +3.5", "LV +4", "ARI +4.5"],
-      "official_picks": ["CIN +2.5", "GB +3.5", "ATL +3.5", "LV +4", "ARI +4.5"],
+      "ai_picks": [
+        "CIN +2.5",
+        "GB +3.5",
+        "ATL +3.5",
+        "LV +4",
+        "ARI +4.5"
+      ],
+      "official_picks": [
+        "CIN +2.5",
+        "GB +3.5",
+        "ATL +3.5",
+        "LV +4",
+        "ARI +4.5"
+      ],
       "review": "Both the official card and the Dashboard AI proposal used the same five selections and went 3–2 (3 points). CIN +2.5 and ATL +3.5 won outright, and GB +3.5 covered by half a point in a 20–17 loss at Detroit. LV +4 and ARI +4.5 failed to cover, losing by 14 each.",
       "dashboard_why": "CIN +2.5 (won 35–13 at Baltimore), ATL +3.5 (won 29–20 vs San Francisco), and GB +3.5 (lost 20–17 at Detroit, covering on the hook) were the three winners. LV +4 (lost 35–21 to the Rams) and ARI +4.5 (lost 30–16 to Denver) missed.",
       "amanda_why": "Amanda's official card matched the Dashboard AI five and went 3–2. CIN +2.5, GB +3.5, and ATL +3.5 covered; LV +4 and ARI +4.5 missed.",
@@ -95,8 +173,75 @@
     },
     {
       "week": 8,
-      "status": "pending",
-      "note": "No final score until all games are complete and Andy and Amanda confirm the official five. Freeze the Dashboard five and contest lines before kickoff."
+      "status": "graded",
+      "ai_score": 1,
+      "official_score": 2,
+      "ai_picks": [
+        "CIN -10.5",
+        "BAL +3.5",
+        "CLE +3.5",
+        "LAC +6.5",
+        "CHI +3"
+      ],
+      "official_picks": [
+        "MIN +3.5",
+        "JAX -9.5",
+        "CHI +3",
+        "CLE +3.5",
+        "CIN -10.5"
+      ],
+      "review": "The official card went 2-3 (2 points) and the Dashboard AI proposal went 1-4 (1 point). Both cards shared CHI +3 (won 34-17 at Seattle), CLE +3.5 (lost 27-6 at Pittsburgh) and CIN -10.5 (won 43-36 but missed the number by 3.5). The official card's JAX -9.5 covered easily (42-7) and MIN +3.5 missed by the hook (lost 19-15 at Detroit); the AI's BAL +3.5 (lost 36-10) and LAC +6.5 (lost 24-9) both missed by 8 or more.",
+      "dashboard_why": "CHI +3 was the only winner. CIN -10.5 was a near-miss (3.5 short); BAL +3.5, CLE +3.5 and LAC +6.5 were completely off or close to it (22.5, 17.5 and 8.5 short).",
+      "amanda_why": "JAX -9.5 and CHI +3 covered. MIN +3.5 lost on the hook (0.5 short), CIN -10.5 was 3.5 short, and CLE +3.5 was 17.5 short.",
+      "source": "public/schedule.json Week 8 finals; data/supercontest/locked-card-week-8.json; docs/reference/supercontest-report-locked-w08.json (AI five); graded by Claude 2026-11-07"
+    },
+    {
+      "week": 9,
+      "status": "graded",
+      "ai_score": 4,
+      "official_score": 3,
+      "ai_picks": [
+        "ARI +12.5",
+        "TB +6.5",
+        "CLE +3",
+        "IND +5.5",
+        "SF -9.5"
+      ],
+      "official_picks": [
+        "NYJ +9.5",
+        "SF -9.5",
+        "TB +6.5",
+        "HOU -4.5",
+        "ARI +12.5"
+      ],
+      "review": "The Dashboard AI proposal went 4-1 (4 points) and the official card went 3-2 (3 points). Both cards shared TB +6.5 (lost 27-24 at Chicago, covered by 3.5), SF -9.5 (won 38-17 over Las Vegas, covered by 11.5) and ARI +12.5 (lost 17-3 at Seattle, missed by 1.5). The AI's CLE +3 (lost 23-22 at New Orleans) and IND +5.5 (lost 27-23 at Dallas) both covered; the official card's HOU -4.5 covered easily (44-22 at the Chargers) and NYJ +9.5 missed badly (lost 35-12 at Kansas City).",
+      "dashboard_why": "TB +6.5, CLE +3, IND +5.5 and SF -9.5 covered. ARI +12.5 was a near-miss (1.5 short).",
+      "amanda_why": "SF -9.5, TB +6.5 and HOU -4.5 covered. ARI +12.5 was a near-miss (1.5 short) and NYJ +9.5 was completely off (13.5 short).",
+      "source": "data/fantasy/boxscores ESPN Week 9 finals via scripts/master-intel/sc_review.py; data/supercontest/locked-card-week-9.json; reports/bets/2026-w09-card.md (AI five); graded by Claude 2026-11-21"
+    },
+    {
+      "week": 10,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 4,
+      "ai_picks": [
+        "KC -3.5",
+        "SF -4.5",
+        "BAL -4.5",
+        "JAX -10.5",
+        "ARI +9.5"
+      ],
+      "official_picks": [
+        "IND -3",
+        "KC -3.5",
+        "SF -4.5",
+        "JAX -10.5",
+        "BUF -7.5"
+      ],
+      "review": "The official card went 4-1 (4 points) and the Dashboard AI proposal went 3-2 (3 points). Both cards shared KC -3.5 (won 35-13 at Atlanta), SF -4.5 (won 46-40 at Dallas, covered by 1.5) and JAX -10.5 (won 40-23 at Tennessee). The official card's BUF -7.5 covered (31-12 at the Jets) and IND -3 lost by one point (won 24-22 over Miami); the AI's BAL -4.5 (lost 23-20 to the Chargers) and ARI +9.5 (lost 34-6 to the Rams) both missed.",
+      "dashboard_why": "KC -3.5, SF -4.5 and JAX -10.5 covered. BAL -4.5 was 7.5 short and ARI +9.5 was completely off (18.5 short).",
+      "amanda_why": "KC -3.5, SF -4.5, JAX -10.5 and BUF -7.5 covered. IND -3 was a near-miss (1 point short).",
+      "source": "data/fantasy/boxscores ESPN Week 10 finals via scripts/master-intel/sc_review.py; data/supercontest/locked-card-week-10.json; reports/bets/2026-w10-card.md (Saturday re-rank AI five, Andy OK 11/14); graded by Claude 2026-11-21"
     }
   ]
 }

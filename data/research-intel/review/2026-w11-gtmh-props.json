@@ -1,0 +1,3288 @@
+{
+ "schema": "gtmh_props_v1",
+ "season": 2026,
+ "week": 11,
+ "generated_at": "2026-11-22T08:13:30+00:00",
+ "label": "Lean · No Platinum Rose endorsement",
+ "qb_changes": {
+  "ARI": [
+   "Carson Beck",
+   "Josh Johnson"
+  ]
+ },
+ "excluded": {
+  "not on either roster": 17,
+  "no main line": 7,
+  "roster status": 45
+ },
+ "games": {
+  "ARI@KC": {
+   "game": "ARI@KC",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "ARI@KC",
+     "player": "Travis Kelce",
+     "team": "KC",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 41.5,
+     "call": "Travis Kelce Over 41.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 41.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.37081659973226233,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 41.5 hit in 4 of the last 5 games; season average 56.9 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 5.0 vs season 5.6 (-10%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "ARI pass defense ranks #31 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected KC 29.7, ARI 13.5 (KC by 16.2); KC season scoring average 26.3."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Cody Brown)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "ARI@KC",
+     "player": "Cyrus Allen",
+     "team": "KC",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 12.5,
+     "call": "Cyrus Allen Over 12.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -125,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 12.5 (-125)"
+     ],
+     "implied": 0.5555555555555556,
+     "no_vig": 0.5226570545829042,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.2457142857142857,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 12.5 hit in 4 of the last 5 games; season average 15.6 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.7 vs season 2.0 (+33%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "ARI pass defense ranks #31 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected KC 29.7, ARI 13.5 (KC by 16.2); KC season scoring average 26.3."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "ARI@KC",
+     "player": "Patrick Mahomes",
+     "team": "KC",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Over",
+     "line": 1.5,
+     "call": "Patrick Mahomes Over 1.5 passing TDs",
+     "best": {
+      "book": "BetOnline",
+      "price": -192,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 1.5 (-192)"
+     ],
+     "implied": 0.6575342465753424,
+     "no_vig": 0.6179610634289303,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.40740740740740744,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 1.5 hit in 3 of the last 5 games; season average 2.1 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 35.7 vs season 33.1 (+8%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "ARI pass defense ranks #31 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected KC 29.7, ARI 13.5 (KC by 16.2); KC season scoring average 26.3."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "ARI@KC",
+     "player": "Patrick Mahomes",
+     "team": "KC",
+     "market": "pass_att",
+     "category": "Passing",
+     "label": "pass attempts",
+     "side": "Over",
+     "line": 30.5,
+     "call": "Patrick Mahomes Over 30.5 pass attempts",
+     "best": {
+      "book": "BetOnline",
+      "price": -114,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 30.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.08561020036429882,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 30.5 hit in 4 of the last 5 games; season average 33.1 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 35.7 vs season 33.1 (+8%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "ARI pass defense ranks #31 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected KC 29.7, ARI 13.5 (KC by 16.2); KC season scoring average 26.3."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "ARI@KC",
+     "player": "Josh Johnson",
+     "team": "ARI",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Under",
+     "line": 14.5,
+     "call": "Josh Johnson Under 14.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -109,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 14.5 (-109)"
+     ],
+     "implied": 0.5215311004784688,
+     "no_vig": 0.48974190636412124,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0,
+     "conditions": [
+      "Josh Johnson preparing to start (Beck Q): ARI passing-game props assume Johnson."
+     ],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Only 0 logged games; too thin to score."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "KC run defense ranks #6 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected ARI 13.5, KC 29.7 (ARI trailing by 16.2); ARI season scoring average 18.4."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 33
+  },
+  "BAL@CAR": {
+   "game": "BAL@CAR",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "BAL@CAR",
+     "player": "Justice Hill",
+     "team": "BAL",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 13.5,
+     "call": "Justice Hill Over 13.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -112,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 13.5 (-112)"
+     ],
+     "implied": 0.5283018867924528,
+     "no_vig": 0.4969046636401156,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 1.008230452674897,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 13.5 hit in 3 of the last 5 games; season average 27.1 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 8.0 vs season 5.3 (+50%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "CAR run defense ranks #29 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BAL 21.5, CAR 24.6 (BAL trailing by 3.2); BAL season scoring average 20.9."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 41% rain, gusts 13 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "BAL@CAR",
+     "player": "Chuba Hubbard",
+     "team": "CAR",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 75.5,
+     "call": "Chuba Hubbard Over 75.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 75.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.046357615894039736,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 75.5 hit in 4 of the last 5 games; season average 79.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 24.7 vs season 19.9 (+24%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "BAL run defense ranks #21 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected CAR 24.6, BAL 21.5 (CAR by 3.2); CAR season scoring average 24.3."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 41% rain, gusts 13 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "BAL@CAR",
+     "player": "Zay Flowers",
+     "team": "BAL",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Under",
+     "line": 6.5,
+     "call": "Zay Flowers Under 6.5 receptions",
+     "best": {
+      "book": "Bookmaker",
+      "price": -141,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 6.5 (-147)",
+      "Bookmaker Under 6.5 (-141)"
+     ],
+     "implied": 0.5850622406639004,
+     "no_vig": 0.5627721335268505,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.16239316239316237,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 6.5 hit in 4 of the last 5 games; season average 5.4 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 6.0 vs season 7.9 (-24%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "against",
+       "detail": "CAR pass defense ranks #23 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BAL 21.5, CAR 24.6 (BAL trailing by 3.2); BAL season scoring average 20.9."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 41% rain, gusts 13 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "BAL@CAR",
+     "player": "Justice Hill",
+     "team": "BAL",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Over",
+     "line": 2.5,
+     "call": "Justice Hill Over 2.5 receptions",
+     "best": {
+      "book": "BetOnline",
+      "price": -143,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 2.5 (-143)"
+     ],
+     "implied": 0.588477366255144,
+     "no_vig": 0.552733296521259,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.11111111111111108,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 2.5 hit in 5 of the last 5 games; season average 2.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 8.0 vs season 5.3 (+50%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "CAR pass defense ranks #23 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BAL 21.5, CAR 24.6 (BAL trailing by 3.2); BAL season scoring average 20.9."
+      },
+      {
+       "family": "Weather",
+       "direction": "against",
+       "detail": "Weather review flags it: 41% rain, gusts 13 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "BAL@CAR",
+     "player": "Bryce Young",
+     "team": "CAR",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 1.5,
+     "call": "Bryce Young Under 1.5 passing TDs",
+     "best": {
+      "book": "Bookmaker",
+      "price": -117,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 1.5 (-123)",
+      "Bookmaker Under 1.5 (-117)"
+     ],
+     "implied": 0.5391705069124424,
+     "no_vig": 0.5116762907608695,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.18518518518518512,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 1.5 hit in 3 of the last 5 games; season average 1.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 36.7 vs season 37.6 (-2%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "BAL pass defense ranks #20 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected CAR 24.6, BAL 21.5 (CAR by 3.2); CAR season scoring average 24.3."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Chris Welsh)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 41% rain, gusts 13 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 26
+  },
+  "MIA@BUF": {
+   "game": "MIA@BUF",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "MIA@BUF",
+     "player": "Ty Johnson",
+     "team": "BUF",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 13.5,
+     "call": "Ty Johnson Over 13.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -111,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 13.5 (-111)"
+     ],
+     "implied": 0.5260663507109005,
+     "no_vig": 0.4948402542722694,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 1.2645502645502646,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 13.5 hit in 4 of the last 5 games; season average 30.6 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.7 vs season 2.3 (+17%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIA pass defense ranks #32 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BUF 30.9, MIA 15.1 (BUF by 15.8); BUF season scoring average 31.9."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIA@BUF",
+     "player": "Ty Johnson",
+     "team": "BUF",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Over",
+     "line": 1.5,
+     "call": "Ty Johnson Over 1.5 receptions",
+     "best": {
+      "book": "BetOnline",
+      "price": -137,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 1.5 (-137)"
+     ],
+     "implied": 0.5780590717299579,
+     "no_vig": 0.5435460883633142,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.7142857142857144,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 1.5 hit in 4 of the last 5 games; season average 2.6 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.7 vs season 2.3 (+17%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIA pass defense ranks #32 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BUF 30.9, MIA 15.1 (BUF by 15.8); BUF season scoring average 31.9."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIA@BUF",
+     "player": "James Cook III",
+     "team": "BUF",
+     "market": "atd_1_plus",
+     "category": "Touchdowns",
+     "label": "anytime TD",
+     "side": "Over",
+     "line": 0.5,
+     "call": "James Cook III Over 0.5 anytime TD",
+     "best": {
+      "book": "BetOnline",
+      "price": -200,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 0.5 (-200)"
+     ],
+     "implied": 0.6666666666666666,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.5,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 0.5 hit in 5 of the last 5 games; season average 1.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 24.2 vs season 21.8 (+11%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIA defense ranks #30 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected BUF 30.9, MIA 15.1 (BUF by 15.8); BUF season scoring average 31.9."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (salbets_)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIA@BUF",
+     "player": "James Cook III",
+     "team": "BUF",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 90.5,
+     "call": "James Cook III Over 90.5 rushing yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -111,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 90.5 (-118)",
+      "Bookmaker Over 90.5 (-111)"
+     ],
+     "implied": 0.5260663507109005,
+     "no_vig": 0.507849645644568,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.19214241866175563,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 90.5 hit in 4 of the last 5 games; season average 107.9 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 24.2 vs season 21.8 (+11%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "MIA run defense ranks #11 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected BUF 30.9, MIA 15.1 (BUF by 15.8); BUF season scoring average 31.9."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (GBERGFF)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIA@BUF",
+     "player": null,
+     "team": null,
+     "market": "game_td_total",
+     "category": "Touchdowns",
+     "label": "game touchdowns",
+     "side": "Over",
+     "line": 5.5,
+     "call": "Over 5.5 game touchdowns",
+     "best": {
+      "book": "BetOnline",
+      "price": 115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 5.5 (+115)"
+     ],
+     "implied": 0.46511627906976744,
+     "no_vig": 0.4400538841490795,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.010101010101010065,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 5.5 hit in 4 of the last 5 games; season average 5.6 over 9 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "Defenses rank #30 (MIA) and #16 (BUF) in EPA per play allowed."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 15
+  },
+  "NO@CHI": {
+   "game": "NO@CHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "NO@CHI",
+     "player": "D'Andre Swift",
+     "team": "CHI",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 64.5,
+     "call": "D'Andre Swift Over 64.5 rushing yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -103,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 64.5 (-114)",
+      "Bookmaker Over 64.5 (-103)"
+     ],
+     "implied": 0.5073891625615764,
+     "no_vig": 0.48885868354204737,
+     "tier": "Strong lean",
+     "n_for": 5,
+     "n_against": 0,
+     "strength": 0.007751937984496124,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 64.5 hit in 2 of the last 5 games; season average 64.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 21.7 vs season 18.8 (+15%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "NO run defense ranks #23 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected CHI 29.5, NO 18.4 (CHI by 11.1); CHI season scoring average 26.8."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "2 expert call(s) on this side (Cody Brown, Skooshi)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 94% rain, gusts 14 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NO@CHI",
+     "player": "Kyle Monangai",
+     "team": "CHI",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 46.5,
+     "call": "Kyle Monangai Over 46.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -105,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 46.5 (-105)"
+     ],
+     "implied": 0.5121951219512195,
+     "no_vig": 0.48149290561381863,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.7419354838709677,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 46.5 hit in 3 of the last 4 games; season average 81.0 over 4 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "NO run defense ranks #23 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected CHI 29.5, NO 18.4 (CHI by 11.1); CHI season scoring average 26.8."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "4 expert call(s) on this side (Andrew Erickson, Cody Brown, Dan Freddy)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 94% rain, gusts 14 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NO@CHI",
+     "player": "Juwan Johnson",
+     "team": "NO",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Under",
+     "line": 20.5,
+     "call": "Juwan Johnson Under 20.5 receiving yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -106,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "Bookmaker Under 20.5 (-106)"
+     ],
+     "implied": 0.5145631067961165,
+     "no_vig": 0.49554764024933207,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.7181571815718156,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 20.5 hit in 3 of the last 5 games; season average 35.2 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.7 vs season 4.7 (-43%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "CHI pass defense ranks #7 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NO 18.4, CHI 29.5 (NO trailing by 11.1); NO season scoring average 22.4."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 94% rain, gusts 14 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NO@CHI",
+     "player": "Juwan Johnson",
+     "team": "NO",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Under",
+     "line": 2.5,
+     "call": "Juwan Johnson Under 2.5 receptions",
+     "best": {
+      "book": "Bookmaker",
+      "price": -153,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "Bookmaker Under 2.5 (-153)"
+     ],
+     "implied": 0.6047430830039525,
+     "no_vig": 0.5806884664467905,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.33333333333333337,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 2.5 hit in 4 of the last 5 games; season average 3.3 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.7 vs season 4.7 (-43%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "CHI pass defense ranks #7 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NO 18.4, CHI 29.5 (NO trailing by 11.1); NO season scoring average 22.4."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 94% rain, gusts 14 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NO@CHI",
+     "player": "Tyler Shough",
+     "team": "NO",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 1.5,
+     "call": "Tyler Shough Under 1.5 passing TDs",
+     "best": {
+      "book": "Bookmaker",
+      "price": -194,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "Bookmaker Under 1.5 (-194)"
+     ],
+     "implied": 0.6598639455782312,
+     "no_vig": 0.6326561211485119,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.11111111111111116,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 1.5 hit in 4 of the last 5 games; season average 1.7 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 36.0 vs season 38.1 (-6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "CHI pass defense ranks #7 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NO 18.4, CHI 29.5 (NO trailing by 11.1); NO season scoring average 22.4."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 94% rain, gusts 14 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 29
+  },
+  "PIT@PHI": {
+   "game": "PIT@PHI",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "PIT@PHI",
+     "player": "Joe Milton III",
+     "team": "PHI",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 0.5,
+     "call": "Joe Milton III Under 0.5 passing TDs",
+     "best": {
+      "book": "Bookmaker",
+      "price": 133,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 0.5 (+130)",
+      "Bookmaker Under 0.5 (+133)"
+     ],
+     "implied": 0.4291845493562232,
+     "no_vig": 0.4032851549851344,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.5,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Only 1 logged games; too thin to score."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "PIT pass defense ranks #8 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected PHI 16.9, PIT 22.6 (PHI trailing by 5.7); PHI season scoring average 16.4."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Dan Freddy)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 46% rain, gusts 16 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "PIT@PHI",
+     "player": "Saquon Barkley",
+     "team": "PHI",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Under",
+     "line": 9.5,
+     "call": "Saquon Barkley Under 9.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 9.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.3834586466165414,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 9.5 hit in 4 of the last 5 games; season average 5.9 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 11.7 vs season 10.6 (+10%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "PIT pass defense ranks #8 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected PHI 16.9, PIT 22.6 (PHI trailing by 5.7); PHI season scoring average 16.4."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 46% rain, gusts 16 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "PIT@PHI",
+     "player": "Saquon Barkley",
+     "team": "PHI",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Under",
+     "line": 1.5,
+     "call": "Saquon Barkley Under 1.5 receptions",
+     "best": {
+      "book": "BetOnline",
+      "price": 104,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 1.5 (+104)"
+     ],
+     "implied": 0.49019607843137253,
+     "no_vig": 0.46042319749216293,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.3333333333333333,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 1.5 hit in 4 of the last 5 games; season average 1.0 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 11.7 vs season 10.6 (+10%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "PIT pass defense ranks #8 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected PHI 16.9, PIT 22.6 (PHI trailing by 5.7); PHI season scoring average 16.4."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 46% rain, gusts 16 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "PIT@PHI",
+     "player": "Jaylen Warren",
+     "team": "PIT",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 65.5,
+     "call": "Jaylen Warren Over 65.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 65.5 (-115)",
+      "Bookmaker Over 65.5 (-116)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.21967769296013567,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 65.5 hit in 3 of the last 5 games; season average 79.9 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 16.0 vs season 16.3 (-2%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "PHI run defense ranks #27 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected PIT 22.6, PHI 16.9 (PIT by 5.7); PIT season scoring average 22.0."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "3 expert call(s) on this side (Andrew Erickson, Cody Brown, Dan Freddy)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 46% rain, gusts 16 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "PIT@PHI",
+     "player": "Rico Dowdle",
+     "team": "PIT",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 37.5,
+     "call": "Rico Dowdle Over 37.5 rushing yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -113,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 38.5 (-115)",
+      "Bookmaker Over 37.5 (-113)"
+     ],
+     "implied": 0.5305164319248826,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.11111111111111105,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 37.5 hit in 3 of the last 5 games; season average 33.3 over 6 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 11.0 vs season 10.1 (+9%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "PHI run defense ranks #27 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected PIT 22.6, PHI 16.9 (PIT by 5.7); PIT season scoring average 22.0."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (thepowerrank)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 46% rain, gusts 16 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 37
+  },
+  "TB@DET": {
+   "game": "TB@DET",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "TB@DET",
+     "player": "Sam LaPorta",
+     "team": "DET",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Under",
+     "line": 33.5,
+     "call": "Sam LaPorta Under 33.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -111,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 33.5 (-111)"
+     ],
+     "implied": 0.5260663507109005,
+     "no_vig": 0.4948402542722694,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.3764510779436154,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 33.5 hit in 4 of the last 5 games; season average 46.1 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 4.7 vs season 5.9 (-21%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "TB pass defense ranks #2 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DET 25.0, TB 21.7 (DET by 3.4); DET season scoring average 28.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TB@DET",
+     "player": "Jared Goff",
+     "team": "DET",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 1.5,
+     "call": "Jared Goff Under 1.5 passing TDs",
+     "best": {
+      "book": "BetOnline",
+      "price": 135,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 1.5 (+135)"
+     ],
+     "implied": 0.425531914893617,
+     "no_vig": 0.4007285974499089,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.3333333333333333,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 1.5 hit in 2 of the last 5 games; season average 2.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 27.0 vs season 33.8 (-20%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "TB pass defense ranks #2 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DET 25.0, TB 21.7 (DET by 3.4); DET season scoring average 28.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TB@DET",
+     "player": "Sam LaPorta",
+     "team": "DET",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Under",
+     "line": 3.5,
+     "call": "Sam LaPorta Under 3.5 receptions",
+     "best": {
+      "book": "BetOnline",
+      "price": -130,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 3.5 (-130)"
+     ],
+     "implied": 0.5652173913043478,
+     "no_vig": 0.5306122448979592,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.14285714285714285,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 3.5 hit in 3 of the last 5 games; season average 4.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 4.7 vs season 5.9 (-21%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "TB pass defense ranks #2 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DET 25.0, TB 21.7 (DET by 3.4); DET season scoring average 28.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TB@DET",
+     "player": "Jared Goff",
+     "team": "DET",
+     "market": "pass_yds",
+     "category": "Passing",
+     "label": "passing yards",
+     "side": "Under",
+     "line": 249.5,
+     "call": "Jared Goff Under 249.5 passing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -111,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 249.5 (-111)"
+     ],
+     "implied": 0.5260663507109005,
+     "no_vig": 0.4948402542722694,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.08528167446003115,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 249.5 hit in 2 of the last 5 games; season average 270.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 27.0 vs season 33.8 (-20%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "TB pass defense ranks #2 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DET 25.0, TB 21.7 (DET by 3.4); DET season scoring average 28.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TB@DET",
+     "player": "Bucky Irving",
+     "team": "TB",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 68.5,
+     "call": "Bucky Irving Over 68.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -114,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 68.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.3381995133819952,
+     "conditions": [
+      "Mayfield Questionable: if Jalon Daniels starts, treat TB passing-game props as void."
+     ],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 68.5 hit in 4 of the last 5 games; season average 91.7 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 24.8 vs season 20.1 (+23%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "against",
+       "detail": "DET run defense ranks #8 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected TB 21.7, DET 25.0 (TB trailing by 3.4); TB season scoring average 22.4."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Skooshi)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 28
+  },
+  "TEN@DAL": {
+   "game": "TEN@DAL",
+   "kickoff_utc": "2026-11-22T18:00:00.000Z",
+   "picks": [
+    {
+     "game": "TEN@DAL",
+     "player": "Tony Pollard",
+     "team": "TEN",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 19.5,
+     "call": "Tony Pollard Over 19.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -114,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 19.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.2250712250712251,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 19.5 hit in 3 of the last 5 games; season average 15.1 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 21.2 vs season 17.4 (+21%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "DAL pass defense ranks #28 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected TEN 22.8, DAL 30.2 (TEN trailing by 7.4); TEN season scoring average 18.6."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Dan Freddy)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TEN@DAL",
+     "player": "KaVontae Turpin",
+     "team": "DAL",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Over",
+     "line": 0.5,
+     "call": "KaVontae Turpin Over 0.5 receptions",
+     "best": {
+      "book": "Bookmaker",
+      "price": -200,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 0.5 (-222)",
+      "Bookmaker Over 0.5 (-200)"
+     ],
+     "implied": 0.6666666666666666,
+     "no_vig": 0.6411483253588516,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.75,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 0.5 hit in 4 of the last 4 games; season average 1.2 over 4 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 2.3 vs season 1.4 (+63%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "TEN pass defense ranks #29 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected DAL 30.2, TEN 22.8 (DAL by 7.4); DAL season scoring average 28.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TEN@DAL",
+     "player": "Javonte Williams",
+     "team": "DAL",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 77.5,
+     "call": "Javonte Williams Over 77.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -114,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 77.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.10709677419354835,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 77.5 hit in 2 of the last 5 games; season average 69.2 over 10 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 21.3 vs season 18.5 (+15%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "TEN run defense ranks #19 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DAL 30.2, TEN 22.8 (DAL by 7.4); DAL season scoring average 28.6."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Dan Freddy)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TEN@DAL",
+     "player": "Tony Pollard",
+     "team": "TEN",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 70.5,
+     "call": "Tony Pollard Over 70.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -114,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 70.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.01024428684003161,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 70.5 hit in 3 of the last 5 games; season average 69.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 21.2 vs season 17.4 (+21%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "DAL run defense ranks #31 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected TEN 22.8, DAL 30.2 (TEN trailing by 7.4); TEN season scoring average 18.6."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "2 expert call(s) on this side (Dan Freddy, thepropguru_)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "TEN@DAL",
+     "player": null,
+     "team": null,
+     "market": "game_fg_total",
+     "category": "Kicking",
+     "label": "game field goals",
+     "side": "Over",
+     "line": 3.5,
+     "call": "Over 3.5 game field goals",
+     "best": {
+      "book": "BetOnline",
+      "price": -105,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 3.5 (-105)"
+     ],
+     "implied": 0.5121951219512195,
+     "no_vig": 0.4713467048710602,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.07936507936507933,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 3.5 hit in 4 of the last 5 games; season average 3.8 over 9 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "Defenses rank #25 (TEN) and #31 (DAL) in EPA per play allowed."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 27
+  },
+  "NYJ@LAC": {
+   "game": "NYJ@LAC",
+   "kickoff_utc": "2026-11-22T21:05:00.000Z",
+   "picks": [
+    {
+     "game": "NYJ@LAC",
+     "player": "Cameron Dicker",
+     "team": "LAC",
+     "market": "fg_made",
+     "category": "Kicking",
+     "label": "field goals made",
+     "side": "Over",
+     "line": 1.5,
+     "call": "Cameron Dicker Over 1.5 field goals made",
+     "best": {
+      "book": "DK Predictions",
+      "price": -150,
+      "at": "Thu 1:12 PM PT",
+      "fresh": false
+     },
+     "books": [
+      "DK Predictions Over 1.5 (-150)"
+     ],
+     "implied": 0.6,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.3333333333333333,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 1.5 hit in 4 of the last 5 games; season average 2.0 over 9 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "LAC converts 46% of red-zone trips into TDs."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected LAC 21.3, NYJ 21.5 (LAC trailing by 0.1); LAC season scoring average 16.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NYJ@LAC",
+     "player": "Kimani Vidal",
+     "team": "LAC",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 14.5,
+     "call": "Kimani Vidal Over 14.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -110,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 14.5 (-110)"
+     ],
+     "implied": 0.5238095238095238,
+     "no_vig": 0.49179655455291227,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.5960591133004925,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 14.5 hit in 4 of the last 5 games; season average 23.1 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 6.8 vs season 5.9 (+15%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "against",
+       "detail": "NYJ run defense ranks #7 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected LAC 21.3, NYJ 21.5 (LAC trailing by 0.1); LAC season scoring average 16.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NYJ@LAC",
+     "player": "Braelon Allen",
+     "team": "NYJ",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 33.5,
+     "call": "Braelon Allen Over 33.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 33.5 (-115)",
+      "Bookmaker Over 33.5 (-116)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.9044776119402984,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 33.5 hit in 4 of the last 5 games; season average 63.8 over 10 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 13.2 vs season 14.1 (-6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "LAC run defense ranks #16 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected NYJ 21.5, LAC 21.3 (NYJ by 0.1); NYJ season scoring average 19.4."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "2 expert call(s) on this side (Chris Welsh, Dan Freddy)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NYJ@LAC",
+     "player": "Omarion Hampton",
+     "team": "LAC",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 7.5,
+     "call": "Omarion Hampton Over 7.5 receiving yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -102,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 7.5 (-108)",
+      "Bookmaker Over 7.5 (-102)"
+     ],
+     "implied": 0.504950495049505,
+     "no_vig": 0.4866238630283574,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.2,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 7.5 hit in 2 of the last 5 games; season average 9.0 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 15.5 vs season 14.6 (+6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "NYJ pass defense ranks #26 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected LAC 21.3, NYJ 21.5 (LAC trailing by 0.1); LAC season scoring average 16.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "NYJ@LAC",
+     "player": "Omarion Hampton",
+     "team": "LAC",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Over",
+     "line": 1.5,
+     "call": "Omarion Hampton Over 1.5 receptions",
+     "best": {
+      "book": "BetOnline",
+      "price": 126,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 1.5 (+126)",
+      "Bookmaker Over 1.5 (+122)"
+     ],
+     "implied": 0.4424778761061947,
+     "no_vig": 0.41598386486827177,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.1428571428571428,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 1.5 hit in 3 of the last 5 games; season average 1.7 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 15.5 vs season 14.6 (+6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "NYJ pass defense ranks #26 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected LAC 21.3, NYJ 21.5 (LAC trailing by 0.1); LAC season scoring average 16.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 11
+  },
+  "JAX@NYG": {
+   "game": "JAX@NYG",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "picks": [
+    {
+     "game": "JAX@NYG",
+     "player": "Malik Nabers",
+     "team": "NYG",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Under",
+     "line": 5.5,
+     "call": "Malik Nabers Under 5.5 receptions",
+     "best": {
+      "book": "Bookmaker",
+      "price": 103,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 5.5 (-105)",
+      "Bookmaker Under 5.5 (+103)"
+     ],
+     "implied": 0.49261083743842365,
+     "no_vig": 0.4745470232959448,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.17171717171717174,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 5.5 hit in 2 of the last 5 games; season average 6.4 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 8.0 vs season 9.4 (-15%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "JAX pass defense ranks #4 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NYG 18.9, JAX 26.6 (NYG trailing by 7.7); NYG season scoring average 22.6."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 62% rain, gusts 11 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "JAX@NYG",
+     "player": "Malik Nabers",
+     "team": "NYG",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Under",
+     "line": 68.5,
+     "call": "Malik Nabers Under 68.5 receiving yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 68.5 (-115)",
+      "Bookmaker Under 67.5 (-104)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.12246553122465527,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 68.5 hit in 2 of the last 5 games; season average 76.9 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 8.0 vs season 9.4 (-15%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "JAX pass defense ranks #4 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NYG 18.9, JAX 26.6 (NYG trailing by 7.7); NYG season scoring average 22.6."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 62% rain, gusts 11 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "JAX@NYG",
+     "player": "J.J. McCarthy",
+     "team": "NYG",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 1.5,
+     "call": "J.J. McCarthy Under 1.5 passing TDs",
+     "best": {
+      "book": "Bookmaker",
+      "price": -187,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 1.5 (-204)",
+      "Bookmaker Under 1.5 (-187)"
+     ],
+     "implied": 0.6515679442508711,
+     "no_vig": 0.6242717811088565,
+     "tier": "Lean",
+     "n_for": 4,
+     "n_against": 1,
+     "strength": 0.6666666666666666,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 1.5 hit in 4 of the last 4 games; season average 0.5 over 4 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "against",
+       "detail": "Usage last 3 weeks 27.7 vs season 20.8 (+33%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "JAX pass defense ranks #4 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NYG 18.9, JAX 26.6 (NYG trailing by 7.7); NYG season scoring average 22.6."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 62% rain, gusts 11 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "JAX@NYG",
+     "player": "Isaiah Likely",
+     "team": "NYG",
+     "market": "fantasy_points",
+     "category": "Fantasy",
+     "label": "fantasy points (PPR)",
+     "side": "Under",
+     "line": 12.5,
+     "call": "Isaiah Likely Under 12.5 fantasy points (PPR)",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 12.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.3733333333333334,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "against",
+       "detail": "Under 12.5 hit in 1 of the last 5 games; season average 17.2 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 7.0 vs season 8.9 (-21%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "JAX defense ranks #3 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NYG 18.9, JAX 26.6 (NYG trailing by 7.7); NYG season scoring average 22.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "JAX@NYG",
+     "player": "J.J. McCarthy",
+     "team": "NYG",
+     "market": "fantasy_points",
+     "category": "Fantasy",
+     "label": "fantasy points (PPR)",
+     "side": "Under",
+     "line": 14.5,
+     "call": "J.J. McCarthy Under 14.5 fantasy points (PPR)",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 14.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5,
+     "tier": "Lean",
+     "n_for": 3,
+     "n_against": 1,
+     "strength": 0.32275862068965516,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 14.5 hit in 4 of the last 5 games; season average 9.8 over 5 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "against",
+       "detail": "Usage last 3 weeks 27.7 vs season 20.8 (+33%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "JAX defense ranks #3 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected NYG 18.9, JAX 26.6 (NYG trailing by 7.7); NYG season scoring average 22.6."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 59
+  },
+  "LV@DEN": {
+   "game": "LV@DEN",
+   "kickoff_utc": "2026-11-22T21:25:00.000Z",
+   "picks": [
+    {
+     "game": "LV@DEN",
+     "player": "Jonah Coleman",
+     "team": "DEN",
+     "market": "rec_yds",
+     "category": "Receiving",
+     "label": "receiving yards",
+     "side": "Over",
+     "line": 22.5,
+     "call": "Jonah Coleman Over 22.5 receiving yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -103,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 22.5 (-118)",
+      "Bookmaker Over 22.5 (-103)"
+     ],
+     "implied": 0.5073891625615764,
+     "no_vig": 0.48885868354204737,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.4222222222222222,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 22.5 hit in 2 of the last 4 games; season average 32.0 over 4 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 14.2 vs season 10.8 (+31%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "LV pass defense ranks #30 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DEN 26.8, LV 17.7 (DEN by 9.1); DEN season scoring average 22.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "LV@DEN",
+     "player": "Courtland Sutton",
+     "team": "DEN",
+     "market": "atd_1_plus",
+     "category": "Touchdowns",
+     "label": "anytime TD",
+     "side": "Over",
+     "line": 0.5,
+     "call": "Courtland Sutton Over 0.5 anytime TD",
+     "best": {
+      "book": "BetOnline",
+      "price": 220,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 0.5 (+220)"
+     ],
+     "implied": 0.3125,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.2777777777777778,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 0.5 hit in 2 of the last 5 games; season average 0.2 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 6.0 vs season 5.1 (+17%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "LV defense ranks #32 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DEN 26.8, LV 17.7 (DEN by 9.1); DEN season scoring average 22.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "LV@DEN",
+     "player": "Jonah Coleman",
+     "team": "DEN",
+     "market": "atd_1_plus",
+     "category": "Touchdowns",
+     "label": "anytime TD",
+     "side": "Over",
+     "line": 0.5,
+     "call": "Jonah Coleman Over 0.5 anytime TD",
+     "best": {
+      "book": "BetOnline",
+      "price": -150,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 0.5 (-150)"
+     ],
+     "implied": 0.6,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.25,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 0.5 hit in 3 of the last 4 games; season average 0.8 over 4 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 14.2 vs season 10.8 (+31%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "LV defense ranks #32 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DEN 26.8, LV 17.7 (DEN by 9.1); DEN season scoring average 22.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "LV@DEN",
+     "player": "Courtland Sutton",
+     "team": "DEN",
+     "market": "rec",
+     "category": "Receiving",
+     "label": "receptions",
+     "side": "Over",
+     "line": 3.5,
+     "call": "Courtland Sutton Over 3.5 receptions",
+     "best": {
+      "book": "Bookmaker",
+      "price": 149,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 3.5 (+139)",
+      "Bookmaker Over 3.5 (+149)"
+     ],
+     "implied": 0.40160642570281124,
+     "no_vig": 0.38691523039043263,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.20634920634920637,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 3.5 hit in 2 of the last 5 games; season average 2.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 6.0 vs season 5.1 (+17%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "LV pass defense ranks #30 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected DEN 26.8, LV 17.7 (DEN by 9.1); DEN season scoring average 22.0."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "LV@DEN",
+     "player": "Brock Bowers",
+     "team": "LV",
+     "market": "fantasy_points",
+     "category": "Fantasy",
+     "label": "fantasy points (PPR)",
+     "side": "Under",
+     "line": 12.5,
+     "call": "Brock Bowers Under 12.5 fantasy points (PPR)",
+     "best": {
+      "book": "BetOnline",
+      "price": -145,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 12.5 (-145)"
+     ],
+     "implied": 0.5918367346938775,
+     "no_vig": 0.5599461158509206,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.4980000000000001,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 12.5 hit in 2 of the last 5 games; season average 18.7 over 8 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 6.7 vs season 8.9 (-25%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "DEN defense ranks #15 in EPA per play allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected LV 17.7, DEN 26.8 (LV trailing by 9.1); LV season scoring average 25.1."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 35
+  },
+  "MIN@SF": {
+   "game": "MIN@SF",
+   "kickoff_utc": "2026-11-23T01:20:00.000Z",
+   "picks": [
+    {
+     "game": "MIN@SF",
+     "player": "Brock Purdy",
+     "team": "SF",
+     "market": "pass_att",
+     "category": "Passing",
+     "label": "pass attempts",
+     "side": "Under",
+     "line": 31.5,
+     "call": "Brock Purdy Under 31.5 pass attempts",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 31.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 4,
+     "n_against": 0,
+     "strength": 0.06878306878306882,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 31.5 hit in 4 of the last 5 games; season average 29.3 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 31.0 vs season 29.3 (+6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIN pass defense ranks #1 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected SF 25.1, MIN 19.8 (SF by 5.3); SF season scoring average 31.2."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 61% rain, gusts 9 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIN@SF",
+     "player": "Deebo Samuel Sr.",
+     "team": "SF",
+     "market": "longest_rec",
+     "category": "Receiving",
+     "label": "longest reception",
+     "side": "Under",
+     "line": 14.5,
+     "call": "Deebo Samuel Sr. Under 14.5 longest reception",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 14.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.7126436781609194,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 14.5 hit in 3 of the last 5 games; season average 24.8 over 6 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIN pass defense ranks #1 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected SF 25.1, MIN 19.8 (SF by 5.3); SF season scoring average 31.2."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 61% rain, gusts 9 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIN@SF",
+     "player": "Jauan Jennings",
+     "team": "MIN",
+     "market": "longest_rec",
+     "category": "Receiving",
+     "label": "longest reception",
+     "side": "Under",
+     "line": 12.5,
+     "call": "Jauan Jennings Under 12.5 longest reception",
+     "best": {
+      "book": "BetOnline",
+      "price": -130,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 12.5 (-130)"
+     ],
+     "implied": 0.5652173913043478,
+     "no_vig": 0.5306122448979592,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.5333333333333333,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Under 12.5 hit in 4 of the last 5 games; season average 5.8 over 6 games."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "SF pass defense ranks #10 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected MIN 19.8, SF 25.1 (MIN trailing by 5.3); MIN season scoring average 19.6."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 61% rain, gusts 9 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIN@SF",
+     "player": "Brock Purdy",
+     "team": "SF",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Under",
+     "line": 1.5,
+     "call": "Brock Purdy Under 1.5 passing TDs",
+     "best": {
+      "book": "Bookmaker",
+      "price": -101,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Under 1.5 (-105)",
+      "Bookmaker Under 1.5 (-101)"
+     ],
+     "implied": 0.5024875621890548,
+     "no_vig": 0.47671760572323585,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.48148148148148157,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Under 1.5 hit in 2 of the last 5 games; season average 2.2 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 31.0 vs season 29.3 (+6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "MIN pass defense ranks #1 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected SF 25.1, MIN 19.8 (SF by 5.3); SF season scoring average 31.2."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 61% rain, gusts 9 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "MIN@SF",
+     "player": "Kaelon Black",
+     "team": "SF",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 28.5,
+     "call": "Kaelon Black Over 28.5 rushing yards",
+     "best": {
+      "book": "BetOnline",
+      "price": -115,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 28.5 (-115)"
+     ],
+     "implied": 0.5348837209302325,
+     "no_vig": 0.5030953363598845,
+     "tier": "Lean",
+     "n_for": 4,
+     "n_against": 1,
+     "strength": 0.3879142300194932,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 28.5 hit in 4 of the last 5 games; season average 39.6 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 12.2 vs season 9.2 (+32%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "MIN run defense ranks #14 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "against",
+       "detail": "Projected SF 25.1, MIN 19.8 (SF by 5.3); SF season scoring average 31.2."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "3 expert call(s) on this side (Chris Welsh, SGPN on-air recap, Scott Bogman)."
+      },
+      {
+       "family": "Weather",
+       "direction": "for",
+       "detail": "Weather review flags it: 61% rain, gusts 9 mph."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 62
+  },
+  "CIN@WAS": {
+   "game": "CIN@WAS",
+   "kickoff_utc": "2026-11-24T01:15:00.000Z",
+   "picks": [
+    {
+     "game": "CIN@WAS",
+     "player": "Samaje Perine",
+     "team": "CIN",
+     "market": "carries",
+     "category": "Rushing",
+     "label": "carries",
+     "side": "Over",
+     "line": 6.5,
+     "call": "Samaje Perine Over 6.5 carries",
+     "best": {
+      "book": "Bookmaker",
+      "price": -102,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 6.5 (-102)",
+      "Bookmaker Over 6.5 (-102)"
+     ],
+     "implied": 0.504950495049505,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.11111111111111113,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 6.5 hit in 2 of the last 5 games; season average 5.8 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 7.8 vs season 6.6 (+18%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "WAS run defense ranks #24 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected CIN 29.9, WAS 21.8 (CIN by 8.1); CIN season scoring average 30.9."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "CIN@WAS",
+     "player": "Samaje Perine",
+     "team": "CIN",
+     "market": "rush_yds",
+     "category": "Rushing",
+     "label": "rushing yards",
+     "side": "Over",
+     "line": 20.5,
+     "call": "Samaje Perine Over 20.5 rushing yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -114,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 20.5 (-114)",
+      "Bookmaker Over 20.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": null,
+     "tier": "Strong lean",
+     "n_for": 3,
+     "n_against": 0,
+     "strength": 0.04607046070460697,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 20.5 hit in 2 of the last 5 games; season average 21.4 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": "for",
+       "detail": "Usage last 3 weeks 7.8 vs season 6.6 (+18%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": "for",
+       "detail": "WAS run defense ranks #24 in EPA per carry allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected CIN 29.9, WAS 21.8 (CIN by 8.1); CIN season scoring average 30.9."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "CIN@WAS",
+     "player": "Joe Burrow",
+     "team": "CIN",
+     "market": "pass_td",
+     "category": "Passing",
+     "label": "passing TDs",
+     "side": "Over",
+     "line": 2.5,
+     "call": "Joe Burrow Over 2.5 passing TDs",
+     "best": {
+      "book": "BetOnline",
+      "price": -127,
+      "at": "Sat 5:46 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 2.5 (-127)",
+      "Bookmaker Over 2.5 (-136)"
+     ],
+     "implied": 0.5594713656387665,
+     "no_vig": 0.5256105556466153,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.2,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": "for",
+       "detail": "Over 2.5 hit in 5 of the last 5 games; season average 3.0 over 9 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 40.3 vs season 37.8 (+7%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "WAS pass defense ranks #19 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": null,
+       "detail": "Projected CIN 29.9, WAS 21.8 (CIN by 8.1); CIN season scoring average 30.9."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "2 expert call(s) on this side (Dan Freddy, GBERGFF)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    },
+    {
+     "game": "CIN@WAS",
+     "player": "Jayden Daniels",
+     "team": "WAS",
+     "market": "pass_yds",
+     "category": "Passing",
+     "label": "passing yards",
+     "side": "Over",
+     "line": 223.5,
+     "call": "Jayden Daniels Over 223.5 passing yards",
+     "best": {
+      "book": "Bookmaker",
+      "price": -114,
+      "at": "Sat 5:43 PM PT",
+      "fresh": true
+     },
+     "books": [
+      "BetOnline Over 228.5 (-114)",
+      "Bookmaker Over 223.5 (-114)"
+     ],
+     "implied": 0.5327102803738317,
+     "no_vig": 0.5064069707842132,
+     "tier": "Lean",
+     "n_for": 2,
+     "n_against": 0,
+     "strength": 0.041866410993927794,
+     "conditions": [],
+     "evidence": [
+      {
+       "family": "Production",
+       "direction": null,
+       "detail": "Over 223.5 hit in 3 of the last 5 games; season average 214.1 over 7 games."
+      },
+      {
+       "family": "Volume",
+       "direction": null,
+       "detail": "Usage last 3 weeks 32.3 vs season 30.4 (+6%)."
+      },
+      {
+       "family": "Matchup",
+       "direction": null,
+       "detail": "CIN pass defense ranks #14 in EPA per dropback allowed."
+      },
+      {
+       "family": "Game script",
+       "direction": "for",
+       "detail": "Projected WAS 21.8, CIN 29.9 (WAS trailing by 8.1); WAS season scoring average 21.8."
+      },
+      {
+       "family": "Experts",
+       "direction": "for",
+       "detail": "1 expert call(s) on this side (Dan Freddy)."
+      }
+     ],
+     "endorsed": false,
+     "execution_eligible": false
+    }
+   ],
+   "candidates": 9
+  }
+ }
+}

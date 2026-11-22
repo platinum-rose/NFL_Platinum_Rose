@@ -1,0 +1,458 @@
+{
+ "schema": "final_gate_check_v1",
+ "season": 2026,
+ "week": 11,
+ "stage": "saturday",
+ "run_at": "2026-11-21T18:02:41.367739-08:00",
+ "verdict": "RED",
+ "games_remaining": 12,
+ "bkr_capture_date": "2026-11-21",
+ "expert_coverage": {
+  "found": {
+   "Warren Sharp": [
+    "pull:Sharp Football",
+    "youtube"
+   ],
+   "Sean Koerner": [
+    "pull:Action Network"
+   ],
+   "Stuckey": [
+    "pull:Action Network",
+    "reviewed-podcast-picks.json"
+   ],
+   "Doug Kezirian": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Brandon Anderson": [
+    "pull:Action Network"
+   ],
+   "Evan Abrams": [
+    "2026-w11-primer-intel.json"
+   ],
+   "Chad Millman": [
+    "youtube"
+   ],
+   "Simon Hunter": [
+    "youtube"
+   ],
+   "Matt Perrault": [
+    "youtube"
+   ],
+   "Andrew Erickson": [
+    "pull:BettingPros",
+    "reviewed-podcast-picks.json"
+   ],
+   "Mike Maher": [
+    "pull:BettingPros"
+   ],
+   "Steve Fezzik": [
+    "pull:expert",
+    "youtube"
+   ],
+   "Sharp or Square (hosts)": [
+    "youtube"
+   ],
+   "Even Money (hosts)": [
+    "pull:expert",
+    "reviewed-podcast-picks.json",
+    "youtube"
+   ],
+   "Ross Tucker": [
+    "pull:expert",
+    "youtube"
+   ],
+   "Rich Hribar": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Ben Solak": [
+    "pull:ESPN NFL"
+   ],
+   "Scott Bogman": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Kendra Middleton": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Chris Welsh": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Seth Woolcock": [
+    "reviewed-podcast-picks.json"
+   ],
+   "Brandon Kravitz": [
+    "reviewed-podcast-picks.json",
+    "youtube"
+   ],
+   "Pat Fitzmaurice": [
+    "youtube"
+   ],
+   "Adam Burke": [
+    "pull:VSiN"
+   ],
+   "John Ewing": [
+    "bookmark-text-intelligence-digest.md"
+   ],
+   "Ed Feng": [
+    "grok"
+   ],
+   "Sal Vetri": [
+    "bookmark-text-intelligence-digest.md",
+    "grok"
+   ],
+   "Cody Brown": [
+    "2026-w11-chrome-article-picks.json",
+    "bookmark-text-intelligence-digest.md"
+   ],
+   "Joe Holka": [
+    "grok"
+   ],
+   "Lock & Cash": [
+    "bookmark-text-intelligence-digest.md",
+    "reviewed-podcast-picks.json"
+   ],
+   "The Prop Guru": [
+    "bookmark-text-intelligence-digest.md",
+    "grok"
+   ],
+   "Marc Gartenberg": [
+    "grok"
+   ]
+  },
+  "missing": [
+   "Collin Wilson",
+   "Jason Radowitz",
+   "Joe Madden",
+   "Daniel Jeremiah & Bucky Brooks",
+   "The Prop Dealer"
+  ]
+ },
+ "provisional_open": [],
+ "required_failures": 1,
+ "warnings": 7,
+ "checks": [
+  {
+   "id": "A1",
+   "group": "Analysis layer",
+   "title": "Week slate confirmed",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "13 games, 12 still to play; operator_confirmed=True",
+   "fix": ""
+  },
+  {
+   "id": "A2",
+   "group": "Analysis layer",
+   "title": "Team dossiers",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/team-dossiers/2026-w11: 35 team files",
+   "fix": ""
+  },
+  {
+   "id": "A3",
+   "group": "Analysis layer",
+   "title": "Roster gate (ESPN 2026, strict)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "status=PASS, roster age 19.0h, blocking=0",
+   "fix": ""
+  },
+  {
+   "id": "L1",
+   "group": "Lines & markets",
+   "title": "Bookmaker capture (SGP props + game lines)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/props\\bookmaker-live-2026-11-21-week11.json \u2014 0.3h old (limit 8h); games=12 (need 12)",
+   "fix": ""
+  },
+  {
+   "id": "L2",
+   "group": "Lines & markets",
+   "title": "BKR game-lines file for the synthesis queue",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/props/bookmaker-gamelines-2026-11-21-week11.raw.txt",
+   "fix": ""
+  },
+  {
+   "id": "L3",
+   "group": "Lines & markets",
+   "title": "Action Network openers (line-move baseline)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/odds/actionnetwork-openers-2026-w11.json",
+   "fix": ""
+  },
+  {
+   "id": "L4",
+   "group": "Lines & markets",
+   "title": "Master Intel pull (signals, expert picks, articles, splits)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/master-intel/w11-pull.json \u2014 2.6h old (limit 10h); pulled_at=2026-11-21T23:29:40.684Z, signals=155, expert=16",
+   "fix": ""
+  },
+  {
+   "id": "L5",
+   "group": "Lines & markets",
+   "title": "Betting splits (Action Network, context only)",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "13 games, newest capture 2026-11-21T16:37:59.896+00:00 (9.4h; limit 8h)",
+   "fix": "Re-pull AN splits (Claude in Chrome, api v2 scoreboard bookIds=15) into the pull json."
+  },
+  {
+   "id": "L6",
+   "group": "Lines & markets",
+   "title": "BetOnline player props (prop stacks, props pass)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/props\\betonline-live-2026-11-22-week11.json; rows=1708; age=0.2h",
+   "fix": "npm run props:bol:cron (BEO posts Sunday props ~Sat afternoon)."
+  },
+  {
+   "id": "L7",
+   "group": "Lines & markets",
+   "title": "DraftKings Predictions props",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "data/generated/props\\draftkings-predictions-feed-2026-11-19-week11.json",
+   "fix": "npm run props:dkp:launch (log in) \u2192 npm run props:dkp:cron \u2192 npm run props:dkp:defense"
+  },
+  {
+   "id": "L8",
+   "group": "Lines & markets",
+   "title": "Prediction markets + coherence",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "data/prediction-markets/cross-market-coherence-latest.json \u2014 27.0h old (limit 14h)",
+   "fix": "Friday/Saturday cadence."
+  },
+  {
+   "id": "L9",
+   "group": "Lines & markets",
+   "title": "SuperContest contest lines",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/supercontest/week-11-lines.json",
+   "fix": ""
+  },
+  {
+   "id": "I1",
+   "group": "Rosters & injuries",
+   "title": "Player availability / injury report",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/player-availability/latest.json \u2014 2.5h old (limit 10h)",
+   "fix": ""
+  },
+  {
+   "id": "I2",
+   "group": "Rosters & injuries",
+   "title": "Projected starters",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/projected-starters/2026\\projected-starters-2026-11-21.json \u2014 4.3h old (limit 14h)",
+   "fix": ""
+  },
+  {
+   "id": "I3",
+   "group": "Rosters & injuries",
+   "title": "Weather / venue",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/research-intel/review/2026-w11-weather-venue.json \u2014 6.2h old (limit 24h)",
+   "fix": ""
+  },
+  {
+   "id": "Q1",
+   "group": "Analytics",
+   "title": "Team power ratings / SRS (fair lines)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/generated/team-profiles/team-power-ratings-2026.json \u2014 104.0h old (limit 192h)",
+   "fix": ""
+  },
+  {
+   "id": "Q2",
+   "group": "Analytics",
+   "title": "Secondary matchup vulnerability",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/secondary-matchups/secondary-matchup-vulnerability-2026-w11.json",
+   "fix": ""
+  },
+  {
+   "id": "Q3",
+   "group": "Analytics",
+   "title": "FTN Stats IQ weekly context",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (27h)",
+   "fix": "FTN refresh (weekly only)."
+  },
+  {
+   "id": "Q4",
+   "group": "Analytics",
+   "title": "Fair-line model + simulator inputs",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "reports/intel/w11-model/fair-lines-w11.json",
+   "fix": "Re-run fair_lines.py on current lines (stage run does this)."
+  },
+  {
+   "id": "E1",
+   "group": "Expert & media intel",
+   "title": "YouTube / podcast picks (Gemini, cleaned)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/podcasts/youtube-extracted-picks-2026-w11.json: 66 picks",
+   "fix": ""
+  },
+  {
+   "id": "E2",
+   "group": "Expert & media intel",
+   "title": "Grok X-thread extraction (every week)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "3 CSV in data/vault-seed/manual/grok-week11-threads (latest grok-twitter-picks-2026-11-21.csv)",
+   "fix": ""
+  },
+  {
+   "id": "E3",
+   "group": "Expert & media intel",
+   "title": "BettingPros article intel",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "reports/intel/bettingpros-articles-2026-w11.md",
+   "fix": "Read the week's BettingPros NFL articles (Claude in Chrome)."
+  },
+  {
+   "id": "E4",
+   "group": "Expert & media intel",
+   "title": "Per-expert narrative summaries",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "reports/intel/expert-narratives-2026-w11.md",
+   "fix": "Written during the stage run (step 6)."
+  },
+  {
+   "id": "E5",
+   "group": "Expert & media intel",
+   "title": "Article feed health",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "Gemini API: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n; Gemini Audio Diarization: Gemini file upload (start) failed: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
+   "fix": "Cover failed feeds by browser pulls."
+  },
+  {
+   "id": "E6",
+   "group": "Expert & media intel",
+   "title": "Podcast intel (audio transcripts + promoted picks)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "transcripts processed=3; promoted episodes=0, picks=0; YouTube picks file=yes",
+   "fix": ""
+  },
+  {
+   "id": "E7",
+   "group": "Expert & media intel",
+   "title": "Article intel (VSiN, ESPN, Action Network, BettingPros, PFT, Walter...)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "155 article signals; sources={'Action Network': 31, 'VSiN': 51, 'BettingPros': 25, 'ESPN NFL': 31, 'Sharp Football': 1, 'Pro Football Talk': 13, 'Walter Football': 3}; newest 2026-11-21T23:03:15.543903+00:00 (3.0h)",
+   "fix": ""
+  },
+  {
+   "id": "E8",
+   "group": "Expert & media intel",
+   "title": "Twitter/X bookmark intel (text)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "local reviewed digest: data/intel/articles/2026-w11/bookmark-text-intelligence-digest.md (2.3h)",
+   "fix": ""
+  },
+  {
+   "id": "E9",
+   "group": "Expert & media intel",
+   "title": "Twitter media queue (videos / images / threads) processed",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "data/twitter/w11-media-extraction-queue.json: 0 Sunday-slate items still pending ({})",
+   "fix": ""
+  },
+  {
+   "id": "E10",
+   "group": "Expert & media intel",
+   "title": "Preferred-expert final cards (coverage)",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "roster status=confirmed; 32/37 experts with a Week 11 card found; missing: none; excused (no card published): Collin Wilson, Daniel Jeremiah & Bucky Brooks, Jason Radowitz, Joe Madden, The Prop Dealer",
+   "fix": ""
+  },
+  {
+   "id": "S1",
+   "group": "Synthesis queues",
+   "title": "Sides synthesis queue",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "scratch/w11-game-synthesis-queue-sides.json: 12 packets; missing=none",
+   "fix": ""
+  },
+  {
+   "id": "S2",
+   "group": "Synthesis queues",
+   "title": "Props synthesis queue",
+   "level": "REQUIRED",
+   "status": "FAIL",
+   "detail": "scratch/w11-game-synthesis-queue-props.json: 12 packets; missing={\"TB@DET\": [\"bookmaker player-prop board thin/missing (72 rows)\", \"betonline player-prop board thin/missing (84 rows)\"], \"ARI@KC\": [\"bookmaker player-prop board thin/missing (82 rows)\", \"betonline player-prop board thin/missing (92 rows)\"]}",
+   "fix": "python3 scripts/intel/build-game-synthesis-queue.py --week 11 --pass props --date 2026-11-21 (rebuild LAST, after every input above)."
+  },
+  {
+   "id": "M-news_flags_resolved",
+   "group": "Manual confirmations",
+   "title": "news flags resolved",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "Trades, QB changes, pulled markets and late news checked. RotoWire/Rotoworld are acceptable when current and source-attributed; record the sources and reflect material changes in packets/narratives. \u2014 Andy (confirmed in chat; evidence compiled by Claude) 2026-11-21T15:29:00-08:00",
+   "fix": ""
+  },
+  {
+   "id": "M-qb_status_confirmed",
+   "group": "Manual confirmations",
+   "title": "qb status confirmed",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "Every starting QB checked against team/league reports or current, source-attributed RotoWire/Rotoworld. Do not clear on projection, rumor, conflicting reports or \"trending\" language; record sources. \u2014 Andy (explicit decision in chat, with caveats) 2026-11-21T15:29:00-08:00",
+   "fix": ""
+  },
+  {
+   "id": "M-final_injury_reports_checked",
+   "group": "Manual confirmations",
+   "title": "final injury reports checked",
+   "level": "REQUIRED",
+   "status": "PASS",
+   "detail": "Friday's official designations (Out/Doubtful/Questionable) checked for every game \u2014 Andy (confirmed in chat; evidence compiled by Claude) 2026-11-21T15:29:00-08:00",
+   "fix": ""
+  },
+  {
+   "id": "M-supercontest_report_reviewed",
+   "group": "Manual confirmations",
+   "title": "supercontest report reviewed",
+   "level": "ADVISORY",
+   "status": "WARN",
+   "detail": "Andy has the Friday SC Intel report (the official five is NOT a prerequisite for either report)",
+   "fix": "Set \"done\": true (+ \"by\", \"at\") in data/generated/master-intel/w11-gate-manual.json when confirmed."
+  },
+  {
+   "id": "M-experts_no_card",
+   "group": "Manual confirmations",
+   "title": "experts no card",
+   "level": "ADVISORY",
+   "status": "PASS",
+   "detail": "Experts checked for a Week 11 card and none published. Each entry lists where we looked. \u2014 Andy (confirmed in chat; The Prop Dealer added 17:36 PT as temporary) 2026-11-21T17:36:00-08:00",
+   "fix": ""
+  }
+ ]
+}

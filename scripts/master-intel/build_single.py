@@ -737,7 +737,9 @@ def main(site_dir):
            '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏈</text></svg>">\n'
            f'<style>\n{css}\n{extra_drawer_css}\nsection[data-page][hidden]{{display:none !important}}\n*{{-webkit-user-select:text;user-select:text;}}\nbutton,.btn-toggle{{-webkit-user-select:none;user-select:none;}}\n</style>\n'
            f'</head>\n<body data-week="{week}" data-base="Platinum Rose · NFL Week {week} Intel">\n{header}\n<div class="container">\n' + '\n'.join(sections)
-           + '\n</div>\n' + modal_and_drawer_html + f'\n<script>\n{js}\n</script>\n<script>{ROUTER}</script>\n</body>\n</html>\n')
+           + '\n</div>\n' + modal_and_drawer_html
+           # 2026-11-21: the site header is the nav; stop the legacy single-page tab bar (initMasterTabs) from building a second one
+           + '\n<script>window.__mtInit = true;</script>' + f'\n<script>\n{js}\n</script>\n<script>{ROUTER}</script>\n</body>\n</html>\n')
     out.write_text(doc, encoding='utf-8')
     print(f'single-file: wrote {out} ({len(doc.encode("utf-8")) / 1e6:.2f} MB, {len(sections)} pages)')
     return out
