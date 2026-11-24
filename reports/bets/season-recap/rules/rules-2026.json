@@ -159,6 +159,29 @@
    "proposed_week": 11,
    "effective_week": 11,
    "accepted_at": "2026-11-18"
+  },
+  {
+   "id": "R11-1",
+   "text": "Max $60 cash exposure per game per week; a parlay's full stake counts against every game in it.",
+   "check": "manual",
+   "params": {},
+   "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): MIN@SF $216.58 / JAX@NYG $201.59 / CIN@WAS $148.15 exposure all lost.",
+   "status": "active",
+   "proposed_week": 11,
+   "effective_week": 12,
+   "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24.",
+   "accepted_at": "2026-11-24"
+  },
+  {
+   "id": "R11-2",
+   "text": "Island games: at most 6 real tickets per game, 2-3 legs each; Tier 1 carries no leg that needs the favourite to win or cover.",
+   "check": "max_legs",
+   "params": {},
+   "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): Island SGP ladders 0/14 (-$158.06): TNF and MNF tiers all leaned one script.",
+   "status": "proposed",
+   "proposed_week": 11,
+   "effective_week": 12,
+   "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24."
   }
  ]
 }
