@@ -1,5 +1,9 @@
 # NFL_Dashboard — Current Handoff
 
+## Pick up here — November 24, 2026 14:00 PT: W12 pools + island prep (Claude Team 1 -> Claude Team 2, H2C2)
+
+**PICK UP HERE:** read `CLAUDE.md` "Lean Session Rules" (top), `STATE.md`, then [`handoffs/2026-11-24-1400-claude-h2c2-team2-briefing-w12-pools-prep.md`](handoffs/2026-11-24-1400-claude-h2c2-team2-briefing-w12-pools-prep.md). Snapshot: `reports/handoff-snapshots/2026-11-24-h2c2-w12-pools-prep/`. Branch claude/w5-prop-cards-2026-10-11. First deadline: GB@LAR pool picks before Wed 5:00 PM PT. Entries below are superseded, kept for history.
+
 ## Pick up here — November 21, 2026 · Week 11 Intel finalization (Codex → Claude)
 
 Reconcile live Git in `E:/dev/projects/NFL_Dashboard`, then read

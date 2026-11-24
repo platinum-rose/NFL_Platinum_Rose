@@ -1,0 +1,107 @@
+{
+ "schema": "pickem-public-pct-v1",
+ "pool_id": "cbs",
+ "week": 12,
+ "season": 2026,
+ "captured_at": "2026-11-24T21:28:03.889932+00:00",
+ "source": "CBS BUKBUK Picks page (pool-wide pick % shown pre-lock)",
+ "games": [
+  {
+   "game": "GB@LAR",
+   "pool_pct_away": 36,
+   "pool_pct_home": 64,
+   "kickoff_pt_cbs": "Wed 5:00 PM"
+  },
+  {
+   "game": "CHI@DET",
+   "pool_pct_away": 51,
+   "pool_pct_home": 49,
+   "kickoff_pt_cbs": "Thu 10:00 AM"
+  },
+  {
+   "game": "PHI@DAL",
+   "pool_pct_away": 7,
+   "pool_pct_home": 93,
+   "kickoff_pt_cbs": "Thu 1:30 PM"
+  },
+  {
+   "game": "KC@BUF",
+   "pool_pct_away": 23,
+   "pool_pct_home": 77,
+   "kickoff_pt_cbs": "Thu 5:20 PM"
+  },
+  {
+   "game": "DEN@PIT",
+   "pool_pct_away": 89,
+   "pool_pct_home": 11,
+   "kickoff_pt_cbs": "Fri 12:00 PM"
+  },
+  {
+   "game": "NO@CIN",
+   "pool_pct_away": 1,
+   "pool_pct_home": 99,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "BAL@HOU",
+   "pool_pct_away": 8,
+   "pool_pct_home": 92,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "NYG@IND",
+   "pool_pct_away": 97,
+   "pool_pct_home": 3,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "NYJ@MIA",
+   "pool_pct_away": 85,
+   "pool_pct_home": 15,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "ATL@MIN",
+   "pool_pct_away": 2,
+   "pool_pct_home": 98,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "TEN@JAX",
+   "pool_pct_away": 1,
+   "pool_pct_home": 99,
+   "kickoff_pt_cbs": "Sun 10:00 AM"
+  },
+  {
+   "game": "NE@LAC",
+   "pool_pct_away": 70,
+   "pool_pct_home": 30,
+   "kickoff_pt_cbs": "Sun 1:05 PM"
+  },
+  {
+   "game": "WAS@ARI",
+   "pool_pct_away": 94,
+   "pool_pct_home": 6,
+   "kickoff_pt_cbs": "Sun 1:25 PM"
+  },
+  {
+   "game": "SEA@SF",
+   "pool_pct_away": 8,
+   "pool_pct_home": 92,
+   "kickoff_pt_cbs": "Sun 1:25 PM"
+  },
+  {
+   "game": "LV@CLE",
+   "pool_pct_away": 16,
+   "pool_pct_home": 84,
+   "kickoff_pt_cbs": "Sun 5:20 PM"
+  },
+  {
+   "game": "CAR@TB",
+   "pool_pct_away": 45,
+   "pool_pct_home": 55,
+   "kickoff_pt_cbs": "Mon 5:15 PM"
+  }
+ ],
+ "note": "CBS kickoff order differs from public/schedule.json for TEN@JAX (CBS 10:00 AM vs repo 1:05 PM), NE@LAC (CBS 1:05 PM vs repo 5:20 PM), LV@CLE (CBS SNF 5:20 PM vs repo 10:00 AM) - verify before lock planning."
+}

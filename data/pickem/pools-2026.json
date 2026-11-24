@@ -1,7 +1,7 @@
 {
   "schema": "pickem_pools_v1",
   "season": 2026,
-  "updated_at": "2026-11-17T16:30:00Z",
+  "updated_at": "2026-11-24T21:40:00Z",
   "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
   "pools": [
     {
@@ -21,15 +21,15 @@
       "strategy": "market",
       "strategy_note": "Two of three prizes are cumulative (rolling 4-week, season) -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
       "standings": {
-        "as_of": "2026-11-17 Week 10 final",
-        "rank_row": 19,
-        "site_rank": 19,
-        "pts": 936.5,
-        "leader": "BrockTua 975.5",
-        "gap_to_leader": 39.0,
-        "games": 149,
-        "wins": 101,
-        "losses": 47,
+        "as_of": "2026-11-24 Week 11 final",
+        "rank_row": 18,
+        "site_rank": 18,
+        "pts": 1037.5,
+        "leader": "BrockTua 1074.5",
+        "gap_to_leader": 37.0,
+        "games": 162,
+        "wins": 110,
+        "losses": 51,
         "ties": 1,
         "by_week": {
           "1": 95,
@@ -41,7 +41,8 @@
           "7": 90,
           "8": 104,
           "9": 135,
-          "10": 98
+          "10": 98,
+          "11": 101
         },
         "week9_rank_row": 3,
         "week9_pts": 135,
@@ -64,11 +65,12 @@
           "final": true,
           "note": "computed from WeeklyBreakdown weeks 7-10"
         },
-        "source": "data/pickem/simplysportsware-duma2-2026-w10.json",
+        "source": "data/pickem/simplysportsware-duma2-2026-w11.json",
         "week10_rank_row": 46,
         "week10_pts": 98,
         "week10_record": "10-4",
-        "week10_leader": "NowInOakland 127 (13-1); Cobra Kai 15 120 second"
+        "week10_leader": "NowInOakland 127 (13-1); Cobra Kai 15 120 second",
+        "rolling_9_12_so_far": "334 thru W11, 8th of top-50 page; leader Robo53 350"
       },
       "url": "https://www.simplysportsware.com/pool-home",
       "entry_name": "Fat Lazy American",
@@ -161,11 +163,11 @@
         "max_ev_cost": 2.5
       },
       "standings": {
-        "as_of": "2026-11-17 Week 10 final (API standings + per-game picks from the Yahoo picks page)",
-        "rank": 25,
-        "pts": 771,
-        "leader": "Ditka’s Bears 824",
-        "gap_to_leader": 53,
+        "as_of": "2026-11-24 Week 11 final",
+        "rank": 19,
+        "pts": 845,
+        "leader": "Ditka's Bears 893",
+        "gap_to_leader": 48,
         "by_week": {
           "1": 90,
           "2": 85,
@@ -176,11 +178,12 @@
           "7": 61,
           "8": 88,
           "9": 119,
-          "10": 77
+          "10": 77,
+          "11": 74
         },
         "dropped_pts": 61,
         "dropped_note": "Yahoo drops one lowest week; Week 7 (61) is the dropped week. by_week sum 832 - 61 = 771 season total.",
-        "source": "data/pickem/yahoo-472-g-4087-2026-w10.json",
+        "source": "data/pickem/yahoo-472-g-4087-2026-w11.json",
         "week8_rank": 11,
         "week8_pts": 88,
         "week8_record": "11-3",
@@ -240,11 +243,11 @@
         "max_tier": 2
       },
       "standings": {
-        "as_of": "2026-11-17 Week 10 final (overall read after MNF)",
+        "as_of": "2026-11-24 Week 11 final",
         "rank": 6,
-        "tied": 10,
-        "ytd": 99,
-        "leader": "greg barrows 104",
+        "tied": 8,
+        "ytd": 108,
+        "leader": "greg barrows 113",
         "gap_to_leader_picks": 5,
         "by_week": {
           "1": 12,
@@ -256,13 +259,14 @@
           "7": 9,
           "8": 10,
           "9": 13,
-          "10": 12
+          "10": 12,
+          "11": 9
         },
         "week9_rank": 26,
         "week9_pts": 13,
         "week9_record": "13-2",
         "week9_leader": "Griffin Urton 15 (4 entries at 15; tiebreaker)",
-        "source": "data/pickem/cbs-bukbuk-2026-w10.json",
+        "source": "data/pickem/cbs-bukbuk-2026-w11.json",
         "week10_rank": 3,
         "week10_pts": 12,
         "week10_record": "12-2",
