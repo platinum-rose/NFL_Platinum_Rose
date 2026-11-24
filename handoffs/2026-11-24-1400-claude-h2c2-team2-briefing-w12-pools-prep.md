@@ -7,7 +7,7 @@ H2C2 = "Handoff 2 Claude 2". Written Tue 2026-11-24 ~2:00 PM PT by Claude Team 1
 
 ## 0. TL;DR (time-sensitive first)
 1. **Wed 11/25 5:00 PM PT, GB@LAR kicks off and locks its slot in all 3 pools.** Before ~3:45 PM PT (inactives: Josh Jacobs, Kyren Williams) give Andy a final pick for GB@LAR and the full 16-game confidence ranking. GB@LAR's slot is spent at lock, so the ranking has to be settled first. The prelim market-only card is `reports/pickem/2026-w12-pickem.md`.
-2. **Tiebreakers are already SUBMITTED by Andy** (recorded in `data/pickem/picks-2026-w12.json`; the pool is assumed to be the Duma, confirm). TB2 (due Wed 4:55 PM): most points **JAX**, fewest **TEN**. TB1 (due Sun 10:00 AM): **TB 23–CAR 20**, **LAC 20–NE 17**. Re-check TB1 against the Sat lines.
+2. **Tiebreakers are already SUBMITTED by Andy** for **Kenny's Yahoo pool** (Andy confirmed; recorded in `data/pickem/picks-2026-w12.json`). TB2 (due Wed 4:55 PM): most points **JAX**, fewest **TEN**. TB1 (due Sun 10:00 AM): **TB 23–CAR 20**, **LAC 20–NE 17**. Re-check TB1 against the Sat lines.
 3. **No game picks are entered yet** in any pool. Andy enters them. Record what he locks in `data/pickem/picks-2026-w12.json` (`pools` key, same shape as `picks-2026-w10.json`).
 4. Next build: `data/pickem/leans-2026-w12.json` (underdogs the tier 1–2 evidence likes), then re-run the card so the Yahoo leverage and CBS coin-flip logic fires. Coin flips: GB@LAR, CHI@DET, NE@LAC, KC@BUF, DEN@PIT, CAR@TB.
 5. **Market moved: Bookmaker now has CHI −2 at DET (ML −134)**, total 55.5. The web lines in the CHI@DET deep-dive (DET −2.5, 52.5/53.5) are STALE. The deep-dive's Gibbs "favourite" flag flips (DET is now the dog).
@@ -105,8 +105,7 @@ Prelim W12 market ranking (both confidence pools):
 - settling the W9 (12) / W10 (16) paper tickets still PENDING
 
 **6c needs Andy:**
-- confirm which pool the tiebreakers belong to
-- accept/decline proposed rules R11-1 ($60 max cash per game) and R11-2 (islands ≤6 tickets, 2–3 legs, Tier 1 no favourite-dependent leg) via `python3 reports/bets/season-recap/scripts/rules.py accept --id R11-1|R11-2`
+- **R11-1 ($60 max cash per game) ACCEPTED by Andy 11/24.** Accept/decline proposed R11-2 (islands ≤6 tickets, 2–3 legs, Tier 1 no favourite-dependent leg) via `python3 reports/bets/season-recap/scripts/rules.py accept --id R11-1|R11-2`
 - OK the long uncommitted list in STATE.md
 - clear `data/intake-drop/` FTN files
 - confirm the DKP funding source
