@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W12 Thursday Replacement Stacks</title>
+<style>
+/* VOICE: a betting-desk placement card, calm and exact
+   IDEA: a stack of bet slips you tick off one by one
+   PICTURE: each slip is the picture: book chip, stake, payout, legs with their real record
+   COLOUR and TYPE: steel panel, black ink, one alarm red for deadlines; Inter Tight + Inter
+   LAYOUT: deadline strip, then one slip per card, copy bar at the bottom */
+:root{color-scheme:light dark;--bg:light-dark(#d5dbe0,#16191c);--card:light-dark(#fff,#1f2327);--ink:light-dark(#0b0d0f,#eef1f3);--muted:light-dark(#4b5560,#9aa4ad);--line:light-dark(#c3cbd2,#2e343a);--red:#e8251a;--ok:light-dark(#1f7a3a,#4ccf74);--chip:light-dark(#0b0d0f,#eef1f3);--chipt:light-dark(#fff,#0b0d0f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Inter Tight",Inter,system-ui,sans-serif;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:clamp(18px,4vw,40px) max(4vw,14px)}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.05;text-wrap:balance}
+.lede{color:var(--muted);margin:10px 0 18px;max-width:68ch}
+.deadline{display:flex;gap:12px;align-items:center;background:var(--red);color:#fff;border-radius:12px;padding:12px 16px;font-weight:600;margin-bottom:18px}
+.deadline b{font-size:20px;white-space:nowrap}
+.progress{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:12px}
+.slip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:16px}
+.slip.done{opacity:.55}
+.slip.done .head h2::after{content:"  ✓ placed";color:var(--ok);font-size:15px}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.head h2{font-size:22px;line-height:1.15}
+.chip{display:inline-block;background:var(--chip);color:var(--chipt);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600;margin-right:6px}
+.money{text-align:right;white-space:nowrap}
+.money .pay{font-family:"Inter Tight",Inter,sans-serif;font-size:28px;font-weight:700;line-height:1}
+.money small{display:block;color:var(--muted);font-size:13px}
+.why{color:var(--muted);font-size:14px;margin:8px 0 10px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-size:12px;color:var(--muted);text-align:left;font-weight:600;padding:6px 6px;border-bottom:1px solid var(--line)}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{text-align:right;white-space:nowrap}
+td.rec b{white-space:nowrap}
+.l5{color:var(--muted);font-size:13px;white-space:nowrap}
+.warn{color:var(--red);font-size:13px;font-weight:600}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.row label{display:flex;gap:8px;align-items:center;font-weight:600;min-height:44px}
+.row input[type=checkbox]{width:22px;height:22px}
+.row input[type=text]{flex:1;min-width:160px;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button{font:600 16px Inter,sans-serif;min-height:44px;padding:0 18px;border-radius:10px;border:0;background:var(--chip);color:var(--chipt);cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.skip{border:1px dashed var(--line);background:transparent}
+.foot{color:var(--muted);font-size:13px;margin-top:20px}
+#copied{color:var(--ok);font-weight:600;margin-left:8px}
+@media(max-width:600px){table{font-size:14px}.stack thead{display:none}.stack tr{display:grid;padding-block:8px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:2px 0;padding-inline-start:6.5em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:6em;margin-inline-start:-6.5em;color:var(--muted);font-size:12px}.money{text-align:left}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<div class="wrap">
+  <h1>Thursday replacement stacks: 5 slips, every leg checked against the game logs</h1>
+  <p class="lede">These replace the six tickets that were all GB@LAR legs (#3 was Alejandro's split, so his call). Every leg cleared its price on both the season hit rate and the last 5 games (nflverse play-by-play, weeks 1–11). Prices are DK Predictions from Wed 3 AM and Bookmaker from Tue 10 PM: check each payout in the app before you place it. Proposals only; nothing is logged until you say “official”.</p>
+  <div class="deadline"><b>10:00 AM PT</b><span>CHI@DET kicks off. Slips 1, 5 and 6 have CHI@DET legs, so place those first.</span></div>
+  <div class="progress"><span id="prog">0 of 5 placed · $0 of $90</span><span>Official bankroll: #1, #5 ($60) · DKP/FDP off bankroll: #2, #4, #6 ($30)</span></div>
+  <div id="slips"></div>
+  <div class="slip skip"><div class="head"><h2>#3 · Alejandro's split</h2></div><p class="why">His call. His Thursday stack is already live (Swift/Gibbs TD, Lamb 6+, Lemon 3+, Allen/Mahomes 2 TD). If he wants a second ticket, slip #2 (KC@BUF) fits his style; it must go on one book at the best price.</p></div>
+  <div class="row"><button id="copy" type="button">Copy “official” summary of placed slips</button><span id="copied" aria-live="polite"></span></div>
+  <p class="foot">Records: season hits at the line / games played, then last 5. “Avoid” list from the same check: Josh Allen and Caleb Williams rush overs, Barkley carries/yards (2–17 carries a game coming back from injury), TeSlaa, and Kincaid 3+, St. Brown 5+ and Loveland 30+ (all priced well above their hit rates). Full table: reports/bets/2026-w12-thu-prop-usage-check.md.</p>
+</div>
+<script>
+{
+const S=[
+ {n:1,book:"Bookmaker",kind:"SGP · CHI@DET",stake:20,pay:"Bookmaker quotes",payN:null,cash:true,
+  why:"Detroit's run game against a Bears front that allows 4.21 a carry, with Chicago's own backfield and its steadiest receivers. Replaces the $20 Bookmaker 6-leg same-game parlay.",
+  legs:[["Gibbs over 92.5 rush yds","−108","7 of 10 (93+)","4 of 5","116, 153, 74, 153, 98"],
+        ["Gibbs anytime TD","—","9 of 10","4 of 5","0, 1, 1, 2, 2 TDs"],
+        ["Swift over 37.5 rush yds","−234","9 of 10","4 of 5","44, 78, 69, 31, 51"],
+        ["Jameson Williams over 3.5 rec","−120","7 of 10","4 of 5","5, 4, 1, 4, 4"],
+        ["Odunze over 2.5 rec (3+)","—","9 of 10","5 of 5","3, 4, 4, 4, 4"]],
+  warn:"Odunze: take over 2.5 only. If Bookmaker shows only over 3.5, drop the leg (4+ is 5 of 10)."},
+ {n:2,book:"DK Predictions",kind:"5-pick · KC@BUF",stake:10,pay:"≈ $103",payN:103,cash:false,
+  why:"Buffalo's run game in the rain: Cook has scored in 9 of 10 and cleared 80 in all of his last 5. Replaces the $10 DKP boost 6-pick.",
+  legs:[["James Cook anytime TD","51¢","9 of 10","5 of 5","scored in every one"],
+        ["James Cook 80+ rush yds","59¢","8 of 10","5 of 5","95, 80, 107, 157, 89"],
+        ["Travis Kelce 30+ rec yds","76¢","9 of 10","5 of 5","44, 67, 72, 30, 74"],
+        ["Ty Johnson 2+ rec","71¢","7 of 8","4 of 5","2, 3, 2, 1, 7"],
+        ["BUF to win","60¢","—","—","won by 5+ in 7 of 10"]],
+  warn:"BUF to win works against your BetOnline KC +4.5 (only BUF by 1–4 cashes both). Cook's TD is also on that BetOnline ticket."},
+ {n:4,book:"FanDuel Predicts",kind:"6-leg · PHI@DAL",stake:10,pay:"≈ $80 (DK prices)",payN:80,cash:false,
+  why:"Philadelphia's pass-catchers against a soft Dallas secondary, Dallas scoring at home. Lamb is left out on purpose: he is already on 3 live tickets. Replaces the $10 FanDuel 6-leg.",
+  legs:[["Dallas Goedert 30+ rec yds","57¢","7 of 8","5 of 5","61, 48, 30, 50, 38"],
+        ["George Pickens 40+ rec yds","84¢","9 of 10","5 of 5","73, 57, 48, 145, 102"],
+        ["DeVonta Smith 40+ rec yds","81¢","5 of 5","5 of 5","53, 117, 65, 75, 41"],
+        ["DAL to win","81¢","—","—","DAL 37 ppg last 4"],
+        ["Javonte Williams anytime TD","64¢","8 of 11","3 of 5","1, 0, 1, 0, 2 TDs"],
+        ["Dak Prescott 250+ pass yds","61¢","8 of 11","3 of 5","212, 195, 335, 343, 325"]],
+  warn:"DeVonta Smith has only 5 games this season. FanDuel's lines may differ from DK's: keep the thresholds at or below these."},
+ {n:5,book:"Bookmaker",kind:"2-team parlay",stake:40,pay:"$113.20",payN:113.2,cash:true,
+  why:"The two most reliable workhorse backs on the slate. Works out to +183, the same price as the GB +4 / Over ticket it replaces.",
+  legs:[["James Cook over 75.5 rush yds (KC@BUF)","−213","8 of 10","5 of 5","95, 80, 107, 157, 89"],
+        ["Jahmyr Gibbs over 92.5 rush yds (CHI@DET)","−108","7 of 10","4 of 5","116, 153, 74, 153, 98"]],
+  warn:"Gibbs is the weaker leg: Detroit is the underdog, so a big Bears lead cuts his carries."},
+ {n:6,book:"DK Predictions",kind:"6-pick · all three games",stake:10,pay:"≈ $108",payN:108,cash:false,
+  why:"The best-supported leg from each game spread across all three, so one bad script can't sink it alone. Replaces the second $10 DKP 6-pick.",
+  legs:[["James Cook anytime TD (KC@BUF)","51¢","9 of 10","5 of 5","scored in every one"],
+        ["Jahmyr Gibbs 70+ rush yds (CHI@DET)","76¢","8 of 10","5 of 5","116, 153, 74, 153, 98"],
+        ["Dallas Goedert 30+ rec yds (PHI@DAL)","57¢","7 of 8","5 of 5","61, 48, 30, 50, 38"],
+        ["Rome Odunze 3+ rec (CHI@DET)","69¢","9 of 10","5 of 5","3, 4, 4, 4, 4"],
+        ["Travis Kelce 30+ rec yds (KC@BUF)","76¢","9 of 10","5 of 5","44, 67, 72, 30, 74"],
+        ["D'Andre Swift 30+ rush yds (CHI@DET)","80¢","10 of 10","5 of 5","44, 78, 69, 31, 51"]],
+  warn:"Cook's TD repeats slip #2 and your BetOnline 10-leg."}
+];
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const K='w12-thu-replacements';let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
+document.getElementById('slips').innerHTML=S.map(s=>`<article class="slip" id="s${s.n}">
+ <div class="head"><div><h2>#${s.n} · ${esc(s.kind)}</h2><div style="margin-top:6px"><span class="chip">${esc(s.book)}</span><span class="chip">${s.cash?'Cash':'Off bankroll'}</span></div></div>
+ <div class="money"><div class="pay">${esc(s.pay)}</div><small>on $${s.stake}</small></div></div>
+ <p class="why">${esc(s.why)}</p>
+ <table class="stack"><thead><tr><th>Leg</th><th>Price</th><th>Season</th><th>Last 5</th><th>Last 5 games</th></tr></thead><tbody>
+ ${s.legs.map(l=>`<tr><td><b>${esc(l[0])}</b></td><td class="n">${esc(l[1])}</td><td class="rec"><b>${esc(l[2])}</b></td><td class="rec"><b>${esc(l[3])}</b></td><td class="l5">${esc(l[4])}</td></tr>`).join('')}
+ </tbody></table>
+ ${s.warn?`<p class="warn">${esc(s.warn)}</p>`:''}
+ <div class="row"><label><input type="checkbox" id="c${s.n}"> Placed</label><input type="text" id="t${s.n}" placeholder="Ticket # and actual payout" aria-label="Ticket number for slip ${s.n}"></div>
+</article>`).join('');
+const upd=()=>{let c=0,a=0;S.forEach(s=>{const on=!!st['c'+s.n];document.getElementById('s'+s.n).classList.toggle('done',on);if(on){c++;a+=s.stake}});document.getElementById('prog').textContent=`${c} of 5 placed · $${a} of $90`};
+S.forEach(s=>{const c=document.getElementById('c'+s.n),t=document.getElementById('t'+s.n);c.checked=!!st['c'+s.n];t.value=st['t'+s.n]||'';
+ c.addEventListener('change',()=>{st['c'+s.n]=c.checked;save();upd()});t.addEventListener('input',()=>{st['t'+s.n]=t.value;save()})});
+upd();
+document.getElementById('copy').addEventListener('click',async()=>{
+ const lines=S.filter(s=>st['c'+s.n]).map(s=>`#${s.n} ${s.book} $${s.stake} ${s.kind}: ${s.legs.map(l=>l[0]).join(' / ')} — ${st['t'+s.n]||'ticket ?'}`);
+ const txt=`official W12 Thursday replacement stacks placed (${lines.length}):\n`+lines.join('\n');
+ const o=document.getElementById('copied');
+ try{await navigator.clipboard.writeText(txt);o.textContent='Copied'}catch(e){o.textContent='Copy blocked: select and copy below';const p=document.createElement('pre');p.textContent=txt;p.style.whiteSpace='pre-wrap';o.after(p)}
+});
+}
+</script>
+</body>
+</html>

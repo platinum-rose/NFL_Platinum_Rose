@@ -1,187 +1,187 @@
 {
- "season": 2026,
- "note": "Lessons -> rules loop. Each post-mortem proposes at most 3 rules for the next week; Andy accepts them. Cash tickets only; promo/bonus/free-bet tickets are exempt. Managed by reports/bets/season-recap/scripts/rules.py.",
- "rules": [
-  {
-   "id": "C1",
-   "text": "Max 3-4 legs per cash ticket (6+ leg stacks are promo/bonus only)",
-   "check": "max_legs",
-   "params": {
-    "max": 4
-   },
-   "status": "retired",
-   "adopted": "2026-11-04",
-   "effective_week": 9,
-   "source": "Week 8 post-mortem",
-   "retired_why": "Replaced by R9-1 (max 6) after Week 9: max 4 was not followed (11 of 21 cash tickets)",
-   "retired_at": "2026-11-10"
-  },
-  {
-   "id": "C2",
-   "text": "One read on at most 2-3 cash tickets",
-   "check": "read_reuse",
-   "params": {
-    "max": 3
-   },
-   "status": "retired",
-   "adopted": "2026-11-04",
-   "effective_week": 9,
-   "source": "Week 8 post-mortem (Okonkwo receptions x5, Warren receiving x4)",
-   "retired_why": "Superseded by S5",
-   "retired_at": "2026-11-18"
-  },
-  {
-   "id": "C3",
-   "text": "Prefer rushing-lane legs; receiving props at the lowest rung offered",
-   "check": "lane_pref",
-   "params": {},
-   "status": "active",
-   "adopted": "2026-11-04",
-   "effective_week": 9,
-   "source": "Week 8 post-mortem (rushing 6-1, receptions 0-4, receiving yds 0-2)",
-   "check_note": "Proxy: flags a receiving leg on a cash ticket when the same player/market appears at a lower rung on another ticket that week."
-  },
-  {
-   "id": "C4",
-   "text": "No totals or same-team prop stacks on a shaky-QB game until inactives are out",
-   "check": "shaky_qb",
-   "params": {
-    "games": {
-     "9": [
-      {
-       "game": "JAX @ BAL",
-       "qb": "Joe Fagnano (BAL)",
-       "inactives": "2026-11-05T15:45:00-08:00"
-      }
-     ]
+  "season": 2026,
+  "note": "Lessons -> rules loop. Each post-mortem proposes at most 3 rules for the next week; Andy accepts them. Cash tickets only; promo/bonus/free-bet tickets are exempt. Managed by reports/bets/season-recap/scripts/rules.py.",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "Max 3-4 legs per cash ticket (6+ leg stacks are promo/bonus only)",
+      "check": "max_legs",
+      "params": {
+        "max": 4
+      },
+      "status": "retired",
+      "adopted": "2026-11-04",
+      "effective_week": 9,
+      "source": "Week 8 post-mortem",
+      "retired_why": "Replaced by R9-1 (max 6) after Week 9: max 4 was not followed (11 of 21 cash tickets)",
+      "retired_at": "2026-11-10"
+    },
+    {
+      "id": "C2",
+      "text": "One read on at most 2-3 cash tickets",
+      "check": "read_reuse",
+      "params": {
+        "max": 3
+      },
+      "status": "retired",
+      "adopted": "2026-11-04",
+      "effective_week": 9,
+      "source": "Week 8 post-mortem (Okonkwo receptions x5, Warren receiving x4)",
+      "retired_why": "Superseded by S5",
+      "retired_at": "2026-11-18"
+    },
+    {
+      "id": "C3",
+      "text": "Prefer rushing-lane legs; receiving props at the lowest rung offered",
+      "check": "lane_pref",
+      "params": {},
+      "status": "active",
+      "adopted": "2026-11-04",
+      "effective_week": 9,
+      "source": "Week 8 post-mortem (rushing 6-1, receptions 0-4, receiving yds 0-2)",
+      "check_note": "Proxy: flags a receiving leg on a cash ticket when the same player/market appears at a lower rung on another ticket that week."
+    },
+    {
+      "id": "C4",
+      "text": "No totals or same-team prop stacks on a shaky-QB game until inactives are out",
+      "check": "shaky_qb",
+      "params": {
+        "games": {
+          "9": [
+            {
+              "game": "JAX @ BAL",
+              "qb": "Joe Fagnano (BAL)",
+              "inactives": "2026-11-05T15:45:00-08:00"
+            }
+          ]
+        }
+      },
+      "status": "active",
+      "adopted": "2026-11-04",
+      "effective_week": 9,
+      "source": "Week 8 post-mortem (Lamar left BAL@BUF on the first series)"
+    },
+    {
+      "id": "C5",
+      "text": "Skip master round robins",
+      "check": "no_master_rr",
+      "params": {},
+      "status": "retired",
+      "adopted": "2026-11-04",
+      "effective_week": 9,
+      "source": "Season: 4-team master RRs 0 for 5",
+      "retired_why": "Andy 2026-11-17: master RRs allowed again",
+      "retired_at": "2026-11-18"
+    },
+    {
+      "id": "R9-1",
+      "text": "Cash tickets max 6 legs; 7+ leg stacks are promo/bonus only",
+      "check": "max_legs",
+      "params": {
+        "max": 6
+      },
+      "why": "Week 9: C1 (max 4) broken on 11 cash tickets; 7+ leg cash went 0/4 (-37.88) while 4-6 leg cash netted +297.43",
+      "status": "retired",
+      "proposed_week": 9,
+      "effective_week": 10,
+      "accepted_at": "2026-11-10",
+      "retired_why": "Superseded by S1",
+      "retired_at": "2026-11-18"
+    },
+    {
+      "id": "S1",
+      "text": "Cash tickets max 4 legs; 5-6 legs only on DraftKings Predictions; 7+ promo only. A round robin counts its combination size. Cash tickets and the Alejandro split are built from the core four (QB INT, passing TDs, receptions, tackles), 3-4 legs at +300 to +600; on 3-4 leg tickets take rushing-yard milestones one notch lower. Island cash only at +400 to +1500; Island Tiers 2-3 promo only.",
+      "check": "max_legs",
+      "params": {
+        "max": 4,
+        "dkp_max": 6,
+        "rr_by_combo": true
+      },
+      "why": "Midseason audit #1/#4/#9/#12 (Andy 11/17): 5+ leg cash 4 of 198; core four 60-65% legs; Island past +1500 0 of 71",
+      "status": "active",
+      "proposed_week": 10,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "S5",
+      "text": "At most 2 tickets per slate on one player (any stat) or one game total.",
+      "check": "player_cap",
+      "params": {
+        "max": 2
+      },
+      "why": "Midseason audit #5: W10 64% of legs shared, Henry on 5 tickets",
+      "status": "active",
+      "proposed_week": 10,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "S6",
+      "text": "Expert sides/MLs/teasers, best bets, Action Network, Ross Tucker, VSiN context only; expert totals flag only; splits/public fade never a reason.",
+      "check": "manual",
+      "params": {},
+      "why": "Midseason audit #6/#13: expert spreads -48.5u (441); public side 46-44",
+      "status": "active",
+      "proposed_week": 10,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "S14",
+      "text": "Spread PLAY needs a 2+ pt fair-line edge vs BKR (flat-stake straight bet); otherwise LEAN. Every game gets a side LEAN and a total LEAN every week; a LEAN is never a cash parlay leg.",
+      "check": "manual",
+      "params": {},
+      "why": "Fair-line backtest W3-10: sides 2+ edge 24-16",
+      "status": "active",
+      "proposed_week": 11,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "S20",
+      "text": "No A/B/C tiers: PLAY/LEAN/PASS with edge + basis on every line; props PLAY at 4+ pts over no-vig; probabilities shrunk halfway to the market. Props Unders first: an Over needs a named volume reason (core-four Overs exempt).",
+      "check": "manual",
+      "params": {},
+      "why": "Midseason audit #3/#8: Brier 0.252 vs 0.250; rec Overs 41-64, Unders 29-16",
+      "status": "active",
+      "proposed_week": 11,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "S22",
+      "text": "Model fair total is not a reason. Under PLAY needs wind 15+ km/h or a named QB downgrade; Over PLAY needs a named non-model reason; otherwise LEAN.",
+      "check": "manual",
+      "params": {},
+      "why": "Backtest: fair-total edge 2+ went 11-23; Unders in calm/indoor games 5-14",
+      "status": "active",
+      "proposed_week": 11,
+      "effective_week": 11,
+      "accepted_at": "2026-11-18"
+    },
+    {
+      "id": "R11-1",
+      "text": "Max $60 cash exposure per game per week; a parlay's full stake counts against every game in it.",
+      "check": "manual",
+      "params": {},
+      "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): MIN@SF $216.58 / JAX@NYG $201.59 / CIN@WAS $148.15 exposure all lost.",
+      "status": "active",
+      "proposed_week": 11,
+      "effective_week": 13,
+      "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24. | W12 (Thanksgiving holiday week) one-off exception: Andy 2026-11-25 11:24 AM PT deferred enforcement to week 13; W12 tickets exempt.",
+      "accepted_at": "2026-11-24"
+    },
+    {
+      "id": "R11-2",
+      "text": "Island games: at most 6 real tickets per game, 2-3 legs each; Tier 1 carries no leg that needs the favourite to win or cover.",
+      "check": "max_legs",
+      "params": {},
+      "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): Island SGP ladders 0/14 (-$158.06): TNF and MNF tiers all leaned one script.",
+      "status": "proposed",
+      "proposed_week": 11,
+      "effective_week": 13,
+      "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24. | W12 (Thanksgiving holiday week) one-off exception: Andy 2026-11-25 11:24 AM PT deferred enforcement to week 13; W12 tickets exempt."
     }
-   },
-   "status": "active",
-   "adopted": "2026-11-04",
-   "effective_week": 9,
-   "source": "Week 8 post-mortem (Lamar left BAL@BUF on the first series)"
-  },
-  {
-   "id": "C5",
-   "text": "Skip master round robins",
-   "check": "no_master_rr",
-   "params": {},
-   "status": "retired",
-   "adopted": "2026-11-04",
-   "effective_week": 9,
-   "source": "Season: 4-team master RRs 0 for 5",
-   "retired_why": "Andy 2026-11-17: master RRs allowed again",
-   "retired_at": "2026-11-18"
-  },
-  {
-   "id": "R9-1",
-   "text": "Cash tickets max 6 legs; 7+ leg stacks are promo/bonus only",
-   "check": "max_legs",
-   "params": {
-    "max": 6
-   },
-   "why": "Week 9: C1 (max 4) broken on 11 cash tickets; 7+ leg cash went 0/4 (-37.88) while 4-6 leg cash netted +297.43",
-   "status": "retired",
-   "proposed_week": 9,
-   "effective_week": 10,
-   "accepted_at": "2026-11-10",
-   "retired_why": "Superseded by S1",
-   "retired_at": "2026-11-18"
-  },
-  {
-   "id": "S1",
-   "text": "Cash tickets max 4 legs; 5-6 legs only on DraftKings Predictions; 7+ promo only. A round robin counts its combination size. Cash tickets and the Alejandro split are built from the core four (QB INT, passing TDs, receptions, tackles), 3-4 legs at +300 to +600; on 3-4 leg tickets take rushing-yard milestones one notch lower. Island cash only at +400 to +1500; Island Tiers 2-3 promo only.",
-   "check": "max_legs",
-   "params": {
-    "max": 4,
-    "dkp_max": 6,
-    "rr_by_combo": true
-   },
-   "why": "Midseason audit #1/#4/#9/#12 (Andy 11/17): 5+ leg cash 4 of 198; core four 60-65% legs; Island past +1500 0 of 71",
-   "status": "active",
-   "proposed_week": 10,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "S5",
-   "text": "At most 2 tickets per slate on one player (any stat) or one game total.",
-   "check": "player_cap",
-   "params": {
-    "max": 2
-   },
-   "why": "Midseason audit #5: W10 64% of legs shared, Henry on 5 tickets",
-   "status": "active",
-   "proposed_week": 10,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "S6",
-   "text": "Expert sides/MLs/teasers, best bets, Action Network, Ross Tucker, VSiN context only; expert totals flag only; splits/public fade never a reason.",
-   "check": "manual",
-   "params": {},
-   "why": "Midseason audit #6/#13: expert spreads -48.5u (441); public side 46-44",
-   "status": "active",
-   "proposed_week": 10,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "S14",
-   "text": "Spread PLAY needs a 2+ pt fair-line edge vs BKR (flat-stake straight bet); otherwise LEAN. Every game gets a side LEAN and a total LEAN every week; a LEAN is never a cash parlay leg.",
-   "check": "manual",
-   "params": {},
-   "why": "Fair-line backtest W3-10: sides 2+ edge 24-16",
-   "status": "active",
-   "proposed_week": 11,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "S20",
-   "text": "No A/B/C tiers: PLAY/LEAN/PASS with edge + basis on every line; props PLAY at 4+ pts over no-vig; probabilities shrunk halfway to the market. Props Unders first: an Over needs a named volume reason (core-four Overs exempt).",
-   "check": "manual",
-   "params": {},
-   "why": "Midseason audit #3/#8: Brier 0.252 vs 0.250; rec Overs 41-64, Unders 29-16",
-   "status": "active",
-   "proposed_week": 11,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "S22",
-   "text": "Model fair total is not a reason. Under PLAY needs wind 15+ km/h or a named QB downgrade; Over PLAY needs a named non-model reason; otherwise LEAN.",
-   "check": "manual",
-   "params": {},
-   "why": "Backtest: fair-total edge 2+ went 11-23; Unders in calm/indoor games 5-14",
-   "status": "active",
-   "proposed_week": 11,
-   "effective_week": 11,
-   "accepted_at": "2026-11-18"
-  },
-  {
-   "id": "R11-1",
-   "text": "Max $60 cash exposure per game per week; a parlay's full stake counts against every game in it.",
-   "check": "manual",
-   "params": {},
-   "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): MIN@SF $216.58 / JAX@NYG $201.59 / CIN@WAS $148.15 exposure all lost.",
-   "status": "active",
-   "proposed_week": 11,
-   "effective_week": 12,
-   "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24.",
-   "accepted_at": "2026-11-24"
-  },
-  {
-   "id": "R11-2",
-   "text": "Island games: at most 6 real tickets per game, 2-3 legs each; Tier 1 carries no leg that needs the favourite to win or cover.",
-   "check": "max_legs",
-   "params": {},
-   "why": "W11 post-mortem (reports/bets/2026-w11-postmortem.md): Island SGP ladders 0/14 (-$158.06): TNF and MNF tiers all leaned one script.",
-   "status": "proposed",
-   "proposed_week": 11,
-   "effective_week": 12,
-   "note": "Filed outside the 3-per-week propose cap (W11 slots used by S-rules); week fields set by hand 2026-11-24."
-  }
- ]
+  ]
 }

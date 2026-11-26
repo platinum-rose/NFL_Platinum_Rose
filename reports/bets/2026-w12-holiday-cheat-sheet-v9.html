@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W12 Holiday Cheat Sheet v9 — 4 placed, 6 to go</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work, on the run: a pocket checklist read on a phone between other jobs
+   IDEA a pre-game clipboard: timed steps, then one slip card per ticket to tick off
+   PICTURE the live progress rail (tickets placed / $ staked) plus the slip cards themselves
+   COLOUR turf green field, white slip paper, black ink, pylon orange for gates and warnings
+   TYPE Barlow Condensed for numbers and titles + Barlow for text
+   LAYOUT phone: one column, sticky progress bar; laptop: steps left, slips in a two-column grid */
+:root{color-scheme:light dark;--bg:light-dark(#eef1ec,#0d1512);--ink:light-dark(#111614,#e9eee9);--mut:light-dark(#56605b,#9aa69f);--turf:light-dark(#0f4d36,#0a2f22);--paper:light-dark(#fff,#16211c);--rule:light-dark(#d9ddd8,#2a3831);--org:light-dark(#c94a00,#ff8a45);--ok:light-dark(#0f7a4d,#5fc49a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Barlow,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,5vw,46px)}h2{font-size:28px;margin:0 0 12px}h3{font-size:22px}
+.band{padding:clamp(22px,4vw,48px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.top{background:var(--turf);color:#fff}
+.top p{margin:8px 0 0;color:#dbe8e1;max-width:70ch}
+.bar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--bg);padding:10px max(5vw,16px);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar b{font:700 22px "Barlow Condensed",sans-serif;white-space:nowrap}
+.meter{flex:1 1 160px;height:10px;background:color-mix(in srgb,var(--bg) 25%,transparent);border-radius:5px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+@media(prefers-reduced-motion:reduce){.meter i{transition:none}}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:28px;align-items:start}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.steps time{font:700 20px "Barlow Condensed",sans-serif;white-space:nowrap;color:var(--org);grid-row:span 2}
+.steps strong{display:block}
+.steps span{font-size:15px;color:var(--mut)}
+.gates{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--org);border-radius:6px;padding:14px 16px;margin-top:18px}
+.gates ul{margin:6px 0 0;padding-left:18px}.gates li{margin:4px 0;font-size:15px}
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
+.slip{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.slip.done{border-color:var(--ok);box-shadow:inset 4px 0 0 var(--ok)}
+.slip header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.slip header .p{font:700 22px "Barlow Condensed",sans-serif;white-space:nowrap}
+.slip .sub{font-size:14px;color:var(--mut);margin:4px 0 6px}
+.legs{list-style:none;margin:0;padding:0}
+.legs li{display:grid;grid-template-columns:4.6em minmax(0,1fr) auto;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:15px}
+.legs .g{color:var(--mut);font-size:13px;white-space:nowrap;padding-top:2px}
+.legs .o{font-variant-numeric:tabular-nums;white-space:nowrap}
+.legs li.sun .g{color:var(--ok)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.row label{display:flex;gap:8px;align-items:center;font-weight:600;min-height:44px;cursor:pointer}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--ok)}
+input[type=text]{font:16px Barlow,sans-serif;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--bg);color:var(--ink);width:11em;min-height:44px}
+button{font:600 16px Barlow,sans-serif;min-height:44px;padding:8px 16px;border-radius:4px;border:0;background:var(--turf);color:#fff;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--org);outline-offset:2px}
+.swap{font-size:14px;color:var(--mut);margin-top:8px}
+.warn{color:var(--org);font-weight:600}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{text-align:left;font-size:14px;color:var(--mut);border-bottom:2px solid var(--ink);padding:6px 10px 6px 0}
+td{border-bottom:1px solid var(--rule);padding:7px 10px 7px 0;vertical-align:top}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+.note{font-size:14px;color:var(--mut)}
+#out{white-space:pre-wrap;font:14px/1.4 ui-monospace,monospace;background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:10px;margin-top:10px;overflow-wrap:anywhere}
+@media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){table{font-size:13px}.legs li{grid-template-columns:4em minmax(0,1fr) auto}}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid var(--ink);scrollbar-width:thin}
+.tabs button{flex:0 0 auto;min-width:64px;background:var(--paper);color:var(--ink);border:1px solid var(--rule);font:700 18px "Barlow Condensed",sans-serif;padding:6px 12px;line-height:1.1}
+.tabs button small{display:block;font:500 12px Barlow,sans-serif;color:var(--mut)}
+.tabs button[aria-selected=true]{background:var(--turf);color:#fff;border-color:var(--turf)}
+.tabs button[aria-selected=true] small{color:#dbe8e1}
+.tabs button.done::after{content:" ✓";color:var(--ok)}
+.tabs button[aria-selected=true].done::after{color:#9fe3c2}
+.slips.one{display:block}.slips.one .slip{max-width:560px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:12px;max-width:560px}
+</style>
+</head>
+<body>
+<section class="band top">
+ <div class="wrap">
+  <h1>Wednesday cheat sheet v9: 10 slips, $75 — #1 and #5 placed, 8 to go (Kyren active)</h1>
+  <p><b>v9 (1:45 PM):</b> Kyren Williams is <b>active</b> (cleared off the final report) and Jacobs is still expected out, so the Rams side is stronger: <b>slip #9 moves from GB +2.5 to LAR ML</b>. The split is now GB ML #1 (placed on DKP), GB +2.5 on #3 and #7, and LAR ML on #2, #8, #9 and #10. Slip #5 is placed as is (Corum 11+ carries). Whichever side wins tonight, some slips survive, and a LAR win by 1–2 cashes both LAR ML and GB +2.5. Payouts run $501 to $1,695. Every slip still climbs in difficulty: the easiest leg on GB@LAR tonight, easy Thursday-morning legs, mid Thursday legs, then your Sunday leans, with <b>LV +5 (Sunday night) as the last leg on all 10</b> so one CLE bet can hedge whatever is still alive. Place between the GB/LAR inactives (~3:45 PM PT) and kickoff (~5:00 PM PT). Each slip should pay $500–$1,750. Prices are Bookmaker Tue 11-24 10:07 PM PT, so expect small moves. Proposals only; nothing logged until you paste the summary with "official".</p>
+ </div>
+</section>
+<div class="bar" aria-live="polite"><b id="cnt">0 / 10 placed</b><div class="meter"><i id="mtr"></i></div><b id="amt">$0 of $75</b></div>
+<section class="band">
+ <div class="wrap grid">
+  <div>
+   <h2>Action list</h2>
+   <ol class="steps">
+    <li><time>3:45 PM</time><strong>GB/LAR inactives — Kyren resolved</strong><span>Kyren Williams is ACTIVE (cleared Tue). Slip #5 was placed before the news, so its Corum leg stays. Jacobs still expected out: that helps the Love completions slips (#4, #6). Re-check inactives for any late surprise.</span></li>
+    <li><time>3:50 PM</time><strong>Look for the extra prop markets</strong><span>On each holiday game's props tab, check whether Bookmaker lists kicker FG, team sacks or tackles. If it does, see the 'Not on the board' table for the swaps.</span></li>
+    <li><time>3:50 PM</time><strong>Open Bookmaker → NFL → parlay</strong><span>Build each slip in the order shown: Wed, Thu morning, Thu afternoon, Thu night, Sunday, LV +5 last. Alt lines (carries, completions, Cook rungs) are on each game's player-props tab.</span></li>
+    <li><time>3:55–4:50</time><strong>Place slips #1 → #10</strong><span>Each slip has its own tab (✓ once ticked); use Next slip to move on. Enter the stake, check the payout is $500–$1,750, place, type the ticket # into its card and tick it.</span></li>
+    <li><time>Any time</time><strong>Copy ticket numbers to Claude</strong><span>Press "Copy summary" at the bottom and paste it into the chat with the word "official" to log them.</span></li>
+   </ol>
+   <div class="gates">
+    <h3>Gates (decide in 10 seconds)</h3>
+    <ul>
+     <li><b>Any player inactive or leg off the board:</b> use the backup printed under that slip.</li>
+     <li><b>Payout under $500</b> (slip #5 is closest): swap Cook o75.5 or BUF ML for Cook o95.5 (+124).</li>
+     <li><b>Payout over $1,750</b> (slip #1 is closest): swap Jameson o3.5 rec for Swift o11.5 carries (−200).</li>
+     <li><b>Payout off its target by more than ~15%:</b> fine as long as it stays $500–$1,750.</li>
+     <li><b>WAS shows −6.5:</b> take it (better than −7).</li>
+     <li><b>Price moved but payout still $500–$1,750:</b> just place it.</li>
+    </ul>
+   </div>
+  </div>
+  <div>
+   <h2>Slips</h2>
+   <div class="tabs" role="tablist" aria-label="Slips" id="tabs"></div>
+   <div class="slips one" id="slips"></div>
+   <div class="nav"><button class="ghost" id="prev">← Previous slip</button><button id="next">Next slip →</button></div>
+  </div>
+ </div>
+</section>
+<section class="band" style="padding-top:0">
+ <div class="wrap grid">
+  <div>
+   <h2>Why each leg is here</h2>
+   <p class="note">Hit rates are from the 2026 game logs through Week 11. Matchup reads come from the W12 matchup files. The expert is Zachary Cohen (Action Network, 11-25). Orange = needs a check before or after placing.</p>
+   <div class="scroll"><table><thead><tr><th>Game</th><th>Leg</th><th>Backing</th></tr></thead><tbody><tr><td>GB@LAR Wed</td><td>GB ML / GB +2.5</td><td class="warn">Your call to split the Wednesday game. Our model leans LAR (80% vs a 57% market), so the GB slips are a hedge on the game, not a data lean. GB +2.5 at −103; GB ML +121.</td></tr><tr><td>GB@LAR Wed</td><td>LAR ML</td><td class="">Model LAR 80% vs market 57%; Cohen Rams −2.5. Easiest backed Wed leg.</td></tr><tr><td>GB@LAR Wed</td><td>Corum o10.5 carries</td><td class="warn">9, 17, 11, 11, 17 last 5. Only if Kyren is limited or out.</td></tr><tr><td>GB@LAR Wed</td><td>Love o20.5 completions</td><td class="">23, 27, 30, 23, 17 last 5; GB trailing script.</td></tr><tr><td>CHI@DET Thu</td><td>Swift o11.5 carries / o37.5 yds</td><td class="warn">Carries 16, 22, 27, 12, 13 last 5; 38+ yds in 9 of 10. On 9 slips.</td></tr><tr><td>CHI@DET Thu</td><td>CHI ML</td><td class="">Cohen Bears ML; model 55% vs 52%.</td></tr><tr><td>PHI@DAL Thu</td><td>DAL ML / Javonte o17.5 carries</td><td class="">DAL 37.0 ppg L4 vs PHI 15.2; Javonte 25, 24, 20, 16, 18.</td></tr><tr><td>PHI@DAL Thu</td><td>Pickens o71.5 / Lamb o90.5</td><td class="">Shell fit +18% / 41 targets L3; PHI allows 2nd-most WR yds.</td></tr><tr><td>KC@BUF Thu</td><td>Cook o65.5 / o75.5 rush yds</td><td class="">95, 80, 107, 157, 89 last 5; 85% heavy rain helps the run.</td></tr><tr><td>KC@BUF Thu</td><td>Cook o95.5 / BUF ML</td><td class="">96+ in 5 of 10 (the harder rung) / BUF won by 5+ in 7 of 10.</td></tr><tr><td>Sun</td><td>WAS −7</td><td class="">ARI 12.2 ppg L4, lost last 3 by 14/28/27; Josh Johnson. Shop −6.5.</td></tr><tr><td>Sun</td><td>TEN@JAX over 49.5</td><td class="">TEN last 4 totals 51/79/63/81; TEN allows 40.2 ppg L4. JAX D elite.</td></tr><tr><td>Sun</td><td>BAL@HOU over 47</td><td class="warn">BAL allows 31.8 ppg L4; HOU D strong. Weakest of the five.</td></tr><tr><td>CHI@DET Thu</td><td>Goff o1.5 pass TD</td><td class="">2+ TD in 7 of 10; CHI allowed 3, 2, 2, 0, 1 the last 5. Your ledger: QB pass-TD legs 70-39.</td></tr><tr><td>CHI@DET Thu</td><td>Jameson Williams o3.5 rec</td><td class="warn">5, 4, 1, 4, 4 last 5 (7 of 10). Receptions only; the deep-dive fades his yards.</td></tr><tr><td>PHI@DAL Thu</td><td>Dak o1.5 pass TD</td><td class="">3, 1, 2, 5, 4 last 5; PHI allowed 2+ in 2 of last 5.</td></tr><tr><td>Sun</td><td>MIN −7 (vs ATL)</td><td class="">ATL −0.141 EPA/db into MIN 72% blitz rate (SuperContest lean). Take −6.5 if offered.</td></tr><tr><td>Sun</td><td>NYG −6.5 (at IND)</td><td class="">IND −0.207 EPA/db, worst offense on the slate; NYG blitz 38.5% (SuperContest lean).</td></tr><tr><td>SNF</td><td>LV +5</td><td class="">Total 41; CLE run game 27th vs LV run D 2nd. Hedge cap on all 10.</td></tr></tbody></table></div>
+   <h3 style="margin-top:22px">Not on Bookmaker's board (checked Tue 10:07 PM capture)</h3>
+   <p class="note">Bookmaker's capture had no kicker, sack or tackle markets, and its only catch lines were 3.5+ (no 1- or 2-catch lines for WR3s). If Bookmaker shows these tonight, they're good easy swaps. Otherwise they need a DraftKings slip.</p>
+   <div class="scroll"><table><thead><tr><th>Leg</th><th>Record</th><th>Use as</th></tr></thead><tbody>
+   <tr><td>DAL defense 2+ sacks (vs PHI)</td><td>DAL 2+ in 8 of 11; Milton's PHI took 2+ in 9 of 10 (7 and 3 in the last two)</td><td>swap for Dak TD / DAL ML</td></tr>
+   <tr><td>CHI defense 2+ sacks (at DET)</td><td>10 of 10; DET took 2+ in 6 of 10</td><td>swap for any CHI@DET leg</td></tr>
+   <tr><td>DET defense 2+ sacks (vs CHI)</td><td>9 of 10; CHI took 2+ in 6 of 10</td><td>swap for any CHI@DET leg</td></tr>
+   <tr><td>Cairo Santos (CHI) 1+ FG · dome</td><td>9 of 10</td><td>easy Thu-morning leg</td></tr>
+   <tr><td>Brandon Aubrey (DAL) 1+ FG · dome</td><td>9 of 11</td><td>easy Thu-afternoon leg</td></tr>
+   <tr><td>Tyler Bass (BUF) 2+ FG</td><td class="warn">7 of 10 (3, 4, 3, 3, 1, 4 last 6), but heavy rain Thu hurts kicking</td><td>only if the rain clears</td></tr>
+   <tr><td>Nick Bolton / Drue Tranquill (KC) 6+ tackles</td><td>8 of 10 / 9 of 10; a rainy, run-heavy BUF game means more tackles</td><td>Thu-night leg</td></tr>
+   <tr><td>Evan Williams (GB) 6+ tackles</td><td>9 of 10 (6, 9, 10, 5, 8 last 5)</td><td>Wed leg</td></tr>
+   <tr><td>Quentin Lake (LAR) 6+ tackles</td><td class="warn">9 of 10, but 2 last game</td><td>Wed leg</td></tr>
+   </tbody></table></div>
+   <p class="note">Excluded: Jack Campbell (DET) and Zack Baun (PHI) are on IR. Your ledger by leg type this season (cash): QB pass TD 70-39, interceptions 46-30, receptions 130-90, tackles 49-33, sacks 20-30, FG 32-30. Sacks are on the list for matchup reasons despite that record.</p>
+   <h3 style="margin-top:22px">Cut from the v3 sheet</h3>
+   <div class="scroll"><table><thead><tr><th>Leg</th><th>Why it's gone</th></tr></thead><tbody><tr><td>Milton o41.5 rush yds</td><td class="warn">2 career games (64, 7)</td></tr><tr><td>Monangai o34.5 rush yds</td><td class="warn">expert only; Swift leads</td></tr><tr><td>Golden o76.5 rec yds</td><td class="warn">against our LAR WR read</td></tr><tr><td>Rice o47.5 / 6+ rec</td><td class="warn">85% heavy rain Thu</td></tr><tr><td>CLE ML</td><td class="warn">no data support</td></tr><tr><td>NYJ ML</td><td class="warn">pool model leans MIA</td></tr><tr><td>Other Sunday MLs (WSH, MIN, NYG, SF, HOU, JAX, CIN)</td><td class="warn">replaced by your leans and spreads</td></tr><tr><td>SEA +3.5</td><td class="warn">dropped in v7 (Darnold Q)</td></tr><tr><td>Love o1.5 pass TD</td><td class="warn">LAR allowed 0, 2, 0, 1, 0 the last 5</td></tr><tr><td>Mahomes pass TD legs</td><td class="warn">BUF 0 pass TD allowed last 4 + rain</td></tr></tbody></table></div>
+  </div>
+  <div>
+   <h2>Where the money sits</h2>
+   <div class="scroll"><table><thead><tr><th>Game</th><th>On slips</th><th>Exposure</th></tr></thead><tbody id="exp"></tbody></table></div>
+   <p class="note" style="margin-top:10px">Wednesday (v9): GB side on 3 slips ($25: GB ML #1 placed, GB +2.5 #3/#7), LAR ML on 4 ($25: #2/#8/#9/#10), Love completions on 2, Corum carries on 1 (placed). Placed variants: #1 has WAS −6.5, BAL@HOU o45.5, LV +5.5; #5 has TEN@JAX o48, MIN −6.5. Heaviest: LV +5 on all 10 (the hedge cap). TEN@JAX over 8; WAS −7, BAL@HOU over and MIN −7 on 7 each; NYG −6.5 on 6. Thursday is spread out: Swift on 3 slips, Goff, Jameson, Dak and CHI ML elsewhere. Payouts multiply each leg; Bookmaker's quote can differ slightly.</p>
+   <h3 style="margin-top:22px">Sunday night hedge (LV +5 is every slip's last leg)</h3>
+   <p class="note">If a slip is alive going into Sunday night, betting the amount below on CLE −5 (about −107) locks roughly the same profit either way. Add up the live slips. To keep a middle instead, hedge with the CLE moneyline: a CLE win by 1–4 pays both. Re-price live.</p>
+   <div class="scroll"><table><thead><tr><th>Slip</th><th>Pays</th><th>Hedge on CLE −5</th></tr></thead><tbody><tr><td>#1</td><td class="n">$1695</td><td class="n">$876</td></tr><tr><td>#2</td><td class="n">$1005</td><td class="n">$519</td></tr><tr><td>#3</td><td class="n">$1412</td><td class="n">$730</td></tr><tr><td>#4</td><td class="n">$1503</td><td class="n">$777</td></tr><tr><td>#5</td><td class="n">$501</td><td class="n">$259</td></tr><tr><td>#6</td><td class="n">$650</td><td class="n">$336</td></tr><tr><td>#7</td><td class="n">$871</td><td class="n">$450</td></tr><tr><td>#8</td><td class="n">$932</td><td class="n">$482</td></tr><tr><td>#9</td><td class="n">$1230</td><td class="n">$636</td></tr><tr><td>#10</td><td class="n">$1248</td><td class="n">$645</td></tr></tbody></table></div>
+   <div class="row"><button id="copy">Copy summary</button><button class="ghost" id="reset">Clear ticks</button></div>
+   <div id="out" hidden></div>
+  </div>
+ </div>
+</section>
+<script>
+{
+const T=[{"n": 1, "st": 15, "pay": 1297, "pr": "1.1% DKP", "t": "Wednesday: GB ML · PLACED on DKP", "alive": 12, "h": 670, "l": [["GB@LAR", "GB to win", "46¢", "your call · Wed split"], ["CHI@DET", "Jameson Williams 4+ rec", "57¢", "7 of 10, 4 of last 5"], ["PHI@DAL", "DAL to win", "81¢", "DAL 37 ppg L4"], ["KC@BUF", "BUF to win", "60¢", "won by 5+ in 7 of 10"], ["Sun", "WAS −6.5 (at ARI)", "DKP", "ARI 12 ppg L4"], ["Sun", "NYG −6.5 (at IND)", "DKP", "IND worst offense"], ["Sun", "BAL@HOU over 45.5 (alt)", "DKP", "bought 1.5 pts"], ["SNF", "LV +5.5 (at CLE, alt) · last leg", "55¢", "hedge cap"]], "b": "Placed — no backups needed.", "bb": "DK Predictions (moved off Bookmaker for easier lines: WAS −6.5, LV +5.5, o45.5; est. hit ~1.0% vs ~0.7%).", "pl": "DK Predictions 8-pick, $15 → $1,297, 11/25 12:25 PM (off official bankroll)"}, {"n": 2, "st": 10, "pay": 1005, "pr": "+9,950", "t": "Wednesday: LAR ML", "alive": 14, "h": 519, "l": [["GB@LAR", "LAR ML", "−134", "model 80%"], ["CHI@DET", "Swift o37.5 rush yds", "−234", "9 of 10"], ["PHI@DAL", "Lamb o90.5 rec yds", "−109", "5 of 10"], ["KC@BUF", "Cook o75.5 rush yds", "−213", "8 of 10, last 5 all"], ["Sun", "WAS −7 (at ARI)", "−112", "ARI 12 ppg L4"], ["Sun", "TEN@JAX over 49.5", "+100", "TEN games 51/79/63/81"], ["Sun", "MIN −7 (vs ATL)", "−103", "ATL into 72% blitz"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "Swift off the board → CHI ML (−114)", "bb": "Bookmaker only — BetOnline has no Cook or Swift rush-yds props. DK Predictions: no player props captured."}, {"n": 3, "st": 10, "pay": 376, "pr": "2.5% DKP", "t": "REPLACED on DKP · GB +3.5", "alive": 10, "h": 730, "l": [["GB@LAR", "GB +3.5 (alt)", "DKP", "bought to +3.5"], ["CHI@DET", "Goff 2+ pass TDs", "DKP", "CHI D thin"], ["PHI@DAL", "Pickens 70+ rec yds", "DKP", "strong lean"], ["KC@BUF", "BUF to win", "DKP", "won by 5+ in 7 of 10"], ["Sun", "CIN to win (vs NO)", "DKP", "pool 15"], ["Sun", "SF to win (vs SEA)", "DKP", "pool lean"], ["Sun", "WAS to win (at ARI)", "DKP", "ARI 12 ppg L4"], ["Sun", "BAL@HOU over 45.5 (alt)", "DKP", "bought 1.5"]], "b": "Placed — no backups needed. No LV Sunday-night leg on this one.", "bb": "DK Predictions (replaces Bookmaker #3).", "pl": "DK Predictions 8-pick, $10 → $376, 11/25 1:53 PM (off official bankroll)"}, {"n": 4, "st": 15, "pay": 1297, "pr": "1.1% DKP", "t": "REPLACED on DKP · Love 21+ completions", "alive": 19, "h": 777, "l": [["GB@LAR", "Love 21+ completions", "DKP", "Jacobs out → GB throws"], ["GB@LAR", "Landman 7+ tackles+assists", "DKP", "LAR LB"], ["CHI@DET", "CHI to win", "DKP", "Cohen 1.5u"], ["CHI@DET", "Swift anytime TD", "DKP", "goal-line lead"], ["PHI@DAL", "Dak 2+ pass TDs", "DKP", "DAL 37 ppg L4"], ["PHI@DAL", "Lamb anytime TD", "DKP", "41 tgts L3"], ["KC@BUF", "Cook 70+ rush yds", "DKP", "rain + fav script"], ["KC@BUF", "Allen anytime TD", "DKP", ""], ["KC@BUF", "Mahomes 2+ pass TDs", "DKP", "on 3 tickets"]], "b": "Placed — all legs settle by Thu night; no Sunday legs.", "bb": "DK Predictions (replaces Bookmaker #4; stake $15 vs $10).", "pl": "DK Predictions 9-pick, $15 → $1,297, 11/25 1:58 PM (off official bankroll)"}, {"n": 5, "st": 5, "pay": 428, "pr": "+8,456", "t": "Wednesday: Corum 11+ carries · PLACED", "alive": 14, "h": 221, "l": [["GB@LAR", "Corum 11+ carries", "−209", "Kyren active: ~65%"], ["CHI@DET", "Swift 12+ carries", "−200", "9 of 10, last 5 all"], ["PHI@DAL", "Lamb 91+ rec yds", "−114", "5 of 10"], ["KC@BUF", "BUF ML", "−149", "won by 5+ in 7 of 10"], ["Sun", "WAS −7 (at ARI)", "−111", "ARI 12 ppg L4"], ["Sun", "TEN@JAX over 48", "−121", "TEN games 51/79/63/81"], ["Sun", "MIN −6.5 (vs ATL)", "−118", "ATL into 72% blitz"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "Placed before the Kyren news; the Corum → LAR ML swap is no longer possible.", "bb": "Bookmaker only — BetOnline has Corum o12.5 and Swift o13.5 carries only. DK Predictions: no player props captured.", "pl": "Bookmaker #742347346, $5 → $427.82, 11/25 ~12:00 PM"}, {"n": 6, "st": 5, "pay": 650, "pr": "+12,900", "t": "Wednesday: Love o20.5 completions", "alive": 21, "h": 336, "l": [["GB@LAR", "Love o20.5 completions", "−218", "8 of 10 · Jacobs out → GB throws"], ["CHI@DET", "Jameson Williams o3.5 rec", "−120", "7 of 10, 4 of last 5"], ["PHI@DAL", "Javonte o17.5 carries", "−213", "4 of last 5"], ["KC@BUF", "Cook o65.5 rush yds", "−439", "9 of 10, last 5 all"], ["Sun", "WAS −7 (at ARI)", "−112", "ARI 12 ppg L4"], ["Sun", "TEN@JAX over 49.5", "+100", "TEN games 51/79/63/81"], ["Sun", "BAL@HOU over 47", "−108", "weakest lean"], ["Sun", "NYG −6.5 (at IND)", "−108", "IND worst offense"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "Love line moved past 21.5 → LAR ML (−134); Goff/Jameson leg off the board → CHI ML (−114); NYG shows −7 → take it only at −110 or better, else BAL@HOU over", "bb": "Bookmaker only — BetOnline has no Love completions or Cook, Javonte o18.5 only. DK Predictions: no player props captured."}, {"n": 7, "st": 5, "pay": 871, "pr": "+17,320", "t": "Wednesday: GB +2.5", "alive": 8, "h": 450, "l": [["GB@LAR", "GB +2.5", "−103", "Wed split · Kyren active, take +3 if shown"], ["CHI@DET", "CHI ML", "−114", "Cohen 1.5u"], ["PHI@DAL", "Pickens o71.5 rec yds", "−108", "6 of 10"], ["KC@BUF", "BUF ML", "−147", "won by 5+ in 7 of 10"], ["Sun", "TEN@JAX over 49.5", "+100", "TEN games 51/79/63/81"], ["Sun", "BAL@HOU over 47", "−108", "weakest lean"], ["Sun", "MIN −7 (vs ATL)", "−103", "ATL into 72% blitz"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "GB shows +3 → take it (better); +1.5 or worse → GB ML only if payout stays under $1,750", "bb": "Bookmaker — $871 vs BetOnline ≈$786 (GB +1.5 and LV +4.5 there). DK Predictions: no player props captured."}, {"n": 8, "st": 5, "pay": 932, "pr": "+18,540", "t": "Wednesday: LAR ML", "alive": 14, "h": 482, "l": [["GB@LAR", "LAR ML", "−134", "model 80%"], ["CHI@DET", "Swift o37.5 rush yds", "−234", "9 of 10"], ["PHI@DAL", "Lamb o90.5 rec yds", "−109", "5 of 10"], ["KC@BUF", "Cook o75.5 rush yds", "−213", "8 of 10, last 5 all"], ["Sun", "WAS −7 (at ARI)", "−112", "ARI 12 ppg L4"], ["Sun", "BAL@HOU over 47", "−108", "weakest lean"], ["Sun", "MIN −7 (vs ATL)", "−103", "ATL into 72% blitz"], ["Sun", "NYG −6.5 (at IND)", "−108", "IND worst offense"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "Swift off the board → CHI ML (−114); NYG shows −7 → take it only at −110 or better, else BAL@HOU over", "bb": "Bookmaker only — BetOnline has no Cook or Swift rush-yds props. DK Predictions: no player props captured."}, {"n": 9, "st": 5, "pay": 1090, "pr": "+21,700", "t": "Wednesday: LAR ML (v9, was GB +2.5)", "alive": 13, "h": 564, "l": [["GB@LAR", "LAR ML", "−134", "v9: Kyren active · model 80%"], ["CHI@DET", "CHI ML", "−114", "Cohen 1.5u"], ["PHI@DAL", "Javonte o17.5 carries", "−213", "4 of last 5"], ["KC@BUF", "BUF ML", "−147", "won by 5+ in 7 of 10"], ["Sun", "WAS −7 (at ARI)", "−112", "ARI 12 ppg L4"], ["Sun", "TEN@JAX over 49.5", "+100", "TEN games 51/79/63/81"], ["Sun", "BAL@HOU over 47", "−108", "weakest lean"], ["Sun", "NYG −6.5 (at IND)", "−108", "IND worst offense"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "LAR ML past −150 → keep GB +2.5 (−103) instead; NYG shows −7 → take it only at −110 or better, else BAL@HOU over", "bb": "Bookmaker only — BetOnline has Javonte o18.5 carries and GB +1.5 only. DK Predictions: no player props captured."}, {"n": 10, "st": 5, "pay": 1248, "pr": "+24,860", "t": "Wednesday: LAR ML", "alive": 11, "h": 645, "l": [["GB@LAR", "LAR ML", "−134", "model 80%"], ["CHI@DET", "Jameson Williams o3.5 rec", "−120", "7 of 10, 4 of last 5"], ["PHI@DAL", "Pickens o71.5 rec yds", "−108", "6 of 10"], ["KC@BUF", "Cook o75.5 rush yds", "−213", "8 of 10, last 5 all"], ["Sun", "WAS −7 (at ARI)", "−112", "ARI 12 ppg L4"], ["Sun", "TEN@JAX over 49.5", "+100", "TEN games 51/79/63/81"], ["Sun", "BAL@HOU over 47", "−108", "weakest lean"], ["Sun", "MIN −7 (vs ATL)", "−103", "ATL into 72% blitz"], ["SNF", "LV +5 (at CLE) · last leg", "−109", "hedge cap"]], "b": "Goff/Jameson leg off the board → CHI ML (−114)", "bb": "Bookmaker only — BetOnline has no Cook props. DK Predictions: no player props captured."}];
+const K='w12-holiday-sheet-v8';let S={};try{S=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const box=document.getElementById('slips');
+box.innerHTML=T.map(t=>`<article class="slip" id="s${t.n}" role="tabpanel" aria-labelledby="tb${t.n}" tabindex="0" hidden><header><h3>#${t.n} · $${t.st}</h3><span class="p">${t.pr} → $${t.pay}</span></header><div class="sub">${esc(t.t)} · ${t.l.length} legs · alive after Thu ≈${t.alive}%</div>${t.pl?`<div class="swap" style="border-color:#2e7d32"><b>PLACED:</b> ${esc(t.pl)}</div>`:''}<ul class="legs">${t.l.map(x=>`<li class="${x[0]==='Sun'||x[0]==='SNF'?'sun':''}"><span class="g">${x[0]}</span><span>${esc(x[1])} <span class="note">· ${esc(x[3])}</span></span><span class="o">${x[2]}</span></li>`).join('')}</ul><div class="swap"><b>Best book:</b> ${esc(t.bb)}</div><div class="swap">Backup: ${esc(t.b)}</div><div class="row"><label><input type="checkbox" id="c${t.n}"> Placed</label><input type="text" id="n${t.n}" placeholder="Ticket #" aria-label="Ticket number for slip ${t.n}"></div></article>`).join('');
+const tabs=document.getElementById('tabs');
+tabs.innerHTML=T.map(t=>`<button role="tab" id="tb${t.n}" aria-controls="s${t.n}" aria-selected="false" tabindex="-1">#${t.n}<small>$${t.st} · $${t.pay}</small></button>`).join('');
+let cur=Math.min(Math.max(+S.tab||1,1),T.length);
+const show=(n,focus)=>{cur=n;S.tab=n;save();T.forEach(t=>{const on=t.n===n,b=document.getElementById('tb'+t.n);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById('s'+t.n).hidden=!on;if(on){if(focus)b.focus();b.scrollIntoView({block:'nearest',inline:'nearest'})}});document.getElementById('prev').disabled=n===1;document.getElementById('next').disabled=n===T.length};
+T.forEach(t=>document.getElementById('tb'+t.n).addEventListener('click',()=>show(t.n)));
+tabs.addEventListener('keydown',e=>{let n=cur;if(e.key==='ArrowRight')n=cur%T.length+1;else if(e.key==='ArrowLeft')n=(cur+T.length-2)%T.length+1;else if(e.key==='Home')n=1;else if(e.key==='End')n=T.length;else return;e.preventDefault();show(n,true)});
+document.getElementById('prev').addEventListener('click',()=>cur>1&&show(cur-1));
+document.getElementById('next').addEventListener('click',()=>cur<T.length&&show(cur+1));
+const upd=()=>{let c=0,a=0;T.forEach(t=>{const on=!!(S['c'+t.n]);document.getElementById('s'+t.n).classList.toggle('done',on);document.getElementById('tb'+t.n).classList.toggle('done',on);if(on){c++;a+=t.st}});document.getElementById('cnt').textContent=`${c} / 10 placed`;document.getElementById('amt').textContent=`$${a} of $75`;document.getElementById('mtr').style.width=(c*10)+'%'};
+T.forEach(t=>{const c=document.getElementById('c'+t.n),n=document.getElementById('n'+t.n);c.checked=!!S['c'+t.n];n.value=S['n'+t.n]||'';c.addEventListener('change',()=>{S['c'+t.n]=c.checked;save();upd()});n.addEventListener('input',()=>{S['n'+t.n]=n.value;save()})});
+const g={};T.forEach(t=>t.l.forEach(x=>{const k=(x[0]==='Sun'||x[0]==='SNF')?x[1].replace(' · last leg','')+' ('+x[0]+')':x[0];g[k]=g[k]||{n:0,a:0};g[k].n++;g[k].a+=t.st}));
+document.getElementById('exp').innerHTML=Object.entries(g).sort((a,b)=>b[1].a-a[1].a).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${v.n}</td><td class="n">$${v.a}</td></tr>`).join('');
+document.getElementById('copy').addEventListener('click',async()=>{const lines=T.filter(t=>S['c'+t.n]).map(t=>`#${t.n} $${t.st} ${t.pr} ticket ${S['n'+t.n]||'?'}`);const txt=`official W12 holiday longshots v9 placed (${lines.length}):\n`+lines.join('\n');const o=document.getElementById('out');o.hidden=false;o.textContent=txt;try{await navigator.clipboard.writeText(txt)}catch(e){}});
+document.getElementById('reset').addEventListener('click',()=>{S={};save();T.forEach(t=>{document.getElementById('c'+t.n).checked=false;document.getElementById('n'+t.n).value=''});upd()});
+upd();show(cur);
+}
+</script>
+</body>
+</html>

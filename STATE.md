@@ -1,30 +1,35 @@
 # STATE — NFL_Dashboard (single current-state file; rewrite, don't append; max 40 lines)
-Updated: Tue 2026-11-24 ~2:00 PM PT (Claude Team 1). HANDED OFF to Claude Team 2: read handoffs/2026-11-24-1400-claude-h2c2-team2-briefing-w12-pools-prep.md. Reconcile live git before trusting this.
+Updated: Thu 2026-11-26 ~1:55 PM PT (Claude Team 2, W12 holiday session closed). Reconcile live git before trusting this.
 
 ## Repo
-- Branch `claude/w5-prop-cards-2026-10-11`; last commit `187d7db4` (pushed 11/24, H2C2 handoff). Tree dirty (~2,300 paths, mostly other sessions). Commit named paths only via the temp-index method (`GIT_INDEX_FILE=.git/tmp-idx git read-tree HEAD; git add -- <paths>; git write-tree; git commit-tree <tree> -p HEAD -F msg; git update-ref HEAD <new> <old>`).
-- UNCOMMITTED, awaiting Andy OK: ledgers (`data/official-picks/user-placed-wagers-2026.json`, `paper-wagers-2026.json`, `public/user-placed-wagers-2026.json`), trackers (`scripts/generate-live-tracker*.mjs`, `public/live-tracker-*.html`, `docs/tracked-wagers/live-tracker-sunday.html`), `hooks/scripts/quality-gate.js`, `data/nfl-rosters/operator-status-overrides.json`, `reports/bets/2026-w11-mnf-island-v{2,3}.md`, `reports/bets/2026-w11-postmortem.md`, `reports/bets/season-recap/{w11*.json,work/w11/,rules/rules-2026.json,scripts/crosscheck-adjudications.json}`, `reports/analysis/season/claude/out/week-11*`, `docs/MASTER_INTEL_REPORT_RUNBOOK.md` (§3a), `docs/CODEX_FTN_STATS_IQ_CAPTURE_RUNBOOK.md` (39 tables + new format), `scripts/build-ftn-stats-weekly-context.js`, `scripts/normalize-ftn-export.py`, `scripts/analysis/matchup_splits.py`, `data/nflverse/2026/*` (thru W11 incl MNF; ftn_charting added), `data/research-intel/source-evidence/2026-11-24-ftn-stats-iq/`, `data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json`, `data/generated/matchup-splits/2026-w12.json`, `reports/bets/2026-w12-{gb-lar-matchup,chi-det-matchup,matchup-splits}.md`, `data/research-intel/action-network-picks/an-expert-picks-2026-week11-mnf.json`, (STATE.md now committed). Backups: `*.bak-claude-2026112[34]-*`.
+- Branch `claude/w5-prop-cards-2026-10-11`. Session commit (named paths, temp-index method) pushed 11-26 ~2 PM; see `git log -1`. Tree still dirty from other sessions — commit named paths only (`GIT_INDEX_FILE=.git/tmp-idx git read-tree HEAD; git add -- <paths>; git write-tree; git commit-tree ...; git update-ref`).
+- Device VM cannot reach ESPN or Supabase: build the MOBILE tracker in the cloud workspace (stage ledgers + scripts/lib); the BROWSER tracker (`node scripts/generate-live-tracker.mjs --week 12`) builds on device and grades live in Andy's browser.
 
-## Week 11 — CLOSED (details: `reports/bets/2026-w11-postmortem.md`)
-- Cash W11: 33 tickets, 1 won, $434.61 staked, net −$414.60 (+ xweek DKP 10-pick −$15, tagged W12). Season ledger: 397 settled, $5,621.77, net −$279.09 (−5.0%), 0 pending. bankroll.mjs counted: season −$1,056.78; exempt Andy share +$491.51.
-- Paper W11: 55 settled from tracker grading, 6 won, −$167.89. Mobile tracker republished (W11 final) at https://claude.ai/artifact/Q7NBq3G5MLgzVzraUPsuiy (slug bb25b564-71ba-426d-82bf-7ae16b1da5a2).
-- Supabase NOT synced (rule); `public/` ledger copy refreshed locally.
-- W12 rules: R11-1 $60 max cash per game ACTIVE (Andy 11/24). Still proposed (`rules.py accept --id R11-2`): R11-2 islands ≤6 tickets, 2–3 legs, Tier 1 no favourite-dependent leg.
-- Lessons: 0/31 multi-leg cash; one-game concentration (MIN@SF, JAX@NYG, CIN@WAS) lost all; island ladders 0/14; ATD 10–19, First TD 1–5, rush yds 3–7; model totals +4.1 high (enforce S22).
+## W12 rules
+- R11-1 ($60/game, parlay stake counts on every game) ACCEPTED, enforcement DEFERRED to W13 (Andy 11-25: holiday one-off). R11-2 proposed, effective W13. `rules-2026.json` updated.
+- W11 card rule (cash max 4 legs) also waived for W12 holiday tickets per Andy.
 
-## Decisions in force
-- Lean session rules (CLAUDE.md top). Proposals only; Andy places; log only when he says official. No Supabase writes, paid APIs, wagers or purchases.
-- Strict roster gate on every proposed player (`npm run roster:vet -- --week 12 --date <d> --fetch --strict`).
-- Runbook §3a matchup checks on every prop: #2–#6 automated in `scripts/analysis/matchup_splits.py --week 12` (FTN coverage shell via shell-fit YPRR; blitz from FTN charting); #1 slot/outside alignment has NO source (flag rows "alignment: manual").
-- FTN capture: Andy runs the export prompt in the Claude in Chrome side panel and drops files in `data/intake-drop/`; then `python3 scripts/normalize-ftn-export.py data/intake-drop data/research-intel/source-evidence/<date>-ftn-stats-iq` + `node scripts/build-ftn-stats-weekly-context.js --input-dir <that>`. DVOA columns export blank (premium). Claude cannot reach Downloads; session browser and the remote Chrome both hit the FTN paywall on export.
+## W12 ledger (as of 1:55 PM Thu) — `data/official-picks/user-placed-wagers-2026.json` (424 rows; public/ copy synced)
+- WED GB@LAR final LAR 26-13: 1 cashed (FDP 3-leg $19.20), 10 burnt (BKR SGP $20, BKR 2-leg $40, RR 8-team $5, DKP boost x2, Alejandro Wed split, FDP 6-leg, DKP slip #1/#3-alt/#4-alt).
+- LIVE (none graded in ledger yet — settle after Thu/Sun finals): BOL 10-leg 1018836566-1 ($10, boost to grade), BKR slip #5 742347346 ($5), BKR Compact RR 742351627 (70x4, 15 combos alive), BKR CHI@DET SGP 742375974 ($20->$244.60), BOL PHI@DAL 7-leg 1019155914-1 ($10->$230, placed live 1:45), DKP: Alejandro Thu split ($10 -> $217, he owes $5), repl #6 ($144), Stack A ($864), Andy 10-pick ($2,357), G ($2,357), H ($3,085), I ($2,357), CHI@DET 5-pick boost ($77.11), PHI@DAL 6-pick boost ($157.40); FDP: 8-sel multigame ($5 bonus + $5, ~ $826 est), PHI@DAL 6-leg ($118.11).
+- CHI@DET late 4Q DET 35-24 at 12:54: Gibbs 3 TD (Stack G Gibbs 2+ TD hit), Swift TD hit.
+- Flags in ledger: many DKP/FDP rows "'official' implied" (Andy confirmed by placing); BOL 1018836566-1 boosted payout TBC (Andy said "+2500"; 25% profit boost = ~$2,462.50 win?); Alejandro Wed split $4.99 vs $5.00 share.
+- Alejandro: Thu split live, Wed split burnt; partner tracker rebuilt locally `public/alejandro/index.html` — Andy runs `npm run tracker:alejandro:publish` (pushes alejandro-tickets repo).
+- Imaginary: paper_w12_holiday_v7_s2/s8/s9/s10 live at $10 default; s6/s7 burnt; s1/s3/s4/s5 SUPERSEDED (placed for real).
+- Ticket-type gotcha: browser tracker reads RR config from ticket_type text — log RRs as "Round Robin (N Selections, K-Team Combinations, P Parlays)".
 
-## Open / next (Team 2: W12 pools first, then islands)
-1. POOLS by Wed ~3:45 PM PT (GB@LAR locks 5:00 PM): build `data/pickem/leans-2026-w12.json`, re-run `node scripts/pickem-card.mjs --week 12 --odds-file data/pickem/odds/odds-2026-w12-bkr-1124.json`, give Andy GB@LAR + 16-game rankings (Duma/Yahoo/CBS). Prelim market card `reports/pickem/2026-w12-pickem.md`. W11 standings captured (`data/pickem/*-2026-w11.json`, pools-2026.json); CBS public % `data/pickem/cbs-bukbuk-2026-w12-public-pct.json`. Tiebreakers SUBMITTED for Kenny's Yahoo pool (picks-2026-w12.json). No game picks entered yet. Checklist `reports/pickem/2026-w12-pool-inputs.md`.
-2. Live BKR 11/24: CHI -2 at DET (55.5), LAR -2.5 (43.5). public/schedule.json W12 kickoffs WRONG for TEN@JAX (10:00), NE@LAC (1:05), LV@CLE (SNF); odds file has correct times.
-3. Island deep-dives: GB@LAR + CHI@DET DONE (`reports/bets/2026-w12-{gb-lar,chi-det}-matchup.md`; re-price CHI@DET on CHI -2), then PHI@DAL, KC@BUF, DEN@PIT; then island 3-tier stacks (respect R11-2 if accepted); Sunday card (16 games total; second pass Fri after injuries).
-4. Yahoo API WORKING (secret rotated; AUDIT-CX-014 closed). Session-browser sign-ins live for Duma + CBS.
-5. Backlog: season-recap half-sack grading (0.5 sack vs 0.5+ line; lib.py does not exist, grep `sack` in reports/bets/season-recap/scripts/); paper W9 (12) / W10 (16) PENDING; pools odds converter script; roster_vet plain-name status gap.
-6. R11-1 ACCEPTED 11/24 ($60 max cash per game). Andy: accept/decline R11-2; OK the commit list; clear `data/intake-drop/`; confirm DKP funding; enter picks.
+## Work products this session
+- Holiday longshots v8/v9 sheets `reports/bets/2026-w12-holiday-cheat-sheet-v{8,9}.html` (v9 artifact https://claude.ai/artifact/E5zQLFrpvfgcrjAjQi2qhW).
+- Thu replacement stacks `reports/bets/2026-w12-thu-replacement-stacks.html` (https://claude.ai/artifact/84EngZihAVw3YhX4XREe9L); prop usage check `reports/bets/2026-w12-thu-prop-usage-check.md` + `scripts/analysis/{usage,edge}_w12.py` (team-scoped game logs vs DKP lines; re-run any week).
+- Best-book parser `scripts/props/book_compare_w12.py`. Mobile Road Tracker artifact https://claude.ai/artifact/VdQ8mw4fPC17C3fqe2Scbg (old Q7NB link unreachable); Andy prefers the BROWSER tracker today.
+- Lesson (Andy 11-25): never propose a prop from intel labels/book lines alone — check usage + season/L5 hit rate vs price first.
+
+## Pools
+- 3k (other session): GB@LAR final pick LAR slot 3 Duma+Yahoo, LAR in CBS. Record Andy's confirmed picks in `data/pickem/picks-2026-w12.json` (`pools` key). Sunday final pass 9:30 AM (Sat odds re-capture; Herbert concussion Q for NE@LAC).
+
+## NEXT SESSION GOAL
+- Grade/settle W12 Thursday tickets after KC@BUF final (`python3 scripts/settle_from_mobile_state.py` dry run first; RR per-combo; BOL boost amount). Then Sunday: stranded Sunday legs (WAS -6.5, NYG -6.5, LV +5.5, BAL/HOU o45.5, CIN, SF) into stacks after Fri injuries, using edge_w12.py-style checks; DEN@PIT Fri (Rudolph).
+- Backlog: season-recap half-sack grading; paper W9/W10 pending; roster_vet plain-name gap; public/schedule.json W12 kickoff times wrong for TEN@JAX/NE@LAC/LV@CLE.
 
 ## Where older context lives
-- `HANDOFF.md`, `handoffs/`, `docs/CLAUDE_REFERENCE.md` (grep), `docs/MOBILE_LIVE_TRACKER.md`, W11 evidence `reports/bets/2026-w11-*`.
+- `HANDOFF.md`, `handoffs/`, `docs/CLAUDE_REFERENCE.md` (grep), `docs/MOBILE_LIVE_TRACKER.md`, W11 evidence `reports/bets/2026-w11-*`, backup `STATE.md.bak-claude-20261126-close`.
