@@ -14,7 +14,7 @@ Updated: Fri 2026-11-27 ~11:50 AM PT (Claude Team 2, W12 Wed/Thu wrap). Another 
 
 ## Still PENDING (W12)
 - DKP 8-pick M1 alt ($10→$525): Thu legs all WON (Cook TD, Cook 117 rush, Kelce 4 rec); Sun: WAS -6.5, LV +6.5, NYG -5.5, MIN ML, BAL/HOU o42.5.
-- DKP DEN@PIT, Fri 12:00 PT: 5-pick +20% boost ($9.94→$100.01) and 4-pick +10% boost ($9.94→$92.51: Warren TD / Bernard 3+ rec / U45.5 / Boswell 1+ FG), and 6-pick +10% boost ($9.94→$146.41: o33.5 / Lutz 2+ FG / Bernard 20+ yds / Rudolph INT / Coleman TD / Coleman 60+), and 6-pick +10% boost ($10→$508.30: Singleton 9+ / Warren 20+ rec yds / Warren TD / Coleman TD / Lutz 2+ FG / Dowdle 50+ rush+rec).
+- DKP DEN@PIT, Fri 12:00 PT: 5-pick +20% boost ($9.94→$100.01) and 4-pick +10% boost ($9.94→$92.51: Warren TD / Bernard 3+ rec / U45.5 / Boswell 1+ FG), and 6-pick +10% boost ($9.94→$146.41: o33.5 / Lutz 2+ FG / Bernard 20+ yds / Rudolph INT / Coleman TD / Coleman 60+), and 6-pick +10% boost ($10→$508.30: Singleton 9+ / Warren 20+ rec yds / Warren TD / Coleman TD / Lutz 2+ FG / Dowdle 50+ rush+rec). FDP 6-leg SGC ($10→$293.38: Coleman TD / PIT +4.5 / Coleman 49.5+ / Bernard 3+ rec / Warren 3+ rec / Rudolph INT).
 - Imaginary/paper W12 tickets not graded.
 
 ## Tracker change this session
