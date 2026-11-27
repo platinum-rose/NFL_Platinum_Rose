@@ -1726,7 +1726,7 @@
     <div class="ticker-stats-row">
       <div class="ticker-box">
         <div class="ticker-label">Cash Risk</div>
-        <div class="ticker-val cash-risk" id="total-cash-risk">$629.18</div>
+        <div class="ticker-val cash-risk" id="total-cash-risk">$669.18</div>
       </div>
       <div class="ticker-box">
         <div class="ticker-label">Promo Credit</div>
@@ -1734,7 +1734,7 @@
       </div>
       <div class="ticker-box">
         <div class="ticker-label">Potential Win</div>
-        <div class="ticker-val potential" id="total-potential-payout">$31081.36</div>
+        <div class="ticker-val potential" id="total-potential-payout">$31206.56</div>
       </div>
       <div class="ticker-box">
         <div class="ticker-label">Total Cashed</div>
@@ -2713,7 +2713,7 @@
       <div class="controls-bar">
         <div class="tabs-nav">
           <button class="tab-btn active" id="tab-btn-tickets" onclick="showTab('tickets')">
-            🎫 Live Ticketboard (<span id="tab-live-count">6</span> Active)
+            🎫 Live Ticketboard (<span id="tab-live-count">7</span> Active)
           </button>
           <button class="tab-btn" id="tab-btn-players" onclick="showTab('players')">
             ⚡ Player Cheat Sheet &amp; Gauges (<span id="tab-player-count">22</span> Players)
@@ -2736,7 +2736,7 @@
         <div class="filter-bar">
           <span>Filter Wagers:</span>
           <button type="button" id="btn-live-only" aria-pressed="false" title="Show only open tickets: hides the Game Board, ledger, Cashed, Imaginary and Burnt sections">🎯 Live only</button>
-          <button class="filter-btn active" onclick="setFilter('all')">All (56)</button>
+          <button class="filter-btn active" onclick="setFilter('all')">All (57)</button>
           <button class="filter-btn" onclick="setFilter('cash')">Cash</button>
           <button class="filter-btn" onclick="setFilter('promo')">Promo Credits</button>
           <button class="filter-btn" onclick="setFilter('alejandro')">🤝 Alejandro Castro Split</button>
@@ -2781,7 +2781,7 @@
           <div style="display:flex; align-items:center; gap:8px;">
             <span class="live-indicator-dot"></span>
             <span style="font-size:0.82rem; font-weight:800; letter-spacing:0.5px; color:#F8FAFC; text-transform:uppercase;">
-              ⚡ Live Active Slips (<span id="live-slips-count">6</span> Live)
+              ⚡ Live Active Slips (<span id="live-slips-count">7</span> Live)
             </span>
           </div>
         </div>
@@ -4239,6 +4239,112 @@
                       <div class="progress-fill" id="card-bar-leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_6" style="width:0%;"></div>
                     </div>
                   </div>
+                  
+                </div>
+                
+            </div>
+          </div>
+    
+
+          <div class="bet-card" id="card-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" draggable="true" data-id="bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" data-is-promo="false" data-is-split="false">
+            <div class="card-header">
+              <div class="card-title-wrap">
+                <div class="card-title" title="Bookmaker live 2-Leg SGP DEN@PIT: PIT +5 / Over 30.5 #742458858">Bookmaker live 2-Leg SGP DEN@PIT: PIT +5 / Over 30.5 #742458858</div>
+                <div class="card-subtitle">Bookmaker • 2 Leg Same Game Parlay (Live)</div>
+                <div class="badges-row">
+                  <span class="badge badge-cash">Andy SOLO</span>
+                  <span class="badge badge-cash">CASH</span>
+                  
+                  
+                  <span class="badge badge-cash" id="badge-split-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="display:none;">🤝 50/50 SPLIT</span>
+                  <span class="cashed-badge">CASHED</span>
+                  <span class="burnt-badge">BURNT</span>
+                  <span class="injury-beat-badge" id="injury-beat-badge-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="display:none;" title="Burnt, and the only missed leg was a player who left injured / inactive">🚑 INJURY BEAT</span>
+                </div>
+                <div class="card-bullet-summary" id="bullet-summary-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305">
+                  <span class="badge badge-cash" style="font-size:0.6rem; padding:1px 4px;">$40</span>
+                  <span id="bullet-payout-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="color:var(--accent-green); font-size:0.72rem; font-weight:800;">$85.20</span>
+                  <span id="bullet-hits-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="color:#94A3B8; font-size:0.65rem;">0/2 Hits</span>
+                  <span class="bullet-temp-badge bullet-temp-pre" id="bullet-temp-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305">⚪ Upcoming</span>
+                </div>
+              </div>
+              <div class="card-controls">
+                <button class="btn-alejandro-toggle" id="btn-split-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" onclick="toggleAlejandroSplit('bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')" title="Toggle split ownership">🤝 Split</button>
+                <button class="btn-cash-toggle" id="btn-cash-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" onclick="toggleManualCash('bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')" title="Mark Won / Cashed" style="background:#064E3B; border:1px solid #10B981; color:#A7F3D0; border-radius:4px; padding:2px 6px; font-size:0.68rem; font-weight:700; cursor:pointer;">🏆</button>
+                <button class="btn-burn-toggle" id="btn-burn-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" onclick="toggleManualBurn('bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')" title="Mark Burnt / Alive" style="background:#1E293B; border:1px solid #334155; color:#EF4444; border-radius:4px; padding:2px 6px; font-size:0.68rem; font-weight:700; cursor:pointer;">🔥</button>
+                <span class="drag-handle" title="Drag to reorder">⠿</span>
+                <button class="btn-card-toggle" onclick="toggleCardCollapse('bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')">⯆</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              
+              
+              
+              <div class="burn-reason-banner" id="burn-banner-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="display:none;">
+                
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-top:2px;">
+                <span>Stake: <strong>$40.00</strong></span>
+                <span>Odds: <strong style="color:var(--accent-cyan);">+213</strong></span>
+                <span>To Win: <strong class="payout-val" id="card-payout-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style="color:var(--accent-green);">$85.20</strong></span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-fill" id="prog-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" style=""></div>
+              </div>
+            </div>
+
+            
+            <div class="card-legs" id="legs-wrap-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305">
+              <div class="fulfilled-legs-strip" id="minstrip-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305" onclick="toggleCardFulfilledLegs('bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')" style="display:none;">
+                <span>✅ 0 Hit • 2 Active • Click to toggle</span>
+                <span id="hit-arrow-bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305">⯆ (Visible)</span>
+              </div>
+              
+                <div class="leg-item pace-pre" id="leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1" data-key="leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1" data-future-week="" data-review-required="0" data-open-slot="0" data-player="" data-market="spread" data-period="" data-target="5" data-direction="over" data-team="PIT" data-opp="DEN" data-line="5" data-selection="Pittsburgh Steelers +5" data-game="DEN @ PIT" data-kickoff="1795809600000" data-kickoff-text="12:00 PM PT" onclick="toggleLeg('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')">
+                  <div class="leg-row">
+                    <div class="leg-left">
+                      <span class="leg-icon">⚪</span>
+                      
+                        <span class="leg-main-label"><strong>Pittsburgh Steelers +5</strong></span>
+                      
+                      
+                    </div>
+                    <div class="leg-right" style="display:flex; align-items:center; gap:6px;">
+                      <span class="leg-pace-badge badge-pacing-pre" id="pace-badge-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1">12:00 PM PT</span>
+                      <span style="font-size:0.68rem; color:var(--text-muted);"></span>
+                      <button class="btn-leg-burn" id="btn-burn-leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1" onclick="toggleLegBurn('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305', event)" title="Mark Leg Burnt / Missed">🔥</button>
+                      <button class="btn-leg-push" id="btn-push-leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1" onclick="toggleLegPush('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305', event)" title="Mark Leg Push (won't count toward the parlay)">⚖️</button>
+                      
+                    </div>
+                  </div>
+                  
+                  
+                  
+                  
+                </div>
+                
+
+                <div class="leg-item pace-pre" id="leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2" data-key="leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2" data-future-week="" data-review-required="0" data-open-slot="0" data-player="" data-market="total" data-period="" data-target="30.5" data-direction="over" data-team="DEN/PIT" data-opp="" data-line="30.5" data-selection="Total Over 30.5 (Denver Broncos @ Pittsburgh Steelers)" data-game="DEN @ PIT" data-kickoff="1795809600000" data-kickoff-text="12:00 PM PT" onclick="toggleLeg('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305')">
+                  <div class="leg-row">
+                    <div class="leg-left">
+                      <span class="leg-icon">⚪</span>
+                      
+                        <span class="leg-game-pill" style="background:rgba(59,130,246,0.18); color:#93C5FD; border:1px solid rgba(59,130,246,0.4); border-radius:4px; padding:1px 6px; font-size:0.63rem; font-weight:800; margin-right:5px; letter-spacing:0.5px;" title="Game Matchup">DEN @ PIT</span><span class="leg-main-label"><strong>Total Over 30.5 (Denver Broncos @ Pittsburgh Steelers)</strong></span>
+                      
+                      
+                    </div>
+                    <div class="leg-right" style="display:flex; align-items:center; gap:6px;">
+                      <span class="leg-pace-badge badge-pacing-pre" id="pace-badge-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2">12:00 PM PT</span>
+                      <span style="font-size:0.68rem; color:var(--text-muted);"></span>
+                      <button class="btn-leg-burn" id="btn-burn-leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2" onclick="toggleLegBurn('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305', event)" title="Mark Leg Burnt / Missed">🔥</button>
+                      <button class="btn-leg-push" id="btn-push-leg-leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2" onclick="toggleLegPush('leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2', 'bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305', event)" title="Mark Leg Push (won't count toward the parlay)">⚖️</button>
+                      
+                    </div>
+                  </div>
+                  
+                  
+                  
                   
                 </div>
                 
@@ -38935,6 +39041,60 @@
       "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_4",
       "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_5",
       "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_6"
+    ]
+  },
+  "bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305": {
+    "name": "Bookmaker live 2-Leg SGP DEN@PIT: PIT +5 / Over 30.5 #742458858",
+    "lostLegs": [],
+    "book": "Bookmaker",
+    "ticketNumber": "742458858",
+    "split": {
+      "enabled": false,
+      "count": 2,
+      "fraction": 0.5,
+      "contribution": 20,
+      "label": "50/50 SPLIT",
+      "note": "Andy / Alejandro: equal shares; potential return $62.60 each.",
+      "payoutRemainderUsd": 0
+    },
+    "owner": "Andy",
+    "teamCountLegs": [],
+    "isPromo": false,
+    "isPaper": false,
+    "cashStake": 40,
+    "promoStake": 0,
+    "payout": 125.2,
+    "initialPayout": 125.2,
+    "type": "game",
+    "status": "PENDING",
+    "result": null,
+    "isSettled": false,
+    "isLoss": false,
+    "isWin": false,
+    "isRoundRobin": false,
+    "rrComboSize": 1,
+    "rrComboCount": 1,
+    "rrStakePerCombo": 40,
+    "legDetails": [
+      {
+        "key": "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1",
+        "price": "-110",
+        "decimalOdds": 1.9090909090909092
+      },
+      {
+        "key": "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2",
+        "price": "-110",
+        "decimalOdds": 1.9090909090909092
+      }
+    ],
+    "legsWon": [],
+    "legsPushed": [],
+    "legResults": {},
+    "legsOut": [],
+    "openSlotLegs": [],
+    "legs": [
+      "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1",
+      "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2"
     ]
   },
   "paper_w11w12_dkp_10pick_original_build": {

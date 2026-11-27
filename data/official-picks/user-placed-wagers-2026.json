@@ -64331,5 +64331,89 @@
         "target_stat": "interceptions"
       }
     ]
+  },
+  {
+    "date": "2026-11-27",
+    "recorded_at": "2026-11-27T20:11:00.000Z",
+    "season": 2026,
+    "week": 12,
+    "game": "DEN @ PIT (Fri 11/27)",
+    "owner": "Andy",
+    "ownership_type": "solo",
+    "bankroll_owner": "Andy",
+    "ownership_shares": {
+      "Andy": 1,
+      "Amanda": 0,
+      "Alejandro": 0
+    },
+    "is_split": false,
+    "split_partner": null,
+    "status": "PENDING",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "id": "bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305",
+    "ticket_number": "742458858",
+    "book_ticket_number": "742458858",
+    "placed_at": "2026-11-27T12:10:00-08:00",
+    "game_title": "Bookmaker live 2-Leg SGP DEN@PIT: PIT +5 / Over 30.5 #742458858",
+    "book": "Bookmaker",
+    "book_source": "Bookmaker 'Success!' slip pasted by Andy 2026-11-27 12:11 PM PT (live, placed in-game)",
+    "ticket_type": "2 Leg Same Game Parlay (Live)",
+    "category": "Same Game Parlay",
+    "cash_risk_usd": 40.0,
+    "andy_cash_risk_usd": 40.0,
+    "stake_usd": 40.0,
+    "units": 4.0,
+    "odds_american": "+213",
+    "odds_decimal": 3.13,
+    "odds_source": "Bookmaker slip: stake $40, win $85.20, returns $125.20",
+    "potential_payout_usd": 125.2,
+    "potential_profit_usd": 85.2,
+    "needs_confirmation": [
+      "exact placement time (~12:10 PM PT, live)"
+    ],
+    "card_section": "W12 Friday — Bookmaker DEN@PIT",
+    "progress_notes": "Official (Andy sent slip 12:11 PM PT). Live in-game. Counts against official bankroll (Bookmaker cash). PIT +5 pairs with PIT +4.5 on the FDP 6-leg.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "PIT",
+        "opponent": "DEN",
+        "market": "spread",
+        "selection": "Pittsburgh Steelers +5",
+        "line": 5,
+        "direction": "cover",
+        "target_stat": "margin",
+        "key": "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_1",
+        "game": "DEN @ PIT",
+        "game_id": "nfl_2026_2_w12_DEN_at_PIT",
+        "kickoff_utc": "2026-11-27T20:00:00.000Z",
+        "game_start": "11/27/2026 @ 12:00 PM",
+        "status": "PENDING",
+        "source": "Bookmaker",
+        "price": null
+      },
+      {
+        "leg_num": 2,
+        "player": null,
+        "team": "DEN/PIT",
+        "opponent": "",
+        "market": "total",
+        "selection": "Total Over 30.5 (Denver Broncos @ Pittsburgh Steelers)",
+        "line": 30.5,
+        "direction": "over",
+        "target_stat": "total_points",
+        "key": "leg_bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305_2",
+        "game": "DEN @ PIT",
+        "game_id": "nfl_2026_2_w12_DEN_at_PIT",
+        "kickoff_utc": "2026-11-27T20:00:00.000Z",
+        "game_start": "11/27/2026 @ 12:00 PM",
+        "status": "PENDING",
+        "source": "Bookmaker",
+        "price": null
+      }
+    ],
+    "result": null
   }
 ]
