@@ -27,7 +27,7 @@ Updated: Fri 2026-11-27 ~11:50 AM PT (Claude Team 2, W12 Wed/Thu wrap). Another 
 - R11-1 ($60/game) enforcement deferred to W13; W11 card rule waived for W12 holiday tickets.
 
 ## NEXT SESSION GOAL
-- Grade DEN@PIT boost after Fri final. Sunday: build stacks from Sunday slate after Fri injury reports (edge_w12.py-style usage + hit-rate checks first). Grade M1 alt Sunday legs.
+- Sunday: build stacks from Sunday slate after Fri injury reports (edge_w12.py-style usage + hit-rate checks first). Grade M1 alt Sunday legs.
 - Backlog: schedule.json W12 kickoff times wrong (TEN@JAX is 1:05 PM, NE@LAC, LV@CLE); paper W9/W10/W12 grading; season-recap half-sack grading; roster_vet plain-name gap.
 
 ## Where older context lives
