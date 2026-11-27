@@ -435,6 +435,11 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
 // without --week during MNF produced the NEXT week's tracker and dropped every MNF ticket (2026-10-05).
 // Hold the slate's week until Tue ~7:00 AM PT by evaluating the clock 14 hours earlier.
 const WEEK_ROLLOVER_GRACE_MS = 14 * 60 * 60 * 1000;
+// cross-week tickets: show in every week a leg is played (mirrors mobile touchesWeek)
+const legWeekD = (l) => { const m = String(l?.game_id || '').match(/_w(\d{2})_/); return m ? Number(m[1]) : null; };
+const touchesWeekD = (w, wk) => (w.legs || []).some((l) => legWeekD(l) === Number(wk));
+// a leg tagged to another week is held (not graded) on this week's tracker
+const isFutureLegD = (l, wk) => { const n = legWeekD(l); return n !== null && n > Number(wk); };
 const DEFAULT_WEEK = getNFLWeekInfo(new Date(Date.now() - WEEK_ROLLOVER_GRACE_MS)).week || 1;
 
 export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS], partner = null } = {}) {
@@ -481,7 +486,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
   const allWagers = JSON.parse(rawWagers);
-  const wagers = await prepareTrackerWagers(allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures' && (!partner || isPartnerWager(w))).map(w => (partner ? toPartnerView(w) : w)), ROOT);
+  const wagers = await prepareTrackerWagers(allWagers.filter(w => (w.week === week || !w.week || touchesWeekD(w, week)) && w.game !== 'NFL Futures' && (!partner || isPartnerWager(w))).map(w => (partner ? toPartnerView(w) : w)), ROOT);
   // SGP-paired game-line legs are stored as sgp_spread / sgp_total / sgp_moneyline (to keep the
   // pair label), but the live grader only understands spread / total / moneyline, so those legs
   // never got a live projection. Normalize in memory only; the ledger keeps the sgp_ names.
@@ -501,7 +506,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   } catch { /* validation is advisory */ }
   try {
     const paper = JSON.parse(await readFile(PAPER_WAGERS_PATH, 'utf8'));
-    for (const w of paper) if (w.week === week) wagers.push({ ...w, is_paper: true });
+    for (const w of paper) if (w.week === week || touchesWeekD(w, week)) wagers.push({ ...w, is_paper: true });
   } catch { /* no paper tickets */ }
   // Season-long futures (Super Bowl winner, MVP, division, etc.) don't belong on a single
   // game-day board -- they're tracked in their own Futures Portfolio tab below, independent
@@ -1122,6 +1127,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     if (bet.status === 'SETTLED') continue;
     for (const leg of bet.legs || []) {
       if (leg.manual_review_required) continue;
+      if (isFutureLegD(leg, week)) continue; // other-week leg: no player card, no grading
       const pName = leg.player || extractPlayerFromSelection(leg.selection);
       if (pName) {
         if (!playerPropsMap.has(pName)) {
@@ -1915,7 +1921,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 const isTotalLeg = leg.market === 'total' || leg.market === 'alternate_total_points' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
 
                 return `
-                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-review-required="${leg.manual_review_required ? '1' : '0'}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-period="${leg.period || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
+                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-future-week="${isFutureLegD(leg, week) ? legWeekD(leg) : ''}" data-review-required="${leg.manual_review_required ? '1' : '0'}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-period="${leg.period || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
                   <div class="leg-row">
                     <div class="leg-left">
                       <span class="leg-icon">${icon}</span>
@@ -5356,6 +5362,15 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
     function toggleManualBurn(ticketId) {
       const config = TICKET_CONFIG[ticketId] || {};
+      if (config.isRoundRobin && !(config.isSettled && config.isLoss)) {
+        // Round Robins burn automatically only when no combos remain alive.
+        delete manualBurns[ticketId];
+        saveBurns();
+        render();
+        filterCards();
+        try { showToast('Round Robin stays Live until every combo is dead; burn legs instead.'); } catch (e) {}
+        return;
+      }
       const currentBurnt = (manualBurns[ticketId] !== undefined) 
         ? (manualBurns[ticketId] === true) 
         : (config.isSettled && config.isLoss);
@@ -6778,6 +6793,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       // Direct update for all leg items on the main ticker cards
       document.querySelectorAll('.leg-item[data-player]').forEach(el => {
         if (el.getAttribute('data-review-required') === '1') return;
+        if (el.getAttribute('data-future-week')) return; // other-week leg: held until its week
         const rawP = el.getAttribute('data-player');
         if (!rawP) return;
         const pName = rawP.toLowerCase().trim();
@@ -7689,6 +7705,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       });
 
       document.querySelectorAll('.leg-item').forEach(el => {
+        if (el.getAttribute('data-future-week')) {
+          const fb = document.getElementById('pace-badge-' + el.getAttribute('data-key'));
+          if (fb) { fb.className = 'leg-pace-badge'; fb.textContent = 'Week ' + el.getAttribute('data-future-week') + ' · not played yet'; }
+          return;
+        }
         if (el.getAttribute('data-review-required') === '1') {
           const badge = document.getElementById('pace-badge-' + el.getAttribute('data-key'));
           if (badge) { badge.className = 'leg-pace-badge badge-pacing-yellow'; badge.textContent = 'Inactive · review'; }
@@ -7764,9 +7785,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         // Find relevant event
         let ev = null;
         if (rawTeam && eventMap[rawTeam]) ev = eventMap[rawTeam];
+        else if (rawTeam && rawTeam.includes('/') && eventMap[normalizeClientTeam(rawTeam.split('/')[0])]) ev = eventMap[normalizeClientTeam(rawTeam.split('/')[0])];
         else if (rawOpp && eventMap[rawOpp]) ev = eventMap[rawOpp];
         else if (rawGame) {
-          const parts = rawGame.split(/\\s*[@vV][sS]?\\.?\\s*/);
+          // 2026-11-22: split only on "@" or a whole-word "vs" -- the old [@vV] class also split on the
+          // V in "LV", so LV games' total legs (team "LV/DEN") never matched an event.
+          const parts = rawGame.split(/\\s*@\\s*|\\s+vs\\.?\\s+/i);
           if (parts.length === 2) {
             const t1 = normalizeClientTeam(parts[0]);
             const t2 = normalizeClientTeam(parts[1]);
@@ -7780,7 +7804,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         if (ev) {
           const evTeams = [normalizeClientTeam(ev.homeAbbr), normalizeClientTeam(ev.awayAbbr)];
           let wantTeams = [];
-          const gParts = rawGame.split(/\s*@\s*|\s+vs\.?\s+/i);
+          const gParts = rawGame.split(/\\s*@\\s*|\\s+vs\\.?\\s+/i); // 2026-11-22: double-escaped so the served regex keeps \\s (it was /s*@s*/i, which ate the S of SF/SEA)
           if (gParts.length === 2) wantTeams = [normalizeClientTeam(gParts[0]), normalizeClientTeam(gParts[1])];
           else if (rawTeam && rawOpp) wantTeams = [rawTeam, rawOpp];
           if (wantTeams.length === 2 && wantTeams.some(t => t && !evTeams.includes(t))) ev = null;
@@ -9513,7 +9537,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         let rrAliveCombosCount = 0;
         let rrTotalCombosCount = 0;
 
-        if (isSettledLoss || isManuallyBurnt) {
+        // (Andy, 2026-11-26) A Round Robin never burns from a manual card toggle or from
+        // individual lost legs: it stays in Live until ZERO combos are alive (or it is
+        // recorded as a settled loss). Stale manual card burns are ignored for RRs.
+        if (isSettledLoss || (isManuallyBurnt && !config.isRoundRobin)) {
           isBurnt = true;
           cardPotential = 0;
         } else if (config.isRoundRobin) {
