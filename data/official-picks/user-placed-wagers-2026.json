@@ -63603,8 +63603,8 @@
     "odds_decimal": 10.06,
     "potential_payout_usd": 100.01,
     "potential_profit_usd": 90.07,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "bankroll_exempt_reason": "DKP/FDP tickets are off the official bankroll (Andy 2026-11-17).",
     "needs_confirmation": [
@@ -63616,7 +63616,7 @@
       {
         "leg_num": 1,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_5pick_boost20_denpit_coleman_td_rudolph_int_warren13att_coleman70_warren2rec_1",
         "game": "DEN @ PIT",
@@ -63635,7 +63635,7 @@
       {
         "leg_num": 2,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_5pick_boost20_denpit_coleman_td_rudolph_int_warren13att_coleman70_warren2rec_2",
         "game": "DEN @ PIT",
@@ -63654,7 +63654,7 @@
       {
         "leg_num": 3,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_5pick_boost20_denpit_coleman_td_rudolph_int_warren13att_coleman70_warren2rec_3",
         "game": "DEN @ PIT",
@@ -63673,7 +63673,7 @@
       {
         "leg_num": 4,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_5pick_boost20_denpit_coleman_td_rudolph_int_warren13att_coleman70_warren2rec_4",
         "game": "DEN @ PIT",
@@ -63692,7 +63692,7 @@
       {
         "leg_num": 5,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_5pick_boost20_denpit_coleman_td_rudolph_int_warren13att_coleman70_warren2rec_5",
         "game": "DEN @ PIT",
@@ -63713,7 +63713,10 @@
     "displayed_probability_pct": 11.0,
     "odds_source": "DKP: total $9.94, base payout $85, +20% profit boost shown payout $100.01",
     "odds_american": "+906",
-    "progress_notes": "Official per Andy 2026-11-27 11:23 AM PT. Off official bankroll (DKP). DEN@PIT kickoff 12:00 PM PT; Rudolph starting for PIT."
+    "progress_notes": "Official per Andy 2026-11-27 11:23 AM PT. Off official bankroll (DKP). DEN@PIT kickoff 12:00 PM PT; Rudolph starting for PIT. | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: Jonah Coleman Anytime TD Scorer; Mason Rudolph 1+ Interceptions Thrown; Jonah Coleman 70+ Rushing Yards; Jaylen Warren 2+ Receptions.",
+    "settled_payout_usd": 0,
+    "profit_usd": -9.94,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "id": "bet_20261127_dkp_4pick_boost10_denpit_warren_td_bernard3_u455_boswell1fg",
@@ -63748,8 +63751,8 @@
     "odds_decimal": 9.31,
     "potential_payout_usd": 92.51,
     "potential_profit_usd": 82.57,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "bankroll_exempt_reason": "DKP/FDP tickets are off the official bankroll (Andy 2026-11-17).",
     "needs_confirmation": [
@@ -63761,7 +63764,7 @@
       {
         "leg_num": 1,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_4pick_boost10_denpit_warren_td_bernard3_u455_boswell1fg_1",
         "game": "DEN @ PIT",
@@ -63780,7 +63783,7 @@
       {
         "leg_num": 2,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_4pick_boost10_denpit_warren_td_bernard3_u455_boswell1fg_2",
         "game": "DEN @ PIT",
@@ -63799,7 +63802,7 @@
       {
         "leg_num": 3,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_4pick_boost10_denpit_warren_td_bernard3_u455_boswell1fg_3",
         "game": "DEN @ PIT",
@@ -63818,7 +63821,7 @@
       {
         "leg_num": 4,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_4pick_boost10_denpit_warren_td_bernard3_u455_boswell1fg_4",
         "game": "DEN @ PIT",
@@ -63839,7 +63842,10 @@
     "displayed_probability_pct": 11.0,
     "odds_source": "DKP: total $9.94, base payout $85, +10% profit boost shown payout $92.51",
     "odds_american": "+831",
-    "progress_notes": "Official per Andy 2026-11-27 11:29 AM PT. Off official bankroll (DKP). Second DEN@PIT DKP ticket; Warren appears on both."
+    "progress_notes": "Official per Andy 2026-11-27 11:29 AM PT. Off official bankroll (DKP). Second DEN@PIT DKP ticket; Warren appears on both. | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: Jaylen Warren Anytime TD Scorer; Germie Bernard 3+ Receptions.",
+    "settled_payout_usd": 0,
+    "profit_usd": -9.94,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "id": "bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60",
@@ -63874,8 +63880,8 @@
     "odds_decimal": 14.73,
     "potential_payout_usd": 146.41,
     "potential_profit_usd": 136.47,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "bankroll_exempt_reason": "DKP/FDP tickets are off the official bankroll (Andy 2026-11-17).",
     "needs_confirmation": [
@@ -63887,7 +63893,7 @@
       {
         "leg_num": 1,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_1",
         "game": "DEN @ PIT",
@@ -63906,7 +63912,7 @@
       {
         "leg_num": 2,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_2",
         "game": "DEN @ PIT",
@@ -63925,7 +63931,7 @@
       {
         "leg_num": 3,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_3",
         "game": "DEN @ PIT",
@@ -63944,7 +63950,7 @@
       {
         "leg_num": 4,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_4",
         "game": "DEN @ PIT",
@@ -63963,7 +63969,7 @@
       {
         "leg_num": 5,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_5",
         "game": "DEN @ PIT",
@@ -63982,7 +63988,7 @@
       {
         "leg_num": 6,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_o335_lutz2fg_bernard20_rudolph_int_coleman_td_coleman60_6",
         "game": "DEN @ PIT",
@@ -64003,7 +64009,10 @@
     "displayed_probability_pct": 7.0,
     "odds_source": "DKP: total $9.94, base payout $134, +10% profit boost shown payout $146.41",
     "odds_american": "+1373",
-    "progress_notes": "Official per Andy 2026-11-27 11:39 AM PT. Off official bankroll (DKP). Third DEN@PIT DKP ticket; Coleman TD + Rudolph INT also on the 5-pick, Bernard on the 4-pick."
+    "progress_notes": "Official per Andy 2026-11-27 11:39 AM PT. Off official bankroll (DKP). Third DEN@PIT DKP ticket; Coleman TD + Rudolph INT also on the 5-pick, Bernard on the 4-pick. | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: DEN @ PIT Over 33.5 (Alternate Total Points); Wil Lutz 2+ Field Goals Made; Mason Rudolph 1+ Interceptions Thrown; Jonah Coleman Anytime TD Scorer; Jonah Coleman 60+ Rushing Yards.",
+    "settled_payout_usd": 0,
+    "profit_usd": -9.94,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "id": "bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr",
@@ -64038,8 +64047,8 @@
     "odds_decimal": 50.83,
     "potential_payout_usd": 508.3,
     "potential_profit_usd": 498.3,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "bankroll_exempt_reason": "DKP/FDP tickets are off the official bankroll (Andy 2026-11-17).",
     "needs_confirmation": [
@@ -64051,7 +64060,7 @@
       {
         "leg_num": 1,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_1",
         "game": "DEN @ PIT",
@@ -64070,7 +64079,7 @@
       {
         "leg_num": 2,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_2",
         "game": "DEN @ PIT",
@@ -64089,7 +64098,7 @@
       {
         "leg_num": 3,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_3",
         "game": "DEN @ PIT",
@@ -64108,7 +64117,7 @@
       {
         "leg_num": 4,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_4",
         "game": "DEN @ PIT",
@@ -64127,7 +64136,7 @@
       {
         "leg_num": 5,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_5",
         "game": "DEN @ PIT",
@@ -64146,7 +64155,7 @@
       {
         "leg_num": 6,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "DraftKings Predictions",
         "key": "leg_bet_20261127_dkp_6pick_boost10_denpit_singleton9_warren20rec_warren_td_coleman_td_lutz2fg_dowdle50rr_6",
         "game": "DEN @ PIT",
@@ -64167,7 +64176,10 @@
     "displayed_probability_pct": 2.0,
     "odds_source": "DKP: total $10, base payout $463, +10% profit boost shown payout $508.30",
     "odds_american": "+4983",
-    "progress_notes": "Official per Andy 2026-11-27 11:47 AM PT. Off official bankroll (DKP). Fourth DEN@PIT DKP ticket; needs both RB TDs (Warren + Coleman)."
+    "progress_notes": "Official per Andy 2026-11-27 11:47 AM PT. Off official bankroll (DKP). Fourth DEN@PIT DKP ticket; needs both RB TDs (Warren + Coleman). | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: Jaylen Warren 20+ Receiving Yards; Jaylen Warren Anytime TD Scorer; Jonah Coleman Anytime TD Scorer; Wil Lutz 2+ Field Goals Made.",
+    "settled_payout_usd": 0,
+    "profit_usd": -10.0,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "id": "bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int",
@@ -64204,8 +64216,8 @@
     "odds_source": "FDP: total $10.00, total payout $293.38 (32.2x avg price shown)",
     "potential_payout_usd": 293.38,
     "potential_profit_usd": 283.38,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "bankroll_exempt": true,
     "bankroll_exempt_reason": "FanDuel Predicts tickets are off the official bankroll (Andy 2026-11-17).",
     "needs_confirmation": [
@@ -64214,12 +64226,12 @@
       "funding split (cash vs FDP promo) not shown"
     ],
     "card_section": "W12 Friday — FDP DEN@PIT",
-    "progress_notes": "Official (Andy screenshot 11:51 AM PT). Off official bankroll (FanDuel Predicts). Fifth DEN@PIT ticket; Coleman TD/rush, Rudolph INT, Bernard, Warren all repeat from the DKP tickets.",
+    "progress_notes": "Official (Andy screenshot 11:51 AM PT). Off official bankroll (FanDuel Predicts). Fifth DEN@PIT ticket; Coleman TD/rush, Rudolph INT, Bernard, Warren all repeat from the DKP tickets. | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: Jonah Coleman To Score a Touchdown; Jonah Coleman 49.5+ Rushing Yards; Germie Bernard 2.5+ Receptions; Jaylen Warren 2.5+ Receptions; Mason Rudolph 0.5+ Interceptions Thrown.",
     "legs": [
       {
         "leg_num": 1,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_1",
         "game": "DEN @ PIT",
@@ -64238,7 +64250,7 @@
       {
         "leg_num": 2,
         "price": null,
-        "status": "PENDING",
+        "status": "WON",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_2",
         "game": "DEN @ PIT",
@@ -64257,7 +64269,7 @@
       {
         "leg_num": 3,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_3",
         "game": "DEN @ PIT",
@@ -64276,7 +64288,7 @@
       {
         "leg_num": 4,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_4",
         "game": "DEN @ PIT",
@@ -64295,7 +64307,7 @@
       {
         "leg_num": 5,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_5",
         "game": "DEN @ PIT",
@@ -64314,7 +64326,7 @@
       {
         "leg_num": 6,
         "price": null,
-        "status": "PENDING",
+        "status": "LOST",
         "source": "FanDuel Predicts",
         "key": "leg_bet_20261127_fdp_6leg_sgc_denpit_coleman_td_pit45_coleman50_bernard3_warren3rec_rudolph_int_6",
         "game": "DEN @ PIT",
@@ -64330,7 +64342,10 @@
         "direction": "over",
         "target_stat": "interceptions"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10.0,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "date": "2026-11-27",
@@ -64348,7 +64363,7 @@
     },
     "is_split": false,
     "split_partner": null,
-    "status": "PENDING",
+    "status": "SETTLED",
     "funding_type": "cash",
     "is_promo_credit": false,
     "id": "bet_20261127_bkr_742458858_2leg_sgp_live_denpit_pit5_o305",
@@ -64373,7 +64388,7 @@
       "exact placement time (~12:10 PM PT, live)"
     ],
     "card_section": "W12 Friday — Bookmaker DEN@PIT",
-    "progress_notes": "Official (Andy sent slip 12:11 PM PT). Live in-game. Counts against official bankroll (Bookmaker cash). PIT +5 pairs with PIT +4.5 on the FDP 6-leg.",
+    "progress_notes": "Official (Andy sent slip 12:11 PM PT). Live in-game. Counts against official bankroll (Bookmaker cash). PIT +5 pairs with PIT +4.5 on the FDP 6-leg. | SETTLED WIN 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles.",
     "legs": [
       {
         "leg_num": 1,
@@ -64390,7 +64405,7 @@
         "game_id": "nfl_2026_2_w12_DEN_at_PIT",
         "kickoff_utc": "2026-11-27T20:00:00.000Z",
         "game_start": "11/27/2026 @ 12:00 PM",
-        "status": "PENDING",
+        "status": "WON",
         "source": "Bookmaker",
         "price": null
       },
@@ -64409,12 +64424,15 @@
         "game_id": "nfl_2026_2_w12_DEN_at_PIT",
         "kickoff_utc": "2026-11-27T20:00:00.000Z",
         "game_start": "11/27/2026 @ 12:00 PM",
-        "status": "PENDING",
+        "status": "WON",
         "source": "Bookmaker",
         "price": null
       }
     ],
-    "result": null
+    "result": "win",
+    "settled_payout_usd": 125.2,
+    "profit_usd": 85.2,
+    "graded_at": "2026-11-27T22:55:00Z"
   },
   {
     "id": "bet_20261127_pick6_4pick_denpit_warren_td_coleman54_bernard14_dowdle_td",
@@ -64453,8 +64471,8 @@
     "potential_payout_usd": 275,
     "displayed_probability_pct": null,
     "promotion": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "split_designation": null,
@@ -64465,7 +64483,7 @@
       "Whether \"To Win $275+\" is total payout or profit (logged as total)",
       "Entry ID and exact placement time not supplied (~12:30 PM PT, during the game)"
     ],
-    "progress_notes": "Official (Andy screenshot 12:31 PM PT). Off official bankroll (Pick6 = initial deposit + winnings). Bernard multiplier not shown.",
+    "progress_notes": "Official (Andy screenshot 12:31 PM PT). Off official bankroll (Pick6 = initial deposit + winnings). Bernard multiplier not shown. | SETTLED LOSS 2026-11-27 by Claude from ESPN final 401873083 PIT 27-5 DEN (total 32): Coleman 15-26 rush, 0 TD; Warren 20-46, 1 rec 0 yds, 0 TD; Dowdle 11-71 + 1-3 rec, 0 TD; Bernard 1-58; Rudolph 0 INT; Lutz 1/2 FG; Boswell 2/2 FG; Singleton 13 tackles. Lost: Jaylen Warren YES Rush + Rec TD; Jonah Coleman MORE 53.5 Rushing Yds; Rico Dowdle YES Rush + Rec TD.",
     "legs": [
       {
         "leg_num": 1,
@@ -64480,7 +64498,7 @@
         "price": null,
         "pick6_multiplier": 1.9,
         "price_source": "Pick6 submitted screen sent by Andy; per-pick multiplier where shown",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261127_pick6_4pick_denpit_warren_td_coleman54_bernard14_dowdle_td_1",
         "source": "Andy user-reported official entry",
         "threshold_operator": "at_least",
@@ -64503,7 +64521,7 @@
         "price": null,
         "pick6_multiplier": 0.8,
         "price_source": "Pick6 submitted screen sent by Andy; per-pick multiplier where shown",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261127_pick6_4pick_denpit_warren_td_coleman54_bernard14_dowdle_td_2",
         "source": "Andy user-reported official entry",
         "threshold_operator": "at_least",
@@ -64526,7 +64544,7 @@
         "price": null,
         "pick6_multiplier": null,
         "price_source": "Pick6 submitted screen sent by Andy; per-pick multiplier where shown",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_bet_20261127_pick6_4pick_denpit_warren_td_coleman54_bernard14_dowdle_td_3",
         "source": "Andy user-reported official entry",
         "threshold_operator": "at_least",
@@ -64549,7 +64567,7 @@
         "price": null,
         "pick6_multiplier": 2.9,
         "price_source": "Pick6 submitted screen sent by Andy; per-pick multiplier where shown",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_bet_20261127_pick6_4pick_denpit_warren_td_coleman54_bernard14_dowdle_td_4",
         "source": "Andy user-reported official entry",
         "threshold_operator": "at_least",
@@ -64559,6 +64577,9 @@
         "kickoff_utc": "2026-11-27T20:00:00.000Z",
         "game_start": "11/27/2026 @ 12:00 PM"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5.0,
+    "graded_at": "2026-11-27T22:55:00Z"
   }
 ]

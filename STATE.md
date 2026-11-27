@@ -8,13 +8,15 @@ Updated: Fri 2026-11-27 ~11:50 AM PT (Claude Team 2, W12 Wed/Thu wrap). Another 
 ## W12 Wed/Thu — SETTLED 11-27 (32 by settler + 5 by hand)
 - Finals: LAR 26-13 GB; CHI 39-35 DET; PHI 39-38 DAL; BUF 13-10 KC.
 - Cashed: FDP 3-leg +$19.20; BKR CHI@DET SGP 742375974 +$224.60; BKR KC+3.5/U47.5 742416836 +$86. RR 742351627: 5 of 8 legs → 5 combos, returned $83.12 (net -$21.88). Everything else lost.
-- Net W12 so far: official bankroll +$79.13; all books incl. DKP/FDP/Pick6 -$96.44.
+- Net W12 so far (thru Fri): official bankroll +$164.33; all books incl. DKP/FDP/Pick6 -$71.06.
 - Hand-graded losses: BOL 1019155914-1 (DAL ML), BOL 1019185837, DKP Andy 10-pick, Pick6 8-pick, FDP 2H 4-sel (other session's row).
 - Alejandro: Wed split and Thu split both lost (he owes $5 each). The DKP 6-pick ATD "split" was never placed → moved to Imaginary (`paper_w12_thu_alejandro_6pick_atd_not_placed`); copy kept at `data/official-picks/unconfirmed-w12-alejandro-6pick-atd.json`. Andy runs `npm run tracker:alejandro:publish`.
 
+## Fri DEN@PIT — SETTLED 11-27 (PIT 27-5, total 32)
+- Cashed: BKR live 2-leg 742458858 PIT +5 / o30.5 +$85.20. Lost: DKP 5-pick, 4-pick, 6-pick x2, FDP 6-leg, Pick6 4-pick (-$54.82, all off bankroll). Coleman 0 TD / 26 rush yds sank most.
+
 ## Still PENDING (W12)
 - DKP 8-pick M1 alt ($10→$525): Thu legs all WON (Cook TD, Cook 117 rush, Kelce 4 rec); Sun: WAS -6.5, LV +6.5, NYG -5.5, MIN ML, BAL/HOU o42.5.
-- DKP DEN@PIT, Fri 12:00 PT: 5-pick +20% boost ($9.94→$100.01) and 4-pick +10% boost ($9.94→$92.51: Warren TD / Bernard 3+ rec / U45.5 / Boswell 1+ FG), and 6-pick +10% boost ($9.94→$146.41: o33.5 / Lutz 2+ FG / Bernard 20+ yds / Rudolph INT / Coleman TD / Coleman 60+), and 6-pick +10% boost ($10→$508.30: Singleton 9+ / Warren 20+ rec yds / Warren TD / Coleman TD / Lutz 2+ FG / Dowdle 50+ rush+rec). FDP 6-leg SGC ($10→$293.38: Coleman TD / PIT +4.5 / Coleman 49.5+ / Bernard 3+ rec / Warren 3+ rec / Rudolph INT). BKR live 2-leg 742458858 ($40→$125.20: PIT +5 / o30.5). Pick6 4-pick ($5→$275+: Warren TD / Coleman 53.5+ / Bernard 13.5+ / Dowdle TD).
 - Imaginary/paper W12 tickets not graded.
 
 ## Tracker change this session
