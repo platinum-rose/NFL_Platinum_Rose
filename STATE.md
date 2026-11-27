@@ -14,7 +14,7 @@ Updated: Fri 2026-11-27 ~11:50 AM PT (Claude Team 2, W12 Wed/Thu wrap). Another 
 
 ## Still PENDING (W12)
 - DKP 8-pick M1 alt ($10→$525): Thu legs all WON (Cook TD, Cook 117 rush, Kelce 4 rec); Sun: WAS -6.5, LV +6.5, NYG -5.5, MIN ML, BAL/HOU o42.5.
-- DKP DEN@PIT 5-pick +20% boost ($9.94→$100.01), Fri 12:00 PT.
+- DKP DEN@PIT, Fri 12:00 PT: 5-pick +20% boost ($9.94→$100.01) and 4-pick +10% boost ($9.94→$92.51: Warren TD / Bernard 3+ rec / U45.5 / Boswell 1+ FG).
 - Imaginary/paper W12 tickets not graded.
 
 ## Tracker change this session
