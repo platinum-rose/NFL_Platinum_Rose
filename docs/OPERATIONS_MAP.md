@@ -44,7 +44,7 @@ Every capture also records the account balance (`scripts/props/book-balance.mjs`
 - Weekly card `reports/bets/2026-w<NN>-card.md`; template `docs/NFL_WEEKLY_CARD_PROCESS.md` (slot 9 = Island stacks); Island proposals `reports/bets/2026-w<NN>-<slate>-island-stacks.md`.
 - Pre-buy check (run before anything is placed): `python scripts/cards/check_overlap.py --week N --date <slate> --candidates data/official-picks/candidates-<...>.json`.
 - Rules registry: `reports/bets/season-recap/rules/rules-2026.json`, managed by `reports/bets/season-recap/scripts/rules.py` (propose / accept / retire / check; max 3 proposals per week).
-- Funding: DKP combos are promo (DKP winnings balance) until it runs out; promo tickets are exempt from cash rules (S1 leg cap, S21 Island band) but not from S5.
+- Funding: the DKP winnings balance ran out 2026-11-27 (Andy). From then on, until further notice, DKP tickets are cash: they count against the official bankroll and follow cash card rules (S1: max 4 legs, DKP up to 6; 7+ promo only). Promo tickets elsewhere stay exempt from cash rules (S1 leg cap, S21 Island band) but not from S5.
 
 ## Ledgers
 | Ledger | Path | Notes |
@@ -56,7 +56,7 @@ Every capture also records the account balance (`scripts/props/book-balance.mjs`
 | Promotions | `data/sportsbooks/promotions-2026.json` | |
 
 ## Bankroll and book reconciliation
-- Official bankroll: `node scripts/lib/bankroll.mjs [--week N] [--json]`. DraftKings Predictions, Pick6 and FanDuel Predicts are exempt by book name; everything else counts.
+- Official bankroll: `node scripts/lib/bankroll.mjs [--week N] [--json]`. Pick6 and FanDuel Predicts are exempt by book name; DraftKings Predictions was exempt through 2026-11-27 3:57 PM PT and counts as cash after that (`DKP_CASH_FROM` in `scripts/lib/bankroll.mjs`; set `counts_against_bankroll: true` on a date-only 11/27 DKP ticket placed later). Everything else counts.
 - Balances: `data/bankroll/book-balances-2026.jsonl` (every capture), `book-balances-latest.json`, manual `book-balances-manual-2026.csv`; per-site selector overrides `balance-selectors.json`.
 - Deposits/withdrawals/bonuses: `data/bankroll/book-transactions-2026.csv`.
 - Book history parsers: `python scripts/bankroll/parse_bkr_history.py <raw>` and `parse_bol_history.py <raw...>` (raw pastes in `data/bankroll/raw/`). Reconciled 11/18: BKR $800.00, BOL $75.12.

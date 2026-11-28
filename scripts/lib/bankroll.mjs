@@ -3,6 +3,10 @@
 // A settled ticket counts toward Andy's official bankroll unless it is exempt. Exempt means:
 //   - the book is DraftKings Predictions, DraftKings Pick6 or FanDuel Predicts (solo or split,
 //     cash- or promo-funded). DK is reported separately at account balance minus deposits.
+//     EXCEPTION (Andy, 2026-11-27 3:57 PM PT): the DKP winnings balance is used up, so DraftKings
+//     Predictions tickets placed after that moment count as cash against the bankroll until further
+//     notice. DKP_CASH_FROM is the cutoff: placed_at at/after it, or a date after 2026-11-27, counts;
+//     counts_against_bankroll: true forces a ticket to count (e.g. a date-only 11/27 ticket placed later).
 //   - or the ticket carries bankroll_exempt / exclude_from_bankroll / exclude_from_andy_bankroll
 //     (legacy NCAA open-spot fills, BetOnline Bills bonus bets, and similar hand-flagged tickets).
 // A counted ticket contributes profit_usd x Andy's share. Andy's share comes from
@@ -12,6 +16,16 @@
 // Python callers (post-mortem, scorecard) shell out with --json so there is one implementation.
 
 export const EXEMPT_BOOKS = new Set(['DraftKings Predictions', 'DraftKings Pick6', 'FanDuel Predicts']);
+export const DKP_BOOK = 'DraftKings Predictions';
+export const DKP_CASH_FROM = '2026-11-27T15:57:00-08:00';
+
+// True when a DKP ticket falls after the winnings balance ran out (counts as cash on the bankroll).
+export function isDkpCashEra(w) {
+  if (w.book !== DKP_BOOK) return false;
+  if (w.counts_against_bankroll === true) return true;
+  if (w.placed_at) { const t = Date.parse(w.placed_at); if (!Number.isNaN(t)) return t >= Date.parse(DKP_CASH_FROM); }
+  return typeof w.date === 'string' && w.date.slice(0, 10) > DKP_CASH_FROM.slice(0, 10);
+}
 
 const num = (x) => (x === null || x === undefined || x === '' || Number.isNaN(Number(x)) ? null : Number(x));
 const round2 = (x) => Math.round(x * 100) / 100;
@@ -21,7 +35,7 @@ export function isPromoFunded(w) {
 }
 
 export function exemptReason(w) {
-  if (EXEMPT_BOOKS.has(w.book)) return `book: ${w.book}`;
+  if (EXEMPT_BOOKS.has(w.book) && !isDkpCashEra(w)) return `book: ${w.book}`;
   if (w.bankroll_exempt === true) return w.bankroll_exempt_reason || 'bankroll_exempt flag';
   if (w.exclude_from_bankroll === true) return 'exclude_from_bankroll flag';
   if (w.exclude_from_andy_bankroll === true) return 'exclude_from_andy_bankroll flag';
@@ -77,7 +91,7 @@ export function summarizeBankroll(ledger, { throughWeek = Infinity } = {}) {
     .sort((a, b) => (a.week ?? 99) - (b.week ?? 99));
   const sum = (f) => round2(weeks.reduce((s, b) => s + f(b), 0));
   return {
-    rule: 'Andy 2026-11-17: DKP, Pick6 and FDP off the bankroll (solo and split, any funding); counted tickets at profit_usd x Andy share',
+    rule: 'Andy 2026-11-17: DKP, Pick6 and FDP off the bankroll (solo and split, any funding); Andy 2026-11-27: DKP placed after 3:57 PM PT 11/27 counts as cash (winnings used up); counted tickets at profit_usd x Andy share',
     weeks,
     season: { bankroll: sum((b) => b.bankroll), counted_tickets: sum((b) => b.counted_tickets), exempt_andy: sum((b) => b.exempt_andy), exempt_tickets: sum((b) => b.exempt_tickets) },
     open_tickets: entries.filter((e) => !e.settled).map((e) => e.id),
